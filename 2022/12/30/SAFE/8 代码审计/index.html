@@ -1,0 +1,684 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="X_T" href="http://n1h1l157.github.io/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="X_T" href="http://n1h1l157.github.io/atom.xml" />
+<link rel="alternate" type="application/json" title="X_T" href="http://n1h1l157.github.io/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="渗透测试" />
+
+
+<link rel="canonical" href="http://n1h1l157.github.io/2022/12/30/SAFE/8%20%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/">
+
+
+
+  <title>
+XD22 8 代码审计 - 信息安全 |
+Phut Hon = X_T = 天行健，君子以自强不息</title>
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">XD22 8 代码审计
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="创建时间：2022-12-30 00:00:00">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">发表于</span>
+    <time itemprop="dateCreated datePublished" datetime="2022-12-30T00:00:00+08:00">2022-12-30</time>
+  </span>
+  <span class="item" title="本文字数">
+    <span class="icon">
+      <i class="ic i-pen"></i>
+    </span>
+    <span class="text">本文字数</span>
+    <span>2.9k</span>
+    <span class="text">字</span>
+  </span>
+  <span class="item" title="阅读时长">
+    <span class="icon">
+      <i class="ic i-clock"></i>
+    </span>
+    <span class="text">阅读时长</span>
+    <span>5 分钟</span>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切换导航栏">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Phut Hon</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/Atnrq5DWxYZj7wN.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/wg9Jirc8VSKP2ly.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/IN5LOBHrAwVsnC4.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/gs6XxBVA1FQvmG4.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/8LXqKFmt3HObeTC.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/Pqn3SXIzyRidv6H.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">首页</a></span><i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/" itemprop="item" rel="index" title="分类于 信息安全"><span itemprop="name">信息安全</span></a>
+<meta itemprop="position" content="1" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
+  <link itemprop="mainEntityOfPage" href="http://n1h1l157.github.io/2022/12/30/SAFE/8%20%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content=".N1h1l157">
+    <meta itemprop="description" content="天行健，君子以自强不息, 人生如逆旅，我亦是行人">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="X_T">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h3 id="php-代码审计"><a class="markdownIt-Anchor" href="#php-代码审计">#</a> php 代码审计</h3>
+<h4 id="php-sql注入"><a class="markdownIt-Anchor" href="#php-sql注入">#</a> php sql 注入</h4>
+<p>1day 去敏 cnvd 漏洞复现：</p>
+<ul>
+<li>梦想 CMS 后台 Bo***.cl***.php 文件存在 SQL 注入漏洞</li>
+</ul>
+<p>漏洞说明:<span class="exturl" data-url="aHR0cHM6Ly93d3cuY252ZC5vcmcuY24vZmxhdy9zaG93L0NOVkQtMjAyMC01OTQ2Ng==">https://www.cnvd.org.cn/flaw/show/CNVD-2020-59466</span></p>
+<p><code>http://localhost:8081/lmxcms1.4/admin.php?m=book&amp;a=reply&amp;id=1)%20and% 20updatexml(0,concat(0x7e,user()),1)%23</code></p>
+<p>通过寻找到漏洞存在的文件，查找相关的 sql 注入，根据可输入的变量与变 量在代码中的执行流程来寻找，跟踪变量在代码中的行走轨迹，并进行过滤的 绕过，最后将数据库中执行的代码打印出来进行闭合并爆出敏感信息</p>
+<ul>
+<li>LmxCMS V1.4 前台 Ta***.cl***.php 存在 SQL 注入漏洞</li>
+</ul>
+<p>漏洞说明:<span class="exturl" data-url="aHR0cHM6Ly93d3cuY252ZC5vcmcuY24vZmxhdy9zaG93L0NOVkQtMjAxOS0wNTY3NA==">https://www.cnvd.org.cn/flaw/show/CNVD-2019-05674</span></p>
+<p>对比 1.4 与 1.41 文件代码不同更方便 - Beyond Compare 4</p>
+<p><code>http://localhost:8081/lmxcms1.4/?m=tags&amp;name=%25%36%31%25%32%37%25%.....</code></p>
+<p>进行新旧版本的对比之后，寻找更新的代码，用 beyond 工具可以很方便的，看出来被更新过的文件，通过更新来判断哪些漏洞被修复依次来判断出之前的 版本的漏洞的产生点。其次，此漏洞是因为用户的浏览器会自动进行一次 url 解 码，而前台的代码仍旧含有 urldecode 函数，导致用户编码两次的恶意 sql 注入 代码被执行。</p>
+<h4 id="php-文件操作"><a class="markdownIt-Anchor" href="#php-文件操作">#</a> php 文件操作</h4>
+<ul>
+<li>文件读取</li>
+</ul>
+<p>有敏感的函数，是从敏感函数全局搜索跟踪变量，进行可控变量的寻找， 然后绕过相关过滤机制，进行任意文件读取的一种操作。</p>
+<ul>
+<li>文件下载</li>
+</ul>
+<p>从功能点挖掘，因为是没有文件下载对应函数的，抓包分析对应代码，看 下载的变量是否可以控制，追踪此变量所在的方法及最终被谁控制的，这个控 制此变量的因素是否能人为的修改，如果能够人为修改，是否有相应的过滤， 有过滤的话还需要绕过过滤；需要将网站界面代码和数据库统统对应上，分析 数据库中的数据来源及人为可控程度，进而依据此漏洞来读取敏感文件如数据 库配置文件。</p>
+<ul>
+<li>文件删除</li>
+</ul>
+<p>关键字挖掘 - 文件删除搜索关键字 unlink，对应函数 del_file，查看调用，后 台 delfile 函数调用，如何处理 delfile 函数，受参数控制，进行测试，构造 Payload - 确定过滤 - 重新构造 Payload - 配合重装机制实现重装漏洞。</p>
+<ul>
+<li>未授权漏洞配合文件删除</li>
+</ul>
+<p>代码执行逻辑问题，文件在后台被删除的时候虽然已经跳转到了登录界面，但是仍然可以继续执行此前的代码，导致恶意命令执行成功。</p>
+<h4 id="php-rce"><a class="markdownIt-Anchor" href="#php-rce">#</a> php RCE</h4>
+<ul>
+<li>常见漏洞关键字</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">如下</span></span><br><span class="line">SQL注入：select insert update mysql_query mysqli等</span><br><span class="line">文件上传：$_FILES，type=&quot;file&quot;，上传，move_uploaded_file()等</span><br><span class="line">XSS跨站：print print_r echo sprintf die var_dump var_export等</span><br><span class="line">文件包含：include include_once require require_once等</span><br><span class="line">代码执行：eval assert preg_replace call_user_func call_user_func_array等</span><br><span class="line">命令执行：system exec shell_exec `` passthru pcntl_exec popen proc_open</span><br><span class="line">变量覆盖：extract() parse_str() importrequestvariables() $$ 等</span><br><span class="line">反序列化：serialize() unserialize() __construct __destruct等</span><br><span class="line">其他漏洞：unlink() file_get_contents() show_source() file() fopen()等</span><br></pre></td></tr></table></figure>
+<ul>
+<li>RCE 挖掘思路</li>
+</ul>
+<p>常规或部分 MVC 模型源码可以采用关键字的搜索挖掘思路。</p>
+<p>框架 MVC 源码一般会采用功能点分析抓包追踪挖掘思路，可能会把代码进 行封装，不在用原有的函数而是采用框架封装后的代码。</p>
+<p>依然是从函数出发，全局搜索出来可能执行系统命令的函数如 system，查 看是否有可控变量，进行追踪变量，判断是否能绕过相关过滤。</p>
+<ul>
+<li>linux 命令拼接</li>
+</ul>
+<p>通过 &amp; 或者 | 可以拼接命令，如果前边或者后边的语法有问题则会报错但是拼接另外一边的正确命令仍然会被执行，如 xxxx&amp;id&amp;1.txt 则会出现 id 的执行效果。</p>
+<h4 id="php反序列化"><a class="markdownIt-Anchor" href="#php反序列化">#</a> php 反序列化</h4>
+<ul>
+<li>自动审计或搜索关键字找到文件及代码段</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">寻找关键词unseriral()，找到之后判断魔术方法会执行到哪里，看是否能执行到魔术方法，进行构造，伪造参数绕过相关过滤。</span></span><br><span class="line">__wakeup() //使用unserialize时触发</span><br><span class="line">__sleep() //使用serialize时触发</span><br><span class="line">__destruct() //对象被销毁时触发</span><br><span class="line">__call() //在对象上下文中调用不可访问的方法时触发</span><br><span class="line">__callStatic() //在静态上下文中调用不可访问的方法时触发</span><br><span class="line">__get() //用于从不可访问的属性读取数据</span><br><span class="line">__set() //用于将数据写入不可访问的属性</span><br><span class="line">__isset() //在不可访问的属性上调用isset()或empty()触发</span><br><span class="line">__unset() //在不可访问的属性上使用unset()时触发</span><br><span class="line">__toString() //把类当作字符串使用时触发</span><br><span class="line">__invoke() //当脚本尝试将对象调用为函数时触发</span><br></pre></td></tr></table></figure>
+<h3 id="tp代码审计"><a class="markdownIt-Anchor" href="#tp代码审计">#</a> tp 代码审计</h3>
+<ul>
+<li>tp 框架漏洞挖掘</li>
+</ul>
+<p>一般分为 1day 和 0day，1day 的话是网络上已经确定了有此版本对应框架的 漏洞，但是未公开处来 poc，在 github 上也能搜索到安全更新等关键词，可以拿 到新更新的源码和之前的版本用 beyond 版本进行对比，审计 1day 代码审计， 获取 1day 的 exp。</p>
+<p>主要还是查代码，走流程，看功能或者特定函数，看过滤，判断能否绕过，打断点，追踪数据流，对应 url 地址与代码端进行漏洞的挖掘。框架 0day 就别 想了，太难了，可以对照搞几个 1day 尝试一下。</p>
+<ul>
+<li>利用官方更新说明探针</li>
+</ul>
+<p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3RvcC10aGluay9mcmFtZXdvcms=">https://github.com/top-think/framework</span><br>
+<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL01vY2hhenovVGhpbmtQSFAtVnVsbg==">https://github.com/Mochazz/ThinkPHP-Vuln</span></p>
+<h3 id="net代码审计"><a class="markdownIt-Anchor" href="#net代码审计">#</a> net 代码审计</h3>
+<p>asp.net 可以用 C# ，<span class="exturl" data-url="aHR0cDovL1ZCLk5FVA==">VB.NET</span> ，Jscript.net 等等来开发，但是通常首选都是 C#<span class="exturl" data-url="aHR0cDovL3huLS1WQi1peTZjLk5FVA==">和 VB.NET</span>，审计 asp.net 的时候，首先得弄明白他的结构，他并不像 php 那么单纯。在 asp.net 应用中，需要进行观察的文件有：.aspx，.cs，.ashx，dll。</p>
+<p>.aspx 是页面后的代码，aspx 负责显示，服务器端的动作就是在.cs 定义的<br>
+.cs 是类文件，里边是程序和函数<br>
+.ashx 是一般处理程序，主要用于写 web handler, 可以理解成不会显示的 aspx 页面<br>
+.dll 就是 cs 文件编译之后的程序集</p>
+<h3 id="java代码审计没听"><a class="markdownIt-Anchor" href="#java代码审计没听">#</a> java 代码审计（没听）</h3>
+<p>没听懂，我日他妈，真他妈难</p>
+
+      <div class="tags">
+          <a href="/tags/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/" rel="tag"><i class="ic i-tag"></i> 渗透测试</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">更新于</span>
+    <time title="修改时间：2023-07-04 22:30:27" itemprop="dateModified" datetime="2023-07-04T22:30:27+08:00">2023-07-04</time>
+  </span>
+  <span id="2022/12/30/SAFE/8 代码审计/" class="item leancloud_visitors" data-flag-title="XD22 8 代码审计" title="阅读次数">
+      <span class="icon">
+        <i class="ic i-eye"></i>
+      </span>
+      <span class="text">阅读次数</span>
+      <span class="leancloud-visitors-count"></span>
+      <span class="text">次</span>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> 赞赏</button>
+  <p>请我喝[茶]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/wechatpay.png" alt=".N1h1l157 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/alipay.png" alt=".N1h1l157 支付宝">
+        <p>支付宝</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/paypal.png" alt=".N1h1l157 贝宝">
+        <p>贝宝</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>本文作者： </strong>.N1h1l157 <i class="ic i-at"><em>@</em></i>X_T
+  </li>
+  <li class="link">
+    <strong>本文链接：</strong>
+    <a href="http://n1h1l157.github.io/2022/12/30/SAFE/8%20%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/" title="XD22 8 代码审计">http://n1h1l157.github.io/2022/12/30/SAFE/8 代码审计/</a>
+  </li>
+  <li class="license">
+    <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/2022/12/30/SAFE/9%20%E6%9D%83%E9%99%90%E6%8F%90%E5%8D%87/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s2.loli.net&#x2F;2023&#x2F;04&#x2F;01&#x2F;Grs6dKwtj2mN8V5.jpg" title="XD22 9 权限提升">
+  <span class="type">上一篇</span>
+  <span class="category"><i class="ic i-flag"></i> 信息安全</span>
+  <h3>XD22 9 权限提升</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/2022/12/30/SAFE/7%20waf%E6%94%BB%E9%98%B2/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s2.loli.net&#x2F;2023&#x2F;04&#x2F;01&#x2F;PCwuTAfIR1Bnpkz.jpg" title="XD22 7 Waf 攻防">
+  <span class="type">下一篇</span>
+  <span class="category"><i class="ic i-flag"></i> 信息安全</span>
+  <h3>XD22 7 Waf 攻防</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目录">
+          <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#php-%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1"><span class="toc-number">1.</span> <span class="toc-text"> php 代码审计</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#php-sql%E6%B3%A8%E5%85%A5"><span class="toc-number">1.1.</span> <span class="toc-text"> php sql 注入</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#php-%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C"><span class="toc-number">1.2.</span> <span class="toc-text"> php 文件操作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#php-rce"><span class="toc-number">1.3.</span> <span class="toc-text"> php RCE</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#php%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96"><span class="toc-number">1.4.</span> <span class="toc-text"> php 反序列化</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#tp%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1"><span class="toc-number">2.</span> <span class="toc-text"> tp 代码审计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#net%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1"><span class="toc-number">3.</span> <span class="toc-text"> net 代码审计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#java%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%E6%B2%A1%E5%90%AC"><span class="toc-number">4.</span> <span class="toc-text"> java 代码审计（没听）</span></a></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="系列文章">
+        <ul>
+          <li><a href="/2022/12/30/SAFE/1%20WEB%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" rel="bookmark" title="XD22 1 Web 基础知识">XD22 1 Web 基础知识</a></li><li><a href="/2022/12/30/SAFE/10%20%E5%85%8D%E6%9D%80%E5%AF%B9%E6%8A%97/" rel="bookmark" title="XD22 10 免杀对抗">XD22 10 免杀对抗</a></li><li><a href="/2022/12/30/SAFE/11%20%E5%86%85%E7%BD%91%E5%AE%89%E5%85%A8/" rel="bookmark" title="XD22 11 内网安全">XD22 11 内网安全</a></li><li><a href="/2022/12/30/SAFE/12%20%E6%9D%83%E9%99%90%E7%BB%B4%E6%8C%81/" rel="bookmark" title="XD22 12 权限维持">XD22 12 权限维持</a></li><li><a href="/2022/12/30/SAFE/13%20%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%86/" rel="bookmark" title="XD22 13 补充知识">XD22 13 补充知识</a></li><li><a href="/2022/12/30/SAFE/14%20%E6%89%93%E7%A0%B4%E5%B8%B8%E8%A7%84/" rel="bookmark" title="XD22 14 打破常规">XD22 14 打破常规</a></li><li><a href="/2022/12/30/SAFE/4%20API%E6%94%BB%E9%98%B2/" rel="bookmark" title="XD22 4 API 攻防">XD22 4 API 攻防</a></li><li><a href="/2022/12/30/SAFE/3%20%E6%9C%8D%E5%8A%A1%E6%94%BB%E9%98%B2/" rel="bookmark" title="XD22 3 服务攻防">XD22 3 服务攻防</a></li><li><a href="/2022/12/30/SAFE/5%20APP%E6%94%BB%E9%98%B2/" rel="bookmark" title="XD22 5 APP 攻防">XD22 5 APP 攻防</a></li><li><a href="/2022/12/30/SAFE/6%20%E6%BC%8F%E6%B4%9E%E5%8F%91%E7%8E%B0%E5%8F%8A%E5%88%A9%E7%94%A8/" rel="bookmark" title="XD22 6 漏洞发现及利用">XD22 6 漏洞发现及利用</a></li><li><a href="/2022/12/30/SAFE/2%20WEB%E9%80%9A%E7%94%A8%E6%BC%8F%E6%B4%9E/" rel="bookmark" title="XD22 2 Web 通用漏洞">XD22 2 Web 通用漏洞</a></li><li><a href="/2022/12/30/SAFE/7%20waf%E6%94%BB%E9%98%B2/" rel="bookmark" title="XD22 7 Waf 攻防">XD22 7 Waf 攻防</a></li><li class="active"><a href="/2022/12/30/SAFE/8%20%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/" rel="bookmark" title="XD22 8 代码审计">XD22 8 代码审计</a></li><li><a href="/2022/12/30/SAFE/9%20%E6%9D%83%E9%99%90%E6%8F%90%E5%8D%87/" rel="bookmark" title="XD22 9 权限提升">XD22 9 权限提升</a></li><li><a href="/2023/05/01/SAFE/Trojan/" rel="bookmark" title="Trojan 生成">Trojan 生成</a></li><li><a href="/2023/05/10/SAFE/Security%20URL/" rel="bookmark" title="信息安全 网址">信息安全 网址</a></li><li><a href="/2023/05/19/SAFE/Linux/" rel="bookmark" title="Linux 命令">Linux 命令</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="站点概览">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt=".N1h1l157"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">.N1h1l157</p>
+  <div class="description" itemprop="description">人生如逆旅，我亦是行人</div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">167</span>
+        <span class="name">文章</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">5</span>
+        <span class="name">分类</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">39</span>
+        <span class="name">标签</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL04xaDFsMTU3" title="https:&#x2F;&#x2F;github.com&#x2F;N1h1l157"><i class="ic i-github"></i></span>
+      <span class="exturl item twitter" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS9YVDcyNzgwMzA4" title="https:&#x2F;&#x2F;twitter.com&#x2F;XT72780308"><i class="ic i-twitter"></i></span>
+      <span class="exturl item weibo" data-url="aHR0cHM6Ly9tLndlaWJvLmNuL3Byb2ZpbGUvNTgyOTg0MzUyNQ==" title="https:&#x2F;&#x2F;m.weibo.cn&#x2F;profile&#x2F;5829843525"><i class="ic i-weibo"></i></span>
+      <span class="exturl item about" data-url="aHR0cHM6Ly90Lm1lL24xaDFsMTU3" title="https:&#x2F;&#x2F;t.me&#x2F;n1h1l157"><i class="ic i-address-card"></i></span>
+      <span class="exturl item email" data-url="bWFpbHRvOjEyMjgwNTc4NjlAcXEuY29t" title="mailto:1228057869@qq.com"><i class="ic i-envelope"></i></span>
+      <span class="exturl item facebook" data-url="aHR0cHM6Ly93d3cuZmFjZWJvb2suY29tL3Byb2ZpbGUucGhwP2lkPTEwMDA4NDUzNzQwNTEzNw==" title="https:&#x2F;&#x2F;www.facebook.com&#x2F;profile.php?id&#x3D;100084537405137"><i class="ic i-facebook"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>首页</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/about/" rel="section"><i class="ic i-user"></i>关于</a>
+  </li>
+
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-feather"></i>文章</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/archives/" rel="section"><i class="ic i-list-alt"></i>归档</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/categories/" rel="section"><i class="ic i-th"></i>分类</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/tags/" rel="section"><i class="ic i-tags"></i>标签</a>
+  </li>
+
+  </ul>
+    
+  <li class="item">
+    <a href="/links/" rel="section"><i class="ic i-magic"></i>友链</a>
+  </li>
+
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-clipboard"></i>书架</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/books/LITERATURE/" rel="section"><i class="ic i-fedora"></i>LITERATURE</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/books/VULNHUB/" rel="section"><i class="ic i-android"></i>X_T-VULNHUB</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/books/XIAODI/" rel="section"><i class="ic i-opera"></i>XIAODI-SAFE</a>
+  </li>
+
+  </ul>
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/2022/12/30/SAFE/9%20%E6%9D%83%E9%99%90%E6%8F%90%E5%8D%87/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/2022/12/30/SAFE/7%20waf%E6%94%BB%E9%98%B2/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>随机文章</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/" title="分类于 信息安全">信息安全</a>
+</div>
+
+    <span><a href="/2022/12/30/SAFE/1%20WEB%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" title="XD22 1 Web 基础知识">XD22 1 Web 基础知识</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/MBTI/" title="分类于 MBTI">MBTI</a>
+</div>
+
+    <span><a href="/2020/04/01/MBTI/%E9%83%A8%E5%88%86%E5%AD%97%E6%AF%8D%E7%89%B9%E5%BE%81/" title="部分字母特征">部分字母特征</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E6%96%87%E5%AD%A6/" title="分类于 文学">文学</a>
+</div>
+
+    <span><a href="/2019/07/01/BOOK/70%E3%80%8A%E8%A2%AB%E8%AE%A8%E5%8E%8C%E7%9A%84%E5%8B%87%E6%B0%94%E3%80%8B%E5%B2%B8%E8%A7%81%E4%B8%80%E9%83%8E/" title="《被讨厌的勇气》岸见一郎">《被讨厌的勇气》岸见一郎</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/MBTI/" title="分类于 MBTI">MBTI</a>
+</div>
+
+    <span><a href="/2020/04/01/MBTI/ESTJ%E8%A7%A3%E8%AF%BB/" title="ESTJ解读">ESTJ解读</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E6%96%87%E5%AD%A6/" title="分类于 文学">文学</a>
+</div>
+
+    <span><a href="/2019/07/01/BOOK/9%E3%80%8A%E8%AE%B8%E4%B8%89%E8%A7%82%E5%8D%96%E8%A1%80%E8%AE%B0%E3%80%8B%E4%BD%99%E5%8D%8E/" title="《许三观卖血记》余华">《许三观卖血记》余华</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E4%B8%96%E7%95%8C%E5%90%8D%E8%91%97/" title="分类于 世界名著">世界名著</a>
+</div>
+
+    <span><a href="/2019/07/01/BOOK/37%E3%80%8A%E6%97%A0%E5%90%8D%E7%9A%84%E8%A3%98%E5%BE%B7%E3%80%8B%E6%89%98%E9%A9%AC%E6%96%AF%C2%B7%E5%93%88%E4%BB%A3/" title="《无名的裘德》托马斯·哈代">《无名的裘德》托马斯·哈代</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/MBTI/" title="分类于 MBTI">MBTI</a>
+</div>
+
+    <span><a href="/2020/04/01/MBTI/ESTP%E8%A7%A3%E8%AF%BB/" title="ESTP解读">ESTP解读</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/MBTI/" title="分类于 MBTI">MBTI</a>
+</div>
+
+    <span><a href="/2023/04/01/MBTI/INFJ%E5%88%86%E6%9E%90/" title="INFJ 分析">INFJ 分析</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E6%96%87%E5%AD%A6/" title="分类于 文学">文学</a>
+</div>
+
+    <span><a href="/2019/07/01/BOOK/10%E3%80%8A%E6%91%86%E6%B8%A1%E4%BA%BA%E3%80%8B%E5%85%8B%E8%8E%B1%E5%B0%94%C2%B7%E9%BA%A6%E5%85%8B%E7%A6%8F%E5%B0%94/" title="《摆渡人》克莱尔·麦克福尔">《摆渡人》克莱尔·麦克福尔</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/" title="分类于 信息安全">信息安全</a>
+</div>
+
+    <span><a href="/2022/12/30/SAFE/6%20%E6%BC%8F%E6%B4%9E%E5%8F%91%E7%8E%B0%E5%8F%8A%E5%88%A9%E7%94%A8/" title="XD22 6 漏洞发现及利用">XD22 6 漏洞发现及利用</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>最新评论</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">.N1h1l157 @ Phut Hon</span>
+  </div>
+
+<!--   自定义开启一个网站的运行时间 -->
+  <div class="site-uptime">
+    Site uptime: <span id="site-uptime"></span>
+  </div>
+  <script>
+    var siteUptimeElement = document.getElementById('site-uptime');
+    var siteSetupDate = new Date('2023-03-18'); // 替换为您的网站具体创建日期，格式为 'YYYY-MM-DD'
+    setInterval(function() {
+      var currentTime = new Date();
+      var uptime = formatUptime(currentTime - siteSetupDate);
+      siteUptimeElement.textContent = uptime;
+    }, 1000);
+
+    function formatUptime(milliseconds) {
+      var seconds = Math.floor(milliseconds / 1000);
+      var minutes = Math.floor(seconds / 60);
+      var hours = Math.floor(minutes / 60);
+      var days = Math.floor(hours / 24);
+
+      var uptime = '';
+      if (days > 0) {
+        uptime += days + '天 ';
+      }
+      if (hours > 0) {
+        uptime += (hours % 24) + '时 ';
+      }
+      if (minutes > 0) {
+        uptime += (minutes % 60) + '分 ';
+      }
+      uptime += (seconds % 60) + '秒';
+
+      return uptime;
+    }
+  </script>
+  <div class="powered-by">
+    基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2022/12/30/SAFE/8 代码审计/',
+    favicon: {
+      show: "Cryp71c3",
+      hide: "十年磨一剑"
+    },
+    search : {
+      placeholder: "文章搜索",
+      empty: "关于 「 ${query} 」，什么也没搜到",
+      stats: "${time} ms 内找到 ${hits} 条结果"
+    },
+    valine: true,fancybox: true,
+    copyright: '复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+
+
+</body>
+</html>
