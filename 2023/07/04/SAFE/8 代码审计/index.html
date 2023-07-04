@@ -24,13 +24,15 @@
 <link rel="stylesheet" href="/css/app.css?v=0.2.5">
 
   
+  <meta name="keywords" content="渗透测试" />
+
 
 <link rel="canonical" href="http://n1h1l157.github.io/2023/07/04/SAFE/8%20%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/">
 
 
 
   <title>
- |
+XD22 8 代码审计 - 信息安全 |
 Phut Hon = X_T = 天行健，君子以自强不息</title>
 <meta name="generator" content="Hexo 6.3.0"></head>
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -58,23 +60,23 @@ Phut Hon = X_T = 天行健，君子以自强不息</title>
         <div id="brand">
           <div class="pjax">
           
-  <h1 itemprop="name headline">
+  <h1 itemprop="name headline">XD22 8 代码审计
   </h1>
   
 <div class="meta">
-  <span class="item" title="创建时间：2023-07-04 01:48:04">
+  <span class="item" title="创建时间：2023-07-04 00:00:00">
     <span class="icon">
       <i class="ic i-calendar"></i>
     </span>
     <span class="text">发表于</span>
-    <time itemprop="dateCreated datePublished" datetime="2023-07-04T01:48:04+08:00">2023-07-04</time>
+    <time itemprop="dateCreated datePublished" datetime="2023-07-04T00:00:00+08:00">2023-07-04</time>
   </span>
   <span class="item" title="本文字数">
     <span class="icon">
       <i class="ic i-pen"></i>
     </span>
     <span class="text">本文字数</span>
-    <span>3k</span>
+    <span>2.9k</span>
     <span class="text">字</span>
   </span>
   <span class="item" title="阅读时长">
@@ -115,12 +117,12 @@ Phut Hon = X_T = 天行健，君子以自强不息</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/PJpRugYe4fBbxhD.jpg"></li>
-          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/sAogJHmbkhVBX4D.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/ACqEVOecQP5RyuK.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/vGCLbdJPMhuwg3H.jpg"></li>
           <li class="item" data-background-image="https://s2.loli.net/2023/04/01/NFMXjWC8xLSV4OD.jpg"></li>
-          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/DZRlqjoQg3XAKsz.jpg"></li>
-          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/CKLJoFjD9nR34Sm.jpg"></li>
-          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/js4tJW7km8aqygU.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/BCMkIXvxWUj69pG.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/KW4nDo2ZJuVILkS.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/PJpRugYe4fBbxhD.jpg"></li>
         </ul>
       </div>
     </header>
@@ -145,7 +147,9 @@ Phut Hon = X_T = 天行健，君子以自强不息</title>
     
 <div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
 <i class="ic i-home"></i>
-<span><a href="/">首页</a></span>
+<span><a href="/">首页</a></span><i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/" itemprop="item" rel="index" title="分类于 信息安全"><span itemprop="name">信息安全</span></a>
+<meta itemprop="position" content="1" /></span>
 </div>
 
     <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
@@ -164,95 +168,82 @@ Phut Hon = X_T = 天行健，君子以自强不息</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <h3 id="81-php代码审计"><a class="markdownIt-Anchor" href="#81-php代码审计">#</a> 8.1 php 代码审计</h3>
-<h4 id="811-php-sql注入"><a class="markdownIt-Anchor" href="#811-php-sql注入">#</a> 8.1.1 php sql 注入</h4>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1 day去敏cnvd漏洞复现：</span><br></pre></td></tr></table></figure>
-<p>（ 1 ）梦想 CMS 后台 Bo***.cl***.php 文件存在 SQL 注入漏洞</p>
-<p>漏洞说明：<span class="exturl" data-url="aHR0cHM6Ly93d3cuY252ZC5vcmcuY24vZmxhdy9zaG93L0NOVkQt">https://www.cnvd.org.cn/flaw/show/CNVD-</span> 2020 - 59466<br>
-<span class="exturl" data-url="aHR0cDovL2xvY2FsaG9zdDo4MDgxL2xteGNtczEuNC9hZG1pbi5waHA/bT1ib29rJmFtcDthPXJlcGx5JmFtcDtpZD0x">http://localhost:8081/lmxcms1.4/admin.php?m=book&amp;a=reply&amp;id=1)%20and%</span>%20and%)<br>
-20updatexml(0,concat(0x7e,user()),1)%23<br>
- 通过寻找到漏洞存在的文件，查找相关的 sql 注入，根据可输入的变量与变<br>
-量在代码中的执行流程来寻找，跟踪变量在代码中的行走轨迹，并进行过滤的<br>
-绕过，最后将数据库中执行的代码打印出来进行闭合并爆出敏感信息</p>
-<p>（ 2 ）LmxCMS V1.4 前台 Ta***.cl***.php 存在 SQL 注入漏洞</p>
-<p>漏洞说明：<span class="exturl" data-url="aHR0cHM6Ly93d3cuY252ZC5vcmcuY24vZmxhdy9zaG93L0NOVkQt">https://www.cnvd.org.cn/flaw/show/CNVD-</span> 2019 - 05674<br>
- 对比 1.4 与 1.41 文件代码不同更方便 - Beyond Compare 4<br>
-<span class="exturl" data-url="aHR0cDovL2xvY2FsaG9zdDo4MDgxL2xteGNtczEuNC8/bT10YWdzJmFtcDtuYW1lPSUyNSUzNiUzMSUyNSUzMiUzNyUyNTI=">http://localhost:8081/lmxcms1.4/?m=tags&amp;name=%25%36%31%25%32%37%2</span><br>
-5%…<br>
- 进行新旧版本的对比之后，寻找更新的代码，用 beyond 工具可以很方便的<br>
-看出来被更新过的文件，通过更新来判断哪些漏洞被修复依次来判断出之前的<br>
-版本的漏洞的产生点。其次，此漏洞是因为用户的浏览器会自动进行一次 url 解<br>
-码，而前台的代码仍旧含有 urldecode 函数，导致用户编码两次的恶意 sql 注入<br>
-代码被执行。</p>
-<h4 id="812-php文件操作"><a class="markdownIt-Anchor" href="#812-php文件操作">#</a> 8.1.2 php 文件操作</h4>
-<h5 id="1-文件读取"><a class="markdownIt-Anchor" href="#1-文件读取">#</a> （ 1 ）文件读取</h5>
-<h5 id="有敏感的函数是从敏感函数全局搜索跟踪变量进行可控变量的寻找"><a class="markdownIt-Anchor" href="#有敏感的函数是从敏感函数全局搜索跟踪变量进行可控变量的寻找">#</a> 有敏感的函数，是从敏感函数全局搜索跟踪变量，进行可控变量的寻找，</h5>
-<h5 id="然后绕过相关过滤机制进行任意文件读取的一种操作"><a class="markdownIt-Anchor" href="#然后绕过相关过滤机制进行任意文件读取的一种操作">#</a> 然后绕过相关过滤机制，进行任意文件读取的一种操作。</h5>
-<h5 id="2-文件下载"><a class="markdownIt-Anchor" href="#2-文件下载">#</a> （ 2 ）文件下载</h5>
-<h5 id="从功能点挖掘因为是没有文件下载对应函数的抓包分析对应代码看"><a class="markdownIt-Anchor" href="#从功能点挖掘因为是没有文件下载对应函数的抓包分析对应代码看">#</a> 从功能点挖掘，因为是没有文件下载对应函数的，抓包分析对应代码，看</h5>
-<h5 id="下载的变量是否可以控制追踪此变量所在的方法及最终被谁控制的这个控"><a class="markdownIt-Anchor" href="#下载的变量是否可以控制追踪此变量所在的方法及最终被谁控制的这个控">#</a> 下载的变量是否可以控制，追踪此变量所在的方法及最终被谁控制的，这个控</h5>
-<h5 id="制此变量的因素是否能人为的修改如果能够人为修改是否有相应的过滤"><a class="markdownIt-Anchor" href="#制此变量的因素是否能人为的修改如果能够人为修改是否有相应的过滤">#</a> 制此变量的因素是否能人为的修改，如果能够人为修改，是否有相应的过滤，</h5>
-<h5 id="有过滤的话还需要绕过过滤需要将网站界面代码和数据库统统对应上分析"><a class="markdownIt-Anchor" href="#有过滤的话还需要绕过过滤需要将网站界面代码和数据库统统对应上分析">#</a> 有过滤的话还需要绕过过滤；需要将网站界面代码和数据库统统对应上，分析</h5>
-<h5 id="数据库中的数据来源及人为可控程度进而依据此漏洞来读取敏感文件如数据"><a class="markdownIt-Anchor" href="#数据库中的数据来源及人为可控程度进而依据此漏洞来读取敏感文件如数据">#</a> 数据库中的数据来源及人为可控程度，进而依据此漏洞来读取敏感文件如数据</h5>
-<h5 id="库配置文件"><a class="markdownIt-Anchor" href="#库配置文件">#</a> 库配置文件。</h5>
-<h5 id="3-文件删除"><a class="markdownIt-Anchor" href="#3-文件删除">#</a> （ 3 ）文件删除</h5>
-<p>关键字挖掘 - 文件删除搜索关键字 unlink，对应函数 del_file，查看调用，后<br>
-台 delfile 函数调用，如何处理 delfile 函数，受参数控制，进行测试，构造<br>
- Payload - 确定过滤 - 重新构造 Payload - 配合重装机制实现重装漏洞。</p>
-<p>（ 4 ）未授权漏洞配合文件删除</p>
-<p>代码执行逻辑问题，文件在后台被删除的时候虽然已经跳转到了登录界面，<br>
-但是仍然可以继续执行此前的代码，导致恶意命令执行成功。</p>
-<h4 id="813-php-rce"><a class="markdownIt-Anchor" href="#813-php-rce">#</a> 8.1.3 php RCE</h4>
-<h5 id="1-常见漏洞关键字"><a class="markdownIt-Anchor" href="#1-常见漏洞关键字">#</a> （ 1 ）常见漏洞关键字：</h5>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">SQL注入：select insert update mysql_query mysqli等</span><br><span class="line">文件上传：$_FILES，type=&quot;file&quot;，上传，move_uploaded_file()等</span><br><span class="line">XSS跨站：print print_r echo sprintf die var_dump var_export等</span><br><span class="line">文件包含：include include_once require require_once等</span><br><span class="line">代码执行：eval assert preg_replace call_user_func call_user_func_array等</span><br><span class="line">命令执行：system exec shell_exec `` passthru pcntl_exec popen proc_open</span><br><span class="line">变量覆盖：extract() parse_str() importrequestvariables() $$ 等</span><br><span class="line">反序列化：serialize() unserialize() __construct __destruct等</span><br><span class="line">其他漏洞：unlink() file_get_contents() show_source() file() fopen()等</span><br></pre></td></tr></table></figure>
-<p>（ 2 ）RCE 挖掘思路：</p>
-<p>常规或部分 MVC 模型源码可以采用关键字的搜索挖掘思路。<br>
-框架 MVC 源码一般会采用功能点分析抓包追踪挖掘思路，可能会把代码进<br>
-行封装，不在用原有的函数而是采用框架封装后的代码。<br>
-依然是从函数出发，全局搜索出来可能执行系统命令的函数如 system，查<br>
-看是否有可控变量，进行追踪变量，判断是否能绕过相关过滤。</p>
-<p>（ 3 ）linux 命令拼接：</p>
-<h5 id="通过或者可以拼接命令如果前边或者后边的语法有问题则会报错但是"><a class="markdownIt-Anchor" href="#通过或者可以拼接命令如果前边或者后边的语法有问题则会报错但是">#</a> 通过 &amp; 或者 | 可以拼接命令，如果前边或者后边的语法有问题则会报错但是</h5>
-<p>拼接另外一边的正确命令仍然会被执行，如 xxxx&amp;id&amp;1.txt 则会出现 id 的执行<br>
-效果。</p>
-<h4 id="814-php反序列化"><a class="markdownIt-Anchor" href="#814-php反序列化">#</a> 8.1.4 php 反序列化</h4>
-<h5 id="自动审计或搜索关键字找到文件及代码段"><a class="markdownIt-Anchor" href="#自动审计或搜索关键字找到文件及代码段">#</a> 自动审计或搜索关键字找到文件及代码段</h5>
-<p>__wakeup () // 使用 unserialize 时触发<br>
-__sleep () // 使用 serialize 时触发<br>
-__destruct () // 对象被销毁时触发<br>
-__call () // 在对象上下文中调用不可访问的方法时触发<br>
-__callStatic () // 在静态上下文中调用不可访问的方法时触发<br>
-__get () // 用于从不可访问的属性读取数据<br>
-__set () // 用于将数据写入不可访问的属性<br>
-__isset () // 在不可访问的属性上调用 isset () 或 empty () 触发<br>
-__unset () // 在不可访问的属性上使用 unset () 时触发<br>
-__toString () // 把类当作字符串使用时触发<br>
-__invoke () // 当脚本尝试将对象调用为函数时触发<br>
-寻找关键词 unseriral ()，找到之后判断魔术方法会执行到哪里，看是否能执<br>
-行到魔术方法，进行构造，伪造参数绕过相关过滤。</p>
-<h3 id="82-tp代码审计"><a class="markdownIt-Anchor" href="#82-tp代码审计">#</a> 8.2 tp 代码审计</h3>
-<p>（ 1 ）tp 框架漏洞挖掘</p>
-<p>一般分为 1day 和 0day，1day 的话是网络上已经确定了有此版本对应框架的<br>
-漏洞，但是未公开处来 poc，在 github 上也能搜索到安全更新等关键词，可以拿<br>
-到新更新的源码和之前的版本用 beyond 版本进行对比，审计 1day 代码审计，<br>
-获取 1day 的 exp。<br>
-主要还是查代码，走流程，看功能或者特定函数，看过滤，判断能否绕过，<br>
-打断点，追踪数据流，对应 url 地址与代码端进行漏洞的挖掘。框架 0day 就别<br>
-想了，太难了，可以对照搞几个 1day 尝试一下。</p>
-<p>（ 2 ）利用官方更新说明探针</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">https://github.com/top-think/framework</span><br><span class="line">https://github.com/Mochazz/ThinkPHP-Vuln</span><br></pre></td></tr></table></figure>
-<h3 id="83-net代码审计"><a class="markdownIt-Anchor" href="#83-net代码审计">#</a> 8.3 net 代码审计</h3>
-<p>asp.net 可以用 C# ，<span class="exturl" data-url="aHR0cDovL1ZCLk5FVA==">VB.NET</span> ，Jscript.net 等等来开发，但是通常首选都是<br>
- C#<span class="exturl" data-url="aHR0cDovL3huLS1WQi1peTZjLk5FVA==">和 VB.NET</span>，审计 asp.net 的时候，首先得弄明白他的结构，他并不像 php 那<br>
-么单纯。在 asp.net 应用中，需要进行观察的文件有：.aspx，.cs，.ashx，dll。<br>
-1.aspx 是页面后的代码，aspx 负责显示，服务器端的动作就是在.cs 定义的<br>
- 2 、.cs 是类文件，里边是程序和函数<br>
- 3 、.ashx 是一般处理程序，主要用于写 web handler, 可以理解成不会显示的<br>
- aspx 页面<br>
- 4 、.dll 就是 cs 文件编译之后的程序集</p>
-<h3 id="84-java代码审计没听"><a class="markdownIt-Anchor" href="#84-java代码审计没听">#</a> 8.4 java 代码审计（没听）</h3>
-<h5 id="没听懂我日他妈真他妈难"><a class="markdownIt-Anchor" href="#没听懂我日他妈真他妈难">#</a> 没听懂，我日他妈，真他妈难</h5>
+    <h3 id="php-代码审计"><a class="markdownIt-Anchor" href="#php-代码审计">#</a> php 代码审计</h3>
+<h4 id="php-sql注入"><a class="markdownIt-Anchor" href="#php-sql注入">#</a> php sql 注入</h4>
+<p>1day 去敏 cnvd 漏洞复现：</p>
+<ul>
+<li>梦想 CMS 后台 Bo***.cl***.php 文件存在 SQL 注入漏洞</li>
+</ul>
+<p>漏洞说明:<span class="exturl" data-url="aHR0cHM6Ly93d3cuY252ZC5vcmcuY24vZmxhdy9zaG93L0NOVkQtMjAyMC01OTQ2Ng==">https://www.cnvd.org.cn/flaw/show/CNVD-2020-59466</span></p>
+<p><code>http://localhost:8081/lmxcms1.4/admin.php?m=book&amp;a=reply&amp;id=1)%20and% 20updatexml(0,concat(0x7e,user()),1)%23</code></p>
+<p>通过寻找到漏洞存在的文件，查找相关的 sql 注入，根据可输入的变量与变 量在代码中的执行流程来寻找，跟踪变量在代码中的行走轨迹，并进行过滤的 绕过，最后将数据库中执行的代码打印出来进行闭合并爆出敏感信息</p>
+<ul>
+<li>LmxCMS V1.4 前台 Ta***.cl***.php 存在 SQL 注入漏洞</li>
+</ul>
+<p>漏洞说明:<span class="exturl" data-url="aHR0cHM6Ly93d3cuY252ZC5vcmcuY24vZmxhdy9zaG93L0NOVkQtMjAxOS0wNTY3NA==">https://www.cnvd.org.cn/flaw/show/CNVD-2019-05674</span></p>
+<p>对比 1.4 与 1.41 文件代码不同更方便 - Beyond Compare 4</p>
+<p><code>http://localhost:8081/lmxcms1.4/?m=tags&amp;name=%25%36%31%25%32%37%25%.....</code></p>
+<p>进行新旧版本的对比之后，寻找更新的代码，用 beyond 工具可以很方便的，看出来被更新过的文件，通过更新来判断哪些漏洞被修复依次来判断出之前的 版本的漏洞的产生点。其次，此漏洞是因为用户的浏览器会自动进行一次 url 解 码，而前台的代码仍旧含有 urldecode 函数，导致用户编码两次的恶意 sql 注入 代码被执行。</p>
+<h4 id="php-文件操作"><a class="markdownIt-Anchor" href="#php-文件操作">#</a> php 文件操作</h4>
+<ul>
+<li>文件读取</li>
+</ul>
+<p>有敏感的函数，是从敏感函数全局搜索跟踪变量，进行可控变量的寻找， 然后绕过相关过滤机制，进行任意文件读取的一种操作。</p>
+<ul>
+<li>文件下载</li>
+</ul>
+<p>从功能点挖掘，因为是没有文件下载对应函数的，抓包分析对应代码，看 下载的变量是否可以控制，追踪此变量所在的方法及最终被谁控制的，这个控 制此变量的因素是否能人为的修改，如果能够人为修改，是否有相应的过滤， 有过滤的话还需要绕过过滤；需要将网站界面代码和数据库统统对应上，分析 数据库中的数据来源及人为可控程度，进而依据此漏洞来读取敏感文件如数据 库配置文件。</p>
+<ul>
+<li>文件删除</li>
+</ul>
+<p>关键字挖掘 - 文件删除搜索关键字 unlink，对应函数 del_file，查看调用，后 台 delfile 函数调用，如何处理 delfile 函数，受参数控制，进行测试，构造 Payload - 确定过滤 - 重新构造 Payload - 配合重装机制实现重装漏洞。</p>
+<ul>
+<li>未授权漏洞配合文件删除</li>
+</ul>
+<p>代码执行逻辑问题，文件在后台被删除的时候虽然已经跳转到了登录界面，但是仍然可以继续执行此前的代码，导致恶意命令执行成功。</p>
+<h4 id="php-rce"><a class="markdownIt-Anchor" href="#php-rce">#</a> php RCE</h4>
+<ul>
+<li>常见漏洞关键字</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">如下</span></span><br><span class="line">SQL注入：select insert update mysql_query mysqli等</span><br><span class="line">文件上传：$_FILES，type=&quot;file&quot;，上传，move_uploaded_file()等</span><br><span class="line">XSS跨站：print print_r echo sprintf die var_dump var_export等</span><br><span class="line">文件包含：include include_once require require_once等</span><br><span class="line">代码执行：eval assert preg_replace call_user_func call_user_func_array等</span><br><span class="line">命令执行：system exec shell_exec `` passthru pcntl_exec popen proc_open</span><br><span class="line">变量覆盖：extract() parse_str() importrequestvariables() $$ 等</span><br><span class="line">反序列化：serialize() unserialize() __construct __destruct等</span><br><span class="line">其他漏洞：unlink() file_get_contents() show_source() file() fopen()等</span><br></pre></td></tr></table></figure>
+<ul>
+<li>RCE 挖掘思路</li>
+</ul>
+<p>常规或部分 MVC 模型源码可以采用关键字的搜索挖掘思路。</p>
+<p>框架 MVC 源码一般会采用功能点分析抓包追踪挖掘思路，可能会把代码进 行封装，不在用原有的函数而是采用框架封装后的代码。</p>
+<p>依然是从函数出发，全局搜索出来可能执行系统命令的函数如 system，查 看是否有可控变量，进行追踪变量，判断是否能绕过相关过滤。</p>
+<ul>
+<li>linux 命令拼接</li>
+</ul>
+<p>通过 &amp; 或者 | 可以拼接命令，如果前边或者后边的语法有问题则会报错但是拼接另外一边的正确命令仍然会被执行，如 xxxx&amp;id&amp;1.txt 则会出现 id 的执行效果。</p>
+<h4 id="php反序列化"><a class="markdownIt-Anchor" href="#php反序列化">#</a> php 反序列化</h4>
+<ul>
+<li>自动审计或搜索关键字找到文件及代码段</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">寻找关键词unseriral()，找到之后判断魔术方法会执行到哪里，看是否能执行到魔术方法，进行构造，伪造参数绕过相关过滤。</span></span><br><span class="line">__wakeup() //使用unserialize时触发</span><br><span class="line">__sleep() //使用serialize时触发</span><br><span class="line">__destruct() //对象被销毁时触发</span><br><span class="line">__call() //在对象上下文中调用不可访问的方法时触发</span><br><span class="line">__callStatic() //在静态上下文中调用不可访问的方法时触发</span><br><span class="line">__get() //用于从不可访问的属性读取数据</span><br><span class="line">__set() //用于将数据写入不可访问的属性</span><br><span class="line">__isset() //在不可访问的属性上调用isset()或empty()触发</span><br><span class="line">__unset() //在不可访问的属性上使用unset()时触发</span><br><span class="line">__toString() //把类当作字符串使用时触发</span><br><span class="line">__invoke() //当脚本尝试将对象调用为函数时触发</span><br></pre></td></tr></table></figure>
+<h3 id="tp代码审计"><a class="markdownIt-Anchor" href="#tp代码审计">#</a> tp 代码审计</h3>
+<ul>
+<li>tp 框架漏洞挖掘</li>
+</ul>
+<p>一般分为 1day 和 0day，1day 的话是网络上已经确定了有此版本对应框架的 漏洞，但是未公开处来 poc，在 github 上也能搜索到安全更新等关键词，可以拿 到新更新的源码和之前的版本用 beyond 版本进行对比，审计 1day 代码审计， 获取 1day 的 exp。</p>
+<p>主要还是查代码，走流程，看功能或者特定函数，看过滤，判断能否绕过，打断点，追踪数据流，对应 url 地址与代码端进行漏洞的挖掘。框架 0day 就别 想了，太难了，可以对照搞几个 1day 尝试一下。</p>
+<ul>
+<li>利用官方更新说明探针</li>
+</ul>
+<p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3RvcC10aGluay9mcmFtZXdvcms=">https://github.com/top-think/framework</span><br>
+<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL01vY2hhenovVGhpbmtQSFAtVnVsbg==">https://github.com/Mochazz/ThinkPHP-Vuln</span></p>
+<h3 id="net代码审计"><a class="markdownIt-Anchor" href="#net代码审计">#</a> net 代码审计</h3>
+<p>asp.net 可以用 C# ，<span class="exturl" data-url="aHR0cDovL1ZCLk5FVA==">VB.NET</span> ，Jscript.net 等等来开发，但是通常首选都是 C#<span class="exturl" data-url="aHR0cDovL3huLS1WQi1peTZjLk5FVA==">和 VB.NET</span>，审计 asp.net 的时候，首先得弄明白他的结构，他并不像 php 那么单纯。在 asp.net 应用中，需要进行观察的文件有：.aspx，.cs，.ashx，dll。</p>
+<p>.aspx 是页面后的代码，aspx 负责显示，服务器端的动作就是在.cs 定义的<br>
+.cs 是类文件，里边是程序和函数<br>
+.ashx 是一般处理程序，主要用于写 web handler, 可以理解成不会显示的 aspx 页面<br>
+.dll 就是 cs 文件编译之后的程序集</p>
+<h3 id="java代码审计没听"><a class="markdownIt-Anchor" href="#java代码审计没听">#</a> java 代码审计（没听）</h3>
+<p>没听懂，我日他妈，真他妈难</p>
 
+      <div class="tags">
+          <a href="/tags/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/" rel="tag"><i class="ic i-tag"></i> 渗透测试</a>
+      </div>
   </div>
 
    <footer>
@@ -263,9 +254,9 @@ __invoke () // 当脚本尝试将对象调用为函数时触发<br>
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">更新于</span>
-    <time title="修改时间：2023-07-04 01:50:14" itemprop="dateModified" datetime="2023-07-04T01:50:14+08:00">2023-07-04</time>
+    <time title="修改时间：2023-07-04 18:59:23" itemprop="dateModified" datetime="2023-07-04T18:59:23+08:00">2023-07-04</time>
   </span>
-  <span id="2023/07/04/SAFE/8 代码审计/" class="item leancloud_visitors" data-flag-title="" title="阅读次数">
+  <span id="2023/07/04/SAFE/8 代码审计/" class="item leancloud_visitors" data-flag-title="XD22 8 代码审计" title="阅读次数">
       <span class="icon">
         <i class="ic i-eye"></i>
       </span>
@@ -307,7 +298,7 @@ __invoke () // 当脚本尝试将对象调用为函数时触发<br>
   </li>
   <li class="link">
     <strong>本文链接：</strong>
-    <a href="http://n1h1l157.github.io/2023/07/04/SAFE/8%20%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/" title="">http://n1h1l157.github.io/2023/07/04/SAFE/8 代码审计/</a>
+    <a href="http://n1h1l157.github.io/2023/07/04/SAFE/8%20%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/" title="XD22 8 代码审计">http://n1h1l157.github.io/2023/07/04/SAFE/8 代码审计/</a>
   </li>
   <li class="license">
     <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
@@ -326,20 +317,20 @@ __invoke () // 当脚本尝试将对象调用为函数时触发<br>
     <div class="item left">
       
 
-  <a href="/2023/07/04/SAFE/7%20waf%E6%94%BB%E9%98%B2/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s2.loli.net&#x2F;2023&#x2F;04&#x2F;01&#x2F;dQzT6Ao9rVLb1Zc.jpg" title="未命名">
+  <a href="/2023/07/04/SAFE/9%20%E6%9D%83%E9%99%90%E6%8F%90%E5%8D%87/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s2.loli.net&#x2F;2023&#x2F;04&#x2F;01&#x2F;eZcPaFH4pt9Cx8k.jpg" title="XD22 9 权限提升">
   <span class="type">上一篇</span>
-  <span class="category"><i class="ic i-flag"></i> </span>
-  <h3>未命名</h3>
+  <span class="category"><i class="ic i-flag"></i> 信息安全</span>
+  <h3>XD22 9 权限提升</h3>
   </a>
 
     </div>
     <div class="item right">
       
 
-  <a href="/2023/07/04/SAFE/9%20%E6%9D%83%E9%99%90%E6%8F%90%E5%8D%87/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s2.loli.net&#x2F;2023&#x2F;04&#x2F;01&#x2F;NE8OanW5ut73GYv.jpg" title="未命名">
+  <a href="/2023/07/04/SAFE/7%20waf%E6%94%BB%E9%98%B2/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s2.loli.net&#x2F;2023&#x2F;04&#x2F;01&#x2F;RxL7bMZt5rslE68.jpg" title="XD22 7 Waf 攻防">
   <span class="type">下一篇</span>
-  <span class="category"><i class="ic i-flag"></i> </span>
-  <h3>未命名</h3>
+  <span class="category"><i class="ic i-flag"></i> 信息安全</span>
+  <h3>XD22 7 Waf 攻防</h3>
   </a>
 
     </div>
@@ -358,9 +349,12 @@ __invoke () // 当脚本尝试将对象调用为函数时触发<br>
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目录">
-          <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#81-php%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1"><span class="toc-number">1.</span> <span class="toc-text"> 8.1 php 代码审计</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#811-php-sql%E6%B3%A8%E5%85%A5"><span class="toc-number">1.1.</span> <span class="toc-text"> 8.1.1 php sql 注入</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#812-php%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C"><span class="toc-number">1.2.</span> <span class="toc-text"> 8.1.2 php 文件操作</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96"><span class="toc-number">1.2.1.</span> <span class="toc-text"> （ 1 ）文件读取</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%9C%89%E6%95%8F%E6%84%9F%E7%9A%84%E5%87%BD%E6%95%B0%E6%98%AF%E4%BB%8E%E6%95%8F%E6%84%9F%E5%87%BD%E6%95%B0%E5%85%A8%E5%B1%80%E6%90%9C%E7%B4%A2%E8%B7%9F%E8%B8%AA%E5%8F%98%E9%87%8F%E8%BF%9B%E8%A1%8C%E5%8F%AF%E6%8E%A7%E5%8F%98%E9%87%8F%E7%9A%84%E5%AF%BB%E6%89%BE"><span class="toc-number">1.2.2.</span> <span class="toc-text"> 有敏感的函数，是从敏感函数全局搜索跟踪变量，进行可控变量的寻找，</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%84%B6%E5%90%8E%E7%BB%95%E8%BF%87%E7%9B%B8%E5%85%B3%E8%BF%87%E6%BB%A4%E6%9C%BA%E5%88%B6%E8%BF%9B%E8%A1%8C%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96%E7%9A%84%E4%B8%80%E7%A7%8D%E6%93%8D%E4%BD%9C"><span class="toc-number">1.2.3.</span> <span class="toc-text"> 然后绕过相关过滤机制，进行任意文件读取的一种操作。</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD"><span class="toc-number">1.2.4.</span> <span class="toc-text"> （ 2 ）文件下载</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BB%8E%E5%8A%9F%E8%83%BD%E7%82%B9%E6%8C%96%E6%8E%98%E5%9B%A0%E4%B8%BA%E6%98%AF%E6%B2%A1%E6%9C%89%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD%E5%AF%B9%E5%BA%94%E5%87%BD%E6%95%B0%E7%9A%84%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E5%AF%B9%E5%BA%94%E4%BB%A3%E7%A0%81%E7%9C%8B"><span class="toc-number">1.2.5.</span> <span class="toc-text"> 从功能点挖掘，因为是没有文件下载对应函数的，抓包分析对应代码，看</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD%E7%9A%84%E5%8F%98%E9%87%8F%E6%98%AF%E5%90%A6%E5%8F%AF%E4%BB%A5%E6%8E%A7%E5%88%B6%E8%BF%BD%E8%B8%AA%E6%AD%A4%E5%8F%98%E9%87%8F%E6%89%80%E5%9C%A8%E7%9A%84%E6%96%B9%E6%B3%95%E5%8F%8A%E6%9C%80%E7%BB%88%E8%A2%AB%E8%B0%81%E6%8E%A7%E5%88%B6%E7%9A%84%E8%BF%99%E4%B8%AA%E6%8E%A7"><span class="toc-number">1.2.6.</span> <span class="toc-text"> 下载的变量是否可以控制，追踪此变量所在的方法及最终被谁控制的，这个控</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%88%B6%E6%AD%A4%E5%8F%98%E9%87%8F%E7%9A%84%E5%9B%A0%E7%B4%A0%E6%98%AF%E5%90%A6%E8%83%BD%E4%BA%BA%E4%B8%BA%E7%9A%84%E4%BF%AE%E6%94%B9%E5%A6%82%E6%9E%9C%E8%83%BD%E5%A4%9F%E4%BA%BA%E4%B8%BA%E4%BF%AE%E6%94%B9%E6%98%AF%E5%90%A6%E6%9C%89%E7%9B%B8%E5%BA%94%E7%9A%84%E8%BF%87%E6%BB%A4"><span class="toc-number">1.2.7.</span> <span class="toc-text"> 制此变量的因素是否能人为的修改，如果能够人为修改，是否有相应的过滤，</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%9C%89%E8%BF%87%E6%BB%A4%E7%9A%84%E8%AF%9D%E8%BF%98%E9%9C%80%E8%A6%81%E7%BB%95%E8%BF%87%E8%BF%87%E6%BB%A4%E9%9C%80%E8%A6%81%E5%B0%86%E7%BD%91%E7%AB%99%E7%95%8C%E9%9D%A2%E4%BB%A3%E7%A0%81%E5%92%8C%E6%95%B0%E6%8D%AE%E5%BA%93%E7%BB%9F%E7%BB%9F%E5%AF%B9%E5%BA%94%E4%B8%8A%E5%88%86%E6%9E%90"><span class="toc-number">1.2.8.</span> <span class="toc-text"> 有过滤的话还需要绕过过滤；需要将网站界面代码和数据库统统对应上，分析</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%AD%E7%9A%84%E6%95%B0%E6%8D%AE%E6%9D%A5%E6%BA%90%E5%8F%8A%E4%BA%BA%E4%B8%BA%E5%8F%AF%E6%8E%A7%E7%A8%8B%E5%BA%A6%E8%BF%9B%E8%80%8C%E4%BE%9D%E6%8D%AE%E6%AD%A4%E6%BC%8F%E6%B4%9E%E6%9D%A5%E8%AF%BB%E5%8F%96%E6%95%8F%E6%84%9F%E6%96%87%E4%BB%B6%E5%A6%82%E6%95%B0%E6%8D%AE"><span class="toc-number">1.2.9.</span> <span class="toc-text"> 数据库中的数据来源及人为可控程度，进而依据此漏洞来读取敏感文件如数据</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%BA%93%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-number">1.2.10.</span> <span class="toc-text"> 库配置文件。</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-%E6%96%87%E4%BB%B6%E5%88%A0%E9%99%A4"><span class="toc-number">1.2.11.</span> <span class="toc-text"> （ 3 ）文件删除</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#813-php-rce"><span class="toc-number">1.3.</span> <span class="toc-text"> 8.1.3 php RCE</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-%E5%B8%B8%E8%A7%81%E6%BC%8F%E6%B4%9E%E5%85%B3%E9%94%AE%E5%AD%97"><span class="toc-number">1.3.1.</span> <span class="toc-text"> （ 1 ）常见漏洞关键字：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%80%9A%E8%BF%87%E6%88%96%E8%80%85%E5%8F%AF%E4%BB%A5%E6%8B%BC%E6%8E%A5%E5%91%BD%E4%BB%A4%E5%A6%82%E6%9E%9C%E5%89%8D%E8%BE%B9%E6%88%96%E8%80%85%E5%90%8E%E8%BE%B9%E7%9A%84%E8%AF%AD%E6%B3%95%E6%9C%89%E9%97%AE%E9%A2%98%E5%88%99%E4%BC%9A%E6%8A%A5%E9%94%99%E4%BD%86%E6%98%AF"><span class="toc-number">1.3.2.</span> <span class="toc-text"> 通过 &amp; 或者 | 可以拼接命令，如果前边或者后边的语法有问题则会报错但是</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#814-php%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96"><span class="toc-number">1.4.</span> <span class="toc-text"> 8.1.4 php 反序列化</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%87%AA%E5%8A%A8%E5%AE%A1%E8%AE%A1%E6%88%96%E6%90%9C%E7%B4%A2%E5%85%B3%E9%94%AE%E5%AD%97%E6%89%BE%E5%88%B0%E6%96%87%E4%BB%B6%E5%8F%8A%E4%BB%A3%E7%A0%81%E6%AE%B5"><span class="toc-number">1.4.1.</span> <span class="toc-text"> 自动审计或搜索关键字找到文件及代码段</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#82-tp%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1"><span class="toc-number">2.</span> <span class="toc-text"> 8.2 tp 代码审计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#83-net%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1"><span class="toc-number">3.</span> <span class="toc-text"> 8.3 net 代码审计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#84-java%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%E6%B2%A1%E5%90%AC"><span class="toc-number">4.</span> <span class="toc-text"> 8.4 java 代码审计（没听）</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%B2%A1%E5%90%AC%E6%87%82%E6%88%91%E6%97%A5%E4%BB%96%E5%A6%88%E7%9C%9F%E4%BB%96%E5%A6%88%E9%9A%BE"><span class="toc-number">4.0.1.</span> <span class="toc-text"> 没听懂，我日他妈，真他妈难</span></a></li></ol></li></ol></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#php-%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1"><span class="toc-number">1.</span> <span class="toc-text"> php 代码审计</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#php-sql%E6%B3%A8%E5%85%A5"><span class="toc-number">1.1.</span> <span class="toc-text"> php sql 注入</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#php-%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C"><span class="toc-number">1.2.</span> <span class="toc-text"> php 文件操作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#php-rce"><span class="toc-number">1.3.</span> <span class="toc-text"> php RCE</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#php%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96"><span class="toc-number">1.4.</span> <span class="toc-text"> php 反序列化</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#tp%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1"><span class="toc-number">2.</span> <span class="toc-text"> tp 代码审计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#net%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1"><span class="toc-number">3.</span> <span class="toc-text"> net 代码审计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#java%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%E6%B2%A1%E5%90%AC"><span class="toc-number">4.</span> <span class="toc-text"> java 代码审计（没听）</span></a></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
+        <ul>
+          <li><a href="/2023/03/18/SAFE/Trojan/" rel="bookmark" title="Trojan 生成">Trojan 生成</a></li><li><a href="/2023/05/19/SAFE/Linux/" rel="bookmark" title="Linux 命令">Linux 命令</a></li><li><a href="/2023/07/02/SAFE/Security%20URL/" rel="bookmark" title="信息安全 网址">信息安全 网址</a></li><li><a href="/2023/07/04/SAFE/1%20WEB%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" rel="bookmark" title="XD22 1 Web 基础知识">XD22 1 Web 基础知识</a></li><li><a href="/2023/07/04/SAFE/14%20%E6%89%93%E7%A0%B4%E5%B8%B8%E8%A7%84/" rel="bookmark" title="XD22 14 打破常规">XD22 14 打破常规</a></li><li><a href="/2023/07/04/SAFE/11%20%E5%86%85%E7%BD%91%E5%AE%89%E5%85%A8/" rel="bookmark" title="XD22 11 内网安全">XD22 11 内网安全</a></li><li><a href="/2023/07/04/SAFE/12%20%E6%9D%83%E9%99%90%E7%BB%B4%E6%8C%81/" rel="bookmark" title="XD22 12 权限维持">XD22 12 权限维持</a></li><li><a href="/2023/07/04/SAFE/10%20%E5%85%8D%E6%9D%80%E5%AF%B9%E6%8A%97/" rel="bookmark" title="XD22 10 免杀对抗">XD22 10 免杀对抗</a></li><li><a href="/2023/07/04/SAFE/13%20%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%86/" rel="bookmark" title="XD22 13 补充知识">XD22 13 补充知识</a></li><li><a href="/2023/07/04/SAFE/2%20WEB%E9%80%9A%E7%94%A8%E6%BC%8F%E6%B4%9E/" rel="bookmark" title="XD22 2 Web 通用漏洞">XD22 2 Web 通用漏洞</a></li><li><a href="/2023/07/04/SAFE/3%20%E6%9C%8D%E5%8A%A1%E6%94%BB%E9%98%B2/" rel="bookmark" title="XD22 3 服务攻防">XD22 3 服务攻防</a></li><li><a href="/2023/07/04/SAFE/5%20APP%E6%94%BB%E9%98%B2/" rel="bookmark" title="XD22 5 APP 攻防">XD22 5 APP 攻防</a></li><li><a href="/2023/07/04/SAFE/4%20API%E6%94%BB%E9%98%B2/" rel="bookmark" title="XD22 4 API 攻防">XD22 4 API 攻防</a></li><li><a href="/2023/07/04/SAFE/6%20%E6%BC%8F%E6%B4%9E%E5%8F%91%E7%8E%B0%E5%8F%8A%E5%88%A9%E7%94%A8/" rel="bookmark" title="XD22 6 漏洞发现及利用">XD22 6 漏洞发现及利用</a></li><li><a href="/2023/07/04/SAFE/7%20waf%E6%94%BB%E9%98%B2/" rel="bookmark" title="XD22 7 Waf 攻防">XD22 7 Waf 攻防</a></li><li class="active"><a href="/2023/07/04/SAFE/8%20%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/" rel="bookmark" title="XD22 8 代码审计">XD22 8 代码审计</a></li><li><a href="/2023/07/04/SAFE/9%20%E6%9D%83%E9%99%90%E6%8F%90%E5%8D%87/" rel="bookmark" title="XD22 9 权限提升">XD22 9 权限提升</a></li>
+        </ul>
       </div>
       <div class="overview panel" data-title="站点概览">
         <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -373,7 +367,7 @@ __invoke () // 当脚本尝试将对象调用为函数时触发<br>
 <nav class="state">
     <div class="item posts">
       <a href="/archives/">
-        <span class="count">166</span>
+        <span class="count">167</span>
         <span class="name">文章</span>
       </a>
     </div>
@@ -385,7 +379,7 @@ __invoke () // 当脚本尝试将对象调用为函数时触发<br>
     </div>
     <div class="item tags">
       <a href="/tags/">
-        <span class="count">40</span>
+        <span class="count">39</span>
         <span class="name">标签</span>
       </a>
     </div>
@@ -468,12 +462,12 @@ __invoke () // 当脚本尝试将对象调用为函数时触发<br>
 
   <ul id="quick">
     <li class="prev pjax">
-        <a href="/2023/07/04/SAFE/7%20waf%E6%94%BB%E9%98%B2/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+        <a href="/2023/07/04/SAFE/9%20%E6%9D%83%E9%99%90%E6%8F%90%E5%8D%87/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
     </li>
     <li class="up"><i class="ic i-arrow-up"></i></li>
     <li class="down"><i class="ic i-arrow-down"></i></li>
     <li class="next pjax">
-        <a href="/2023/07/04/SAFE/9%20%E6%9D%83%E9%99%90%E6%8F%90%E5%8D%87/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+        <a href="/2023/07/04/SAFE/7%20waf%E6%94%BB%E9%98%B2/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
     </li>
     <li class="percent"></li>
   </ul>
@@ -498,37 +492,7 @@ __invoke () // 当脚本尝试将对象调用为函数时触发<br>
 <a href="/categories/%E6%96%87%E5%AD%A6/" title="分类于 文学">文学</a>
 </div>
 
-    <span><a href="/2023/06/30/BOOK/59%E3%80%8A%E5%9C%B0%E7%90%83%E8%A2%AB%E6%8E%A7%E5%88%B6%E7%9A%84%E7%9C%9F%E7%9B%B8%E3%80%8B%E5%A4%A7%E5%8D%AB%C2%B7%E8%89%BE%E5%85%8B/" title="《地球被控制的真相》大卫·艾克">《地球被控制的真相》大卫·艾克</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/VULNHUB/" title="分类于 VULNHUB">VULNHUB</a>
-</div>
-
-    <span><a href="/2023/07/01/VULNHUB/139%20INFERNO/" title="VULNHUB INFERNO">VULNHUB INFERNO</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E6%96%87%E5%AD%A6/" title="分类于 文学">文学</a>
-</div>
-
-    <span><a href="/2023/06/30/BOOK/19%E3%80%8A%E8%AE%A9%E4%BD%A0%E7%88%B1%E4%B8%8D%E9%87%8A%E6%89%8B%E7%9A%84%E6%9E%81%E7%AE%80%E4%B8%96%E7%95%8C%E5%8F%B2%E3%80%8B%E5%A7%9A%E5%B0%A7/" title="《让你爱不释手的极简世界史》姚尧">《让你爱不释手的极简世界史》姚尧</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E6%96%87%E5%AD%A6/" title="分类于 文学">文学</a>
-</div>
-
-    <span><a href="/2023/06/30/BOOK/7%E3%80%8A%E6%B4%BB%E7%9D%80%E3%80%8B%E4%BD%99%E5%8D%8E/" title="《活着》余华">《活着》余华</a></span>
+    <span><a href="/2023/06/30/BOOK/40%E3%80%8A%E6%9C%AA%E6%AD%BB%E7%9A%84%E6%B2%99%E5%A8%81%E3%80%8B%E6%A2%81%E6%99%93%E5%A3%B0/" title="《未死的沙威》梁晓声">《未死的沙威》梁晓声</a></span>
   </li>
 
       
@@ -538,7 +502,17 @@ __invoke () // 当脚本尝试将对象调用为函数时触发<br>
 <a href="/categories/MBTI/" title="分类于 MBTI">MBTI</a>
 </div>
 
-    <span><a href="/2023/04/01/MBTI/ENTP%E8%A7%A3%E8%AF%BB/" title="ENTP解读">ENTP解读</a></span>
+    <span><a href="/2023/04/01/MBTI/%E5%BF%83%E7%90%86%E5%AD%A6%E5%90%8D%E8%AF%8D/" title="心理学名词">心理学名词</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/" title="分类于 信息安全">信息安全</a>
+</div>
+
+    <span><a href="/2023/07/04/SAFE/1%20WEB%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" title="XD22 1 Web 基础知识">XD22 1 Web 基础知识</a></span>
   </li>
 
       
@@ -555,10 +529,10 @@ __invoke () // 当脚本尝试将对象调用为函数时触发<br>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/MBTI/" title="分类于 MBTI">MBTI</a>
+<a href="/categories/VULNHUB/" title="分类于 VULNHUB">VULNHUB</a>
 </div>
 
-    <span><a href="/2023/07/03/MBTI/INFJ%E6%B7%B1%E5%BA%A6%E8%A7%A3%E6%9E%90/" title="INFJ 深度解析">INFJ 深度解析</a></span>
+    <span><a href="/2023/07/02/VULNHUB/116%20LUPINONE/" title="VULNHUB 16 LUPINONE">VULNHUB 16 LUPINONE</a></span>
   </li>
 
       
@@ -568,27 +542,47 @@ __invoke () // 当脚本尝试将对象调用为函数时触发<br>
 <a href="/categories/VULNHUB/" title="分类于 VULNHUB">VULNHUB</a>
 </div>
 
-    <span><a href="/2023/07/01/VULNHUB/149%20DURIAN/" title="VULNHUB DURIAN">VULNHUB DURIAN</a></span>
+    <span><a href="/2023/07/01/VULNHUB/147%20WARZONE3/" title="VULNHUB WARZONE3">VULNHUB WARZONE3</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/MBTI/" title="分类于 MBTI">MBTI</a>
+<a href="/categories/%E6%96%87%E5%AD%A6/" title="分类于 文学">文学</a>
 </div>
 
-    <span><a href="/2023/04/01/MBTI/INTJ%E8%A7%A3%E8%AF%BB/" title="INTJ解读">INTJ解读</a></span>
+    <span><a href="/2023/06/30/BOOK/52%E3%80%8A%E8%BF%9D%E8%83%8C%E9%81%93%E5%BE%B7%E7%9A%84%E4%BA%BA%E3%80%8B%E7%BA%AA%E5%BE%B7/" title="《违背道德的人》纪德">《违背道德的人》纪德</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/MBTI/" title="分类于 MBTI">MBTI</a>
+<a href="/categories/%E6%96%87%E5%AD%A6/" title="分类于 文学">文学</a>
 </div>
 
-    <span><a href="/2023/04/01/MBTI/ENFJ%E8%A7%A3%E8%AF%BB/" title="ENFJ解读">ENFJ解读</a></span>
+    <span><a href="/2023/06/30/BOOK/31%E3%80%8A%E4%BA%BA%E7%94%9F%E3%80%8B%E8%B7%AF%E9%81%A5/" title="《人生》路遥">《人生》路遥</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E6%96%87%E5%AD%A6/" title="分类于 文学">文学</a>
+</div>
+
+    <span><a href="/2023/06/30/BOOK/48%E3%80%8A%E4%B8%80%E5%8F%A5%E9%A1%B6%E4%B8%80%E4%B8%87%E5%8F%A5%E3%80%8B%E5%88%98%E9%9C%87%E4%BA%91/" title="《一句顶一万句》刘震云">《一句顶一万句》刘震云</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E4%B8%96%E7%95%8C%E5%90%8D%E8%91%97/" title="分类于 世界名著">世界名著</a>
+</div>
+
+    <span><a href="/2023/06/30/BOOK/38%E3%80%8A%E5%84%BF%E5%AD%90%E4%B8%8E%E6%83%85%E4%BA%BA%E3%80%8B%E5%8A%B3%E4%BC%A6%E6%96%AF/" title="《儿子与情人》劳伦斯">《儿子与情人》劳伦斯</a></span>
   </li>
 
   </ul>
