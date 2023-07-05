@@ -32,7 +32,7 @@
 
 
   <title>
-VULNHUB GROTESQUE2 - VULNHUB |
+VULNHUB 34 GROTESQUE2 - VULNHUB |
 Phut Hon = X_T = 天行健，君子以自强不息</title>
 <meta name="generator" content="Hexo 6.3.0"></head>
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -60,7 +60,7 @@ Phut Hon = X_T = 天行健，君子以自强不息</title>
         <div id="brand">
           <div class="pjax">
           
-  <h1 itemprop="name headline">VULNHUB GROTESQUE2
+  <h1 itemprop="name headline">VULNHUB 34 GROTESQUE2
   </h1>
   
 <div class="meta">
@@ -117,12 +117,12 @@ Phut Hon = X_T = 天行健，君子以自强不息</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/9RqJ7SolMrGZxmj.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/OqYw1kD5yZdImSe.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/5ZVSlaUgNvKo6bJ.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/bBgiPja8yQ31ZO2.jpg"></li>
           <li class="item" data-background-image="https://s2.loli.net/2023/04/01/yxb6m3Ak4MhTNvU.jpg"></li>
-          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/OpkYA94CeUZvRI5.jpg"></li>
-          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/sAogJHmbkhVBX4D.jpg"></li>
-          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/NFMXjWC8xLSV4OD.jpg"></li>
-          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/iqT6cP9kuwrzyLx.jpg"></li>
-          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/iw5hEbpoS7DKcve.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/zcSdCfaZpwgIBoW.jpg"></li>
         </ul>
       </div>
     </header>
@@ -175,50 +175,73 @@ Phut Hon = X_T = 天行健，君子以自强不息</title>
  靶机 GROTESQUE2：桥接于 1 92.168.31.1 的网卡，ip 未知</p>
 <p>1 ）确定靶机 ip 地址<br>
  sudo arp-scan -l &gt; 1.txt ; cat 1.txt | grep ‘a0’ ; rm -f 1.txt</p>
+<p><img data-src="/N1h1l157/VULNHUB/image-893.png" alt></p>
 <p>à 靶机 ip：192.168.31. 73</p>
 <p>2 ）确认靶机 ip 开放的端口信息<br>
  sudo nmap - p- 192.168.31. 73</p>
+<p><img data-src="/N1h1l157/VULNHUB/image-894.png" alt></p>
 <p>à 靶机开放端口 2 2…600 基本上都开放<br>
 这么多网站都开放的肯定是有问题的，需要打开几个找问题所在</p>
 <h3 id="002-信息收集wget批量下载awksort排序分析"><a class="markdownIt-Anchor" href="#002-信息收集wget批量下载awksort排序分析">#</a> 002 信息收集，wget 批量下载，awk/sort 排序分析</h3>
 <p>打开 <span class="exturl" data-url="aHR0cDovLzE5Mi4xNjguMzEu">http://192.168.31.</span> 73 / 进行信息收集<br>
 同时打开打开 <span class="exturl" data-url="aHR0cDovLzE5Mi4xNjguMzEuNzM6">http://192.168.31.73:</span> 9999 / 进行信息收集</p>
 <h3 id="对比下面两个网站发现一模一样没有任何区别"><a class="markdownIt-Anchor" href="#对比下面两个网站发现一模一样没有任何区别">#</a> 对比下面两个网站发现一模一样没有任何区别</h3>
+<p><img data-src="/N1h1l157/VULNHUB/image-895.png" alt><br>
+<img data-src="/N1h1l157/VULNHUB/image-896.png" alt></p>
 <h3 id="于是猜测从-22-到-600-这么多页面基本上都是一模一样的唯有一个不同而那"><a class="markdownIt-Anchor" href="#于是猜测从-22-到-600-这么多页面基本上都是一模一样的唯有一个不同而那">#</a> 于是猜测从 22 到 600 这么多页面基本上都是一模一样的，唯有一个不同，而那</h3>
 <p>个不同的页面需要通过脚本或者其他的方式筛选出来，可以用 burp 的方式访问<br>
 不同端口的网站，看返回的数据包的长度来找，也可以用 wget 批量下载页面，<br>
 判断下载文件的大小<br>
- for i in {23…600};do wget 192.168.31.73:<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi><mo>−</mo><mi>O</mi><mi>i</mi><mi>n</mi><mi>d</mi><mi>e</mi><mi>x</mi></mrow><annotation encoding="application/x-tex">i -O index</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.74285em;vertical-align:-0.08333em;"></span><span class="mord mathnormal">i</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mord mathnormal">i</span><span class="mord mathnormal">n</span><span class="mord mathnormal">d</span><span class="mord mathnormal">e</span><span class="mord mathnormal">x</span></span></span></span>i;done</p>
+ for i in {23…600};do wget 192.168.31.73:<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi><mo>−</mo><mi>O</mi><mi>i</mi><mi>n</mi><mi>d</mi><mi>e</mi><mi>x</mi></mrow><annotation encoding="application/x-tex">i -O index</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.74285em;vertical-align:-0.08333em;"></span><span class="mord mathnormal">i</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mord mathnormal">i</span><span class="mord mathnormal">n</span><span class="mord mathnormal">d</span><span class="mord mathnormal">e</span><span class="mord mathnormal">x</span></span></span></span>i;done<br>
+<img data-src="/N1h1l157/VULNHUB/image-897.png" alt><br>
+<img data-src="/N1h1l157/VULNHUB/image-898.png" alt></p>
 <p>用一些 linux 命令对下载到的文件进行排序<br>
  ls -Al | sort | awk ‘{print $5,$9}’ | tail -n10</p>
+<p><img data-src="/N1h1l157/VULNHUB/image-899.png" alt></p>
 <h3 id="看到在-258-端口处的网站有不一样的返回结果"><a class="markdownIt-Anchor" href="#看到在-258-端口处的网站有不一样的返回结果">#</a> 看到在 258 端口处的网站有不一样的返回结果</h3>
 <p><span class="exturl" data-url="aHR0cDovLzE5Mi4xNjguMzEu">http://192.168.31.</span> 73 :258/</p>
+<p><img data-src="/N1h1l157/VULNHUB/image-900.png" alt></p>
 <p>给出提示，ssh 的用户名可能是如下这几个</p>
+<p><img data-src="/N1h1l157/VULNHUB/image-901.png" alt></p>
 <h3 id="审查源代码发现了一个图片的地址"><a class="markdownIt-Anchor" href="#审查源代码发现了一个图片的地址">#</a> 审查源代码发现了一个图片的地址</h3>
+<p><img data-src="/N1h1l157/VULNHUB/image-902.png" alt></p>
 <p><span class="exturl" data-url="aHR0cDovLzE5Mi4xNjguMzEu">http://192.168.31.</span> 73 :258/emoji/hand.png</p>
+<p><img data-src="/N1h1l157/VULNHUB/image-903.png" alt></p>
 <h3 id="大致一看是没有什么特殊的但是仔细看图片后发现隐藏着一些敏感信息"><a class="markdownIt-Anchor" href="#大致一看是没有什么特殊的但是仔细看图片后发现隐藏着一些敏感信息">#</a> 大致一看是没有什么特殊的，但是仔细看图片后，发现隐藏着一些敏感信息</h3>
 <p>在图片的中间有一串 hash 数据：b6e705ea1249e2bb7b0fd7dac9fcd1b3</p>
+<p><img data-src="/N1h1l157/VULNHUB/image-904.png" alt></p>
 <p>解密此 md 5 加密，得到密码为 solomon 1</p>
+<p><img data-src="/N1h1l157/VULNHUB/image-905.png" alt></p>
 <p>到此已经收集到了几个可能的用户名和一个 ssh 密码</p>
 <h3 id="003-hydra爆破sshpspylinpeas定时任务提权"><a class="markdownIt-Anchor" href="#003-hydra爆破sshpspylinpeas定时任务提权">#</a> 003 hydra 爆破 ssh，pspy，linpeas，定时任务提权</h3>
 <p>hydra -L user.txt -p solomon1 ssh://192.168.31.22 -t 4</p>
+<p><img data-src="/N1h1l157/VULNHUB/image-906.png" alt></p>
 <p>得到一组 ssh 的登陆凭据 angel:solomon1<br>
 ssh <span class="exturl" data-url="bWFpbHRvOmFuZ2VsQDE5Mi4xNjguMzEuNzM=">angel@192.168.31.73</span></p>
+<p><img data-src="/N1h1l157/VULNHUB/image-907.png" alt></p>
 <p>上传 pspy 监控看有没有被定时执行的任务，发现有两个脚本定时执行</p>
+<p><img data-src="/N1h1l157/VULNHUB/image-908.png" alt></p>
 <h3 id="权限不足不能查看这两个脚本的作用是什么只能进行猜测搜索自己的目"><a class="markdownIt-Anchor" href="#权限不足不能查看这两个脚本的作用是什么只能进行猜测搜索自己的目">#</a> 权限不足，不能查看这两个脚本的作用是什么，只能进行猜测，搜索自己的目</h3>
+<p><img data-src="/N1h1l157/VULNHUB/image-909.png" alt></p>
 <p>录发现有一个 quiet 的文件夹里边有很多文件</p>
 <p>而所有的文件中的内容都是 quiet 的内容，需要把这个文件先删除，然后动态的<br>
 查看此文件夹下的内容是否增加<br>
  cat * | uniq<br>
 watch -n1 ls</p>
+<p><img data-src="/N1h1l157/VULNHUB/image-910.png" alt></p>
 <p>经过一段时间之后发现 quiet 文件又都复原了，判断出来 write 就是些 quiet 文件<br>
 的，check 就是用来检查 quiet 文件是否存在的</p>
+<p><img data-src="/N1h1l157/VULNHUB/image-911.png" alt></p>
 <p>上传 linpeas 检查是否有更多的敏感信息，找到了一个 /rootcreds.txt 文件</p>
+<p><img data-src="/N1h1l157/VULNHUB/image-912.png" alt></p>
 <p>这个文件里边就是 root 的账户和密码，直接 su root 切换到 root 的账户</p>
+<p><img data-src="/N1h1l157/VULNHUB/image-913.png" alt></p>
 <p>à 成功拿到了 root 权限</p>
 <h3 id="定时任务中就是在不断的执行这两个脚本"><a class="markdownIt-Anchor" href="#定时任务中就是在不断的执行这两个脚本">#</a> 定时任务中就是在不断的执行这两个脚本</h3>
+<p><img data-src="/N1h1l157/VULNHUB/image-914.png" alt></p>
 <p>check 的作用就是检查文件夹中的内容是否为空是的话就把 root 的密码写到根<br>
 目录下，write 的作用是遍历写 quiet</p>
+<p><img data-src="/N1h1l157/VULNHUB/image-915.png" alt></p>
 
       <div class="tags">
           <a href="/tags/VULNHUB-31-40/" rel="tag"><i class="ic i-tag"></i> VULNHUB 31-40</a>
@@ -233,9 +256,9 @@ watch -n1 ls</p>
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">更新于</span>
-    <time title="修改时间：2023-07-04 23:15:08" itemprop="dateModified" datetime="2023-07-04T23:15:08+08:00">2023-07-04</time>
+    <time title="修改时间：2023-07-05 20:30:47" itemprop="dateModified" datetime="2023-07-05T20:30:47+08:00">2023-07-05</time>
   </span>
-  <span id="2021/11/01/VULNHUB/134 GROTESQUE2/" class="item leancloud_visitors" data-flag-title="VULNHUB GROTESQUE2" title="阅读次数">
+  <span id="2021/11/01/VULNHUB/134 GROTESQUE2/" class="item leancloud_visitors" data-flag-title="VULNHUB 34 GROTESQUE2" title="阅读次数">
       <span class="icon">
         <i class="ic i-eye"></i>
       </span>
@@ -277,7 +300,7 @@ watch -n1 ls</p>
   </li>
   <li class="link">
     <strong>本文链接：</strong>
-    <a href="http://n1h1l157.github.io/2021/11/01/VULNHUB/134%20GROTESQUE2/" title="VULNHUB GROTESQUE2">http://n1h1l157.github.io/2021/11/01/VULNHUB/134 GROTESQUE2/</a>
+    <a href="http://n1h1l157.github.io/2021/11/01/VULNHUB/134%20GROTESQUE2/" title="VULNHUB 34 GROTESQUE2">http://n1h1l157.github.io/2021/11/01/VULNHUB/134 GROTESQUE2/</a>
   </li>
   <li class="license">
     <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
@@ -296,20 +319,20 @@ watch -n1 ls</p>
     <div class="item left">
       
 
-  <a href="/2021/11/01/VULNHUB/130%20MOMENTUM2/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s2.loli.net&#x2F;2023&#x2F;04&#x2F;01&#x2F;8LXqKFmt3HObeTC.jpg" title="VULNHUB MOMENTUM2">
+  <a href="/2021/11/01/VULNHUB/132%20JETTY/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s2.loli.net&#x2F;2023&#x2F;04&#x2F;01&#x2F;VHIxW2qc1oAMOef.jpg" title="VULNHUB 32 JETTY">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> VULNHUB</span>
-  <h3>VULNHUB MOMENTUM2</h3>
+  <h3>VULNHUB 32 JETTY</h3>
   </a>
 
     </div>
     <div class="item right">
       
 
-  <a href="/2021/11/01/VULNHUB/131%20PROXIMACENTAURI/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s2.loli.net&#x2F;2023&#x2F;04&#x2F;01&#x2F;DZRlqjoQg3XAKsz.jpg" title="VULNHUB PROXIMACENTAURI">
+  <a href="/2021/11/01/VULNHUB/129%20PRESIDENTIAL/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s2.loli.net&#x2F;2023&#x2F;04&#x2F;01&#x2F;wmLsgUnzhOubvFR.jpg" title="VULNHUB 29 PRESIDENTIAL">
   <span class="type">下一篇</span>
   <span class="category"><i class="ic i-flag"></i> VULNHUB</span>
-  <h3>VULNHUB PROXIMACENTAURI</h3>
+  <h3>VULNHUB 29 PRESIDENTIAL</h3>
   </a>
 
     </div>
@@ -332,7 +355,7 @@ watch -n1 ls</p>
       </div>
       <div class="related panel pjax" data-title="系列文章">
         <ul>
-          <li><a href="/2021/11/01/VULNHUB/102%20NAPPING/" rel="bookmark" title="VULNHUB 2 NAPPING">VULNHUB 2 NAPPING</a></li><li><a href="/2021/11/01/VULNHUB/103%20HACKSUDO/" rel="bookmark" title="VULNHUB 3 HACKSUDO">VULNHUB 3 HACKSUDO</a></li><li><a href="/2021/11/01/VULNHUB/106%20SYMFONOS/" rel="bookmark" title="VULNHUB 6 SYMFONOS">VULNHUB 6 SYMFONOS</a></li><li><a href="/2021/11/01/VULNHUB/104%20BREAKOUT/" rel="bookmark" title="VULNHUB 4 BREAKOUT">VULNHUB 4 BREAKOUT</a></li><li><a href="/2021/11/01/VULNHUB/101%20EVM/" rel="bookmark" title="VULNHUB 1 EVM">VULNHUB 1 EVM</a></li><li><a href="/2021/11/01/VULNHUB/107%20RECON/" rel="bookmark" title="VULNHUB 7 RECON">VULNHUB 7 RECON</a></li><li><a href="/2021/11/01/VULNHUB/110%20RED/" rel="bookmark" title="VULNHUB 10 RED">VULNHUB 10 RED</a></li><li><a href="/2021/11/01/VULNHUB/108%20MATRIX/" rel="bookmark" title="VULNHUB 8 MATRIX">VULNHUB 8 MATRIX</a></li><li><a href="/2021/11/01/VULNHUB/113%20CHRONOS/" rel="bookmark" title="VULNHUB 13 CHRONOS">VULNHUB 13 CHRONOS</a></li><li><a href="/2021/11/01/VULNHUB/115%20THALES/" rel="bookmark" title="VULNHUB 15 THALES">VULNHUB 15 THALES</a></li><li><a href="/2021/11/01/VULNHUB/109%20WALLABY/" rel="bookmark" title="VULNHUB 9 WALLABY">VULNHUB 9 WALLABY</a></li><li><a href="/2021/11/01/VULNHUB/120%20BEELZEBUB/" rel="bookmark" title="VULNHUB 20 BEELZEBUB">VULNHUB 20 BEELZEBUB</a></li><li><a href="/2021/11/01/VULNHUB/116%20LUPINONE/" rel="bookmark" title="VULNHUB 16 LUPINONE">VULNHUB 16 LUPINONE</a></li><li><a href="/2021/11/01/VULNHUB/118%20JANGOW/" rel="bookmark" title="VULNHUB 18 JANGOW">VULNHUB 18 JANGOW</a></li><li><a href="/2021/11/01/VULNHUB/117%20WEBMACHINE/" rel="bookmark" title="VULNHUB 17 WEBMACHINE">VULNHUB 17 WEBMACHINE</a></li><li><a href="/2021/11/01/VULNHUB/112%20THOTH/" rel="bookmark" title="VULNHUB 12 THOTH">VULNHUB 12 THOTH</a></li><li><a href="/2021/11/01/VULNHUB/119%20THOR/" rel="bookmark" title="VULNHUB 19 THOR">VULNHUB 19 THOR</a></li><li><a href="/2021/11/01/VULNHUB/111%20DEATHNOTE/" rel="bookmark" title="VULNHUB 11 DEATHNOTE">VULNHUB 11 DEATHNOTE</a></li><li><a href="/2021/11/01/VULNHUB/122%20FUNBOX10/" rel="bookmark" title="VULNHUB 22 FUNBOX10">VULNHUB 22 FUNBOX10</a></li><li><a href="/2021/11/01/VULNHUB/105%20EARTH/" rel="bookmark" title="VULNHUB 5 EARTH">VULNHUB 5 EARTH</a></li><li><a href="/2021/11/01/VULNHUB/121%20RIPPER/" rel="bookmark" title="VULNHUB 21 RIPPER">VULNHUB 21 RIPPER</a></li><li><a href="/2021/11/01/VULNHUB/123%20KEYRING/" rel="bookmark" title="VULNHUB 23 KEYRING">VULNHUB 23 KEYRING</a></li><li><a href="/2021/11/01/VULNHUB/125%20SNAKEOIL/" rel="bookmark" title="VULNHUB SNAKEOIL">VULNHUB SNAKEOIL</a></li><li><a href="/2021/11/01/VULNHUB/129%20PRESIDENTIAL/" rel="bookmark" title="VULNHUB PRESIDENTIAL">VULNHUB PRESIDENTIAL</a></li><li><a href="/2021/11/01/VULNHUB/126%20HACKERKID/" rel="bookmark" title="VULNHUB HACKERKID">VULNHUB HACKERKID</a></li><li><a href="/2021/11/01/VULNHUB/114%20ICA/" rel="bookmark" title="VULNHUB 14 ICA">VULNHUB 14 ICA</a></li><li><a href="/2021/11/01/VULNHUB/128%20BLUEMOON/" rel="bookmark" title="VULNHUB BLUEMOON">VULNHUB BLUEMOON</a></li><li><a href="/2021/11/01/VULNHUB/124%20HACKABLELL/" rel="bookmark" title="VULNHUB HACKABLELL">VULNHUB HACKABLELL</a></li><li><a href="/2021/11/01/VULNHUB/131%20PROXIMACENTAURI/" rel="bookmark" title="VULNHUB PROXIMACENTAURI">VULNHUB PROXIMACENTAURI</a></li><li class="active"><a href="/2021/11/01/VULNHUB/134%20GROTESQUE2/" rel="bookmark" title="VULNHUB GROTESQUE2">VULNHUB GROTESQUE2</a></li><li><a href="/2021/11/01/VULNHUB/130%20MOMENTUM2/" rel="bookmark" title="VULNHUB MOMENTUM2">VULNHUB MOMENTUM2</a></li><li><a href="/2021/11/01/VULNHUB/136%20GROTESQUE1/" rel="bookmark" title="VULNHUB GROTESQUE1">VULNHUB GROTESQUE1</a></li><li><a href="/2021/11/01/VULNHUB/137%20VENUS/" rel="bookmark" title="VULNHUB VENUS">VULNHUB VENUS</a></li><li><a href="/2021/11/01/VULNHUB/127%20TYPO/" rel="bookmark" title="VULNHUB TYPO">VULNHUB TYPO</a></li><li><a href="/2021/11/01/VULNHUB/133%20GROTESQUE3/" rel="bookmark" title="VULNHUB GROTESQUE3">VULNHUB GROTESQUE3</a></li><li><a href="/2021/11/01/VULNHUB/139%20INFERNO/" rel="bookmark" title="VULNHUB INFERNO">VULNHUB INFERNO</a></li><li><a href="/2021/11/01/VULNHUB/132%20JETTY/" rel="bookmark" title="VULNHUB JETTY">VULNHUB JETTY</a></li><li><a href="/2021/11/01/VULNHUB/138%20BLUESOMKE/" rel="bookmark" title="VULNHUB BLUESOMKE">VULNHUB BLUESOMKE</a></li><li><a href="/2021/11/01/VULNHUB/141%20CENGBOX3/" rel="bookmark" title="VULNHUB CENGBOX3">VULNHUB CENGBOX3</a></li><li><a href="/2021/11/01/VULNHUB/143%20ORASI/" rel="bookmark" title="VULNHUB ORASI">VULNHUB ORASI</a></li><li><a href="/2021/11/01/VULNHUB/135%20HACKABLE3/" rel="bookmark" title="VULNHUB HACKABLE3">VULNHUB HACKABLE3</a></li><li><a href="/2021/11/01/VULNHUB/140%20LOOZ/" rel="bookmark" title="VULNHUB LOOZ">VULNHUB LOOZ</a></li><li><a href="/2021/11/01/VULNHUB/144%20CEREAL/" rel="bookmark" title="VULNHUB CEREAL">VULNHUB CEREAL</a></li><li><a href="/2021/11/01/VULNHUB/142%20DARKHOLE2/" rel="bookmark" title="VULNHUB DARKHOLE2">VULNHUB DARKHOLE2</a></li><li><a href="/2021/11/01/VULNHUB/146%20NEMESIS/" rel="bookmark" title="VULNHUB NEMESIS">VULNHUB NEMESIS</a></li><li><a href="/2021/11/01/VULNHUB/149%20DURIAN/" rel="bookmark" title="VULNHUB DURIAN">VULNHUB DURIAN</a></li><li><a href="/2021/11/01/VULNHUB/145%20TORANDO/" rel="bookmark" title="VULNHUB TORANDO">VULNHUB TORANDO</a></li><li><a href="/2021/11/01/VULNHUB/147%20WARZONE3/" rel="bookmark" title="VULNHUB WARZONE3">VULNHUB WARZONE3</a></li><li><a href="/2021/11/01/VULNHUB/148%20GITROOT/" rel="bookmark" title="VULNHUB GITROOT">VULNHUB GITROOT</a></li><li><a href="/2021/11/01/VULNHUB/150%20POWERGRID/" rel="bookmark" title="VULNHUB POWERGRID">VULNHUB POWERGRID</a></li>
+          <li><a href="/2021/11/01/VULNHUB/101%20EVM/" rel="bookmark" title="VULNHUB 1 EVM">VULNHUB 1 EVM</a></li><li><a href="/2021/11/01/VULNHUB/104%20BREAKOUT/" rel="bookmark" title="VULNHUB 4 BREAKOUT">VULNHUB 4 BREAKOUT</a></li><li><a href="/2021/11/01/VULNHUB/102%20NAPPING/" rel="bookmark" title="VULNHUB 2 NAPPING">VULNHUB 2 NAPPING</a></li><li><a href="/2021/11/01/VULNHUB/103%20HACKSUDO/" rel="bookmark" title="VULNHUB 3 HACKSUDO">VULNHUB 3 HACKSUDO</a></li><li><a href="/2021/11/01/VULNHUB/105%20EARTH/" rel="bookmark" title="VULNHUB 5 EARTH">VULNHUB 5 EARTH</a></li><li><a href="/2021/11/01/VULNHUB/107%20RECON/" rel="bookmark" title="VULNHUB 7 RECON">VULNHUB 7 RECON</a></li><li><a href="/2021/11/01/VULNHUB/106%20SYMFONOS/" rel="bookmark" title="VULNHUB 6 SYMFONOS">VULNHUB 6 SYMFONOS</a></li><li><a href="/2021/11/01/VULNHUB/110%20RED/" rel="bookmark" title="VULNHUB 10 RED">VULNHUB 10 RED</a></li><li><a href="/2021/11/01/VULNHUB/108%20MATRIX/" rel="bookmark" title="VULNHUB 8 MATRIX">VULNHUB 8 MATRIX</a></li><li><a href="/2021/11/01/VULNHUB/111%20DEATHNOTE/" rel="bookmark" title="VULNHUB 11 DEATHNOTE">VULNHUB 11 DEATHNOTE</a></li><li><a href="/2021/11/01/VULNHUB/109%20WALLABY/" rel="bookmark" title="VULNHUB 9 WALLABY">VULNHUB 9 WALLABY</a></li><li><a href="/2021/11/01/VULNHUB/112%20THOTH/" rel="bookmark" title="VULNHUB 12 THOTH">VULNHUB 12 THOTH</a></li><li><a href="/2021/11/01/VULNHUB/113%20CHRONOS/" rel="bookmark" title="VULNHUB 13 CHRONOS">VULNHUB 13 CHRONOS</a></li><li><a href="/2021/11/01/VULNHUB/114%20ICA/" rel="bookmark" title="VULNHUB 14 ICA">VULNHUB 14 ICA</a></li><li><a href="/2021/11/01/VULNHUB/118%20JANGOW/" rel="bookmark" title="VULNHUB 18 JANGOW">VULNHUB 18 JANGOW</a></li><li><a href="/2021/11/01/VULNHUB/117%20WEBMACHINE/" rel="bookmark" title="VULNHUB 17 WEBMACHINE">VULNHUB 17 WEBMACHINE</a></li><li><a href="/2021/11/01/VULNHUB/116%20LUPINONE/" rel="bookmark" title="VULNHUB 16 LUPINONE">VULNHUB 16 LUPINONE</a></li><li><a href="/2021/11/01/VULNHUB/119%20THOR/" rel="bookmark" title="VULNHUB 19 THOR">VULNHUB 19 THOR</a></li><li><a href="/2021/11/01/VULNHUB/120%20BEELZEBUB/" rel="bookmark" title="VULNHUB 20 BEELZEBUB">VULNHUB 20 BEELZEBUB</a></li><li><a href="/2021/11/01/VULNHUB/122%20FUNBOX10/" rel="bookmark" title="VULNHUB 22 FUNBOX10">VULNHUB 22 FUNBOX10</a></li><li><a href="/2021/11/01/VULNHUB/123%20KEYRING/" rel="bookmark" title="VULNHUB 23 KEYRING">VULNHUB 23 KEYRING</a></li><li><a href="/2021/11/01/VULNHUB/121%20RIPPER/" rel="bookmark" title="VULNHUB 21 RIPPER">VULNHUB 21 RIPPER</a></li><li><a href="/2021/11/01/VULNHUB/124%20HACKABLELL/" rel="bookmark" title="VULNHUB 24 HACKABLELL">VULNHUB 24 HACKABLELL</a></li><li><a href="/2021/11/01/VULNHUB/127%20TYPO/" rel="bookmark" title="VULNHUB 27 TYPO">VULNHUB 27 TYPO</a></li><li><a href="/2021/11/01/VULNHUB/125%20SNAKEOIL/" rel="bookmark" title="VULNHUB 25 SNAKEOIL">VULNHUB 25 SNAKEOIL</a></li><li><a href="/2021/11/01/VULNHUB/115%20THALES/" rel="bookmark" title="VULNHUB 15 THALES">VULNHUB 15 THALES</a></li><li><a href="/2021/11/01/VULNHUB/128%20BLUEMOON/" rel="bookmark" title="VULNHUB 28 BLUEMOON">VULNHUB 28 BLUEMOON</a></li><li><a href="/2021/11/01/VULNHUB/131%20PROXIMACENTAURI/" rel="bookmark" title="VULNHUB 31 PROXIMACENTAURI">VULNHUB 31 PROXIMACENTAURI</a></li><li><a href="/2021/11/01/VULNHUB/129%20PRESIDENTIAL/" rel="bookmark" title="VULNHUB 29 PRESIDENTIAL">VULNHUB 29 PRESIDENTIAL</a></li><li class="active"><a href="/2021/11/01/VULNHUB/134%20GROTESQUE2/" rel="bookmark" title="VULNHUB 34 GROTESQUE2">VULNHUB 34 GROTESQUE2</a></li><li><a href="/2021/11/01/VULNHUB/132%20JETTY/" rel="bookmark" title="VULNHUB 32 JETTY">VULNHUB 32 JETTY</a></li><li><a href="/2021/11/01/VULNHUB/126%20HACKERKID/" rel="bookmark" title="VULNHUB 26 HACKERKID">VULNHUB 26 HACKERKID</a></li><li><a href="/2021/11/01/VULNHUB/135%20HACKABLE3/" rel="bookmark" title="VULNHUB 35 HACKABLE3">VULNHUB 35 HACKABLE3</a></li><li><a href="/2021/11/01/VULNHUB/133%20GROTESQUE3/" rel="bookmark" title="VULNHUB 33 GROTESQUE3">VULNHUB 33 GROTESQUE3</a></li><li><a href="/2021/11/01/VULNHUB/130%20MOMENTUM2/" rel="bookmark" title="VULNHUB 30 MOMENTUM2">VULNHUB 30 MOMENTUM2</a></li><li><a href="/2021/11/01/VULNHUB/138%20BLUESOMKE/" rel="bookmark" title="VULNHUB 38 BLUESOMKE">VULNHUB 38 BLUESOMKE</a></li><li><a href="/2021/11/01/VULNHUB/136%20GROTESQUE1/" rel="bookmark" title="VULNHUB 36 GROTESQUE1">VULNHUB 36 GROTESQUE1</a></li><li><a href="/2021/11/01/VULNHUB/137%20VENUS/" rel="bookmark" title="VULNHUB 37 VENUS">VULNHUB 37 VENUS</a></li><li><a href="/2021/11/01/VULNHUB/139%20INFERNO/" rel="bookmark" title="VULNHUB 39 INFERNO">VULNHUB 39 INFERNO</a></li><li><a href="/2021/11/01/VULNHUB/140%20LOOZ/" rel="bookmark" title="VULNHUB 40 LOOZ">VULNHUB 40 LOOZ</a></li><li><a href="/2021/11/01/VULNHUB/143%20ORASI/" rel="bookmark" title="VULNHUB 43 ORASI">VULNHUB 43 ORASI</a></li><li><a href="/2021/11/01/VULNHUB/141%20CENGBOX3/" rel="bookmark" title="VULNHUB 41 CENGBOX3">VULNHUB 41 CENGBOX3</a></li><li><a href="/2021/11/01/VULNHUB/146%20NEMESIS/" rel="bookmark" title="VULNHUB 46 NEMESIS">VULNHUB 46 NEMESIS</a></li><li><a href="/2021/11/01/VULNHUB/144%20CEREAL/" rel="bookmark" title="VULNHUB 44 CEREAL">VULNHUB 44 CEREAL</a></li><li><a href="/2021/11/01/VULNHUB/142%20DARKHOLE2/" rel="bookmark" title="VULNHUB 42 DARKHOLE2">VULNHUB 42 DARKHOLE2</a></li><li><a href="/2021/11/01/VULNHUB/147%20WARZONE3/" rel="bookmark" title="VULNHUB 47 WARZONE3">VULNHUB 47 WARZONE3</a></li><li><a href="/2021/11/01/VULNHUB/149%20DURIAN/" rel="bookmark" title="VULNHUB 49 DURIAN">VULNHUB 49 DURIAN</a></li><li><a href="/2021/11/01/VULNHUB/148%20GITROOT/" rel="bookmark" title="VULNHUB 48 GITROOT">VULNHUB 48 GITROOT</a></li><li><a href="/2021/11/01/VULNHUB/145%20TORANDO/" rel="bookmark" title="VULNHUB 45 TORANDO">VULNHUB 45 TORANDO</a></li><li><a href="/2021/11/01/VULNHUB/150%20POWERGRID/" rel="bookmark" title="VULNHUB 50 POWERGRID">VULNHUB 50 POWERGRID</a></li>
         </ul>
       </div>
       <div class="overview panel" data-title="站点概览">
@@ -441,12 +464,12 @@ watch -n1 ls</p>
 
   <ul id="quick">
     <li class="prev pjax">
-        <a href="/2021/11/01/VULNHUB/130%20MOMENTUM2/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+        <a href="/2021/11/01/VULNHUB/132%20JETTY/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
     </li>
     <li class="up"><i class="ic i-arrow-up"></i></li>
     <li class="down"><i class="ic i-arrow-down"></i></li>
     <li class="next pjax">
-        <a href="/2021/11/01/VULNHUB/131%20PROXIMACENTAURI/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+        <a href="/2021/11/01/VULNHUB/129%20PRESIDENTIAL/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
     </li>
     <li class="percent"></li>
   </ul>
@@ -471,37 +494,7 @@ watch -n1 ls</p>
 <a href="/categories/MBTI/" title="分类于 MBTI">MBTI</a>
 </div>
 
-    <span><a href="/2020/04/01/MBTI/ESTJ%E8%A7%A3%E8%AF%BB/" title="ESTJ解读">ESTJ解读</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/" title="分类于 信息安全">信息安全</a>
-</div>
-
-    <span><a href="/2022/12/30/SAFE/14%20%E6%89%93%E7%A0%B4%E5%B8%B8%E8%A7%84/" title="XD22 14 打破常规">XD22 14 打破常规</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/" title="分类于 信息安全">信息安全</a>
-</div>
-
-    <span><a href="/2023/05/01/SAFE/Trojan/" title="Trojan 生成">Trojan 生成</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/VULNHUB/" title="分类于 VULNHUB">VULNHUB</a>
-</div>
-
-    <span><a href="/2021/11/01/VULNHUB/145%20TORANDO/" title="VULNHUB TORANDO">VULNHUB TORANDO</a></span>
+    <span><a href="/2020/04/01/MBTI/ESFJ%E8%A7%A3%E8%AF%BB/" title="ESFJ解读">ESFJ解读</a></span>
   </li>
 
       
@@ -511,7 +504,37 @@ watch -n1 ls</p>
 <a href="/categories/%E6%96%87%E5%AD%A6/" title="分类于 文学">文学</a>
 </div>
 
-    <span><a href="/2019/07/01/BOOK/23%E3%80%8A%E7%8E%B0%E5%AE%9E%E4%B8%80%E7%A7%8D%E3%80%8B%E4%BD%99%E5%8D%8E/" title="《现实一种》余华">《现实一种》余华</a></span>
+    <span><a href="/2019/07/01/BOOK/66%E3%80%8A%E9%99%86%E7%8A%AF%E7%84%89%E8%AF%86%E3%80%8B%E4%B8%A5%E6%AD%8C%E5%B2%91/" title="《陆犯焉识》严歌岑">《陆犯焉识》严歌岑</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/VULNHUB/" title="分类于 VULNHUB">VULNHUB</a>
+</div>
+
+    <span><a href="/2021/11/01/VULNHUB/104%20BREAKOUT/" title="VULNHUB 4 BREAKOUT">VULNHUB 4 BREAKOUT</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E6%96%87%E5%AD%A6/" title="分类于 文学">文学</a>
+</div>
+
+    <span><a href="/2019/07/01/BOOK/15%E3%80%8A%E5%9C%A3%E7%BB%8F%E6%98%AF%E6%80%8E%E6%A0%B7%E5%86%99%E6%88%90%E7%9A%84%E3%80%8B%E5%BA%B7%E8%AF%BA%E5%88%A9/" title="《圣经是怎样写成的》康诺利">《圣经是怎样写成的》康诺利</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/VULNHUB/" title="分类于 VULNHUB">VULNHUB</a>
+</div>
+
+    <span><a href="/2021/11/01/VULNHUB/145%20TORANDO/" title="VULNHUB 45 TORANDO">VULNHUB 45 TORANDO</a></span>
   </li>
 
       
@@ -521,27 +544,7 @@ watch -n1 ls</p>
 <a href="/categories/%E4%B8%96%E7%95%8C%E5%90%8D%E8%91%97/" title="分类于 世界名著">世界名著</a>
 </div>
 
-    <span><a href="/2019/07/01/BOOK/41%E3%80%8A%E4%BA%BA%E7%94%9F%E7%9A%84%E6%9E%B7%E9%94%81%E3%80%8B%E6%AF%9B%E5%A7%86/" title="《人生的枷锁》毛姆">《人生的枷锁》毛姆</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/MBTI/" title="分类于 MBTI">MBTI</a>
-</div>
-
-    <span><a href="/2020/04/01/MBTI/ENFP%E8%A7%A3%E8%AF%BB/" title="ENFP解读">ENFP解读</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/MBTI/" title="分类于 MBTI">MBTI</a>
-</div>
-
-    <span><a href="/2020/04/01/MBTI/%E8%8D%A3%E6%A0%BC%E4%B8%8E%E5%BF%83%E7%90%86%E5%AD%A6/" title="荣格与心理学">荣格与心理学</a></span>
+    <span><a href="/2019/07/01/BOOK/57%E3%80%8A%E4%B8%8D%E6%9C%BD%E3%80%8B%E7%B1%B3%E5%85%B0%C2%B7%E6%98%86%E5%BE%B7%E6%8B%89/" title="《不朽》米兰·昆德拉">《不朽》米兰·昆德拉</a></span>
   </li>
 
       
@@ -551,17 +554,37 @@ watch -n1 ls</p>
 <a href="/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/" title="分类于 信息安全">信息安全</a>
 </div>
 
-    <span><a href="/2022/12/30/SAFE/4%20API%E6%94%BB%E9%98%B2/" title="XD22 4 API 攻防">XD22 4 API 攻防</a></span>
+    <span><a href="/2022/12/30/SAFE/1%20WEB%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" title="XD22 1 Web 基础知识">XD22 1 Web 基础知识</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/" title="分类于 信息安全">信息安全</a>
+<a href="/categories/%E6%96%87%E5%AD%A6/" title="分类于 文学">文学</a>
 </div>
 
-    <span><a href="/2022/12/30/SAFE/8%20%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/" title="XD22 8 代码审计">XD22 8 代码审计</a></span>
+    <span><a href="/2019/07/01/BOOK/28%E3%80%8A%E5%BD%93%E5%91%BC%E5%90%B8%E5%8C%96%E4%B8%BA%E7%A9%BA%E6%B0%94%E3%80%8B%E4%BF%9D%E7%BD%97%C2%B7%E5%8D%A1%E6%8B%89%E5%B0%BC%E4%BB%80/" title="《当呼吸化为空气》保罗·卡拉尼什">《当呼吸化为空气》保罗·卡拉尼什</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E4%B8%96%E7%95%8C%E5%90%8D%E8%91%97/" title="分类于 世界名著">世界名著</a>
+</div>
+
+    <span><a href="/2019/07/01/BOOK/45%E3%80%8A%E5%B7%B4%E9%BB%8E%E5%9C%A3%E6%AF%8D%E9%99%A2%E3%80%8B%E9%9B%A8%E6%9E%9C/" title="《巴黎圣母院》雨果">《巴黎圣母院》雨果</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/MBTI/" title="分类于 MBTI">MBTI</a>
+</div>
+
+    <span><a href="/2020/04/01/MBTI/INTP%E8%A7%A3%E8%AF%BB/" title="INTP解读">INTP解读</a></span>
   </li>
 
   </ul>
@@ -586,13 +609,13 @@ watch -n1 ls</p>
     <span class="post-meta-item-icon">
       <i class="ic i-chart-area"></i>
     </span>
-    <span title="站点总字数">746k 字</span>
+    <span title="站点总字数">748k 字</span>
 
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="ic i-coffee"></i>
     </span>
-    <span title="站点阅读时长">20:44</span>
+    <span title="站点阅读时长">20:46</span>
   </div>
 
 <!--   自定义开启一个网站的运行时间 -->
