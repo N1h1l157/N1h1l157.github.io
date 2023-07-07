@@ -1,26 +1,26 @@
 <?xml version="1.0"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://n1h1l157.github.io</id>
+    <id>http://www.n1h1l157.live</id>
     <title>X_T • Posts by &#34;enfp&#34; tag</title>
-    <link href="https://n1h1l157.github.io" />
+    <link href="http://www.n1h1l157.live" />
     <updated>2020-03-31T16:00:00.000Z</updated>
-    <category term="ENFP" />
     <category term="ENFJ" />
-    <category term="ESTP" />
-    <category term="ENTP" />
-    <category term="ESFJ" />
     <category term="ENTJ" />
+    <category term="ENTP" />
+    <category term="ENFP" />
+    <category term="ESFP" />
+    <category term="ESTP" />
+    <category term="ESFJ" />
     <category term="INFJ" />
     <category term="INTJ" />
-    <category term="INTP" />
-    <category term="ISFP" />
     <category term="ESTJ" />
-    <category term="ISTJ" />
-    <category term="ESFP" />
-    <category term="MBTI" />
-    <category term="ISTP" />
     <category term="INFP" />
+    <category term="INTP" />
+    <category term="ISTP" />
+    <category term="ISFP" />
+    <category term="ISTJ" />
     <category term="ISFJ" />
+    <category term="MBTI" />
     <category term="心理测试" />
     <category term="VULNHUB 1-10" />
     <category term="VULNHUB 11-20" />
@@ -28,25 +28,25 @@
     <category term="VULNHUB 31-40" />
     <category term="VULNHUB 41-50" />
     <category term="渗透测试" />
-    <category term="Trojan" />
     <category term="信息安全网址" />
-    <category term="生命" />
+    <category term="Linux" />
+    <category term="Trojan" />
     <category term="人生" />
     <category term="成长" />
+    <category term="生命" />
+    <category term="命运" />
     <category term="人生哲学" />
     <category term="意义" />
     <category term="神学" />
-    <category term="Linux" />
     <category term="社会" />
     <category term="历史" />
-    <category term="命运" />
     <category term="人性" />
     <category term="爱情" />
     <category term="道德" />
     <entry>
-        <id>https://n1h1l157.github.io/2020/04/01/MBTI/ENFP%E8%A7%A3%E8%AF%BB/</id>
+        <id>http://www.n1h1l157.live/2020/04/01/MBTI/ENFP%E8%A7%A3%E8%AF%BB/</id>
         <title>ENFP解读</title>
-        <link rel="alternate" href="https://n1h1l157.github.io/2020/04/01/MBTI/ENFP%E8%A7%A3%E8%AF%BB/"/>
+        <link rel="alternate" href="http://www.n1h1l157.live/2020/04/01/MBTI/ENFP%E8%A7%A3%E8%AF%BB/"/>
         <content type="html">&lt;p&gt;每一个新鲜事物都会想要打开门进去瞅一眼，但当大致了解了这个东西的整体运作方式之后，就会失去兴趣。容易陷入天赋错觉。心态极其浮躁。&lt;/p&gt;
 &lt;h3 id=&#34;性格特征&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#性格特征&#34;&gt;#&lt;/a&gt; 性格特征&lt;/h3&gt;
 &lt;p&gt;在人际交往中总是担心会麻烦到别人，时常把他人的重要性放在自己之前，总是做一些所有人都不知道的付出。&lt;/p&gt;
