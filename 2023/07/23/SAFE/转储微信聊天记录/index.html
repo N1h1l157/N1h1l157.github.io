@@ -1,0 +1,852 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="X_T" href="http://www.n1h1l157.live/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="X_T" href="http://www.n1h1l157.live/atom.xml" />
+<link rel="alternate" type="application/json" title="X_T" href="http://www.n1h1l157.live/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="记忆" />
+
+
+<link rel="canonical" href="http://www.n1h1l157.live/2023/07/23/SAFE/%E8%BD%AC%E5%82%A8%E5%BE%AE%E4%BF%A1%E8%81%8A%E5%A4%A9%E8%AE%B0%E5%BD%95/">
+
+
+
+  <title>
+微信数据库备份 - 信息安全 |
+Phut Hon = X_T = 天行健，君子以自强不息</title>
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">微信数据库备份
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="创建时间：2023-07-23 00:00:00">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">发表于</span>
+    <time itemprop="dateCreated datePublished" datetime="2023-07-23T00:00:00+08:00">2023-07-23</time>
+  </span>
+  <span class="item" title="本文字数">
+    <span class="icon">
+      <i class="ic i-pen"></i>
+    </span>
+    <span class="text">本文字数</span>
+    <span>4.2k</span>
+    <span class="text">字</span>
+  </span>
+  <span class="item" title="阅读时长">
+    <span class="icon">
+      <i class="ic i-clock"></i>
+    </span>
+    <span class="text">阅读时长</span>
+    <span>7 分钟</span>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切换导航栏">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Phut Hon</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/NAluZapicqUzOSh.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/9RqJ7SolMrGZxmj.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/JUZqV6zBpbmk97w.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/sAogJHmbkhVBX4D.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/I2FJTgzYkwqh7rd.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/ih8VgnTxBCHAZDo.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">首页</a></span><i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/" itemprop="item" rel="index" title="分类于 信息安全"><span itemprop="name">信息安全</span></a>
+<meta itemprop="position" content="1" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
+  <link itemprop="mainEntityOfPage" href="http://www.n1h1l157.live/2023/07/23/SAFE/%E8%BD%AC%E5%82%A8%E5%BE%AE%E4%BF%A1%E8%81%8A%E5%A4%A9%E8%AE%B0%E5%BD%95/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content=".N1h1l157">
+    <meta itemprop="description" content="天行健，君子以自强不息, 人生如逆旅，我亦是行人">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="X_T">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <p>如果一个人把自己的记忆弄丢了，那人生只是一个单纯的奔向死亡的过程，无论在他人眼中是什么样的存在，终究是一副空壳而已。而无论那记忆是美好，痛苦或是平淡，那都是我们生命中的一部分，无法割舍的深深的烙印。</p>
+<hr>
+<h3 id="效果图展示"><a class="markdownIt-Anchor" href="#效果图展示">#</a> 效果图展示</h3>
+<ol>
+<li>wechat-backup 导出</li>
+</ol>
+<img data-src="/N1h1l157/SAFE/image-119.png" width="770" alt="Image">
+<ol start="2">
+<li>wechat-dump 导出</li>
+</ol>
+<img data-src="/N1h1l157/SAFE/image-130.png" width="550" alt="Image">
+<ol start="3">
+<li>聊天记录转 pdf</li>
+</ol>
+<img data-src="/N1h1l157/SAFE/image-133.png" width="660" alt="Image">
+<hr>
+<h3 id="聊天记录转移至模拟器"><a class="markdownIt-Anchor" href="#聊天记录转移至模拟器">#</a> 聊天记录转移至模拟器</h3>
+<p><strong>手机聊天记录备份至电脑 -&gt; 电脑聊天记录备份至模拟器 -&gt; 雷电模拟器开启 root -&gt; 模拟器下载 ES 文件浏览器并启用 root 工具箱 -&gt; 复制微信数据库等资料到共享文件</strong></p>
+<ol>
+<li>
+<p>手机聊天记录备份至电脑后，将电脑上存储的聊天记录备份至电脑上的安卓模拟器<br>
+<img data-src="/N1h1l157/SAFE/image-099.png" width="550" alt="Image"></p>
+</li>
+<li>
+<p>这里我用的是雷电模拟器，在设置里边可以直接开启 root 权限<br>
+<img data-src="/N1h1l157/SAFE/image-101.jpg" width="550" alt="Image"></p>
+</li>
+<li>
+<p>模拟器安装 ES 文件浏览器，通过此文件管理工具操作文件<br>
+<img data-src="/N1h1l157/SAFE/image-102.jpg" width="550" alt="Image"></p>
+</li>
+<li>
+<p>ES 文件浏览器开启 Root 工具箱<br>
+<img data-src="/N1h1l157/SAFE/image-103.jpg" width="550" alt="Image"></p>
+</li>
+<li>
+<p>此时已经有权限可以看到安卓模拟器上的所有文件夹及文件<br>
+<img data-src="/N1h1l157/SAFE/image-104.jpg" width="550" alt="Image"></p>
+</li>
+</ol>
+<hr>
+<h3 id="收集微信相关数据"><a class="markdownIt-Anchor" href="#收集微信相关数据">#</a> 收集微信相关数据</h3>
+<p>各文件夹具体作用参考文章：<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmdyZXljb2RlLnRvcC9wb3N0cy9hbmRyb2lkLXdlY2hhdC1iYWsv">https://blog.greycode.top/posts/android-wechat-bak/</span></p>
+<blockquote>
+<p>收集以下数据：<br>
+auth_info_key_prefs.xml uin 位置：/data/data/com.tencent.mm/shared_prefs/auth_info_key_prefs.xml<br>
+image2 所有的微信聊天图片：/data/data/com.tencent.mm/MicroMsg/[32 位字母]/image2<br>
+voice2 所有的微信语音：/sdcard/Android/data/com.tencent.mm/MicroMsg/[32 位字母]/voice2<br>
+voide 所有的微信视频：/sdcard/Android/data/com.tencent.mm/MicroMsg/[32 位字母]/voide<br>
+avatar 所有的微信头像：/data/data/com.tencent.mm/MicroMsg/[32 位字母]/avatar<br>
+Download 聊天发送的文件存放在这里：/sdcard/Android/data/com.tencent.mm/MicroMsg/Download<br>
+EnMicroMsg.db 微信数据库文件：/data/data/com.tencent.mm/MicroMsg/[32 位字母]/EnMicroMsg.db<br>
+WxFileIndex.db 文件索引：/data/data/com.tencent.mm/MicroMsg/[32 位字母]/WxFileIndex.db<br>
+emoji 表情包：/data/data/com.tencent.mm/MicroMsg/emoji</p>
+</blockquote>
+<ol start="6">
+<li>
+<p>收集数据，以微信本地数据库 EnMicroMsg.db 为例，长按 -&gt; 更多 -&gt; 复制到<br>
+<img data-src="/N1h1l157/SAFE/image-106.jpg" width="550" alt="Image"></p>
+</li>
+<li>
+<p>我选择了复制到 Applications 的共享文件，也可以选择 Alarms 及 dianxin<br>
+<img data-src="/N1h1l157/SAFE/image-107.jpg" width="550" alt="Image"></p>
+</li>
+<li>
+<p>如果觉得传输速度太慢，可以先压缩，再复制过去解压<br>
+<img data-src="/N1h1l157/SAFE/image-108.jpg" width="550" alt="Image"></p>
+</li>
+<li>
+<p>打开模拟器的共享在电脑上的文件夹的位置，判断复制成功<br>
+<img data-src="/N1h1l157/SAFE/image-109.jpg" width="700" alt="Image"></p>
+</li>
+<li>
+<p>同样的方法，复制其他需要收集的数据到电脑上的共享文件中<br>
+<img data-src="/N1h1l157/SAFE/image-111.jpg" width="700" alt="Image"></p>
+</li>
+</ol>
+<hr>
+<h3 id="数据前期处理"><a class="markdownIt-Anchor" href="#数据前期处理">#</a> 数据前期处理</h3>
+<p>数据库解密参考文章：<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzI1OTI2NDgxL2FydGljbGUvZGV0YWlscy8xMjIzMjYzMTM=">https://blog.csdn.net/sinat_25926481/article/details/122326313</span><br>
+ 音频解码参考文章：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2dyZXljb2RlZS93ZWNoYXQtYmFja3Vw">https://github.com/greycodee/wechat-backup</span></p>
+<p><strong>获取数据库密码 -&gt; 解密微信数据库 -&gt; 解码音频文件</strong></p>
+<ol start="11">
+<li>获取 uin 值，如图 _auth_uin 所在行的值就是，我的为 - 1639125062</li>
+</ol>
+<blockquote>
+<p>微信数据库密码为 IMEI+UNI 的 md5 加密后的前 7 位<br>
+ IMEI+UNI：1234567890ABCDEF-1639125062<br>
+ 在线 md5 加密： <span class="exturl" data-url="aHR0cHM6Ly9tZDVqaWFtaS5ibWN4LmNvbS8=">https://md5jiami.bmcx.com/</span><br>
+ 命令行 md5 加密：echo -n “1234567890ABCDEF-1639125062” | md5</p>
+</blockquote>
+<img data-src="/N1h1l157/SAFE/image-112.png" width="770" alt="Image">
+<p>如图，显示的前 7 位为我的数据库密码：23a9a94</p>
+<ol start="12">
+<li>通过获取到的数据库密码将 EnMicroMsg.db 导出为一个未加密的数据库，依次输入以下命令解密数据库</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">安装sqlcipher -&gt; 如果系统是os，请根据参考文章给出的方式安装工具</span></span><br><span class="line">brew install sqlcipher</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">通过 sqlcipher 操作数据库</span></span><br><span class="line">sqlcipher EnMicroMsg.db</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">依次在sqllite命令行输入以下命令</span></span><br><span class="line">PRAGMA key = &#x27;23a9a94&#x27;;</span><br><span class="line">PRAGMA cipher_use_hmac = off;</span><br><span class="line">PRAGMA kdf_iter = 4000;</span><br><span class="line">PRAGMA cipher_page_size = 1024;</span><br><span class="line">PRAGMA cipher_hmac_algorithm = HMAC_SHA1;</span><br><span class="line">PRAGMA cipher_kdf_algorithm = PBKDF2_HMAC_SHA1;</span><br><span class="line">ATTACH DATABASE &#x27;EnMicroMsg_230721.db&#x27; AS EnMicroMsg_230721 KEY &#x27;&#x27;;</span><br><span class="line">SELECT sqlcipher_export(&#x27;EnMicroMsg_230721&#x27;);</span><br><span class="line">DETACH DATABASE EnMicroMsg_230721;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">删除无用的文件</span></span><br><span class="line">rm -f EnMicroMsg.db-wal EnMicroMsg.db-shm</span><br></pre></td></tr></table></figure>
+<img data-src="/N1h1l157/SAFE/image-113.png" width="800" alt="Image">
+<p>如图，将导出为一个未加密的数据库，名为 EnMicroMsg_230721.db</p>
+<ol start="13">
+<li>
+<p>同样的方法，解密微信索引数据库 WxFileIndex.db, 注意导出的数据库名字不可以重复<br>
+<img data-src="/N1h1l157/SAFE/image-114.png" width="800" alt="Image"></p>
+</li>
+<li>
+<p>通过 docker 拉取 greycodee/silkv3-decoder 镜像，将编码后的 amr 格式解码为 mp3</p>
+</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">我将 voice 发送到了装有 docker 的linux，执行以下命令解码音频后再传回来</span></span><br><span class="line">docker run --rm -v /root/voice2:/media  greycodee/silkv3-decoder</span><br></pre></td></tr></table></figure>
+<img data-src="/N1h1l157/SAFE/image-115.png" width="800" alt="Image">
+<hr>
+<h3 id="wechat-backup-导出-html"><a class="markdownIt-Anchor" href="#wechat-backup-导出-html">#</a> wechat-backup 导出 html</h3>
+<p>源码位置：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2dyZXljb2RlZS93ZWNoYXQtYmFja3Vw">https://github.com/greycodee/wechat-backup</span></p>
+<p><strong>修改代码中指向的数据库名和数据库索引表 -&gt; 本地 web 查看聊天记录</strong></p>
+<ol start="15">
+<li>
+<p>wechat-backup 是用 go 写出来的，star*2.2k, 效果还是很不错的<br>
+<img data-src="/N1h1l157/SAFE/image-116.png" width="770" alt="Image"></p>
+</li>
+<li>
+<p>修改 db/wxdb.go 下的数据库名，改为刚才解码导出后的两个数据库<br>
+<img data-src="/N1h1l157/SAFE/image-117.png" width="770" alt="Image"></p>
+</li>
+<li>
+<p>指定数据运行程序  <code>go run main.go -f /Volumes/KINGSTON/微信数据库/230721_backup</code> <br>
+<img data-src="/N1h1l157/SAFE/image-118.png" width="770" alt="Image"></p>
+</li>
+<li>
+<p>查看聊天记录  <code>http://127.0.0.1:9999</code> <br>
+<img data-src="/N1h1l157/SAFE/image-119.png" width="770" alt="Image"></p>
+</li>
+</ol>
+<hr>
+<h3 id="wechat-dump-导出-html"><a class="markdownIt-Anchor" href="#wechat-dump-导出-html">#</a> wechat-dump 导出 html</h3>
+<p>源码位置：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3Bwd3d5eXh4L3dlY2hhdC1kdW1w">https://github.com/ppwwyyxx/wechat-dump</span></p>
+<ol start="19">
+<li>wechat-backup 是用 py 写出来的，star*1.5k, 效果我很喜欢</li>
+</ol>
+<img data-src="/N1h1l157/SAFE/image-120.png" width="770" alt="Image">
+<ol start="20">
+<li>克隆项目  <code>git clone https://github.com/ppwwyyxx/wechat-dump.git</code></li>
+</ol>
+<img data-src="/N1h1l157/SAFE/image-121.png" width="660" alt="Image">
+<ol start="21">
+<li>列出联系人及其微信号<br>
+ <code>python list-chats.py /Volumes/KINGSTON/微信数据库备份/220921_backup/EnMicroMsg_220921.db &gt; list_chats_22.txt</code></li>
+</ol>
+<img data-src="/N1h1l157/SAFE/image-122.png" width="660" alt="Image">
+<ol start="22">
+<li>导出数据库中的聊天记录<br>
+ <code>python dump-msg.py /Volumes/KINGSTON/微信数据库备份/220921_backup/EnMicroMsg_220921.db res/msg</code></li>
+</ol>
+<img data-src="/N1h1l157/SAFE/image-123.png" width="660" alt="Image">
+<p>如图，环境问题终于还是来了，不过这个脚本直接加个 try 就可以解决了</p>
+<ol start="23">
+<li>加个捕获异常可以正常导出聊天的 msg 信息</li>
+</ol>
+<img data-src="/N1h1l157/SAFE/image-124.png" width="660" alt="Image">
+<ol start="24">
+<li>可以看到每个人或者每个群的聊天记录的 msg 信息，可据此写写前端</li>
+</ol>
+<img data-src="/N1h1l157/SAFE/image-126.png" width="660" alt="Image">
+<p><strong>但是接下来将聊天记录导出为 html 的时候，碰到了很多奇怪的问题，自己索性修改了作者提供的源码</strong></p>
+<hr>
+<h3 id="修改-wechat-dump-源码"><a class="markdownIt-Anchor" href="#修改-wechat-dump-源码">#</a> 修改 wechat-dump 源码</h3>
+<p>源码位置：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL24xaDFsMTU3L3dlY2hhdC1kdW1w">https://github.com/n1h1l157/wechat-dump</span></p>
+<p><strong>或许在调试的时候还是会遇到些 bug，建议自己 fork 下来断点调试</strong></p>
+<ol start="25">
+<li>导出为 html<br>
+ <code>python dump-html.py --db /Volumes/KINGSTON/微信数据库备份/220921_backup/EnMicroMsg_220921.db --res /Volumes/KINGSTON/微信数据库备份/230721_backup --output result/Camile/Camile.html wxid_qxxxxxxx22</code></li>
+</ol>
+<img data-src="/N1h1l157/SAFE/image-128.png" width="660" alt="Image">
+<ol start="26">
+<li>导出后的文件如图，html 被分为若干个</li>
+</ol>
+<img data-src="/N1h1l157/SAFE/image-129.png" width="550" alt="Image">
+<ol start="27">
+<li>可以本地预览这些 html 文件，表情包、图标、音频、视频等都是正常的，除非图片已经丢失</li>
+</ol>
+<img data-src="/N1h1l157/SAFE/image-130.png" width="550" alt="Image">
+<hr>
+<h3 id="导出聊天记录为-pdf"><a class="markdownIt-Anchor" href="#导出聊天记录为-pdf">#</a> 导出聊天记录为 pdf</h3>
+<p><strong>后面做了自定义的一些设置，直接把脚本贴到 github 了，需要自行阅读源码理解</strong></p>
+<ol start="28">
+<li>按自己喜欢的方式做了一些小改变，将 html 拼接为一个整体的大的 html 文件</li>
+</ol>
+<p><code>python merge_html.py -f /Users/chentuo/Personal/myself/微信数据库/wechat_dump/result/Camile -n Camile.html</code></p>
+<img data-src="/N1h1l157/SAFE/image-131.png" width="660" alt="Image">
+<ol start="29">
+<li>对 html 做处理，使得拼接后的 html 文件只保留最顶部的滚动条</li>
+</ol>
+<p><code>python modify_html.py --nickname 'Camile' --input /Users/chentuo/Personal/myself/微信数据库/wechat_dump/result/Camile/Camile.html</code></p>
+<p>30）通过 js 加载 puppeteer，用一个谷歌浏览器的测试版将 html 转为多页的 pdf</p>
+<p>参考项目：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3B1cHBldGVlci9wdXBwZXRlZXI=">https://github.com/puppeteer/puppeteer</span></p>
+<p><code>node convert_html_to_pdf.js -f 'Camile' -n 20 -e '～/.cache/puppeteer/chrome/mac_arm-114.0.5735.133/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing'</code></p>
+<img data-src="/N1h1l157/SAFE/image-132.png" width="660" alt="Image">
+<ol start="30">
+<li>最后聊天记录保存成了本地的 pdf 文件</li>
+</ol>
+<img data-src="/N1h1l157/SAFE/image-133.png" width="660" alt="Image">
+<p>大功告成，结束。</p>
+
+      <div class="tags">
+          <a href="/tags/%E8%AE%B0%E5%BF%86/" rel="tag"><i class="ic i-tag"></i> 记忆</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">更新于</span>
+    <time title="修改时间：2023-07-24 01:46:51" itemprop="dateModified" datetime="2023-07-24T01:46:51+08:00">2023-07-24</time>
+  </span>
+  <span id="2023/07/23/SAFE/转储微信聊天记录/" class="item leancloud_visitors" data-flag-title="微信数据库备份" title="阅读次数">
+      <span class="icon">
+        <i class="ic i-eye"></i>
+      </span>
+      <span class="text">阅读次数</span>
+      <span class="leancloud-visitors-count"></span>
+      <span class="text">次</span>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> 赞赏</button>
+  <p>请我喝[茶]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/wechatpay.png" alt=".N1h1l157 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/alipay.png" alt=".N1h1l157 支付宝">
+        <p>支付宝</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/paypal.png" alt=".N1h1l157 贝宝">
+        <p>贝宝</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>本文作者： </strong>.N1h1l157 <i class="ic i-at"><em>@</em></i>X_T
+  </li>
+  <li class="link">
+    <strong>本文链接：</strong>
+    <a href="http://www.n1h1l157.live/2023/07/23/SAFE/%E8%BD%AC%E5%82%A8%E5%BE%AE%E4%BF%A1%E8%81%8A%E5%A4%A9%E8%AE%B0%E5%BD%95/" title="微信数据库备份">http://www.n1h1l157.live/2023/07/23/SAFE/转储微信聊天记录/</a>
+  </li>
+  <li class="license">
+    <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/2023/05/19/SAFE/Linux/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s2.loli.net&#x2F;2023&#x2F;04&#x2F;01&#x2F;EJFKatQPUYXWgNZ.jpg" title="Linux 命令">
+  <span class="type">上一篇</span>
+  <span class="category"><i class="ic i-flag"></i> 信息安全</span>
+  <h3>Linux 命令</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目录">
+          <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%88%E6%9E%9C%E5%9B%BE%E5%B1%95%E7%A4%BA"><span class="toc-number">1.</span> <span class="toc-text"> 效果图展示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%81%8A%E5%A4%A9%E8%AE%B0%E5%BD%95%E8%BD%AC%E7%A7%BB%E8%87%B3%E6%A8%A1%E6%8B%9F%E5%99%A8"><span class="toc-number">2.</span> <span class="toc-text"> 聊天记录转移至模拟器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%94%B6%E9%9B%86%E5%BE%AE%E4%BF%A1%E7%9B%B8%E5%85%B3%E6%95%B0%E6%8D%AE"><span class="toc-number">3.</span> <span class="toc-text"> 收集微信相关数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%89%8D%E6%9C%9F%E5%A4%84%E7%90%86"><span class="toc-number">4.</span> <span class="toc-text"> 数据前期处理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#wechat-backup-%E5%AF%BC%E5%87%BA-html"><span class="toc-number">5.</span> <span class="toc-text"> wechat-backup 导出 html</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#wechat-dump-%E5%AF%BC%E5%87%BA-html"><span class="toc-number">6.</span> <span class="toc-text"> wechat-dump 导出 html</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9-wechat-dump-%E6%BA%90%E7%A0%81"><span class="toc-number">7.</span> <span class="toc-text"> 修改 wechat-dump 源码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%BC%E5%87%BA%E8%81%8A%E5%A4%A9%E8%AE%B0%E5%BD%95%E4%B8%BA-pdf"><span class="toc-number">8.</span> <span class="toc-text"> 导出聊天记录为 pdf</span></a></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="系列文章">
+        <ul>
+          <li><a href="/2022/12/30/SAFE/1%20WEB%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" rel="bookmark" title="XD22 1 Web 基础知识">XD22 1 Web 基础知识</a></li><li><a href="/2022/12/30/SAFE/11%20%E5%86%85%E7%BD%91%E5%AE%89%E5%85%A8/" rel="bookmark" title="XD22 11 内网安全">XD22 11 内网安全</a></li><li><a href="/2022/12/30/SAFE/2%20WEB%E9%80%9A%E7%94%A8%E6%BC%8F%E6%B4%9E/" rel="bookmark" title="XD22 2 Web 通用漏洞">XD22 2 Web 通用漏洞</a></li><li><a href="/2022/12/30/SAFE/13%20%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%86/" rel="bookmark" title="XD22 13 补充知识">XD22 13 补充知识</a></li><li><a href="/2022/12/30/SAFE/14%20%E6%89%93%E7%A0%B4%E5%B8%B8%E8%A7%84/" rel="bookmark" title="XD22 14 打破常规">XD22 14 打破常规</a></li><li><a href="/2022/12/30/SAFE/5%20APP%E6%94%BB%E9%98%B2/" rel="bookmark" title="XD22 5 APP 攻防">XD22 5 APP 攻防</a></li><li><a href="/2022/12/30/SAFE/6%20%E6%BC%8F%E6%B4%9E%E5%8F%91%E7%8E%B0%E5%8F%8A%E5%88%A9%E7%94%A8/" rel="bookmark" title="XD22 6 漏洞发现及利用">XD22 6 漏洞发现及利用</a></li><li><a href="/2022/12/30/SAFE/3%20%E6%9C%8D%E5%8A%A1%E6%94%BB%E9%98%B2/" rel="bookmark" title="XD22 3 服务攻防">XD22 3 服务攻防</a></li><li><a href="/2022/12/30/SAFE/12%20%E6%9D%83%E9%99%90%E7%BB%B4%E6%8C%81/" rel="bookmark" title="XD22 12 权限维持">XD22 12 权限维持</a></li><li><a href="/2022/12/30/SAFE/7%20waf%E6%94%BB%E9%98%B2/" rel="bookmark" title="XD22 7 Waf 攻防">XD22 7 Waf 攻防</a></li><li><a href="/2022/12/30/SAFE/8%20%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/" rel="bookmark" title="XD22 8 代码审计">XD22 8 代码审计</a></li><li><a href="/2022/12/30/SAFE/4%20API%E6%94%BB%E9%98%B2/" rel="bookmark" title="XD22 4 API 攻防">XD22 4 API 攻防</a></li><li><a href="/2022/12/30/SAFE/9%20%E6%9D%83%E9%99%90%E6%8F%90%E5%8D%87/" rel="bookmark" title="XD22 9 权限提升">XD22 9 权限提升</a></li><li><a href="/2022/12/30/SAFE/10%20%E5%85%8D%E6%9D%80%E5%AF%B9%E6%8A%97/" rel="bookmark" title="XD22 10 免杀对抗">XD22 10 免杀对抗</a></li><li><a href="/2023/05/01/SAFE/Trojan/" rel="bookmark" title="Trojan 生成">Trojan 生成</a></li><li><a href="/2023/05/10/SAFE/Security%20URL/" rel="bookmark" title="信息安全 网址">信息安全 网址</a></li><li><a href="/2023/05/19/SAFE/Linux/" rel="bookmark" title="Linux 命令">Linux 命令</a></li><li class="active"><a href="/2023/07/23/SAFE/%E8%BD%AC%E5%82%A8%E5%BE%AE%E4%BF%A1%E8%81%8A%E5%A4%A9%E8%AE%B0%E5%BD%95/" rel="bookmark" title="微信数据库备份">微信数据库备份</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="站点概览">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt=".N1h1l157"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">.N1h1l157</p>
+  <div class="description" itemprop="description">人生如逆旅，我亦是行人</div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">167</span>
+        <span class="name">文章</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">5</span>
+        <span class="name">分类</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">40</span>
+        <span class="name">标签</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL04xaDFsMTU3" title="https:&#x2F;&#x2F;github.com&#x2F;N1h1l157"><i class="ic i-github"></i></span>
+      <span class="exturl item twitter" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS9YVDcyNzgwMzA4" title="https:&#x2F;&#x2F;twitter.com&#x2F;XT72780308"><i class="ic i-twitter"></i></span>
+      <span class="exturl item weibo" data-url="aHR0cHM6Ly9tLndlaWJvLmNuL3Byb2ZpbGUvNTgyOTg0MzUyNQ==" title="https:&#x2F;&#x2F;m.weibo.cn&#x2F;profile&#x2F;5829843525"><i class="ic i-weibo"></i></span>
+      <span class="exturl item about" data-url="aHR0cHM6Ly90Lm1lL24xaDFsMTU3" title="https:&#x2F;&#x2F;t.me&#x2F;n1h1l157"><i class="ic i-address-card"></i></span>
+      <span class="exturl item email" data-url="bWFpbHRvOjEyMjgwNTc4NjlAcXEuY29t" title="mailto:1228057869@qq.com"><i class="ic i-envelope"></i></span>
+      <span class="exturl item facebook" data-url="aHR0cHM6Ly93d3cuZmFjZWJvb2suY29tL3Byb2ZpbGUucGhwP2lkPTEwMDA4NDUzNzQwNTEzNw==" title="https:&#x2F;&#x2F;www.facebook.com&#x2F;profile.php?id&#x3D;100084537405137"><i class="ic i-facebook"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>首页</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/about/" rel="section"><i class="ic i-user"></i>关于</a>
+  </li>
+
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-feather"></i>文章</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/archives/" rel="section"><i class="ic i-list-alt"></i>归档</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/categories/" rel="section"><i class="ic i-th"></i>分类</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/tags/" rel="section"><i class="ic i-tags"></i>标签</a>
+  </li>
+
+  </ul>
+    
+  <li class="item">
+    <a href="/links/" rel="section"><i class="ic i-magic"></i>友链</a>
+  </li>
+
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-clipboard"></i>书架</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/books/LITERATURE/" rel="section"><i class="ic i-fedora"></i>LITERATURE</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/books/VULNHUB/" rel="section"><i class="ic i-android"></i>X_T-VULNHUB</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/books/XIAODI/" rel="section"><i class="ic i-opera"></i>XIAODI-SAFE</a>
+  </li>
+
+  </ul>
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>随机文章</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/VULNHUB/" title="分类于 VULNHUB">VULNHUB</a>
+</div>
+
+    <span><a href="/2021/11/01/VULNHUB/149%20DURIAN/" title="VULNHUB 49 DURIAN">VULNHUB 49 DURIAN</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E4%B8%96%E7%95%8C%E5%90%8D%E8%91%97/" title="分类于 世界名著">世界名著</a>
+</div>
+
+    <span><a href="/2019/07/01/BOOK/47%E3%80%8A%E4%BA%BA%E7%94%9F%E7%9A%84%E4%BB%B7%E5%80%BC%E4%B8%8E%E6%84%8F%E4%B9%89%E3%80%8B%E5%A5%A5%E4%BC%8A%E8%82%AF/" title="《人生的价值与意义》奥伊肯">《人生的价值与意义》奥伊肯</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E6%96%87%E5%AD%A6/" title="分类于 文学">文学</a>
+</div>
+
+    <span><a href="/2019/07/01/BOOK/60%E3%80%8A%E9%87%91%E9%A9%B4%E8%AE%B0%E3%80%8B%E9%98%BF%E6%99%AE%E5%88%97%E4%B9%8C%E6%96%AF/" title="《金驴记》阿普列乌斯">《金驴记》阿普列乌斯</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E6%96%87%E5%AD%A6/" title="分类于 文学">文学</a>
+</div>
+
+    <span><a href="/2019/07/01/BOOK/49%E3%80%8A%E6%B2%89%E9%BB%98%E7%9A%84%E7%BE%94%E7%BE%8A%E3%80%8B%E5%86%AF%E7%8E%9B%E5%A3%AB%C2%B7%E5%93%88%E9%87%8C%E6%96%AF/" title="《沉默的羔羊》冯玛士·哈里斯">《沉默的羔羊》冯玛士·哈里斯</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E6%96%87%E5%AD%A6/" title="分类于 文学">文学</a>
+</div>
+
+    <span><a href="/2019/07/01/BOOK/26%E3%80%8A%E4%BA%BA%E7%B1%BB%E7%AE%80%E5%8F%B2%E3%80%8B%E5%B0%A4%E7%93%A6%E5%B0%94%C2%B7%E8%B5%AB%E6%8B%89%E5%88%A9/" title="《人类简史》尤瓦尔·赫拉利">《人类简史》尤瓦尔·赫拉利</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/VULNHUB/" title="分类于 VULNHUB">VULNHUB</a>
+</div>
+
+    <span><a href="/2021/11/01/VULNHUB/139%20INFERNO/" title="VULNHUB 39 INFERNO">VULNHUB 39 INFERNO</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E6%96%87%E5%AD%A6/" title="分类于 文学">文学</a>
+</div>
+
+    <span><a href="/2019/07/01/BOOK/20%E3%80%8A%E5%B0%91%E5%B9%B4%E7%BB%B4%E7%89%B9%E4%B9%8B%E7%83%A6%E6%81%BC%E3%80%8B%E7%BA%A6%E7%BF%B0%C2%B7%E6%B2%83%E5%B0%94%E5%A4%AB%E5%86%88%C2%B7%E6%AD%8C%E5%BE%B7/" title="《少年维特之烦恼》约翰·沃尔夫冈·歌德">《少年维特之烦恼》约翰·沃尔夫冈·歌德</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/VULNHUB/" title="分类于 VULNHUB">VULNHUB</a>
+</div>
+
+    <span><a href="/2021/11/01/VULNHUB/115%20THALES/" title="VULNHUB 15 THALES">VULNHUB 15 THALES</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/VULNHUB/" title="分类于 VULNHUB">VULNHUB</a>
+</div>
+
+    <span><a href="/2021/11/01/VULNHUB/125%20SNAKEOIL/" title="VULNHUB 25 SNAKEOIL">VULNHUB 25 SNAKEOIL</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/MBTI/" title="分类于 MBTI">MBTI</a>
+</div>
+
+    <span><a href="/2023/04/01/MBTI/%E5%BF%83%E7%90%86%E5%AD%A6%E6%B5%8B%E8%AF%95/" title="心理学测试">心理学测试</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>最新评论</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2019 – 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">.N1h1l157 @ Phut Hon</span>
+  </div>
+
+<!--   页面字数统计 -->
+  <div class="count">
+    <span class="post-meta-item-icon">
+      <i class="ic i-chart-area"></i>
+    </span>
+    <span title="站点总字数">755k 字</span>
+
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="ic i-coffee"></i>
+    </span>
+    <span title="站点阅读时长">20:58</span>
+&nbsp;&nbsp;
+    <!-- 网站总访问量: LeanCloud Counter 数据库中的 time的总和 -->
+    <span id="total-visits">总访问量: 加载中...</span>
+
+    <script src="https://cdn.jsdelivr.net/npm/leancloud-storage@4.12.0/dist/av-min.js"></script>
+    <script>
+      // 获取 Shoka 配置中的 Valine 的 App ID 和 App Key
+      var appId = "M0hjFtbBRwOEJlxXsjeK8FSL-gzGzoHsz";
+      var appKey = "ggVu0OafepVPwl2xLNtZ38P9";
+
+      // 使用 Valine 的 App ID 和 App Key 进行 LeanCloud 的初始化
+      AV.init({
+        appId: appId,
+        appKey: appKey,
+        serverURLs: 'https://m0hjftbb.lc-cn-n1-shared.com' // 请根据您的实际区域选择合适的服务器地址
+      });
+
+      // 查询 Counter 类
+      const Counter = AV.Object.extend('Counter');
+      const query = new AV.Query(Counter);
+
+      // 获取所有数据
+      query.limit(1000); // 如果数据量较大，可以适当调整 limit
+      query.find().then((results) => {
+        // 计算 time 字段的总和
+        const totalVisits = results.reduce((sum, result) => sum + result.get('time'), 0);
+
+        // 显示总访问量
+        document.getElementById('total-visits').textContent = '总访问量：' + totalVisits;
+      }).catch((error) => {
+        console.error('获取访问量时出错：', error);
+        document.getElementById('total-visits').textContent = '无法获取访问量';
+      });
+    </script>
+
+  </div>
+
+<!--   自定义开启一个网站的运行时间 -->
+  <div class="site-uptime">
+    运行时间: <span id="site-uptime"></span>
+  </div>
+  <script>
+    var siteUptimeElement = document.getElementById('site-uptime');
+    var siteSetupDate = new Date('2019-06-01'); // 替换为您的网站具体创建日期，格式为 'YYYY-MM-DD'
+    setInterval(function() {
+      var currentTime = new Date();
+      var uptime = formatUptime(currentTime - siteSetupDate);
+      siteUptimeElement.textContent = uptime;
+    }, 1000);
+
+    function formatUptime(milliseconds) {
+      var seconds = Math.floor(milliseconds / 1000);
+      var minutes = Math.floor(seconds / 60);
+      var hours = Math.floor(minutes / 60);
+      var days = Math.floor(hours / 24);
+
+      var uptime = '';
+      if (days > 0) {
+        uptime += days + '天 ';
+      }
+      if (hours > 0) {
+        uptime += (hours % 24) + '时 ';
+      }
+      if (minutes > 0) {
+        uptime += (minutes % 60) + '分 ';
+      }
+      uptime += (seconds % 60) + '秒';
+
+      return uptime;
+    }
+  </script>
+  <div class="powered-by">
+    基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2023/07/23/SAFE/转储微信聊天记录/',
+    favicon: {
+      show: "Cryp71c3",
+      hide: "十年磨一剑"
+    },
+    search : {
+      placeholder: "文章搜索",
+      empty: "关于 「 ${query} 」，什么也没搜到",
+      stats: "${time} ms 内找到 ${hits} 条结果"
+    },
+    valine: true,fancybox: true,
+    copyright: '复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":140,"height":260},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

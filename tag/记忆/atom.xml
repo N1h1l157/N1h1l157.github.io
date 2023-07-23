@@ -1,0 +1,256 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>http://www.n1h1l157.live</id>
+    <title>X_T • Posts by &#34;记忆&#34; tag</title>
+    <link href="http://www.n1h1l157.live" />
+    <updated>2023-07-22T16:00:00.000Z</updated>
+    <category term="渗透测试" />
+    <category term="Linux" />
+    <category term="记忆" />
+    <category term="信息安全网址" />
+    <category term="VULNHUB 1-10" />
+    <category term="Trojan" />
+    <category term="VULNHUB 11-20" />
+    <category term="VULNHUB 21-30" />
+    <category term="VULNHUB 31-40" />
+    <category term="VULNHUB 41-50" />
+    <category term="ENFJ" />
+    <category term="ENTJ" />
+    <category term="ESFJ" />
+    <category term="ENFP" />
+    <category term="ESTJ" />
+    <category term="ENTP" />
+    <category term="ESFP" />
+    <category term="ESTP" />
+    <category term="INFJ" />
+    <category term="INTJ" />
+    <category term="INTP" />
+    <category term="INFP" />
+    <category term="ISFJ" />
+    <category term="ISFP" />
+    <category term="ISTJ" />
+    <category term="ISTP" />
+    <category term="MBTI" />
+    <category term="心理测试" />
+    <category term="生命" />
+    <category term="人生" />
+    <category term="命运" />
+    <category term="人生哲学" />
+    <category term="成长" />
+    <category term="神学" />
+    <category term="社会" />
+    <category term="意义" />
+    <category term="爱情" />
+    <category term="历史" />
+    <category term="人性" />
+    <category term="道德" />
+    <entry>
+        <id>http://www.n1h1l157.live/2023/07/23/SAFE/%E8%BD%AC%E5%82%A8%E5%BE%AE%E4%BF%A1%E8%81%8A%E5%A4%A9%E8%AE%B0%E5%BD%95/</id>
+        <title>微信数据库备份</title>
+        <link rel="alternate" href="http://www.n1h1l157.live/2023/07/23/SAFE/%E8%BD%AC%E5%82%A8%E5%BE%AE%E4%BF%A1%E8%81%8A%E5%A4%A9%E8%AE%B0%E5%BD%95/"/>
+        <content type="html">&lt;p&gt;如果一个人把自己的记忆弄丢了，那人生只是一个单纯的奔向死亡的过程，无论在他人眼中是什么样的存在，终究是一副空壳而已。而无论那记忆是美好，痛苦或是平淡，那都是我们生命中的一部分，无法割舍的深深的烙印。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;效果图展示&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#效果图展示&#34;&gt;#&lt;/a&gt; 效果图展示&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;wechat-backup 导出&lt;/li&gt;
+&lt;/ol&gt;
+&lt;img data-src=&#34;/N1h1l157/SAFE/image-119.png&#34; width=&#34;770&#34; alt=&#34;Image&#34;&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;wechat-dump 导出&lt;/li&gt;
+&lt;/ol&gt;
+&lt;img data-src=&#34;/N1h1l157/SAFE/image-130.png&#34; width=&#34;550&#34; alt=&#34;Image&#34;&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;聊天记录转 pdf&lt;/li&gt;
+&lt;/ol&gt;
+&lt;img data-src=&#34;/N1h1l157/SAFE/image-133.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;聊天记录转移至模拟器&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#聊天记录转移至模拟器&#34;&gt;#&lt;/a&gt; 聊天记录转移至模拟器&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;手机聊天记录备份至电脑 -&amp;gt; 电脑聊天记录备份至模拟器 -&amp;gt; 雷电模拟器开启 root -&amp;gt; 模拟器下载 ES 文件浏览器并启用 root 工具箱 -&amp;gt; 复制微信数据库等资料到共享文件&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;手机聊天记录备份至电脑后，将电脑上存储的聊天记录备份至电脑上的安卓模拟器&lt;br&gt;
+&lt;img data-src=&#34;/N1h1l157/SAFE/image-099.png&#34; width=&#34;550&#34; alt=&#34;Image&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;这里我用的是雷电模拟器，在设置里边可以直接开启 root 权限&lt;br&gt;
+&lt;img data-src=&#34;/N1h1l157/SAFE/image-101.jpg&#34; width=&#34;550&#34; alt=&#34;Image&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;模拟器安装 ES 文件浏览器，通过此文件管理工具操作文件&lt;br&gt;
+&lt;img data-src=&#34;/N1h1l157/SAFE/image-102.jpg&#34; width=&#34;550&#34; alt=&#34;Image&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;ES 文件浏览器开启 Root 工具箱&lt;br&gt;
+&lt;img data-src=&#34;/N1h1l157/SAFE/image-103.jpg&#34; width=&#34;550&#34; alt=&#34;Image&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;此时已经有权限可以看到安卓模拟器上的所有文件夹及文件&lt;br&gt;
+&lt;img data-src=&#34;/N1h1l157/SAFE/image-104.jpg&#34; width=&#34;550&#34; alt=&#34;Image&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;收集微信相关数据&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#收集微信相关数据&#34;&gt;#&lt;/a&gt; 收集微信相关数据&lt;/h3&gt;
+&lt;p&gt;各文件夹具体作用参考文章：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9ibG9nLmdyZXljb2RlLnRvcC9wb3N0cy9hbmRyb2lkLXdlY2hhdC1iYWsv&#34;&gt;https://blog.greycode.top/posts/android-wechat-bak/&lt;/span&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;收集以下数据：&lt;br&gt;
+auth_info_key_prefs.xml uin 位置：/data/data/com.tencent.mm/shared_prefs/auth_info_key_prefs.xml&lt;br&gt;
+image2 所有的微信聊天图片：/data/data/com.tencent.mm/MicroMsg/[32 位字母]/image2&lt;br&gt;
+voice2 所有的微信语音：/sdcard/Android/data/com.tencent.mm/MicroMsg/[32 位字母]/voice2&lt;br&gt;
+voide 所有的微信视频：/sdcard/Android/data/com.tencent.mm/MicroMsg/[32 位字母]/voide&lt;br&gt;
+avatar 所有的微信头像：/data/data/com.tencent.mm/MicroMsg/[32 位字母]/avatar&lt;br&gt;
+Download 聊天发送的文件存放在这里：/sdcard/Android/data/com.tencent.mm/MicroMsg/Download&lt;br&gt;
+EnMicroMsg.db 微信数据库文件：/data/data/com.tencent.mm/MicroMsg/[32 位字母]/EnMicroMsg.db&lt;br&gt;
+WxFileIndex.db 文件索引：/data/data/com.tencent.mm/MicroMsg/[32 位字母]/WxFileIndex.db&lt;br&gt;
+emoji 表情包：/data/data/com.tencent.mm/MicroMsg/emoji&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ol start=&#34;6&#34;&gt;
+&lt;li&gt;
+&lt;p&gt;收集数据，以微信本地数据库 EnMicroMsg.db 为例，长按 -&amp;gt; 更多 -&amp;gt; 复制到&lt;br&gt;
+&lt;img data-src=&#34;/N1h1l157/SAFE/image-106.jpg&#34; width=&#34;550&#34; alt=&#34;Image&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;我选择了复制到 Applications 的共享文件，也可以选择 Alarms 及 dianxin&lt;br&gt;
+&lt;img data-src=&#34;/N1h1l157/SAFE/image-107.jpg&#34; width=&#34;550&#34; alt=&#34;Image&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;如果觉得传输速度太慢，可以先压缩，再复制过去解压&lt;br&gt;
+&lt;img data-src=&#34;/N1h1l157/SAFE/image-108.jpg&#34; width=&#34;550&#34; alt=&#34;Image&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;打开模拟器的共享在电脑上的文件夹的位置，判断复制成功&lt;br&gt;
+&lt;img data-src=&#34;/N1h1l157/SAFE/image-109.jpg&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;同样的方法，复制其他需要收集的数据到电脑上的共享文件中&lt;br&gt;
+&lt;img data-src=&#34;/N1h1l157/SAFE/image-111.jpg&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;数据前期处理&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#数据前期处理&#34;&gt;#&lt;/a&gt; 数据前期处理&lt;/h3&gt;
+&lt;p&gt;数据库解密参考文章：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzI1OTI2NDgxL2FydGljbGUvZGV0YWlscy8xMjIzMjYzMTM=&#34;&gt;https://blog.csdn.net/sinat_25926481/article/details/122326313&lt;/span&gt;&lt;br&gt;
+ 音频解码参考文章：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL2dyZXljb2RlZS93ZWNoYXQtYmFja3Vw&#34;&gt;https://github.com/greycodee/wechat-backup&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;获取数据库密码 -&amp;gt; 解密微信数据库 -&amp;gt; 解码音频文件&lt;/strong&gt;&lt;/p&gt;
+&lt;ol start=&#34;11&#34;&gt;
+&lt;li&gt;获取 uin 值，如图 _auth_uin 所在行的值就是，我的为 - 1639125062&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;微信数据库密码为 IMEI+UNI 的 md5 加密后的前 7 位&lt;br&gt;
+ IMEI+UNI：1234567890ABCDEF-1639125062&lt;br&gt;
+ 在线 md5 加密： &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9tZDVqaWFtaS5ibWN4LmNvbS8=&#34;&gt;https://md5jiami.bmcx.com/&lt;/span&gt;&lt;br&gt;
+ 命令行 md5 加密：echo -n “1234567890ABCDEF-1639125062” | md5&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;img data-src=&#34;/N1h1l157/SAFE/image-112.png&#34; width=&#34;770&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;如图，显示的前 7 位为我的数据库密码：23a9a94&lt;/p&gt;
+&lt;ol start=&#34;12&#34;&gt;
+&lt;li&gt;通过获取到的数据库密码将 EnMicroMsg.db 导出为一个未加密的数据库，依次输入以下命令解密数据库&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;19&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;安装sqlcipher -&amp;gt; 如果系统是os，请根据参考文章给出的方式安装工具&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;brew install sqlcipher&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;通过 sqlcipher 操作数据库&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;sqlcipher EnMicroMsg.db&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;依次在sqllite命令行输入以下命令&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;PRAGMA key = &amp;#x27;23a9a94&amp;#x27;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;PRAGMA cipher_use_hmac = off;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;PRAGMA kdf_iter = 4000;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;PRAGMA cipher_page_size = 1024;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;PRAGMA cipher_hmac_algorithm = HMAC_SHA1;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;PRAGMA cipher_kdf_algorithm = PBKDF2_HMAC_SHA1;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;ATTACH DATABASE &amp;#x27;EnMicroMsg_230721.db&amp;#x27; AS EnMicroMsg_230721 KEY &amp;#x27;&amp;#x27;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;SELECT sqlcipher_export(&amp;#x27;EnMicroMsg_230721&amp;#x27;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;DETACH DATABASE EnMicroMsg_230721;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;删除无用的文件&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;rm -f EnMicroMsg.db-wal EnMicroMsg.db-shm&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;img data-src=&#34;/N1h1l157/SAFE/image-113.png&#34; width=&#34;800&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;如图，将导出为一个未加密的数据库，名为 EnMicroMsg_230721.db&lt;/p&gt;
+&lt;ol start=&#34;13&#34;&gt;
+&lt;li&gt;
+&lt;p&gt;同样的方法，解密微信索引数据库 WxFileIndex.db, 注意导出的数据库名字不可以重复&lt;br&gt;
+&lt;img data-src=&#34;/N1h1l157/SAFE/image-114.png&#34; width=&#34;800&#34; alt=&#34;Image&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;通过 docker 拉取 greycodee/silkv3-decoder 镜像，将编码后的 amr 格式解码为 mp3&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;我将 voice 发送到了装有 docker 的linux，执行以下命令解码音频后再传回来&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;docker run --rm -v /root/voice2:/media  greycodee/silkv3-decoder&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;img data-src=&#34;/N1h1l157/SAFE/image-115.png&#34; width=&#34;800&#34; alt=&#34;Image&#34;&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;wechat-backup-导出-html&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#wechat-backup-导出-html&#34;&gt;#&lt;/a&gt; wechat-backup 导出 html&lt;/h3&gt;
+&lt;p&gt;源码位置：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL2dyZXljb2RlZS93ZWNoYXQtYmFja3Vw&#34;&gt;https://github.com/greycodee/wechat-backup&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;修改代码中指向的数据库名和数据库索引表 -&amp;gt; 本地 web 查看聊天记录&lt;/strong&gt;&lt;/p&gt;
+&lt;ol start=&#34;15&#34;&gt;
+&lt;li&gt;
+&lt;p&gt;wechat-backup 是用 go 写出来的，star*2.2k, 效果还是很不错的&lt;br&gt;
+&lt;img data-src=&#34;/N1h1l157/SAFE/image-116.png&#34; width=&#34;770&#34; alt=&#34;Image&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;修改 db/wxdb.go 下的数据库名，改为刚才解码导出后的两个数据库&lt;br&gt;
+&lt;img data-src=&#34;/N1h1l157/SAFE/image-117.png&#34; width=&#34;770&#34; alt=&#34;Image&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;指定数据运行程序  &lt;code&gt;go run main.go -f /Volumes/KINGSTON/微信数据库/230721_backup&lt;/code&gt; &lt;br&gt;
+&lt;img data-src=&#34;/N1h1l157/SAFE/image-118.png&#34; width=&#34;770&#34; alt=&#34;Image&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;查看聊天记录  &lt;code&gt;http://127.0.0.1:9999&lt;/code&gt; &lt;br&gt;
+&lt;img data-src=&#34;/N1h1l157/SAFE/image-119.png&#34; width=&#34;770&#34; alt=&#34;Image&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;wechat-dump-导出-html&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#wechat-dump-导出-html&#34;&gt;#&lt;/a&gt; wechat-dump 导出 html&lt;/h3&gt;
+&lt;p&gt;源码位置：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL3Bwd3d5eXh4L3dlY2hhdC1kdW1w&#34;&gt;https://github.com/ppwwyyxx/wechat-dump&lt;/span&gt;&lt;/p&gt;
+&lt;ol start=&#34;19&#34;&gt;
+&lt;li&gt;wechat-backup 是用 py 写出来的，star*1.5k, 效果我很喜欢&lt;/li&gt;
+&lt;/ol&gt;
+&lt;img data-src=&#34;/N1h1l157/SAFE/image-120.png&#34; width=&#34;770&#34; alt=&#34;Image&#34;&gt;
+&lt;ol start=&#34;20&#34;&gt;
+&lt;li&gt;克隆项目  &lt;code&gt;git clone https://github.com/ppwwyyxx/wechat-dump.git&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;img data-src=&#34;/N1h1l157/SAFE/image-121.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
+&lt;ol start=&#34;21&#34;&gt;
+&lt;li&gt;列出联系人及其微信号&lt;br&gt;
+ &lt;code&gt;python list-chats.py /Volumes/KINGSTON/微信数据库备份/220921_backup/EnMicroMsg_220921.db &amp;gt; list_chats_22.txt&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;img data-src=&#34;/N1h1l157/SAFE/image-122.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
+&lt;ol start=&#34;22&#34;&gt;
+&lt;li&gt;导出数据库中的聊天记录&lt;br&gt;
+ &lt;code&gt;python dump-msg.py /Volumes/KINGSTON/微信数据库备份/220921_backup/EnMicroMsg_220921.db res/msg&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;img data-src=&#34;/N1h1l157/SAFE/image-123.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;如图，环境问题终于还是来了，不过这个脚本直接加个 try 就可以解决了&lt;/p&gt;
+&lt;ol start=&#34;23&#34;&gt;
+&lt;li&gt;加个捕获异常可以正常导出聊天的 msg 信息&lt;/li&gt;
+&lt;/ol&gt;
+&lt;img data-src=&#34;/N1h1l157/SAFE/image-124.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
+&lt;ol start=&#34;24&#34;&gt;
+&lt;li&gt;可以看到每个人或者每个群的聊天记录的 msg 信息，可据此写写前端&lt;/li&gt;
+&lt;/ol&gt;
+&lt;img data-src=&#34;/N1h1l157/SAFE/image-126.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;&lt;strong&gt;但是接下来将聊天记录导出为 html 的时候，碰到了很多奇怪的问题，自己索性修改了作者提供的源码&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;修改-wechat-dump-源码&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#修改-wechat-dump-源码&#34;&gt;#&lt;/a&gt; 修改 wechat-dump 源码&lt;/h3&gt;
+&lt;p&gt;源码位置：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL24xaDFsMTU3L3dlY2hhdC1kdW1w&#34;&gt;https://github.com/n1h1l157/wechat-dump&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;或许在调试的时候还是会遇到些 bug，建议自己 fork 下来断点调试&lt;/strong&gt;&lt;/p&gt;
+&lt;ol start=&#34;25&#34;&gt;
+&lt;li&gt;导出为 html&lt;br&gt;
+ &lt;code&gt;python dump-html.py --db /Volumes/KINGSTON/微信数据库备份/220921_backup/EnMicroMsg_220921.db --res /Volumes/KINGSTON/微信数据库备份/230721_backup --output result/Camile/Camile.html wxid_qxxxxxxx22&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;img data-src=&#34;/N1h1l157/SAFE/image-128.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
+&lt;ol start=&#34;26&#34;&gt;
+&lt;li&gt;导出后的文件如图，html 被分为若干个&lt;/li&gt;
+&lt;/ol&gt;
+&lt;img data-src=&#34;/N1h1l157/SAFE/image-129.png&#34; width=&#34;550&#34; alt=&#34;Image&#34;&gt;
+&lt;ol start=&#34;27&#34;&gt;
+&lt;li&gt;可以本地预览这些 html 文件，表情包、图标、音频、视频等都是正常的，除非图片已经丢失&lt;/li&gt;
+&lt;/ol&gt;
+&lt;img data-src=&#34;/N1h1l157/SAFE/image-130.png&#34; width=&#34;550&#34; alt=&#34;Image&#34;&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;导出聊天记录为-pdf&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#导出聊天记录为-pdf&#34;&gt;#&lt;/a&gt; 导出聊天记录为 pdf&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;后面做了自定义的一些设置，直接把脚本贴到 github 了，需要自行阅读源码理解&lt;/strong&gt;&lt;/p&gt;
+&lt;ol start=&#34;28&#34;&gt;
+&lt;li&gt;按自己喜欢的方式做了一些小改变，将 html 拼接为一个整体的大的 html 文件&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;code&gt;python merge_html.py -f /Users/chentuo/Personal/myself/微信数据库/wechat_dump/result/Camile -n Camile.html&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/SAFE/image-131.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
+&lt;ol start=&#34;29&#34;&gt;
+&lt;li&gt;对 html 做处理，使得拼接后的 html 文件只保留最顶部的滚动条&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;code&gt;python modify_html.py --nickname &#39;Camile&#39; --input /Users/chentuo/Personal/myself/微信数据库/wechat_dump/result/Camile/Camile.html&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;30）通过 js 加载 puppeteer，用一个谷歌浏览器的测试版将 html 转为多页的 pdf&lt;/p&gt;
+&lt;p&gt;参考项目：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL3B1cHBldGVlci9wdXBwZXRlZXI=&#34;&gt;https://github.com/puppeteer/puppeteer&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;node convert_html_to_pdf.js -f &#39;Camile&#39; -n 20 -e &#39;～/.cache/puppeteer/chrome/mac_arm-114.0.5735.133/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing&#39;&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/SAFE/image-132.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
+&lt;ol start=&#34;30&#34;&gt;
+&lt;li&gt;最后聊天记录保存成了本地的 pdf 文件&lt;/li&gt;
+&lt;/ol&gt;
+&lt;img data-src=&#34;/N1h1l157/SAFE/image-133.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;大功告成，结束。&lt;/p&gt;
+</content>
+        <category term="记忆" />
+        <updated>2023-07-22T16:00:00.000Z</updated>
+    </entry>
+</feed>
