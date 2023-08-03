@@ -1,58 +1,97 @@
 <?xml version="1.0"?>
 <rss version="2.0">
     <channel>
-        <title>X_T • Posts by &#34;记忆&#34; tag</title>
+        <title>X_T • Posts by &#34;微信&#34; tag</title>
         <link>http://www.n1h1l157.live</link>
         <description>人生如逆旅，我亦是行人</description>
         <language>zh-CN</language>
-        <pubDate>Sun, 23 Jul 2023 00:00:00 +0800</pubDate>
-        <lastBuildDate>Sun, 23 Jul 2023 00:00:00 +0800</lastBuildDate>
+        <pubDate>Tue, 01 Aug 2023 00:00:00 +0800</pubDate>
+        <lastBuildDate>Tue, 01 Aug 2023 00:00:00 +0800</lastBuildDate>
+        <category>ENTJ</category>
         <category>ENFJ</category>
         <category>ENFP</category>
         <category>ENTP</category>
-        <category>ENTJ</category>
         <category>ESFJ</category>
         <category>ESFP</category>
-        <category>ESTJ</category>
         <category>ESTP</category>
         <category>INFJ</category>
-        <category>INTJ</category>
         <category>INFP</category>
+        <category>ESTJ</category>
+        <category>INTJ</category>
         <category>INTP</category>
-        <category>ISFJ</category>
         <category>ISFP</category>
+        <category>ISFJ</category>
         <category>ISTJ</category>
-        <category>ISTP</category>
         <category>MBTI</category>
+        <category>ISTP</category>
         <category>心理测试</category>
         <category>渗透测试</category>
         <category>灵性</category>
         <category>Linux</category>
-        <category>记忆</category>
         <category>Trojan</category>
-        <category>VULNHUB 1-10</category>
+        <category>微信</category>
         <category>信息安全网址</category>
+        <category>树莓派</category>
+        <category>生命</category>
+        <category>人生</category>
+        <category>命运</category>
+        <category>人生哲学</category>
+        <category>成长</category>
+        <category>神学</category>
+        <category>社会</category>
+        <category>历史</category>
+        <category>爱情</category>
+        <category>人性</category>
+        <category>意义</category>
+        <category>道德</category>
+        <category>VULNHUB 1-10</category>
         <category>VULNHUB 11-20</category>
         <category>VULNHUB 21-30</category>
         <category>VULNHUB 31-40</category>
         <category>VULNHUB 41-50</category>
-        <category>人生</category>
-        <category>成长</category>
-        <category>神学</category>
-        <category>人生哲学</category>
-        <category>历史</category>
-        <category>社会</category>
-        <category>生命</category>
-        <category>命运</category>
-        <category>爱情</category>
-        <category>意义</category>
-        <category>人性</category>
-        <category>道德</category>
+        <item>
+            <guid isPermalink="true">http://www.n1h1l157.live/2023/08/01/SAFE/%E5%BE%AE%E4%BF%A1%E6%B6%88%E6%81%AF%E9%98%B2%E6%92%A4%E5%9B%9E/</guid>
+            <title>微信消息防撤回 群员监控</title>
+            <link>http://www.n1h1l157.live/2023/08/01/SAFE/%E5%BE%AE%E4%BF%A1%E6%B6%88%E6%81%AF%E9%98%B2%E6%92%A4%E5%9B%9E/</link>
+            <category>微信</category>
+            <pubDate>Tue, 01 Aug 2023 00:00:00 +0800</pubDate>
+            <description><![CDATA[ &lt;p&gt;MAC 上的一款微信的强大助手工具，包括换肤，默认浏览器打开应用，微信多开，消息防撤回，群员敏感言论监控，群员退群告警。&lt;/p&gt;
+&lt;h3 id=&#34;说明&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#说明&#34;&gt;#&lt;/a&gt; 说明&lt;/h3&gt;
+&lt;p&gt;作用：一个 Mac 微信功能拓展 / 微信插件 / 微信小助手&lt;br&gt;
+仓库链接：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL011c3RhbmdZTS9XZUNoYXRFeHRlbnNpb24tRm9yTWFj&#34;&gt;https://github.com/MustangYM/WeChatExtension-ForMac&lt;/span&gt;&lt;/p&gt;
+&lt;h3 id=&#34;安装小助手&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#安装小助手&#34;&gt;#&lt;/a&gt; 安装小助手&lt;/h3&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;执行下面的命令安装 [Oh My WeChat]&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;curl -o- -L https://omw.limingkai.cn/install.sh | bash -s&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;Oh My WeChat一键命令&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;omw&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;打开终端，输入以上命令，安装小助手&lt;br&gt;
+&lt;img data-src=&#34;/N1h1l157/Safe/image-151.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;&lt;/p&gt;
+&lt;p&gt;打开微信，此时微信多了自动登录的选项，代表安装成功&lt;br&gt;
+&lt;img data-src=&#34;/N1h1l157/Safe/image-152.png&#34; width=&#34;280&#34; alt=&#34;Image&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;微信防撤回&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#微信防撤回&#34;&gt;#&lt;/a&gt; 微信防撤回&lt;/h3&gt;
+&lt;p&gt;在菜单栏的微信老助手中可开启消息防撤回&lt;br&gt;
+&lt;img data-src=&#34;/N1h1l157/Safe/image-153.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;&lt;/p&gt;
+&lt;p&gt;当对方撤回消息时，撤回的消息内容仍然会显示在电脑上&lt;br&gt;
+&lt;img data-src=&#34;/N1h1l157/Safe/image-154.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;敏感言论监控&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#敏感言论监控&#34;&gt;#&lt;/a&gt; 敏感言论监控&lt;/h3&gt;
+&lt;p&gt;菜单栏中还有群员监控的功能&lt;br&gt;
+&lt;img data-src=&#34;/N1h1l157/Safe/image-155.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;&lt;/p&gt;
+&lt;p&gt;打开群员监控，可以看到各种群里各人的有关发言及敏感言论&lt;br&gt;
+&lt;img data-src=&#34;/N1h1l157/Safe/image-156.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;卸载小助手&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#卸载小助手&#34;&gt;#&lt;/a&gt; 卸载小助手&lt;/h3&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;下载卸载小助手的脚本&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;wget https://raw.githubusercontent.com/MustangYM/WeChatExtension-ForMac/master/WeChatExtension/Rely/Uninstall.sh&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;修改“微信”为“Wechat”&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;cat Uninstall.sh | sed -i &amp;#x27;s/app_name=\&amp;quot;微信\&amp;quot;/app_name=\&amp;quot;Wechat\&amp;quot;/g&amp;#x27; &amp;gt; 1.sh; sh 1.sh&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;运行上边的命令卸载微信小助手&lt;br&gt;
+&lt;img data-src=&#34;/N1h1l157/Safe/image-157.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;卸载后重启微信就可以让微信恢复正常了&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;再次打开微信后，自动登录按钮消失，代表卸载成功&lt;br&gt;
+&lt;img data-src=&#34;/N1h1l157/Safe/image-158.png&#34; width=&#34;280&#34; alt=&#34;Image&#34;&gt;&lt;/p&gt;
+&lt;p&gt;微信的菜单栏界面也恢复了正常&lt;br&gt;
+&lt;img data-src=&#34;/N1h1l157/Safe/image-159.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;结束&lt;/strong&gt;&lt;/p&gt;
+ ]]></description>
+        </item>
         <item>
             <guid isPermalink="true">http://www.n1h1l157.live/2023/07/23/SAFE/%E8%BD%AC%E5%82%A8%E5%BE%AE%E4%BF%A1%E8%81%8A%E5%A4%A9%E8%AE%B0%E5%BD%95/</guid>
             <title>转储微信聊天记录</title>
             <link>http://www.n1h1l157.live/2023/07/23/SAFE/%E8%BD%AC%E5%82%A8%E5%BE%AE%E4%BF%A1%E8%81%8A%E5%A4%A9%E8%AE%B0%E5%BD%95/</link>
-            <category>记忆</category>
+            <category>微信</category>
             <pubDate>Sun, 23 Jul 2023 00:00:00 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;如果一个人把自己的记忆弄丢了，那人生只是一个单纯的奔向死亡的过程，无论在他人眼中是什么样的存在，终究是一副空壳而已。而无论那记忆是美好，痛苦或是平淡，那都是我们生命中的一部分，无法割舍的深深的烙印。&lt;/p&gt;
 &lt;hr&gt;

@@ -1,0 +1,777 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="X_T" href="http://www.n1h1l157.live/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="X_T" href="http://www.n1h1l157.live/atom.xml" />
+<link rel="alternate" type="application/json" title="X_T" href="http://www.n1h1l157.live/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="树莓派" />
+
+
+<link rel="canonical" href="http://www.n1h1l157.live/2023/07/31/SAFE/%E6%A0%91%E8%8E%93%E6%B4%BE%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/">
+
+
+
+  <title>
+树莓派烧录系统及配置 - 信息安全 |
+Phut Hon = X_T = 天行健，君子以自强不息</title>
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">树莓派烧录系统及配置
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="创建时间：2023-07-31 00:00:00">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">发表于</span>
+    <time itemprop="dateCreated datePublished" datetime="2023-07-31T00:00:00+08:00">2023-07-31</time>
+  </span>
+  <span class="item" title="本文字数">
+    <span class="icon">
+      <i class="ic i-pen"></i>
+    </span>
+    <span class="text">本文字数</span>
+    <span>2.8k</span>
+    <span class="text">字</span>
+  </span>
+  <span class="item" title="阅读时长">
+    <span class="icon">
+      <i class="ic i-clock"></i>
+    </span>
+    <span class="text">阅读时长</span>
+    <span>5 分钟</span>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切换导航栏">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Phut Hon</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/dQzT6Ao9rVLb1Zc.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/x6dgpGLH7auh2Sy.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/mg3v58QxFb7tICZ.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/LwdGZVHeWR3Kv6z.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/NxsmFbBQptiHlCW.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/04/01/NFMXjWC8xLSV4OD.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">首页</a></span><i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/" itemprop="item" rel="index" title="分类于 信息安全"><span itemprop="name">信息安全</span></a>
+<meta itemprop="position" content="1" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
+  <link itemprop="mainEntityOfPage" href="http://www.n1h1l157.live/2023/07/31/SAFE/%E6%A0%91%E8%8E%93%E6%B4%BE%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content=".N1h1l157">
+    <meta itemprop="description" content="天行健，君子以自强不息, 人生如逆旅，我亦是行人">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="X_T">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <p>本文包括树莓派烧录系统镜像，ssh 免密登录，frp 内网穿透，设置多个密码，移除 ssh 日志等操作。注意不需要网线、键鼠、显示器等。</p>
+<h3 id="准备工具"><a class="markdownIt-Anchor" href="#准备工具">#</a> 准备工具</h3>
+<ul>
+<li>树莓派电路板</li>
+<li>8GB 以上的 SD 卡</li>
+<li>读卡器</li>
+<li>USB 转换器（可选）</li>
+</ul>
+<img data-src="/N1h1l157/Safe/image-0100000.png" width="660" alt="Image">
+<h3 id="烧录系统至-sd卡"><a class="markdownIt-Anchor" href="#烧录系统至-sd卡">#</a> 烧录系统至 SD 卡</h3>
+<ul>
+<li>
+<p>下载格式化 SD 卡工具：在<span class="exturl" data-url="aHR0cHM6Ly93d3cuc2RjYXJkLm9yZy9kb3dubG9hZHMvZm9ybWF0dGVyL3NkLW1lbW9yeS1jYXJkLWZvcm1hdHRlci1mb3ItbWFjLWRvd25sb2FkLw==">此链接中下载格式化 SD 卡的工具</span>，安装工具</p>
+</li>
+<li>
+<p>下载镜像：在<span class="exturl" data-url="aHR0cHM6Ly93d3cucmFzcGJlcnJ5cGkuY29tL3NvZnR3YXJlL29wZXJhdGluZy1zeXN0ZW1zLyNyYXNwYmVycnktcGktb3MtMzItYml0">此位置下载</span>并解压，我选择的是 2023-05-03-raspios-buster-armhf-lite.img.xz</p>
+</li>
+<li>
+<p>下载镜像烧录工具：在<span class="exturl" data-url="aHR0cHM6Ly93d3cucmFzcGJlcnJ5cGkuY29tL3NvZnR3YXJlLw==">此位置下载</span>，安装工具</p>
+</li>
+<li>
+<p>下载的工具截图如下图所示。</p>
+</li>
+</ul>
+<img data-src="/N1h1l157/Safe/image-0100015.png" width="700" alt="Image">
+<p>将 SD 卡插入到读卡器，读卡器通过 USB 转换器连接至电脑。运行 SDCardFormatterv5_Mac，先对 SD 卡进行格式化。</p>
+<img data-src="/N1h1l157/Safe/image-0100016.png" width="400" alt="Image">
+<img data-src="/N1h1l157/Safe/image-0100017.png" width="400" alt="Image">
+<p>格式化成功之后，打开烧录系统的 imager 工具。</p>
+<img data-src="/N1h1l157/Safe/image-0100018.png" width="520" alt="Image">
+<p>选择操作系统为刚刚下载好的 img.xz 解压后的 img，选择储存卡为 SD 卡。</p>
+<img data-src="/N1h1l157/Safe/image-0100001.png" width="520" alt="Image">
+<p>在设置中修改主机名，开启 SSH 服务，wifi 密码，用户名密码，时区等。</p>
+<img data-src="/N1h1l157/Safe/image-0100002.png" width="520" alt="Image">
+<p>设置成功后烧录镜像，烧录之后会自动验证。</p>
+<img data-src="/N1h1l157/Safe/image-0100003.png" width="520" alt="Image">
+<p>提示安装成功之后，就可以将 SD 卡拔出，插入到树莓派电路板中了。</p>
+<img data-src="/N1h1l157/Safe/image-0100004.png" width="520" alt="Image">
+<h3 id="ssh-连接至树莓派"><a class="markdownIt-Anchor" href="#ssh-连接至树莓派">#</a> ssh 连接至树莓派</h3>
+<p>树莓派插上电源，绿灯闪烁时表示系统正常写入。等待写入成功后，搜查树莓派 ip 地址。</p>
+<p>可以通过路由器后台查看当前的联网设备有哪些，找到树莓派的 ip。</p>
+<img data-src="/N1h1l157/Safe/image-0100005.png" width="660" alt="Image">
+<p>或者通过烧录镜像时设置的域名直接进行连接。</p>
+<img data-src="/N1h1l157/Safe/image-0100006.png" width="660" alt="Image">
+<h3 id="本地化信息修改"><a class="markdownIt-Anchor" href="#本地化信息修改">#</a> 本地化信息修改</h3>
+<p>默认登录后会出现 <code>-bash: warning: setlocale: LC_ALL: cannot change locale (en_US.UTF-8)</code>  的问题</p>
+<p>先将 apt-get 的源更新到最新<br>
+ <code>sudo apt-get update</code> <br>
+ <code>sudo apt-get upgrade</code></p>
+<img data-src="/N1h1l157/Safe/image-0100007.png" width="700" alt="Image">
+<p>使用以下命令更新本地化<br>
+ <code>sudo apt-get install locales</code> <br>
+ <code>sudo dpkg-reconfigure locales</code></p>
+<img data-src="/N1h1l157/Safe/image-0100008.png" width="660" alt="Image">
+<p>如果更新本地化信息没有解决问题，可以尝试手动设置本地化。使用以下命令：<br>
+ <code>sudo nano /etc/locale.gen</code></p>
+<img data-src="/N1h1l157/Safe/image-0100019.png" width="660" alt="Image">
+<p>在打开的文件中，将需要的本地化信息（例如 en_US.UTF-8 UTF-8）取消注释，然后保存文件并退出。</p>
+<p>接下来，运行以下命令以使更改生效：这将设置所需的本地化并解决警告信息。<br>
+ <code>sudo locale-gen</code> <br>
+ <code>sudo update-locale LANG=en_US.UTF-8</code></p>
+<img data-src="/N1h1l157/Safe/image-0100009.png" width="700" alt="Image">
+<p>再次 ssh 进入树莓派，则不会收到 locale 告警信息了。</p>
+<img data-src="/N1h1l157/Safe/image-0100010.png" width="700" alt="Image">
+<h3 id="设置多个-wifi-密码"><a class="markdownIt-Anchor" href="#设置多个-wifi-密码">#</a> 设置多个 wifi 密码</h3>
+<p>假如我们换了一个新的 wifi 环境，如果没有配置多个 wifi 密码的能力，我们只能重置 os 重新烧录。可以通过相关的命令多设置一个 wifi 为我们的流量密码。</p>
+<p>需要指定设备的使用国。<br>
+ <code>sudo raspi-config</code></p>
+<p>从菜单中选择本地化选项项目.</p>
+<img data-src="/N1h1l157/Safe/image-0100020.png" width="660" alt="Image">
+<p>然后更改无线国家选项。</p>
+<img data-src="/N1h1l157/Safe/image-0100011.png" width="660" alt="Image">
+<p>选择 &quot; 更改无线国家 / 地区选项。</p>
+<img data-src="/N1h1l157/Safe/image-0100021.png" width="660" alt="Image">
+<img data-src="/N1h1l157/Safe/image-0100012.png" width="660" alt="Image">
+<p>按 ESC 返回到命令行。</p>
+<p>接下来就是生成 psk</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">生成 psk</span></span><br><span class="line">wpa_passphrase &quot;413&quot; &quot;shipeidong123&quot;</span><br><span class="line">wpa_passphrase &quot;n1h1l157&quot; &quot;chentuo0&quot;</span><br></pre></td></tr></table></figure>
+<img data-src="/N1h1l157/Safe/image-0100013.png" width="660" alt="Image">
+<p>将生成的以 ASCII 码显示的 psk 复制下来，修改 wifi 信息，保存退出。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">修改默认的网络配置及优先级</span></span><br><span class="line">sudo nano /etc/wpa_supplicant/wpa_supplicant.conf</span><br></pre></td></tr></table></figure>
+<img data-src="/N1h1l157/Safe/image-0100022.png" width="660" alt="Image">
+<p>重启树莓派（reboot 或者电源重启）后，优先级较高的 wifi 将会自动连接，可以通过将手机热点打开，让电脑和树莓派在同一局域网内登录。</p>
+<img data-src="/N1h1l157/Safe/image-0100014.png" width="660" alt="Image">
+<p>当关闭热点后，树莓派又会重新连接到 wifi 上。</p>
+<img data-src="/N1h1l157/Safe/image-0100023.png" width="660" alt="Image">
+<h3 id="移除登录的日志"><a class="markdownIt-Anchor" href="#移除登录的日志">#</a> 移除登录的日志</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">ssh登录消息配置</span></span><br><span class="line">sudo nano /etc/ssh/sshd_config</span><br><span class="line">PrintLastLog yes</span><br><span class="line">Banner none</span><br></pre></td></tr></table></figure>
+<img data-src="/N1h1l157/Safe/image-0100024.png" width="660" alt="Image">
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 重启ssh</span><br><span class="line">sudo service sshd restart</span><br><span class="line"></span><br><span class="line"># motd 信息</span><br><span class="line">sudo rm /etc/motd</span><br></pre></td></tr></table></figure>
+<img data-src="/N1h1l157/Safe/image-0100025.png" width="660" alt="Image">
+<h3 id="ssh免密登录树莓派"><a class="markdownIt-Anchor" href="#ssh免密登录树莓派">#</a> ssh 免密登录树莓派</h3>
+<ul>
+<li>服务端设置</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">生成 ssh 密钥对</span></span><br><span class="line">ssh-keygen -t rsa</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">修改 ssh 配置文件</span></span><br><span class="line">sudo nano /etc/ssh/sshd_config</span><br><span class="line">PermitRootLogin yes</span><br><span class="line">PubkeyAuthentication yes</span><br><span class="line">AuthorizedKeysFile	.ssh/authorized_keys .ssh/authorized_keys2</span><br><span class="line">PermitEmptyPasswords no</span><br></pre></td></tr></table></figure>
+<img data-src="/N1h1l157/Safe/image-0100026.png" width="660" alt="Image">
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">重启 ssh 并将公钥导入</span> </span><br><span class="line">service sshd restart</span><br><span class="line">cat ~/.ssh/id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">检验服务端是否免密成功</span></span><br><span class="line">ssh localhost -i ~/.ssh/id_rsa</span><br></pre></td></tr></table></figure>
+<img data-src="/N1h1l157/Safe/image-0100027.png" width="660" alt="Image">
+<ul>
+<li>客户端设置</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># 获取私钥文件</span><br><span class="line">scp chentuo@raspios.local:/home/chentuo/.ssh/id_rsa ~/.ssh/n1h1l157/pi</span><br><span class="line"></span><br><span class="line"># 修改 ssh 别名</span><br><span class="line">sudo vim ~/.ssh/config</span><br><span class="line">Host raspios.local</span><br><span class="line">Hostname 192.168.31.47</span><br><span class="line">User chentuo</span><br><span class="line">Port 22</span><br><span class="line">IdentityFile ~/.ssh/n1h1l157/pi</span><br></pre></td></tr></table></figure>
+<img data-src="/N1h1l157/Safe/image-0100028.png" width="660" alt="Image">
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 免密登录</span><br><span class="line">ssh raspios.local</span><br></pre></td></tr></table></figure>
+<img data-src="/N1h1l157/Safe/image-0100029.png" width="660" alt="Image">
+<h3 id="frp-内网穿透"><a class="markdownIt-Anchor" href="#frp-内网穿透">#</a> frp 内网穿透</h3>
+<p>服务端设置</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">下载 frp</span></span><br><span class="line">wget https://github.com/fatedier/frp/releases/download/v0.51.2/frp_0.51.2_linux_amd64.tar.gz</span><br><span class="line">tar -zxvf frp_0.51.2_linux_amd64.tar.gz</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">配置文件</span></span><br><span class="line">[common]</span><br><span class="line">bind_addr = 0.0.0.0</span><br><span class="line">bind_port = 2223</span><br><span class="line">token = n1h1l157</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">启动</span></span><br><span class="line">nohup ./frps -c ./frps.ini &amp;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">检验</span></span><br><span class="line">ps -ef | grep frp</span><br></pre></td></tr></table></figure>
+<img data-src="/N1h1l157/Safe/image-0100030.png" width="700" alt="Image">
+<p>客户端设置</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">下载 frp</span></span><br><span class="line">wget https://github.com/fatedier/frp/releases/download/v0.51.2/frp_0.51.2_linux_arm.tar.gz</span><br><span class="line">tar -zxvf frp_0.51.2_linux_arm.tar.gz</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">配置文件</span></span><br><span class="line">[common]</span><br><span class="line">server_addr = 47.102.120.55</span><br><span class="line">server_port = 2223</span><br><span class="line">token = n1h1l157</span><br><span class="line"></span><br><span class="line">[ssh]</span><br><span class="line">type = tcp</span><br><span class="line">local_ip = 127.0.0.1</span><br><span class="line">local_port = 22</span><br><span class="line">remote_port = 2224</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">启动</span></span><br><span class="line">nohup ./frpc -c ./frpc.ini &amp;</span><br></pre></td></tr></table></figure>
+<img data-src="/N1h1l157/Safe/image-0100031.png" width="700" alt="Image">
+<p>本地远程连接树莓派<br>
+ <code>ssh -p 2224 chentuo@47.102.102.55 -i ~/.ssh/n1h1l157/pi</code></p>
+<p><strong>就到这里</strong></p>
+
+      <div class="tags">
+          <a href="/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/" rel="tag"><i class="ic i-tag"></i> 树莓派</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">更新于</span>
+    <time title="修改时间：2023-08-03 16:40:55" itemprop="dateModified" datetime="2023-08-03T16:40:55+08:00">2023-08-03</time>
+  </span>
+  <span id="2023/07/31/SAFE/树莓派系统配置/" class="item leancloud_visitors" data-flag-title="树莓派烧录系统及配置" title="阅读次数">
+      <span class="icon">
+        <i class="ic i-eye"></i>
+      </span>
+      <span class="text">阅读次数</span>
+      <span class="leancloud-visitors-count"></span>
+      <span class="text">次</span>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> 赞赏</button>
+  <p>请我喝[茶]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/wechatpay.png" alt=".N1h1l157 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/alipay.png" alt=".N1h1l157 支付宝">
+        <p>支付宝</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/paypal.png" alt=".N1h1l157 贝宝">
+        <p>贝宝</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>本文作者： </strong>.N1h1l157 <i class="ic i-at"><em>@</em></i>X_T
+  </li>
+  <li class="link">
+    <strong>本文链接：</strong>
+    <a href="http://www.n1h1l157.live/2023/07/31/SAFE/%E6%A0%91%E8%8E%93%E6%B4%BE%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/" title="树莓派烧录系统及配置">http://www.n1h1l157.live/2023/07/31/SAFE/树莓派系统配置/</a>
+  </li>
+  <li class="license">
+    <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/2023/07/23/SAFE/%E8%BD%AC%E5%82%A8%E5%BE%AE%E4%BF%A1%E8%81%8A%E5%A4%A9%E8%AE%B0%E5%BD%95/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s2.loli.net&#x2F;2023&#x2F;04&#x2F;01&#x2F;9RqJ7SolMrGZxmj.jpg" title="转储微信聊天记录">
+  <span class="type">上一篇</span>
+  <span class="category"><i class="ic i-flag"></i> 信息安全</span>
+  <h3>转储微信聊天记录</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/2023/07/31/MBTI/%E5%BF%83%E7%90%86%E7%96%BE%E7%97%85/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s2.loli.net&#x2F;2023&#x2F;04&#x2F;01&#x2F;2fd4OmPLVlHYoaK.jpg" title="局外人人格的心理疾病">
+  <span class="type">下一篇</span>
+  <span class="category"><i class="ic i-flag"></i> MBTI</span>
+  <h3>局外人人格的心理疾病</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目录">
+          <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E5%85%B7"><span class="toc-number">1.</span> <span class="toc-text"> 准备工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%83%A7%E5%BD%95%E7%B3%BB%E7%BB%9F%E8%87%B3-sd%E5%8D%A1"><span class="toc-number">2.</span> <span class="toc-text"> 烧录系统至 SD 卡</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ssh-%E8%BF%9E%E6%8E%A5%E8%87%B3%E6%A0%91%E8%8E%93%E6%B4%BE"><span class="toc-number">3.</span> <span class="toc-text"> ssh 连接至树莓派</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%AC%E5%9C%B0%E5%8C%96%E4%BF%A1%E6%81%AF%E4%BF%AE%E6%94%B9"><span class="toc-number">4.</span> <span class="toc-text"> 本地化信息修改</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E5%A4%9A%E4%B8%AA-wifi-%E5%AF%86%E7%A0%81"><span class="toc-number">5.</span> <span class="toc-text"> 设置多个 wifi 密码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A7%BB%E9%99%A4%E7%99%BB%E5%BD%95%E7%9A%84%E6%97%A5%E5%BF%97"><span class="toc-number">6.</span> <span class="toc-text"> 移除登录的日志</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ssh%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95%E6%A0%91%E8%8E%93%E6%B4%BE"><span class="toc-number">7.</span> <span class="toc-text"> ssh 免密登录树莓派</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#frp-%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F"><span class="toc-number">8.</span> <span class="toc-text"> frp 内网穿透</span></a></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="系列文章">
+        <ul>
+          <li><a href="/2022/12/30/SAFE/1%20WEB%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" rel="bookmark" title="XD22 1 Web 基础知识">XD22 1 Web 基础知识</a></li><li><a href="/2022/12/30/SAFE/12%20%E6%9D%83%E9%99%90%E7%BB%B4%E6%8C%81/" rel="bookmark" title="XD22 12 权限维持">XD22 12 权限维持</a></li><li><a href="/2022/12/30/SAFE/13%20%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%86/" rel="bookmark" title="XD22 13 补充知识">XD22 13 补充知识</a></li><li><a href="/2022/12/30/SAFE/10%20%E5%85%8D%E6%9D%80%E5%AF%B9%E6%8A%97/" rel="bookmark" title="XD22 10 免杀对抗">XD22 10 免杀对抗</a></li><li><a href="/2022/12/30/SAFE/14%20%E6%89%93%E7%A0%B4%E5%B8%B8%E8%A7%84/" rel="bookmark" title="XD22 14 打破常规">XD22 14 打破常规</a></li><li><a href="/2022/12/30/SAFE/11%20%E5%86%85%E7%BD%91%E5%AE%89%E5%85%A8/" rel="bookmark" title="XD22 11 内网安全">XD22 11 内网安全</a></li><li><a href="/2022/12/30/SAFE/2%20WEB%E9%80%9A%E7%94%A8%E6%BC%8F%E6%B4%9E/" rel="bookmark" title="XD22 2 Web 通用漏洞">XD22 2 Web 通用漏洞</a></li><li><a href="/2022/12/30/SAFE/5%20APP%E6%94%BB%E9%98%B2/" rel="bookmark" title="XD22 5 APP 攻防">XD22 5 APP 攻防</a></li><li><a href="/2022/12/30/SAFE/3%20%E6%9C%8D%E5%8A%A1%E6%94%BB%E9%98%B2/" rel="bookmark" title="XD22 3 服务攻防">XD22 3 服务攻防</a></li><li><a href="/2022/12/30/SAFE/4%20API%E6%94%BB%E9%98%B2/" rel="bookmark" title="XD22 4 API 攻防">XD22 4 API 攻防</a></li><li><a href="/2022/12/30/SAFE/8%20%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/" rel="bookmark" title="XD22 8 代码审计">XD22 8 代码审计</a></li><li><a href="/2022/12/30/SAFE/9%20%E6%9D%83%E9%99%90%E6%8F%90%E5%8D%87/" rel="bookmark" title="XD22 9 权限提升">XD22 9 权限提升</a></li><li><a href="/2022/12/30/SAFE/6%20%E6%BC%8F%E6%B4%9E%E5%8F%91%E7%8E%B0%E5%8F%8A%E5%88%A9%E7%94%A8/" rel="bookmark" title="XD22 6 漏洞发现及利用">XD22 6 漏洞发现及利用</a></li><li><a href="/2022/12/30/SAFE/7%20waf%E6%94%BB%E9%98%B2/" rel="bookmark" title="XD22 7 Waf 攻防">XD22 7 Waf 攻防</a></li><li><a href="/2023/05/01/SAFE/Trojan/" rel="bookmark" title="Trojan 生成">Trojan 生成</a></li><li><a href="/2023/05/10/SAFE/Security%20URL/" rel="bookmark" title="信息安全 网址">信息安全 网址</a></li><li><a href="/2023/05/19/SAFE/Linux/" rel="bookmark" title="Linux 命令">Linux 命令</a></li><li><a href="/2023/07/23/SAFE/%E8%BD%AC%E5%82%A8%E5%BE%AE%E4%BF%A1%E8%81%8A%E5%A4%A9%E8%AE%B0%E5%BD%95/" rel="bookmark" title="转储微信聊天记录">转储微信聊天记录</a></li><li class="active"><a href="/2023/07/31/SAFE/%E6%A0%91%E8%8E%93%E6%B4%BE%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/" rel="bookmark" title="树莓派烧录系统及配置">树莓派烧录系统及配置</a></li><li><a href="/2023/08/01/SAFE/%E5%BE%AE%E4%BF%A1%E6%B6%88%E6%81%AF%E9%98%B2%E6%92%A4%E5%9B%9E/" rel="bookmark" title="微信消息防撤回 群员监控">微信消息防撤回 群员监控</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="站点概览">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt=".N1h1l157"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">.N1h1l157</p>
+  <div class="description" itemprop="description">人生如逆旅，我亦是行人</div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">172</span>
+        <span class="name">文章</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">6</span>
+        <span class="name">分类</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">42</span>
+        <span class="name">标签</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL04xaDFsMTU3" title="https:&#x2F;&#x2F;github.com&#x2F;N1h1l157"><i class="ic i-github"></i></span>
+      <span class="exturl item twitter" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS9YVDcyNzgwMzA4" title="https:&#x2F;&#x2F;twitter.com&#x2F;XT72780308"><i class="ic i-twitter"></i></span>
+      <span class="exturl item weibo" data-url="aHR0cHM6Ly9tLndlaWJvLmNuL3Byb2ZpbGUvNTgyOTg0MzUyNQ==" title="https:&#x2F;&#x2F;m.weibo.cn&#x2F;profile&#x2F;5829843525"><i class="ic i-weibo"></i></span>
+      <span class="exturl item about" data-url="aHR0cHM6Ly90Lm1lL24xaDFsMTU3" title="https:&#x2F;&#x2F;t.me&#x2F;n1h1l157"><i class="ic i-address-card"></i></span>
+      <span class="exturl item email" data-url="bWFpbHRvOjEyMjgwNTc4NjlAcXEuY29t" title="mailto:1228057869@qq.com"><i class="ic i-envelope"></i></span>
+      <span class="exturl item facebook" data-url="aHR0cHM6Ly93d3cuZmFjZWJvb2suY29tL3Byb2ZpbGUucGhwP2lkPTEwMDA4NDUzNzQwNTEzNw==" title="https:&#x2F;&#x2F;www.facebook.com&#x2F;profile.php?id&#x3D;100084537405137"><i class="ic i-facebook"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>首页</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/about/" rel="section"><i class="ic i-user"></i>关于</a>
+  </li>
+
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-feather"></i>文章</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/archives/" rel="section"><i class="ic i-list-alt"></i>归档</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/categories/" rel="section"><i class="ic i-th"></i>分类</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/tags/" rel="section"><i class="ic i-tags"></i>标签</a>
+  </li>
+
+  </ul>
+    
+  <li class="item">
+    <a href="/links/" rel="section"><i class="ic i-magic"></i>友链</a>
+  </li>
+
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-clipboard"></i>书架</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/books/LITERATURE/" rel="section"><i class="ic i-fedora"></i>LITERATURE</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/books/VULNHUB/" rel="section"><i class="ic i-android"></i>X_T-VULNHUB</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/books/XIAODI/" rel="section"><i class="ic i-opera"></i>XIAODI-SAFE</a>
+  </li>
+
+  </ul>
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/2023/07/23/SAFE/%E8%BD%AC%E5%82%A8%E5%BE%AE%E4%BF%A1%E8%81%8A%E5%A4%A9%E8%AE%B0%E5%BD%95/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/2023/07/31/MBTI/%E5%BF%83%E7%90%86%E7%96%BE%E7%97%85/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>随机文章</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/" title="分类于 信息安全">信息安全</a>
+</div>
+
+    <span><a href="/2022/12/30/SAFE/9%20%E6%9D%83%E9%99%90%E6%8F%90%E5%8D%87/" title="XD22 9 权限提升">XD22 9 权限提升</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E6%96%87%E5%AD%A6/" title="分类于 文学">文学</a>
+</div>
+
+    <span><a href="/2019/07/01/BOOK/16%E3%80%8A%E6%BF%92%E6%AD%BB%E7%BB%8F%E5%8E%86%E3%80%8B%E7%8E%9B%E4%B8%BD%E8%90%A8/" title="《濒死经历》玛丽萨">《濒死经历》玛丽萨</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/VULNHUB/" title="分类于 VULNHUB">VULNHUB</a>
+</div>
+
+    <span><a href="/2021/11/01/VULNHUB/106%20SYMFONOS/" title="VULNHUB 6 SYMFONOS">VULNHUB 6 SYMFONOS</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/VULNHUB/" title="分类于 VULNHUB">VULNHUB</a>
+</div>
+
+    <span><a href="/2021/11/01/VULNHUB/138%20BLUESOMKE/" title="VULNHUB 38 BLUESOMKE">VULNHUB 38 BLUESOMKE</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/MBTI/" title="分类于 MBTI">MBTI</a>
+</div>
+
+    <span><a href="/2020/04/01/MBTI/INTP%E8%A7%A3%E8%AF%BB/" title="INTP解读">INTP解读</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/VULNHUB/" title="分类于 VULNHUB">VULNHUB</a>
+</div>
+
+    <span><a href="/2021/11/01/VULNHUB/134%20GROTESQUE2/" title="VULNHUB 34 GROTESQUE2">VULNHUB 34 GROTESQUE2</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E6%96%87%E5%AD%A6/" title="分类于 文学">文学</a>
+</div>
+
+    <span><a href="/2019/07/01/BOOK/52%E3%80%8A%E8%BF%9D%E8%83%8C%E9%81%93%E5%BE%B7%E7%9A%84%E4%BA%BA%E3%80%8B%E7%BA%AA%E5%BE%B7/" title="《违背道德的人》纪德">《违背道德的人》纪德</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/MBTI/" title="分类于 MBTI">MBTI</a>
+</div>
+
+    <span><a href="/2020/04/01/MBTI/ENFJ%E8%A7%A3%E8%AF%BB/" title="ENFJ解读">ENFJ解读</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E6%96%87%E5%AD%A6/" title="分类于 文学">文学</a>
+</div>
+
+    <span><a href="/2019/07/01/BOOK/1%E3%80%8A%E5%A4%A9%E6%89%8D%E5%9C%A8%E5%B7%A6%EF%BC%8C%E7%96%AF%E5%AD%90%E5%9C%A8%E5%8F%B3%E3%80%8B%E9%AB%98%E9%93%AD/" title="《天才在左，疯子在右》高铭">《天才在左，疯子在右》高铭</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/MBTI/" title="分类于 MBTI">MBTI</a>
+</div>
+
+    <span><a href="/2023/04/01/MBTI/%E4%B8%80%E7%AF%87%E7%A2%8E%E7%A2%8E%E5%BF%B5/" title="一篇碎碎念">一篇碎碎念</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>最新评论</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2019 – 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">.N1h1l157 @ Phut Hon</span>
+  </div>
+
+<!--   页面字数统计 -->
+  <div class="count">
+    <span class="post-meta-item-icon">
+      <i class="ic i-chart-area"></i>
+    </span>
+    <span title="站点总字数">906k 字</span>
+
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="ic i-coffee"></i>
+    </span>
+    <span title="站点阅读时长">25:09</span>
+&nbsp;&nbsp;
+    <!-- 网站总访问量: LeanCloud Counter 数据库中的 time的总和 -->
+    <span id="total-visits">总访问量: 加载中...</span>
+
+    <script src="https://cdn.jsdelivr.net/npm/leancloud-storage@4.12.0/dist/av-min.js"></script>
+    <script>
+      // 获取 Shoka 配置中的 Valine 的 App ID 和 App Key
+      var appId = "M0hjFtbBRwOEJlxXsjeK8FSL-gzGzoHsz";
+      var appKey = "ggVu0OafepVPwl2xLNtZ38P9";
+
+      // 使用 Valine 的 App ID 和 App Key 进行 LeanCloud 的初始化
+      AV.init({
+        appId: appId,
+        appKey: appKey,
+        serverURLs: 'https://m0hjftbb.lc-cn-n1-shared.com' // 请根据您的实际区域选择合适的服务器地址
+      });
+
+      // 查询 Counter 类
+      const Counter = AV.Object.extend('Counter');
+      const query = new AV.Query(Counter);
+
+      // 获取所有数据
+      query.limit(1000); // 如果数据量较大，可以适当调整 limit
+      query.find().then((results) => {
+        // 计算 time 字段的总和
+        const totalVisits = results.reduce((sum, result) => sum + result.get('time'), 0);
+
+        // 显示总访问量
+        document.getElementById('total-visits').textContent = '总访问量：' + totalVisits;
+      }).catch((error) => {
+        console.error('获取访问量时出错：', error);
+        document.getElementById('total-visits').textContent = '无法获取访问量';
+      });
+    </script>
+
+  </div>
+
+<!--   自定义开启一个网站的运行时间 -->
+  <div class="site-uptime">
+    运行时间: <span id="site-uptime"></span>
+  </div>
+  <script>
+    var siteUptimeElement = document.getElementById('site-uptime');
+    var siteSetupDate = new Date('2019-06-01'); // 替换为您的网站具体创建日期，格式为 'YYYY-MM-DD'
+    setInterval(function() {
+      var currentTime = new Date();
+      var uptime = formatUptime(currentTime - siteSetupDate);
+      siteUptimeElement.textContent = uptime;
+    }, 1000);
+
+    function formatUptime(milliseconds) {
+      var seconds = Math.floor(milliseconds / 1000);
+      var minutes = Math.floor(seconds / 60);
+      var hours = Math.floor(minutes / 60);
+      var days = Math.floor(hours / 24);
+
+      var uptime = '';
+      if (days > 0) {
+        uptime += days + '天 ';
+      }
+      if (hours > 0) {
+        uptime += (hours % 24) + '时 ';
+      }
+      if (minutes > 0) {
+        uptime += (minutes % 60) + '分 ';
+      }
+      uptime += (seconds % 60) + '秒';
+
+      return uptime;
+    }
+  </script>
+  <div class="powered-by">
+    基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2023/07/31/SAFE/树莓派系统配置/',
+    favicon: {
+      show: "Cryp71c3",
+      hide: "十年磨一剑"
+    },
+    search : {
+      placeholder: "文章搜索",
+      empty: "关于 「 ${query} 」，什么也没搜到",
+      stats: "${time} ms 内找到 ${hits} 条结果"
+    },
+    valine: true,fancybox: true,
+    copyright: '复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":140,"height":260},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

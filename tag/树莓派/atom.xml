@@ -1,0 +1,173 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>http://www.n1h1l157.live</id>
+    <title>X_T • Posts by &#34;树莓派&#34; tag</title>
+    <link href="http://www.n1h1l157.live" />
+    <updated>2023-07-30T16:00:00.000Z</updated>
+    <category term="ENTJ" />
+    <category term="ENFJ" />
+    <category term="ENFP" />
+    <category term="ENTP" />
+    <category term="ESFJ" />
+    <category term="ESFP" />
+    <category term="ESTP" />
+    <category term="INFJ" />
+    <category term="INFP" />
+    <category term="ESTJ" />
+    <category term="INTJ" />
+    <category term="INTP" />
+    <category term="ISFP" />
+    <category term="ISFJ" />
+    <category term="ISTJ" />
+    <category term="MBTI" />
+    <category term="ISTP" />
+    <category term="心理测试" />
+    <category term="渗透测试" />
+    <category term="灵性" />
+    <category term="Linux" />
+    <category term="Trojan" />
+    <category term="微信" />
+    <category term="信息安全网址" />
+    <category term="树莓派" />
+    <category term="生命" />
+    <category term="人生" />
+    <category term="命运" />
+    <category term="人生哲学" />
+    <category term="成长" />
+    <category term="神学" />
+    <category term="社会" />
+    <category term="历史" />
+    <category term="爱情" />
+    <category term="人性" />
+    <category term="意义" />
+    <category term="道德" />
+    <category term="VULNHUB 1-10" />
+    <category term="VULNHUB 11-20" />
+    <category term="VULNHUB 21-30" />
+    <category term="VULNHUB 31-40" />
+    <category term="VULNHUB 41-50" />
+    <entry>
+        <id>http://www.n1h1l157.live/2023/07/31/SAFE/%E6%A0%91%E8%8E%93%E6%B4%BE%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/</id>
+        <title>树莓派烧录系统及配置</title>
+        <link rel="alternate" href="http://www.n1h1l157.live/2023/07/31/SAFE/%E6%A0%91%E8%8E%93%E6%B4%BE%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/"/>
+        <content type="html">&lt;p&gt;本文包括树莓派烧录系统镜像，ssh 免密登录，frp 内网穿透，设置多个密码，移除 ssh 日志等操作。注意不需要网线、键鼠、显示器等。&lt;/p&gt;
+&lt;h3 id=&#34;准备工具&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#准备工具&#34;&gt;#&lt;/a&gt; 准备工具&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;树莓派电路板&lt;/li&gt;
+&lt;li&gt;8GB 以上的 SD 卡&lt;/li&gt;
+&lt;li&gt;读卡器&lt;/li&gt;
+&lt;li&gt;USB 转换器（可选）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;img data-src=&#34;/N1h1l157/Safe/image-0100000.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
+&lt;h3 id=&#34;烧录系统至-sd卡&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#烧录系统至-sd卡&#34;&gt;#&lt;/a&gt; 烧录系统至 SD 卡&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;下载格式化 SD 卡工具：在&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuc2RjYXJkLm9yZy9kb3dubG9hZHMvZm9ybWF0dGVyL3NkLW1lbW9yeS1jYXJkLWZvcm1hdHRlci1mb3ItbWFjLWRvd25sb2FkLw==&#34;&gt;此链接中下载格式化 SD 卡的工具&lt;/span&gt;，安装工具&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;下载镜像：在&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cucmFzcGJlcnJ5cGkuY29tL3NvZnR3YXJlL29wZXJhdGluZy1zeXN0ZW1zLyNyYXNwYmVycnktcGktb3MtMzItYml0&#34;&gt;此位置下载&lt;/span&gt;并解压，我选择的是 2023-05-03-raspios-buster-armhf-lite.img.xz&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;下载镜像烧录工具：在&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cucmFzcGJlcnJ5cGkuY29tL3NvZnR3YXJlLw==&#34;&gt;此位置下载&lt;/span&gt;，安装工具&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;下载的工具截图如下图所示。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;img data-src=&#34;/N1h1l157/Safe/image-0100015.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;将 SD 卡插入到读卡器，读卡器通过 USB 转换器连接至电脑。运行 SDCardFormatterv5_Mac，先对 SD 卡进行格式化。&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/Safe/image-0100016.png&#34; width=&#34;400&#34; alt=&#34;Image&#34;&gt;
+&lt;img data-src=&#34;/N1h1l157/Safe/image-0100017.png&#34; width=&#34;400&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;格式化成功之后，打开烧录系统的 imager 工具。&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/Safe/image-0100018.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;选择操作系统为刚刚下载好的 img.xz 解压后的 img，选择储存卡为 SD 卡。&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/Safe/image-0100001.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;在设置中修改主机名，开启 SSH 服务，wifi 密码，用户名密码，时区等。&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/Safe/image-0100002.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;设置成功后烧录镜像，烧录之后会自动验证。&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/Safe/image-0100003.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;提示安装成功之后，就可以将 SD 卡拔出，插入到树莓派电路板中了。&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/Safe/image-0100004.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;h3 id=&#34;ssh-连接至树莓派&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#ssh-连接至树莓派&#34;&gt;#&lt;/a&gt; ssh 连接至树莓派&lt;/h3&gt;
+&lt;p&gt;树莓派插上电源，绿灯闪烁时表示系统正常写入。等待写入成功后，搜查树莓派 ip 地址。&lt;/p&gt;
+&lt;p&gt;可以通过路由器后台查看当前的联网设备有哪些，找到树莓派的 ip。&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/Safe/image-0100005.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;或者通过烧录镜像时设置的域名直接进行连接。&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/Safe/image-0100006.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
+&lt;h3 id=&#34;本地化信息修改&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#本地化信息修改&#34;&gt;#&lt;/a&gt; 本地化信息修改&lt;/h3&gt;
+&lt;p&gt;默认登录后会出现 &lt;code&gt;-bash: warning: setlocale: LC_ALL: cannot change locale (en_US.UTF-8)&lt;/code&gt;  的问题&lt;/p&gt;
+&lt;p&gt;先将 apt-get 的源更新到最新&lt;br&gt;
+ &lt;code&gt;sudo apt-get update&lt;/code&gt; &lt;br&gt;
+ &lt;code&gt;sudo apt-get upgrade&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/Safe/image-0100007.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;使用以下命令更新本地化&lt;br&gt;
+ &lt;code&gt;sudo apt-get install locales&lt;/code&gt; &lt;br&gt;
+ &lt;code&gt;sudo dpkg-reconfigure locales&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/Safe/image-0100008.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;如果更新本地化信息没有解决问题，可以尝试手动设置本地化。使用以下命令：&lt;br&gt;
+ &lt;code&gt;sudo nano /etc/locale.gen&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/Safe/image-0100019.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;在打开的文件中，将需要的本地化信息（例如 en_US.UTF-8 UTF-8）取消注释，然后保存文件并退出。&lt;/p&gt;
+&lt;p&gt;接下来，运行以下命令以使更改生效：这将设置所需的本地化并解决警告信息。&lt;br&gt;
+ &lt;code&gt;sudo locale-gen&lt;/code&gt; &lt;br&gt;
+ &lt;code&gt;sudo update-locale LANG=en_US.UTF-8&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/Safe/image-0100009.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;再次 ssh 进入树莓派，则不会收到 locale 告警信息了。&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/Safe/image-0100010.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
+&lt;h3 id=&#34;设置多个-wifi-密码&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#设置多个-wifi-密码&#34;&gt;#&lt;/a&gt; 设置多个 wifi 密码&lt;/h3&gt;
+&lt;p&gt;假如我们换了一个新的 wifi 环境，如果没有配置多个 wifi 密码的能力，我们只能重置 os 重新烧录。可以通过相关的命令多设置一个 wifi 为我们的流量密码。&lt;/p&gt;
+&lt;p&gt;需要指定设备的使用国。&lt;br&gt;
+ &lt;code&gt;sudo raspi-config&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;从菜单中选择本地化选项项目.&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/Safe/image-0100020.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;然后更改无线国家选项。&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/Safe/image-0100011.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;选择 &amp;quot; 更改无线国家 / 地区选项。&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/Safe/image-0100021.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
+&lt;img data-src=&#34;/N1h1l157/Safe/image-0100012.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;按 ESC 返回到命令行。&lt;/p&gt;
+&lt;p&gt;接下来就是生成 psk&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;生成 psk&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;wpa_passphrase &amp;quot;413&amp;quot; &amp;quot;shipeidong123&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;wpa_passphrase &amp;quot;n1h1l157&amp;quot; &amp;quot;chentuo0&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;img data-src=&#34;/N1h1l157/Safe/image-0100013.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;将生成的以 ASCII 码显示的 psk 复制下来，修改 wifi 信息，保存退出。&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;修改默认的网络配置及优先级&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;sudo nano /etc/wpa_supplicant/wpa_supplicant.conf&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;img data-src=&#34;/N1h1l157/Safe/image-0100022.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;重启树莓派（reboot 或者电源重启）后，优先级较高的 wifi 将会自动连接，可以通过将手机热点打开，让电脑和树莓派在同一局域网内登录。&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/Safe/image-0100014.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;当关闭热点后，树莓派又会重新连接到 wifi 上。&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/Safe/image-0100023.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
+&lt;h3 id=&#34;移除登录的日志&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#移除登录的日志&#34;&gt;#&lt;/a&gt; 移除登录的日志&lt;/h3&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;ssh登录消息配置&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;sudo nano /etc/ssh/sshd_config&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;PrintLastLog yes&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Banner none&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;img data-src=&#34;/N1h1l157/Safe/image-0100024.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;# 重启ssh&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;sudo service sshd restart&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;# motd 信息&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;sudo rm /etc/motd&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;img data-src=&#34;/N1h1l157/Safe/image-0100025.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
+&lt;h3 id=&#34;ssh免密登录树莓派&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#ssh免密登录树莓派&#34;&gt;#&lt;/a&gt; ssh 免密登录树莓派&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;服务端设置&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;生成 ssh 密钥对&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;ssh-keygen -t rsa&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;修改 ssh 配置文件&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;sudo nano /etc/ssh/sshd_config&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;PermitRootLogin yes&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;PubkeyAuthentication yes&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;AuthorizedKeysFile	.ssh/authorized_keys .ssh/authorized_keys2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;PermitEmptyPasswords no&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;img data-src=&#34;/N1h1l157/Safe/image-0100026.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;重启 ssh 并将公钥导入&lt;/span&gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;service sshd restart&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;cat ~/.ssh/id_rsa.pub &amp;gt;&amp;gt; ~/.ssh/authorized_keys&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;检验服务端是否免密成功&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;ssh localhost -i ~/.ssh/id_rsa&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;img data-src=&#34;/N1h1l157/Safe/image-0100027.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;客户端设置&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;# 获取私钥文件&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;scp chentuo@raspios.local:/home/chentuo/.ssh/id_rsa ~/.ssh/n1h1l157/pi&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;# 修改 ssh 别名&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;sudo vim ~/.ssh/config&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Host raspios.local&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Hostname 192.168.31.47&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;User chentuo&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Port 22&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;IdentityFile ~/.ssh/n1h1l157/pi&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;img data-src=&#34;/N1h1l157/Safe/image-0100028.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;# 免密登录&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;ssh raspios.local&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;img data-src=&#34;/N1h1l157/Safe/image-0100029.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
+&lt;h3 id=&#34;frp-内网穿透&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#frp-内网穿透&#34;&gt;#&lt;/a&gt; frp 内网穿透&lt;/h3&gt;
+&lt;p&gt;服务端设置&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;15&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;下载 frp&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;wget https://github.com/fatedier/frp/releases/download/v0.51.2/frp_0.51.2_linux_amd64.tar.gz&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;tar -zxvf frp_0.51.2_linux_amd64.tar.gz&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;配置文件&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;[common]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;bind_addr = 0.0.0.0&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;bind_port = 2223&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;token = n1h1l157&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;启动&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;nohup ./frps -c ./frps.ini &amp;amp;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;检验&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;ps -ef | grep frp&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;img data-src=&#34;/N1h1l157/Safe/image-0100030.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;客户端设置&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;18&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;下载 frp&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;wget https://github.com/fatedier/frp/releases/download/v0.51.2/frp_0.51.2_linux_arm.tar.gz&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;tar -zxvf frp_0.51.2_linux_arm.tar.gz&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;配置文件&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;[common]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;server_addr = 47.102.120.55&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;server_port = 2223&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;token = n1h1l157&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;[ssh]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;type = tcp&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;local_ip = 127.0.0.1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;local_port = 22&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;remote_port = 2224&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;启动&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;nohup ./frpc -c ./frpc.ini &amp;amp;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;img data-src=&#34;/N1h1l157/Safe/image-0100031.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;本地远程连接树莓派&lt;br&gt;
+ &lt;code&gt;ssh -p 2224 chentuo@47.102.102.55 -i ~/.ssh/n1h1l157/pi&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;就到这里&lt;/strong&gt;&lt;/p&gt;
+</content>
+        <category term="树莓派" />
+        <updated>2023-07-30T16:00:00.000Z</updated>
+    </entry>
+</feed>
