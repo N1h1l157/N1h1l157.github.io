@@ -6,44 +6,45 @@
     <updated>2021-10-31T16:00:00.000Z</updated>
     <category term="生命" />
     <category term="人生" />
-    <category term="命运" />
     <category term="成长" />
+    <category term="命运" />
     <category term="人生哲学" />
-    <category term="意义" />
     <category term="神学" />
     <category term="社会" />
     <category term="历史" />
-    <category term="爱情" />
     <category term="人性" />
+    <category term="爱情" />
+    <category term="意义" />
     <category term="道德" />
+    <category term="渗透测试" />
+    <category term="Linux" />
+    <category term="Trojan" />
+    <category term="ENFJ" />
+    <category term="ENTP" />
+    <category term="信息安全网址" />
+    <category term="ENTJ" />
+    <category term="ENFP" />
+    <category term="记忆" />
+    <category term="ESTJ" />
+    <category term="ESFJ" />
+    <category term="ESFP" />
+    <category term="INFP" />
+    <category term="INFJ" />
+    <category term="ISTJ" />
+    <category term="ESTP" />
+    <category term="ISFP" />
+    <category term="INTJ" />
+    <category term="ISTP" />
+    <category term="MBTI" />
+    <category term="INTP" />
+    <category term="ISFJ" />
+    <category term="心理测试" />
     <category term="VULNHUB 1-10" />
     <category term="VULNHUB 11-20" />
     <category term="VULNHUB 21-30" />
     <category term="VULNHUB 31-40" />
     <category term="VULNHUB 41-50" />
-    <category term="渗透测试" />
-    <category term="Linux" />
-    <category term="信息安全网址" />
-    <category term="记忆" />
-    <category term="Trojan" />
-    <category term="ENFJ" />
-    <category term="ENFP" />
-    <category term="ENTP" />
-    <category term="ENTJ" />
-    <category term="ESFJ" />
-    <category term="ESTJ" />
-    <category term="ESFP" />
-    <category term="ESTP" />
-    <category term="INFJ" />
-    <category term="INFP" />
-    <category term="INTP" />
-    <category term="INTJ" />
-    <category term="ISFJ" />
-    <category term="ISFP" />
-    <category term="MBTI" />
-    <category term="ISTJ" />
-    <category term="ISTP" />
-    <category term="心理测试" />
+    <category term="灵性" />
     <entry>
         <id>http://www.n1h1l157.live/2021/11/01/VULNHUB/131%20PROXIMACENTAURI/</id>
         <title>VULNHUB 31 PROXIMACENTAURI</title>
@@ -166,6 +167,102 @@
 &lt;p&gt;&lt;code&gt;./perl -e &#39;use POSIX qw(setuid); POSIX::setuid(0); exec &amp;quot;/bin/sh&amp;quot;;&#39;&lt;/code&gt;&lt;/p&gt;
 &lt;img data-src=&#34;/N1h1l157/VULNHUB/image-828.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
 &lt;p&gt;-&amp;gt; 成功拿到 root 权限&lt;/p&gt;
+</content>
+        <category term="VULNHUB 31-40" />
+        <updated>2021-10-31T16:00:00.000Z</updated>
+    </entry>
+    <entry>
+        <id>http://www.n1h1l157.live/2021/11/01/VULNHUB/133%20GROTESQUE3/</id>
+        <title>VULNHUB 33 GROTESQUE3</title>
+        <link rel="alternate" href="http://www.n1h1l157.live/2021/11/01/VULNHUB/133%20GROTESQUE3/"/>
+        <content type="html">&lt;p&gt;靶机下载地址: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cudnVsbmh1Yi5jb20vZW50cnkvZ3JvdGVzcXVlLTMwMSw3MjMv&#34;&gt;https://www.vulnhub.com/entry/grotesque-301,723/&lt;/span&gt;&lt;/p&gt;
+&lt;h3 id=&#34;确认攻击目标&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#确认攻击目标&#34;&gt;#&lt;/a&gt; 确认攻击目标&lt;/h3&gt;
+&lt;p&gt;攻击机 KALI： 192.168.31.135&lt;br&gt;
+ 靶机 GROTESQUE3：桥接于 192.168.31.1 的网卡，ip 未知&lt;/p&gt;
+&lt;p&gt;1 ）确定靶机 ip 地址&lt;br&gt;
+ &lt;code&gt;sudo arp-scan -l &amp;gt; 1.txt ; cat 1.txt | grep &#39;a0&#39; ; rm -f 1.txt&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-866.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;-&amp;gt; 靶机 ip：192.168.31.63&lt;/p&gt;
+&lt;p&gt;2 ）确认靶机 ip 开放的端口信息&lt;br&gt;
+ &lt;code&gt;sudo nmap -p- 192.168.31.63&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-867.png&#34; width=&#34;470&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;-&amp;gt; 靶机开放端口 22,80&lt;/p&gt;
+&lt;h3 id=&#34;网站信息收集&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#网站信息收集&#34;&gt;#&lt;/a&gt; 网站信息收集&lt;/h3&gt;
+&lt;p&gt;打开 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuMTAyLw==&#34;&gt;http://192.168.31.102/&lt;/span&gt; 进行信息收集&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-868.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;这里有一个地址，点击这个地址会跳转到一个页面&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuNjMvYXRsYXNnLmpwZw==&#34;&gt;http://192.168.31.63/atlasg.jpg&lt;/span&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-869.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;提示指向了这个图片，看来这个图片有一些线索，仔细查看这个图片&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-870.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;图片中的一部分有这么一张小图片，有 MD 还有 5 个 X，很显然是 md5&lt;br&gt;
+ 那么这个 md5 加密有什么可以利用的地方吗？可能会是目录采用的 md5 加密，可能是某个特殊的文件地址的前缀是 md5 的字符串&lt;/p&gt;
+&lt;h3 id=&#34;linux-下-md5-加密&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#linux-下-md5-加密&#34;&gt;#&lt;/a&gt; linux 下 md5 加密&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;终端里边进行 md5 加密和解密分别为如下操作&lt;br&gt;
+ echo “xxx” | md5sum&lt;br&gt;
+John 1.txt –format=Raw-MD5 –wordlist=/usr/share/wordlists/dirbuster/directory –fork =2&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-871.png&#34; width=&#34;600&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;抓取网站的数据包，通过 burp 代理浏览器数据&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-872.png&#34; width=&#34;470&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;设置攻击类型为 Cluster bomb，即两个字段采用两个不同的字典，第一个字段填一个比较常用的爆破字典&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-873.png&#34; width=&#34;380&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;第二个字典填一个经常用的后缀，如下&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-874.png&#34; width=&#34;360&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;并且采用 md5 加密对自己的 payload 进行加密&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-875.png&#34; width=&#34;470&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;注意要对第一个字段 md5 加密，第二个字段不加密，按此方法爆破即可&lt;/p&gt;
+&lt;p&gt;还有另外一种爆破方式，是通过 linux 命令生成批量的 md5 加密的字典&lt;br&gt;
+ &lt;code&gt;for i in $(cat /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt); do echo $i;echo $i | md5sum &amp;gt;&amp;gt; dirscroty_md5.txt; done&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-876.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;生成的字典显示如下，每一行的最后面都有一个横线&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-877.png&#34; width=&#34;420&#34; alt=&#34;Image&#34;&gt;
+&lt;h3 id=&#34;利用vim自定义txt&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#利用vim自定义txt&#34;&gt;#&lt;/a&gt; 利用 vim 自定义 txt&lt;/h3&gt;
+&lt;p&gt;输入:% s#-##g 即可以批量清除横线&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-878.png&#34; width=&#34;270&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;此时的字典已经显示为正常，可用此 md5 加密字典进行爆破&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-879.png&#34; width=&#34;420&#34; alt=&#34;Image&#34;&gt;
+&lt;h3 id=&#34;爆破-md5-目录&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#爆破-md5-目录&#34;&gt;#&lt;/a&gt; 爆破 md5 目录&lt;/h3&gt;
+&lt;p&gt;用 gobuster 加载此字典进行目录的搜集&lt;br&gt;
+ &lt;code&gt;gobuster dir -x php,txt,html,zip,rar,bak,php.bak -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium-md5.txt -u http://192.168.31.63/&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-880.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;找到了一个敏感的地址：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuMjQyL2Y2NmIyMmJmMDIwMzM0YjA0YzdkMGQzZWI1MDEwMzkxLnBocA==&#34;&gt;http://192.168.31.242/f66b22bf020334b04c7d0d3eb5010391.php&lt;/span&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-881.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;看来是有一些参数在这个 url 地址后边&lt;/p&gt;
+&lt;h3 id=&#34;wfuzz爆破http参数&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#wfuzz爆破http参数&#34;&gt;#&lt;/a&gt; wfuzz 爆破 http 参数&lt;/h3&gt;
+&lt;p&gt;用 wfuzz 爆破 http 参数&lt;br&gt;
+ &lt;code&gt;wfuzz -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u &amp;quot;http://192.168.31.63/f66b22bf020334b04c7d0d3eb5010391.php?FUZZ=/etc/passwd&amp;quot; -c --hh 0 -t 32 --hc 404,403&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-882.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;找到了一个 pupose 时返回 200 的代码，打开目录&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuNjMvZjY2YjIyYmYwMjAzMzRiMDRjN2QwZDNlYjUwMTAzOTEucGhwP3B1cnBvc2U9L2V0Yy9wYXNzd2Q=&#34;&gt;http://192.168.31.63/f66b22bf020334b04c7d0d3eb5010391.php?purpose=/etc/passwd&lt;/span&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-883.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;发现了敏感文件泄漏，检查源代码可以看到格式比较标准的文件，&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-884.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;-&amp;gt; 发现存在 freddie 和 root 两个用户&lt;/p&gt;
+&lt;h3 id=&#34;hydra-爆破-ssh&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#hydra-爆破-ssh&#34;&gt;#&lt;/a&gt; hydra 爆破 ssh&lt;/h3&gt;
+&lt;p&gt;目前只能收集到上述一个用户名的信息，密码没有，尝试 hydra 爆破，由于之前采用的是 md5 加密的目录才搜索到的网址，这里对正常的字典扫描了，一遍之后并没有发现，于是猜测用 md5 加密字典对 ssh 密码扫描&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;hydra -l freddie -P g3.txt ssh://192.168.31.63 -f -t 32 -I -o hydra.ssh&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;-&amp;gt; 扫描到用户 freddie 的密码是 61a4e3e60c063d1e472dd780f64e6cad&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-885.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;ssh &lt;span class=&#34;exturl&#34; data-url=&#34;bWFpbHRvOmZyZWRkaWVAMTkyLjE2OC4zMS42Mw==&#34;&gt;freddie@192.168.31.63&lt;/span&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-886.png&#34; width=&#34;530&#34; alt=&#34;Image&#34;&gt;
+&lt;h3 id=&#34;上传shellsh到smb&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#上传shellsh到smb&#34;&gt;#&lt;/a&gt; 上传 shell.sh 到 smb&lt;/h3&gt;
+&lt;p&gt;看到有一个 445 端口正在执行，445 是 smb 协议&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-887.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;看看共享文件夹中的内容  &lt;code&gt;smbclient -N -L 127.0.0.1&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-888.png&#34; width=&#34;420&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;其中带 $ 的是管理员才能进入的目录，发现可直接访问的 grotesque 目录&lt;/p&gt;
+&lt;p&gt;连接到共享文件夹中  &lt;code&gt;smbclient \\\\127.0.0.1\\grotesque&lt;/code&gt;&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-889.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;没有什么敏感文件，给服务器下载一个 pyps64s 进行监控，看会不会执行 smb 中的文件&lt;/p&gt;
+&lt;p&gt;发现每隔一段时间会执行 smb 中的可执行文件，&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL3huLS1zaGVsbC1mZzFoeWp5OHdzc3Iuc2g=&#34;&gt; 准备一个 shell.sh&lt;/span&gt;，尝试上传到 smb 中&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-890.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;将 shell.sh 中的内容复制，粘贴到靶机上边，将靶机上的 shell.sh 中的内容上传到 smb 服务中&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-891.png&#34; width=&#34;420&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;监听 shell，等待反弹，pspy 监控到执行，同时得到了 root 的 shell&lt;/p&gt;
+&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-892.png&#34; width=&#34;650&#34; alt=&#34;Image&#34;&gt;
+&lt;p&gt;-&amp;gt; 拿到了 root 的权限&lt;/p&gt;
 </content>
         <category term="VULNHUB 31-40" />
         <updated>2021-10-31T16:00:00.000Z</updated>
@@ -1082,102 +1179,6 @@ pty.spawn(&amp;quot;/bin/bash&amp;quot;)&lt;/p&gt;
 &lt;p&gt;既然是可执行文件，就去执行&lt;/p&gt;
 &lt;img data-src=&#34;/N1h1l157/VULNHUB/image-1120.png&#34; width=&#34;460&#34; alt=&#34;Image&#34;&gt;
 &lt;p&gt;-&amp;gt; 拿到了 root 的 shell&lt;/p&gt;
-</content>
-        <category term="VULNHUB 31-40" />
-        <updated>2021-10-31T16:00:00.000Z</updated>
-    </entry>
-    <entry>
-        <id>http://www.n1h1l157.live/2021/11/01/VULNHUB/133%20GROTESQUE3/</id>
-        <title>VULNHUB 33 GROTESQUE3</title>
-        <link rel="alternate" href="http://www.n1h1l157.live/2021/11/01/VULNHUB/133%20GROTESQUE3/"/>
-        <content type="html">&lt;p&gt;靶机下载地址: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cudnVsbmh1Yi5jb20vZW50cnkvZ3JvdGVzcXVlLTMwMSw3MjMv&#34;&gt;https://www.vulnhub.com/entry/grotesque-301,723/&lt;/span&gt;&lt;/p&gt;
-&lt;h3 id=&#34;确认攻击目标&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#确认攻击目标&#34;&gt;#&lt;/a&gt; 确认攻击目标&lt;/h3&gt;
-&lt;p&gt;攻击机 KALI： 192.168.31.135&lt;br&gt;
- 靶机 GROTESQUE3：桥接于 192.168.31.1 的网卡，ip 未知&lt;/p&gt;
-&lt;p&gt;1 ）确定靶机 ip 地址&lt;br&gt;
- &lt;code&gt;sudo arp-scan -l &amp;gt; 1.txt ; cat 1.txt | grep &#39;a0&#39; ; rm -f 1.txt&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-866.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;-&amp;gt; 靶机 ip：192.168.31.63&lt;/p&gt;
-&lt;p&gt;2 ）确认靶机 ip 开放的端口信息&lt;br&gt;
- &lt;code&gt;sudo nmap -p- 192.168.31.63&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-867.png&#34; width=&#34;470&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;-&amp;gt; 靶机开放端口 22,80&lt;/p&gt;
-&lt;h3 id=&#34;网站信息收集&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#网站信息收集&#34;&gt;#&lt;/a&gt; 网站信息收集&lt;/h3&gt;
-&lt;p&gt;打开 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuMTAyLw==&#34;&gt;http://192.168.31.102/&lt;/span&gt; 进行信息收集&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-868.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;这里有一个地址，点击这个地址会跳转到一个页面&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuNjMvYXRsYXNnLmpwZw==&#34;&gt;http://192.168.31.63/atlasg.jpg&lt;/span&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-869.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;提示指向了这个图片，看来这个图片有一些线索，仔细查看这个图片&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-870.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;图片中的一部分有这么一张小图片，有 MD 还有 5 个 X，很显然是 md5&lt;br&gt;
- 那么这个 md5 加密有什么可以利用的地方吗？可能会是目录采用的 md5 加密，可能是某个特殊的文件地址的前缀是 md5 的字符串&lt;/p&gt;
-&lt;h3 id=&#34;linux-下-md5-加密&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#linux-下-md5-加密&#34;&gt;#&lt;/a&gt; linux 下 md5 加密&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;终端里边进行 md5 加密和解密分别为如下操作&lt;br&gt;
- echo “xxx” | md5sum&lt;br&gt;
-John 1.txt –format=Raw-MD5 –wordlist=/usr/share/wordlists/dirbuster/directory –fork =2&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-871.png&#34; width=&#34;600&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;抓取网站的数据包，通过 burp 代理浏览器数据&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-872.png&#34; width=&#34;470&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;设置攻击类型为 Cluster bomb，即两个字段采用两个不同的字典，第一个字段填一个比较常用的爆破字典&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-873.png&#34; width=&#34;380&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;第二个字典填一个经常用的后缀，如下&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-874.png&#34; width=&#34;360&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;并且采用 md5 加密对自己的 payload 进行加密&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-875.png&#34; width=&#34;470&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;注意要对第一个字段 md5 加密，第二个字段不加密，按此方法爆破即可&lt;/p&gt;
-&lt;p&gt;还有另外一种爆破方式，是通过 linux 命令生成批量的 md5 加密的字典&lt;br&gt;
- &lt;code&gt;for i in $(cat /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt); do echo $i;echo $i | md5sum &amp;gt;&amp;gt; dirscroty_md5.txt; done&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-876.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;生成的字典显示如下，每一行的最后面都有一个横线&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-877.png&#34; width=&#34;420&#34; alt=&#34;Image&#34;&gt;
-&lt;h3 id=&#34;利用vim自定义txt&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#利用vim自定义txt&#34;&gt;#&lt;/a&gt; 利用 vim 自定义 txt&lt;/h3&gt;
-&lt;p&gt;输入:% s#-##g 即可以批量清除横线&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-878.png&#34; width=&#34;270&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;此时的字典已经显示为正常，可用此 md5 加密字典进行爆破&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-879.png&#34; width=&#34;420&#34; alt=&#34;Image&#34;&gt;
-&lt;h3 id=&#34;爆破-md5-目录&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#爆破-md5-目录&#34;&gt;#&lt;/a&gt; 爆破 md5 目录&lt;/h3&gt;
-&lt;p&gt;用 gobuster 加载此字典进行目录的搜集&lt;br&gt;
- &lt;code&gt;gobuster dir -x php,txt,html,zip,rar,bak,php.bak -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium-md5.txt -u http://192.168.31.63/&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-880.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;找到了一个敏感的地址：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuMjQyL2Y2NmIyMmJmMDIwMzM0YjA0YzdkMGQzZWI1MDEwMzkxLnBocA==&#34;&gt;http://192.168.31.242/f66b22bf020334b04c7d0d3eb5010391.php&lt;/span&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-881.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;看来是有一些参数在这个 url 地址后边&lt;/p&gt;
-&lt;h3 id=&#34;wfuzz爆破http参数&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#wfuzz爆破http参数&#34;&gt;#&lt;/a&gt; wfuzz 爆破 http 参数&lt;/h3&gt;
-&lt;p&gt;用 wfuzz 爆破 http 参数&lt;br&gt;
- &lt;code&gt;wfuzz -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u &amp;quot;http://192.168.31.63/f66b22bf020334b04c7d0d3eb5010391.php?FUZZ=/etc/passwd&amp;quot; -c --hh 0 -t 32 --hc 404,403&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-882.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;找到了一个 pupose 时返回 200 的代码，打开目录&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovLzE5Mi4xNjguMzEuNjMvZjY2YjIyYmYwMjAzMzRiMDRjN2QwZDNlYjUwMTAzOTEucGhwP3B1cnBvc2U9L2V0Yy9wYXNzd2Q=&#34;&gt;http://192.168.31.63/f66b22bf020334b04c7d0d3eb5010391.php?purpose=/etc/passwd&lt;/span&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-883.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;发现了敏感文件泄漏，检查源代码可以看到格式比较标准的文件，&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-884.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;-&amp;gt; 发现存在 freddie 和 root 两个用户&lt;/p&gt;
-&lt;h3 id=&#34;hydra-爆破-ssh&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#hydra-爆破-ssh&#34;&gt;#&lt;/a&gt; hydra 爆破 ssh&lt;/h3&gt;
-&lt;p&gt;目前只能收集到上述一个用户名的信息，密码没有，尝试 hydra 爆破，由于之前采用的是 md5 加密的目录才搜索到的网址，这里对正常的字典扫描了，一遍之后并没有发现，于是猜测用 md5 加密字典对 ssh 密码扫描&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;hydra -l freddie -P g3.txt ssh://192.168.31.63 -f -t 32 -I -o hydra.ssh&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;-&amp;gt; 扫描到用户 freddie 的密码是 61a4e3e60c063d1e472dd780f64e6cad&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-885.png&#34; width=&#34;700&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;ssh &lt;span class=&#34;exturl&#34; data-url=&#34;bWFpbHRvOmZyZWRkaWVAMTkyLjE2OC4zMS42Mw==&#34;&gt;freddie@192.168.31.63&lt;/span&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-886.png&#34; width=&#34;530&#34; alt=&#34;Image&#34;&gt;
-&lt;h3 id=&#34;上传shellsh到smb&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#上传shellsh到smb&#34;&gt;#&lt;/a&gt; 上传 shell.sh 到 smb&lt;/h3&gt;
-&lt;p&gt;看到有一个 445 端口正在执行，445 是 smb 协议&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-887.png&#34; width=&#34;660&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;看看共享文件夹中的内容  &lt;code&gt;smbclient -N -L 127.0.0.1&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-888.png&#34; width=&#34;420&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;其中带 $ 的是管理员才能进入的目录，发现可直接访问的 grotesque 目录&lt;/p&gt;
-&lt;p&gt;连接到共享文件夹中  &lt;code&gt;smbclient \\\\127.0.0.1\\grotesque&lt;/code&gt;&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-889.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;没有什么敏感文件，给服务器下载一个 pyps64s 进行监控，看会不会执行 smb 中的文件&lt;/p&gt;
-&lt;p&gt;发现每隔一段时间会执行 smb 中的可执行文件，&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL3huLS1zaGVsbC1mZzFoeWp5OHdzc3Iuc2g=&#34;&gt; 准备一个 shell.sh&lt;/span&gt;，尝试上传到 smb 中&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-890.png&#34; width=&#34;520&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;将 shell.sh 中的内容复制，粘贴到靶机上边，将靶机上的 shell.sh 中的内容上传到 smb 服务中&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-891.png&#34; width=&#34;420&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;监听 shell，等待反弹，pspy 监控到执行，同时得到了 root 的 shell&lt;/p&gt;
-&lt;img data-src=&#34;/N1h1l157/VULNHUB/image-892.png&#34; width=&#34;650&#34; alt=&#34;Image&#34;&gt;
-&lt;p&gt;-&amp;gt; 拿到了 root 的权限&lt;/p&gt;
 </content>
         <category term="VULNHUB 31-40" />
         <updated>2021-10-31T16:00:00.000Z</updated>
